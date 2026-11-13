@@ -69,6 +69,7 @@ def test_text_submission_uses_real_upstream_contract():
         assert request.url.path == "/api/v1/mesh-generation/text-to-textured-mesh"
         assert b'"text_prompt":"robot cat"' in request.content
         assert b'"output_format":"glb"' in request.content
+        assert b'"model_preference":"test_model"' in request.content
         return httpx.Response(200, json={"job_id": "job_100", "status": "queued"})
 
     mock_upstream(handler)
@@ -94,6 +95,7 @@ def test_image_upload_then_generation_uses_file_id():
             return httpx.Response(200, json={"file_id": "image_44"})
         assert request.url.path == "/api/v1/mesh-generation/image-to-textured-mesh"
         assert b'"image_file_id":"image_44"' in request.content
+        assert b'"model_preference":"test_model"' in request.content
         return httpx.Response(200, json={"job_id": "job_44", "status": "queued"})
 
     mock_upstream(handler)
@@ -231,3 +233,16 @@ def test_unapproved_image_never_uploads_to_upstream():
         )
     assert response.status_code == 403
     assert requests == []
+
+
+def test_packaged_policy_starts_with_no_approved_models(monkeypatch):
+    monkeypatch.delenv("MODEL_APPROVAL_FILE")
+    with TestClient(app) as client:
+        policy = client.get("/v1/approved-models", headers={"X-Control-Key": KEY})
+        request = client.post(
+            "/v1/generations/text",
+            headers={"X-Control-Key": KEY},
+            json={"prompt": "robot", "model_preference": "test_model"},
+        )
+    assert policy.json() == {"approved_model_ids": []}
+    assert request.status_code == 503
