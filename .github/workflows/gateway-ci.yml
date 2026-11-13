@@ -1,0 +1,24 @@
+name: Gateway CI
+on:
+  push:
+    branches: [main, "implementation/**"]
+  pull_request:
+jobs:
+  gateway-unit-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: apps/gateway/pyproject.toml
+      - name: Install integration gateway and test dependencies
+        run: python -m pip install -e "./apps/gateway[test]"
+      - name: Compile Python sources
+        run: python -m compileall -q apps/gateway/src
+      - name: Test API and upstream contract
+        run: python -m pytest -q apps/gateway/tests
