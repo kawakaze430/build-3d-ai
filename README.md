@@ -1,5 +1,7 @@
 # Build 3D AI — Independent AI 3D Creation Platform
 
+> **Implementation started:** The first bounded phase-0 work is on the [implementation branch](https://github.com/kawakaze430/build-3d-ai/tree/implementation/phase0-gateway-and-checklist). Follow the [complete ordered checklist](docs/IMPLEMENTATION_CHECKLIST.md) and [real 3DAIGC-API gateway instructions](docs/PHASE0_GATEWAY.md). Python API unit tests run in GitHub Actions. **No GPU inference or production SaaS is deployed yet.**
+
 > **Status (13 Nov 2026): Project planning.** This repository currently documents our goals and engineering plan. It does **not** claim that a production application, trained model, or GPU deployment is already working.
 
 ## Mission

@@ -1,0 +1,20 @@
+# This runs only the CPU integration gateway. Real model inference requires
+# a separately installed, license-approved 3DAIGC-API GPU server.
+services:
+  gateway:
+    build:
+      context: ./apps/gateway
+    env_file:
+      - .env
+    environment:
+      UPSTREAM_BASE_URL: ${UPSTREAM_BASE_URL:-http://host.docker.internal:7842}
+    ports:
+      - "127.0.0.1:8080:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
