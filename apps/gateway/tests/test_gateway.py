@@ -77,7 +77,7 @@ def test_image_upload_then_generation_uses_file_id():
         observed.append(request.url.path)
         assert request.headers["authorization"] == "Bearer upstream-private-token"
         if request.url.path == "/api/v1/file-upload/image":
-            assert b"filename=" in request.content
+            assert b'filename="reference.png"' in request.content
             return httpx.Response(200, json={"file_id": "image_44"})
         assert request.url.path == "/api/v1/mesh-generation/image-to-textured-mesh"
         assert b'"image_file_id":"image_44"' in request.content
