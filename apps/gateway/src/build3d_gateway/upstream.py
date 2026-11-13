@@ -71,7 +71,7 @@ class UpstreamGateway:
         uploaded = await self.request_json(
             "POST",
             "api/v1/file-upload/image",
-            files={"file": ("reference-image", data, mime)},
+            files={"file": ({"image/png": "reference.png", "image/jpeg": "reference.jpg", "image/webp": "reference.webp"}[mime], data, mime)},
         )
         if not isinstance(uploaded, dict) or not isinstance(uploaded.get("file_id"), str):
             raise UpstreamError("3D engine did not return a valid image file_id")
