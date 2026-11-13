@@ -13,6 +13,7 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlsplit
 from typing import Any
 
 import httpx
@@ -62,10 +63,21 @@ def run_smoke(
 
     started = time.monotonic()
     headers = {"X-Control-Key": control_key}
-    # The owner controls this URL; use loopback or HTTPS when passing the key.
-    if gateway_url.startswith("http://") and not gateway_url.startswith(
-        ("http://127.0.0.1:", "http://localhost:", "http://[::1]:")
+    # Check the parsed host (not URL prefix): userinfo can disguise an
+    # external site such as "http://localhost:1234@evil.example".
+    target = urlsplit(gateway_url)
+    if (
+        target.scheme not in {"http", "https"}
+        or not target.hostname
+        or target.username is not None
+        or target.password is not None
+        or target.query
+        or target.fragment
     ):
+        raise SmokeError("Gateway URL must be an HTTP(S) origin without credentials")
+    if target.scheme == "http" and target.hostname.lower() not in {
+        "127.0.0.1", "localhost", "::1"
+    }:
         raise SmokeError("Insecure non-local HTTP URL would expose the owner key")
 
     with httpx.Client(
