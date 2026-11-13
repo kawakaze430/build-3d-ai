@@ -124,6 +124,9 @@ def run_smoke(
 
         output.parent.mkdir(parents=True, exist_ok=True)
         partial = output.with_name(output.name + ".part")
+        if partial.exists():
+            raise SmokeError("Partial output already exists; refusing to delete another run")
+        created_partial = False
         try:
             # The gateway checks the GLB before sending; revalidate downloaded
             # bytes independently to catch truncated transport or client writes.
@@ -132,6 +135,7 @@ def run_smoke(
                 expected_hash = response.headers.get("X-Artifact-SHA256")
                 total = 0
                 with partial.open("xb") as destination:
+                    created_partial = True
                     for chunk in response.iter_bytes(chunk_size=256 * 1024):
                         total += len(chunk)
                         if total > MAX_GLB_BYTES:
@@ -144,7 +148,7 @@ def run_smoke(
                 raise SmokeError("Gateway checksum does not match downloaded GLB")
             os.replace(partial, output)
         finally:
-            if partial.exists():
+            if created_partial and partial.exists():
                 partial.unlink()
 
         report = {
