@@ -4,6 +4,11 @@
 
 **Real upstream source:** https://github.com/FishWoWater/3DAIGC-API at commit `9c5643f99cbfd8d47b81922790f0d0a36be57e81` inspected 2026-11-13. Validate compatibility again before production.
 
+## Approval prerequisite
+
+**Generation is disabled by default even when an upstream GPU model is running.**
+Read [MODEL_APPROVAL_GATE.md](MODEL_APPROVAL_GATE.md): the administrator must pass a reviewed, exact model ID and mount an approved-model policy before dispatch. The shipped policy has zero approvals. `/v1/models` shows upstream inventory, not licensed/commercial availability.
+
 ## What exists now
 
 - Readiness of gateway process (`GET /health`), explicitly not GPU readiness.
@@ -39,7 +44,8 @@ To run via Docker after filling `.env`: `docker compose -f compose.gateway.yml u
 2. Deploy the upstream project separately on a GPU at an approved cost and set `UPSTREAM_BASE_URL`; use `P3D_USER_AUTH_ENABLED=True` upstream with a service token where supported.
 3. Use a private network or VPN. Do not put the upstream backend or control token in browser JavaScript.
 4. Query real model availability and choose `model_preference` from the response. A model listed by README might not be installed.
-5. Run actual inference and record output artifact hash, GPU hardware, VRAM, time and price.
+5. Obtain verified weight hash and full commercial-use review, then configure the exact approved backend model ID in a read-only `MODEL_APPROVAL_FILE`.
+6. Run actual inference and record output artifact hash, GPU hardware, VRAM, time and price.
 
 Example using the gateway:
 
@@ -48,10 +54,11 @@ export CONTROL_API_KEY="<actual random owner secret>"
 curl -H "X-Control-Key: $CONTROL_API_KEY" http://127.0.0.1:8080/v1/models
 curl -X POST http://127.0.0.1:8080/v1/generations/text \
   -H "X-Control-Key: $CONTROL_API_KEY" -H "Content-Type: application/json" \
-  -d '{"prompt":"A stylized robot cat"}'
+  -d '{"prompt":"A stylized robot cat","model_preference":"REPLACE_WITH_APPROVED_ID"}'
 curl -X POST http://127.0.0.1:8080/v1/generations/image \
   -H "X-Control-Key: $CONTROL_API_KEY" \
-  -F "file=@./reference.png;type=image/png"
+  -F "file=@./reference.png;type=image/png" \
+  -F "model_preference=REPLACE_WITH_APPROVED_ID"
 curl -H "X-Control-Key: $CONTROL_API_KEY" http://127.0.0.1:8080/v1/jobs/REPLACE_JOB_ID
 curl -H "X-Control-Key: $CONTROL_API_KEY" \
   http://127.0.0.1:8080/v1/jobs/REPLACE_JOB_ID/download -o output.glb

@@ -20,5 +20,8 @@ test = ["pytest>=8,<10"]
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+build3d_gateway = ["model-approvals.json"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]

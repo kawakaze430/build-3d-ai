@@ -15,13 +15,13 @@ from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, UploadF
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, ConfigDict, Field
 
+from .model_policy import approved_model_ids, require_model_approval
 from .upstream import UpstreamError, UpstreamGateway
 
 
 MAX_IMAGE_BYTES = 10 * 1024 * 1024
 MAX_DOWNLOAD_BYTES = 250 * 1024 * 1024
 JOB_ID = re.compile(r"^[a-zA-Z0-9_-]{1,128}$")
-MODEL_ID = re.compile(r"^[a-zA-Z0-9_-]{1,128}$")
 
 app = FastAPI(
     title="Build 3D AI — Integration Gateway",
@@ -57,10 +57,9 @@ def clean_job_id(job_id: str) -> str:
     return job_id
 
 
-def clean_model_id(model_preference: str | None) -> str | None:
-    if model_preference and not MODEL_ID.fullmatch(model_preference):
-        raise HTTPException(status_code=422, detail="Invalid model identifier")
-    return model_preference
+def clean_model_id(model_preference: str | None) -> str:
+    # No implicit upstream model selection: it could activate restricted weights.
+    return require_model_approval(model_preference)
 
 
 def validate_image(data: bytes, content_type: str | None) -> None:
@@ -99,6 +98,11 @@ async def upstream_status(gateway: UpstreamGateway = Depends(get_gateway)):
 @app.get("/v1/models", dependencies=[Depends(require_control_key)])
 async def list_models(gateway: UpstreamGateway = Depends(get_gateway)):
     return await gateway.list_models()
+
+
+@app.get("/v1/approved-models", dependencies=[Depends(require_control_key)])
+async def approved_models():
+    return {"approved_model_ids": sorted(approved_model_ids())}
 
 
 @app.post("/v1/generations/text", dependencies=[Depends(require_control_key)])
