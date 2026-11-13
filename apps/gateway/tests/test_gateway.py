@@ -125,14 +125,14 @@ def test_invalid_image_is_rejected_before_upstream_call():
     assert response.status_code == 415
 
 
-def test_model_job_and_download_proxy():
+def test_model_job_and_download_proxy(glb_bytes):
     def handler(request):
         if request.url.path.endswith("/models"):
             return httpx.Response(200, json={"models": []})
         if request.url.path.endswith("/jobs/job_7"):
             return httpx.Response(200, json={"job_id": "job_7", "status": "completed"})
         if request.url.path.endswith("/download"):
-            return httpx.Response(200, content=b"glTF", headers={"content-type": "model/gltf-binary"})
+            return httpx.Response(200, content=glb_bytes, headers={"content-type": "model/gltf-binary"})
         raise AssertionError(request.url.path)
 
     mock_upstream(handler)
@@ -142,7 +142,11 @@ def test_model_job_and_download_proxy():
         assert client.get("/v1/jobs/job_7", headers=headers).json()["status"] == "completed"
         response = client.get("/v1/jobs/job_7/download", headers=headers)
     assert response.status_code == 200
-    assert response.content == b"glTF"
+    assert response.content == glb_bytes
+    assert response.headers["content-type"] == "model/gltf-binary"
+    assert response.headers["x-artifact-meshes"] == "1"
+    import hashlib
+    assert response.headers["x-artifact-sha256"] == hashlib.sha256(glb_bytes).hexdigest()
 
 
 def test_upstream_failure_is_not_misrepresented_as_success():
@@ -246,3 +250,50 @@ def test_packaged_policy_starts_with_no_approved_models(monkeypatch):
         )
     assert policy.json() == {"approved_model_ids": []}
     assert request.status_code == 503
+
+
+def test_invalid_glb_from_upstream_returns_502():
+    mock_upstream(lambda request: httpx.Response(200, content=b"not even a glb"))
+    with TestClient(app) as client:
+        response = client.get(
+            "/v1/jobs/job_77/download", headers={"X-Control-Key": KEY}
+        )
+    assert response.status_code == 502
+    assert "invalid GLB" in response.json()["detail"]
+
+
+def test_oversized_glb_from_upstream_returns_413(monkeypatch, glb_bytes):
+    monkeypatch.setattr("build3d_gateway.main.MAX_DOWNLOAD_BYTES", len(glb_bytes) - 1)
+    mock_upstream(lambda request: httpx.Response(200, content=glb_bytes))
+    with TestClient(app) as client:
+        response = client.get(
+            "/v1/jobs/job_77/download", headers={"X-Control-Key": KEY}
+        )
+    assert response.status_code == 413
+
+
+def test_bad_content_length_cannot_bypass_stream_size_limit(monkeypatch, glb_bytes):
+    monkeypatch.setattr("build3d_gateway.main.MAX_DOWNLOAD_BYTES", len(glb_bytes) - 1)
+
+    def handler(request):
+        # A lying upstream might omit its true body length.
+        return httpx.Response(
+            200, content=glb_bytes, headers={"content-length": "1"}
+        )
+
+    mock_upstream(handler)
+    with TestClient(app) as client:
+        response = client.get(
+            "/v1/jobs/job_77/download", headers={"X-Control-Key": KEY}
+        )
+    # HTTPX may reject the upstream's inconsistent Content-Length itself.
+    assert response.status_code in (413, 502)
+
+
+def test_upstream_download_failure_returns_502():
+    mock_upstream(lambda request: httpx.Response(404, content=b"Job not found"))
+    with TestClient(app) as client:
+        response = client.get(
+            "/v1/jobs/job_77/download", headers={"X-Control-Key": KEY}
+        )
+    assert response.status_code == 502
