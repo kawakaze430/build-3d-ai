@@ -20,6 +20,8 @@
 - [ ] **00.10** Benchmark 20 sample inputs: geometry, textures, VRAM, time, error rate, and full cost/job.
 - [ ] **00.11** Decide Go/No-Go and record actual blockers; no large spend before this gate.
 - [x] **00.12** Add repository CI for both Python 3.11/3.12; tests compile the gateway and verify upstream HTTP contract via isolated in-memory transport. Proof: GitHub Actions run 43470562375 (passed).
+- [x] **00.13** Add structural validation of self-contained GLB 2.0 exports, bounding 250 MiB downloads and reporting SHA256/mesh count; offline test coverage only. Proof: apps/gateway/src/build3d_gateway/glb_validation.py and tests/test_glb_validation.py.
+- [x] **00.14** Add gated real-job GPU smoke runner for explicit model choice, owner spend acknowledgement, job polling, validated GLB download, checksum and timing report. Proof: build3d-gpu-smoke CLI + synthetic HTTP tests; **no paid GPU run has occurred**.
 
 ## Phase 1 — Durable owner-controlled product backbone
 
