@@ -14,11 +14,12 @@
 - [ ] **00.04** Create source/model/weight/dataset/transitive-dependency commercial license matrix; block noncommercial/restricted integrations.
 - [ ] **00.05** Decide frontend foundation: adapt Open3DStudio vs. clean-room product UI based on actual fit/maintainability.
 - [ ] **00.06** Decide one commercially cleared baseline 3D checkpoint and GPU runtime; pin full dependency graph.
-- [ ] **00.07** Add working, authenticated upstream integration gateway, tests and CI (phase-0 implementation PR).
+- [x] **00.07** Add working, authenticated upstream integration gateway, tests and CI. Proof: apps/gateway and passing GitHub Actions on Python 3.11/3.12; **unit/contract tests only, no GPU validation**.
 - [ ] **00.08** Obtain owner-approved GPU account, instance quota, allowed region, max hourly spend and stop conditions.
 - [ ] **00.09** Start license-cleared upstream GPU backend privately; prove real image→textured mesh→downloaded, validated GLB.
 - [ ] **00.10** Benchmark 20 sample inputs: geometry, textures, VRAM, time, error rate, and full cost/job.
 - [ ] **00.11** Decide Go/No-Go and record actual blockers; no large spend before this gate.
+- [x] **00.12** Add repository CI for both Python 3.11/3.12; tests compile the gateway and verify upstream HTTP contract via isolated in-memory transport. Proof: GitHub Actions run 43470562375 (passed).
 
 ## Phase 1 — Durable owner-controlled product backbone
 
