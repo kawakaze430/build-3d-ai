@@ -122,3 +122,16 @@ def test_nonlocal_cleartext_gateway_refused_before_secret_sent(tmp_path):
     options["gateway_url"] = "http://public.example.com:8080"
     with pytest.raises(SmokeError, match="Insecure"):
         run_smoke(**options)
+
+
+@pytest.mark.parametrize("disguised", [
+    "http://localhost:8080@evil.example",
+    "http://127.0.0.1:8080@attacker.example",
+    "http://localhost.evil.example:8080",
+    "https://admin:password@gateway.example",
+])
+def test_disguised_or_credentialed_gateway_urls_are_rejected(tmp_path, disguised):
+    options = kwargs(tmp_path)
+    options["gateway_url"] = disguised
+    with pytest.raises(SmokeError):
+        run_smoke(**options)
