@@ -25,6 +25,14 @@ The owner controls the product, brand, website, infrastructure, source repositor
 
 **Initial differentiation:** reusable stylized adult characters and environments for Blender animation workflows, rather than just appealing single-view renders. Long-term scope remains a complete general-purpose 3D creation studio.
 
+## Current implementation work
+
+- [PR #1](https://github.com/kawakaze430/build-3d-ai/pull/1): owner-controlled gateway, end-to-end implementation checklist and automated contract tests.
+- [PR #11](https://github.com/kawakaze430/build-3d-ai/pull/11): default-deny commercial model approval policy and pinned partial source/license inventory.
+- **Next phase-0 work (stacked on PR #11):** [GPU smoke and GLB integrity runbook](docs/GPU_SMOKE_AND_ARTIFACTS.md): validates real downloaded binary GLBs and supplies an operator-only command for a budget-approved live GPU test.
+
+**Project state:** GitHub CI verifies gateway/API/GLB handling with synthetic fixtures. No real inference model has been deployed or benchmarked by this project; completion of paid-GPU and license gates is still required.
+
 ## Architecture in brief
 
 ```text
