@@ -1,6 +1,6 @@
 # Real GPU Smoke Test and GLB Artifact Integrity
 
-**Implementation status:** code and offline tests exist on the Phase 0 branch. **No paid GPU has been started and no real AI-generated GLB has been verified by this project.**
+**Implementation status:** gateway/API/browser/storage code and offline tests are on `main`. **No paid GPU has been started and no real AI-generated GLB has been verified by this project.** The exact first-run candidate and budget envelope are tracked in [FIRST_REAL_GPU_RUNBOOK.md](FIRST_REAL_GPU_RUNBOOK.md).
 
 The owner-only gateway uses the actual [3DAIGC-API](https://github.com/FishWoWater/3DAIGC-API) endpoints for text/image generation, polling and downloads. This PR adds:
 
@@ -54,7 +54,7 @@ build3d-gpu-smoke \
   --confirm-gpu-spend > ./gpu-smoke-report.json
 \`\`\`
 
-For a text-conditioned backend:
+For a text-conditioned backend (only if the selected approved runtime genuinely supports text conditioning):
 
 \`\`\`bash
 build3d-gpu-smoke \

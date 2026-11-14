@@ -40,6 +40,7 @@ jobs:
           python -m compileall -q apps/api/src apps/gateway/src
           build3d-admin --help
           build3d-worker --help
+          build3d-pack-textured-glb --help
       - name: SQLite and gateway regression suite (no GPU)
         run: python -m pytest -q apps/api/tests apps/gateway/tests
       - name: PostgreSQL migrations, ownership, concurrency and recovery
