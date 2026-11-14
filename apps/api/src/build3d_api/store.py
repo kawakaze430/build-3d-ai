@@ -189,7 +189,9 @@ class Store:
     def list_jobs(self, owner_id: str, project_id: str, limit: int, offset: int) -> list[dict]:
         self.project(owner_id, project_id)
         with self.engine.connect() as conn:
-            return [public_job(dict(row)) for row in conn.execute(sa.select(jobs).where(
+            # History must not hydrate up to 100 ten-megabyte input blobs.
+            columns = [jobs.c[name] for name in PUBLIC_JOB_FIELDS]
+            return [dict(row) for row in conn.execute(sa.select(*columns).where(
                 jobs.c.owner_id == owner_id, jobs.c.project_id == project_id,
             ).order_by(jobs.c.created_at.desc(), jobs.c.id).limit(limit).offset(offset)).mappings()]
 

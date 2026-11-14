@@ -99,7 +99,7 @@ class Worker:
         directory = self.settings.artifact_dir
         destination = directory / f"{artifact_id}.glb"
         staged: str | None = None
-        committed = False
+        keep_destination = False
         try:
             directory.mkdir(mode=0o700, parents=True, exist_ok=True)
             # Stage on the destination filesystem, then atomically publish it.
@@ -117,7 +117,10 @@ class Worker:
                     os.fsync(fd)
                 finally:
                     os.close(fd)
-            committed = self.transition(job, "completed", error_code=None, artifact={
+            # A dropped COMMIT response may still mean the DB committed. Retain
+            # the file on an uncertain outcome instead of breaking its DB row.
+            keep_destination = True
+            keep_destination = self.transition(job, "completed", error_code=None, artifact={
                 "id": artifact_id, "job_id": job["id"], "owner_id": job["owner_id"],
                 "sha256": report.sha256, "size_bytes": report.size_bytes,
                 "mesh_count": report.mesh_count, "created_at": self.clock(),
@@ -126,7 +129,7 @@ class Worker:
             Path(source).unlink(missing_ok=True)
             if staged is not None:
                 Path(staged).unlink(missing_ok=True)
-            if not committed:
+            if not keep_destination:
                 destination.unlink(missing_ok=True)
 
 

@@ -2,7 +2,7 @@
 
 ## Branch stack and current implementation
 
-Review/merge the existing stack in order: **PR #1 → PR #11 → PR #12 → the persistent-project-jobs PR**. The newest branch is `implementation/durable-project-jobs`, based on PR #12 at `9759200b1ab9f769eadd54105579b26ed364d58a`. Retarget each dependent PR to `main` once its parent has landed; resolve against current main and rerun checks before merging. Do not merge the entire stack blindly.
+Review/merge the existing stack in order: **PR #1 → PR #11 → PR #12 → PR #13**. The newest branch is `implementation/durable-project-jobs`, based on PR #12 at `9759200b1ab9f769eadd54105579b26ed364d58a`. Retarget each dependent PR to `main` once its parent has landed; resolve against current main and rerun checks before merging. Do not merge the entire stack blindly.
 
 - `apps/gateway`: private operator gateway, real 3DAIGC-API client, model approvals, bounded GLB validation and explicit-spend GPU smoke CLI.
 - `apps/api`: separate private user-key API, projects, persistent text/image jobs, database-backed rate/admission limits, request idempotency, approval lineage and owned downloads.
@@ -14,7 +14,7 @@ Run instructions and exact limitations: [PRODUCT_BACKBONE.md](PRODUCT_BACKBONE.m
 
 ## What was verified in the implementation workspace
 
-The 94-test combined Python 3.12 SQLite/gateway suite passed. It exercises real database migrations/transactions/restarts, two-user isolation, simultaneous duplicate submissions, quotas, worker recovery, uncertain requests, upload decoding and synthetic GLB downloads. CLI help, source compilation and distributable-wheel migration inclusion were also checked. Consult the implementation PR's Actions runs for final Python 3.11/3.12 and PostgreSQL results.
+The 95-test combined Python 3.12 SQLite/gateway suite passed. It exercises real database migrations/transactions/restarts, two-user isolation, simultaneous duplicate submissions, quotas, worker recovery, uncertain requests/commits, upload decoding and synthetic GLB downloads. CLI help, source compilation, distributable-wheel migration inclusion and a real Uvicorn process with authenticated project HTTP requests were also checked. Consult [PR #13](https://github.com/kawakaze430/build-3d-ai/pull/13) for final Python 3.11/3.12 and PostgreSQL Actions results.
 
 **No AI generation, model load, GPU launch, cloud deployment or paid inference was performed.** HTTP and GLB fixtures are synthetic. Docker is unavailable on the implementation machine, so Compose packaging was not runtime-tested there. No claim of competitor-level output quality is supported yet.
 

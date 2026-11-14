@@ -229,6 +229,24 @@ def test_lost_poll_lease_is_reclaimable_and_stale_worker_cannot_finish(env, queu
     assert slots(env) == 0
 
 
+def test_lost_commit_acknowledgement_does_not_delete_persisted_artifact(env, queued, triangle, monkeypatch):
+    worker, calls, clock = make_worker(env, triangle)
+    advance(worker, clock)
+    original = worker.store.transition
+
+    def commit_then_disconnect(*args, **kwargs):
+        assert original(*args, **kwargs)
+        raise sa.exc.OperationalError("COMMIT", None, Exception("connection lost after commit"))
+
+    monkeypatch.setattr(worker.store, "transition", commit_then_disconnect)
+    with pytest.raises(sa.exc.OperationalError):
+        advance(worker, clock)
+    assert row(env, queued)["status"] == "completed"
+    assert slots(env) == 0
+    response = env.client.get(f"/v1/jobs/{queued}/download", headers=env.auth)
+    assert response.status_code == 200 and response.content == triangle
+
+
 def test_timeout_keeps_quota_and_does_not_claim_gpu_was_canceled(env, queued, triangle):
     worker, calls, clock = make_worker(env, triangle, remote_status="running")
     advance(worker, clock)
