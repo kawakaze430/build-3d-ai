@@ -21,7 +21,7 @@ PRs #11, #12 and #13 were closed as superseded after PR #14 preserved their fina
 
 Private upstream 3DAIGC API client, control authentication, fail-closed approved-model policy, bounded GLB structural verification and explicit-spend GPU smoke CLI.
 
-The current candidate branch also adds a strict first-party xatlas-style OBJ + baked PNG → self-contained PBR GLB packager. This addresses the TripoSR stock texture-export format gap without copying xatlas's exporter and still reuses the product GLB validator. It is CPU/synthetic evidence only until the implementation PR is merged and a real texture is visually checked.
+The gateway includes a strict first-party xatlas-style OBJ + baked PNG → self-contained PBR GLB packager on the TripoSR qualification milestone. This addresses the stock texture-export format gap without copying xatlas's exporter and reuses the product GLB validator. Its automated tests prove CPU structure/integrity only; a real texture still needs browser/Blender visual checking.
 
 ### `apps/api`
 
@@ -73,7 +73,7 @@ Do not infer Docker, paid cloud or GPU validation from those results.
 
 TripoSR is the current **qualification candidate**, not an approved production model. Pinned evidence and the proposed AWS L4 envelope are in [FIRST_REAL_GPU_RUNBOOK.md](FIRST_REAL_GPU_RUNBOOK.md). Stock Step1X and TripoSG runtime paths remain rejected for the documented commercial/worldwide use because of runtime/license dependencies.
 
-The TripoSR source/checkpoint evidence is promising, but a deterministic runtime fork must first remove or clear the stock unpinned torchmcubes dependency, pin the DINO config, and pass the new textured-GLB packaging tests. No model is added to the production approval policy by this work.
+The TripoSR source/checkpoint evidence is promising. A selective reuse path for marching cubes is now identified from MIT fork `vltmedia/TripoSR-scikit@fa39422b81217687f16efe7bb3afc136feb87ba7`, but the whole fork is 17 commits behind current upstream. Port/retest only that small change with pinned `scikit-image==0.26.0`, pin the DINO config and complete the dependency lock. No model is added to the production approval policy by this work.
 
 ## Still not verified
 

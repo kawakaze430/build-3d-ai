@@ -20,6 +20,8 @@ That top-level evidence is still insufficient for production approval. The stock
 | DINO config | `facebook/dino-vitb16@fdc136b8ef48f5a94159af5dd6323ae7a219697a/config.json` | Apache-2.0 model repository; TripoSR uses the ViT config shape |
 | xatlas-python | `mworchel/xatlas-python@ff6541ec7ed1b5131dd7bf5447da6174e6c82621` (v0.0.9) | MIT; stock `export()` writes OBJ |
 | TripoSR stock torchmcubes requirement | unpinned `git+https://github.com/tatsy/torchmcubes.git` | **not cleared for deterministic commercial runtime** |
+| TripoSR-scikit patch evidence | `vltmedia/TripoSR-scikit@fa39422b81217687f16efe7bb3afc136feb87ba7` | MIT fork; only 2 commits ahead of its 2024 merge base and 17 commits behind current TripoSR, so do **not** use the whole fork as the base |
+| scikit-image candidate | `scikit-image==0.26.0` | BSD-3-Clause stable release; Python >=3.11; exact numerical/orientation compatibility still requires a candidate-runtime test |
 
 References:
 - https://github.com/VAST-AI-Research/TripoSR
@@ -62,7 +64,7 @@ Create and review an exact TripoSR runtime fork/container that:
 8. emits baked OBJ + PNG and then uses the first-party GLB packager above;
 9. verifies the final GLB with `build3d-gpu-smoke` / product validation before publication.
 
-A BSD-permissive marching-cubes implementation such as a pinned scikit-image release is a candidate replacement for torchmcubes, but it is **not approved by this document until the exact version, numerical behavior and output orientation are tested**.
+A concrete reuse path now exists: `vltmedia/TripoSR-scikit@fa39422b81217687f16efe7bb3afc136feb87ba7` is MIT and replaces torchmcubes with `skimage.measure.marching_cubes`, including a face-winding adjustment. GitHub comparison shows that fork is **17 current-upstream commits behind**, so it must not replace the current TripoSR base. Port only the minimal marching-cubes change onto the pinned current source with attribution, pin `scikit-image==0.26.0` (BSD-3-Clause), and test numerical orientation/scale against the original behavior before GPU qualification.
 
 ## Proposed first GPU envelope — requires owner approval
 
@@ -231,7 +233,7 @@ After the single run:
 ## Current gate summary
 
 - CPU product/gateway/browser/storage foundations: implemented and tested.
-- Textured GLB packaging adapter: implemented; synthetic CPU test required to pass CI before merge.
+- Textured GLB packaging adapter: implemented with synthetic tests wired into Gateway/Product CI; merge only while those checks remain green.
 - TripoSR source/model: promising research candidate, **not production approved**.
 - Deterministic TripoSR runtime fork: **blocked/open**.
 - GPU owner approval: **not granted in this session**.
