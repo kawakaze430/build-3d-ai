@@ -4,9 +4,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import os
-import shutil
 import sys
-import tempfile
 import time
 from pathlib import Path
 
@@ -18,15 +16,18 @@ from build3d_gateway.upstream import UpstreamError, UpstreamGateway
 
 from .config import Settings
 from .db import check_schema, create_database
+from .storage import create_artifact_storage
 from .store import Store, UPSTREAM_ID, new_id
 
 
 class Worker:
-    def __init__(self, store: Store, upstream: UpstreamGateway, *, confirm_spend: bool = False,
-                 clock=time.time):
+    def __init__(self, store: Store, upstream: UpstreamGateway, *, storage=None,
+                 confirm_spend: bool = False, clock=time.time):
         self.store = store
         self.settings = store.settings
         self.upstream = upstream
+        self.storage = storage if storage is not None else create_artifact_storage(self.settings)
+        self.storage.prepare()
         self.confirm_spend = confirm_spend
         self.clock = clock
 
@@ -96,41 +97,34 @@ class Worker:
     async def save_artifact(self, job):
         source, report = await fetch_verified_glb(self.upstream, job["upstream_job_id"])
         artifact_id = new_id()
-        directory = self.settings.artifact_dir
-        destination = directory / f"{artifact_id}.glb"
-        staged: str | None = None
-        keep_destination = False
+        published = False
+        keep_published = False
         try:
-            directory.mkdir(mode=0o700, parents=True, exist_ok=True)
-            # Stage on the destination filesystem, then atomically publish it.
-            with tempfile.NamedTemporaryFile(dir=directory, suffix=".part", delete=False) as output:
-                staged = output.name
-                with open(source, "rb") as input_file:
-                    shutil.copyfileobj(input_file, output)
-                output.flush()
-                os.fsync(output.fileno())
-            os.replace(staged, destination)
-            # Persist directory metadata before recording a completed job.
-            if hasattr(os, "O_DIRECTORY"):
-                fd = os.open(directory, os.O_RDONLY | os.O_DIRECTORY)
-                try:
-                    os.fsync(fd)
-                finally:
-                    os.close(fd)
+            self.storage.publish(
+                artifact_id=artifact_id,
+                owner_id=job["owner_id"],
+                job_id=job["id"],
+                source=source,
+                sha256=report.sha256,
+                size_bytes=report.size_bytes,
+            )
+            published = True
             # A dropped COMMIT response may still mean the DB committed. Retain
-            # the file on an uncertain outcome instead of breaking its DB row.
-            keep_destination = True
-            keep_destination = self.transition(job, "completed", error_code=None, artifact={
+            # the object on an uncertain outcome instead of breaking its DB row.
+            keep_published = True
+            keep_published = self.transition(job, "completed", error_code=None, artifact={
                 "id": artifact_id, "job_id": job["id"], "owner_id": job["owner_id"],
                 "sha256": report.sha256, "size_bytes": report.size_bytes,
                 "mesh_count": report.mesh_count, "created_at": self.clock(),
             })
         finally:
             Path(source).unlink(missing_ok=True)
-            if staged is not None:
-                Path(staged).unlink(missing_ok=True)
-            if not keep_destination:
-                destination.unlink(missing_ok=True)
+            if published and not keep_published:
+                try:
+                    self.storage.delete(artifact_id=artifact_id, owner_id=job["owner_id"])
+                except OSError:
+                    # The object remains private; a later orphan sweep can remove it.
+                    pass
 
 
 def main(argv=None) -> int:
