@@ -1,0 +1,52 @@
+name: Product API CI
+on:
+  push:
+    branches: [main, "implementation/**"]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: product-api-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  product-api:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: build3d_test
+          POSTGRES_USER: build3d_test
+          POSTGRES_PASSWORD: test-only-password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U build3d_test -d build3d_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - name: Install pinned CPU dependencies
+        run: python -m pip install -c requirements.lock -e "./apps/gateway[test]" -e "./apps/api[test]"
+      - name: Compile and check command entry points
+        run: |
+          python -m compileall -q apps/api/src apps/gateway/src
+          build3d-admin --help
+          build3d-worker --help
+      - name: SQLite and gateway regression suite (no GPU)
+        run: python -m pytest -q apps/api/tests apps/gateway/tests
+      - name: PostgreSQL migrations, ownership, concurrency and recovery
+        env:
+          TEST_DATABASE_URL: postgresql+psycopg://build3d_test:test-only-password@localhost:5432/build3d_test
+        run: python -m pytest -q apps/api/tests
+      - name: Build distributable wheels including migrations
+        run: |
+          python -m pip wheel --no-deps ./apps/gateway ./apps/api -w dist
+          python scripts/check_api_wheel.py
