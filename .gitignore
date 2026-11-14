@@ -1,0 +1,33 @@
+# Secrets and private configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+*.egg-info/
+dist/
+build/
+# Node
+node_modules/
+.next/
+# Large data / checkpoints
+models/
+checkpoints/
+outputs/
+datasets/
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+# Tool outputs
+.coverage
+htmlcov/
+.DS_Store
