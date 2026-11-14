@@ -10,8 +10,8 @@
 
 - [x] **00.01** Establish owner-controlled GitHub repository and complete high-level engineering docs. Proof: README and docs already on main.
 - [x] **00.02** Verify actual upstream 3DAIGC-API endpoints and Open3DStudio project existence. Proof: published upstream README/routes and repository metadata examined 2026-11-13.
-- [ ] **00.03** Inventory actual code in upstream Open3DStudio, 3DAIGC-API and AssetFurnace at pinned commit SHAs; audit tests, maintenance and API compatibility.
-- [ ] **00.04** Create source/model/weight/dataset/transitive-dependency commercial license matrix; block noncommercial/restricted integrations.
+- [ ] **00.03** Inventory actual code in upstream Open3DStudio, 3DAIGC-API and AssetFurnace at pinned commit SHAs; audit tests, maintenance and API compatibility. **Materially advanced:** exact Open3DStudio/3DAIGC-API/AssetFurnace revisions and architecture/license evidence are recorded in [REUSE_AUDIT.md](REUSE_AUDIT.md); full clean builds and all transitive trees remain open.
+- [ ] **00.04** Create source/model/weight/dataset/transitive-dependency commercial license matrix; block noncommercial/restricted integrations. **Materially advanced:** exact revisions now cover AssetFurnace, TripoSG, xatlas, glTF Transform and Three.js in addition to earlier candidates; non-commercial/restricted default paths remain blocked. Full runtime/checkpoint/dataset chains are still open.
 - [x] **00.05** Decide frontend foundation: clean first-party Next.js product UI after pinned Open3DStudio code/license/architecture review. Proof: ADR 0001 + merged PR #15; Open3DStudio was not vendored.
 - [ ] **00.06** Decide one commercially cleared baseline 3D checkpoint and GPU runtime; pin full dependency graph.
 - [x] **00.07** Add working, authenticated upstream integration gateway, tests and CI. Proof: apps/gateway and passing GitHub Actions on Python 3.11/3.12; **unit/contract tests only, no GPU validation**.

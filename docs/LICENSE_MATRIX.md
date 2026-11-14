@@ -1,4 +1,4 @@
-# Commercial License and Deployment Gate — Partial Review (2026-11-13)
+# Commercial License and Deployment Gate — Partial Review (updated 2026-11-15)
 
 ## CPU product-backend dependency inventory — 14 Nov 2026
 
@@ -16,8 +16,11 @@ The new backend uses SQLAlchemy `2.0.57` (MIT), Alembic `1.20.1` (MIT), psycopg 
 | [TRELLIS.2](https://github.com/microsoft/TRELLIS.2) | `75fbf0183001ed9876c8dbb35de6b68552ee08bd` | MIT ([LICENSE](https://github.com/microsoft/TRELLIS.2/blob/main/LICENSE)) | **Do not use standard NVIDIA renderer path commercially** without permission or permitted replacement |
 | [UniRig](https://github.com/VAST-AI-Research/UniRig) | `6793c6640ff01c8fb389f3993434124bb43d2933` | MIT (LICENSE) | Research-only pending pretrained weights, dependencies, functional test |
 | [SkinTokens](https://github.com/VAST-AI-Research/SkinTokens) | `273b691d35989d71cd17ff2895fdc735097b92d1` | MIT (LICENSE) | Research-only pending weights and dependencies |
-| [xatlas](https://github.com/jpcy/xatlas) | `f700c7790aaa030e794b52ba7791a05c085faf0c` | MIT (LICENSE) | Promising library; adapter, notices and dependent bindings still untested |
-| [glTF Transform](https://github.com/donmccurdy/glTF-Transform) | Revision not pinned | MIT (LICENSE.md) | Promising library; exact installed version not selected |
+| [xatlas](https://github.com/jpcy/xatlas) | `f700c7790aaa030e794b52ba7791a05c085faf0c` | MIT (LICENSE) | **APPROVED** as a source-license candidate; adapter/build/quality tests and any selected binding license remain required |
+| [AssetFurnace](https://github.com/Bingeljell/image-to-3dlab) | `52b8cf560d3f4629342113b7a8b13312f4b05073` | Apache-2.0 app code + NOTICE declaring separately licensed model/encoder backends | **RESEARCH_ONLY** as an integrated pipeline; selective Apache-licensed reuse may be reviewed file-by-file |
+| [TripoSG](https://github.com/VAST-AI-Research/TripoSG) | `fc5c40990181e2a756c4e0b1c2f4d6b5202faf8c` | MIT source; main published TripoSG weights labeled MIT; NOTICE lists community-licensed derived code | **NEEDS_PERMISSION / RESEARCH_ONLY** for documented default runtime because it auto-downloads non-commercial BRIA RMBG-1.4 and needs transitive review |
+| [glTF Transform](https://github.com/donmccurdy/glTF-Transform) | `8e2a94a2616d293c4b503d0fb6a4b42e6ec7c62f` | MIT (repository/package metadata) | **APPROVED** as a utility-library candidate; exact project version/integration test still required before shipping |
+| [Three.js](https://github.com/mrdoob/three.js) | `b529cbbda2ba956a8444545a5634f6db22b68385`; `apps/web` pins 0.187.0 | MIT | **APPROVED** for the imported browser-rendering package; web CI passed |
 | [NVIDIA PartField](https://github.com/nv-tlabs/PartField) | `373025dbd283bb44cc4a6dc78c99994dbc91de32` | NVIDIA-specific, §3.3 non-commercial research/education use | **BLOCKED** for commercial deployment without other permission |
 | [Hunyuan3D-2.1](https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1) | `82920d643c0dc2f7bfd7255f45f62d386edfe60c` | Tencent Hunyuan 3D 2.1 Community License | **BLOCKED for worldwide service**: EU, UK, South Korea excluded; further hosted-service obligations |
 
@@ -29,6 +32,8 @@ The new backend uses SQLAlchemy `2.0.57` (MIT), Alembic `1.20.1` (MIT), psycopg 
 4. [PartField LICENSE §3.3](https://github.com/nv-tlabs/PartField/blob/main/LICENSE) limits use to non-commercial research and education.
 5. [Hunyuan3D-2.1 LICENSE](https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1/blob/main/LICENSE) expressly excludes the EU, UK and South Korea from its defined territory; it also has hosted-service and other conditions.
 6. [3DAIGC-API .gitmodules](https://github.com/FishWoWater/3DAIGC-API/blob/main/.gitmodules) lists external/forked TRELLIS, PartField, PartPacker, Hunyuan3D, UniRig, FastMesh, PartUV, TRELLIS.2, Hunyuan3D-Part, UltraShape and VoxHammer; neither source license nor weight license follows automatically from the parent repo.
+7. TripoSG's inspected README pulls BRIA RMBG-1.4 by default, while BRIA's current model card states the freely available model is for non-commercial use and commercial deployment requires a separate agreement. Replacing that preprocessor may remove this blocker, but the replacement and TripoSG's other derived/runtime dependencies must be reviewed.
+8. AssetFurnace's Apache-2.0 repository NOTICE explicitly separates its application license from model-weight/backend licenses; it is useful evidence for a provenance-first architecture, not an approval of its selectable model stack.
 
 ## Runtime integration policy
 
