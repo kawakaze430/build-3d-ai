@@ -2,14 +2,14 @@
 
 ## Starting plan
 
-Don't train a foundation model from scratch. Start with **verified inference** using a legally permissible existing image-to-3D checkpoint. Use Step1X-3D training/LoRA code as an initial customization candidate; explore TRELLIS.2 and alternatives only after full dependency license clearance.
+Don't train a foundation model from scratch. Start with **verified inference** using a legally permissible existing image-to-3D checkpoint. TripoSR is the current first-real-run **qualification candidate**, not a production approval; its deterministic runtime fork and license/data review are still open. The stock Step1X-3D path is not a current commercial baseline because its published runtime includes non-commercial nvdiffrast. Reconsider Step1X training/LoRA only after an exact renderer-replaced runtime is separately cleared.
 
 ## Experiment sequence
 
 1. **Baseline (no training):** evaluate real model results on fixed unseen inputs, record VRAM, GPU instance, latency, failure rates, geometry, texture and GLB size.
 2. **Dataset build:** license-curated 3D assets including object geometry, materials, references, camera poses, style annotations, source and permitted use.
 3. **Preprocessing:** normal orientation/scale, geometry validity, multi-view renders, texture maps, asset deduplication, model-specific representations, data manifests.
-4. **First fine-tune:** small specialized LoRA or supported training recipe (e.g. stylized adult animated character meshes), track checkpoint/data/config and cost.
+4. **First fine-tune:** only after a baseline runtime is commercially cleared and benchmarked, use a model-specific supported recipe for a small specialization experiment (e.g. stylized adult animated character meshes); track checkpoint/data/config and cost.
 5. **Compare:** strict held-out evaluation; only keep a fine-tune that improves chosen production metrics without unacceptable regressions.
 6. **Scale carefully:** larger specialized data and training only after budget approval and proven experiment benefits.
 7. **Production:** versioned model registry, canary rollout, rollback and provenance on each generated asset.
@@ -28,7 +28,7 @@ A single input image cannot provide certain knowledge of the back of the model. 
 
 ## Hardware and budget
 
-Codex creates training code, but dedicated GPU compute executes training. AWS is primary candidate (subject to service limits, credit eligibility and approval); Colab may help with research but is not a permanent public API host. Do not infer training VRAM requirements from inference VRAM. GPU jobs require maximum runtime, spend cap, logs, autosave and an exit criterion.
+Codex creates training code, but dedicated GPU compute executes training. AWS is primary candidate (subject to service limits, credit eligibility and approval); Colab may help with research but is not a permanent public API host. Do not infer training VRAM requirements from inference VRAM. GPU jobs require maximum runtime, spend cap, logs, autosave and an exit criterion. The first candidate envelope is documented in [FIRST_REAL_GPU_RUNBOOK.md](FIRST_REAL_GPU_RUNBOOK.md); it is blocked until owner approval.
 
 ## Ownership and release
 

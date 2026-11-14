@@ -11,9 +11,9 @@
 - [x] **00.01** Establish owner-controlled GitHub repository and complete high-level engineering docs. Proof: README and docs already on main.
 - [x] **00.02** Verify actual upstream 3DAIGC-API endpoints and Open3DStudio project existence. Proof: published upstream README/routes and repository metadata examined 2026-11-13.
 - [ ] **00.03** Inventory actual code in upstream Open3DStudio, 3DAIGC-API and AssetFurnace at pinned commit SHAs; audit tests, maintenance and API compatibility. **Materially advanced:** exact Open3DStudio/3DAIGC-API/AssetFurnace revisions and architecture/license evidence are recorded in [REUSE_AUDIT.md](REUSE_AUDIT.md); full clean builds and all transitive trees remain open.
-- [ ] **00.04** Create source/model/weight/dataset/transitive-dependency commercial license matrix; block noncommercial/restricted integrations. **Materially advanced:** exact revisions now cover AssetFurnace, TripoSG, xatlas, glTF Transform and Three.js in addition to earlier candidates; non-commercial/restricted default paths remain blocked. Full runtime/checkpoint/dataset chains are still open.
+- [ ] **00.04** Create source/model/weight/dataset/transitive-dependency commercial license matrix; block noncommercial/restricted integrations. **Materially advanced:** exact revisions now cover AssetFurnace, TripoSG, TripoSR, xatlas/xatlas-python, glTF Transform and Three.js in addition to earlier candidates; non-commercial/restricted default paths remain blocked. Full runtime/checkpoint/dataset chains are still open.
 - [x] **00.05** Decide frontend foundation: clean first-party Next.js product UI after pinned Open3DStudio code/license/architecture review. Proof: ADR 0001 + merged PR #15; Open3DStudio was not vendored.
-- [ ] **00.06** Decide one commercially cleared baseline 3D checkpoint and GPU runtime; pin full dependency graph.
+- [ ] **00.06** Decide one commercially cleared baseline 3D checkpoint and GPU runtime; pin full dependency graph. **Candidate selected for qualification, not approved:** TripoSR source/model/DINO evidence is pinned in [FIRST_REAL_GPU_RUNBOOK.md](FIRST_REAL_GPU_RUNBOOK.md); deterministic marching-cubes/runtime dependency replacement and owner/legal approval remain blockers.
 - [x] **00.07** Add working, authenticated upstream integration gateway, tests and CI. Proof: apps/gateway and passing GitHub Actions on Python 3.11/3.12; **unit/contract tests only, no GPU validation**.
 - [ ] **00.08** Obtain owner-approved GPU account, instance quota, allowed region, max hourly spend and stop conditions.
 - [ ] **00.09** Start license-cleared upstream GPU backend privately; prove real image→textured mesh→downloaded, validated GLB.
@@ -22,6 +22,7 @@
 - [x] **00.12** Add repository CI for both Python 3.11/3.12; tests compile the gateway and verify upstream HTTP contract via isolated in-memory transport. Proof: GitHub Actions run 43470562375 (passed).
 - [x] **00.13** Add structural validation of self-contained GLB 2.0 exports, bounding 250 MiB downloads and reporting SHA256/mesh count; offline test coverage only. Proof: apps/gateway/src/build3d_gateway/glb_validation.py and tests/test_glb_validation.py.
 - [x] **00.14** Add gated real-job GPU smoke runner for explicit model choice, owner spend acknowledgement, job polling, validated GLB download, checksum and timing report. Proof: build3d-gpu-smoke CLI + synthetic HTTP tests; **no paid GPU run has occurred**.
+- [x] **00.15** Add a strict CPU-only xatlas OBJ + baked PNG → self-contained PBR GLB packager for the TripoSR qualification path. It rejects external OBJ resources, writes atomically and reuses the product GLB validator. Proof requires Gateway CI on the implementation PR; this does **not** prove real texture quality.
 
 ## Phase 1 — Durable owner-controlled product backbone
 
@@ -47,7 +48,7 @@
 - [ ] **01.08** Real text-to-3D (or explicitly labeled text→image→3D), image-to-3D, user selectable quality.
 - [x] **01.09** Browser studio with prompt/upload, jobs, failure details, history and approved-model selector. Proof: merged PR #15 + Web Studio CI; generation remains disabled when no model is approved.
 - [ ] **01.10** Three.js viewer with turntable, camera reset, material/wireframe views and secure real-model downloads. **Partial:** actual product download route + GLB viewer are implemented/tested with a clearly synthetic GLB fixture; one real generated/model artifact still requires the GPU gate.
-- [ ] **01.11** Automatic mesh validation and GLB export with Blender/glTF import smoke tests.
+- [ ] **01.11** Automatic mesh validation and GLB export with Blender/glTF import smoke tests. **Partial:** structural validation and a tested embedded-texture GLB packaging path exist; real generated texture orientation/quality and Blender import remain GPU-gated.
 - [ ] **01.12** First end-to-end production-like deployment in isolated staging; load, access-control and recovery tests.
 
 ## Phase 2 — Professional asset creation

@@ -21,6 +21,8 @@ PRs #11, #12 and #13 were closed as superseded after PR #14 preserved their fina
 
 Private upstream 3DAIGC API client, control authentication, fail-closed approved-model policy, bounded GLB structural verification and explicit-spend GPU smoke CLI.
 
+The gateway includes a strict first-party xatlas-style OBJ + baked PNG → self-contained PBR GLB packager on the TripoSR qualification milestone. This addresses the stock texture-export format gap without copying xatlas's exporter and reuses the product GLB validator. Its automated tests prove CPU structure/integrity only; a real texture still needs browser/Blender visual checking.
+
 ### `apps/api`
 
 Database-backed users/API keys/projects/jobs/artifacts, tenant isolation, bounded image normalization, idempotent local admission, active-job/rate limits, fenced worker leases, uncertain non-idempotent submission quarantine, restartable polling, operator reconciliation and verified artifact downloads.
@@ -67,15 +69,21 @@ Do not infer Docker, paid cloud or GPU validation from those results.
 - Upstream model policy: zero production models approved by default.
 - Non-idempotent upstream generation POSTs: never automatically replay an uncertain submission.
 
+## Current first-GPU candidate
+
+TripoSR is the current **qualification candidate**, not an approved production model. Pinned evidence and the proposed AWS L4 envelope are in [FIRST_REAL_GPU_RUNBOOK.md](FIRST_REAL_GPU_RUNBOOK.md). Stock Step1X and TripoSG runtime paths remain rejected for the documented commercial/worldwide use because of runtime/license dependencies.
+
+The TripoSR source/checkpoint evidence is promising. A selective reuse path for marching cubes is now identified from MIT fork `vltmedia/TripoSR-scikit@fa39422b81217687f16efe7bb3afc136feb87ba7`, but the whole fork is 17 commits behind current upstream. Port/retest only that small change with pinned `scikit-image==0.26.0`, pin the DINO config and complete the dependency lock. No model is added to the production approval policy by this work.
+
 ## Still not verified
 
 No real AI model was loaded. No real text/image generation was executed. No GPU or paid cloud resource was launched. No generated GLB has yet been proven in both the browser viewer and Blender. No public signup/password-reset/account-deletion flow is enabled. No real S3 bucket was provisioned or migrated. No billing or production deployment exists.
 
 ## Highest-value next work
 
-1. Finish the exact source + model-weight + dataset + transitive-license audit and select one end-to-end commercially acceptable generation runtime.
-2. Prepare an exact bounded GPU runbook for that approved runtime (provider, region, instance, VRAM, hourly cost, hard stop, checkpoint hash and cleanup).
-3. After owner approval of model rights + GPU budget, execute one real image → generation → validated GLB → product API → browser viewer → Blender import vertical slice and record timing/cost/checksums/screenshots.
+1. Finish and test the deterministic TripoSR qualification runtime fork: replace/clear torchmcubes, pin all dependencies/base image and pin the DINO config revision.
+2. Obtain owner/legal approval for that exact source+checkpoint+runtime/data chain and the bounded AWS GPU budget in [FIRST_REAL_GPU_RUNBOOK.md](FIRST_REAL_GPU_RUNBOOK.md).
+3. After those approvals, execute one real image → generation → baked texture → embedded validated GLB → product API → browser viewer → Blender import vertical slice and record timing/cost/checksums/screenshots.
 4. In parallel, implement the **trusted assertion/JWKS validation half** of the identity boundary behind a disabled-by-default feature flag; the external mapping half is complete.
 5. Add artifact migration/orphan scanning/retention and persistent byte quotas before public object storage use.
 
