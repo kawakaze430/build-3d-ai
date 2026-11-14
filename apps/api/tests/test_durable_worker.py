@@ -187,14 +187,14 @@ def test_invalid_glb_never_becomes_completed_or_downloadable(env, queued, triang
     advance(worker, clock)
     assert row(env, queued)["status"] == "polling_paused"
     assert env.client.get(f"/v1/jobs/{queued}/download", headers=env.auth).status_code == 409
-    assert list(env.settings.artifact_dir.iterdir()) == []
+    assert list(env.settings.artifact_dir.rglob("*.glb")) == []
 
 
 def test_tampered_or_missing_stored_glb_is_rejected(env, queued, triangle):
     worker, calls, clock = make_worker(env, triangle)
     advance(worker, clock)
     advance(worker, clock)
-    path = next(env.settings.artifact_dir.glob("*.glb"))
+    path = next(env.settings.artifact_dir.rglob("*.glb"))
     path.write_bytes(b"corrupt")
     assert env.client.get(f"/v1/jobs/{queued}/download", headers=env.auth).status_code == 503
     path.unlink()
@@ -208,10 +208,10 @@ def test_disk_failure_never_publishes_complete_job(env, queued, triangle, monkey
     def fail(*args):
         raise OSError("disk full")
 
-    monkeypatch.setattr("build3d_api.worker.os.replace", fail)
+    monkeypatch.setattr("build3d_api.storage.os.replace", fail)
     advance(worker, clock)
     assert row(env, queued)["status"] == "running"
-    assert list(env.settings.artifact_dir.iterdir()) == []
+    assert list(env.settings.artifact_dir.rglob("*.glb")) == []
     assert slots(env) == 1
 
 

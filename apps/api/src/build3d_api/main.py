@@ -7,6 +7,7 @@ from contextlib import asynccontextmanager
 from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, Query, UploadFile
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from starlette.background import BackgroundTask
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from sqlalchemy.exc import SQLAlchemyError
 
@@ -17,6 +18,7 @@ from .config import Settings
 from .body_limit import BodyLimitMiddleware
 from .db import check_schema, create_database
 from .images import MAX_IMAGE_BYTES, normalize_image
+from .storage import ArtifactStorageError, create_artifact_storage
 from .store import Store, StoreError, public_job
 
 
@@ -54,17 +56,18 @@ def approval_for(model_id: str) -> dict:
     return records[model_id]
 
 
-def create_app(settings: Settings | None = None, *, engine=None) -> FastAPI:
+def create_app(settings: Settings | None = None, *, engine=None, storage=None) -> FastAPI:
     settings = settings or Settings.from_env()
     owns_engine = engine is None
     engine = engine if engine is not None else create_database(settings.database_url)
     store = Store(engine, settings)
+    artifact_storage = storage if storage is not None else create_artifact_storage(settings)
 
     @asynccontextmanager
     async def lifespan(_):
         try:
             check_schema(engine)
-            settings.artifact_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
+            artifact_storage.prepare()
             yield
         finally:
             if owns_engine:
@@ -73,6 +76,7 @@ def create_app(settings: Settings | None = None, *, engine=None) -> FastAPI:
     app = FastAPI(title="Build 3D AI — Project API", version="0.2.0", lifespan=lifespan)
     app.add_middleware(BodyLimitMiddleware)
     app.state.store = store
+    app.state.artifact_storage = artifact_storage
     bearer = HTTPBearer(auto_error=False)
 
     def identity(credentials: HTTPAuthorizationCredentials | None = Depends(bearer)) -> str:
@@ -184,17 +188,23 @@ def create_app(settings: Settings | None = None, *, engine=None) -> FastAPI:
     @app.get("/v1/jobs/{job_id}/download")
     def download(job_id: str, owner: str = Depends(identity)):
         record = store.artifact(owner, job_id)
-        path = settings.artifact_dir / (record["id"] + ".glb")
+        materialized = None
         try:
-            if path.is_symlink():
-                raise OSError("Unexpected artifact symlink")
-            with path.open("rb") as handle:
+            materialized = artifact_storage.materialize(record)
+            with materialized.path.open("rb") as handle:
                 report = inspect_glb(handle)
             if report.sha256 != record["sha256"] or report.size_bytes != record["size_bytes"]:
                 raise GLBValidationError("Stored checksum mismatch")
-        except (OSError, GLBValidationError) as exc:
+        except (OSError, ArtifactStorageError, GLBValidationError) as exc:
+            if materialized is not None:
+                materialized.cleanup()
             raise HTTPException(503, "Stored artifact is unavailable or failed integrity validation") from exc
-        return FileResponse(path, media_type="model/gltf-binary", filename=f"{job_id}.glb",
-                            headers={"X-Artifact-SHA256": report.sha256})
+        return FileResponse(
+            materialized.path,
+            media_type="model/gltf-binary",
+            filename=f"{job_id}.glb",
+            headers={"X-Artifact-SHA256": report.sha256},
+            background=BackgroundTask(materialized.cleanup),
+        )
 
     return app
