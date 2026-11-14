@@ -31,3 +31,10 @@ datasets/
 .coverage
 htmlcov/
 .DS_Store
+# Private product database, input images, keys, and generated artifacts
+data/
+*.db
+*.db-shm
+*.db-wal
+*.glb
+*.part

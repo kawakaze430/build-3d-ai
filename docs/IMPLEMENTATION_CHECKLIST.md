@@ -20,8 +20,18 @@
 - [ ] **00.10** Benchmark 20 sample inputs: geometry, textures, VRAM, time, error rate, and full cost/job.
 - [ ] **00.11** Decide Go/No-Go and record actual blockers; no large spend before this gate.
 - [x] **00.12** Add repository CI for both Python 3.11/3.12; tests compile the gateway and verify upstream HTTP contract via isolated in-memory transport. Proof: GitHub Actions run 43470562375 (passed).
+- [x] **00.13** Add structural validation of self-contained GLB 2.0 exports, bounding 250 MiB downloads and reporting SHA256/mesh count; offline test coverage only. Proof: apps/gateway/src/build3d_gateway/glb_validation.py and tests/test_glb_validation.py.
+- [x] **00.14** Add gated real-job GPU smoke runner for explicit model choice, owner spend acknowledgement, job polling, validated GLB download, checksum and timing report. Proof: build3d-gpu-smoke CLI + synthetic HTTP tests; **no paid GPU run has occurred**.
 
 ## Phase 1 — Durable owner-controlled product backbone
+
+**14 Nov 2026 implementation:** `apps/api` implements a tested private backend slice covering parts of 01.01–01.06. See [PRODUCT_BACKBONE.md](PRODUCT_BACKBONE.md). The broad items below remain open because they include full account lifecycle, S3/signed URLs, ledger and distributed scheduling. CPU tests are not deployment or GPU evidence.
+
+- [x] **01.A** Versioned database migrations for private users, keys, projects, jobs and artifacts; restart/migration tests in `apps/api/tests`.
+- [x] **01.B** Operator-provisioned API keys, digest storage, revocation, owner-scoped routes and atomic request limits; cross-user tests.
+- [x] **01.C** Durable text/image job admission, decoded bounded images, idempotency conflicts and atomic active-job quotas; concurrent submission tests.
+- [x] **01.D** Lease-based worker, approval snapshot recheck, safe polling retries, uncertain-submit quarantine and operator reconciliation; crash/fencing tests.
+- [x] **01.E** Verified private filesystem GLBs, stored checksums/provenance, owner-only downloads and corruption rejection; synthetic output tests only.
 
 - [ ] **01.01** Monorepo contracts: versioned API schemas, worker registry, model IDs, job and artifact types.
 - [ ] **01.02** PostgreSQL migrations for users, projects, jobs, artifacts, provenance, permissions and ledger.
@@ -101,6 +111,8 @@
 | B04 | UI foundation suitability and upstream version drift | Codex | Pinned commit/build and integration regression tests |
 | B05 | Real identity, data isolation and billing | Codex + security review | Production tests, tenant security and ledger invariants |
 | B06 | High-quality facial rigs and editable full environments | R&D | Measured prototype-independent production benchmarks |
+
+CPU product-backend work can proceed privately alongside B01–B03. Its worker stays off by default, and no commercial generation/model is enabled by those changes. See [current handoff](CODEX_HANDOFF.md) for the next concrete engineering tasks.
 
 ## How to hand this to Codex
 

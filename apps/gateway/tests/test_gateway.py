@@ -1,5 +1,7 @@
 """Tests use HTTPX in-memory transport only; they do NOT claim GPU inference success."""
 
+import json
+
 import httpx
 import pytest
 from fastapi.testclient import TestClient
@@ -12,8 +14,19 @@ KEY = "K" * 32
 
 
 @pytest.fixture(autouse=True)
-def configured_gateway(monkeypatch):
+def configured_gateway(monkeypatch, tmp_path):
     monkeypatch.setenv("CONTROL_API_KEY", KEY)
+    policy = tmp_path / "model-approvals.json"
+    policy.write_text(json.dumps({"schema_version": 1, "approved_models": [{
+        "model_id": "test_model",
+        "commercial_saas_rights_verified": True,
+        "license_review": "docs/TEST_FIXTURE_ONLY.md",
+        "reviewed_by": "unit-test",
+        "reviewed_on": "2026-11-13",
+        "upstream_commit_sha": "a" * 40,
+        "checkpoint_sha256": "b" * 64
+    }]}), encoding="utf-8")
+    monkeypatch.setenv("MODEL_APPROVAL_FILE", str(policy))
     app.dependency_overrides.clear()
     yield
     app.dependency_overrides.clear()
@@ -56,6 +69,7 @@ def test_text_submission_uses_real_upstream_contract():
         assert request.url.path == "/api/v1/mesh-generation/text-to-textured-mesh"
         assert b'"text_prompt":"robot cat"' in request.content
         assert b'"output_format":"glb"' in request.content
+        assert b'"model_preference":"test_model"' in request.content
         return httpx.Response(200, json={"job_id": "job_100", "status": "queued"})
 
     mock_upstream(handler)
@@ -63,7 +77,7 @@ def test_text_submission_uses_real_upstream_contract():
         response = client.post(
             "/v1/generations/text",
             headers={"X-Control-Key": KEY},
-            json={"prompt": "robot cat"},
+            json={"prompt": "robot cat", "model_preference": "test_model"},
         )
     assert response.status_code == 200
     assert response.json()["job_id"] == "job_100"
@@ -81,6 +95,7 @@ def test_image_upload_then_generation_uses_file_id():
             return httpx.Response(200, json={"file_id": "image_44"})
         assert request.url.path == "/api/v1/mesh-generation/image-to-textured-mesh"
         assert b'"image_file_id":"image_44"' in request.content
+        assert b'"model_preference":"test_model"' in request.content
         return httpx.Response(200, json={"job_id": "job_44", "status": "queued"})
 
     mock_upstream(handler)
@@ -89,6 +104,7 @@ def test_image_upload_then_generation_uses_file_id():
             "/v1/generations/image",
             headers={"X-Control-Key": KEY},
             files={"file": ("reference.png", b"\x89PNG\r\n\x1a\n" + b"x" * 8, "image/png")},
+            data={"model_preference": "test_model"},
         )
     assert response.status_code == 200
     assert response.json()["job_id"] == "job_44"
@@ -104,18 +120,19 @@ def test_invalid_image_is_rejected_before_upstream_call():
             "/v1/generations/image",
             headers={"X-Control-Key": KEY},
             files={"file": ("bad.png", b"NOT_IMAGE", "image/png")},
+            data={"model_preference": "test_model"},
         )
     assert response.status_code == 415
 
 
-def test_model_job_and_download_proxy():
+def test_model_job_and_download_proxy(glb_bytes):
     def handler(request):
         if request.url.path.endswith("/models"):
             return httpx.Response(200, json={"models": []})
         if request.url.path.endswith("/jobs/job_7"):
             return httpx.Response(200, json={"job_id": "job_7", "status": "completed"})
         if request.url.path.endswith("/download"):
-            return httpx.Response(200, content=b"glTF", headers={"content-type": "model/gltf-binary"})
+            return httpx.Response(200, content=glb_bytes, headers={"content-type": "model/gltf-binary"})
         raise AssertionError(request.url.path)
 
     mock_upstream(handler)
@@ -125,7 +142,11 @@ def test_model_job_and_download_proxy():
         assert client.get("/v1/jobs/job_7", headers=headers).json()["status"] == "completed"
         response = client.get("/v1/jobs/job_7/download", headers=headers)
     assert response.status_code == 200
-    assert response.content == b"glTF"
+    assert response.content == glb_bytes
+    assert response.headers["content-type"] == "model/gltf-binary"
+    assert response.headers["x-artifact-meshes"] == "1"
+    import hashlib
+    assert response.headers["x-artifact-sha256"] == hashlib.sha256(glb_bytes).hexdigest()
 
 
 def test_upstream_failure_is_not_misrepresented_as_success():
@@ -134,7 +155,7 @@ def test_upstream_failure_is_not_misrepresented_as_success():
         response = client.post(
             "/v1/generations/text",
             headers={"X-Control-Key": KEY},
-            json={"prompt": "a robot"},
+            json={"prompt": "a robot", "model_preference": "test_model"},
         )
     assert response.status_code == 502
     assert "503" in response.json()["detail"]
@@ -151,3 +172,128 @@ def test_no_path_traversal_or_arbitrary_model_names():
             json={"prompt": "robot", "model_preference": "../other"},
         )
         assert response.status_code == 422
+
+
+def test_generation_denies_missing_and_unapproved_model():
+    with TestClient(app) as client:
+        headers = {"X-Control-Key": KEY}
+        missing = client.post("/v1/generations/text", headers=headers, json={"prompt": "robot"})
+        unknown = client.post("/v1/generations/text", headers=headers,
+                              json={"prompt": "robot", "model_preference": "unreviewed"})
+    assert missing.status_code == 422
+    assert unknown.status_code == 403
+
+
+def test_generation_disabled_when_approvals_empty(monkeypatch, tmp_path):
+    policy = tmp_path / "empty.json"
+    policy.write_text('{"schema_version": 1, "approved_models": []}', encoding="utf-8")
+    monkeypatch.setenv("MODEL_APPROVAL_FILE", str(policy))
+    with TestClient(app) as client:
+        response = client.post("/v1/generations/text", headers={"X-Control-Key": KEY},
+                               json={"prompt": "robot", "model_preference": "test_model"})
+    assert response.status_code == 503
+
+
+def test_malformed_approval_denied(monkeypatch, tmp_path):
+    policy = tmp_path / "invalid.json"
+    policy.write_text('{"schema_version": 1, "approved_models": [{"model_id": "test_model"}]}', encoding="utf-8")
+    monkeypatch.setenv("MODEL_APPROVAL_FILE", str(policy))
+    with TestClient(app) as client:
+        response = client.post("/v1/generations/text", headers={"X-Control-Key": KEY},
+                               json={"prompt": "robot", "model_preference": "test_model"})
+    assert response.status_code == 503
+
+
+def test_absent_policy_denied(monkeypatch, tmp_path):
+    monkeypatch.setenv("MODEL_APPROVAL_FILE", str(tmp_path / "missing.json"))
+    with TestClient(app) as client:
+        response = client.post("/v1/generations/text", headers={"X-Control-Key": KEY},
+                               json={"prompt": "robot", "model_preference": "test_model"})
+    assert response.status_code == 503
+
+
+def test_owner_can_list_explicit_approved_models():
+    with TestClient(app) as client:
+        assert client.get("/v1/approved-models").status_code == 401
+        response = client.get("/v1/approved-models", headers={"X-Control-Key": KEY})
+    assert response.status_code == 200
+    assert response.json() == {"approved_model_ids": ["test_model"]}
+
+
+def test_unapproved_image_never_uploads_to_upstream():
+    requests = []
+
+    def handler(request):
+        requests.append(request)
+        return httpx.Response(200, json={"file_id": "unexpected"})
+
+    mock_upstream(handler)
+    with TestClient(app) as client:
+        response = client.post(
+            "/v1/generations/image",
+            headers={"X-Control-Key": KEY},
+            data={"model_preference": "unreviewed"},
+            files={"file": ("reference.png", b"\x89PNG\r\n\x1a\n" + b"x" * 8, "image/png")},
+        )
+    assert response.status_code == 403
+    assert requests == []
+
+
+def test_packaged_policy_starts_with_no_approved_models(monkeypatch):
+    monkeypatch.delenv("MODEL_APPROVAL_FILE")
+    with TestClient(app) as client:
+        policy = client.get("/v1/approved-models", headers={"X-Control-Key": KEY})
+        request = client.post(
+            "/v1/generations/text",
+            headers={"X-Control-Key": KEY},
+            json={"prompt": "robot", "model_preference": "test_model"},
+        )
+    assert policy.json() == {"approved_model_ids": []}
+    assert request.status_code == 503
+
+
+def test_invalid_glb_from_upstream_returns_502():
+    mock_upstream(lambda request: httpx.Response(200, content=b"not even a glb"))
+    with TestClient(app) as client:
+        response = client.get(
+            "/v1/jobs/job_77/download", headers={"X-Control-Key": KEY}
+        )
+    assert response.status_code == 502
+    assert "invalid GLB" in response.json()["detail"]
+
+
+def test_oversized_glb_from_upstream_returns_413(monkeypatch, glb_bytes):
+    monkeypatch.setattr("build3d_gateway.main.MAX_DOWNLOAD_BYTES", len(glb_bytes) - 1)
+    mock_upstream(lambda request: httpx.Response(200, content=glb_bytes))
+    with TestClient(app) as client:
+        response = client.get(
+            "/v1/jobs/job_77/download", headers={"X-Control-Key": KEY}
+        )
+    assert response.status_code == 413
+
+
+def test_bad_content_length_cannot_bypass_stream_size_limit(monkeypatch, glb_bytes):
+    monkeypatch.setattr("build3d_gateway.main.MAX_DOWNLOAD_BYTES", len(glb_bytes) - 1)
+
+    def handler(request):
+        # A lying upstream might omit its true body length.
+        return httpx.Response(
+            200, content=glb_bytes, headers={"content-length": "1"}
+        )
+
+    mock_upstream(handler)
+    with TestClient(app) as client:
+        response = client.get(
+            "/v1/jobs/job_77/download", headers={"X-Control-Key": KEY}
+        )
+    # HTTPX may reject the upstream's inconsistent Content-Length itself.
+    assert response.status_code in (413, 502)
+
+
+def test_upstream_download_failure_returns_502():
+    mock_upstream(lambda request: httpx.Response(404, content=b"Job not found"))
+    with TestClient(app) as client:
+        response = client.get(
+            "/v1/jobs/job_77/download", headers={"X-Control-Key": KEY}
+        )
+    assert response.status_code == 502

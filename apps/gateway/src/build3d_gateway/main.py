@@ -12,16 +12,18 @@ import os
 import re
 
 from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, UploadFile
-from fastapi.responses import StreamingResponse
+from fastapi.responses import FileResponse
+from starlette.background import BackgroundTask
 from pydantic import BaseModel, ConfigDict, Field
 
+from .download import ArtifactTooLarge, fetch_verified_glb
+from .model_policy import approved_model_ids, require_model_approval
 from .upstream import UpstreamError, UpstreamGateway
 
 
 MAX_IMAGE_BYTES = 10 * 1024 * 1024
 MAX_DOWNLOAD_BYTES = 250 * 1024 * 1024
 JOB_ID = re.compile(r"^[a-zA-Z0-9_-]{1,128}$")
-MODEL_ID = re.compile(r"^[a-zA-Z0-9_-]{1,128}$")
 
 app = FastAPI(
     title="Build 3D AI — Integration Gateway",
@@ -57,10 +59,9 @@ def clean_job_id(job_id: str) -> str:
     return job_id
 
 
-def clean_model_id(model_preference: str | None) -> str | None:
-    if model_preference and not MODEL_ID.fullmatch(model_preference):
-        raise HTTPException(status_code=422, detail="Invalid model identifier")
-    return model_preference
+def clean_model_id(model_preference: str | None) -> str:
+    # No implicit upstream model selection: it could activate restricted weights.
+    return require_model_approval(model_preference)
 
 
 def validate_image(data: bytes, content_type: str | None) -> None:
@@ -101,6 +102,11 @@ async def list_models(gateway: UpstreamGateway = Depends(get_gateway)):
     return await gateway.list_models()
 
 
+@app.get("/v1/approved-models", dependencies=[Depends(require_control_key)])
+async def approved_models():
+    return {"approved_model_ids": sorted(approved_model_ids())}
+
+
 @app.post("/v1/generations/text", dependencies=[Depends(require_control_key)])
 async def text_to_3d(
     payload: TextGenerationRequest,
@@ -135,32 +141,26 @@ async def job_status(job_id: str, gateway: UpstreamGateway = Depends(get_gateway
 
 @app.get("/v1/jobs/{job_id}/download", dependencies=[Depends(require_control_key)])
 async def download(job_id: str, gateway: UpstreamGateway = Depends(get_gateway)):
-    client, response = await gateway.open_download(clean_job_id(job_id))
-    raw_length = response.headers.get("content-length")
+    """Return a verified, self-contained GLB or an error, never arbitrary bytes.
+
+    All upstream data is downloaded into bounded temporary storage and
+    validated BEFORE the HTTP success response starts. This gateway remains
+    owner-only and must not be publicly exposed as a multi-tenant service.
+    """
     try:
-        reported_size = int(raw_length) if raw_length else None
-    except ValueError:
-        reported_size = None
-    if reported_size is not None and reported_size > MAX_DOWNLOAD_BYTES:
-        await response.aclose()
-        await client.aclose()
-        raise HTTPException(status_code=413, detail="Artifact exceeds 250 MiB gateway limit")
+        path, inspection = await fetch_verified_glb(
+            gateway, clean_job_id(job_id), max_bytes=MAX_DOWNLOAD_BYTES
+        )
+    except ArtifactTooLarge as exc:
+        raise HTTPException(status_code=413, detail="Artifact exceeds 250 MiB") from exc
 
-    async def chunks():
-        count = 0
-        try:
-            async for chunk in response.aiter_bytes(chunk_size=256 * 1024):
-                count += len(chunk)
-                if count > MAX_DOWNLOAD_BYTES:
-                    # Prevent unbounded downloads; downstream stream terminates.
-                    raise RuntimeError("Upstream artifact exceeds size limit")
-                yield chunk
-        finally:
-            await response.aclose()
-            await client.aclose()
-
-    return StreamingResponse(
-        chunks(),
-        media_type="application/octet-stream",
-        headers={"Content-Disposition": 'attachment; filename="generated-model.glb"'},
+    return FileResponse(
+        path=path,
+        filename="generated-model.glb",
+        media_type="model/gltf-binary",
+        headers={
+            "X-Artifact-SHA256": inspection.sha256,
+            "X-Artifact-Meshes": str(inspection.mesh_count),
+        },
+        background=BackgroundTask(os.unlink, path),
     )
