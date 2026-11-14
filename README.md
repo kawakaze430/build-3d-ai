@@ -2,7 +2,7 @@
 
 > **Implementation started:** The first bounded phase-0 work is on the [implementation branch](https://github.com/kawakaze430/build-3d-ai/tree/implementation/phase0-gateway-and-checklist). Follow the [complete ordered checklist](docs/IMPLEMENTATION_CHECKLIST.md) and [real 3DAIGC-API gateway instructions](docs/PHASE0_GATEWAY.md). Python API unit tests run in GitHub Actions. **No GPU inference or production SaaS is deployed yet.**
 
-> **Status (13 Nov 2026): Project planning.** This repository currently documents our goals and engineering plan. It does **not** claim that a production application, trained model, or GPU deployment is already working.
+> **Status (14 Nov 2026, implementation branch): backend implementation and CPU tests.** Private projects, API keys, persistent jobs and validated downloads now have working code. There is no deployed customer application or verified GPU inference yet. See the [product backend runbook](docs/PRODUCT_BACKBONE.md).
 
 ## Mission
 
@@ -30,8 +30,22 @@ The owner controls the product, brand, website, infrastructure, source repositor
 - [PR #1](https://github.com/kawakaze430/build-3d-ai/pull/1): owner-controlled gateway, end-to-end implementation checklist and automated contract tests.
 - [PR #11](https://github.com/kawakaze430/build-3d-ai/pull/11): default-deny commercial model approval policy and pinned partial source/license inventory.
 - **Next phase-0 work (stacked on PR #11):** [GPU smoke and GLB integrity runbook](docs/GPU_SMOKE_AND_ARTIFACTS.md): validates real downloaded binary GLBs and supplies an operator-only command for a budget-approved live GPU test.
+- **[PR #13](https://github.com/kawakaze430/build-3d-ai/pull/13), persistent product backend (stacked on PR #12):** [apps/api](apps/api) adds SQLAlchemy/Alembic migrations, operator-provisioned user API keys, private projects, idempotent text/image jobs, admission limits, recoverable worker polling, model provenance and verified private downloads. [Setup, API usage and recovery](docs/PRODUCT_BACKBONE.md).
 
 **Project state:** GitHub CI verifies gateway/API/GLB handling with synthetic fixtures. No real inference model has been deployed or benchmarked by this project; completion of paid-GPU and license gates is still required.
+
+### Run the private product backend locally
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -c requirements.lock -e "./apps/gateway[test]" -e "./apps/api[test]"
+build3d-admin migrate
+build3d-admin create-user --name "Owner"
+uvicorn build3d_api.main:create_app --factory --host 127.0.0.1 --port 8081
+```
+
+Save the API key printed by `create-user` privately; it is displayed only once. Open `http://127.0.0.1:8081/docs` and authorize using that key to create projects and inspect the API. The default approval policy disables generation. Starting the API does not start a GPU or worker. This release is for private evaluation, with operator-provisioned accounts; browser signup, studio/viewer and billing remain planned.
 
 ## Architecture in brief
 

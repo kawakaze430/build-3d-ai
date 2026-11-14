@@ -25,6 +25,14 @@
 
 ## Phase 1 — Durable owner-controlled product backbone
 
+**14 Nov 2026 implementation:** `apps/api` implements a tested private backend slice covering parts of 01.01–01.06. See [PRODUCT_BACKBONE.md](PRODUCT_BACKBONE.md). The broad items below remain open because they include full account lifecycle, S3/signed URLs, ledger and distributed scheduling. CPU tests are not deployment or GPU evidence.
+
+- [x] **01.A** Versioned database migrations for private users, keys, projects, jobs and artifacts; restart/migration tests in `apps/api/tests`.
+- [x] **01.B** Operator-provisioned API keys, digest storage, revocation, owner-scoped routes and atomic request limits; cross-user tests.
+- [x] **01.C** Durable text/image job admission, decoded bounded images, idempotency conflicts and atomic active-job quotas; concurrent submission tests.
+- [x] **01.D** Lease-based worker, approval snapshot recheck, safe polling retries, uncertain-submit quarantine and operator reconciliation; crash/fencing tests.
+- [x] **01.E** Verified private filesystem GLBs, stored checksums/provenance, owner-only downloads and corruption rejection; synthetic output tests only.
+
 - [ ] **01.01** Monorepo contracts: versioned API schemas, worker registry, model IDs, job and artifact types.
 - [ ] **01.02** PostgreSQL migrations for users, projects, jobs, artifacts, provenance, permissions and ledger.
 - [ ] **01.03** User signup/login, secure sessions, password reset and account deletion; do not expose upstream admin token.
@@ -103,6 +111,8 @@
 | B04 | UI foundation suitability and upstream version drift | Codex | Pinned commit/build and integration regression tests |
 | B05 | Real identity, data isolation and billing | Codex + security review | Production tests, tenant security and ledger invariants |
 | B06 | High-quality facial rigs and editable full environments | R&D | Measured prototype-independent production benchmarks |
+
+CPU product-backend work can proceed privately alongside B01–B03. Its worker stays off by default, and no commercial generation/model is enabled by those changes. See [current handoff](CODEX_HANDOFF.md) for the next concrete engineering tasks.
 
 ## How to hand this to Codex
 

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "build3d-api"
+version = "0.2.0"
+description = "Persistent private projects and generation jobs for Build 3D AI"
+requires-python = ">=3.11"
+dependencies = [
+    "build3d-gateway==0.1.0",
+    "SQLAlchemy>=2.0.36,<2.1",
+    "alembic>=1.14,<2",
+    "psycopg[binary]>=3.2,<4",
+    "Pillow>=11,<13",
+]
+
+[project.scripts]
+build3d-admin = "build3d_api.cli:main"
+build3d-worker = "build3d_api.worker:main"
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+build3d_api = ["migrations/*.py", "migrations/versions/*.py"]

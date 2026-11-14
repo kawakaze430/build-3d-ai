@@ -1,50 +1,53 @@
-# Codex Handoff: Continue Phase 0 Without Wasting Credits
+# Developer handoff — 14 November 2026
 
-## What exists
+## Branch stack and current implementation
 
-The source PR at https://github.com/kawakaze430/build-3d-ai/pull/1 adds:
-- 64-item prioritized checklist in `docs/IMPLEMENTATION_CHECKLIST.md`;
-- an authenticated **real upstream** 3DAIGC-API connector in `apps/gateway`;
-- Docker/Compose for the admin gateway;
-- Python 3.11/3.12 GitHub Actions tests using isolated in-memory HTTP transport.
+Review/merge the existing stack in order: **PR #1 → PR #11 → PR #12 → PR #13**. The newest branch is `implementation/durable-project-jobs`, based on PR #12 at `9759200b1ab9f769eadd54105579b26ed364d58a`. Retarget each dependent PR to `main` once its parent has landed; resolve against current main and rerun checks before merging. Do not merge the entire stack blindly.
 
-**NOT yet implemented:** GPU backend deployment, actual model weights/inference proof, frontend, customer database, multiuser auth, billing, model fine-tuning and full commercial license approvals. Never claim otherwise.
+- `apps/gateway`: private operator gateway, real 3DAIGC-API client, model approvals, bounded GLB validation and explicit-spend GPU smoke CLI.
+- `apps/api`: separate private user-key API, projects, persistent text/image jobs, database-backed rate/admission limits, request idempotency, approval lineage and owned downloads.
+- `build3d-worker`: fenced database claims, non-replayed generation submissions, restartable polling, private artifact storage and operator reconciliation.
+- `build3d-admin`: migrations, user/key provisioning, revocation, reconciliation. No public admin endpoints.
+- `requirements.lock`, CPU dependency/license inventory, Docker packaging, Python 3.11/3.12 and SQLite/PostgreSQL CI definitions.
 
-## First Codex Cloud task — audit before GPU
+Run instructions and exact limitations: [PRODUCT_BACKBONE.md](PRODUCT_BACKBONE.md). Canonical task statuses: [IMPLEMENTATION_CHECKLIST.md](IMPLEMENTATION_CHECKLIST.md). Broad items remain open when only a subpart is implemented.
 
-Copy these instructions to Codex connected to this repository:
+## What was verified in the implementation workspace
 
-> Read AGENTS.md, docs/IMPLEMENTATION_CHECKLIST.md, docs/OPEN_SOURCE_STRATEGY.md and the Phase 0 PR. Work first on GitHub issue #2 (legal/technical reuse audit).
->
-> 1. Inspect upstream Open3DStudio, 3DAIGC-API, Step1X-3D, TRELLIS.2 and related model/dependency code at pinned commits. Determine what actually functions, which models require forks and which model checkpoints are available.
-> 2. Write docs/REUSE_AUDIT.md and docs/LICENSE_MATRIX.md. For every candidate, record upstream SHA, source license, weight license, model/data conditions, transitive renderer/CUDA dependencies and commercial-SaaS verdict. Unknown rights = RESEARCH_ONLY, not APPROVED.
-> 3. Do not start GPU instances, paid jobs, training, external deployments, modify account IAM, or upload datasets without explicit approval.
-> 4. Review phase-0 gateway code for actual endpoint compatibility, image upload, authentication, timeouts, size limits and streaming tests. Improve any real bugs in a separate PR with tests.
-> 5. Produce a **specific commercially permitted inference stack proposal**, requirements, expected GPU memory, approximate hourly cost by region and exact smoke-test commands.
-> 6. After receiving GPU budget approval, begin issue #3: run real image→3D→GLB and report actual output quality, logs, VRAM, latency and cost. Keep the GPU private and stop when testing finishes.
-> 7. Once #2/#3 are solved, proceed to issues #4 and #5 in order. Do not jump into billing or fine-tuning before a reliable core exists.
->
-> For every PR: include what is truly implemented, what tests actually ran, any limitations, license status, the cheapest next test, and clear blockers. Avoid pointless rewrites of preexisting public technology.
+The 95-test combined Python 3.12 SQLite/gateway suite passed. It exercises real database migrations/transactions/restarts, two-user isolation, simultaneous duplicate submissions, quotas, worker recovery, uncertain requests/commits, upload decoding and synthetic GLB downloads. CLI help, source compilation, distributable-wheel migration inclusion and a real Uvicorn process with authenticated project HTTP requests were also checked. Consult [PR #13](https://github.com/kawakaze430/build-3d-ai/pull/13) for final Python 3.11/3.12 and PostgreSQL Actions results.
 
-## Required approvals before next spend
+**No AI generation, model load, GPU launch, cloud deployment or paid inference was performed.** HTTP and GLB fixtures are synthetic. Docker is unavailable on the implementation machine, so Compose packaging was not runtime-tested there. No claim of competitor-level output quality is supported yet.
 
-- Account owner: select permitted cloud provider and region, available credits, hourly and total spend cap, time limit, and instance access.
-- Engineering/legal: model code, full dependency chain, weights and dataset commercial terms verified.
-- Technical: signed-off exact base checkpoint + serving container, reproducible script and a stop command for GPU resources.
+## Next concrete development tasks
 
-## Quick non-GPU reproduction
+1. Review the stack and current CI. Pay special attention to approval policy handling, object ownership, upload limits, database concurrency, lease expiry, artifact integrity and uncertain-job quota retention.
+2. Complete issue #2's exact code/weight/dataset/transitive-license audit. The current inventory is partial; keep unapproved models disabled. Review bundled CPU binary dependencies before commercial distribution too.
+3. Prepare one specific private GPU deployment with exact model/runtime revision, checkpoint hash, provider region, quota, hourly price, total spend cap and shutdown plan. Get the missing budget/access before starting paid resources.
+4. With approved resources, run one real image → textured mesh → verified GLB. Record hardware, VRAM, timing, all costs, backend logs and Blender/viewer import proof. Use the genuine [GPU smoke guide](GPU_SMOKE_AND_ARTIFACTS.md); never use a fixture as evidence.
+5. While GPU access is pending, complete the pinned Open3DStudio build/maintenance audit and select the browser UI foundation. Integrate the tenant API with a real Three.js viewport only after reviewing the relevant dependencies. Add real browser and GLB import tests.
+6. Add a maintained identity provider or thoroughly tested account lifecycle: signup/login, recovery, deletion, session security and user administration. Operator-issued API keys alone are not public customer onboarding.
+7. Introduce private object storage, signed URLs, retention/cleanup, disk/storage quotas, backup-and-restore tests and metrics. Preserve all ownership checks. Current image inputs live in the database and output files require shared private disk.
+8. Add global worker/GPU concurrency, provider budget enforcement and runtime model attestation. Do not replace uncertain-submission quarantine with blind POST retries; the upstream lacks a proven idempotency contract. SQS does not solve that automatically.
+9. Proceed to billing, mesh tools, rigging, facial animation, scenes and training only with their independent acceptance tests and cleared dependencies. Do not label the full product complete until its release gates pass.
+
+## Reproduce the CPU checks
 
 ```bash
-python -m pip install -e "./apps/gateway[test]"
-python -m pytest -q apps/gateway/tests
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -c requirements.lock -e "./apps/gateway[test]" -e "./apps/api[test]"
+python -m pytest -q apps/api/tests apps/gateway/tests
+python -m compileall -q apps/api/src apps/gateway/src
+python -m pip wheel --no-deps ./apps/gateway ./apps/api -w dist
+python scripts/check_api_wheel.py
 ```
 
-Tests confirm contracts and authentication; not neural network execution. Only actual GPU inference can close the real-generation blocker.
+Set `TEST_DATABASE_URL` only to a dedicated PostgreSQL test service to run the API tests there. Each test creates/drops its own random schema. Do not run real workers or `build3d-gpu-smoke --confirm-gpu-spend` as part of CPU validation.
 
-## Branch and issue tracker
+## Blocking inputs for live inference
 
-- PR: https://github.com/kawakaze430/build-3d-ai/pull/1
-- Issue #2: https://github.com/kawakaze430/build-3d-ai/issues/2 (audit)
-- Issue #3: https://github.com/kawakaze430/build-3d-ai/issues/3 (GPU/model)
-- Issues #4–#10: subsequent deliverables, ordered
-- Master checklist: [IMPLEMENTATION_CHECKLIST.md](IMPLEMENTATION_CHECKLIST.md)
+- Owner-approved GPU provider/account, region, quota, hourly/total budget and stop conditions.
+- Full approval of one exact model/weight/runtime dependency chain for the intended commercial deployment.
+- Private authenticated upstream endpoint and runtime evidence that it serves those approved weights.
+
+These block live inference and deployment, not further bounded CPU implementation. Keep user/customer data and all credentials out of Git and public PR discussions.

@@ -2,6 +2,8 @@
 
 **Status convention:** Every row here is **PLANNED** until linked to a tested implementation PR and evidence. P0=initial deployable product, P1=commercial expansion, P2=advanced development.
 
+**Partial backend implementation, 14 Nov 2026:** APP01/APP02 now have operator-provisioned user keys, private projects/history, durable queue admission, worker recovery and verified private downloads in `apps/api`. They are **not complete**: full identity/account lifecycle, upstream cancellation, public deployment and real GPU validation remain open. GEO01/EXP01 still require actual mesh import/viewer proof. [Acceptance evidence and limits](PRODUCT_BACKBONE.md).
+
 | ID | Feature | Priority | Release acceptance |
 |---|---|---|---|
 | GEN01 | Single image → 3D geometry | P0 | Real checkpoint generates importable mesh; logs time/VRAM |

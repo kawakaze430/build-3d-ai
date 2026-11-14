@@ -18,7 +18,7 @@ SHA256 = re.compile(r"^[0-9a-f]{64}$")
 SHA1 = re.compile(r"^[0-9a-f]{40}$")
 
 
-def approved_model_ids() -> frozenset[str]:
+def approved_model_records() -> dict[str, dict]:
     configured = os.getenv("MODEL_APPROVAL_FILE")
     policy_file = Path(configured) if configured else Path(__file__).with_name("model-approvals.json")
     try:
@@ -34,6 +34,7 @@ def approved_model_ids() -> frozenset[str]:
         raise HTTPException(status_code=503, detail="Invalid model approval policy")
 
     identifiers: set[str] = set()
+    records: dict[str, dict] = {}
     try:
         for entry in document["approved_models"]:
             if not isinstance(entry, dict):
@@ -62,10 +63,15 @@ def approved_model_ids() -> frozenset[str]:
             if not isinstance(checkpoint_sha, str) or not SHA256.fullmatch(checkpoint_sha):
                 raise ValueError("Invalid weight hash")
             identifiers.add(model_id)
+            records[model_id] = entry.copy()
     except (TypeError, KeyError, ValueError) as exc:
         raise HTTPException(status_code=503, detail="Invalid model approval policy") from exc
 
-    return frozenset(identifiers)
+    return records
+
+
+def approved_model_ids() -> frozenset[str]:
+    return frozenset(approved_model_records())
 
 
 def require_model_approval(model_preference: str | None) -> str:

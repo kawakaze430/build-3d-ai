@@ -50,3 +50,20 @@ Step1X-3D documents `train.py` and `system.use_lora=True`. Its README also credi
 ## Decision so far
 
 **Keep Open3DStudio + 3DAIGC-API as evaluation candidates and continue the narrow real-API gateway. Do not claim production commercial model approval.** The new model policy defaults to no generation until explicitly reviewed.
+
+## Private product backend reuse decision — 14 Nov 2026
+
+Implemented a bounded first-party orchestration layer in `apps/api`; reused the existing gateway client, model policy and GLB verifier instead of adding another model adapter or renderer. No upstream AI code, model weights, viewer or mesh algorithm was rewritten or imported.
+
+| Candidate | Actual fit / decision | Pinned release / evidence | Limit |
+|---|---|---|---|
+| SQLAlchemy | Reuse Core transactions, constraints and conditional updates for durable project/job state | `2.0.57`; installed package/license files inspected; [transactions](https://docs.sqlalchemy.org/en/20/orm/session_transaction.html), [SQLite behavior](https://docs.sqlalchemy.org/en/20/dialects/sqlite.html) | SQLite for development; PostgreSQL integration and concurrency tests required |
+| Alembic | Reuse versioned migration engine; freeze initial DDL independent of current application metadata | `1.20.1`; [official tutorial](https://alembic.sqlalchemy.org/en/latest/tutorial.html) | No automatic migrations on web-server startup; operator migration command |
+| psycopg | Reuse maintained PostgreSQL driver | `3.3.9` with matching binary wheel; installed LGPL license inspected | Binary bundle and distribution obligations require release review |
+| Pillow | Reuse real image parsers, size checks, orientation handling and PNG encoder | `12.3.0`; installed license and image decode tests | Decoder dependency updates and sandbox/ingress limits still matter |
+| AWS SQS | Evaluated for later distributed scheduling; not provisioned in this slice | [Official at-least-once semantics](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues-at-least-once-delivery.html) | A queue cannot make a non-idempotent remote generation POST safe to replay |
+| Upstream account APIs | Keep private serving authentication separate from product users | Prior pinned 3DAIGC router audit above | No evidence these implement this product's owner isolation, key management or billing policy |
+
+`requirements.lock` pins installed CPU/test release versions. [CPU_DEPENDENCY_INVENTORY.json](CPU_DEPENDENCY_INVENTORY.json) records declared licenses and hashes of installed license files. These are package release pins, not independently checked source commit SHAs, wheel-integrity locks or approval of GPU dependencies. Existing dependency notices remain in installed distributions; no library source is vendored here.
+
+Integration work is limited to API contracts, database schema, ownership rules, a safe submission/polling state machine and private artifact storage. A maintained SQL toolkit and migration engine avoid building persistence machinery from scratch. This slice needs CPU/database/disk only; running its worker against a real backend is separately gated. Managed identity, object storage/retention, provider budgets and SQS/global scheduling remain required before public service.

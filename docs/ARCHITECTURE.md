@@ -2,6 +2,8 @@
 
 **Proposed, not deployed.**
 
+**Implemented subset (14 Nov 2026):** `apps/api` now provides the private user-key/project/job API with PostgreSQL-compatible Alembic migrations and SQLite local support. `build3d-worker` uses database claims/fencing and the existing `apps/gateway` upstream client. Normalized input images are temporarily held in the database; validated GLBs use private filesystem storage. SQS, S3, public identity, billing, studio UI and actual GPU hosting remain proposed. The operator gateway and tenant API run separately. See [runtime contracts and limits](PRODUCT_BACKBONE.md).
+
 ```text
 Browser / Developer API
    |
