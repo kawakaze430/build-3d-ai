@@ -1,5 +1,11 @@
 # Commercial License and Deployment Gate — Partial Review (2026-11-13)
 
+## CPU product-backend dependency inventory — 14 Nov 2026
+
+The new backend uses SQLAlchemy `2.0.57` (MIT), Alembic `1.20.1` (MIT), psycopg and psycopg-binary `3.3.9` (declared LGPL-3.0-only), Pillow `12.3.0` (MIT-CMU), and their pinned dependencies. Installed distribution metadata and license files were inspected. [CPU_DEPENDENCY_INVENTORY.json](CPU_DEPENDENCY_INVENTORY.json) records exact installed versions and license-file hashes; [requirements.lock](../requirements.lock) pins CPU/test package releases.
+
+**Status: development/test inventory, not complete commercial release clearance.** Preserve dependency notices. Psycopg binary, Pillow codecs and other compiled wheels may bundle libraries with additional obligations; package-level labels do not audit every bundled binary. No third-party source is vendored or relicensed by this change. Container/base-image, binary-bundle, distribution and deployment review remain required. This does not approve any AI checkpoint, training dataset or GPU runtime. All real model approvals remain empty by default.
+
 **Status: NO MODEL APPROVED FOR PRODUCTION.** This is an evidence-based source/license inventory, not legal advice or completion of issue #2. A permissive app-repository license never clears upstream model weights, forked components, training assets, or transitive rendering dependencies.
 
 | Component | Pinned upstream commit | Repository-level license checked | Commercial-release decision |
