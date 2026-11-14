@@ -10,6 +10,8 @@ Merged into `main` during the consolidation session:
 - PR #14 → clean consolidation of the reviewed #11/#12/#13 stack: fail-closed model policy, GLB verification, durable product API/worker, PostgreSQL/SQLite CI and recovery semantics.
 - PR #15 → first-party `apps/web` browser studio, secure API-key BFF session, project/generation/job UI, real product GLB viewer/download path and browser tests.
 - PR #16 → artifact storage abstraction, owner-scoped filesystem layout and optional private S3-compatible backend.
+- PR #17 → current baseline documentation and public-identity architecture decision.
+- PR #18 → expanded exact-revision reuse/license audit, including rejection of restricted stock Step1X/TripoSG runtime paths.
 
 PRs #11, #12 and #13 were closed as superseded after PR #14 preserved their final reviewed/tested tree on the post-#1 main baseline.
 
@@ -22,6 +24,8 @@ Private upstream 3DAIGC API client, control authentication, fail-closed approved
 ### `apps/api`
 
 Database-backed users/API keys/projects/jobs/artifacts, tenant isolation, bounded image normalization, idempotent local admission, active-job/rate limits, fenced worker leases, uncertain non-idempotent submission quarantine, restartable polling, operator reconciliation and verified artifact downloads.
+
+Migration `0002` adds immutable external identity mappings keyed by provider issuer+subject with operator-only link/list/unlink commands. This is an ownership boundary only; `apps/api` still accepts only product API keys over HTTP and does not trust external JWT/session claims yet.
 
 Artifact bytes now go through an `ArtifactStorage` abstraction. Filesystem remains default. An S3-compatible backend is available only when configured and verifies size/SHA metadata before DB completion; API downloads materialize then revalidate GLB structure/checksum before serving.
 
@@ -59,7 +63,7 @@ Do not infer Docker, paid cloud or GPU validation from those results.
 
 - Browser: first-party Next.js/React/Three.js rather than vendoring Open3DStudio. See [ADR 0001](adr/0001-web-studio-foundation.md).
 - Storage: filesystem default + optional S3-compatible backend; no public object URLs yet. See [OBJECT_STORAGE.md](OBJECT_STORAGE.md).
-- Public identity: Better Auth is the preferred candidate, but integration is intentionally blocked on an explicit immutable external-identity mapping and short-lived trusted BFF→API assertion contract. See [IDENTITY_AND_ACCOUNT_LIFECYCLE.md](IDENTITY_AND_ACCOUNT_LIFECYCLE.md).
+- Public identity: Better Auth is the preferred candidate. Immutable external-identity mapping is now implemented; the remaining gate is short-lived cryptographically verified issuer/audience-bound BFF→API identity plus full account lifecycle. See [IDENTITY_AND_ACCOUNT_LIFECYCLE.md](IDENTITY_AND_ACCOUNT_LIFECYCLE.md).
 - Upstream model policy: zero production models approved by default.
 - Non-idempotent upstream generation POSTs: never automatically replay an uncertain submission.
 
@@ -72,7 +76,7 @@ No real AI model was loaded. No real text/image generation was executed. No GPU 
 1. Finish the exact source + model-weight + dataset + transitive-license audit and select one end-to-end commercially acceptable generation runtime.
 2. Prepare an exact bounded GPU runbook for that approved runtime (provider, region, instance, VRAM, hourly cost, hard stop, checkpoint hash and cleanup).
 3. After owner approval of model rights + GPU budget, execute one real image → generation → validated GLB → product API → browser viewer → Blender import vertical slice and record timing/cost/checksums/screenshots.
-4. In parallel, implement the external-identity mapping/trusted assertion boundary before enabling Better Auth.
+4. In parallel, implement the **trusted assertion/JWKS validation half** of the identity boundary behind a disabled-by-default feature flag; the external mapping half is complete.
 5. Add artifact migration/orphan scanning/retention and persistent byte quotas before public object storage use.
 
 ## Reproduce CPU checks

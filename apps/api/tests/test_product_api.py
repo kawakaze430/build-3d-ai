@@ -48,6 +48,72 @@ def test_disabled_user_is_rejected(env):
     assert env.client.get("/v1/projects", headers=env.auth).status_code == 401
 
 
+def test_external_identity_mapping_is_immutable_and_not_email_based(env):
+    issuer = "https://studio.example.com/"
+    subject = "better-auth-user_01"
+    linked = env.store.link_external_identity(env.alice["user_id"], issuer, subject)
+    assert linked["issuer"] == "https://studio.example.com"
+    assert linked["subject"] == subject
+    assert env.store.resolve_external_identity("https://studio.example.com", subject) == env.alice["user_id"]
+
+    repeated = env.store.link_external_identity(
+        env.alice["user_id"], "https://studio.example.com", subject
+    )
+    assert repeated["id"] == linked["id"]
+
+    with pytest.raises(StoreError) as conflict:
+        env.store.link_external_identity(env.bob["user_id"], issuer, subject)
+    assert conflict.value.status == 409
+
+    with pytest.raises(StoreError) as replacement:
+        env.store.link_external_identity(
+            env.alice["user_id"], issuer, "different-provider-subject"
+        )
+    assert replacement.value.status == 409
+
+    items = env.store.list_external_identities(env.alice["user_id"])
+    assert [(item["issuer"], item["subject"]) for item in items] == [
+        ("https://studio.example.com", subject)
+    ]
+
+    with env.engine.begin() as conn:
+        conn.execute(users.update().where(
+            users.c.id == env.alice["user_id"]
+        ).values(active=False))
+    with pytest.raises(StoreError) as disabled:
+        env.store.resolve_external_identity(issuer, subject)
+    assert disabled.value.status == 401
+
+    with env.engine.begin() as conn:
+        conn.execute(users.update().where(
+            users.c.id == env.alice["user_id"]
+        ).values(active=True))
+    env.store.unlink_external_identity(issuer, subject)
+    with pytest.raises(StoreError) as removed:
+        env.store.resolve_external_identity(issuer, subject)
+    assert removed.value.status == 401
+
+
+@pytest.mark.parametrize("issuer", [
+    "http://identity.example.com",
+    "https://user:secret@identity.example.com",
+    "https://identity.example.com?tenant=alice",
+    "https://identity.example.com#fragment",
+    "not-a-url",
+])
+def test_external_identity_rejects_ambiguous_or_insecure_issuers(env, issuer):
+    with pytest.raises(StoreError) as exc:
+        env.store.link_external_identity(env.alice["user_id"], issuer, "opaque-subject")
+    assert exc.value.status == 422
+
+
+def test_external_identity_allows_local_http_for_development(env):
+    linked = env.store.link_external_identity(
+        env.alice["user_id"], "http://localhost:3000/", "local-user"
+    )
+    assert linked["issuer"] == "http://localhost:3000"
+
+
 @pytest.mark.parametrize("suffix,method", [
     ("", "get"), ("/cancel", "post"), ("/download", "get"), ("/artifact", "get"),
 ])

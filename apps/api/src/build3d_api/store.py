@@ -12,11 +12,13 @@ import re
 import secrets
 import time
 import uuid
+from urllib.parse import urlsplit, urlunsplit
 
 import sqlalchemy as sa
+from sqlalchemy.exc import IntegrityError
 
 from .config import Settings
-from .db import api_keys, artifacts, jobs, projects, users
+from .db import api_keys, artifacts, external_identities, jobs, projects, users
 
 
 TERMINAL = {"completed", "failed", "canceled"}
@@ -46,6 +48,38 @@ def public_job(row: dict) -> dict:
 
 def fingerprint(payload: dict) -> str:
     return hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+
+
+def normalize_external_issuer(value: str) -> str:
+    """Return one canonical issuer URL or reject an ambiguous/insecure value."""
+    if not isinstance(value, str):
+        raise StoreError(422, "External identity issuer must be a URL")
+    value = value.strip()
+    if not 1 <= len(value) <= 512:
+        raise StoreError(422, "External identity issuer must contain 1–512 characters")
+    parsed = urlsplit(value)
+    if (
+        parsed.scheme not in {"https", "http"}
+        or not parsed.hostname
+        or parsed.username is not None
+        or parsed.password is not None
+        or parsed.query
+        or parsed.fragment
+    ):
+        raise StoreError(422, "External identity issuer must be a clean http(s) origin/path")
+    if parsed.scheme == "http" and parsed.hostname not in {"localhost", "127.0.0.1", "::1"}:
+        raise StoreError(422, "External identity issuer must use HTTPS outside local development")
+    path = parsed.path.rstrip("/")
+    return urlunsplit((parsed.scheme.lower(), parsed.netloc.lower(), path, "", ""))
+
+
+def normalize_external_subject(value: str) -> str:
+    """Treat the provider subject as opaque; never substitute email/name matching."""
+    if not isinstance(value, str) or value != value.strip() or not 1 <= len(value) <= 255:
+        raise StoreError(422, "External identity subject must contain 1–255 non-padded characters")
+    if any(ord(char) < 0x20 or ord(char) == 0x7F for char in value):
+        raise StoreError(422, "External identity subject contains control characters")
+    return value
 
 
 class Store:
@@ -83,6 +117,87 @@ class Store:
             result = conn.execute(api_keys.update().where(api_keys.c.id == key_id).values(revoked_at=time.time()))
             if result.rowcount != 1:
                 raise StoreError(404, "Key not found")
+
+    def link_external_identity(self, owner_id: str, issuer: str, subject: str) -> dict:
+        issuer = normalize_external_issuer(issuer)
+        subject = normalize_external_subject(subject)
+        now = time.time()
+        try:
+            with self.engine.begin() as conn:
+                if not conn.execute(sa.select(users.c.id).where(
+                    users.c.id == owner_id, users.c.active.is_(True),
+                )).first():
+                    raise StoreError(404, "Active user not found")
+
+                same_subject = conn.execute(sa.select(external_identities).where(
+                    external_identities.c.issuer == issuer,
+                    external_identities.c.subject == subject,
+                )).mappings().first()
+                if same_subject is not None:
+                    if same_subject["owner_id"] != owner_id:
+                        raise StoreError(409, "External identity is already linked to another user")
+                    return dict(same_subject)
+
+                same_owner_issuer = conn.execute(sa.select(external_identities).where(
+                    external_identities.c.owner_id == owner_id,
+                    external_identities.c.issuer == issuer,
+                )).mappings().first()
+                if same_owner_issuer is not None:
+                    raise StoreError(409, "User already has a different subject for this issuer")
+
+                row = {
+                    "id": new_id(),
+                    "owner_id": owner_id,
+                    "issuer": issuer,
+                    "subject": subject,
+                    "created_at": now,
+                }
+                conn.execute(external_identities.insert().values(**row))
+                return row
+        except IntegrityError as exc:
+            raise StoreError(409, "External identity link conflicts with an existing mapping") from exc
+
+    def unlink_external_identity(self, issuer: str, subject: str):
+        issuer = normalize_external_issuer(issuer)
+        subject = normalize_external_subject(subject)
+        with self.engine.begin() as conn:
+            result = conn.execute(external_identities.delete().where(
+                external_identities.c.issuer == issuer,
+                external_identities.c.subject == subject,
+            ))
+            if result.rowcount != 1:
+                raise StoreError(404, "External identity link not found")
+
+    def list_external_identities(self, owner_id: str) -> list[dict]:
+        with self.engine.connect() as conn:
+            if not conn.execute(sa.select(users.c.id).where(users.c.id == owner_id)).first():
+                raise StoreError(404, "User not found")
+            return [dict(row) for row in conn.execute(sa.select(
+                external_identities.c.id,
+                external_identities.c.issuer,
+                external_identities.c.subject,
+                external_identities.c.created_at,
+            ).where(
+                external_identities.c.owner_id == owner_id,
+            ).order_by(
+                external_identities.c.issuer,
+                external_identities.c.subject,
+            )).mappings()]
+
+    def resolve_external_identity(self, issuer: str, subject: str) -> str:
+        issuer = normalize_external_issuer(issuer)
+        subject = normalize_external_subject(subject)
+        with self.engine.connect() as conn:
+            owner_id = conn.execute(sa.select(external_identities.c.owner_id).join(
+                users, users.c.id == external_identities.c.owner_id,
+            ).where(
+                external_identities.c.issuer == issuer,
+                external_identities.c.subject == subject,
+                users.c.active.is_(True),
+            )).scalar()
+        if owner_id is None:
+            raise StoreError(401, "External identity is not linked to an active user")
+        return owner_id
 
     def authenticate(self, token: str, *, now: float | None = None) -> str:
         if not re.fullmatch(r"b3d_[A-Za-z0-9_-]{43}", token):
