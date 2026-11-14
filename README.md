@@ -1,8 +1,8 @@
 # Build 3D AI — Independent AI 3D Creation Platform
 
-> **Implementation started:** The first bounded phase-0 work is on the [implementation branch](https://github.com/kawakaze430/build-3d-ai/tree/implementation/phase0-gateway-and-checklist). Follow the [complete ordered checklist](docs/IMPLEMENTATION_CHECKLIST.md) and [real 3DAIGC-API gateway instructions](docs/PHASE0_GATEWAY.md). Python API unit tests run in GitHub Actions. **No GPU inference or production SaaS is deployed yet.**
+> **Implementation baseline (15 Nov 2026):** `main` now contains the authenticated gateway, durable private product API/worker, browser studio/GLB viewer, and filesystem + optional S3-compatible artifact storage. Follow the [complete ordered checklist](docs/IMPLEMENTATION_CHECKLIST.md), [current handoff](docs/CODEX_HANDOFF.md), and [product backend runbook](docs/PRODUCT_BACKBONE.md). **No real GPU inference or production SaaS is deployed yet.**
 
-> **Status (14 Nov 2026, implementation branch): backend implementation and CPU tests.** Private projects, API keys, persistent jobs and validated downloads now have working code. There is no deployed customer application or verified GPU inference yet. See the [product backend runbook](docs/PRODUCT_BACKBONE.md).
+> **Verification boundary:** GitHub CI covers Python 3.11/3.12 gateway/API tests, SQLite/PostgreSQL behavior, TypeScript/unit/build checks and Playwright browser-contract tests. Browser/storage GLB fixtures are synthetic; they do not prove model quality, GPU cost, Blender import, commercial model clearance or production deployment.
 
 ## Mission
 
@@ -25,16 +25,19 @@ The owner controls the product, brand, website, infrastructure, source repositor
 
 **Initial differentiation:** reusable stylized adult characters and environments for Blender animation workflows, rather than just appealing single-view renders. Long-term scope remains a complete general-purpose 3D creation studio.
 
-## Current implementation work
+## Current implementation
 
-- [PR #1](https://github.com/kawakaze430/build-3d-ai/pull/1): owner-controlled gateway, end-to-end implementation checklist and automated contract tests.
-- [PR #11](https://github.com/kawakaze430/build-3d-ai/pull/11): default-deny commercial model approval policy and pinned partial source/license inventory.
-- **Next phase-0 work (stacked on PR #11):** [GPU smoke and GLB integrity runbook](docs/GPU_SMOKE_AND_ARTIFACTS.md): validates real downloaded binary GLBs and supplies an operator-only command for a budget-approved live GPU test.
-- **[PR #13](https://github.com/kawakaze430/build-3d-ai/pull/13), persistent product backend (stacked on PR #12):** [apps/api](apps/api) adds SQLAlchemy/Alembic migrations, operator-provisioned user API keys, private projects, idempotent text/image jobs, admission limits, recoverable worker polling, model provenance and verified private downloads. [Setup, API usage and recovery](docs/PRODUCT_BACKBONE.md).
+- **Gateway:** private 3DAIGC-API integration, fail-closed approved-model policy, bounded GLB verification and an explicit-spend GPU smoke runner.
+- **Product API/worker:** operator-provisioned API keys, projects, durable text/image jobs, idempotency, rate/active-job limits, fenced leases, uncertain-submission reconciliation and owner-scoped verified downloads.
+- **Browser studio:** original Next.js UI for projects, text/image submission, approved-model state, full persisted job history and a Three.js/R3F GLB viewport with orbit/zoom/reset/wireframe/statistics. Current login is a private API-key mechanism contained in an HttpOnly BFF cookie, not public signup.
+- **Artifact storage:** owner-scoped atomic filesystem storage by default plus an optional private S3-compatible backend behind configuration. S3 tests use an in-process synthetic client; no bucket was provisioned.
+- **Identity direction:** Better Auth is the preferred public-browser identity candidate, but it remains disabled until an immutable external-identity mapping and trusted BFF→API assertion boundary are implemented.
 
-**Project state:** GitHub CI verifies gateway/API/GLB handling with synthetic fixtures. No real inference model has been deployed or benchmarked by this project; completion of paid-GPU and license gates is still required.
+Merged implementation milestones: PR #1, consolidation PR #14, browser-studio PR #15 and object-storage PR #16. PRs #11–#13 were superseded by #14 after their reviewed final tree was transplanted cleanly onto `main`.
 
-### Run the private product backend locally
+**Project state:** generation is intentionally unavailable unless an exact model is placed in the reviewed approval policy. No real model inference has been executed or benchmarked by this project.
+
+### Run the private product backend and studio locally
 
 ```bash
 python -m venv .venv
@@ -43,9 +46,17 @@ python -m pip install -c requirements.lock -e "./apps/gateway[test]" -e "./apps/
 build3d-admin migrate
 build3d-admin create-user --name "Owner"
 uvicorn build3d_api.main:create_app --factory --host 127.0.0.1 --port 8081
+
+# separate terminal
+cd apps/web
+cp .env.example .env.local
+npm install --no-audit --no-fund
+npm run dev
 ```
 
-Save the API key printed by `create-user` privately; it is displayed only once. Open `http://127.0.0.1:8081/docs` and authorize using that key to create projects and inspect the API. The default approval policy disables generation. Starting the API does not start a GPU or worker. This release is for private evaluation, with operator-provisioned accounts; browser signup, studio/viewer and billing remain planned.
+Save the API key printed by `create-user` privately; it is displayed only once. Use it in the studio's private login. The Next.js server validates and retains it in an HttpOnly SameSite cookie; browser JavaScript does not persist it. The default approval policy disables generation, and starting the API/studio does not start a GPU or worker.
+
+See [browser studio details](apps/web/README.md), [artifact storage](docs/OBJECT_STORAGE.md) and [identity/account lifecycle decision](docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md).
 
 ## Architecture in brief
 
@@ -101,7 +112,7 @@ Codex/Astra can write, review and test code in the repository. **Codex Cloud is 
 
 Every feature must have a real end-to-end acceptance test and a clear status: **planned / implemented / tested / deployed**. No mocks should be presented as completed AI generation.
 
-**Next step:** execute [Phase 0](docs/ROADMAP.md): verify candidate repositories and licenses, choose one commercially cleared model, run one real image-to-3D job on a GPU, and record actual quality, latency, VRAM and cost.
+**Next step:** finish the exact code/weight/runtime license audit and select one commercially cleared generation stack. Only after explicit owner approval for that stack and a bounded GPU budget, run one real image-to-3D vertical slice through generation → validated GLB → product API → browser viewer → Blender import and record quality, latency, VRAM, checksum and actual cost.
 
 ## Licensing
 

@@ -1,6 +1,6 @@
 # Persistent projects and generation jobs
 
-Implementation dated **14 November 2026**, based on PR #12 commit `9759200b1ab9f769eadd54105579b26ed364d58a`. This is a real private product backend, with database-backed accounts, projects and jobs. Tests use real database transactions and **synthetic HTTP/model fixtures**; they do not prove AI inference, quality, GPU cost, commercial clearance, or production deployment.
+Initial backend implementation dated **14 November 2026**; consolidated and extended on `main` through PR #16 on **15 November 2026**. This is a real private product backend, with database-backed accounts, projects and jobs. Tests use real database transactions and **synthetic HTTP/model fixtures**; they do not prove AI inference, quality, GPU cost, commercial clearance, or production deployment.
 
 ## Scope and acceptance criteria
 
@@ -14,7 +14,7 @@ Implementation dated **14 November 2026**, based on PR #12 commit `9759200b1ab9f
 | Uploads | 10 MiB encoded limit, 16 million pixels, actual PNG/JPEG/WEBP decode, orientation normalization, metadata removal | Truncated/signature-only images, malformed EXIF, pixel and request-size tests |
 | Worker | Persistent claims and fencing tokens; safe polling retries; uncertain POSTs require reconciliation | Two-worker, crash, expired-lease, timeout and transport-failure tests |
 | Model lineage | Snapshot full approval entry at queue time and compare again before submission | Changed/revoked approval cannot reach the upstream |
-| Artifacts | Bounded GLB verification, staged private file, checksum, atomic DB completion, owner-only download | Invalid output, disk failure, missing/corrupted files, cross-owner tests |
+| Artifacts | Bounded GLB verification, checksum, atomic DB completion, owner-only download through a storage abstraction; filesystem default + optional S3-compatible backend | Invalid output, disk/object failure, missing/corrupted files, synthetic S3 round trip and cross-owner tests |
 
 The phase-0 operator gateway remains a separate application on port 8080. The product API is on port 8081 and does **not** mount those operator routes. A customer API key cannot query arbitrary upstream jobs, select unauthorized checkpoints, or provision users. The GPU server is reachable only by the worker, using a server-side token.
 
@@ -37,7 +37,7 @@ On Windows use `.venv\Scripts\Activate.ps1` and PowerShell environment variables
 
 Open `http://127.0.0.1:8081/docs` for the interactive API. Enter the user API key in **Authorize**, create a project, and use the returned project ID. `/health` verifies process/database availability; `gpu_verified: false` is intentional. No inference is run at startup or during project creation.
 
-Configuration is read from the process environment; the Python commands do not automatically load `.env`. Compose reads `.env`. Defaults use `./data/build3d.db` and `./data/artifacts`; both are excluded from Git. Restrict the data directory to the service account and use encrypted storage/backups for customer data. SQLite is a local development option; use PostgreSQL for concurrent private staging.
+Configuration is read from the process environment; the Python commands do not automatically load `.env`. Compose reads `.env`. Defaults use `./data/build3d.db`, filesystem artifact storage and `./data/artifacts`; these local data paths are excluded from Git. An optional S3-compatible artifact backend is available behind `ARTIFACT_STORAGE_BACKEND=s3`; no bucket is created automatically. See [OBJECT_STORAGE.md](OBJECT_STORAGE.md). SQLite is a local development option; use PostgreSQL for concurrent private staging.
 
 ## HTTP contract
 
@@ -60,11 +60,11 @@ Every `/v1` route requires `Authorization: Bearer USER_API_KEY`. Requests are ra
 
 New job submission returns **202 queued** and a `Location` header. Repeating the same key and input returns **200 with the same job ID**; changing project/type/prompt/model/original image bytes under that key returns **409**. Keys are scoped to an owner, retained with history, and not automatically expired. Admission still requires a currently approved model even for replays. Each owner has three active jobs by default; this is a concurrency guard, **not a dollar spend limit**. There is no automatic regeneration or retry endpoint.
 
-Image bytes are decoded and normalized to PNG before persistence. `input_sha256` identifies the original upload, and the normalized input is stored transactionally in the database until completion/failure/cancellation. Thus queued input survives restart without relying on a temporary upload URL. There is no S3 upload feature in this slice. Large-scale object storage and retention remain open.
+Image bytes are decoded and normalized to PNG before persistence. `input_sha256` identifies the original upload, and the normalized input is stored transactionally in the database until completion/failure/cancellation. Thus queued input survives restart without relying on a temporary upload URL. Image inputs still live transactionally in the database in this slice; the S3-compatible backend currently stores generated GLB artifacts only. Retention, persistent stored-byte quotas, orphan scanning and migration tooling remain open.
 
 ## Worker and GPU requirements
 
-Before running a worker against a real backend, resolve the existing model/license and GPU budget gates. Set `MODEL_APPROVAL_FILE`, `UPSTREAM_BASE_URL`, `UPSTREAM_BEARER_TOKEN`, `DATABASE_URL` and `ARTIFACT_DIR`. The worker and API must share the same database, artifact storage and policy. Inside containers, `localhost` refers to the container; set a private reachable backend hostname explicitly.
+Before running a worker against a real backend, resolve the existing model/license and GPU budget gates. Set `MODEL_APPROVAL_FILE`, `UPSTREAM_BASE_URL`, `UPSTREAM_BEARER_TOKEN`, `DATABASE_URL` and the same artifact-storage configuration for API/worker. Filesystem deployments use `ARTIFACT_DIR`; S3-compatible deployments additionally require `S3_ARTIFACT_BUCKET` and optional endpoint/region settings. The worker and API must share the same database, artifact storage and policy. Inside containers, `localhost` refers to the container; set a private reachable backend hostname explicitly.
 
 The worker reuses the real `UpstreamGateway` text/image APIs and GLB verifier. It stores exact model approval metadata but cannot attest that the remote server actually loaded those checkpoint bytes. Runtime attestation is still required before production.
 
@@ -108,11 +108,15 @@ Do not run that command merely to bypass a full queue. It records a local failur
 
 ## Storage, backups and rollback
 
-Artifacts are private files named with server-generated IDs, never user paths. Downloads validate structure and checksum again before returning success. The service account and operators must be the only filesystem writers; local tampering is outside the tenant permission boundary. Structural validation is not a renderer sandbox, topology test, malware certificate, or Blender-import proof.
+Generated artifact ownership, checksum and size live in the database. The bytes are stored behind the `ArtifactStorage` interface.
 
-Artifact file bytes and their directory entry are flushed before DB completion. If a process dies after file publication but before DB commit, an unreferenced file can remain. Files are also retained if a COMMIT response is lost, because the database may have successfully committed the reference. Do not automatically delete files while workers are active. Stop workers, compare filenames against artifact rows, retain a backup, then remove confirmed orphans. The service does not yet implement automated retention/garbage collection or disk quotas.
+The default filesystem backend publishes to deterministic owner-scoped paths beneath `ARTIFACT_DIR` using same-filesystem staging, fsync and atomic replace; it retains read compatibility with the earlier flat artifact layout. The optional S3-compatible backend writes a private deterministic key plus checksum/owner/job metadata, performs a HEAD size/SHA check before the job is committed completed, and never creates a bucket at startup.
 
-Back up the database and artifact directory together while writes/workers are stopped, and test restoration into an isolated instance. Stop admission/API and workers to roll back. This slice adds new tables/services and does not require changing the original gateway; it can remain available privately. Retain the new data for a forward fix. Migration downgrade exists for disposable test databases and **deletes the product tables**; it is not a production rollback procedure.
+Downloads do not trust storage metadata alone. The API materializes the owned object, runs the structural GLB verifier again, recomputes checksum/size against the database row, then serves it. S3-compatible materializations use bounded local temporary files that are removed after the response. Direct public/presigned object downloads are deliberately not exposed yet because they would bypass this revalidation boundary.
+
+A process/network failure around publication can still leave a private orphan. A dropped database COMMIT acknowledgement intentionally retains the published bytes because the database may have committed the reference. Do not run destructive automatic cleanup until an orphan scanner compares storage objects against artifact rows with a retention/audit policy.
+
+Back up database and artifact bytes as one logical dataset and verify restore checksums. Filesystem deployments must back up the artifact directory; S3-compatible deployments need provider-side backup/versioning policy. Automated retention, byte quotas and migration tooling remain open. See [OBJECT_STORAGE.md](OBJECT_STORAGE.md).
 
 ## Docker / PostgreSQL packaging
 
@@ -146,4 +150,4 @@ python scripts/check_api_wheel.py
 
 For an isolated PostgreSQL test instance, set `TEST_DATABASE_URL` to its `postgresql+psycopg://...` URL, then run `python -m pytest -q apps/api/tests`. Every test uses a fresh random schema; no existing application tables are dropped. The test user needs schema creation permissions. CI targets Python 3.11 and 3.12, SQLite and PostgreSQL 16. See the PR's actual Actions results before relying on a platform-specific claim.
 
-Still open: self-service signup/login/reset/deletion, browser studio/viewer, S3/signed URLs, global GPU scheduler, billing/credits, hosted deployment, actual inference, multi-view/mesh/rigging/facial/scene tools, training, full license clearance and real quality/cost benchmarks. The broad Phase 1 checklist items stay open where their acceptance includes those features.
+Still open: self-service signup/login/reset/deletion, trusted browser-identity→product-user linkage, storage migration/retention/byte quotas, global GPU scheduler, billing/credits, hosted deployment, actual inference, real generated-GLB browser+Blender proof, multi-view/mesh/rigging/facial/scene tools, training, full license clearance and real quality/cost benchmarks. The broad Phase 1 checklist items stay open where their acceptance includes those features.

@@ -12,7 +12,7 @@
 - [x] **00.02** Verify actual upstream 3DAIGC-API endpoints and Open3DStudio project existence. Proof: published upstream README/routes and repository metadata examined 2026-11-13.
 - [ ] **00.03** Inventory actual code in upstream Open3DStudio, 3DAIGC-API and AssetFurnace at pinned commit SHAs; audit tests, maintenance and API compatibility.
 - [ ] **00.04** Create source/model/weight/dataset/transitive-dependency commercial license matrix; block noncommercial/restricted integrations.
-- [ ] **00.05** Decide frontend foundation: adapt Open3DStudio vs. clean-room product UI based on actual fit/maintainability.
+- [x] **00.05** Decide frontend foundation: clean first-party Next.js product UI after pinned Open3DStudio code/license/architecture review. Proof: ADR 0001 + merged PR #15; Open3DStudio was not vendored.
 - [ ] **00.06** Decide one commercially cleared baseline 3D checkpoint and GPU runtime; pin full dependency graph.
 - [x] **00.07** Add working, authenticated upstream integration gateway, tests and CI. Proof: apps/gateway and passing GitHub Actions on Python 3.11/3.12; **unit/contract tests only, no GPU validation**.
 - [ ] **00.08** Obtain owner-approved GPU account, instance quota, allowed region, max hourly spend and stop conditions.
@@ -32,17 +32,20 @@
 - [x] **01.C** Durable text/image job admission, decoded bounded images, idempotency conflicts and atomic active-job quotas; concurrent submission tests.
 - [x] **01.D** Lease-based worker, approval snapshot recheck, safe polling retries, uncertain-submit quarantine and operator reconciliation; crash/fencing tests.
 - [x] **01.E** Verified private filesystem GLBs, stored checksums/provenance, owner-only downloads and corruption rejection; synthetic output tests only.
+- [x] **01.F** Private browser studio foundation: API-key BFF session, projects, text/image submission, persisted job states and explicit uncertain-state recovery UX. Proof: merged PR #15; TypeScript, unit, production-build and Playwright CI passed.
+- [x] **01.G** Real Three.js/R3F GLB viewer path with owner-scoped download, orbit/zoom/reset, wireframe and mesh/triangle statistics. Proof: merged PR #15; browser fixture validates the web/API/viewer path only, not real AI output.
+- [x] **01.H** Artifact storage abstraction with owner-scoped filesystem keys plus optional tested S3-compatible backend, checksum metadata and revalidated downloads. Proof: merged PR #16; no remote bucket provisioned.
 
 - [ ] **01.01** Monorepo contracts: versioned API schemas, worker registry, model IDs, job and artifact types.
 - [ ] **01.02** PostgreSQL migrations for users, projects, jobs, artifacts, provenance, permissions and ledger.
-- [ ] **01.03** User signup/login, secure sessions, password reset and account deletion; do not expose upstream admin token.
+- [ ] **01.03** User signup/login, secure sessions, password reset and account deletion; do not expose upstream admin token. Better Auth is the preferred candidate, but public identity remains disabled until an immutable external-identity mapping and trusted BFF→API assertion boundary are implemented. See [IDENTITY_AND_ACCOUNT_LIFECYCLE.md](IDENTITY_AND_ACCOUNT_LIFECYCLE.md).
 - [ ] **01.04** Tenant-level authorization tests for jobs/files/downloads and signed asset URLs.
-- [ ] **01.05** Private object storage with checksums, image upload validation, retention and cleanup.
+- [ ] **01.05** Private object storage with checksums, image upload validation, retention and cleanup. **Partial:** filesystem + S3-compatible artifact backend and verified downloads are implemented/tested; destructive migration, retention lifecycle, stored-byte quotas and orphan sweeping remain open. See [OBJECT_STORAGE.md](OBJECT_STORAGE.md).
 - [ ] **01.06** Durable queue, idempotency, retriable workers, cancellation, timeouts and dead-letter queue.
 - [ ] **01.07** GPU scheduler with model registry, per-model VRAM limits, concurrency, cold-start and eviction.
 - [ ] **01.08** Real text-to-3D (or explicitly labeled text→image→3D), image-to-3D, user selectable quality.
-- [ ] **01.09** Browser studio with prompt/upload, jobs, failure details, history and model/version selector.
-- [ ] **01.10** Three.js viewer with turntable, camera reset, material/wireframe views and secure real-model downloads.
+- [x] **01.09** Browser studio with prompt/upload, jobs, failure details, history and approved-model selector. Proof: merged PR #15 + Web Studio CI; generation remains disabled when no model is approved.
+- [ ] **01.10** Three.js viewer with turntable, camera reset, material/wireframe views and secure real-model downloads. **Partial:** actual product download route + GLB viewer are implemented/tested with a clearly synthetic GLB fixture; one real generated/model artifact still requires the GPU gate.
 - [ ] **01.11** Automatic mesh validation and GLB export with Blender/glTF import smoke tests.
 - [ ] **01.12** First end-to-end production-like deployment in isolated staging; load, access-control and recovery tests.
 

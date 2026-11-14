@@ -1,36 +1,81 @@
-# Developer handoff — 14 November 2026
+# Developer handoff — 15 November 2026
 
-## Branch stack and current implementation
+## Main is now the product baseline
 
-Review/merge the existing stack in order: **PR #1 → PR #11 → PR #12 → PR #13**. The newest branch is `implementation/durable-project-jobs`, based on PR #12 at `9759200b1ab9f769eadd54105579b26ed364d58a`. Retarget each dependent PR to `main` once its parent has landed; resolve against current main and rerun checks before merging. Do not merge the entire stack blindly.
+The old stacked PR handoff is obsolete.
 
-- `apps/gateway`: private operator gateway, real 3DAIGC-API client, model approvals, bounded GLB validation and explicit-spend GPU smoke CLI.
-- `apps/api`: separate private user-key API, projects, persistent text/image jobs, database-backed rate/admission limits, request idempotency, approval lineage and owned downloads.
-- `build3d-worker`: fenced database claims, non-replayed generation submissions, restartable polling, private artifact storage and operator reconciliation.
-- `build3d-admin`: migrations, user/key provisioning, revocation, reconciliation. No public admin endpoints.
-- `requirements.lock`, CPU dependency/license inventory, Docker packaging, Python 3.11/3.12 and SQLite/PostgreSQL CI definitions.
+Merged into `main` during the consolidation session:
 
-Run instructions and exact limitations: [PRODUCT_BACKBONE.md](PRODUCT_BACKBONE.md). Canonical task statuses: [IMPLEMENTATION_CHECKLIST.md](IMPLEMENTATION_CHECKLIST.md). Broad items remain open when only a subpart is implemented.
+- PR #1 → Phase-0 gateway/checklist baseline.
+- PR #14 → clean consolidation of the reviewed #11/#12/#13 stack: fail-closed model policy, GLB verification, durable product API/worker, PostgreSQL/SQLite CI and recovery semantics.
+- PR #15 → first-party `apps/web` browser studio, secure API-key BFF session, project/generation/job UI, real product GLB viewer/download path and browser tests.
+- PR #16 → artifact storage abstraction, owner-scoped filesystem layout and optional private S3-compatible backend.
 
-## What was verified in the implementation workspace
+PRs #11, #12 and #13 were closed as superseded after PR #14 preserved their final reviewed/tested tree on the post-#1 main baseline.
 
-The 95-test combined Python 3.12 SQLite/gateway suite passed. It exercises real database migrations/transactions/restarts, two-user isolation, simultaneous duplicate submissions, quotas, worker recovery, uncertain requests/commits, upload decoding and synthetic GLB downloads. CLI help, source compilation, distributable-wheel migration inclusion and a real Uvicorn process with authenticated project HTTP requests were also checked. Consult [PR #13](https://github.com/kawakaze430/build-3d-ai/pull/13) for final Python 3.11/3.12 and PostgreSQL Actions results.
+## What is actually implemented and tested
 
-**No AI generation, model load, GPU launch, cloud deployment or paid inference was performed.** HTTP and GLB fixtures are synthetic. Docker is unavailable on the implementation machine, so Compose packaging was not runtime-tested there. No claim of competitor-level output quality is supported yet.
+### `apps/gateway`
 
-## Next concrete development tasks
+Private upstream 3DAIGC API client, control authentication, fail-closed approved-model policy, bounded GLB structural verification and explicit-spend GPU smoke CLI.
 
-1. Review the stack and current CI. Pay special attention to approval policy handling, object ownership, upload limits, database concurrency, lease expiry, artifact integrity and uncertain-job quota retention.
-2. Complete issue #2's exact code/weight/dataset/transitive-license audit. The current inventory is partial; keep unapproved models disabled. Review bundled CPU binary dependencies before commercial distribution too.
-3. Prepare one specific private GPU deployment with exact model/runtime revision, checkpoint hash, provider region, quota, hourly price, total spend cap and shutdown plan. Get the missing budget/access before starting paid resources.
-4. With approved resources, run one real image → textured mesh → verified GLB. Record hardware, VRAM, timing, all costs, backend logs and Blender/viewer import proof. Use the genuine [GPU smoke guide](GPU_SMOKE_AND_ARTIFACTS.md); never use a fixture as evidence.
-5. While GPU access is pending, complete the pinned Open3DStudio build/maintenance audit and select the browser UI foundation. Integrate the tenant API with a real Three.js viewport only after reviewing the relevant dependencies. Add real browser and GLB import tests.
-6. Add a maintained identity provider or thoroughly tested account lifecycle: signup/login, recovery, deletion, session security and user administration. Operator-issued API keys alone are not public customer onboarding.
-7. Introduce private object storage, signed URLs, retention/cleanup, disk/storage quotas, backup-and-restore tests and metrics. Preserve all ownership checks. Current image inputs live in the database and output files require shared private disk.
-8. Add global worker/GPU concurrency, provider budget enforcement and runtime model attestation. Do not replace uncertain-submission quarantine with blind POST retries; the upstream lacks a proven idempotency contract. SQS does not solve that automatically.
-9. Proceed to billing, mesh tools, rigging, facial animation, scenes and training only with their independent acceptance tests and cleared dependencies. Do not label the full product complete until its release gates pass.
+### `apps/api`
 
-## Reproduce the CPU checks
+Database-backed users/API keys/projects/jobs/artifacts, tenant isolation, bounded image normalization, idempotent local admission, active-job/rate limits, fenced worker leases, uncertain non-idempotent submission quarantine, restartable polling, operator reconciliation and verified artifact downloads.
+
+Artifact bytes now go through an `ArtifactStorage` abstraction. Filesystem remains default. An S3-compatible backend is available only when configured and verifies size/SHA metadata before DB completion; API downloads materialize then revalidate GLB structure/checksum before serving.
+
+### `apps/web`
+
+Next.js browser studio with:
+- private operator-provisioned user-key login through an HttpOnly SameSite cookie;
+- strict server-side BFF allowlist to the tenant API;
+- project create/list/open;
+- approved-model state and honest disabled-generation state;
+- text/image job submission and persisted history;
+- distinct uncertain/recovery states;
+- real GLB download/viewer route with orbit/zoom/reset/wireframe and mesh statistics;
+- responsive UI;
+- Vitest and Playwright contract/browser coverage.
+
+No production UI path uses a sample mesh. The Playwright backend/triangle GLB are explicitly synthetic fixtures.
+
+## Verification evidence
+
+PR #14: Gateway CI + Product API CI passed.
+
+PR #15 on commit `c8fe3c7b3e2c77eb49ef7cd1078d3b823a183c12`:
+- Gateway CI: passed.
+- Product API CI: passed.
+- Web Studio CI: dependency install, TypeScript typecheck, Vitest, Next production build, Chromium install and Playwright browser tests all passed.
+
+PR #16 on commit `9c4478194fcdacb2765bb8925fc357ff8906bbf8`:
+- Gateway CI: passed.
+- Product API CI: passed, including filesystem/S3-compatible storage tests with an in-process synthetic object-store client.
+
+Do not infer Docker, paid cloud or GPU validation from those results.
+
+## Current architecture decisions
+
+- Browser: first-party Next.js/React/Three.js rather than vendoring Open3DStudio. See [ADR 0001](adr/0001-web-studio-foundation.md).
+- Storage: filesystem default + optional S3-compatible backend; no public object URLs yet. See [OBJECT_STORAGE.md](OBJECT_STORAGE.md).
+- Public identity: Better Auth is the preferred candidate, but integration is intentionally blocked on an explicit immutable external-identity mapping and short-lived trusted BFF→API assertion contract. See [IDENTITY_AND_ACCOUNT_LIFECYCLE.md](IDENTITY_AND_ACCOUNT_LIFECYCLE.md).
+- Upstream model policy: zero production models approved by default.
+- Non-idempotent upstream generation POSTs: never automatically replay an uncertain submission.
+
+## Still not verified
+
+No real AI model was loaded. No real text/image generation was executed. No GPU or paid cloud resource was launched. No generated GLB has yet been proven in both the browser viewer and Blender. No public signup/password-reset/account-deletion flow is enabled. No real S3 bucket was provisioned or migrated. No billing or production deployment exists.
+
+## Highest-value next work
+
+1. Finish the exact source + model-weight + dataset + transitive-license audit and select one end-to-end commercially acceptable generation runtime.
+2. Prepare an exact bounded GPU runbook for that approved runtime (provider, region, instance, VRAM, hourly cost, hard stop, checkpoint hash and cleanup).
+3. After owner approval of model rights + GPU budget, execute one real image → generation → validated GLB → product API → browser viewer → Blender import vertical slice and record timing/cost/checksums/screenshots.
+4. In parallel, implement the external-identity mapping/trusted assertion boundary before enabling Better Auth.
+5. Add artifact migration/orphan scanning/retention and persistent byte quotas before public object storage use.
+
+## Reproduce CPU checks
 
 ```bash
 python -m venv .venv
@@ -40,14 +85,22 @@ python -m pytest -q apps/api/tests apps/gateway/tests
 python -m compileall -q apps/api/src apps/gateway/src
 python -m pip wheel --no-deps ./apps/gateway ./apps/api -w dist
 python scripts/check_api_wheel.py
+
+cd apps/web
+npm install --no-audit --no-fund
+npm run typecheck
+npm test
+npm run build
+npx playwright install --with-deps chromium
+npm run test:e2e
 ```
 
-Set `TEST_DATABASE_URL` only to a dedicated PostgreSQL test service to run the API tests there. Each test creates/drops its own random schema. Do not run real workers or `build3d-gpu-smoke --confirm-gpu-spend` as part of CPU validation.
+Do not run `build3d-worker --confirm-gpu-spend` or `build3d-gpu-smoke --confirm-gpu-spend` as routine validation.
 
-## Blocking inputs for live inference
+## Owner gates for live inference
 
-- Owner-approved GPU provider/account, region, quota, hourly/total budget and stop conditions.
-- Full approval of one exact model/weight/runtime dependency chain for the intended commercial deployment.
-- Private authenticated upstream endpoint and runtime evidence that it serves those approved weights.
+- approved provider/account, region, quota, maximum hourly/total budget and shutdown conditions;
+- written engineering/legal clearance for one exact code + weight + runtime dependency chain for the intended commercial geography/use;
+- private authenticated runtime that attests it is serving the approved revision/checkpoint.
 
-These block live inference and deployment, not further bounded CPU implementation. Keep user/customer data and all credentials out of Git and public PR discussions.
+These gates block live inference, not further CPU-only engineering.

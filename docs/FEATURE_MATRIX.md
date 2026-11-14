@@ -2,7 +2,7 @@
 
 **Status convention:** Every row here is **PLANNED** until linked to a tested implementation PR and evidence. P0=initial deployable product, P1=commercial expansion, P2=advanced development.
 
-**Partial backend implementation, 14 Nov 2026:** APP01/APP02 now have operator-provisioned user keys, private projects/history, durable queue admission, worker recovery and verified private downloads in `apps/api`. They are **not complete**: full identity/account lifecycle, upstream cancellation, public deployment and real GPU validation remain open. GEO01/EXP01 still require actual mesh import/viewer proof. [Acceptance evidence and limits](PRODUCT_BACKBONE.md).
+**Verified private product slices, 15 Nov 2026:** APP01/APP02 now include operator-provisioned user keys, private projects/history, durable queue admission, worker recovery, browser studio workflows and verified private downloads. The browser viewer loads the real product download route and is contract-tested with a clearly synthetic GLB fixture. Artifact storage has filesystem and S3-compatible implementations behind configuration. These are **not complete commercial features**: public identity/account lifecycle, retention/byte quotas, upstream cancellation, deployment and real GPU/model validation remain open. GEO01/EXP01 still require proof using a genuinely generated artifact and Blender/viewer import. [Backend evidence](PRODUCT_BACKBONE.md), [storage design](OBJECT_STORAGE.md), [identity decision](IDENTITY_AND_ACCOUNT_LIFECYCLE.md).
 
 | ID | Feature | Priority | Release acceptance |
 |---|---|---|---|
