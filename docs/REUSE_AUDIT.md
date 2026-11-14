@@ -1,6 +1,6 @@
 # Phase 0: Public Repository Reuse Audit (Partial)
 
-**Research date:** 2026-11-13. **Status:** Code/README/license sources inspected. No GPU tests, model loading, npm build, or full dependency clearance performed.
+**Research dates:** 2026-11-13 through 2026-11-15. **Status:** Exact source revisions, representative code/package files and license/notice evidence inspected. No GPU tests, model loading or full transitive dependency clearance performed. Frontend product work now uses a first-party studio rather than vendoring Open3DStudio.
 
 This is the first deliverable toward [Issue #2](https://github.com/kawakaze430/build-3d-ai/issues/2). See [LICENSE_MATRIX.md](LICENSE_MATRIX.md) for the model-license deployment gate.
 
@@ -8,12 +8,41 @@ This is the first deliverable toward [Issue #2](https://github.com/kawakaze430/b
 
 | Candidate | Source at audit | Examined | Current decision |
 |---|---|---|---|
-| [Open3DStudio](https://github.com/FishWoWater/Open3DStudio) | `f2e403eb11a2c33077e9f353fa240974edb06981` | `README.md`, `package.json`, `LICENSE` | Frontend candidate; no installed build tested |
+| [Open3DStudio](https://github.com/FishWoWater/Open3DStudio) | `f2e403eb11a2c33077e9f353fa240974edb06981` | `README.md`, `package.json`, `LICENSE`, application/API coupling | **RESEARCH_ONLY**; not selected as product frontend. ADR 0001 chose a first-party Next.js studio. |
 | [3DAIGC-API](https://github.com/FishWoWater/3DAIGC-API) | `9c5643f99cbfd8d47b81922790f0d0a36be57e81` | `README.md`, `.gitmodules`, `api/routers/system.py`, `mesh_generation.py`, `file_upload.py`, `users.py`, `LICENSE` | Backend candidate; documented API integration currently tested through mocked transport |
-| [Step1X-3D](https://github.com/stepfun-ai/Step1X-3D) | `cb5ac944709c6c913109070c7b90c3447f57f3d4` | `README.md` and `LICENSE` | Fine-tuning candidate, no training attempted |
+| [Step1X-3D](https://github.com/stepfun-ai/Step1X-3D) | `cb5ac944709c6c913109070c7b90c3447f57f3d4` | `README.md`, `LICENSE`, published runtime requirements/model card | **REJECTED standard runtime path** for worldwide commercial deployment: published requirements include nvdiffrast, whose license is non-commercial; alternative renderer path would need a fresh audit |
 | [TRELLIS.2](https://github.com/microsoft/TRELLIS.2) | `75fbf0183001ed9876c8dbb35de6b68552ee08bd` | `README.md`, `LICENSE` | R&D only until renderer license chain resolved |
 | [UniRig](https://github.com/VAST-AI-Research/UniRig) | `6793c6640ff01c8fb389f3993434124bb43d2933` | `LICENSE` | Body rigging evaluation pending |
-| [SkinTokens](https://github.com/VAST-AI-Research/SkinTokens) | `273b691d35989d71cd17ff2895fdc735097b92d1` | `LICENSE` | Alternate rigging evaluation pending |
+| [SkinTokens](https://github.com/VAST-AI-Research/SkinTokens) | `273b691d35989d71cd17ff2895fdc735097b92d1` | `LICENSE` | **RESEARCH_ONLY** pending weights/dependency/functional audit |
+| [AssetFurnace](https://github.com/Bingeljell/image-to-3dlab) | `52b8cf560d3f4629342113b7a8b13312f4b05073` (v0.5.10 release head) | `README.md`, `pyproject.toml`, `LICENSE`, `NOTICE` | **RESEARCH_ONLY** as a whole; Apache-2.0 app code is promising, but its selectable model/encoder backends intentionally carry separate licenses |
+| [TripoSG](https://github.com/VAST-AI-Research/TripoSG) | `fc5c40990181e2a756c4e0b1c2f4d6b5202faf8c` | `README.md`, `requirements.txt`, `LICENSE`, `NOTICE`, inference preprocessing, published weight card | **REJECTED default worldwide runtime path**: source/main weights are MIT-labeled, but the CLI auto-downloads non-commercial BRIA RMBG-1.4 and NOTICE includes FlashVDM/Hunyuan-derived code with geographic community-license restrictions |
+| [xatlas](https://github.com/jpcy/xatlas) | `f700c7790aaa030e794b52ba7791a05c085faf0c` | repository metadata + MIT license | **APPROVED** as a source-license candidate for UV parameterization; integration/build/quality tests still required |
+| [glTF Transform](https://github.com/donmccurdy/glTF-Transform) | `8e2a94a2616d293c4b503d0fb6a4b42e6ec7c62f` | `package.json`, repository license metadata | **APPROVED** as a source/package candidate; active TypeScript glTF tooling, not yet integrated |
+| [Three.js](https://github.com/mrdoob/three.js) | `b529cbbda2ba956a8444545a5634f6db22b68385` (repo head inspected; app pins 0.187.0) | `package.json`, `LICENSE`, test scripts | **APPROVED** for browser rendering; version 0.187.0 is already used by `apps/web` and passed product web CI |
+
+## 15 Nov 2026 reuse/license findings
+
+### AssetFurnace
+
+AssetFurnace is unusually relevant as an integration/reference project because its application code is Apache-2.0 and the inspected v0.5.10 head is actively maintained. It already composes image generation, multiple 3D engines, finishing, rigging and animation rather than claiming one model solves the entire product.
+
+It is **not** a blanket commercial shortcut. Its own NOTICE explicitly says model weights are not shipped under the app's Apache license and names separate Tencent Hunyuan, Stability, DINOv3, Qwen and other terms. The README's backend table mixes permissive and community/research-limited components. Therefore reuse should be selective: architecture ideas, provenance UX and isolated Apache-licensed code can be reviewed file-by-file; no bundled backend choice is automatically approved.
+
+### TripoSG
+
+The TripoSG repository is MIT at the inspected commit, and the published `VAST-AI/TripoSG` weight repository currently labels the main model MIT. That is useful evidence but still not enough to approve the documented runtime as-is.
+
+The stock CLI downloads and instantiates `briaai/RMBG-1.4`; BRIA's published model card states RMBG-1.4 is non-commercial by default and commercial use requires a commercial agreement. Inspection of `scripts/image_process.py` confirms a valid RGBA alpha channel can avoid the RMBG inference call, so the model dependency is technically replaceable.
+
+That is **not sufficient** to clear the current source tree. TripoSG's NOTICE records derived code from HunyuanDiT and FlashVDM. The current Tencent Hunyuan FlashVDM community license limits the territory to worldwide **excluding the EU, UK and South Korea**; HunyuanDiT's community license also has territory/use conditions. The intended product is not scoped to those exclusions. Therefore the inspected default TripoSG runtime is **REJECTED for worldwide commercial deployment**, not merely awaiting a model-card check. A future fork may be re-evaluated only if the restricted derived components and RMBG path are demonstrably removed/replaced and the resulting exact tree is audited from scratch.
+
+### Utility libraries
+
+- **xatlas** is MIT and has no model-weight licensing layer. The inspected source head is old (2022 commit), so use should be gated by a build/quality adapter test rather than maintenance claims.
+- **glTF Transform** is MIT, actively maintained at the inspected 2026 commit, and is a strong candidate for deterministic glTF inspection/optimization tasks where it saves custom code.
+- **Three.js** is MIT, actively maintained, and already powers the first-party browser viewer at pinned npm version 0.187.0. Web CI validates our usage path. This does not imply every Three.js example asset/addon is licensed identically; only imported packages/code are in scope.
+
+These statuses are engineering reuse gates, not legal advice.
 
 ## Why reuse this backend
 
@@ -39,7 +68,7 @@ Step1X-3D documents `train.py` and `system.use_lora=True`. Its README also credi
 ## Required Codex work to finish the audit
 
 1. Clone exact revisions and record submodule SHAs, lockfiles, Python package trees and LICENSE/NOTICE files.
-2. Build Open3DStudio in a clean Node environment; run its actual tests; report failures.
+2. Do not spend critical-path time building Open3DStudio unless ADR 0001 is reconsidered; the product frontend is now first-party. Continue file-level reuse review only for components we actually intend to import.
 3. Build CPU-only backend dependencies in a clean sandbox; inspect API router contracts and security settings.
 4. Select a model with permission for our full intended geographic and commercial SaaS use, including all texture/render dependencies.
 5. Record realistic GPU resource needs, AWS instance access, budget and private networking plan—**do not launch paid GPUs without owner approval**.
@@ -49,7 +78,7 @@ Step1X-3D documents `train.py` and `system.use_lora=True`. Its README also credi
 
 ## Decision so far
 
-**Keep Open3DStudio + 3DAIGC-API as evaluation candidates and continue the narrow real-API gateway. Do not claim production commercial model approval.** The new model policy defaults to no generation until explicitly reviewed.
+**Keep 3DAIGC-API as the private serving-contract candidate, use the first-party browser studio, and selectively reuse permissive utility code. Do not claim production commercial model approval.** The new model policy defaults to no generation until explicitly reviewed.
 
 ## Private product backend reuse decision — 14 Nov 2026
 
