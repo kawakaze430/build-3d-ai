@@ -30,6 +30,16 @@ api_keys = sa.Table(
     sa.Column("window_start", sa.Float, nullable=False),
     sa.Column("request_count", sa.Integer, nullable=False),
 )
+external_identities = sa.Table(
+    "external_identities", metadata,
+    sa.Column("id", sa.String(32), primary_key=True),
+    sa.Column("owner_id", sa.String(32), sa.ForeignKey("users.id"), nullable=False, index=True),
+    sa.Column("issuer", sa.String(512), nullable=False),
+    sa.Column("subject", sa.String(255), nullable=False),
+    sa.Column("created_at", sa.Float, nullable=False),
+    sa.UniqueConstraint("issuer", "subject", name="uq_external_identity_subject"),
+    sa.UniqueConstraint("owner_id", "issuer", name="uq_external_identity_owner_issuer"),
+)
 projects = sa.Table(
     "projects", metadata,
     sa.Column("id", sa.String(32), primary_key=True),
@@ -115,5 +125,5 @@ def migrate(engine: Engine, revision: str = "head", *, downgrade: bool = False):
 def check_schema(engine: Engine):
     with engine.connect() as connection:
         version = connection.execute(sa.text("SELECT version_num FROM alembic_version")).scalar()
-    if version != "0001":
+    if version != "0002":
         raise RuntimeError("Database migration required: run build3d-admin migrate")

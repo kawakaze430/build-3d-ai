@@ -1,13 +1,15 @@
 # Identity and account lifecycle decision
 
 **Research date:** 15 November 2026  
-**Status:** Architecture decision recorded; public identity is **not implemented or enabled**.
+**Status:** Immutable external-identity mapping foundation implemented in database migration `0002`; public session/JWT identity is **not enabled**.
 
 ## Current state
 
 The product backend already supports operator-provisioned user API keys with SHA-256 digest storage, revocation, tenant-scoped projects/jobs/artifacts and rate limiting. The browser studio uses those keys only as a private/development mechanism: the key is validated by the Next.js server and then kept in an HttpOnly SameSite cookie.
 
-That is intentionally not described as public customer authentication. There is no self-service signup, verified email flow, password recovery, account deletion workflow or customer session administration yet.
+Migration `0002` adds an operator-managed `external_identities` table. It maps an immutable `(issuer, subject)` pair to one product user, rejects a second subject for the same product user+issuer, and never uses email/name matching. Store-level resolution returns only active product users. Operator CLI commands can link, list and unlink mappings; there is deliberately no tenant HTTP endpoint for changing them.
+
+That foundation is intentionally **not** described as public customer authentication. There is still no accepted external JWT on `apps/api`, self-service signup, verified email flow, password recovery, account deletion workflow or customer session administration.
 
 ## Reuse evaluation
 
@@ -45,23 +47,34 @@ Before enabling public identity, implement an explicit product identity link and
 6. Account deletion revokes sessions and API keys, blocks new work, then follows an explicit data-retention/deletion policy for projects, inputs and artifacts.
 7. Password reset/email verification require a selected mail provider, sender-domain setup, abuse/rate controls and operational monitoring before public enablement.
 
-## Proposed schema boundary
+## Implemented schema boundary
 
-Add a versioned table such as:
+Migration `0002` adds:
 
 ```text
 external_identities
 - id
-- user_id -> users.id
+- owner_id -> users.id
 - issuer
 - subject
 - created_at
 UNIQUE (issuer, subject)
+UNIQUE (owner_id, issuer)
+```
+
+Issuer values are canonicalized and must use HTTPS except loopback/localhost development. Subjects are treated as opaque provider identifiers. Linking is idempotent only for the exact same owner+issuer+subject and conflicts if an issuer/subject is already owned by someone else.
+
+Operator commands:
+
+```bash
+build3d-admin link-identity --user-id <product-user-id> --issuer https://studio.example.com --subject <provider-user-id>
+build3d-admin list-identities --user-id <product-user-id>
+build3d-admin unlink-identity --issuer https://studio.example.com --subject <provider-user-id>
 ```
 
 Do not store a Better Auth password hash in the Python product tables. Do not duplicate Better Auth sessions in `apps/api`.
 
-The eventual trusted assertion should be short-lived, audience-bound, issuer-bound and cryptographically verified. Exact mechanism (OIDC/JWT or an internal BFF service-token exchange) must be selected and threat-modeled before implementation.
+The next trusted-assertion layer remains disabled. Better Auth's maintained JWT plugin can issue short-lived JWKS-verifiable tokens for external services and documents issuer/audience validation, but Build 3D AI must still pin the exact algorithm/issuer/audience/JWKS URL, validate the token cryptographically, then resolve only its `sub` through this mapping. No email claim may become an ownership key.
 
 ## Feature flag / rollout
 
@@ -69,7 +82,7 @@ Public identity should remain off by default until the mapping + assertion tests
 
 A safe rollout sequence is:
 
-1. add external identity mapping migration and admin-only linking tests;
+1. **Implemented/tested:** external identity mapping migration and operator-only linking/listing/unlinking;
 2. add trusted assertion validation to `apps/api` behind an explicit feature flag;
 3. integrate Better Auth in `apps/web` against a dedicated test database;
 4. test signup, verification, login, session rotation, logout, password reset, account deletion, disabled-user behavior and cross-user isolation;
