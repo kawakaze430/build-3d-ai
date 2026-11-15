@@ -11,6 +11,7 @@ from fastapi.testclient import TestClient
 from build3d_api.config import Settings
 from build3d_api.main import create_app
 from build3d_api.maintenance import ArtifactInventoryLimit, scan_artifact_storage
+from build3d_api.migration import migrate_filesystem_to_s3
 from build3d_api.storage import (
     ArtifactStorageError,
     FileSystemArtifactStorage,
@@ -26,8 +27,10 @@ from build3d_gateway.upstream import UpstreamGateway
 class FakeS3:
     def __init__(self):
         self.objects = {}
+        self.put_calls = 0
 
     def put_object(self, *, Bucket, Key, Body, ContentLength, ContentType, Metadata):
+        self.put_calls += 1
         data = Body.read()
         assert len(data) == ContentLength
         self.objects[(Bucket, Key)] = {
@@ -292,3 +295,111 @@ def test_s3_inventory_paginates_and_respects_hard_scan_limit(tmp_path):
     assert full.truncated is False
     assert len(full.objects) == 3
     assert all(item.recognized for item in full.objects)
+
+
+def test_filesystem_to_s3_migration_is_dry_run_by_default_and_copy_only(
+    env, queued, triangle, tmp_path
+):
+    artifact_id = "e" * 32
+    owner_id = env.alice["user_id"]
+    sha = hashlib.sha256(triangle).hexdigest()
+    source_root = tmp_path / "legacy-artifacts"
+    source_root.mkdir()
+    # Exercise the pre-abstraction flat path; migration must still find it.
+    legacy = source_root / f"{artifact_id}.glb"
+    legacy.write_bytes(triangle)
+    with env.engine.begin() as conn:
+        from build3d_api.db import artifacts
+        conn.execute(artifacts.insert().values(
+            id=artifact_id,
+            job_id=queued,
+            owner_id=owner_id,
+            sha256=sha,
+            size_bytes=len(triangle),
+            mesh_count=1,
+            created_at=time.time(),
+        ))
+
+    s3_client = FakeS3()
+    source = FileSystemArtifactStorage(source_root)
+    target = S3ArtifactStorage(bucket="migration-target", client=s3_client)
+
+    dry = migrate_filesystem_to_s3(env.store, source, target, max_objects=10)
+    assert dry["mode"] == "dry-run"
+    assert dry["ready_to_copy"] is True
+    assert dry["planned_copy_count"] == 1
+    assert dry["copied_count"] == 0
+    assert dry["source_deleted"] is False
+    assert dry["database_modified"] is False
+    assert s3_client.put_calls == 0
+    assert legacy.exists()
+
+    copied = migrate_filesystem_to_s3(
+        env.store, source, target, max_objects=10, execute_copy=True
+    )
+    assert copied["ready_to_copy"] is True
+    assert copied["copied_count"] == 1
+    assert copied["copied_artifact_ids"] == [artifact_id]
+    assert s3_client.put_calls == 1
+    assert legacy.exists()
+
+    # Idempotent rerun verifies the existing target and performs no second PUT.
+    rerun = migrate_filesystem_to_s3(
+        env.store, source, target, max_objects=10, execute_copy=True
+    )
+    assert rerun["planned_copy_count"] == 0
+    assert rerun["target_existing_verified"] == 1
+    assert rerun["copied_count"] == 0
+    assert s3_client.put_calls == 1
+    assert legacy.exists()
+
+
+def test_filesystem_to_s3_migration_fails_closed_on_corrupt_source_or_target(
+    env, queued, triangle, tmp_path
+):
+    artifact_id = "d" * 32
+    owner_id = env.alice["user_id"]
+    sha = hashlib.sha256(triangle).hexdigest()
+    source_root = tmp_path / "source-artifacts"
+    source = FileSystemArtifactStorage(source_root)
+    source.prepare()
+    source_path = source_root / f"{artifact_id}.glb"
+    source_path.write_bytes(triangle)
+    with env.engine.begin() as conn:
+        from build3d_api.db import artifacts
+        conn.execute(artifacts.insert().values(
+            id=artifact_id,
+            job_id=queued,
+            owner_id=owner_id,
+            sha256=sha,
+            size_bytes=len(triangle),
+            mesh_count=1,
+            created_at=time.time(),
+        ))
+
+    s3_client = FakeS3()
+    target = S3ArtifactStorage(bucket="migration-target", client=s3_client)
+
+    source_path.write_bytes(b"x" * len(triangle))
+    source_bad = migrate_filesystem_to_s3(
+        env.store, source, target, max_objects=10, execute_copy=True
+    )
+    assert source_bad["ready_to_copy"] is False
+    assert source_bad["source_failures"]
+    assert s3_client.put_calls == 0
+
+    source_path.write_bytes(triangle)
+    initial = migrate_filesystem_to_s3(
+        env.store, source, target, max_objects=10, execute_copy=True
+    )
+    assert initial["copied_count"] == 1
+
+    key = artifact_object_key(owner_id, artifact_id)
+    s3_client.objects[("migration-target", key)]["data"] = b"x" * len(triangle)
+    target_bad = migrate_filesystem_to_s3(
+        env.store, source, target, max_objects=10, execute_copy=True
+    )
+    assert target_bad["ready_to_copy"] is False
+    assert target_bad["target_conflicts"]
+    assert s3_client.put_calls == 1
+    assert source_path.read_bytes() == triangle

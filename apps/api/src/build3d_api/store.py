@@ -155,7 +155,9 @@ class Store:
         with self.engine.connect() as conn:
             return [dict(row) for row in conn.execute(sa.select(
                 artifacts.c.id,
+                artifacts.c.job_id,
                 artifacts.c.owner_id,
+                artifacts.c.sha256,
                 artifacts.c.size_bytes,
             ).order_by(artifacts.c.id).limit(limit)).mappings()]
 

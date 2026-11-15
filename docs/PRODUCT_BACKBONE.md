@@ -117,7 +117,7 @@ Downloads do not trust storage metadata alone. The API materializes the owned ob
 
 A process/network failure around publication can still leave a private orphan. A dropped database COMMIT acknowledgement intentionally retains the published bytes because the database may have committed the reference. Use `build3d-admin scan-artifacts --max-objects 10000` for a bounded read-only comparison of storage objects against artifact rows; the command never deletes.
 
-Back up database and artifact bytes as one logical dataset and verify restore checksums. Filesystem deployments must back up the artifact directory; S3-compatible deployments need provider-side backup/versioning policy. Persistent per-user byte quotas are enforced at DB artifact completion. Automated retention, destructive orphan cleanup and migration tooling remain open. See [OBJECT_STORAGE.md](OBJECT_STORAGE.md).
+Back up database and artifact bytes as one logical dataset and verify restore checksums. Filesystem deployments must back up the artifact directory; S3-compatible deployments need provider-side backup/versioning policy. Persistent per-user byte quotas are enforced at DB artifact completion. Automated retention and destructive orphan cleanup remain open. A copy-only filesystem→S3 migration command is available for a stopped deployment; it never deletes source data or switches configuration automatically. See [OBJECT_STORAGE.md](OBJECT_STORAGE.md).
 
 ## Docker / PostgreSQL packaging
 

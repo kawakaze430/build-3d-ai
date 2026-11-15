@@ -64,17 +64,40 @@ No code in this milestone creates a bucket or starts a paid cloud service.
 
 ## Migration
 
-Do not flip a running deployment from filesystem to S3 until existing objects have been copied and verified. The logical key format is deterministic, but legacy flat filesystem objects need to be migrated into the owner-scoped S3 key. A migration tool should:
+Do not flip a running deployment from filesystem to S3 until existing objects have been copied and verified. The logical key format is deterministic, but legacy flat filesystem objects need to be migrated into the owner-scoped S3 key.
 
-1. enumerate artifact rows from the database;
-2. read and revalidate each legacy/current file;
-3. upload it to the deterministic owner-scoped key;
-4. HEAD-verify byte size and SHA metadata;
-5. re-download a sample (or all objects for the first migration) and compare SHA;
-6. record an operator audit log;
-7. switch configuration only after every live artifact is present.
+A copy-only operator command now implements the safe part of that transition. Configure the **target** S3-compatible backend through the normal private environment, but leave the running API/worker stopped during migration:
 
-This milestone provides the runtime abstraction, not the destructive migration command.
+```bash
+export ARTIFACT_STORAGE_BACKEND=s3
+export S3_ARTIFACT_BUCKET=private-target-bucket
+# S3_ENDPOINT_URL / S3_REGION / SDK credentials as appropriate
+
+# Read-only plan. This lists/reads the target but performs no PUT.
+build3d-admin migrate-filesystem-to-s3 \
+  --source-dir /srv/build3d/artifacts \
+  --max-objects 10000
+
+# Only after the dry-run says ready_to_copy=true:
+build3d-admin migrate-filesystem-to-s3 \
+  --source-dir /srv/build3d/artifacts \
+  --max-objects 10000 \
+  --execute-copy
+```
+
+The migration:
+1. enumerates the complete bounded artifact-row set;
+2. locates both legacy flat and current owner-scoped filesystem objects;
+3. structurally validates each source GLB and recomputes SHA-256/size against the database;
+4. lists the target prefix and refuses malformed/conflicting target objects;
+5. fully downloads/revalidates any already-present target artifact;
+6. in dry-run mode reports planned count/bytes without writing;
+7. with `--execute-copy`, PUTs only missing verified artifacts, HEAD-verifies via the storage backend, then re-downloads and fully validates every copied GLB;
+8. preserves every source file and database row and never changes the active configuration.
+
+Rerunning after a partial copy is safe: correctly verified targets are skipped. A failed target copy can leave a private target object for operator investigation, but **source bytes are never deleted**. Stop workers/writers during migration to avoid target-prefix races.
+
+The command intentionally does **not** delete legacy files, switch the application to S3, or make retention decisions. After a successful copy, run the target scanner, retain a backup, then change deployment configuration through the normal reviewed rollout process.
 
 ## Retention, cleanup and orphan handling
 
