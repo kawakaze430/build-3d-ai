@@ -88,3 +88,20 @@ Before the first GPU run:
 - obtain the bounded GPU budget approval in `docs/FIRST_REAL_GPU_RUNBOOK.md`.
 
 No production model approval file is changed by this patchset.
+
+## Dependency index-provenance audit (CPU / CI only)
+
+The TripoSR qualification workflow now runs pip with --dry-run --ignore-installed --report to record the resolved dependency metadata for Python 3.10, then executes audit_pip_report.py. The auditor:
+
+- rejects unpinned direct requirements, missing/mismatched pins and duplicate normalized distributions;
+- rejects yanked, non-wheel, missing-SHA256, credentialed, non-HTTPS or untrusted-index artifacts;
+- records exact resolved names/versions, pip-index-reported wheel SHA256 values, environment and input hashes in a deterministic JSON artifact;
+- never installs packages, downloads model weights or starts inference itself.
+
+A successful audit says ONLY that pip's resolution metadata met this contract on that runner. It does NOT independently hash wheel bytes, audit their contents/licenses, enumerate preinstalled PyTorch/CUDA/OS libraries, verify a built image digest or clear commercial model use. Source archives or custom indexes intentionally fail and need explicit engineering review; do not weaken the checks silently to obtain green CI.
+
+Test locally without external dependencies:
+
+    python -m unittest discover -s services/generation/triposr_candidate -p test_audit_pip_report.py -v
+
+Review the short-lived GitHub Actions artifact named triposr-candidate-index-provenance. Never treat its metadata alone as a production release lock.
