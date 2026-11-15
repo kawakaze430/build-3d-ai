@@ -4,6 +4,8 @@
 
 > **Verification boundary:** GitHub CI covers Python 3.11/3.12 gateway/API tests, SQLite/PostgreSQL behavior, TypeScript/unit/build checks and Playwright browser-contract tests. Browser/storage GLB fixtures are synthetic; they do not prove model quality, GPU cost, Blender import, commercial model clearance or production deployment.
 
+> **Long-chat recovery / permanent project context:** Start with [Master Project Memory and Continuation Handbook](docs/PROJECT_MEMORY_MASTER.md). It preserves the available research, conversations, architecture chart, all study/reference links, exact decisions, PR/CI history, the original 954-line assignment and the next Codex task. Read the date and verify current GitHub state before acting.
+
 ## Mission
 
 Build and operate an **independently branded, commercially viable AI 3D software platform** that can compete with leading products such as **Meshy** and **Tripo** on model quality, controllability, production readiness, cost, and user experience.
