@@ -87,13 +87,32 @@ class ReportAuditTests(unittest.TestCase):
             "https://evil.example/p.whl",
             "https://user:password@files.pythonhosted.org/p.whl",
             "file:///tmp/p.whl",
-            "https://files.pythonhosted.org/source.tar.gz",
+            "https://files.pythonhosted.org/not-a-package.exe",
             "https://files.pythonhosted.org/p.whl?token=secret",
         ]
         for url in urls:
             entries = [package("Pillow", "10.1.0", url=url), *self.good["install"][1:]]
             with self.subTest(url=url), self.assertRaises(module.AuditError):
                 self.inspect(report(*entries))
+
+    def test_source_archive_is_visible_blocker_and_release_mode_rejects_it(self):
+        value = report(
+            package("Pillow", "10.1.0"),
+            package("omegaconf", "2.3.0"),
+            package(
+                "antlr4-python3-runtime", "4.9.3",
+                url="https://files.pythonhosted.org/packages/antlr4-python3-runtime-4.9.3.tar.gz",
+            ),
+        )
+        result = self.inspect(value)
+        self.assertIn("BLOCKED_BY_SOURCE_ARCHIVES", result["status"])
+        self.assertEqual(result["source_archive_count"], 1)
+        self.assertEqual(result["resolved_wheel_count"], 2)
+        self.assertEqual(result["source_archives_needing_reviewed_build"], [
+            "antlr4-python3-runtime"
+        ])
+        with self.assertRaisesRegex(module.AuditError, "wheel-only release gate"):
+            module.inspect_report(value, self.pins, b"report", b"pins", require_wheels=True)
 
     def test_yanked_or_missing_environment_is_rejected(self):
         value = report(*self.good["install"])
