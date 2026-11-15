@@ -4,13 +4,20 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from pathlib import Path
 
 from sqlalchemy.exc import SQLAlchemyError
 
 from .config import Settings
 from .db import check_schema, create_database, migrate
 from .maintenance import scan_artifact_storage
-from .storage import ArtifactStorageError, create_artifact_storage
+from .migration import ArtifactMigrationError, migrate_filesystem_to_s3
+from .storage import (
+    ArtifactStorageError,
+    FileSystemArtifactStorage,
+    S3ArtifactStorage,
+    create_artifact_storage,
+)
 from .store import Store, StoreError
 
 
@@ -37,6 +44,17 @@ def main(argv=None) -> int:
         help="Dry-run database/storage consistency scan; never deletes objects",
     )
     scan.add_argument("--max-objects", type=int, default=10000)
+    migrate_artifacts = commands.add_parser(
+        "migrate-filesystem-to-s3",
+        help="Dry-run/copy DB-referenced filesystem artifacts to configured S3; never deletes source",
+    )
+    migrate_artifacts.add_argument("--source-dir", type=Path, required=True)
+    migrate_artifacts.add_argument("--max-objects", type=int, default=10000)
+    migrate_artifacts.add_argument(
+        "--execute-copy",
+        action="store_true",
+        help="Actually PUT missing verified artifacts. Omit for read-only planning.",
+    )
     link_identity = commands.add_parser(
         "link-identity",
         help="Operator-only: link one immutable external issuer/subject to a product user",
@@ -85,6 +103,26 @@ def main(argv=None) -> int:
                 storage = create_artifact_storage(settings)
                 storage.prepare()
                 result = scan_artifact_storage(store, storage, max_objects=args.max_objects)
+            elif args.command == "migrate-filesystem-to-s3":
+                if settings.artifact_storage_backend != "s3":
+                    raise RuntimeError(
+                        "migrate-filesystem-to-s3 requires ARTIFACT_STORAGE_BACKEND=s3"
+                    )
+                target = create_artifact_storage(settings)
+                if not isinstance(target, S3ArtifactStorage):
+                    raise RuntimeError("Configured migration target is not S3-compatible storage")
+                target.prepare()
+                source = FileSystemArtifactStorage(
+                    args.source_dir,
+                    prefix=settings.artifact_storage_prefix,
+                )
+                result = migrate_filesystem_to_s3(
+                    store,
+                    source,
+                    target,
+                    max_objects=args.max_objects,
+                    execute_copy=args.execute_copy,
+                )
             elif args.command == "link-identity":
                 result = store.link_external_identity(args.user_id, args.issuer, args.subject)
             elif args.command == "unlink-identity":
@@ -100,7 +138,13 @@ def main(argv=None) -> int:
     except StoreError as exc:
         print(exc.detail, file=sys.stderr)
         return 1
-    except (SQLAlchemyError, RuntimeError, ArtifactStorageError, ValueError):
+    except (
+        SQLAlchemyError,
+        RuntimeError,
+        ArtifactStorageError,
+        ArtifactMigrationError,
+        ValueError,
+    ):
         print("Database operation failed; check configuration and migrations.", file=sys.stderr)
         return 1
     finally:

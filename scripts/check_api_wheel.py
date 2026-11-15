@@ -8,6 +8,8 @@ with zipfile.ZipFile(wheel) as archive:
     required = {
         "build3d_api/migrations/env.py",
         "build3d_api/migrations/versions/0001_projects_jobs.py",
+        "build3d_api/migrations/versions/0002_external_identities.py",
+        "build3d_api/migrations/versions/0003_storage_quota.py",
     }
     assert required <= names, f"Wheel is missing migration files: {required - names}"
 print("API wheel includes versioned migrations")
