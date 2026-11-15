@@ -1,0 +1,955 @@
+# ROLE: PRINCIPAL AI ENGINEER, 3D GENERATION RESEARCHER, SOFTWARE ARCHITECT AND IMPLEMENTATION LEAD
+
+## MAIN REPOSITORY
+
+https://github.com/kawakaze430/build-3d-ai
+
+You are the principal engineer responsible for researching, architecting and continuing development of this project.
+
+Your objective is to help build an independently controlled, commercially viable, professional AI-powered 3D creation platform capable of competing with leading products such as Meshy and Tripo.
+
+This project must ultimately support:
+
+- Text-to-3D generation
+- Image-to-3D generation
+- Multi-image-to-3D generation
+- High-quality 3D geometry
+- Texture generation
+- PBR materials
+- UV mapping
+- Mesh optimization and retopology
+- 3D object generation
+- Human-character generation
+- Character rigging and animation
+- Facial animation
+- Eye movement and blinking
+- Expressions and mouth movement
+- Lip synchronization
+- Blender-compatible exports
+- Environment and world creation
+- Reusable characters and scenes
+- Professional editing workflows
+- GPU-based model inference
+- Future custom-model fine-tuning
+- A secure, scalable commercial software platform
+
+Our long-term ambition is to create a highly competitive, independent AI 3D ecosystem.
+
+However, every claimed capability must be supported by actual implementation and testing.
+
+---
+
+# CRITICAL INSTRUCTION 1: USE EXTENDED RESEARCH AND REASONING TIME
+
+You may spend up to **120 minutes (two hours)** performing serious research, architecture analysis, implementation planning and productive coding.
+
+I explicitly authorize extended reasoning and research within your available execution limits.
+
+Do not rush to suggest repositories after reading a few READMEs.
+
+Do not make a decision based only on GitHub stars.
+
+Do not choose a repository simply because it is popular.
+
+Investigate actual source code, architecture, dependencies, licenses, model capabilities and implementation suitability.
+
+Use as much productive reasoning and research time as your environment allows.
+
+The two-hour allowance is a maximum working budget, not a requirement to remain idle or delay completion.
+
+If your environment supports a long execution session, use that time effectively.
+
+If the session is shorter, complete the highest-value analysis and save a clear checkpoint.
+
+Your goal is engineering accuracy, not artificially consuming time.
+
+**Important: Research thoroughly, but begin implementation during this assignment whenever a safe, clearly justified task is identified.**
+
+---
+
+# CRITICAL INSTRUCTION 2: FIRST UNDERSTAND OUR EXISTING REPOSITORY
+
+Before writing implementation code, inspect the complete current repository.
+
+Start with:
+
+1. `AGENTS.md`
+2. `README.md`
+3. `docs/PRODUCT_VISION.md`
+4. `docs/ARCHITECTURE.md`
+5. `docs/FEATURE_MATRIX.md`
+6. `docs/ROADMAP.md`
+7. `docs/IMPLEMENTATION_CHECKLIST.md`
+8. `docs/CODEX_HANDOFF.md`
+9. `docs/OPEN_SOURCE_STRATEGY.md`
+10. `docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt`
+11. `docs/REUSE_AUDIT.md`
+12. `docs/LICENSE_MATRIX.md`
+13. `docs/FIRST_REAL_GPU_RUNBOOK.md`
+14. `docs/PRODUCT_BACKBONE.md`
+15. `docs/MODEL_APPROVAL_GATE.md`
+16. `docs/DECISIONS.md`
+
+Read other relevant files as necessary.
+
+Treat the current code and verified tests as the implementation baseline. Use planning documents to understand intent, but independently verify whether their implementation claims still match the code.
+
+Do not assume an old checklist or handoff is current.
+
+## Analyze every important code directory
+
+### A. Frontend
+
+Study:
+
+`apps/web/`
+
+Analyze:
+
+- Next.js architecture
+- React components
+- Three.js / React Three Fiber integration
+- Model viewer
+- Authentication flow
+- Projects and job-management interface
+- Image upload
+- Text prompts
+- Model selection
+- Artifact download
+- Storage-quota interface
+- Browser testing
+
+Identify what is genuinely implemented.
+
+Determine whether the current frontend should be extended or selectively improved.
+
+Do not recommend rebuilding the entire frontend without strong evidence.
+
+### B. Backend API
+
+Study:
+
+`apps/api/`
+
+Analyze:
+
+- FastAPI routes
+- Authentication
+- User accounts and identity mappings
+- Database models
+- Migrations
+- Job storage
+- Worker implementation
+- Retry mechanisms
+- Idempotency
+- Project ownership
+- Storage architecture
+- Security controls
+- Integration points
+
+Determine which parts are production-ready, which are private development features, and which remain incomplete.
+
+### C. AI Generation Gateway
+
+Study:
+
+`apps/gateway/`
+
+Analyze:
+
+- Upstream model integration
+- Model approval system
+- Request handling
+- Image processing
+- Job polling
+- GLB generation and verification
+- Texture packaging
+- Error handling
+- Security
+- GPU smoke-test implementation
+
+Determine how easily an independently deployed AI model can integrate with this gateway.
+
+### D. Generation Services
+
+Study:
+
+`services/generation/`
+
+Pay particular attention to:
+
+`services/generation/triposr_candidate/`
+
+Understand:
+
+- The existing TripoSR research
+- Source revision pinning
+- Runtime preparation
+- Dependency restrictions
+- Checkpoint verification
+- Docker configuration
+- Existing tests
+- Remaining blockers
+
+Do not discard this work unless you establish a significantly better approach through evidence.
+
+### E. Infrastructure and CI
+
+Analyze:
+
+- Dockerfiles
+- Docker Compose configuration
+- Python dependencies
+- Node.js dependencies
+- Test suites
+- GitHub Actions
+- Database migrations
+- Environment configuration
+- Deployment instructions
+
+Report any missing or broken contracts.
+
+## Required output
+
+Produce an accurate architecture map containing:
+
+- Existing components
+- Their responsibilities
+- Actual data flow
+- Implemented integration boundaries
+- Missing integration boundaries
+- Important dependencies
+- Security assumptions
+- Components worth keeping
+- Components needing improvement
+- Components not yet implemented
+
+Clearly distinguish:
+
+1. Implemented
+2. Tested
+3. Partially implemented
+4. Planned
+5. Blocked
+6. Deployed
+
+Never treat documentation, simulated outputs or mocked tests as proof of real GPU generation.
+
+---
+
+# CRITICAL INSTRUCTION 3: ANALYZE THE 112 OPEN-SOURCE REPOSITORIES
+
+Open this file:
+
+`docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt`
+
+It contains 112 publicly available GitHub repositories collected for our project.
+
+Your responsibility is to evaluate this catalog systematically.
+
+Do not blindly clone all 112 repositories.
+
+Perform the following investigation.
+
+## Step 1: Repository inventory
+
+Classify all 112 repositories into relevant categories:
+
+- Application foundations
+- AI generation engines
+- Model serving and orchestration
+- Image-to-3D
+- Text-to-3D
+- Multi-view reconstruction
+- Texture generation
+- Geometry and mesh processing
+- Rigging
+- Character animation
+- Facial animation
+- Environment generation
+- Visualization
+- Backend infrastructure
+- GPU deployment
+- Model training
+- Testing and validation
+
+For each repository, identify where possible:
+
+- Exact GitHub URL
+- Main purpose
+- Available features
+- License information
+- Maintenance activity
+- Relevance to our architecture
+- Major dependencies
+- Potential commercial-use restrictions
+
+Use repository metadata for initial filtering.
+
+Do not pretend to have performed a complete code or license audit of every repository if that work has not actually happened.
+
+## Step 2: Shortlist the best candidates
+
+From the 112 repositories, create a shortlist of approximately 8–12 high-value candidates.
+
+You may also research newer or stronger open-source alternatives outside our existing catalog.
+
+Consider at least these existing candidates:
+
+- FishWoWater/3DAIGC-API
+- FishWoWater/Open3DStudio
+- Bingeljell/image-to-3dlab
+- VAST-AI-Research/TripoSR
+- microsoft/TRELLIS
+- microsoft/TRELLIS.2
+- stepfun-ai/Step1X-3D
+- VAST-AI-Research/TripoSG
+- VAST-AI-Research/UniRig
+- VAST-AI-Research/SkinTokens
+- Tencent-Hunyuan/Hunyuan3D-2
+- Stability-AI/stable-fast-3d
+
+These are investigation candidates, not mandatory winners.
+
+For promising candidates, inspect actual implementation files rather than relying solely on documentation.
+
+Research:
+
+- Generation quality
+- GPU and VRAM requirements
+- Inference speed
+- Model weights
+- Output formats
+- Texture quality
+- Mesh topology
+- Multiview consistency
+- Maintainability
+- Commercial licensing
+- Worldwide SaaS deployment rights
+- Dependencies
+- Integration complexity
+- Security implications
+- Long-term extensibility
+
+When information cannot be verified, mark it as unknown.
+
+---
+
+# CRITICAL INSTRUCTION 4: SELECT EXACTLY TWO MAIN REPOSITORIES
+
+This is one of the most important deliverables.
+
+**After completing the research, recommend exactly TWO primary open-source repositories that provide the greatest engineering value to Build 3D AI.**
+
+Not five.
+
+Not ten.
+
+Exactly two primary repositories.
+
+You may recommend additional specialized libraries for individual features, but they must not be presented as additional primary repositories.
+
+## Selection philosophy
+
+We want two repositories that complement our existing project and each other.
+
+Ideally, consider:
+
+**Primary Repository 1: Application, pipeline or integration foundation**
+
+A mature project that provides substantial value in orchestration, model serving, asset processing or multi-stage 3D workflows.
+
+**Primary Repository 2: AI generation or production-critical capability**
+
+A mature implementation providing an essential capability such as image-to-3D generation, text-to-3D generation or another proven critical component.
+
+This pairing is a hypothesis, not a rigid rule.
+
+If research demonstrates that another combination is substantially better, select that combination and justify it.
+
+Your selection must optimize for the complete project, while giving special weight to achieving the first verified real GPU generation.
+
+## Selection criteria
+
+Evaluate the finalists using a weighted scorecard.
+
+Suggested weights:
+
+| Criterion | Weight |
+|---|---:|
+| Fit with existing Build 3D AI architecture | 20% |
+| Actual capability and output quality | 20% |
+| Commercial licensing and deployment feasibility | 20% |
+| Engineering maturity and maintenance | 15% |
+| GPU requirements and operating cost | 10% |
+| Integration complexity | 10% |
+| Extensibility and future development | 5% |
+
+A confirmed commercial-license incompatibility must disqualify the affected deployment path regardless of its numerical score.
+
+Do not confuse source-code licensing with model-weight licensing.
+
+A repository can have an MIT or Apache license while its pretrained weights, datasets or runtime dependencies impose different restrictions.
+
+Investigate all relevant licensing layers:
+
+1. Source code
+2. Model weights
+3. Training datasets
+4. Runtime dependencies
+5. Rendering dependencies
+6. SaaS hosting restrictions
+7. Commercial-use terms
+8. Geographic restrictions
+9. Attribution and redistribution requirements
+
+Consult the existing license audit.
+
+In particular, recheck the previously documented concerns about Step1X-3D, TRELLIS.2, TripoSG and Hunyuan-derived components.
+
+Do not silently approve something the existing project has explicitly blocked.
+
+If a candidate remains legally uncertain, classify it as `RESEARCH_ONLY` or `NEEDS_PERMISSION`.
+
+## Required final recommendation format
+
+### PRIMARY REPOSITORY #1
+
+- Repository name
+- Exact GitHub URL
+- Current reviewed commit SHA
+- License findings
+- Main functionality
+- Why it was selected
+- Which existing Build 3D AI components it complements
+- Exact directories or modules worth studying
+- Features suitable for selective reuse
+- Features unsuitable for reuse
+- Required modifications
+- Dependencies
+- Security and license risks
+- Expected integration effort
+- Acceptance tests
+
+### PRIMARY REPOSITORY #2
+
+Provide the same detailed analysis.
+
+### Why these two?
+
+Explain:
+
+- Why they are the best combination
+- Why they complement each other
+- How they fit our existing architecture
+- What they allow us to implement first
+- What they cannot provide
+- Which features still require specialized utilities
+- Why the strongest alternatives were rejected
+- What evidence could change your recommendation
+
+**Do not select repositories only because they collectively list many features. Prioritize verified working code and realistic integration.**
+
+---
+
+# CRITICAL INSTRUCTION 5: DO NOT REBUILD FEATURES THAT ALREADY EXIST
+
+Our engineering time and Codex credits are valuable.
+
+Before implementing any substantial functionality, check whether we already have it.
+
+Examples:
+
+- Existing viewer components
+- GLB validation
+- Image parsing
+- API authentication
+- Database persistence
+- Job processing
+- Asset storage
+- Model policy enforcement
+
+Also investigate whether mature third-party libraries solve specialized problems effectively.
+
+Examples include:
+
+- Three.js
+- React Three Fiber
+- glTF Transform
+- xatlas
+- trimesh
+- Blender
+- glTF Validator
+
+Do not independently recreate complex generic algorithms without a demonstrated reason.
+
+Our custom engineering effort should focus on integration, reliability, editing workflows, user experience, quality improvement and differentiation.
+
+Maintain an original, independently controlled product architecture.
+
+Do not blindly merge complete external repositories.
+
+Prefer selective, license-compliant integration through defined interfaces.
+
+---
+
+# CRITICAL INSTRUCTION 6: PRODUCE THE COMPLETE BUILDING PLAN
+
+After identifying the two primary repositories, create an actionable development plan.
+
+The plan must reflect our existing code.
+
+Do not start from zero.
+
+Include the following stages.
+
+## STAGE 1: Real AI generation
+
+- Finalize the selected model/runtime qualification
+- Verify exact source and checkpoint revisions
+- Resolve runtime dependencies
+- Build a reproducible inference container
+- Test model loading
+- Generate a real 3D mesh
+- Verify texture outputs
+- Export a valid GLB
+- Integrate generation with the existing gateway
+- Integrate jobs with the existing API
+- Display generated results in the existing viewer
+- Test importing into Blender
+
+This is the most important technical milestone.
+
+Do not claim completion until a genuine model has produced a verifiable artifact.
+
+## STAGE 2: Core generation capabilities
+
+- Image-to-3D
+- Text-to-3D
+- Multiple reference images
+- Generation options
+- Model-quality selection
+- Generation history
+- Failure recovery
+- Asset downloads
+- Reproducible configurations
+
+## STAGE 3: Professional 3D tools
+
+- Texture generation
+- PBR materials
+- UV mapping
+- Mesh optimization
+- Retopology
+- Material editing
+- Polygon budgets
+- Export compatibility
+
+## STAGE 4: Character generation and animation
+
+- Reusable character models
+- Human-body generation
+- Skeleton generation
+- Skin weighting
+- Animation retargeting
+- Walking and running
+- Arm and hand movement
+- Eye movement
+- Blinking
+- Facial expressions
+- Jaw and mouth movement
+- Lip synchronization
+- Blender-compatible animation
+
+These capabilities are particularly important because one of our main differentiators is reusable stylized characters for animation production.
+
+## STAGE 5: Environment generation
+
+- Rooms
+- Houses
+- Buildings
+- Landscapes
+- Streets
+- Objects
+- Environment composition
+- Editable scene graphs
+- Scene exports
+
+Keep Gaussian-splat world representations separate from editable polygon-based scene workflows.
+
+## STAGE 6: Commercial platform
+
+- Public account lifecycle
+- Project management
+- Billing and subscription infrastructure
+- Credit metering
+- Job queues
+- API access
+- Storage management
+- Monitoring
+- Security hardening
+- GPU scheduling
+- Cost controls
+- Production deployment
+
+## STAGE 7: Custom AI models
+
+- Dataset discovery
+- Data licensing
+- Dataset cleaning
+- Training-data provenance
+- Evaluation
+- Fine-tuning
+- GPU optimization
+- Model versioning
+- Specialized character-generation improvements
+
+We want independent product ownership and useful custom model adaptations.
+
+Do not imply that using open-source pretrained weights gives us exclusive ownership of those weights.
+
+---
+
+# CRITICAL INSTRUCTION 7: CREATE A REALISTIC IMPLEMENTATION CHECKLIST
+
+For each implementation task provide:
+
+- Task ID
+- Feature
+- Current implementation status
+- Files or modules involved
+- Dependencies
+- Priority
+- Estimated engineering effort
+- Required CPU/GPU resources
+- Acceptance criteria
+- Test strategy
+- Blockers
+
+Organize tasks by actual dependency order.
+
+Separate:
+
+- Work executable immediately on CPU
+- Work requiring a GPU
+- Work requiring license approval
+- Work requiring cloud access
+- Work requiring financial authorization
+
+Do not assign unrealistic completion dates.
+
+Highlight the shortest path to a real working end-to-end product.
+
+---
+
+# CRITICAL INSTRUCTION 8: BEGIN ACTUAL IMPLEMENTATION
+
+This is not a research-only assignment.
+
+Once the repository audit and primary-repository decision are sufficiently supported, begin implementing the highest-priority safe engineering task.
+
+Use the existing codebase.
+
+Do not replace working infrastructure unnecessarily.
+
+Prioritize the current first-GPU critical path:
+
+1. Inspect the existing TripoSR qualification implementation.
+2. Determine whether the selected generation engine changes that plan.
+3. Identify the next unresolved technical blocker.
+4. Complete the highest-value CPU-verifiable engineering work.
+5. Add or improve automated tests.
+6. Validate the changes.
+7. Update documentation and the implementation checklist.
+
+The existing handoff identifies candidate runtime construction, dependency inventory, texture-baking validation and checkpoint-loading verification as major remaining engineering work.
+
+Reassess those findings against the latest source code and your repository research.
+
+Do not simply repeat work already completed.
+
+If the selected approach differs, explain why before changing the implementation.
+
+## Coding requirements
+
+- Preserve the current project architecture unless there is a compelling reason to change it.
+- Use modular components.
+- Add type-safe interfaces where appropriate.
+- Maintain security controls.
+- Preserve authenticated access.
+- Preserve existing tenant isolation.
+- Use reproducible dependency versions.
+- Create automated tests.
+- Keep GPU services isolated.
+- Avoid introducing unnecessary infrastructure.
+- Do not commit secrets.
+- Preserve upstream license notices.
+- Never label a simulated generation as real inference.
+
+Create a focused implementation branch if repository write access is available.
+
+Keep changes reviewable.
+
+Commit completed work with meaningful messages.
+
+Open a pull request only if repository permissions and the working environment authorize it.
+
+---
+
+# CRITICAL INSTRUCTION 9: STRICT GPU AND CLOUD RESOURCE POLICY
+
+Do not automatically launch paid AWS, Azure, GCP or other GPU infrastructure.
+
+Do not initiate billable training.
+
+Do not download multi-gigabyte checkpoints or base images without checking the relevant resource and permission constraints.
+
+Do not consume cloud credits without explicit authorization.
+
+You may:
+
+- Analyze GPU requirements
+- Review cloud deployment options
+- Estimate costs
+- Inspect existing GPU configuration
+- Prepare Docker configurations
+- Write deployment scripts
+- Implement model adapters
+- Test CPU-compatible components
+
+Before running paid GPU inference, report:
+
+- Cloud provider
+- Region
+- GPU model
+- Estimated VRAM requirement
+- Estimated cost per hour
+- Proposed runtime
+- Maximum spend
+- Shutdown procedure
+- Required checkpoint
+- License approval status
+
+Stop and request approval before actual spending.
+
+Do not bypass the commercial-license approval gate to demonstrate a model.
+
+---
+
+# CRITICAL INSTRUCTION 10: MAINTAIN RESEARCH AND ENGINEERING DOCUMENTATION
+
+Create or update the following files when appropriate.
+
+### `docs/CURRENT_STATE_AUDIT.md`
+
+Document the real implementation state.
+
+Include code paths, test evidence and discrepancies between documentation and implementation.
+
+### `docs/TWO_PRIMARY_REPOSITORIES_DECISION.md`
+
+This is the most important research deliverable.
+
+Include:
+
+- The 112-repository catalog evaluation
+- Shortlist
+- Selection criteria
+- Final comparison
+- Exactly two selected repositories
+- Source-code findings
+- License findings
+- Integration plan
+- Rejected alternatives
+- Limitations
+- Final recommendation
+
+### `docs/INTEGRATION_DECISIONS.md`
+
+Document which technologies should be reused, adapted, rejected or researched further.
+
+### `docs/EXECUTION_PLAN.md`
+
+Provide a realistic ordered engineering plan based on the existing repository.
+
+### Existing project documents
+
+Update as necessary:
+
+- `docs/IMPLEMENTATION_CHECKLIST.md`
+- `docs/REUSE_AUDIT.md`
+- `docs/LICENSE_MATRIX.md`
+- `docs/CODEX_HANDOFF.md`
+- `docs/ROADMAP.md`
+
+Do not rewrite existing documentation unnecessarily.
+
+Preserve previous valid research.
+
+Clearly distinguish independently verified findings from existing project claims.
+
+Include precise source links and commit references for significant repository research.
+
+---
+
+# CRITICAL INSTRUCTION 11: RUN VALIDATION
+
+Run relevant tests after implementation.
+
+Where appropriate:
+
+### Python
+
+- Unit tests
+- API tests
+- Gateway tests
+- Model-policy tests
+- Storage tests
+- Source preparation tests
+- Dependency checks
+
+### Frontend
+
+- TypeScript checks
+- Unit tests
+- Next.js production build
+- Playwright browser tests
+
+### 3D output
+
+- GLB structural validation
+- glTF compatibility
+- Geometry checks
+- Texture embedding
+- UV correctness
+- Blender import compatibility
+
+Do not claim a test passed unless it actually ran.
+
+If a test requires unavailable dependencies, GPU resources or permission, report that limitation explicitly.
+
+Include actual command results.
+
+Never hide failing tests.
+
+---
+
+# CRITICAL INSTRUCTION 12: FINAL REPORT FORMAT
+
+At the end of your research and implementation session, provide:
+
+## PART A: Existing repository analysis
+
+- Current architecture
+- Major implemented features
+- Current blockers
+- Missing components
+- Problems discovered
+- Features that should be preserved
+
+## PART B: 112-repository research
+
+- Catalog overview
+- Shortlist
+- Evaluation methodology
+- Important discoveries
+- Licensing considerations
+
+## PART C: EXACTLY TWO PRIMARY REPOSITORIES
+
+Clearly state:
+
+**PRIMARY REPOSITORY #1: [NAME]**
+
+**PRIMARY REPOSITORY #2: [NAME]**
+
+Include direct GitHub links and exact reviewed revisions.
+
+Explain why these two provide the strongest overall foundation for our current project.
+
+## PART D: Engineering integration plan
+
+Explain how the two repositories fit into Build 3D AI.
+
+Show the intended component architecture and integration boundaries.
+
+## PART E: Complete development checklist
+
+Provide ordered tasks with priorities, dependencies, acceptance tests and blockers.
+
+## PART F: Implementation completed during this session
+
+List:
+
+- Files changed
+- Features implemented
+- Tests added
+- Tests executed
+- Results
+- Remaining issues
+
+If no implementation was possible, explain the specific blocker.
+
+## PART G: Next development assignment
+
+Provide the exact next task for another Codex/Astra session.
+
+Specify:
+
+- Objective
+- Files involved
+- Required changes
+- Acceptance criteria
+- Test commands
+- Expected deliverables
+
+The next developer must be able to continue without repeating the entire research process.
+
+---
+
+# TIME MANAGEMENT
+
+Use the available working period productively.
+
+Suggested allocation for a session with a full two-hour execution window:
+
+**Minutes 0–20:** Inspect existing repository, code, tests, architecture and documents.
+
+**Minutes 20–65:** Evaluate the 112-repository catalog, shortlist candidates and deeply inspect promising implementations.
+
+**Minutes 65–85:** Select exactly two primary repositories, record evidence and formulate the integration architecture.
+
+**Minutes 85–120:** Implement one high-priority safe engineering improvement, run tests, update documentation and prepare the handoff.
+
+This is flexible. Spend more time where technically justified.
+
+Do not fabricate research results or claim to have spent two hours if the execution environment provides less time.
+
+Save progress checkpoints when appropriate.
+
+Do not waste time waiting.
+
+---
+
+# FINAL PROJECT PRINCIPLES
+
+1. Our goal is a competitive, independent AI 3D creation platform.
+2. Preserve the existing working code.
+3. Research thoroughly before selecting technology.
+4. Choose exactly two primary study repositories.
+5. Reuse mature technology where legally and technically appropriate.
+6. Never confuse public code with unrestricted commercial-use rights.
+7. Prioritize the first genuinely verified GPU-generation pipeline.
+8. Make progress through tested vertical slices.
+9. Keep GPU spending and major downloads under explicit approval.
+10. Report implementation status honestly.
+11. Maintain complete documentation for future developers.
+12. Begin real development during this assignment.
+
+**START NOW.**
+
+First inspect the actual repository state and source code.
+
+Then examine the 112-repository catalog, conduct extended technical research, select exactly two main repositories, produce the integration plan, and begin implementing the highest-priority safe task.
+
+Take the time needed for a high-confidence engineering decision within your available working budget.
