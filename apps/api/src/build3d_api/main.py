@@ -20,6 +20,7 @@ from .db import check_schema, create_database
 from .images import MAX_IMAGE_BYTES, normalize_image
 from .storage import ArtifactStorageError, create_artifact_storage
 from .store import Store, StoreError, public_job
+from .trusted_identity import ExternalJWTAuthenticator, TrustedIdentityError
 
 
 class ProjectRequest(BaseModel):
@@ -56,12 +57,27 @@ def approval_for(model_id: str) -> dict:
     return records[model_id]
 
 
-def create_app(settings: Settings | None = None, *, engine=None, storage=None) -> FastAPI:
+def create_app(
+    settings: Settings | None = None,
+    *,
+    engine=None,
+    storage=None,
+    jwt_authenticator: ExternalJWTAuthenticator | None = None,
+) -> FastAPI:
     settings = settings or Settings.from_env()
     owns_engine = engine is None
     engine = engine if engine is not None else create_database(settings.database_url)
     store = Store(engine, settings)
     artifact_storage = storage if storage is not None else create_artifact_storage(settings)
+    if settings.external_jwt_auth_enabled and jwt_authenticator is None:
+        try:
+            jwt_authenticator = ExternalJWTAuthenticator.from_file(
+                settings.identity_provider_file
+            )
+        except TrustedIdentityError as exc:
+            raise RuntimeError("External identity provider configuration is invalid") from exc
+    if not settings.external_jwt_auth_enabled:
+        jwt_authenticator = None
 
     @asynccontextmanager
     async def lifespan(_):
@@ -77,12 +93,18 @@ def create_app(settings: Settings | None = None, *, engine=None, storage=None) -
     app.add_middleware(BodyLimitMiddleware)
     app.state.store = store
     app.state.artifact_storage = artifact_storage
+    app.state.external_jwt_auth_enabled = jwt_authenticator is not None
     bearer = HTTPBearer(auto_error=False)
 
     def identity(credentials: HTTPAuthorizationCredentials | None = Depends(bearer)) -> str:
         if credentials is None:
-            raise StoreError(401, "A user API key is required")
-        return store.authenticate(credentials.credentials)
+            raise StoreError(401, "A bearer credential is required")
+        token = credentials.credentials
+        if token.startswith("b3d_"):
+            return store.authenticate(token)
+        if jwt_authenticator is None:
+            raise StoreError(401, "Invalid bearer credential")
+        return jwt_authenticator.authenticate(token, store)
 
     @app.middleware("http")
     async def private_responses(request, call_next):

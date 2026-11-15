@@ -86,7 +86,7 @@ No real AI model was loaded. No real text/image generation was executed. No GPU 
 1. Build and inspect the digest-pinned TripoSR candidate image; record the actual Python/CUDA/PyTorch/system-library inventory, resolve and hash the full transitive wheel set, and verify headless ModernGL/xatlas texture baking plus checkpoint `weights_only=True` loading **without running paid GPU inference**.
 2. Obtain owner/legal approval for that exact source+checkpoint+runtime/data chain and the bounded AWS GPU budget in [FIRST_REAL_GPU_RUNBOOK.md](FIRST_REAL_GPU_RUNBOOK.md).
 3. After those approvals, execute one real image → generation → baked texture → embedded validated GLB → product API → browser viewer → Blender import vertical slice and record timing/cost/checksums/screenshots.
-4. In parallel, implement the **trusted assertion/JWKS validation half** of the identity boundary behind a disabled-by-default feature flag; the external mapping half is complete.
+4. Trusted assertion/JWKS validation is now implemented as a disabled-by-default candidate on top of the external mapping. After CI/merge, the next identity layer is Better Auth browser/session lifecycle in a dedicated staging database, with signup/verification/reset/logout/deletion and CSRF/session-rotation tests before public enablement.
 5. Storage lifecycle now has merged persistent byte quotas/read-only inventory scanning plus a copy-only filesystem→S3 migration candidate. After that migration passes CI, remaining storage work is retention policy, customer/operator deletion semantics, audit logging for destructive actions and eventual removal of verified legacy copies.
 
 ## Reproduce CPU checks

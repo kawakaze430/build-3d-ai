@@ -111,3 +111,7 @@ Implemented a bounded first-party orchestration layer in `apps/api`; reused the 
 `requirements.lock` pins installed CPU/test release versions. [CPU_DEPENDENCY_INVENTORY.json](CPU_DEPENDENCY_INVENTORY.json) records declared licenses and hashes of installed license files. These are package release pins, not independently checked source commit SHAs, wheel-integrity locks or approval of GPU dependencies. Existing dependency notices remain in installed distributions; no library source is vendored here.
 
 Integration work is limited to API contracts, database schema, ownership rules, a safe submission/polling state machine and private artifact storage. A maintained SQL toolkit and migration engine avoid building persistence machinery from scratch. This slice needs CPU/database/disk only; running its worker against a real backend is separately gated. Managed identity, object storage/retention, provider budgets and SQS/global scheduling remain required before public service.
+
+## Trusted JWT validation reuse decision — 15 Nov 2026
+
+Reuse PyJWT `2.15.1` and pyca/cryptography rather than implementing JOSE signature verification. The Build3D layer adds only provider policy, bounded no-redirect JWKS retrieval/caching, immutable product-owner resolution and database-backed credential rate limiting. No automatic OIDC discovery is used. Symmetric HS* algorithms are not accepted for this trust boundary.

@@ -1,7 +1,7 @@
 # Identity and account lifecycle decision
 
 **Research date:** 15 November 2026  
-**Status:** Immutable external-identity mapping foundation implemented in database migration `0002`; public session/JWT identity is **not enabled**.
+**Status:** Immutable external-identity mapping is implemented; trusted JWT/JWKS validation is implemented behind a **disabled-by-default** feature flag. Public browser account/session lifecycle is still not enabled.
 
 ## Current state
 
@@ -9,7 +9,7 @@ The product backend already supports operator-provisioned user API keys with SHA
 
 Migration `0002` adds an operator-managed `external_identities` table. It maps an immutable `(issuer, subject)` pair to one product user, rejects a second subject for the same product user+issuer, and never uses email/name matching. Store-level resolution returns only active product users. Operator CLI commands can link, list and unlink mappings; there is deliberately no tenant HTTP endpoint for changing them.
 
-That foundation is intentionally **not** described as public customer authentication. There is still no accepted external JWT on `apps/api`, self-service signup, verified email flow, password recovery, account deletion workflow or customer session administration.
+That mapping alone is intentionally **not** described as public customer authentication. The API now has an opt-in trusted assertion layer, but it remains disabled unless an operator supplies a reviewed provider file and sets `EXTERNAL_JWT_AUTH_ENABLED=true`. There is still no self-service signup, verified email flow, password recovery, account deletion workflow or customer session administration.
 
 ## Reuse evaluation
 
@@ -74,7 +74,30 @@ build3d-admin unlink-identity --issuer https://studio.example.com --subject <pro
 
 Do not store a Better Auth password hash in the Python product tables. Do not duplicate Better Auth sessions in `apps/api`.
 
-The next trusted-assertion layer remains disabled. Better Auth's maintained JWT plugin can issue short-lived JWKS-verifiable tokens for external services and documents issuer/audience validation, but Build 3D AI must still pin the exact algorithm/issuer/audience/JWKS URL, validate the token cryptographically, then resolve only its `sub` through this mapping. No email claim may become an ownership key.
+## Trusted assertion layer
+
+`apps/api/src/build3d_api/trusted_identity.py` implements the previously missing trusted-assertion boundary using pinned PyJWT 2.15.1 + cryptography 50.0.2. It is disabled by default.
+
+Provider configuration is static and operator-controlled; there is **no automatic OIDC discovery**. Each provider pins:
+- exact JWT issuer string;
+- one or more accepted audiences;
+- exact JWKS URL;
+- asymmetric algorithm allowlist limited to RS256, ES256 or EdDSA;
+- maximum assertion lifetime (30–3600 seconds);
+- bounded clock leeway, JWKS cache, unknown-key refresh cooldown and network timeout.
+
+The validator bounds JWT/JWKS sizes, disables redirects, rejects remote plaintext HTTP, requires `exp`, `iat`, `iss`, `sub` and `aud`, selects no algorithm from attacker-controlled token data, and never uses email/name claims for ownership. Only a cryptographically validated issuer+subject pair is passed to the immutable product mapping. External assertions have their own atomic database-backed 60-second rate window in migration `0004`.
+
+Example configuration: [`config/identity-providers.example.json`](../config/identity-providers.example.json).
+
+```bash
+EXTERNAL_JWT_AUTH_ENABLED=true
+IDENTITY_PROVIDER_FILE=/run/secrets/build3d-identity-providers.json
+```
+
+Existing `b3d_...` developer API keys remain independently valid. A disabled/unmapped product user cannot gain access merely because the external JWT is valid.
+
+This still does **not** enable Better Auth itself or public signup/session lifecycle. The browser/BFF integration remains the next layer.
 
 ## Feature flag / rollout
 
@@ -83,7 +106,7 @@ Public identity should remain off by default until the mapping + assertion tests
 A safe rollout sequence is:
 
 1. **Implemented/tested:** external identity mapping migration and operator-only linking/listing/unlinking;
-2. add trusted assertion validation to `apps/api` behind an explicit feature flag;
+2. **Implemented/tested:** trusted assertion/JWKS validation in `apps/api` behind an explicit disabled-by-default feature flag;
 3. integrate Better Auth in `apps/web` against a dedicated test database;
 4. test signup, verification, login, session rotation, logout, password reset, account deletion, disabled-user behavior and cross-user isolation;
 5. only then enable public browser identity in staging.

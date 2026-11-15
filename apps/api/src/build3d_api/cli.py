@@ -85,7 +85,7 @@ def main(argv=None) -> int:
     try:
         if args.command == "migrate":
             migrate(engine)
-            result = {"schema": "0003"}
+            result = {"schema": "0004"}
         else:
             check_schema(engine)
             if args.command == "create-user":

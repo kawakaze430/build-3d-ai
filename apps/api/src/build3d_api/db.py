@@ -43,6 +43,8 @@ external_identities = sa.Table(
     sa.Column("issuer", sa.String(512), nullable=False),
     sa.Column("subject", sa.String(255), nullable=False),
     sa.Column("created_at", sa.Float, nullable=False),
+    sa.Column("window_start", sa.Float, nullable=False, server_default=sa.text("0")),
+    sa.Column("request_count", sa.Integer, nullable=False, server_default=sa.text("0")),
     sa.UniqueConstraint("issuer", "subject", name="uq_external_identity_subject"),
     sa.UniqueConstraint("owner_id", "issuer", name="uq_external_identity_owner_issuer"),
 )
@@ -131,5 +133,5 @@ def migrate(engine: Engine, revision: str = "head", *, downgrade: bool = False):
 def check_schema(engine: Engine):
     with engine.connect() as connection:
         version = connection.execute(sa.text("SELECT version_num FROM alembic_version")).scalar()
-    if version != "0003":
+    if version != "0004":
         raise RuntimeError("Database migration required: run build3d-admin migrate")
