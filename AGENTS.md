@@ -4,7 +4,7 @@ Applies to every coding agent (including Codex/Astra), engineer and PR in this r
 
 ## Mission and source of truth
 
-Read `README.md`, `docs/PRODUCT_VISION.md`, `docs/ARCHITECTURE.md`, `docs/FEATURE_MATRIX.md`, `docs/OPEN_SOURCE_STRATEGY.md` and `docs/ROADMAP.md` before implementation. Objective: an independently controlled **commercial** 3D creation platform, competitive with leading systems through **measured** quality.
+Read `docs/PROJECT_MEMORY_MASTER.md` first when resuming from a new/compacted chat. Then read `README.md`, `docs/PRODUCT_VISION.md`, `docs/ARCHITECTURE.md`, `docs/FEATURE_MATRIX.md`, `docs/OPEN_SOURCE_STRATEGY.md` and `docs/ROADMAP.md` before implementation. The master memory links the 112-repo study catalog, original owner assignment, exact PR/source history, decisions, videos, architecture chart and next tasks; it is a dated context index, not a substitute for checking live code/CI. Objective: an independently controlled **commercial** 3D creation platform, competitive with leading systems through **measured** quality.
 
 ## Required working method
 
@@ -40,3 +40,8 @@ Deliver real command output, valid GLB proof, recorded VRAM/latency, and a summa
 - Rollback/feature flag and remaining risks
 
 If a feature has no reliable acceptance test, write the test specification before asserting completion.
+
+
+## Long-conversation continuity
+
+When starting after chat truncation, read `docs/PROJECT_MEMORY_MASTER.md`, current `docs/CODEX_HANDOFF.md` and open PRs first. After material architecture, license, budget, test or milestone decisions, update the master memory and handoff docs without copying secrets or private uploads into this public repository. Preserve historical evidence with dates; re-check live GitHub status instead of trusting old PR counts.
