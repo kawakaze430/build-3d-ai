@@ -200,6 +200,8 @@ class Store:
                     "issuer": issuer,
                     "subject": subject,
                     "created_at": now,
+                    "window_start": 0,
+                    "request_count": 0,
                 }
                 conn.execute(external_identities.insert().values(**row))
                 return row
@@ -247,6 +249,46 @@ class Store:
         if owner_id is None:
             raise StoreError(401, "External identity is not linked to an active user")
         return owner_id
+
+    def authenticate_external_identity(
+        self, issuer: str, subject: str, *, now: float | None = None
+    ) -> str:
+        issuer = normalize_external_issuer(issuer)
+        subject = normalize_external_subject(subject)
+        now = time.time() if now is None else now
+        with self.engine.begin() as conn:
+            row = conn.execute(sa.select(
+                external_identities.c.id,
+                external_identities.c.owner_id,
+            ).join(
+                users, users.c.id == external_identities.c.owner_id,
+            ).where(
+                external_identities.c.issuer == issuer,
+                external_identities.c.subject == subject,
+                users.c.active.is_(True),
+            )).mappings().first()
+            if row is None:
+                raise StoreError(401, "External identity is not linked to an active user")
+            expired = external_identities.c.window_start <= now - 60
+            result = conn.execute(external_identities.update().where(
+                external_identities.c.id == row["id"],
+                sa.or_(
+                    expired,
+                    external_identities.c.request_count < self.settings.requests_per_minute,
+                ),
+            ).values(
+                request_count=sa.case(
+                    (expired, 1),
+                    else_=external_identities.c.request_count + 1,
+                ),
+                window_start=sa.case(
+                    (expired, now),
+                    else_=external_identities.c.window_start,
+                ),
+            ))
+            if result.rowcount != 1:
+                raise StoreError(429, "API request limit reached; retry in 60 seconds")
+            return row["owner_id"]
 
     def authenticate(self, token: str, *, now: float | None = None) -> str:
         if not re.fullmatch(r"b3d_[A-Za-z0-9_-]{43}", token):

@@ -55,3 +55,14 @@ The new backend uses SQLAlchemy `2.0.57` (MIT), Alembic `1.20.1` (MIT), psycopg 
 ## Needed before closing Issue #2
 
 Audit license files of each **exact cloned submodule revision**, pretrained checkpoints and weights distribution pages, transitive runtime containers, npm packages, texture pipelines and datasets. Run verified clean-room build/tests of frontend and backend, document fork deltas, and select one commercially permitted baseline **end-to-end** GPU stack. That work is still open.
+
+## Trusted identity dependency decision — 15 Nov 2026
+
+| Component | Pin | License / evidence | Decision |
+|---|---|---|---|
+| PyJWT | `2.15.1` | MIT; PyPI release published 28 Sep 2026 with provenance; Python >=3.9 | **APPROVED dependency candidate** for JWT parsing/signature/claim validation; algorithms are statically restricted by Build3D |
+| cryptography | `50.0.2` | Apache-2.0 OR BSD-3-Clause; PyPI release published 30 Sep 2026 with provenance | **APPROVED dependency candidate** for asymmetric JWT verification; bundled wheel/OpenSSL distribution obligations remain part of release review |
+| cffi | `2.1.1` | MIT | Transitive cryptography dependency; release inventory required |
+| pycparser | `3.12` | BSD-3-Clause | Transitive cffi dependency; release inventory required |
+
+The identity feature is disabled by default. Adding these packages does not approve any external identity provider, social-login provider, email service or Better Auth deployment.

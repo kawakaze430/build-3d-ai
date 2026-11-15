@@ -39,7 +39,8 @@
 - [x] **01.H** Artifact storage abstraction with owner-scoped filesystem keys plus optional tested S3-compatible backend, checksum metadata and revalidated downloads. Proof: merged PR #16; no remote bucket provisioned.
 - [x] **01.I** Immutable external identity mapping foundation: migration `0002`, unique issuer/subject ownership, operator link/list/unlink commands, active-user resolution and SQLite/PostgreSQL tests. **This does not enable public login or JWT acceptance.**
 - [x] **01.J** Persistent per-user artifact-byte quota plus bounded non-destructive filesystem/S3 inventory scanner. Proof: merged PR #22 with Product API CI on Python 3.11/3.12 and SQLite/PostgreSQL; destructive retention/deletion remains intentionally separate.
-- [ ] **01.K** Copy-only filesystem → S3-compatible artifact migration with full source/target GLB checksum verification, dry-run default and idempotent reruns. **Implementation candidate in progress; mark complete only after CI/merge.**
+- [x] **01.K** Copy-only filesystem → S3-compatible artifact migration with full source/target GLB checksum verification, dry-run default and idempotent reruns. Proof: merged PR #23; source deletion/config switching remain deliberately manual.
+- [ ] **01.L** Trusted external JWT/JWKS validation backed by immutable issuer+subject mapping and durable external-credential rate limits. **Implementation candidate in progress; disabled by default until CI/merge and provider rollout review.**
 
 - [ ] **01.01** Monorepo contracts: versioned API schemas, worker registry, model IDs, job and artifact types.
 - [ ] **01.02** PostgreSQL migrations for users, projects, jobs, artifacts, provenance, permissions and ledger.
