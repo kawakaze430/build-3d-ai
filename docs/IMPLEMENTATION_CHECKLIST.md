@@ -133,3 +133,11 @@ CPU product-backend work can proceed privately alongside B01–B03. Its worker s
 5. Move to the next blocked item only after obtaining the required owner approval.
 
 **Important:** This initial checklist is comprehensive but must evolve with real research and changing model/software releases.
+
+## CPU-only TripoSR dependency evidence milestone (15 Nov 2026)
+
+- [x] **00.15** Add an offline, fail-closed parser for pip --dry-run --report, bound all direct package pins and index wheel SHA256 claims, reject untrusted origins/yanked/duplicates, and unit-test hostile metadata. Eight stdlib unit tests passed locally; TripoSR Qualification CI runs the new test and captures its review artifact when the PR succeeds.
+- [ ] **00.16** Audit actual downloaded wheel bytes plus sdist build processes, all transitive notices, installed PyTorch/CUDA and OS libraries inside the digest-built candidate image. **OPEN**: pip index metadata alone does not establish this.
+- [ ] **00.17** Verify ModernGL/xatlas headless bake and exact checkpoint weights_only loading against reviewed container; owner/legal and GPU spend gates remain **OPEN**.
+
+See TWO_PRIMARY_REPOSITORIES_DECISION.md, CURRENT_STATE_AUDIT.md and EXECUTION_PLAN.md for the next implementation order. None of these CPU-only milestones approves a production model or claims real inference.
