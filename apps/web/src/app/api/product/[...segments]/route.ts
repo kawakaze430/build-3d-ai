@@ -7,7 +7,10 @@ const MAX_PROXY_BODY = 12 * 1024 * 1024;
 
 function allowed(segments: string[], method: string): boolean {
   if (segments[0] !== "v1") return false;
-  if (segments.length === 2 && segments[1] === "models") return method === "GET";
+  if (
+    segments.length === 2 &&
+    ["models", "storage"].includes(segments[1])
+  ) return method === "GET";
   if (segments.length === 2 && segments[1] === "projects") {
     return method === "GET" || method === "POST";
   }

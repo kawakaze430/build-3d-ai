@@ -15,6 +15,7 @@ class Settings:
     s3_artifact_bucket: str | None = None
     s3_endpoint_url: str | None = None
     s3_region: str | None = None
+    default_storage_limit_bytes: int = 5 * 1024 * 1024 * 1024
     max_active_jobs: int = 3
     requests_per_minute: int = 120
     lease_seconds: int = 600
@@ -34,6 +35,8 @@ class Settings:
             endpoint = urlsplit(self.s3_endpoint_url)
             if endpoint.scheme not in {"http", "https"} or not endpoint.netloc or endpoint.username or endpoint.password:
                 raise ValueError("S3_ENDPOINT_URL must be an http(s) endpoint without embedded credentials")
+        if not 0 <= self.default_storage_limit_bytes <= 10 * 1024 * 1024 * 1024 * 1024:
+            raise ValueError("DEFAULT_STORAGE_LIMIT_BYTES must be between 0 and 10 TiB")
         for field in (
             "max_active_jobs", "requests_per_minute", "lease_seconds", "poll_seconds",
             "max_poll_failures", "job_timeout_seconds",
@@ -51,6 +54,9 @@ class Settings:
             s3_artifact_bucket=os.getenv("S3_ARTIFACT_BUCKET") or None,
             s3_endpoint_url=os.getenv("S3_ENDPOINT_URL") or None,
             s3_region=os.getenv("S3_REGION") or os.getenv("AWS_REGION") or None,
+            default_storage_limit_bytes=int(
+                os.getenv("DEFAULT_STORAGE_LIMIT_BYTES", str(5 * 1024 * 1024 * 1024))
+            ),
             max_active_jobs=int(os.getenv("MAX_ACTIVE_JOBS_PER_USER", "3")),
             requests_per_minute=int(os.getenv("API_REQUESTS_PER_MINUTE", "120")),
         )

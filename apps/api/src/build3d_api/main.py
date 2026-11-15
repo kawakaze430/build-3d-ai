@@ -116,6 +116,10 @@ def create_app(settings: Settings | None = None, *, engine=None, storage=None) -
     def models(owner: str = Depends(identity)):
         return {"approved_model_ids": sorted(approved_model_records())}
 
+    @app.get("/v1/storage")
+    def storage_usage(owner: str = Depends(identity)):
+        return store.storage_usage(owner)
+
     @app.post("/v1/projects", status_code=201)
     def create_project(body: ProjectRequest, owner: str = Depends(identity)):
         return store.create_project(owner, body.name)

@@ -38,12 +38,13 @@
 - [x] **01.G** Real Three.js/R3F GLB viewer path with owner-scoped download, orbit/zoom/reset, wireframe and mesh/triangle statistics. Proof: merged PR #15; browser fixture validates the web/API/viewer path only, not real AI output.
 - [x] **01.H** Artifact storage abstraction with owner-scoped filesystem keys plus optional tested S3-compatible backend, checksum metadata and revalidated downloads. Proof: merged PR #16; no remote bucket provisioned.
 - [x] **01.I** Immutable external identity mapping foundation: migration `0002`, unique issuer/subject ownership, operator link/list/unlink commands, active-user resolution and SQLite/PostgreSQL tests. **This does not enable public login or JWT acceptance.**
+- [x] **01.J** Persistent per-user artifact-byte quota plus bounded non-destructive filesystem/S3 inventory scanner. Proof: PR #22 Product API CI passes on Python 3.11/3.12 with SQLite/PostgreSQL; destructive retention/deletion remains intentionally separate.
 
 - [ ] **01.01** Monorepo contracts: versioned API schemas, worker registry, model IDs, job and artifact types.
 - [ ] **01.02** PostgreSQL migrations for users, projects, jobs, artifacts, provenance, permissions and ledger.
 - [ ] **01.03** User signup/login, secure sessions, password reset and account deletion; do not expose upstream admin token. **Partial:** immutable external-identity mapping is implemented/tested; Better Auth remains the preferred candidate, but public identity stays disabled until short-lived JWKS/assertion validation, signup/verification/reset/deletion and abuse controls are implemented. See [IDENTITY_AND_ACCOUNT_LIFECYCLE.md](IDENTITY_AND_ACCOUNT_LIFECYCLE.md).
 - [ ] **01.04** Tenant-level authorization tests for jobs/files/downloads and signed asset URLs.
-- [ ] **01.05** Private object storage with checksums, image upload validation, retention and cleanup. **Partial:** filesystem + S3-compatible artifact backend and verified downloads are implemented/tested; destructive migration, retention lifecycle, stored-byte quotas and orphan sweeping remain open. See [OBJECT_STORAGE.md](OBJECT_STORAGE.md).
+- [ ] **01.05** Private object storage with checksums, image upload validation, retention and cleanup. **Partial:** filesystem + S3-compatible artifact backend, verified downloads, persistent per-user byte quotas and read-only orphan/missing scanning are implemented/tested. Destructive migration, retention lifecycle and audited deletion remain open. See [OBJECT_STORAGE.md](OBJECT_STORAGE.md).
 - [ ] **01.06** Durable queue, idempotency, retriable workers, cancellation, timeouts and dead-letter queue.
 - [ ] **01.07** GPU scheduler with model registry, per-model VRAM limits, concurrency, cold-start and eviction.
 - [ ] **01.08** Real text-to-3D (or explicitly labeled text→image→3D), image-to-3D, user selectable quality.

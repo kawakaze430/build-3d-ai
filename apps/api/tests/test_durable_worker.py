@@ -10,7 +10,7 @@ import httpx
 import pytest
 import sqlalchemy as sa
 
-from build3d_api.db import create_database, jobs, users
+from build3d_api.db import artifacts, create_database, jobs, users
 from build3d_api.store import Store, StoreError
 from build3d_api.worker import Worker, main
 from build3d_gateway.upstream import UpstreamGateway
@@ -275,4 +275,79 @@ def test_reconcile_releases_uncertain_slot_only_with_operator_acknowledgement(en
     assert slots(env) == 0 and row(env, queued)["status"] == "failed"
     with pytest.raises(StoreError):
         env.store.reconcile(queued, None, confirm_stopped=True)
+    assert slots(env) == 0
+
+
+def test_storage_quota_rejects_published_artifact_and_releases_active_slot(env, queued, triangle):
+    env.store.set_storage_quota(env.alice["user_id"], len(triangle) - 1)
+    worker, calls, clock = make_worker(env, triangle)
+    advance(worker, clock)
+    advance(worker, clock)
+
+    result = row(env, queued)
+    assert result["status"] == "failed"
+    assert result["error_code"] == "artifact_storage_quota_exceeded"
+    assert slots(env) == 0
+    assert env.store.storage_usage(env.alice["user_id"])["used_bytes"] == 0
+    with env.engine.connect() as conn:
+        assert conn.execute(sa.select(sa.func.count()).select_from(artifacts)).scalar_one() == 0
+    assert list(env.settings.artifact_dir.rglob("*.glb")) == []
+
+
+def test_concurrent_artifact_completion_cannot_overrun_persistent_byte_quota(env, project):
+    env.store.set_storage_quota(env.alice["user_id"], 100)
+    first = env.store.submit(
+        owner_id=env.alice["user_id"], project_id=project, kind="text",
+        model_id="test_model", approval=env.approval, key="quota-one", prompt="one",
+    )[0]
+    second = env.store.submit(
+        owner_id=env.alice["user_id"], project_id=project, kind="text",
+        model_id="test_model", approval=env.approval, key="quota-two", prompt="two",
+    )[0]
+    now = time.time()
+    with env.engine.begin() as conn:
+        conn.execute(jobs.update().where(jobs.c.id == first["id"]).values(
+            status="running", lease_token="1" * 32, lease_until=now + 60, started_at=now,
+        ))
+        conn.execute(jobs.update().where(jobs.c.id == second["id"]).values(
+            status="running", lease_token="2" * 32, lease_until=now + 60, started_at=now,
+        ))
+        claimed = [
+            dict(row) for row in conn.execute(sa.select(jobs).where(
+                jobs.c.id.in_([first["id"], second["id"]])
+            )).mappings()
+        ]
+
+    def finish(index_job):
+        index, job = index_job
+        artifact = {
+            "id": f"{index + 10:032x}",
+            "job_id": job["id"],
+            "owner_id": job["owner_id"],
+            "sha256": f"{index + 1:064x}",
+            "size_bytes": 70,
+            "mesh_count": 1,
+            "created_at": now,
+        }
+        return Store(env.engine, env.settings).transition(
+            job, "completed", now=now + 1, error_code=None, artifact=artifact
+        )
+
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        outcomes = list(pool.map(finish, enumerate(claimed)))
+
+    assert sorted(outcomes) == [False, True]
+    with env.engine.connect() as conn:
+        stored = conn.execute(sa.select(sa.func.coalesce(sa.func.sum(artifacts.c.size_bytes), 0))).scalar_one()
+        states = set(conn.execute(sa.select(jobs.c.status).where(
+            jobs.c.id.in_([first["id"], second["id"]])
+        )).scalars())
+    assert stored == 70
+    assert states == {"completed", "failed"}
+    assert env.store.storage_usage(env.alice["user_id"]) == {
+        "used_bytes": 70,
+        "limit_bytes": 100,
+        "remaining_bytes": 30,
+        "over_quota": False,
+    }
     assert slots(env) == 0

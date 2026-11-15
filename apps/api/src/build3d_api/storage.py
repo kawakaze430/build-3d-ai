@@ -33,6 +33,22 @@ class MaterializedArtifact:
     cleanup: Callable[[], None]
 
 
+@dataclass(frozen=True)
+class StoredArtifactObject:
+    key: str
+    size_bytes: int
+    owner_id: str | None
+    artifact_id: str | None
+    legacy: bool = False
+    recognized: bool = True
+
+
+@dataclass(frozen=True)
+class StorageInventory:
+    objects: tuple[StoredArtifactObject, ...]
+    truncated: bool
+
+
 class ArtifactStorage(Protocol):
     def prepare(self) -> None: ...
 
@@ -51,6 +67,8 @@ class ArtifactStorage(Protocol):
 
     def delete(self, *, artifact_id: str, owner_id: str) -> None: ...
 
+    def inventory(self, *, limit: int) -> StorageInventory: ...
+
 
 def _safe_id(value: str, field: str) -> str:
     if not _ID.fullmatch(value):
@@ -65,6 +83,23 @@ def artifact_object_key(owner_id: str, artifact_id: str, *, prefix: str = "build
     if not clean or "\\" in clean or any(part in {"", ".", ".."} for part in clean.split("/")):
         raise ArtifactStorageError("Invalid artifact storage prefix")
     return f"{clean}/{owner_id}/{artifact_id}.glb"
+
+
+def _inventory_limit(limit: int) -> int:
+    if not isinstance(limit, int) or isinstance(limit, bool) or not 1 <= limit <= 1_000_000:
+        raise ArtifactStorageError("Artifact inventory limit must be between 1 and 1,000,000")
+    return limit
+
+
+def _parse_current_key(key: str, prefix: str) -> tuple[str, str] | None:
+    clean = prefix.strip("/")
+    pattern = re.compile(
+        rf"^{re.escape(clean)}/(?P<owner>[0-9a-f]{{32}})/(?P<artifact>[0-9a-f]{{32}})\.glb$"
+    )
+    match = pattern.fullmatch(key)
+    if match is None:
+        return None
+    return match.group("owner"), match.group("artifact")
 
 
 class FileSystemArtifactStorage:
@@ -149,6 +184,43 @@ class FileSystemArtifactStorage:
             self._legacy_path(artifact_id).unlink(missing_ok=True)
         except OSError as exc:
             raise ArtifactStorageError("Filesystem artifact cleanup failed") from exc
+
+    def inventory(self, *, limit: int) -> StorageInventory:
+        limit = _inventory_limit(limit)
+        items: list[StoredArtifactObject] = []
+        base = self.root / self.prefix.strip("/")
+        try:
+            candidates: list[Path] = []
+            if base.exists():
+                candidates.extend(path for path in base.rglob("*.glb"))
+            candidates.extend(self.root.glob("*.glb"))
+            for path in sorted(candidates, key=lambda item: item.as_posix()):
+                key = path.relative_to(self.root).as_posix()
+                is_symlink = path.is_symlink()
+                try:
+                    size = path.lstat().st_size
+                    is_regular = not is_symlink and path.is_file()
+                except OSError:
+                    size = -1
+                    is_regular = False
+                parsed = _parse_current_key(key, self.prefix)
+                legacy = path.parent == self.root
+                artifact_id = path.stem if legacy and _ID.fullmatch(path.stem) else None
+                if parsed is not None and is_regular and size >= 0:
+                    owner_id, artifact_id = parsed
+                    item = StoredArtifactObject(key, size, owner_id, artifact_id)
+                elif legacy and artifact_id is not None and is_regular and size >= 0:
+                    item = StoredArtifactObject(key, size, None, artifact_id, legacy=True)
+                else:
+                    item = StoredArtifactObject(
+                        key, max(size, 0), None, artifact_id, legacy=legacy, recognized=False
+                    )
+                items.append(item)
+                if len(items) > limit:
+                    return StorageInventory(tuple(items[:limit]), truncated=True)
+        except OSError as exc:
+            raise ArtifactStorageError("Filesystem artifact inventory failed") from exc
+        return StorageInventory(tuple(items), truncated=False)
 
 
 class S3ArtifactStorage:
@@ -295,6 +367,53 @@ class S3ArtifactStorage:
             self.client.delete_object(Bucket=self.bucket, Key=key)
         except Exception as exc:
             raise ArtifactStorageError("Object storage artifact cleanup failed") from exc
+
+    def inventory(self, *, limit: int) -> StorageInventory:
+        limit = _inventory_limit(limit)
+        objects: list[StoredArtifactObject] = []
+        token: str | None = None
+        try:
+            while len(objects) <= limit:
+                kwargs = {
+                    "Bucket": self.bucket,
+                    "Prefix": self.prefix + "/",
+                    "MaxKeys": min(1000, limit + 1 - len(objects)),
+                }
+                if token is not None:
+                    kwargs["ContinuationToken"] = token
+                page = self.client.list_objects_v2(**kwargs)
+                for entry in page.get("Contents") or []:
+                    key = str(entry.get("Key", ""))
+                    size = int(entry.get("Size", -1))
+                    parsed = _parse_current_key(key, self.prefix)
+                    if parsed is None or size < 0:
+                        objects.append(StoredArtifactObject(
+                            key=key,
+                            size_bytes=max(size, 0),
+                            owner_id=None,
+                            artifact_id=None,
+                            recognized=False,
+                        ))
+                    else:
+                        owner_id, artifact_id = parsed
+                        objects.append(StoredArtifactObject(
+                            key=key,
+                            size_bytes=size,
+                            owner_id=owner_id,
+                            artifact_id=artifact_id,
+                        ))
+                    if len(objects) > limit:
+                        return StorageInventory(tuple(objects[:limit]), truncated=True)
+                if not page.get("IsTruncated"):
+                    break
+                token = page.get("NextContinuationToken")
+                if not isinstance(token, str) or not token:
+                    raise ArtifactStorageError("Object storage inventory pagination is invalid")
+        except ArtifactStorageError:
+            raise
+        except Exception as exc:
+            raise ArtifactStorageError("Object storage artifact inventory failed") from exc
+        return StorageInventory(tuple(objects), truncated=False)
 
 
 def _boto_client(settings: Settings):

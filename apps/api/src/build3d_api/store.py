@@ -94,7 +94,14 @@ class Store:
         owner_id, key_id, token = new_id(), new_id(), "b3d_" + secrets.token_urlsafe(32)
         now = time.time()
         with self.engine.begin() as conn:
-            conn.execute(users.insert().values(id=owner_id, name=name, active=True, active_jobs=0, created_at=now))
+            conn.execute(users.insert().values(
+                id=owner_id,
+                name=name,
+                active=True,
+                active_jobs=0,
+                storage_limit_bytes=self.settings.default_storage_limit_bytes,
+                created_at=now,
+            ))
             conn.execute(api_keys.insert().values(
                 id=key_id, owner_id=owner_id, digest=hashlib.sha256(token.encode()).hexdigest(),
                 created_at=now, window_start=0, request_count=0,
@@ -111,6 +118,46 @@ class Store:
                 created_at=time.time(), window_start=0, request_count=0,
             ))
         return {"user_id": owner_id, "key_id": key_id, "api_key": token}
+
+    def set_storage_quota(self, owner_id: str, limit_bytes: int) -> dict:
+        if not isinstance(limit_bytes, int) or isinstance(limit_bytes, bool):
+            raise StoreError(422, "Storage quota must be an integer number of bytes")
+        if not 0 <= limit_bytes <= 10 * 1024 * 1024 * 1024 * 1024:
+            raise StoreError(422, "Storage quota must be between 0 and 10 TiB")
+        with self.engine.begin() as conn:
+            changed = conn.execute(users.update().where(
+                users.c.id == owner_id,
+            ).values(storage_limit_bytes=limit_bytes)).rowcount
+            if changed != 1:
+                raise StoreError(404, "User not found")
+        return self.storage_usage(owner_id)
+
+    def storage_usage(self, owner_id: str) -> dict:
+        with self.engine.connect() as conn:
+            limit_bytes = conn.execute(sa.select(users.c.storage_limit_bytes).where(
+                users.c.id == owner_id,
+            )).scalar()
+            if limit_bytes is None:
+                raise StoreError(404, "User not found")
+            used_bytes = int(conn.execute(sa.select(
+                sa.func.coalesce(sa.func.sum(artifacts.c.size_bytes), 0)
+            ).where(artifacts.c.owner_id == owner_id)).scalar_one())
+        return {
+            "used_bytes": used_bytes,
+            "limit_bytes": int(limit_bytes),
+            "remaining_bytes": max(0, int(limit_bytes) - used_bytes),
+            "over_quota": used_bytes > int(limit_bytes),
+        }
+
+    def artifact_records(self, *, limit: int) -> list[dict]:
+        if not 1 <= limit <= 1_000_001:
+            raise ValueError("artifact record limit is out of range")
+        with self.engine.connect() as conn:
+            return [dict(row) for row in conn.execute(sa.select(
+                artifacts.c.id,
+                artifacts.c.owner_id,
+                artifacts.c.size_bytes,
+            ).order_by(artifacts.c.id).limit(limit)).mappings()]
 
     def revoke_key(self, key_id: str):
         with self.engine.begin() as conn:
@@ -353,11 +400,58 @@ class Store:
     def transition(self, job: dict, status: str, *, now: float | None = None,
                    artifact: dict | None = None, **values) -> bool:
         now = time.time() if now is None else now
+        lease_filter = sa.and_(
+            jobs.c.id == job["id"],
+            jobs.c.status == job["status"],
+            jobs.c.lease_token == job["lease_token"],
+            jobs.c.lease_until > now,
+        )
         with self.engine.begin() as conn:
-            changed = conn.execute(jobs.update().where(
-                jobs.c.id == job["id"], jobs.c.status == job["status"],
-                jobs.c.lease_token == job["lease_token"], jobs.c.lease_until > now,
-            ).values(
+            if artifact is not None:
+                if (
+                    status != "completed"
+                    or artifact.get("job_id") != job["id"]
+                    or artifact.get("owner_id") != job["owner_id"]
+                    or not isinstance(artifact.get("size_bytes"), int)
+                    or isinstance(artifact.get("size_bytes"), bool)
+                    or artifact["size_bytes"] <= 0
+                ):
+                    raise ValueError("Invalid artifact transition metadata")
+
+                # Serialize artifact completion per owner. PostgreSQL obtains a
+                # row lock; SQLite obtains its write lock through this no-op
+                # UPDATE before the SUM, preventing concurrent quota overrun.
+                locked = conn.execute(users.update().where(
+                    users.c.id == job["owner_id"],
+                ).values(storage_limit_bytes=users.c.storage_limit_bytes)).rowcount
+                if locked != 1:
+                    return False
+                limit_bytes = int(conn.execute(sa.select(users.c.storage_limit_bytes).where(
+                    users.c.id == job["owner_id"],
+                )).scalar_one())
+                used_bytes = int(conn.execute(sa.select(
+                    sa.func.coalesce(sa.func.sum(artifacts.c.size_bytes), 0)
+                ).where(artifacts.c.owner_id == job["owner_id"])).scalar_one())
+
+                if used_bytes + artifact["size_bytes"] > limit_bytes:
+                    changed = conn.execute(jobs.update().where(lease_filter).values(
+                        status="failed",
+                        lease_token=None,
+                        lease_until=None,
+                        updated_at=now,
+                        input_image=None,
+                        error_code="artifact_storage_quota_exceeded",
+                    )).rowcount
+                    if changed:
+                        conn.execute(users.update().where(
+                            users.c.id == job["owner_id"],
+                        ).values(active_jobs=users.c.active_jobs - 1))
+                    # False tells the worker not to retain the already-published
+                    # object. A lost DB commit acknowledgement can still leave a
+                    # private orphan, which the maintenance scanner reports.
+                    return False
+
+            changed = conn.execute(jobs.update().where(lease_filter).values(
                 status=status, lease_token=None, lease_until=None, updated_at=now,
                 **({"input_image": None} if status in TERMINAL else {}), **values,
             )).rowcount
@@ -366,7 +460,9 @@ class Store:
             if artifact is not None:
                 conn.execute(artifacts.insert().values(**artifact))
             if status in TERMINAL:
-                conn.execute(users.update().where(users.c.id == job["owner_id"]).values(active_jobs=users.c.active_jobs - 1))
+                conn.execute(users.update().where(
+                    users.c.id == job["owner_id"],
+                ).values(active_jobs=users.c.active_jobs - 1))
             return True
 
     def artifact(self, owner_id: str, job_id: str) -> dict:

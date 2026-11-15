@@ -87,7 +87,7 @@ No real AI model was loaded. No real text/image generation was executed. No GPU 
 2. Obtain owner/legal approval for that exact source+checkpoint+runtime/data chain and the bounded AWS GPU budget in [FIRST_REAL_GPU_RUNBOOK.md](FIRST_REAL_GPU_RUNBOOK.md).
 3. After those approvals, execute one real image → generation → baked texture → embedded validated GLB → product API → browser viewer → Blender import vertical slice and record timing/cost/checksums/screenshots.
 4. In parallel, implement the **trusted assertion/JWKS validation half** of the identity boundary behind a disabled-by-default feature flag; the external mapping half is complete.
-5. Add artifact migration/orphan scanning/retention and persistent byte quotas before public object storage use.
+5. Storage lifecycle is partially hardened in PR #22: persistent per-user artifact-byte quotas and a bounded read-only missing/orphan scanner cover both filesystem and S3-compatible storage. Remaining work is explicit legacy→object migration, retention policy and an audited destructive deletion flow.
 
 ## Reproduce CPU checks
 
