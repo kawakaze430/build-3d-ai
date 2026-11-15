@@ -54,7 +54,7 @@ def parse_pins(contents: str) -> dict[str, str]:
     return pins
 
 
-def _trusted_wheel_url(url: str) -> str:
+def _trusted_archive_url(url: str) -> tuple[str, str]:
     parts = urlsplit(url)
     if (
         parts.scheme != "https"
@@ -67,12 +67,21 @@ def _trusted_wheel_url(url: str) -> str:
     ):
         raise AuditError("resolution contains an untrusted, credentialed or mutable artifact URL")
     filename = parts.path.rsplit("/", 1)[-1]
-    if not filename.endswith(".whl") or not filename[:-4]:
-        raise AuditError("resolution contains a source archive or non-wheel artifact")
-    return filename
+    if filename.endswith(".whl") and filename[:-4]:
+        return filename, "wheel"
+    if filename.endswith((".tar.gz", ".zip")) and filename.rsplit(".", 1)[0]:
+        return filename, "source_archive"
+    raise AuditError("resolution contains an unsupported artifact type")
 
 
-def inspect_report(report: dict, pins: dict[str, str], report_bytes: bytes, pins_bytes: bytes) -> dict:
+def inspect_report(
+    report: dict,
+    pins: dict[str, str],
+    report_bytes: bytes,
+    pins_bytes: bytes,
+    *,
+    require_wheels: bool = False,
+) -> dict:
     if not isinstance(report, dict) or str(report.get("version")) != "1":
         raise AuditError("unsupported pip JSON report format")
     entries = report.get("install")
@@ -100,7 +109,9 @@ def inspect_report(report: dict, pins: dict[str, str], report_bytes: bytes, pins
         url = download.get("url")
         if not isinstance(url, str):
             raise AuditError(f"missing artifact URL for {name}")
-        wheel = _trusted_wheel_url(url)
+        artifact, artifact_type = _trusted_archive_url(url)
+        if require_wheels and artifact_type != "wheel":
+            raise AuditError(f"wheel-only release gate blocked by source archive: {name}")
         archive = download.get("archive_info")
         hashes = archive.get("hashes") if isinstance(archive, dict) else None
         digest = hashes.get("sha256") if isinstance(hashes, dict) else None
@@ -110,7 +121,8 @@ def inspect_report(report: dict, pins: dict[str, str], report_bytes: bytes, pins
         resolved[name] = {
             "name": name,
             "version": version,
-            "wheel_filename": wheel,
+            "artifact_filename": artifact,
+            "artifact_type": artifact_type,
             "index_url": url,
             "index_reported_sha256": digest.lower(),
             "direct_requirement": name in pins,
@@ -131,17 +143,28 @@ def inspect_report(report: dict, pins: dict[str, str], report_bytes: bytes, pins
             raise AuditError(f"resolution report lacks environment field: {key}")
         platform[key] = value
 
+    source_archives = sorted(
+        row["name"] for row in resolved.values() if row["artifact_type"] == "source_archive"
+    )
     return {
         "schema_version": 1,
-        "status": "INDEX_METADATA_ONLY_NOT_A_WHEELHOUSE_OR_PRODUCTION_APPROVAL",
+        "status": (
+            "BLOCKED_BY_SOURCE_ARCHIVES_NOT_PRODUCTION_APPROVED"
+            if source_archives
+            else "INDEX_METADATA_ONLY_NOT_A_WHEELHOUSE_OR_PRODUCTION_APPROVAL"
+        ),
         "pip_report_sha256": hashlib.sha256(report_bytes).hexdigest(),
         "direct_requirements_sha256": hashlib.sha256(pins_bytes).hexdigest(),
         "environment": platform,
         "direct_requirement_count": len(pins),
-        "resolved_wheel_count": len(resolved),
+        "resolved_artifact_count": len(resolved),
+        "resolved_wheel_count": len(resolved) - len(source_archives),
+        "source_archive_count": len(source_archives),
+        "source_archives_needing_reviewed_build": source_archives,
         "packages": sorted(resolved.values(), key=lambda row: row["name"]),
         "unverified": [
             "index-reported hashes have not been independently verified against downloaded wheel bytes",
+            "source archives require a separately reviewed, reproducible wheel build before release",
             "preinstalled PyTorch CUDA/base-image OS and bundled libraries are not enumerated",
             "actual container build, checkpoint loading and headless texture bake were not run",
             "model weights, training data, SaaS geography and transitive licenses are not cleared",
@@ -163,20 +186,30 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--report", type=Path, required=True)
     parser.add_argument("--requirements", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument(
+        "--require-wheels", action="store_true",
+        help="Fail the release preflight if any resolved artifact is an sdist/source archive",
+    )
     args = parser.parse_args(argv)
     try:
         report_bytes = read_limited(args.report)
         pins_bytes = read_limited(args.requirements)
         report = json.loads(report_bytes)
         pins = parse_pins(pins_bytes.decode("utf-8"))
-        inventory = inspect_report(report, pins, report_bytes, pins_bytes)
+        inventory = inspect_report(
+            report, pins, report_bytes, pins_bytes, require_wheels=args.require_wheels
+        )
         with args.output.open("x", encoding="utf-8") as handle:
             json.dump(inventory, handle, indent=2, sort_keys=True)
             handle.write("\n")
     except (AuditError, OSError, UnicodeError, ValueError) as exc:
         print(f"TripoSR dependency inventory rejected: {exc}", file=sys.stderr)
         return 2
-    print(f"Recorded {inventory['resolved_wheel_count']} index-reported wheel digests for review")
+    print(
+        f"Recorded {inventory['resolved_artifact_count']} index-reported digests; "
+        f"{inventory['source_archive_count']} source archives require reviewed builds. "
+        f"Status: {inventory['status']}"
+    )
     return 0
 
 
