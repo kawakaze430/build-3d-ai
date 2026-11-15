@@ -262,8 +262,10 @@ def test_filesystem_inventory_and_scanner_are_bounded_and_non_destructive(tmp_pa
     assert (root / f"{current}.glb").exists()
     assert malformed.exists()
 
-    with pytest.raises(ArtifactInventoryLimit, match="Storage object count"):
+    with pytest.raises(ArtifactInventoryLimit, match="Database artifact count"):
         scan_artifact_storage(StaticArtifactRows(rows), storage, max_objects=1)
+    with pytest.raises(ArtifactInventoryLimit, match="Storage object count"):
+        scan_artifact_storage(StaticArtifactRows(rows[:1]), storage, max_objects=1)
 
 
 def test_s3_inventory_paginates_and_respects_hard_scan_limit(tmp_path):
