@@ -12,6 +12,8 @@ Merged into `main` during the consolidation session:
 - PR #16 → artifact storage abstraction, owner-scoped filesystem layout and optional private S3-compatible backend.
 - PR #17 → current baseline documentation and public-identity architecture decision.
 - PR #18 → expanded exact-revision reuse/license audit, including rejection of restricted stock Step1X/TripoSG runtime paths.
+- PR #19 → immutable external identity mapping foundation; no public JWT/session acceptance yet.
+- PR #20 → TripoSR qualification evidence plus strict embedded-texture GLB packager.
 
 PRs #11, #12 and #13 were closed as superseded after PR #14 preserved their final reviewed/tested tree on the post-#1 main baseline.
 
@@ -73,7 +75,7 @@ Do not infer Docker, paid cloud or GPU validation from those results.
 
 TripoSR is the current **qualification candidate**, not an approved production model. Pinned evidence and the proposed AWS L4 envelope are in [FIRST_REAL_GPU_RUNBOOK.md](FIRST_REAL_GPU_RUNBOOK.md). Stock Step1X and TripoSG runtime paths remain rejected for the documented commercial/worldwide use because of runtime/license dependencies.
 
-The TripoSR source/checkpoint evidence is promising. A selective reuse path for marching cubes is now identified from MIT fork `vltmedia/TripoSR-scikit@fa39422b81217687f16efe7bb3afc136feb87ba7`, but the whole fork is 17 commits behind current upstream. Port/retest only that small change with pinned `scikit-image==0.26.0`, pin the DINO config and complete the dependency lock. No model is added to the production approval policy by this work.
+The TripoSR source/checkpoint evidence is promising. `services/generation/triposr_candidate` now ports only the reviewed marching-cubes behavior from MIT fork `vltmedia/TripoSR-scikit@fa39422b81217687f16efe7bb3afc136feb87ba7` onto the pinned current TripoSR source. The preparation script verifies exact upstream file blob IDs, uses `scikit-image==0.25.2`, forces a local DINO architecture config and local checkpoint, verifies checkpoint size/SHA256, requests `torch.load(..., weights_only=True)`, requires `--no-remove-bg`, and rejects hidden Hub/model downloads. The candidate base image is recorded by immutable Linux/amd64 manifest digest. This still does **not** approve or run the model.
 
 ## Still not verified
 
@@ -81,7 +83,7 @@ No real AI model was loaded. No real text/image generation was executed. No GPU 
 
 ## Highest-value next work
 
-1. Finish and test the deterministic TripoSR qualification runtime fork: replace/clear torchmcubes, pin all dependencies/base image and pin the DINO config revision.
+1. Build and inspect the digest-pinned TripoSR candidate image; record the actual Python/CUDA/PyTorch/system-library inventory, resolve and hash the full transitive wheel set, and verify headless ModernGL/xatlas texture baking plus checkpoint `weights_only=True` loading **without running paid GPU inference**.
 2. Obtain owner/legal approval for that exact source+checkpoint+runtime/data chain and the bounded AWS GPU budget in [FIRST_REAL_GPU_RUNBOOK.md](FIRST_REAL_GPU_RUNBOOK.md).
 3. After those approvals, execute one real image → generation → baked texture → embedded validated GLB → product API → browser viewer → Blender import vertical slice and record timing/cost/checksums/screenshots.
 4. In parallel, implement the **trusted assertion/JWKS validation half** of the identity boundary behind a disabled-by-default feature flag; the external mapping half is complete.

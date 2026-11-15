@@ -46,10 +46,10 @@ The source config refers to `facebook/dino-vitb16`; the candidate runbook pins i
 
 Two stock-runtime problems were found:
 
-1. `requirements.txt` uses an unpinned Git URL for torchmcubes. The historical pre-release snapshot inspected around TripoSR's release did not contain a repository license file, so it is not being frozen as a commercial dependency. A known MIT fork, `vltmedia/TripoSR-scikit@fa39422b81217687f16efe7bb3afc136feb87ba7`, replaces torchmcubes with scikit-image and adjusts face winding. Because that fork is 17 upstream commits behind, reuse should be limited to porting/retesting that small change onto current TripoSR. Candidate pin: `scikit-image==0.26.0` (BSD-3-Clause, Python >=3.11).
+1. `requirements.txt` uses an unpinned Git URL for torchmcubes. The historical pre-release snapshot inspected around TripoSR's release did not contain a repository license file, so it is not being frozen as a commercial dependency. A known MIT fork, `vltmedia/TripoSR-scikit@fa39422b81217687f16efe7bb3afc136feb87ba7`, replaces torchmcubes with scikit-image and adjusts face winding. Because that fork is 17 upstream commits behind, reuse should be limited to porting/retesting that small change onto current TripoSR. Qualification pin: `scikit-image==0.25.2` (BSD-3-Clause, Python >=3.10), chosen to fit the conservative candidate PyTorch environment. The Build3D patchset now ports only this marching-cubes behavior onto the pinned current TripoSR source with exact source-blob guards and CPU axis/winding tests.
 2. With `--bake-texture`, stock `run.py` calls xatlas-python `export()`. Inspection of xatlas-python v0.0.9 commit `ff6541ec7ed1b5131dd7bf5447da6174e6c82621` shows that helper always writes OBJ text, even if a caller chooses a `.glb` suffix. The project therefore added a first-party, strict OBJ+PNG → embedded PBR GLB packager rather than claiming stock textured-GLB support.
 
-The candidate remains **RESEARCH_ONLY** until the deterministic runtime fork, full dependency inventory, owner/legal verdict and real qualification are complete. See [FIRST_REAL_GPU_RUNBOOK.md](FIRST_REAL_GPU_RUNBOOK.md).
+The candidate remains **RESEARCH_ONLY**. The deterministic **source patchset** is now implemented, including local-only configs/checkpoint verification and hidden-download guards, but the full candidate image/transitive wheel/system-library inventory, owner/legal verdict and real GPU/browser/Blender qualification are still incomplete. See [FIRST_REAL_GPU_RUNBOOK.md](FIRST_REAL_GPU_RUNBOOK.md).
 
 ### Utility libraries
 
