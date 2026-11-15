@@ -21,7 +21,7 @@ That top-level evidence is still insufficient for production approval. The stock
 | xatlas-python | `mworchel/xatlas-python@ff6541ec7ed1b5131dd7bf5447da6174e6c82621` (v0.0.9) | MIT; stock `export()` writes OBJ |
 | TripoSR stock torchmcubes requirement | unpinned `git+https://github.com/tatsy/torchmcubes.git` | **not cleared for deterministic commercial runtime** |
 | TripoSR-scikit patch evidence | `vltmedia/TripoSR-scikit@fa39422b81217687f16efe7bb3afc136feb87ba7` | MIT fork; only 2 commits ahead of its 2024 merge base and 17 commits behind current TripoSR, so do **not** use the whole fork as the base |
-| scikit-image candidate | `scikit-image==0.26.0` | BSD-3-Clause stable release; Python >=3.11; exact numerical/orientation compatibility still requires a candidate-runtime test |
+| scikit-image candidate | `scikit-image==0.25.2` | BSD-3-Clause stable release; Python >=3.10. Selected for conservative compatibility with the candidate PyTorch environment; CPU axis/winding contract is tested, but exact torchmcubes numerical equivalence still requires real qualification evidence. |
 
 References:
 - https://github.com/VAST-AI-Research/TripoSR
@@ -50,9 +50,17 @@ Example CPU-only packaging command after a candidate texture bake exists:
 build3d-pack-textured-glb   ./output/0/mesh.obj   ./output/0/texture.png   ./output/0/mesh-textured.glb
 ```
 
+## Deterministic source patchset now implemented
+
+`services/generation/triposr_candidate` prepares a qualification-only copy of the exact TripoSR source. It verifies the source commit plus Git blob IDs of every modified upstream file before changing anything. The patchset replaces `torchmcubes` with `scikit-image==0.25.2`, forces local-only DINO architecture config and model checkpoint use, verifies the checkpoint byte count and SHA256 before `torch.load(..., weights_only=True)`, requires `--no-remove-bg`, fixes the stock no-background-removal output-directory bug, removes rembg/gradio from the first-run dependency path, and rejects remaining `hf_hub_download()` calls in the patched `tsr` tree.
+
+A dedicated CI workflow clones the exact upstream source fresh, applies the patch, compiles it, checks blocked dependency/download paths, resolves the direct dependency pins on Python 3.10 and runs CPU axis/normalization/face-winding tests.
+
+The candidate base image is recorded as `pytorch/pytorch:2.2.1-cuda12.1-cudnn8-runtime` at Linux/amd64 manifest digest `sha256:11691e035a3651d25a87116b4f6adc113a27a29d8f5a6a583f8569e0ee5ff897`. The repository has **not** built or executed that 3.4 GB image yet.
+
 ## Remaining runtime blocker before any GPU start
 
-Create and review an exact TripoSR runtime fork/container that:
+Before inference, build and review the candidate image/runtime so it:
 
 1. pins every Python/CUDA dependency and base image digest;
 2. replaces or otherwise clears the stock unpinned/historically ambiguous torchmcubes dependency;
@@ -64,7 +72,7 @@ Create and review an exact TripoSR runtime fork/container that:
 8. emits baked OBJ + PNG and then uses the first-party GLB packager above;
 9. verifies the final GLB with `build3d-gpu-smoke` / product validation before publication.
 
-A concrete reuse path now exists: `vltmedia/TripoSR-scikit@fa39422b81217687f16efe7bb3afc136feb87ba7` is MIT and replaces torchmcubes with `skimage.measure.marching_cubes`, including a face-winding adjustment. GitHub comparison shows that fork is **17 current-upstream commits behind**, so it must not replace the current TripoSR base. Port only the minimal marching-cubes change onto the pinned current source with attribution, pin `scikit-image==0.26.0` (BSD-3-Clause), and test numerical orientation/scale against the original behavior before GPU qualification.
+The implemented source patch uses `vltmedia/TripoSR-scikit@fa39422b81217687f16efe7bb3afc136feb87ba7` only as MIT patch evidence; the full stale fork is not used. The port explicitly reverses face winding and keeps scikit-image array-axis order. CPU tests cover those contracts. Exact numerical/visual equivalence to the former torchmcubes path is not claimed until a real candidate artifact is inspected.
 
 ## Proposed first GPU envelope — requires owner approval
 
@@ -120,16 +128,19 @@ Do not use a celebrity/real-person likeness or an asset with uncertain rights fo
 
 ## Setup commands — prepare only after runtime fork is reviewed
 
-The exact container digest and requirements lock are intentionally placeholders until the runtime fork removes the torchmcubes blocker. Do not replace them with `main` or floating package versions.
+The source patch and candidate base-image digest are now pinned. The **full transitive wheel hashes, bundled OS libraries and built image digest are still open**, so do not treat the candidate Dockerfile as production-approved.
 
 ```bash
-git clone https://github.com/VAST-AI-Research/TripoSR.git
-cd TripoSR
-git checkout 107cefdc244c39106fa830359024f6a2f1c78871
-git status --short
+git clone https://github.com/VAST-AI-Research/TripoSR.git /tmp/TripoSR
+git -C /tmp/TripoSR checkout 107cefdc244c39106fa830359024f6a2f1c78871
+git -C /tmp/TripoSR status --short
 
-# Apply only the reviewed Build 3D AI runtime patchset.
-# Then build the exact pinned container and record its immutable image digest.
+python services/generation/triposr_candidate/prepare_runtime.py \
+  --source-dir /tmp/TripoSR \
+  --output-dir /tmp/TripoSR-build3d
+
+# Review the prepared tree and dependency resolution. Build the candidate image
+# only as a bounded qualification step; building it is not GPU-spend approval.
 ```
 
 Checkpoint retrieval after owner/license approval:

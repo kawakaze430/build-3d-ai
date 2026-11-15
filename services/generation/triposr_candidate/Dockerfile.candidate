@@ -1,0 +1,21 @@
+# QUALIFICATION CANDIDATE ONLY — not a production-approved image.
+# Manifest digest verified from Docker Hub for linux/amd64 on 2026-11-15.
+FROM pytorch/pytorch@sha256:11691e035a3651d25a87116b4f6adc113a27a29d8f5a6a583f8569e0ee5ff897
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    HF_HUB_OFFLINE=1 \
+    TRANSFORMERS_OFFLINE=1 \
+    HF_DATASETS_OFFLINE=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+WORKDIR /opt/triposr
+
+COPY requirements-build3d.txt /tmp/requirements-build3d.txt
+RUN python -m pip install --no-cache-dir -r /tmp/requirements-build3d.txt
+
+COPY . /opt/triposr
+
+# The exact reviewed model.ckpt is mounted/read from a private local directory.
+# This image does not download weights and has no default inference command.
+ENTRYPOINT ["python", "run.py"]
