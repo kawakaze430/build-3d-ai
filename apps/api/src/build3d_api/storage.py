@@ -94,7 +94,7 @@ def _inventory_limit(limit: int) -> int:
 def _parse_current_key(key: str, prefix: str) -> tuple[str, str] | None:
     clean = prefix.strip("/")
     pattern = re.compile(
-        rf"^{re.escape(clean)}/(?P<owner>[0-9a-f]{{32}})/(?P<artifact>[0-9a-f]{{32}})\\.glb$"
+        rf"^{re.escape(clean)}/(?P<owner>[0-9a-f]{{32}})/(?P<artifact>[0-9a-f]{{32}})\.glb$"
     )
     match = pattern.fullmatch(key)
     if match is None:
