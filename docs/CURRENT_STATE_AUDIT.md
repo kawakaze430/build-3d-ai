@@ -40,7 +40,7 @@ This integration is implemented as CPU/HTTP contracts and mock-backend tests. No
 - Before the catalog commit, main b149ac390f1e118738536633cde22d7eea7598fe had successful Gateway CI, Product API CI, Web Studio CI and TripoSR Qualification CI workflows.
 - On catalog commit 477b3bff3fd5449dba1d1dd7a9e4e062f99856a3, the path-triggered Gateway CI and Product API CI completed successfully.
 - Existing TripoSR CI clones upstream SHA 107cefdc244c39106fa830359024f6a2f1c78871, runs guarded source patch, compiles, performs pip dry-run and CPU marching-cubes tests. It does NOT build the candidate Docker image.
-- In this work session, eight new dependency-audit unit tests ran locally with Python 3.12 stdlib unittest and passed. They are synthetic metadata contract tests; GitHub's Python 3.10 PR workflow is the additional requested validation.
+- In this work session, nine new dependency-audit unit tests ran locally with Python 3.12 stdlib unittest and passed. They are synthetic metadata contract tests; GitHub's Python 3.10 PR workflow is the additional requested validation.
 - No real GPU, CUDA inference, model checkpoint loading, external S3 bucket, Blender import of generated content or payment processing was executed.
 
 ## Current PR and branch state at audit
