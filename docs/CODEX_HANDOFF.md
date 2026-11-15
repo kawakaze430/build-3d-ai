@@ -118,3 +118,11 @@ Do not run `build3d-worker --confirm-gpu-spend` or `build3d-gpu-smoke --confirm-
 - private authenticated runtime that attests it is serving the approved revision/checkpoint.
 
 These gates block live inference, not further CPU-only engineering.
+
+## New research and CPU provenance checkpoint — 15 Nov 2026
+
+Repository source/status was checked against main at catalog commit 477b3bff3fd5449dba1d1dd7a9e4e062f99856a3. All prior 16 PRs were closed (13 merged; #11-#13 superseded); latest eligible main CI jobs passed. The independent 112-repository catalog was committed directly to main.
+
+The follow-up research/triposr-resolved-dependency-audit PR adds CURRENT_STATE_AUDIT.md, TWO_PRIMARY_REPOSITORIES_DECISION.md, INTEGRATION_DECISIONS.md and EXECUTION_PLAN.md. Exactly two **primary study repositories** were selected: FishWoWater/3DAIGC-API for the already implemented gateway API boundary and VAST-AI-Research/TripoSR for the first guarded image-to-3D GPU qualification. This is a research/engineering decision, **not commercial release authorization**.
+
+New audit_pip_report.py and test_audit_pip_report.py use pip --dry-run --report metadata to record resolved distribution/URL/SHA256 assertions while rejecting unpinned/missing/mismatched direct requirements, yanked packages, nonwheel inputs, untrusted indexes and absent hashes. Eight unittest tests passed locally in Python 3.12; GitHub's Python 3.10 qualification CI validates repository integration and uploads a short-lived provenance artifact. It does not verify actual wheel bytes or base image system libraries. Next engineer should close that gap, then run headless texture/checkpoint import under approved resource/license policies. No GPU has started.
