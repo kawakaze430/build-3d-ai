@@ -33,6 +33,7 @@ The default backend is `http://127.0.0.1:8081`.
 - approved-model list and an explicit no-model-approved state;
 - real text and image job submission with fresh idempotency keys;
 - persisted job history with all uncertain/recovery states preserved;
+- persistent artifact storage usage/quota display with near-limit and over-quota guidance;
 - polling cancellation when navigating away from a project/page;
 - real owner-scoped GLB download;
 - Three.js/R3F GLB viewport with orbit, zoom, reset, wireframe and mesh/triangle statistics;

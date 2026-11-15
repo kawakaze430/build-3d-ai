@@ -7,6 +7,7 @@ import {
   apiErrorMessage,
   createProject,
   getSession,
+  getStorageUsage,
   listJobs,
   listModels,
   listProjects,
@@ -15,7 +16,7 @@ import {
   submitImageJob,
   submitTextJob,
 } from "@/lib/api";
-import type { Job, Project } from "@/lib/contracts";
+import type { Job, Project, StorageUsage } from "@/lib/contracts";
 import {
   jobStatusDescription,
   jobStatusLabel,
@@ -35,6 +36,19 @@ function when(value: number): string {
   return new Date(value * 1000).toLocaleString();
 }
 
+function formatBytes(value: number): string {
+  if (value < 1024) return `${value} B`;
+  const units = ["KiB", "MiB", "GiB", "TiB"];
+  let scaled = value;
+  let unit = -1;
+  do {
+    scaled /= 1024;
+    unit += 1;
+  } while (scaled >= 1024 && unit < units.length - 1);
+  const digits = scaled >= 10 ? 1 : 2;
+  return `${scaled.toFixed(digits).replace(/\.0+$/, "")} ${units[unit]}`;
+}
+
 export function Studio() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -46,6 +60,7 @@ export function Studio() {
   const [models, setModels] = useState<string[]>([]);
   const [modelId, setModelId] = useState("");
   const [projects, setProjects] = useState<Project[]>([]);
+  const [storage, setStorage] = useState<StorageUsage | null>(null);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [jobs, setJobs] = useState<Job[]>([]);
   const [selectedJobId, setSelectedJobId] = useState<string | null>(null);
@@ -62,15 +77,17 @@ export function Studio() {
 
   const loadWorkspace = useCallback(
     async (preferredProject?: string | null) => {
-      const [availableModels, availableProjects] = await Promise.all([
+      const [availableModels, availableProjects, usage] = await Promise.all([
         listModels(),
         listProjects(),
+        getStorageUsage(),
       ]);
       setModels(availableModels);
       setModelId((current) =>
         availableModels.includes(current) ? current : (availableModels[0] ?? ""),
       );
       setProjects(availableProjects);
+      setStorage(usage);
 
       const preferred = preferredProject ?? selectedProjectId;
       const nextProject =
@@ -115,8 +132,12 @@ export function Studio() {
 
   const refreshJobs = useCallback(
     async (projectId: string, signal?: AbortSignal) => {
-      const latest = await listJobs(projectId, signal);
+      const [latest, usage] = await Promise.all([
+        listJobs(projectId, signal),
+        getStorageUsage(signal),
+      ]);
       setJobs(latest);
+      setStorage(usage);
       setSelectedJobId((current) =>
         current && latest.some((job) => job.id === current)
           ? current
@@ -189,6 +210,7 @@ export function Studio() {
     setUserId("");
     setProjects([]);
     setModels([]);
+    setStorage(null);
     setJobs([]);
     setSelectedProjectId(null);
     setSelectedJobId(null);
@@ -256,6 +278,17 @@ export function Studio() {
     setSelectedJobId(null);
     router.replace(`/?project=${encodeURIComponent(projectId)}`);
   }
+
+  const storagePercent = storage
+    ? storage.limit_bytes === 0
+      ? (storage.used_bytes > 0 ? 100 : 0)
+      : Math.min(100, (storage.used_bytes / storage.limit_bytes) * 100)
+    : 0;
+  const storageNearLimit = storage
+    ? storage.over_quota ||
+      storage.limit_bytes === 0 ||
+      storagePercent >= 80
+    : false;
 
   if (auth === "checking") {
     return <div className="center-state">Checking private API session…</div>;
@@ -342,6 +375,41 @@ export function Studio() {
               <button className="primary-button compact" disabled={busy}>Add</button>
             </div>
           </form>
+          {storage && (
+            <section
+              className={`storage-card ${storage.over_quota ? "storage-over" : storageNearLimit ? "storage-near" : ""}`}
+              aria-label="Artifact storage"
+              data-testid="storage-usage"
+            >
+              <div className="storage-heading">
+                <strong>Storage</strong>
+                <span>{Math.round(storagePercent)}%</span>
+              </div>
+              <div
+                className="storage-track"
+                role="progressbar"
+                aria-label="Artifact storage used"
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={Math.round(storagePercent)}
+              >
+                <span style={{ width: `${storagePercent}%` }} />
+              </div>
+              <div className="storage-copy">
+                <span>{formatBytes(storage.used_bytes)} of {formatBytes(storage.limit_bytes)}</span>
+                <span>{formatBytes(storage.remaining_bytes)} remaining</span>
+              </div>
+              {storage.over_quota ? (
+                <p className="storage-warning">
+                  Storage is over quota. New artifacts cannot complete until usage is reduced or the quota is raised.
+                </p>
+              ) : storageNearLimit ? (
+                <p className="storage-warning">
+                  Storage is nearing the configured limit. New completed artifacts may fail when the remaining quota is exhausted.
+                </p>
+              ) : null}
+            </section>
+          )}
           <div className="project-list" aria-label="Project list">
             {projects.length === 0 && (
               <div className="empty-card">Create your first private project to submit work.</div>

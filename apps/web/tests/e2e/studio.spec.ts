@@ -3,6 +3,7 @@ import { expect, test } from "@playwright/test";
 const ALICE = "b3d_" + "a".repeat(43);
 const BOB = "b3d_" + "b".repeat(43);
 const NO_MODEL = "b3d_" + "c".repeat(43);
+const NEAR_LIMIT = "b3d_" + "d".repeat(43);
 
 async function login(page: any, key = ALICE) {
   await page.goto("/");
@@ -42,6 +43,21 @@ test("authenticates, creates a project, and submits text and image jobs", async 
   await expect(page.getByText("Image reference").first()).toBeVisible();
 });
 
+test("shows persistent storage usage and near-limit guidance", async ({ page }) => {
+  await login(page);
+  const storage = page.getByTestId("storage-usage");
+  await expect(storage).toContainText("Storage");
+  await expect(storage).toContainText("0 B of 5 GiB");
+  await expect(storage).toContainText("5 GiB remaining");
+
+  await page.request.delete("/api/session");
+  await page.goto("/");
+  await page.getByLabel("User API key").fill(NEAR_LIMIT);
+  await page.getByRole("button", { name: "Connect to product API" }).click();
+  await expect(page.getByTestId("storage-usage")).toContainText("90%");
+  await expect(page.getByText(/Storage is nearing the configured limit/)).toBeVisible();
+});
+
 test("shows a deliberate no-approved-model state", async ({ page }) => {
   await login(page, NO_MODEL);
   await expect(page.getByTestId("no-models")).toContainText("No approved models");
@@ -57,6 +73,7 @@ test("loads the completed synthetic GLB through the real viewer path", async ({ 
   await expect(page.getByText("completed", { exact: true }).first()).toBeVisible();
   await expect(page.getByTestId("viewer-ready")).toContainText("Meshes 1");
   await expect(page.getByRole("link", { name: "Download GLB" })).toBeVisible();
+  await expect(page.getByTestId("storage-usage")).not.toContainText("0 B of 5 GiB");
 });
 
 test("preserves idempotency conflicts and cross-user ownership at the BFF boundary", async ({ page }) => {

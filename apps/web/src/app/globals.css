@@ -112,6 +112,21 @@ textarea { min-height: 104px; resize: vertical; }
 
 .mini-form { display: grid; gap: 6px; padding-bottom: 13px; border-bottom: 1px solid var(--border); }
 .inline-form { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 6px; }
+.storage-card {
+  display: grid; gap: 7px; margin-top: 12px; padding: 11px;
+  border: 1px solid var(--border); border-radius: 11px; background: #0f151e;
+}
+.storage-heading, .storage-copy { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.storage-heading { font-size: 12px; }
+.storage-heading span, .storage-copy { color: var(--muted); font-size: 10px; }
+.storage-track { height: 6px; overflow: hidden; border-radius: 999px; background: #202a38; }
+.storage-track > span { display: block; height: 100%; border-radius: inherit; background: var(--accent); transition: width .2s ease; }
+.storage-near { border-color: rgba(240,189,99,.45); }
+.storage-near .storage-track > span { background: var(--warn); }
+.storage-over { border-color: rgba(255,122,134,.5); }
+.storage-over .storage-track > span { background: var(--bad); }
+.storage-warning { margin: 2px 0 0; color: var(--warn); font-size: 10px; line-height: 1.4; }
+.storage-over .storage-warning { color: var(--bad); }
 .project-list, .job-list { display: grid; gap: 7px; margin-top: 12px; }
 .project-item, .job-card {
   width: 100%; text-align: left; border: 1px solid transparent; border-radius: 11px; background: transparent; color: var(--text); padding: 10px;
