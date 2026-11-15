@@ -249,3 +249,11 @@ After the single run:
 - Deterministic TripoSR runtime fork: **blocked/open**.
 - GPU owner approval: **not granted in this session**.
 - Real generation/Blender proof: **not executed**.
+
+## New CPU dependency-provenance checkpoint (15 Nov 2026)
+
+The TripoSR Qualification CI now captures pip dry-run --report JSON and runs a fail-closed, stdlib-only source-provenance audit of the resolved dependencies. It refuses unexpected indexes, sdist/source builds, unpinned direct requirements, missing SHA256 values, duplicates and yanked packages. It emits the review artifact triposr-candidate-index-provenance containing the exact index-reported distribution/version/wheel hashes and pip environment. The corresponding fixture tests run without network, model weights or GPU.
+
+This is evidence for resolving **one part** of the previously open full transitive wheel inventory. It does NOT independently hash downloaded bytes or certify the image's torch/CUDA, OS libraries, render libraries, notices or full data/model-rights chain. If the resolution includes an sdist or source wheel build, the audit fails closed; investigate/pin a reviewed wheel or document an auditable build provenance. Do not override these checks just to make CI green.
+
+Next engineer: inspect the CI artifact, build an approved reproducible offline wheelhouse, verify every wheel byte and its license/NOTICE, record base-image OS/PyTorch libraries, test ModernGL/xatlas and local weights_only load. The exact owner/legal budget gates and STOP conditions in this runbook remain in force. No GPU/cloud spend authorized by this document.
