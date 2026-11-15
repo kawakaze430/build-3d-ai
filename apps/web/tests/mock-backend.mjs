@@ -4,12 +4,15 @@ const PORT = 8099;
 const ALICE = "b3d_" + "a".repeat(43);
 const BOB = "b3d_" + "b".repeat(43);
 const NO_MODEL = "b3d_" + "c".repeat(43);
+const NEAR_LIMIT = "b3d_" + "d".repeat(43);
+const DEFAULT_STORAGE_LIMIT = 5 * 1024 * 1024 * 1024;
 
 let projectCounter = 0;
 let jobCounter = 0;
 let projects = [];
 let jobs = [];
 let idempotency = new Map();
+let storageUsed = new Map();
 
 function reset() {
   projectCounter = 0;
@@ -17,13 +20,15 @@ function reset() {
   projects = [];
   jobs = [];
   idempotency = new Map();
+  storageUsed = new Map();
 }
 
 function ownerFor(req) {
   const token = (req.headers.authorization ?? "").replace(/^Bearer\s+/, "");
-  if (token === ALICE) return { id: "alice", token, models: ["test_model"] };
-  if (token === BOB) return { id: "bob", token, models: ["test_model"] };
-  if (token === NO_MODEL) return { id: "no-model-user", token, models: [] };
+  if (token === NO_MODEL) return { id: "no-model-user", token, models: [], storageLimit: DEFAULT_STORAGE_LIMIT };
+  if (token === NEAR_LIMIT) return { id: "near-limit-user", token, models: ["test_model"], storageLimit: 1000, fixedStorageUsed: 900 };
+  if (token === ALICE) return { id: "alice", token, models: ["test_model"], storageLimit: DEFAULT_STORAGE_LIMIT };
+  if (token === BOB) return { id: "bob", token, models: ["test_model"], storageLimit: DEFAULT_STORAGE_LIMIT };
   return null;
 }
 
@@ -62,6 +67,17 @@ function project(owner, id) {
 
 function publicProject(item) {
   return { id: item.id, name: item.name, created_at: item.created_at };
+}
+
+function storageFor(owner) {
+  const used = owner.fixedStorageUsed ?? (storageUsed.get(owner.id) ?? 0);
+  const limit = owner.storageLimit ?? DEFAULT_STORAGE_LIMIT;
+  return {
+    used_bytes: used,
+    limit_bytes: limit,
+    remaining_bytes: Math.max(0, limit - used),
+    over_quota: used > limit,
+  };
 }
 
 function publicJob(item) {
@@ -149,6 +165,9 @@ const server = createServer(async (req, res) => {
   if (url.pathname === "/v1/models" && req.method === "GET") {
     return json(res, 200, { approved_model_ids: owner.models });
   }
+  if (url.pathname === "/v1/storage" && req.method === "GET") {
+    return json(res, 200, storageFor(owner));
+  }
   if (url.pathname === "/v1/projects" && req.method === "GET") {
     return json(res, 200, {
       items: projects.filter((item) => item.owner === owner.id).map(publicProject),
@@ -228,6 +247,9 @@ const server = createServer(async (req, res) => {
       started_at: prompt === "complete fixture" ? now : null,
     };
     jobs.unshift(item);
+    if (item.status === "completed") {
+      storageUsed.set(owner.id, (storageUsed.get(owner.id) ?? 0) + fixtureGlb.length);
+    }
     idempotency.set(`${owner.id}:${key}`, { fingerprint, job: item });
     return json(res, 202, publicJob(item), { location: `/v1/jobs/${item.id}` });
   }

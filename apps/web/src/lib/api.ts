@@ -4,6 +4,7 @@ import {
   type JobStatus,
   type Project,
   type SessionInfo,
+  type StorageUsage,
 } from "./contracts";
 
 export class ApiClientError extends Error {
@@ -142,6 +143,35 @@ export async function listModels(): Promise<string[]> {
     throw new ApiClientError(502, "Backend returned malformed model data");
   }
   return [...value.approved_model_ids];
+}
+
+export async function getStorageUsage(signal?: AbortSignal): Promise<StorageUsage> {
+  const value = await requestJson("/api/product/v1/storage", { signal });
+  if (
+    !isRecord(value) ||
+    !Number.isSafeInteger(value.used_bytes) ||
+    !Number.isSafeInteger(value.limit_bytes) ||
+    !Number.isSafeInteger(value.remaining_bytes) ||
+    typeof value.over_quota !== "boolean" ||
+    (value.used_bytes as number) < 0 ||
+    (value.limit_bytes as number) < 0 ||
+    (value.remaining_bytes as number) < 0
+  ) {
+    throw new ApiClientError(502, "Backend returned malformed storage usage");
+  }
+  const used = value.used_bytes as number;
+  const limit = value.limit_bytes as number;
+  const remaining = value.remaining_bytes as number;
+  const overQuota = value.over_quota as boolean;
+  if (remaining !== Math.max(0, limit - used) || overQuota !== (used > limit)) {
+    throw new ApiClientError(502, "Backend returned inconsistent storage usage");
+  }
+  return {
+    used_bytes: used,
+    limit_bytes: limit,
+    remaining_bytes: remaining,
+    over_quota: overQuota,
+  };
 }
 
 export async function listProjects(): Promise<Project[]> {

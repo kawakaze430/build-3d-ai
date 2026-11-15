@@ -46,3 +46,10 @@ export interface Artifact {
   mesh_count: number;
   created_at: number;
 }
+
+export interface StorageUsage {
+  used_bytes: number;
+  limit_bytes: number;
+  remaining_bytes: number;
+  over_quota: boolean;
+}
