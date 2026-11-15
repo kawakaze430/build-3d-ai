@@ -9,6 +9,8 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from .config import Settings
 from .db import check_schema, create_database, migrate
+from .maintenance import scan_artifact_storage
+from .storage import ArtifactStorageError, create_artifact_storage
 from .store import Store, StoreError
 
 
@@ -22,6 +24,19 @@ def main(argv=None) -> int:
     key.add_argument("--user-id", required=True)
     revoke = commands.add_parser("revoke-key")
     revoke.add_argument("--key-id", required=True)
+    quota = commands.add_parser(
+        "set-storage-quota",
+        help="Set one user's persistent artifact-byte quota; existing artifacts are never deleted",
+    )
+    quota.add_argument("--user-id", required=True)
+    quota.add_argument("--bytes", required=True, type=int, dest="limit_bytes")
+    usage = commands.add_parser("storage-usage", help="Report persistent artifact bytes for one user")
+    usage.add_argument("--user-id", required=True)
+    scan = commands.add_parser(
+        "scan-artifacts",
+        help="Dry-run database/storage consistency scan; never deletes objects",
+    )
+    scan.add_argument("--max-objects", type=int, default=10000)
     link_identity = commands.add_parser(
         "link-identity",
         help="Operator-only: link one immutable external issuer/subject to a product user",
@@ -52,7 +67,7 @@ def main(argv=None) -> int:
     try:
         if args.command == "migrate":
             migrate(engine)
-            result = {"schema": "0002"}
+            result = {"schema": "0003"}
         else:
             check_schema(engine)
             if args.command == "create-user":
@@ -62,6 +77,14 @@ def main(argv=None) -> int:
             elif args.command == "revoke-key":
                 store.revoke_key(args.key_id)
                 result = {"revoked": True}
+            elif args.command == "set-storage-quota":
+                result = store.set_storage_quota(args.user_id, args.limit_bytes)
+            elif args.command == "storage-usage":
+                result = store.storage_usage(args.user_id)
+            elif args.command == "scan-artifacts":
+                storage = create_artifact_storage(settings)
+                storage.prepare()
+                result = scan_artifact_storage(store, storage, max_objects=args.max_objects)
             elif args.command == "link-identity":
                 result = store.link_external_identity(args.user_id, args.issuer, args.subject)
             elif args.command == "unlink-identity":
@@ -77,7 +100,7 @@ def main(argv=None) -> int:
     except StoreError as exc:
         print(exc.detail, file=sys.stderr)
         return 1
-    except (SQLAlchemyError, RuntimeError):
+    except (SQLAlchemyError, RuntimeError, ArtifactStorageError, ValueError):
         print("Database operation failed; check configuration and migrations.", file=sys.stderr)
         return 1
     finally:

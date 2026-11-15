@@ -17,6 +17,12 @@ users = sa.Table(
     sa.Column("name", sa.String(120), nullable=False),
     sa.Column("active", sa.Boolean, nullable=False),
     sa.Column("active_jobs", sa.Integer, nullable=False),
+    sa.Column(
+        "storage_limit_bytes",
+        sa.BigInteger,
+        nullable=False,
+        server_default=sa.text("5368709120"),
+    ),
     sa.Column("created_at", sa.Float, nullable=False),
     sa.CheckConstraint("active_jobs >= 0", name="ck_users_active_jobs"),
 )
@@ -125,5 +131,5 @@ def migrate(engine: Engine, revision: str = "head", *, downgrade: bool = False):
 def check_schema(engine: Engine):
     with engine.connect() as connection:
         version = connection.execute(sa.text("SELECT version_num FROM alembic_version")).scalar()
-    if version != "0002":
+    if version != "0003":
         raise RuntimeError("Database migration required: run build3d-admin migrate")

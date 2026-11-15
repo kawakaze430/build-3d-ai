@@ -283,3 +283,20 @@ def test_cache_headers_and_pagination_bounds(env):
     assert response.headers["cache-control"] == "no-store"
     assert response.headers["x-content-type-options"] == "nosniff"
     assert env.client.get("/v1/projects?limit=100000", headers=env.auth).status_code == 422
+
+
+def test_storage_usage_is_owner_scoped_and_quota_is_persistent(env):
+    initial = env.client.get("/v1/storage", headers=env.auth)
+    assert initial.status_code == 200
+    assert initial.json()["used_bytes"] == 0
+    assert initial.json()["limit_bytes"] == env.settings.default_storage_limit_bytes
+
+    updated = env.store.set_storage_quota(env.alice["user_id"], 12345)
+    assert updated == {
+        "used_bytes": 0,
+        "limit_bytes": 12345,
+        "remaining_bytes": 12345,
+        "over_quota": False,
+    }
+    assert Store(env.engine, env.settings).storage_usage(env.alice["user_id"])["limit_bytes"] == 12345
+    assert env.client.get("/v1/storage", headers=env.other).json()["limit_bytes"] == env.settings.default_storage_limit_bytes
