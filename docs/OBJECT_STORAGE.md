@@ -1,6 +1,6 @@
 # Private artifact storage design
 
-Status: **filesystem implemented/tested; S3-compatible implementation added behind configuration; no remote bucket provisioned**
+Status: **filesystem and S3-compatible runtime implemented/tested; persistent per-user byte quotas and bounded dry-run inventory scanning added; no remote bucket provisioned**
 
 ## Goals
 
@@ -50,6 +50,7 @@ Short-lived presigned downloads remain a possible optimization, but should only 
 ARTIFACT_STORAGE_BACKEND=filesystem
 ARTIFACT_DIR=./data/artifacts
 ARTIFACT_STORAGE_PREFIX=build3d/v1/artifacts
+DEFAULT_STORAGE_LIMIT_BYTES=5368709120
 
 # only when ARTIFACT_STORAGE_BACKEND=s3
 S3_ARTIFACT_BUCKET=
@@ -77,9 +78,19 @@ This milestone provides the runtime abstraction, not the destructive migration c
 
 ## Retention, cleanup and orphan handling
 
-A failed/stale worker transition attempts to delete the just-published object. An uncertain database commit intentionally retains the object because the database may already reference it. A network failure during object publication can still leave a private orphan; production operations therefore need a periodic orphan scanner that compares storage keys with artifact rows before deletion.
+A failed/stale worker transition attempts to delete the just-published object. An uncertain database commit intentionally retains the object because the database may already reference it. A network failure during object publication can still leave a private orphan.
 
-No automatic retention/lifecycle deletion is enabled yet because product retention policy and billing are not decided. A future lifecycle policy must not delete an object while its artifact row is still live.
+The operator now has a **read-only bounded scanner**:
+
+```bash
+build3d-admin scan-artifacts --max-objects 10000
+```
+
+It compares the complete bounded database artifact set with the configured storage backend and reports missing DB-referenced objects, storage orphans, duplicate current/legacy filesystem copies, owner/size mismatches, malformed keys and byte totals. If either side exceeds `--max-objects`, the command refuses to classify a partial scan and asks the operator to rerun with a higher bound.
+
+The scanner **never deletes anything**. It also does not download every object to recompute SHA-256; normal artifact downloads keep the stronger GLB/checksum revalidation boundary. For S3-compatible storage, this operator-only command needs list permission on the configured private prefix. The normal tenant API/worker does not require bucket-list permission.
+
+No automatic retention/lifecycle deletion is enabled yet because product retention policy and billing are not decided. A future destructive cleanup workflow must consume a fresh complete scan, require explicit operator acknowledgement, preserve an audit record and never delete an object while its artifact row is live.
 
 ## Backup/restore
 
@@ -90,7 +101,22 @@ No automatic retention/lifecycle deletion is enabled yet because product retenti
 
 ## Quotas
 
-Active-job quotas already limit concurrent generation, but persistent byte quotas are not implemented. Before public SaaS launch add per-user/project stored-byte accounting, hard upload/generation limits, retention policy, and an audited deletion workflow.
+Migration `0003` adds persistent `users.storage_limit_bytes`. Existing users receive a 5 GiB migration default; newly created users receive `DEFAULT_STORAGE_LIMIT_BYTES` (5 GiB unless explicitly configured).
+
+The artifact table remains the durable byte ledger. At artifact completion the store serializes completion for that owner, sums committed artifact bytes and accepts the new artifact only when it fits the persisted limit. This prevents concurrent workers from independently passing the same stale quota check.
+
+A quota failure records the job as `failed` with `artifact_storage_quota_exceeded`, releases the active-job slot, creates no artifact row and tells the worker not to retain the already-private object. An uncertain database acknowledgement still favors preservation; any resulting private orphan is surfaced by the scanner above.
+
+Operator controls:
+
+```bash
+build3d-admin storage-usage --user-id USER_ID
+build3d-admin set-storage-quota --user-id USER_ID --bytes 10737418240
+```
+
+Reducing a quota below current usage never deletes existing artifacts; it only blocks future artifact completion until usage is reduced through a separately audited workflow. The owner-scoped tenant endpoint `GET /v1/storage` reports used, limit and remaining bytes.
+
+Project-specific quotas, billing-tier policy, retention deletion and customer-initiated artifact deletion remain open.
 
 ## Deployment controls
 

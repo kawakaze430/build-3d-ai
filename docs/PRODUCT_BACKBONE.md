@@ -47,6 +47,7 @@ Every `/v1` route requires `Authorization: Bearer USER_API_KEY`. Requests are ra
 |---|---|
 | `GET /v1/me` | Current user ID |
 | `GET /v1/models` | Only approved model IDs; empty by default |
+| `GET /v1/storage` | Owner-scoped persistent artifact usage, limit and remaining bytes |
 | `POST /v1/projects` | JSON `{"name":"Film assets"}` → 201 with project ID |
 | `GET /v1/projects` | Paginated projects, `limit` 1–100 and bounded `offset` |
 | `GET /v1/projects/{id}` | Owned project |
@@ -58,9 +59,9 @@ Every `/v1` route requires `Authorization: Bearer USER_API_KEY`. Requests are ra
 | `GET /v1/jobs/{id}/artifact` | Verified artifact metadata; 409 until available |
 | `GET /v1/jobs/{id}/download` | Revalidated private GLB with `X-Artifact-SHA256` |
 
-New job submission returns **202 queued** and a `Location` header. Repeating the same key and input returns **200 with the same job ID**; changing project/type/prompt/model/original image bytes under that key returns **409**. Keys are scoped to an owner, retained with history, and not automatically expired. Admission still requires a currently approved model even for replays. Each owner has three active jobs by default; this is a concurrency guard, **not a dollar spend limit**. There is no automatic regeneration or retry endpoint.
+New job submission returns **202 queued** and a `Location` header. Repeating the same key and input returns **200 with the same job ID**; changing project/type/prompt/model/original image bytes under that key returns **409**. Keys are scoped to an owner, retained with history, and not automatically expired. Admission still requires a currently approved model even for replays. Each owner has three active jobs by default; this is a concurrency guard, **not a dollar spend limit**. Artifact completion is separately constrained by the persistent per-user byte quota from migration `0003`; quota rejection becomes a known failed job and creates no artifact row. There is no automatic regeneration or retry endpoint.
 
-Image bytes are decoded and normalized to PNG before persistence. `input_sha256` identifies the original upload, and the normalized input is stored transactionally in the database until completion/failure/cancellation. Thus queued input survives restart without relying on a temporary upload URL. Image inputs still live transactionally in the database in this slice; the S3-compatible backend currently stores generated GLB artifacts only. Retention, persistent stored-byte quotas, orphan scanning and migration tooling remain open.
+Image bytes are decoded and normalized to PNG before persistence. `input_sha256` identifies the original upload, and the normalized input is stored transactionally in the database until completion/failure/cancellation. Thus queued input survives restart without relying on a temporary upload URL. Image inputs still live transactionally in the database in this slice; the S3-compatible backend currently stores generated GLB artifacts only. Persistent artifact quotas and read-only orphan/missing scanning are implemented; retention deletion and migration tooling remain open.
 
 ## Worker and GPU requirements
 
@@ -114,9 +115,9 @@ The default filesystem backend publishes to deterministic owner-scoped paths ben
 
 Downloads do not trust storage metadata alone. The API materializes the owned object, runs the structural GLB verifier again, recomputes checksum/size against the database row, then serves it. S3-compatible materializations use bounded local temporary files that are removed after the response. Direct public/presigned object downloads are deliberately not exposed yet because they would bypass this revalidation boundary.
 
-A process/network failure around publication can still leave a private orphan. A dropped database COMMIT acknowledgement intentionally retains the published bytes because the database may have committed the reference. Do not run destructive automatic cleanup until an orphan scanner compares storage objects against artifact rows with a retention/audit policy.
+A process/network failure around publication can still leave a private orphan. A dropped database COMMIT acknowledgement intentionally retains the published bytes because the database may have committed the reference. Use `build3d-admin scan-artifacts --max-objects 10000` for a bounded read-only comparison of storage objects against artifact rows; the command never deletes.
 
-Back up database and artifact bytes as one logical dataset and verify restore checksums. Filesystem deployments must back up the artifact directory; S3-compatible deployments need provider-side backup/versioning policy. Automated retention, byte quotas and migration tooling remain open. See [OBJECT_STORAGE.md](OBJECT_STORAGE.md).
+Back up database and artifact bytes as one logical dataset and verify restore checksums. Filesystem deployments must back up the artifact directory; S3-compatible deployments need provider-side backup/versioning policy. Persistent per-user byte quotas are enforced at DB artifact completion. Automated retention, destructive orphan cleanup and migration tooling remain open. See [OBJECT_STORAGE.md](OBJECT_STORAGE.md).
 
 ## Docker / PostgreSQL packaging
 
