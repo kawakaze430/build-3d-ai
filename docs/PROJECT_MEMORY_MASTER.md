@@ -365,3 +365,14 @@ The owner requested extraction of all three supplied ZIP archives, removal of th
 Upstream source contents are preserved byte-for-byte with only the outer ZIP directory removed. Original licenses remain with their source. The example bundle contains no license, and the 3DAIGC-API ZIP omits the source of its declared submodules. All imported content is **RESEARCH_ONLY**; extraction is not product integration, model approval or inference evidence.
 
 References: [repository layout](../README.md#repository-layout), [source snapshot notes](../third_party/README.md), [reference assets](../assets/reference/README.md), and [archive inventory and hashes](ARCHIVE_IMPORTS.json). Earlier project and license decisions remain in force.
+
+
+## 14. Session preservation — 17 November 2026
+
+The owner authorized saving useful session work directly to `main` before losing the workspace and deferred other development. Archive organization was already pushed as `b32f88a`. Preserve this dated event without interpreting it as approval for future paid resources or broad implementation.
+
+The [detailed project idea](BUILD_3D_AI_PROJECT_IDEA.txt) records the existing foundation, ambitious product direction, proposed priorities, limits, conditional future horizons and who would attempt the work. It is a planning proposal, not a claim that proposed features exist or a budget authorization. The [cloud development guide](CLOUD_DEVELOPMENT_ENVIRONMENT.md) and helpers in [scripts/cloud](../scripts/cloud/) preserve reusable installation, startup and browser-test instructions (`install.sh`, `run_web.py`, `playwright.config.cjs`).
+
+Committed files can be recovered from Git. Live processes, installed dependencies, caches, private smoke-test credentials and private application state are not preserved by that Git commit. Recreate or privately restore them as appropriate; never copy credentials into public project memory.
+
+The next technical priority remains one real generation qualification and verified textured GLB/browser/Blender path, subject to existing rights, runtime verification and explicitly bounded spending approvals. Recheck live repository state and follow the [developer handoff](CODEX_HANDOFF.md) before resuming.

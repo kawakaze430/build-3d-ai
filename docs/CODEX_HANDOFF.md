@@ -133,3 +133,17 @@ The three root ZIP files are removed after extraction verification. Existing fir
 Treat all imported files as **RESEARCH_ONLY**. The source snapshots are independent references, not newly enabled product integrations. The 3DAIGC-API archive omits its declared submodule source, and the example bundle has no supplied license. No model approval or inference result follows from this organization change. The owner explicitly requested a direct `main` update without a PR or additional branch; verify live Git state before subsequent work.
 
 Validation for this organization change: all 241 extracted file hashes matched the supplied ZIPs; all 240 content files matched the staged Git blobs (only macOS `.DS_Store` remains ignored). The 136 first-party Python tests, four web unit tests and TypeScript check passed. Imported source and model assets were not executed.
+
+
+## Session preservation and next resume — 17 November 2026
+
+The owner requested preservation of useful session work directly on `main` before the workspace is lost, with other development deferred. Archive extraction and organization were already pushed in commit `b32f88a`. The files below preserve the subsequent planning and environment work.
+
+- [BUILD_3D_AI_PROJECT_IDEA.txt](BUILD_3D_AI_PROJECT_IDEA.txt) preserves the detailed product concept, implemented foundation, proposed capabilities, near-term priorities, hard limits, conditional one-/two-/later-year horizons and responsible roles. Future capabilities remain proposals, not completed implementation, external commitments or spending authorization.
+- [CLOUD_DEVELOPMENT_ENVIRONMENT.md](CLOUD_DEVELOPMENT_ENVIRONMENT.md) records how to recreate the development workflow. Its repository helpers are [install.sh](../scripts/cloud/install.sh), [run_web.py](../scripts/cloud/run_web.py) and [playwright.config.cjs](../scripts/cloud/playwright.config.cjs).
+
+A Git backup does not retain running services, installed dependencies, caches or private smoke-test credentials. Restore dependencies and restart services using the guide; regenerate private test credentials when needed without committing or printing their values. Preserve any actual private application data through an appropriate private backup separately.
+
+On resume, inspect live source and Git state, follow the development guide, and prioritize qualification of one genuine generation-to-textured-GLB-to-Blender workflow. Existing exact model/runtime rights, dependency verification and explicit bounded GPU budget gates still apply.
+
+Preservation validation: the relocated web wrapper passed TypeScript checks and all six browser contract tests using the retained system-Chromium configuration. The installer passed `bash -n`, and the browser configuration passed `node --check`; the installer was not rerun end-to-end for this save. The project idea copy matched its original SHA256 (`03382c3d8c373253713f2aef266403db3f675bcfcbd8b5070d22d7f4a55ae2d9`). Generated Next.js file changes were restored.

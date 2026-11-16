@@ -78,6 +78,12 @@ The three supplied ZIP archives are unpacked into the paths above; their redunda
 
 Imported source and assets are **RESEARCH_ONLY**. The 3DAIGC-API ZIP does not include its declared submodule source, and the example asset bundle supplies no license. These snapshots remain separate from the product applications; importing them does not approve a model or enable inference.
 
+## Session preservation — 17 November 2026
+
+The [detailed project idea](docs/BUILD_3D_AI_PROJECT_IDEA.txt) preserves the product vision, existing foundation, proposed roadmap and technical limits. It is a proposal, not evidence of implemented future features or approval to spend. The [cloud development guide](docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md) records reproducible setup and startup using the helpers in [`scripts/cloud/`](scripts/cloud/).
+
+Archive organization was already pushed to `main` in commit `b32f88a`. Git preserves committed files; running processes, installed dependencies, caches and private smoke-test credentials require separate restoration or regeneration. Resume with the cloud guide, then qualify one real generation workflow under the existing model, license and budget gates.
+
 ## Architecture in brief
 
 ```text
