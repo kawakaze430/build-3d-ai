@@ -11,3 +11,6 @@ build
 **/*.db
 **/*.glb
 **/*.part
+
+# Preserved inactive upstream snapshots and reference assets
+AnalyseFuture/

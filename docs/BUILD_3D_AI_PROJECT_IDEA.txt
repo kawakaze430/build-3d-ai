@@ -6,6 +6,7 @@ Planning baseline: repository commit b32f88aa442cdd8eaad58d08f13514c475546644
 Project: https://github.com/kawakaze430/build-3d-ai
 Document type: primary repository project goal and development strategy
 Adopted by the owner as the main project goal: 17 November 2026
+Structure-review addendum: 17 November 2026; see section 26
 
 This document defines the repository's primary product direction and builds
 on the work already completed. It is not a proposal to restart the project.
@@ -42,6 +43,7 @@ CONTENTS
 23. Example future production project
 24. Definition of success
 25. Repository references and evidence boundaries
+26. Repository structure review and preservation for future work
 
 
 01. THE CENTRAL PROJECT IDEA
@@ -175,9 +177,9 @@ production engine. The default approved-model list is still empty.
 
 G. Organized reference material
 
-The source snapshots now live in third_party/3daigc-api/ and
-third_party/triposr/. The supplied rigging examples and demos live under
-assets/reference/autorig/. Their presence is reference material, not proof
+The source snapshots now live in AnalyseFuture/third_party/3daigc-api/ and
+AnalyseFuture/third_party/triposr/. The supplied rigging examples and demos live under
+AnalyseFuture/assets/reference/autorig/. Their presence is reference material, not proof
 that this project's generator or auto-rigger runs.
 
 The 3DAIGC source archive lacks its declared submodule source. Some bundled
@@ -1023,7 +1025,8 @@ The following sources informed this concept at the recorded baseline:
 - apps/web/src/: current studio, session boundary, and viewer.
 - apps/gateway/src/build3d_gateway/: model policy and validation/packaging.
 - services/generation/triposr_candidate/: preparation code and CPU contracts.
-- third_party/README.md, assets/reference/README.md, docs/ARCHIVE_IMPORTS.json:
+- AnalyseFuture/third_party/README.md,
+  AnalyseFuture/assets/reference/README.md, docs/ARCHIVE_IMPORTS.json:
   extracted reference snapshots, rights caveats, and file provenance.
 
 Older dated planning paragraphs can lag behind source. Current code was checked
@@ -1035,5 +1038,67 @@ No live competitive market survey, new benchmark, infrastructure purchase,
 training job, publication, or production launch was performed to write this
 concept. This document proposes future work and makes no commitment on behalf
 of an external company, maintainer, researcher, or service provider.
+
+26. REPOSITORY STRUCTURE REVIEW AND PRESERVATION FOR FUTURE WORK
+
+On 17 November 2026, the owner reported a repository compromise, unexpected
+files, and disrupted folders, and requested a preservation-first restructure.
+The connected repository's local and remote main both matched the previously
+verified e4b05f4b3fd6d18ccbccd59d3bbc6927191c5348 snapshot at inspection.
+No later main-branch file changes were observed. This limits the conclusion:
+the reported account incident cannot be confirmed or ruled out by inspecting
+this code snapshot, and no imported file was labeled malicious without evidence.
+
+Current repository responsibilities are:
+
+  apps/                         First-party API, gateway, and web studio.
+  services/                     First-party model qualification and adapters.
+  config/                       Product configuration examples.
+  scripts/                      Development, verification, and cloud helpers.
+  docs/                         Main project goal, evidence, plans, and runbooks.
+  .github/                      Active first-party CI workflows.
+  AnalyseFuture/third_party/    Preserved upstream source snapshots.
+  AnalyseFuture/assets/reference/
+                                Preserved example models and demo assets.
+
+Root Compose files, requirements.lock, and application paths stay compatible
+with the existing documented workflow. A clean structure should preserve
+working interfaces rather than rename every folder for appearance.
+
+All 242 tracked files from the two reference trees were retained. All 240
+original source/asset files keep their bytes; the two explanatory READMEs
+receive navigation repairs and have byte-identical originals under
+AnalyseFuture/history/. AnalyseFuture/FILE_INDEX.json records original paths,
+current paths, hashes, and reasons. docs/ARCHIVE_IMPORTS.json retains original
+extraction locations as well as current locations. Existing license files,
+sample models, binaries, diagrams, and upstream documentation remain present.
+
+AnalyseFuture means preserved for future review. It is not a malware verdict,
+a permission grant, or a security sandbox. Reference code and bundled wheels
+are not installed, imported into the product, or executed by this restructure.
+They need explicit dependency, rights, compatibility, and acceptance review
+before any future integration. They are excluded from default first-party
+pytest discovery and the root Docker build context.
+
+The existing detailed product goal remains the main direction. The first
+priority remains one qualified real generation-to-textured-GLB-to-browser-and-
+Blender workflow, building on the existing API, worker, storage, and studio.
+Future investigation of multi-view geometry, local editing, reusable character
+identity, body rigs, facial performance, editable environments, and specialized
+models follows the conditional horizons and responsibilities in sections 13,
+16, and 17. Moving a reference implementation into a review folder neither
+implements those capabilities nor changes the calendar into a delivery promise.
+
+If account access was compromised, the owner should separately review GitHub
+account/organization access and revoke unauthorized sessions, tokens, keys,
+apps, or collaborators. Rotating exposed secrets and reviewing Actions access
+may be necessary. A source-folder restructure cannot revoke external access,
+and this task does not establish that account-level recovery is complete.
+Do not publish credentials or private incident logs as repository evidence.
+
+The structure guide and dated audit describe this review's scope and actual
+validation results. New discoveries should receive their own review record;
+retain original material privately if it contains credentials or customer data
+rather than putting sensitive evidence into this public repository.
 
 END OF PROJECT IDEA

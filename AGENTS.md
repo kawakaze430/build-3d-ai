@@ -8,6 +8,8 @@ Read `docs/PROJECT_MEMORY_MASTER.md` first when resuming from a new/compacted ch
 
 The [main project goal](docs/BUILD_3D_AI_PROJECT_IDEA.txt) defines product direction and release priorities. Treat its future capabilities and horizons as conditional plans; current implementation evidence, acceptance checks, license review and explicit spending authorization still govern execution.
 
+The [repository structure guide](docs/REPOSITORY_STRUCTURE.md) identifies active components. `AnalyseFuture/` preserves inactive research sources and reference assets; do not install, execute, or promote them into the product without a reviewed task. Its contents are not classified as malicious merely because they are deferred. Keep original material and provenance when reorganizing it.
+
 ## Required working method
 
 1. **Inspect before coding.** Determine what is present, what works and what is missing. Preserve useful existing changes.

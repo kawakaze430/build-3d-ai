@@ -1,0 +1,1953 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-17",
+  "baseline_commit": "e4b05f4b3fd6d18ccbccd59d3bbc6927191c5348",
+  "classification": "RESEARCH_ONLY",
+  "reported_concern": "Owner reported unexpected files and disrupted repository structure.",
+  "observed_main": "Local and remote main matched the previously verified baseline at inspection; no later main-branch changes were observed.",
+  "meaning": "Preserved for review; this classification does not identify files as malicious or approve commercial use.",
+  "tracked_files_relocated": 242,
+  "source_and_asset_content_files": 240,
+  "notes": "All 240 source/asset files must keep their bytes. Two explanatory READMEs may receive navigation repairs; byte-identical originals are additionally retained under history/. No imported code, wheel or 3D file was executed.",
+  "local_metadata": "Ignored .DS_Store, if present, moves with the sample directory but is not published.",
+  "files": [
+    {
+      "original_path": "assets/reference/README.md",
+      "path": "AnalyseFuture/assets/reference/README.md",
+      "size_bytes": 1333,
+      "sha256": "ee66e3c5ac73abcd95bb0ac455fc21f94029dd4bd3388cb822b246fed4c2c50e",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component.",
+      "original_notes_copy": "AnalyseFuture/history/assets/reference/README.md"
+    },
+    {
+      "original_path": "assets/reference/autorig/example_autorig/bird.glb",
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/bird.glb",
+      "size_bytes": 8032388,
+      "sha256": "bb59726f598ab4a4e4c431b9789317f5b2f4252a6fb57364d929f5e1ddd7b5bb",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "assets/reference/autorig/example_autorig/giraffe.glb",
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/giraffe.glb",
+      "size_bytes": 6310044,
+      "sha256": "9a947cae00b169345802c08885c1e54313c6ce93c885bacf8e37e8a1f18f9e3b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "assets/reference/autorig/example_autorig/skeleton/bird.fbx",
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/bird.fbx",
+      "size_bytes": 401084,
+      "sha256": "885d432850506ab673d509ae2481067cc623452d5910090e1e15f323b9f83fa2",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "assets/reference/autorig/example_autorig/skeleton/giraffe.fbx",
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/giraffe.fbx",
+      "size_bytes": 759180,
+      "sha256": "73673a15c8103fbf9a6b39762768ae48e7c9404eab4850a60e4863ee400336fd",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "assets/reference/autorig/example_autorig/skeleton/tira.fbx",
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/tira.fbx",
+      "size_bytes": 1694668,
+      "sha256": "57ed6969266d642da2d8a579059462c7cd4a36c9bd7a8415236dcbea36607fee",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "assets/reference/autorig/example_autorig/skeleton/tripo_carrot.fbx",
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/tripo_carrot.fbx",
+      "size_bytes": 1879420,
+      "sha256": "50e08d70c7bdfa96eb842aed18564d8486a4622a474dbc0e0ef9304af1d4c6d3",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "assets/reference/autorig/example_autorig/tira.glb",
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/tira.glb",
+      "size_bytes": 32346060,
+      "sha256": "8e5a282d0a99c61a8d2439496057b15b0c6ea02643c16da2dcbec85571157799",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "assets/reference/autorig/example_autorig/tripo_carrot.glb",
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/tripo_carrot.glb",
+      "size_bytes": 9511824,
+      "sha256": "3c00b7e6ff1e71a019a02128a5b37e8d2db259a402313ad9b4eaab4f183ae40b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "assets/reference/autorig/example_prompts.txt",
+      "path": "AnalyseFuture/assets/reference/autorig/example_prompts.txt",
+      "size_bytes": 311,
+      "sha256": "1810eac4f9136d0bbac1c00f45b6ffd56194185468f5cd026f7e25df28c97ed2",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "assets/reference/autorig/open3dstudio_demo.jpg",
+      "path": "AnalyseFuture/assets/reference/autorig/open3dstudio_demo.jpg",
+      "size_bytes": 399899,
+      "sha256": "fd07a67645ad6140d4db4f492f600f29524fa9d0c523247c65fe05d0676a164a",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "assets/reference/autorig/open3dstudio_v1.0_demo_41m.gif",
+      "path": "AnalyseFuture/assets/reference/autorig/open3dstudio_v1.0_demo_41m.gif",
+      "size_bytes": 41126867,
+      "sha256": "98983599935e1d3a6d23550152b47147b3dc82bddd4ae5f948376974c7f87f34",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "assets/reference/autorig/runpod_demo1.png",
+      "path": "AnalyseFuture/assets/reference/autorig/runpod_demo1.png",
+      "size_bytes": 122872,
+      "sha256": "f007649e1518031c4a9474430ff6c17a40ce6b2f3a053611ad20a6df83bb36db",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "assets/reference/autorig/runpod_demo2.png",
+      "path": "AnalyseFuture/assets/reference/autorig/runpod_demo2.png",
+      "size_bytes": 210921,
+      "sha256": "7d7b7d68a4fdb55d69a2bb072495db2eff8b8f69e077dcea045c47a70658412d",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "assets/reference/autorig/system_arch.drawio",
+      "path": "AnalyseFuture/assets/reference/autorig/system_arch.drawio",
+      "size_bytes": 14340,
+      "sha256": "8e8cb08a3fd253031f2a0efbce48fce34be46c3726d1c427e4db9e8a6c6158bc",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "assets/reference/autorig/system_arch.png",
+      "path": "AnalyseFuture/assets/reference/autorig/system_arch.png",
+      "size_bytes": 168298,
+      "sha256": "693428c2be6a92cdb237d863ef62d826a32471afa8658cf12975bb7b2063356b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/.dockerignore",
+      "path": "AnalyseFuture/third_party/3daigc-api/.dockerignore",
+      "size_bytes": 1066,
+      "sha256": "ab3e55700c3b2c50c837ecd2537f8b6c28d8d4a5b412b1cfde1796216c6ba681",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/.gitignore",
+      "path": "AnalyseFuture/third_party/3daigc-api/.gitignore",
+      "size_bytes": 7483,
+      "sha256": "d2983ef3d3d5e513982cc1b0d88d2cc06484f8807722f2c782f0aa061be9bd1a",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/.gitmodules",
+      "path": "AnalyseFuture/third_party/3daigc-api/.gitmodules",
+      "size_bytes": 1234,
+      "sha256": "3fb6ae96e0267a2424f14707a17ca1652d33da3a4e34939fbbd452f12b11dc40",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/Dockerfile",
+      "path": "AnalyseFuture/third_party/3daigc-api/Dockerfile",
+      "size_bytes": 5409,
+      "sha256": "14e25bfda139ed8ab3b27239cf1f2ddbb4c90dfbf466ea71adfe091785753afc",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/Dockerfile.runpod",
+      "path": "AnalyseFuture/third_party/3daigc-api/Dockerfile.runpod",
+      "size_bytes": 5265,
+      "sha256": "3828e35ee28d26946bc61f0dfb895f9ccf25b5a9eea3c6435ad725c6fad4a948",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/LICENSE",
+      "path": "AnalyseFuture/third_party/3daigc-api/LICENSE",
+      "size_bytes": 11356,
+      "sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/README.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/README.md",
+      "size_bytes": 23970,
+      "sha256": "1fa79b7c1b0835c5186df25c83c8d2596950f661446124e42e50882f4147ca5b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/adapters/__init__.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/__init__.py",
+      "size_bytes": 1301,
+      "sha256": "91c6246c54bebd6b6ea59012161dad70f6b3d0fcdd36663c4054e3a8c1a20dba",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/adapters/fastmesh_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/fastmesh_adapter.py",
+      "size_bytes": 9607,
+      "sha256": "c9526452bcd98472daf71a804d434749452abe821358be842e6f7aca926ebe61",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/adapters/hunyuan3d_adapter_v21.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/hunyuan3d_adapter_v21.py",
+      "size_bytes": 23206,
+      "sha256": "7f9d19b473e2a8d68ce8c6ac84ec88c6c2dcfe33de440260b9df0fa8e5f06301",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/adapters/p3sam_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/p3sam_adapter.py",
+      "size_bytes": 13041,
+      "sha256": "3996140f93c096ed1ea0d9a129c38e2024bc2e0fe19253fc29a9845fed11f584",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/adapters/partfield_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/partfield_adapter.py",
+      "size_bytes": 14829,
+      "sha256": "f53e4ec9391711feb12ed7c987b6645367ff449dd48b5c7d6f2efc8491ee5730",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/adapters/partpacker_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/partpacker_adapter.py",
+      "size_bytes": 12736,
+      "sha256": "903a033aa17729c9388fbbb9693e2a9e5ede02138fd5054c7ece12a494c36c88",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/adapters/partuv_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/partuv_adapter.py",
+      "size_bytes": 11154,
+      "sha256": "d9ea662e09149258bc9b8a43a15606ac53079d79212220fffb57c37baa0a3fcc",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/adapters/trellis2_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/trellis2_adapter.py",
+      "size_bytes": 18514,
+      "sha256": "13c97b8b2e831ea1436e4a15c40ca2b012a3602ef2f6fe80807143fc6901904e",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/adapters/trellis_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/trellis_adapter.py",
+      "size_bytes": 26786,
+      "sha256": "d85a5a4be625fe8c1a8f918243f07ac5e536046c7b6286af70eeb58e09c9c5f4",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/adapters/ultrashape_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/ultrashape_adapter.py",
+      "size_bytes": 14269,
+      "sha256": "f5b47f2c989acbcf06d0ea2fae5fa386da7d83373d70030bb4a42d510533d5d2",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/adapters/unirig_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/unirig_adapter.py",
+      "size_bytes": 13658,
+      "sha256": "6b732ec0a319d8fa3b6252d752d207b4ba8fd1c569eac80da9f91966b9b52025",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/adapters/voxhammer_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/voxhammer_adapter.py",
+      "size_bytes": 23132,
+      "sha256": "4d7366496b93beb08a4ad7d970abbf492e1d9b0298d2fc5254f879e25ffd3daf",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/api/__init__.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/api/__init__.py",
+      "size_bytes": 66,
+      "sha256": "c05c0dfaa02c51fdba55986a2bae0b75c0debd394c3dbccc9aee177a9ee9e49b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/api/dependencies.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/api/dependencies.py",
+      "size_bytes": 17050,
+      "sha256": "12aea2315a8f33aecdf077c8c0b2f84b3bf1cc8d64f74a776c0787b1b5f7f121",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/api/main_multiworker.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/api/main_multiworker.py",
+      "size_bytes": 10214,
+      "sha256": "94e285e4a4e17193f853cc79c02c604adfe57a51e49945b71ce165863843581d",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/api/main_singleworker.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/api/main_singleworker.py",
+      "size_bytes": 7916,
+      "sha256": "d8a72ae13aa082859588fa57a0d5d1ae28710f51b817286ee6e3fbc3f1ebe0b1",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/api/routers/__init__.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/__init__.py",
+      "size_bytes": 393,
+      "sha256": "32bd9a19e0790477e23b8759340d1e7778bd7aff347300a70ae2e015978fa179",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/api/routers/auto_rigging.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/auto_rigging.py",
+      "size_bytes": 6479,
+      "sha256": "e42a25b63740ddd8210b17ec52e3b1b7fbe80456322fdc3537af235b96d4ae1f",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/api/routers/file_upload.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/file_upload.py",
+      "size_bytes": 15490,
+      "sha256": "6928b45c2922bbb6064d221644f946f4c8a15650802081b1d754f80218d5603c",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/api/routers/mesh_editing.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/mesh_editing.py",
+      "size_bytes": 17412,
+      "sha256": "ebf9f42e1501e047a5dec2b88e935efaf8997091181cb1690b303991364def3c",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/api/routers/mesh_generation.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/mesh_generation.py",
+      "size_bytes": 29635,
+      "sha256": "0ab7c61e9442d60f9f7bca963c46e1f06c32407b138c0a1834c3a74b11a7a344",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/api/routers/mesh_retopology.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/mesh_retopology.py",
+      "size_bytes": 8994,
+      "sha256": "aead2474ca12a1664950ec8576f62f656b8b107b4e51d2cc6650193885ad4740",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/api/routers/mesh_segmentation.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/mesh_segmentation.py",
+      "size_bytes": 7933,
+      "sha256": "076594c8cf36e259e33f77ff10f6840d3931b5f3b43eaa8427fea7895ab2d854",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/api/routers/mesh_uv_unwrapping.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/mesh_uv_unwrapping.py",
+      "size_bytes": 9615,
+      "sha256": "d14c2369b69fbb4f606ed86fc0062abbeceba424f965d44ac64634f6dd87a795",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/api/routers/system.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/system.py",
+      "size_bytes": 64028,
+      "sha256": "d4975317a789a1bdd513ecf2e4a10355627df4ca9ec7f6f411d5948ae2c23acc",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/api/routers/users.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/users.py",
+      "size_bytes": 11498,
+      "sha256": "06611c013d700f179d7a0ff19c6f89987a1bce3247ff47c661b687ddb38ccf8f",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_image/073.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/073.png",
+      "size_bytes": 107735,
+      "sha256": "afc0a4ee17882291aacedb6b2a6b1ca0e24912a3dc566efdb4d4c3400bc002e2",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_image/075.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/075.png",
+      "size_bytes": 261670,
+      "sha256": "58b926e26c0026df16378e214fb046e63dd0edceacb0f8db8005d9ed3f86949a",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_image/1687.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/1687.png",
+      "size_bytes": 157743,
+      "sha256": "74804ae8dee62928cd82d62a1a8bbbbaddeb91bc10a0315ec12c4a5d4aafb9c2",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_image/203.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/203.png",
+      "size_bytes": 143678,
+      "sha256": "50c1bf6fb350031480031ecbf15a212eb119e9589f7a66d8dc0d09910c4d8060",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_image/typical_building_space_station.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_building_space_station.png",
+      "size_bytes": 619626,
+      "sha256": "212c7b4c27ba1e01a7908dbc7f245e7115850eadbc9974aa726327cf35062846",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_image/typical_creature_robot_crab.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_creature_robot_crab.png",
+      "size_bytes": 594232,
+      "sha256": "d7e716abe8f8895080f562d1dc26b14fa0e20a05aa5beb2770c6fb3b87b3476a",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_image/typical_creature_robot_dinosour.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_creature_robot_dinosour.png",
+      "size_bytes": 632292,
+      "sha256": "d0986f29557a6fddf9b52b5251a6b6103728c61e201b1cfad1e709b090b72f56",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_image/typical_humanoid_mech.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_humanoid_mech.png",
+      "size_bytes": 849947,
+      "sha256": "a244ec54b7984e646e54d433de6897657081dd5b9cd5ccd3d865328d813beb49",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/material.mtl",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/material.mtl",
+      "size_bytes": 176,
+      "sha256": "3f9a761bfe339db161f396c85e828a22fd5bf5d95563fd05b483314a6760d2ce",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_creature_dragon.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_dragon.obj",
+      "size_bytes": 1174697,
+      "sha256": "16bbd5361207aae0888eddb982182533f59b7137a8962ac2963d575f19844520",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_creature_dragon/typical_creature_dragon.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_dragon/typical_creature_dragon.obj",
+      "size_bytes": 1174697,
+      "sha256": "16bbd5361207aae0888eddb982182533f59b7137a8962ac2963d575f19844520",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_creature_elephant.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_elephant.obj",
+      "size_bytes": 1282788,
+      "sha256": "7314f1b9c52e98d75f3d81edee9a88347a01b9d97030da560c75561fbfdb3d7f",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_creature_elephant/typical_creature_elephant.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_elephant/typical_creature_elephant.obj",
+      "size_bytes": 1282788,
+      "sha256": "7314f1b9c52e98d75f3d81edee9a88347a01b9d97030da560c75561fbfdb3d7f",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_creature_furry.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_furry.obj",
+      "size_bytes": 1006147,
+      "sha256": "e05609c1da42ad6deec27bd2d863271149bef514a47c31a85e6cdbd0b2c861f9",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_creature_quadruped.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_quadruped.obj",
+      "size_bytes": 2521738,
+      "sha256": "834ea74adccc9ad6f6d90ea989e18459d518799cdba431106fdb45b612ffa971",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_creature_robot_crab.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_robot_crab.obj",
+      "size_bytes": 2176488,
+      "sha256": "144b1b9fadccb0b0625bda4a090f52f6e9594e89f4f37894fd4e007eb3cd8143",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_creature_robot_dinosour.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_robot_dinosour.obj",
+      "size_bytes": 811578,
+      "sha256": "ef31ba872415b52a93151a223b0c3644479742d8c48d3c33f872272553f7fcc7",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster.obj",
+      "size_bytes": 1927794,
+      "sha256": "4d9aeeba7eb61ff01d2c6c9371d4734953974ae8f46770ef07c5f4d1da29f994",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster/typical_creature_rock_monster.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster/typical_creature_rock_monster.obj",
+      "size_bytes": 1927794,
+      "sha256": "4d9aeeba7eb61ff01d2c6c9371d4734953974ae8f46770ef07c5f4d1da29f994",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_humanoid_block_robot.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_block_robot.obj",
+      "size_bytes": 1666855,
+      "sha256": "f25a5a3c731166ae92012cdba228a80bda40e202a10453329dfdad962bffc4cc",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn.obj",
+      "size_bytes": 1278413,
+      "sha256": "1cd3b8073269bad948a18ab99e2ad4d752444123a928f94ea09a9a3f5863b23b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn/typical_humanoid_dragonborn.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn/typical_humanoid_dragonborn.obj",
+      "size_bytes": 1278413,
+      "sha256": "1cd3b8073269bad948a18ab99e2ad4d752444123a928f94ea09a9a3f5863b23b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_humanoid_dwarf.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dwarf.obj",
+      "size_bytes": 2747176,
+      "sha256": "1808ba3dc30401a6be175635267c17a9bf8b216ae3d7804dd946bdfa946c863a",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_humanoid_goblin.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_goblin.obj",
+      "size_bytes": 1316751,
+      "sha256": "1893f6058dcddb36bf13f7f49d5366301a6fe8f40cb16d50eaff07c99213671d",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_mesh/typical_humanoid_mech.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_mech.obj",
+      "size_bytes": 1927919,
+      "sha256": "89134d8ad12ca614e8c3922f4f183620a93807e175f2972077071f92aa44ba93",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_meshedit/images/2d_edit.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_edit.png",
+      "size_bytes": 345113,
+      "sha256": "a4c81a27476dea19c9db3199289393c1a730efe8ae7b2be19856a6c24310b7b3",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_meshedit/images/2d_mask.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_mask.png",
+      "size_bytes": 3510,
+      "sha256": "310af8a49ac431fbb3df26b9001e769dc28e4804525f68f2d8b58ba10bfb03f7",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_meshedit/images/2d_render.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_render.png",
+      "size_bytes": 696876,
+      "sha256": "db7f9528c55ee9c539ebb464458ff7d974827e3ff43028a6228c62563c2796f3",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_meshedit/mask.glb",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/mask.glb",
+      "size_bytes": 70364,
+      "sha256": "952d2f7e048f22bde44e02ebabb5b667c835b59e77e791abef50f775640c1eec",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_meshedit/model.glb",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/model.glb",
+      "size_bytes": 1431284,
+      "sha256": "ab019e91b349bac96f2057dc6b88fb5bb44842c7a37ce9a8268c8277b0e41ff8",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_meshseg/00200996b8f34f55a2dd2f44d316d107.glb",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/00200996b8f34f55a2dd2f44d316d107.glb",
+      "size_bytes": 4934932,
+      "sha256": "61cab7888c100531426880556cc22833423c338cf87d77f208ba30214e83a12b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_meshseg/002e462c8bfa4267a9c9f038c7966f3b.glb",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/002e462c8bfa4267a9c9f038c7966f3b.glb",
+      "size_bytes": 1261560,
+      "sha256": "22bbd8040395b07dcdf223d342d38b7cd38bb6c554606256e3f8b5cdd9404bc3",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_meshseg/0c3ca2b32545416f8f1e6f0e87def1a6.glb",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/0c3ca2b32545416f8f1e6f0e87def1a6.glb",
+      "size_bytes": 544336,
+      "sha256": "3935f44575093960a0ba422134087f70602a2ef7bc6a54c15ed21b70ec334af3",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_meshseg/65c6ffa083c6496eb84a0aa3c48d63ad.glb",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/65c6ffa083c6496eb84a0aa3c48d63ad.glb",
+      "size_bytes": 620864,
+      "sha256": "139201966d7eef3da1d1c80e8ba868b6785d0d0ce945d35add0bbf06c5cd101e",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_partpacker/barrel.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/barrel.png",
+      "size_bytes": 313619,
+      "sha256": "6efc5d01a6460ffe2aaf3f644f26d278ba7d4801476d17e98a212c588079c978",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_partpacker/cactus.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/cactus.png",
+      "size_bytes": 186382,
+      "sha256": "b63b5a14ec5df6cf05ce537d8ba7eec8e67a9260d0f521e9b68417f86f7942ad",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_partpacker/cyan_car.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/cyan_car.png",
+      "size_bytes": 69607,
+      "sha256": "61dc2c1b2e940a9d2ecded4d7c60fe0249c8ca905a55029293e0f062b559f795",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_partpacker/pickup.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/pickup.png",
+      "size_bytes": 113580,
+      "sha256": "9f89940c0bf2dbaf6a48346b8b9861f56a1b002ad5452c14e0019149132873bd",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_partpacker/rabbit.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/rabbit.png",
+      "size_bytes": 209239,
+      "sha256": "7c06b1e3364b3417dd4e92eaa6a5978d01a9ab9b1d9b99d7b15b2393d7952fbd",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_partpacker/robot.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/robot.png",
+      "size_bytes": 206759,
+      "sha256": "0ebaf8657cdb7d233ee2661926cff32656b54809bfc20fb7ac4d5ed7aa71fb15",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_partpacker/swivelchair.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/swivelchair.png",
+      "size_bytes": 119477,
+      "sha256": "af28e5c01b48ca27bb8baf68d7522eaa109f8998588f02152f935c9e3e5e2b57",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_partpacker/teapot.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/teapot.png",
+      "size_bytes": 204094,
+      "sha256": "967ec369e4bb45e835f7ac057d9406a46178ba6f2d6a5958788f805deb2fd5ec",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_partpacker/warhammer.png",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/warhammer.png",
+      "size_bytes": 162854,
+      "sha256": "bc63bda34774288092d069808b7cb28c9544dd253cfbcfb33a98b22c9ec19537",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_retopo/001.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_retopo/001.obj",
+      "size_bytes": 161466,
+      "sha256": "38679e56cd499a9dc0d4b22a77f2d0bad06cdfce2b4de00ebc775b55da7b5f6f",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_retopo/002.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_retopo/002.obj",
+      "size_bytes": 181348,
+      "sha256": "7738d64df0745e7da1b9efe6e8003fa9ab8665faf147d202f1ed4cf345f0528e",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_retopo/003.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_retopo/003.obj",
+      "size_bytes": 188903,
+      "sha256": "741f621f4d54f3a94f0ea6e7baa763f14726a3b6b8ec220cf466cf1460740092",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_retopo/004.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_retopo/004.obj",
+      "size_bytes": 200165,
+      "sha256": "8cd162448ddaa47d801fd0a99fb44900f5e52dd01e1c09155ba166afd489a4be",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_retopo/005.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_retopo/005.obj",
+      "size_bytes": 1555102,
+      "sha256": "30d8f498e33d404dcfffd82ff8a1d9bdbd7b19bbccb1fa8153ffae0887b94283",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_uv/igea.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_uv/igea.obj",
+      "size_bytes": 9587621,
+      "sha256": "33d196c91f20f483164af03e001e054f9124691f7e5694d0cf8e90d5857ed7ea",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/example_uv/max-planck.obj",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_uv/max-planck.obj",
+      "size_bytes": 3606642,
+      "sha256": "a2b9e2b5299dc1a1002bc3a3e51f50db29b8e22bde2c158bf8e681bfd3ec9932",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/wheels/diso-0.1.4-cp310-cp310-linux_x86_64.whl",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/wheels/diso-0.1.4-cp310-cp310-linux_x86_64.whl",
+      "size_bytes": 246844,
+      "sha256": "4d8fbcc529a2b2ad4aaed38444af9d8c19f294e074a865952eadec1df48c85b0",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/wheels/kaolin-0.17.0-cp310-cp310-linux_x86_64.whl",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/wheels/kaolin-0.17.0-cp310-cp310-linux_x86_64.whl",
+      "size_bytes": 5435349,
+      "sha256": "c93a0177e357114933c45607f89175b7168fcc39effee7c28525fcdc5498e190",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/assets/wheels/utils3d-0.0.2-py3-none-any.whl",
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/wheels/utils3d-0.0.2-py3-none-any.whl",
+      "size_bytes": 88960,
+      "sha256": "0c3d18e00a8c9ea58a63a1b1df83821a98c625e0a3145ee8d31d3aa93f8ae5af",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/config/logging.yaml",
+      "path": "AnalyseFuture/third_party/3daigc-api/config/logging.yaml",
+      "size_bytes": 2199,
+      "sha256": "a910d2e75e5c4a32e07e1426913ec0e57bf0cd895525bc0b2164de5be40ca4d8",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/config/models.yaml",
+      "path": "AnalyseFuture/third_party/3daigc-api/config/models.yaml",
+      "size_bytes": 4975,
+      "sha256": "ff51afb84f806d27c2fc7a7ed917f3829f1833a2a04e8149a993f6305e6f03ab",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/config/system.yaml",
+      "path": "AnalyseFuture/third_party/3daigc-api/config/system.yaml",
+      "size_bytes": 449,
+      "sha256": "2b7f4f7a07ac483fe890691447471b82c154a839af6a93a5b50c95e154f8c54f",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/__init__.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/__init__.py",
+      "size_bytes": 70,
+      "sha256": "ad9ddd3a2f63ff9f34ac0a0369b0b0d94742308990cd3ecb478b2c213d57c67d",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/auth/__init__.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/auth/__init__.py",
+      "size_bytes": 235,
+      "sha256": "1cefcfaab6ab0610b561a54a4c1a8161da0777d010701e7ba309f9c9eda077de",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/auth/models.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/auth/models.py",
+      "size_bytes": 3878,
+      "sha256": "5641fad40ccbc44b9a2ad542bb08459477765a2e82ec265e04934bd640664f36",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/auth/service.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/auth/service.py",
+      "size_bytes": 8420,
+      "sha256": "9950e2ea173a8248908764bffb0e4a6ace8930727639379573216a8cc924c044",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/auth/storage.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/auth/storage.py",
+      "size_bytes": 9954,
+      "sha256": "9d52ee48b4c8d4abb52d983d72cca889d8eef8d1f3a832a26f58c9fb79c39c0c",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/config.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/config.py",
+      "size_bytes": 10133,
+      "sha256": "929e3434875b30e67d6370ba4a95e5a0b7149350561c693c9d766a5047a9b721",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/file_store.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/file_store.py",
+      "size_bytes": 5584,
+      "sha256": "4504f1f0abcc7ed7c814b3357d49d90051001de8b8378588d007f71bd594ec0c",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/models/__init__.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/__init__.py",
+      "size_bytes": 490,
+      "sha256": "302b7166af5a173c00cf06a66dd94fa4e40b406a4a1781baa6d7ca2943444081",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/models/base.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/base.py",
+      "size_bytes": 5079,
+      "sha256": "e066cf4eb3534a31a150982698d20b3b273983312d2bc90e0d85590eb2e09f2b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/models/mesh_editing_models.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/mesh_editing_models.py",
+      "size_bytes": 9571,
+      "sha256": "dcc02eba596ee5261cdd15dc35dee849c6718856f5a9c20f630939a0fc4e10ae",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/models/mesh_models.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/mesh_models.py",
+      "size_bytes": 8968,
+      "sha256": "b8bf2b6f0a4cba5d156538145235a44095358f2b2fe3eb3941a75ed24f042ed1",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/models/retopo_models.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/retopo_models.py",
+      "size_bytes": 4772,
+      "sha256": "4cefbaf439099a3cac8c024164cefa942f433ea5be4a865cde32c9f2e9e01afe",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/models/rig_models.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/rig_models.py",
+      "size_bytes": 4560,
+      "sha256": "edabffcb1cc6b7f149e98db887c44230188bf0dfe42567afbb6672f8b8dca5ea",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/models/segment_models.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/segment_models.py",
+      "size_bytes": 4461,
+      "sha256": "01b84504d99e44d276f7acbedef84ba76de655bb885746a373c99b9cb1326015",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/models/uv_models.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/uv_models.py",
+      "size_bytes": 4871,
+      "sha256": "c7e825efc242fea3e28206939c5fc031a998cda145b9afcbf95c418cef703e6c",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/scheduler/__init__.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/__init__.py",
+      "size_bytes": 303,
+      "sha256": "24a75a36538141bb504e9cc56186fc37b46c119a3cf01b2e3e9c0a5dcd8de5d7",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/scheduler/database_manager.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/database_manager.py",
+      "size_bytes": 17151,
+      "sha256": "1dcf546c0939a1d5d2c24e733cb8f0b31a4c2b3a508b89bfdbe9f76ae594af9e",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/scheduler/database_models.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/database_models.py",
+      "size_bytes": 6162,
+      "sha256": "b71db25cb057dacd257e3e0a9ab4bd64d30100a735378eeb9bb792bdfcfb3adf",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/scheduler/gpu_monitor.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/gpu_monitor.py",
+      "size_bytes": 12183,
+      "sha256": "5c12704fce9317cef3c7189085cbe93356a1e2daa455357aee2c91d4b6c6877f",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/scheduler/job_queue.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/job_queue.py",
+      "size_bytes": 24369,
+      "sha256": "2a89302c3967825b722d19c100f81c155d7bebe69f12106af0f063b076019b50",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/scheduler/model_factory.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/model_factory.py",
+      "size_bytes": 17932,
+      "sha256": "f10fad5a71f19854d9b26fe3a1e8a25fa60660038d5111249c6ca750767765a0",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/scheduler/multiprocess_scheduler.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/multiprocess_scheduler.py",
+      "size_bytes": 59101,
+      "sha256": "08e0402c02c27c1de76dd75c83fb4bfb299a5e597678a0c933218502fea8abc5",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/scheduler/redis_job_queue.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/redis_job_queue.py",
+      "size_bytes": 15238,
+      "sha256": "93fb9629a3fbac4b0b364a60015aef5973799b2e102bfc85a2d50a94481236d9",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/scheduler/scheduler_factory.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/scheduler_factory.py",
+      "size_bytes": 5484,
+      "sha256": "d8a6e0f4e6777b3e98397bfcecd1ab98d69d634be4477d68c252a1f572ab4a9f",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/utils/__init__.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/__init__.py",
+      "size_bytes": 468,
+      "sha256": "6015b0077b8ce9316ee0c0749b25317ab19144536cfd7c25b419ceec5f907ca6",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/utils/exceptions.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/exceptions.py",
+      "size_bytes": 2884,
+      "sha256": "0e26ff231e2aad297a86f2be7ba0999cb56e09d261e4ec8c0842af6e0d9738af",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/utils/file_utils.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/file_utils.py",
+      "size_bytes": 22259,
+      "sha256": "fa9fea576c45e80a454eeccb4f34868a3802ab51d12d3aa00d26b5a9f6b05e24",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/utils/format_utils.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/format_utils.py",
+      "size_bytes": 6770,
+      "sha256": "7d8cf03b2990b906d43c86412205a8d562e3fd5a12191459a84e085af9f5c56f",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/utils/mask_generator.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/mask_generator.py",
+      "size_bytes": 9268,
+      "sha256": "4bd5838f366a39a069eb9e43cd087e904cda1008389aea5e893815b70ba55d1a",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/utils/mesh_utils.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/mesh_utils.py",
+      "size_bytes": 7584,
+      "sha256": "a98b1cf82e22e0004da459f250444573478bd8c3e794bca5cf7d9f4b5eda13dd",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/utils/thumbnail_utils.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/thumbnail_utils.py",
+      "size_bytes": 10839,
+      "sha256": "c215e31027878553997ad6b89c5c64db78da18517cb5513b315447dc942f3ce3",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/core/utils/validation.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/validation.py",
+      "size_bytes": 5024,
+      "sha256": "8f592ed95c0ea7cd9a7601fc4629250a4628930d4e3b0f2e536b00e0b0e80098",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docker-compose.yml",
+      "path": "AnalyseFuture/third_party/3daigc-api/docker-compose.yml",
+      "size_bytes": 4258,
+      "sha256": "fc9a7bbdcdb0846fbafbaf4a9b756569ff4a3976c548d38195fab72330ee19f0",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/api_documentation.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/api_documentation.md",
+      "size_bytes": 48311,
+      "sha256": "4e1c8758c2b40287887eea70b7ef4efe6beac3116614aa66c8c8791a730dc61b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/codebase_analysis.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/codebase_analysis.md",
+      "size_bytes": 9272,
+      "sha256": "0050bca07299fa738349970aaef77a89d08bd4e7f1a5b64f314d4a83f1b598be",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/cursor_created/IMPLEMENTATION_SUMMARY.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/IMPLEMENTATION_SUMMARY.md",
+      "size_bytes": 6143,
+      "sha256": "dd4c50daf1e004224a9ef58a72a8d2b7f3c061d331fe2aa62d2d371e7bae57be",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/cursor_created/codebase_analysis.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/codebase_analysis.md",
+      "size_bytes": 9272,
+      "sha256": "0050bca07299fa738349970aaef77a89d08bd4e7f1a5b64f314d4a83f1b598be",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_modes.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_modes.md",
+      "size_bytes": 7136,
+      "sha256": "6e381ea3a04f37ba5a649f986e810b5d5a8f052297d225d50f98582c9fc964c1",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_strategy.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_strategy.md",
+      "size_bytes": 12264,
+      "sha256": "8425f2afe4264c233a52570df123f6458b93a979155e7013c72001e3c118733a",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/cursor_created/docker_readme.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/docker_readme.md",
+      "size_bytes": 7604,
+      "sha256": "6cc2a75fe98e8b030d79d72c184e6218eb1263a3f1d39476b1625e7c1226e21d",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/cursor_created/fastmesh_partuv_integration_summary.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/fastmesh_partuv_integration_summary.md",
+      "size_bytes": 9272,
+      "sha256": "f833a73a63d46ba249ab67ea9dffb5805d2109a7cdfc3cca116c275e3d1a3e94",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/cursor_created/integration_summary.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/integration_summary.md",
+      "size_bytes": 9272,
+      "sha256": "f833a73a63d46ba249ab67ea9dffb5805d2109a7cdfc3cca116c275e3d1a3e94",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/cursor_created/system_architecture.drawio",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/system_architecture.drawio",
+      "size_bytes": 33620,
+      "sha256": "cbbdc0e17c5c4fa70eb53416fde3667e582694e42d2ef55b18057c8f8696d05b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/cursor_created/system_design.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/system_design.md",
+      "size_bytes": 18739,
+      "sha256": "8f282ca60c585cc5bdb2c32e4d4ef7f521d539bfb6fade9b47f465e932dc54da",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/cursor_created/trellis2_p3sam_integration_summary.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/trellis2_p3sam_integration_summary.md",
+      "size_bytes": 8595,
+      "sha256": "ed5a6b876667ead9364422b8b50f974b3003f4121bea6574b8bc64168a609ef2",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/cursor_created/ultrashape_voxhammer_integration.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/ultrashape_voxhammer_integration.md",
+      "size_bytes": 10898,
+      "sha256": "139c2e65b3f0ea730167b51a841746aa8cca7391a4f9dfc7856ca220ce89b998",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management.md",
+      "size_bytes": 9642,
+      "sha256": "7552af658813dba134a00b19b2b8034772d324efbe95a0220e116c89420b1535",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management_quickstart.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management_quickstart.md",
+      "size_bytes": 5108,
+      "sha256": "f4c310f1e819cc30767674ba7a4357a623be8b99b946cf5e9ea520b84a60f27a",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/prompts/template_for_integration.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/template_for_integration.md",
+      "size_bytes": 885,
+      "sha256": "e7b14b0e4b768f72200c2bb1ca7642f05e5723de4a23627d615bdc6824f35262",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/01.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/01.md",
+      "size_bytes": 13860,
+      "sha256": "6be96e51e553ad3c91ba09fd71521e2c7fc01863c53dec24874b66dabf34b8de",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/02_fastmesh_partuv_prompt.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/02_fastmesh_partuv_prompt.md",
+      "size_bytes": 1204,
+      "sha256": "b162e6e08cefe27c1fcb58d0c8a8913231f5b5b986eb9b6c78eec695f40035c4",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/03_separate_router_from_scheduler.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/03_separate_router_from_scheduler.md",
+      "size_bytes": 854,
+      "sha256": "2f9c41bc8c8a5d2eed3f581998b5444435f1767ec0ad7b00fc85d95417794525",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/04_add_user_system.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/04_add_user_system.md",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/05_add_input_image_url.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/05_add_input_image_url.md",
+      "size_bytes": 2794,
+      "sha256": "68de3684ed29e3b3a007470639e464efe93e310b853eeaa2388da85b82e60795",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/06_remove_trainer_dep_partfield.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/06_remove_trainer_dep_partfield.md",
+      "size_bytes": 366,
+      "sha256": "2d1ac87b752677c72799550a5a43152f73cdd33f8f85b6669e6357250cb187cc",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/01_trellis2_p3sam.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/01_trellis2_p3sam.md",
+      "size_bytes": 2153,
+      "sha256": "e720816ae00ac29903d36112943e547cd4f9e80e4605f053b47fb9618a037641",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/02_voxhammer_ultrashape.md",
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/02_voxhammer_ultrashape.md",
+      "size_bytes": 2613,
+      "sha256": "e9993222157fefb8bffb598597b1b22366fbf30fc774874406464d1df52d5106",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/requirements-test.txt",
+      "path": "AnalyseFuture/third_party/3daigc-api/requirements-test.txt",
+      "size_bytes": 663,
+      "sha256": "066a481dde83693ab4fe68266a0846fc21ef46359b50a1aa4e8d588bf2f6541f",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/requirements.txt",
+      "path": "AnalyseFuture/third_party/3daigc-api/requirements.txt",
+      "size_bytes": 1015,
+      "sha256": "d34af02e5c8f5b1f0c881b7cc85cfce6117849dcaac4c54f39effd6e0984a7b5",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/scripts/build_docker.sh",
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/build_docker.sh",
+      "size_bytes": 3708,
+      "sha256": "09258b4288f0ecb07b4be17ab373e704afdf9a2f4928ee3bf75ee7f5a9d707ef",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/scripts/create_admin_user.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/create_admin_user.py",
+      "size_bytes": 4847,
+      "sha256": "ec8a0f1143931329b743e924075c48445a0122941c5658ed17ff07038223a8a0",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/scripts/download_models.bat",
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/download_models.bat",
+      "size_bytes": 21592,
+      "sha256": "1dc598f57b34cbc56e2938d313461cdb80a931bed3da519fd91b1cc04faa2bf0",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/scripts/download_models.sh",
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/download_models.sh",
+      "size_bytes": 22869,
+      "sha256": "34fe0d409e63cee96a4acd81843872a6066e2e32c5dfe49f99538e25be00691a",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/scripts/install.bat",
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/install.bat",
+      "size_bytes": 9958,
+      "sha256": "fdf5ed9f7ca92b323a0a613fd62eb44293e3b9ed3911ba305317fccbcc48b526",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/scripts/install.sh",
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/install.sh",
+      "size_bytes": 9998,
+      "sha256": "998f3509dc3f0ddf97ebf7d9fd7dddfee6deb8543c652322314acbc7ff2b8349",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/scripts/install_trellis.bat",
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/install_trellis.bat",
+      "size_bytes": 1403,
+      "sha256": "b527053b7eb14b5410ec3c4f260824f4554de5ef344e11975fafeadd82376dab",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/scripts/run_server.bat",
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/run_server.bat",
+      "size_bytes": 1165,
+      "sha256": "9bbc7f29168a9f9ffe70ae548eef72d654eb5ea5d43b14f1c2b1035a166a769b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/scripts/run_server.sh",
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/run_server.sh",
+      "size_bytes": 8187,
+      "sha256": "d4eff28a3093df58a57c152d69211b47473c7bb82464aeebb2ea735c067cae47",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/scripts/scheduler_service.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/scheduler_service.py",
+      "size_bytes": 6537,
+      "sha256": "2487a98c34dfbef8cedb156020c59b71d9fb23c92ee949e04f4a485022c9a986",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/supervisord.conf",
+      "path": "AnalyseFuture/third_party/3daigc-api/supervisord.conf",
+      "size_bytes": 1216,
+      "sha256": "ecaba36babd95d8f9fbff28e00ab150608fb898451a05932eb6b4ebc81eb8147",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/conftest.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/conftest.py",
+      "size_bytes": 7386,
+      "sha256": "63eb297823bda2a4dc65838055faa2eef8aa89b817e3b65719c8a82ca4124496",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/curl/test_fastmesh_retopo.sh",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/curl/test_fastmesh_retopo.sh",
+      "size_bytes": 5515,
+      "sha256": "74cfac7158ff99b7e13ab67b0ddd0b2832332bca8e2bacf2d00e93aab7c52749",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/curl/test_partuv_unwarp.sh",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/curl/test_partuv_unwarp.sh",
+      "size_bytes": 7926,
+      "sha256": "440a3d955ffb3f8594c3083b87d8409cf1105b1f0ac31c3722af8bc4d5f6cc84",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/run_adapter_tests.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/run_adapter_tests.py",
+      "size_bytes": 5033,
+      "sha256": "b89a46f6eb32ef9b7f987b6dfc6655ec379450e1e2445ab5fe80a242b4cb07e1",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/run_test_client.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/run_test_client.py",
+      "size_bytes": 42267,
+      "sha256": "4852107741948de414954e0305d9af94331c8a1e643fafc43238e6f5b43f1891",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_adapters/gpu_memory_tracker.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/gpu_memory_tracker.py",
+      "size_bytes": 3887,
+      "sha256": "74259763c11fc6ce7c1d92febf208a87d7013f8dc4155fa0ea273a5c5333b112",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_adapters/test_fastmesh_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_fastmesh_adapter.py",
+      "size_bytes": 5272,
+      "sha256": "bca11f137dba84ab5316034aacb06464365898acf724f4f54c86b1588ec377db",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_adapters/test_hunyuan3d_adapter_v21.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_hunyuan3d_adapter_v21.py",
+      "size_bytes": 10240,
+      "sha256": "e4aab153f08b2867b1a47e643e78ea54c534d236831bac6388eee66f8c24a7ee",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_adapters/test_p3sam_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_p3sam_adapter.py",
+      "size_bytes": 11335,
+      "sha256": "27bf6ae975f05a9a983297ec3c782583df69310a22b10caec66d00af1c6871bc",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_adapters/test_partfield_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partfield_adapter.py",
+      "size_bytes": 6892,
+      "sha256": "cd7479174005798e34d5f957192e110e997a512cab66cc212ac5dcbce9a22de8",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_adapters/test_partpacker_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partpacker_adapter.py",
+      "size_bytes": 5642,
+      "sha256": "2adbdfff0d2d58aa6fbd70c1a5facfc0d2846ee9f7c369771e01498a0d4afb4a",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_adapters/test_partuv_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partuv_adapter.py",
+      "size_bytes": 4606,
+      "sha256": "4f33dd8023fc2e2c1d0425b949c44cb71a75f86ceec2487af6c12130d240a832",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_adapters/test_trellis2_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_trellis2_adapter.py",
+      "size_bytes": 9036,
+      "sha256": "169587c85c719506f8b2133101a9055fd743addef5be8716b5038354b7d86c6b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_adapters/test_trellis_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_trellis_adapter.py",
+      "size_bytes": 11488,
+      "sha256": "69046f6ad16459733354a669125935dbf2229fa56865d4a074894d7a7b7c6675",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_adapters/test_ultrashape_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_ultrashape_adapter.py",
+      "size_bytes": 6492,
+      "sha256": "217637044370795302e0d582921367e1b3367275cd8e55b14079940ecde923ad",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_adapters/test_unirig_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_unirig_adapter.py",
+      "size_bytes": 15034,
+      "sha256": "35d61717c257505c9a70d040092c5ee9252fbc7668ab7cac5a29563abd6554ca",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_adapters/test_voxhammer_adapter.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_voxhammer_adapter.py",
+      "size_bytes": 8974,
+      "sha256": "5358de39da5dbf57b8b4be6690b7409f53b70951dddbffdf693c0a31b798d8d3",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_basic_endpoints.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_basic_endpoints.py",
+      "size_bytes": 7123,
+      "sha256": "5f02abab930fe1e50693abe86825b59bdbe12327e547f832b8e60df736734c56",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_model_parameters.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_model_parameters.py",
+      "size_bytes": 9375,
+      "sha256": "ffae38852b069042df18d54b86b15d73a2811e8ed45cac2185c2ec981d365d37",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/tests/test_on_demand_scheduler.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_on_demand_scheduler.py",
+      "size_bytes": 4888,
+      "sha256": "23842766dc9becf51fa2002a09b7e508aa2f7ac7ccba3b088b6241cf4c2c6a41",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/utils/__init__.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/__init__.py",
+      "size_bytes": 158,
+      "sha256": "62b3897894aeea7d69b6e2ef3595c020e6b24c6dc6867389e60b9668cd1be58e",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/utils/fastmesh_utils.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/fastmesh_utils.py",
+      "size_bytes": 14461,
+      "sha256": "62f4ec67e09449e0d86278506ff43cbbd504f843c7d49ffb787a9832ff45456e",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/utils/p3sam_utils.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/p3sam_utils.py",
+      "size_bytes": 11008,
+      "sha256": "cc2abe78035a0d3b779c5789ea84fbd0758ef9f394162c67dc1a6648e28c3db5",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/utils/partfield_utils.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/partfield_utils.py",
+      "size_bytes": 32348,
+      "sha256": "9bc2d45dc37761c5a8bcd9e4e9c772f8c9bb16d08cf5e376cdf5a78611ee0b67",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/utils/partpacker_utils.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/partpacker_utils.py",
+      "size_bytes": 15160,
+      "sha256": "8641bb3f1dac3ad1f68769d2c5b4030a18f38f8fcd7b433b491f8144a7a1348d",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/utils/partuv_utils.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/partuv_utils.py",
+      "size_bytes": 12503,
+      "sha256": "89e82c07f4763e22d04f4cf3a0aba6256351dbf381bae4b1cda7bcb9c7475c90",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/utils/torchvision_fix.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/torchvision_fix.py",
+      "size_bytes": 5020,
+      "sha256": "76b93c7db4b8b155f6e7f43a91326bc48f196d88ee22c1afa53dcf1bd2a96e33",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/utils/trellis2_utils.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/trellis2_utils.py",
+      "size_bytes": 10138,
+      "sha256": "ec604871fea6ecbaed4e473e03dbb5be288a09aa22a27ec88b5e433abff005dd",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/utils/ultrashape_pipeline_helper.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/ultrashape_pipeline_helper.py",
+      "size_bytes": 12819,
+      "sha256": "52852e613044fc821f329624b57bb086905a52996a125640c739a9d6f50d9a69",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/utils/unirig_utils.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/unirig_utils.py",
+      "size_bytes": 24578,
+      "sha256": "fec53d233c4b6efb445cf7a2bf358e79d2567d2d1e25153d45333cd7e559dfb7",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/3daigc-api/utils/voxhammer_pipeline_helper.py",
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/voxhammer_pipeline_helper.py",
+      "size_bytes": 14852,
+      "sha256": "f71c91b642b2aab6d74e108a0d581352eb604c0131feb0e55b922742a2ae8ff9",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/README.md",
+      "path": "AnalyseFuture/third_party/README.md",
+      "size_bytes": 2861,
+      "sha256": "54dcd1ae748dbe3dc494c59943726597c29079f2db1f99a519540b666fa89c31",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component.",
+      "original_notes_copy": "AnalyseFuture/history/third_party/README.md"
+    },
+    {
+      "original_path": "third_party/triposr/.gitignore",
+      "path": "AnalyseFuture/third_party/triposr/.gitignore",
+      "size_bytes": 3123,
+      "sha256": "0d1298d99b9fc0bb1b2590e90bce9c6b90b3879ed531b8d8685f506099b62d96",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/LICENSE",
+      "path": "AnalyseFuture/third_party/triposr/LICENSE",
+      "size_bytes": 1080,
+      "sha256": "ade0a66629bdd7e01e46b3296b3851cff0fd27989bca53da470ad6e96ed620fb",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/README.md",
+      "path": "AnalyseFuture/third_party/triposr/README.md",
+      "size_bytes": 5419,
+      "sha256": "ed40f078c5e451c58eae716187e0128f0ce8575e467aab2440b4ed9c75e490b9",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/examples/captured.jpeg",
+      "path": "AnalyseFuture/third_party/triposr/examples/captured.jpeg",
+      "size_bytes": 5944816,
+      "sha256": "c6eb2768703a0e3d6034daa7fd5e0b286450b1077a90f36da8110749bb1cb8a8",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/examples/chair.png",
+      "path": "AnalyseFuture/third_party/triposr/examples/chair.png",
+      "size_bytes": 114705,
+      "sha256": "2503c12a74419d91a4c6c9f1affc48fee6e2b8b9091956ca6211e91ada57b5bf",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/examples/flamingo.png",
+      "path": "AnalyseFuture/third_party/triposr/examples/flamingo.png",
+      "size_bytes": 93420,
+      "sha256": "962d39dc6f1673e1c1d5a747e01325682ecf3df45f31fc3e5191f18bc5aa1274",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/examples/hamburger.png",
+      "path": "AnalyseFuture/third_party/triposr/examples/hamburger.png",
+      "size_bytes": 125172,
+      "sha256": "2f16cb1f2bb932ae643cd4acc09bb6ecb51c84eca32dd5a7c71ea4980b40b51a",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/examples/horse.png",
+      "path": "AnalyseFuture/third_party/triposr/examples/horse.png",
+      "size_bytes": 257687,
+      "sha256": "629a0cc78a18e16f359afb22e2d8b9594f435ae09326560c86b0b095650d54e0",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/examples/iso_house.png",
+      "path": "AnalyseFuture/third_party/triposr/examples/iso_house.png",
+      "size_bytes": 1260444,
+      "sha256": "b6063cbbc55b9aa4a4785ddbfcd13ca86fb07eca5a4ea7f9dda5eebcf7c17765",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/examples/marble.png",
+      "path": "AnalyseFuture/third_party/triposr/examples/marble.png",
+      "size_bytes": 797408,
+      "sha256": "7b4e443fd2ac729891e8374749b0f9dc677039778e63b2ef7af160af03530a13",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/examples/police_woman.png",
+      "path": "AnalyseFuture/third_party/triposr/examples/police_woman.png",
+      "size_bytes": 240269,
+      "sha256": "0f9e688ec2ff8fdd5ded7011fcc48b7b86f2e3445ae24c1253c4b895b4e95d7b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/examples/poly_fox.png",
+      "path": "AnalyseFuture/third_party/triposr/examples/poly_fox.png",
+      "size_bytes": 633575,
+      "sha256": "255b3fe96ec357d8744343849f8d7cb39156988520c7ca0264edc6689d6e31ca",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/examples/robot.png",
+      "path": "AnalyseFuture/third_party/triposr/examples/robot.png",
+      "size_bytes": 151541,
+      "sha256": "092ee61f1729ac9ed516c8d031d071f44dfa6e79f6ece04f32c988721b2b657a",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/examples/stripes.png",
+      "path": "AnalyseFuture/third_party/triposr/examples/stripes.png",
+      "size_bytes": 359613,
+      "sha256": "5ca1c5401cc25fcf03bb5110133fcc11bf21939ae929aa9283bb215222dddd90",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/examples/teapot.png",
+      "path": "AnalyseFuture/third_party/triposr/examples/teapot.png",
+      "size_bytes": 275764,
+      "sha256": "66b0b8f7dd759e97d20665999885e0548f96c95dadee6bf9762ccd877c596b8c",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/examples/tiger_girl.png",
+      "path": "AnalyseFuture/third_party/triposr/examples/tiger_girl.png",
+      "size_bytes": 485849,
+      "sha256": "af24c8064d8149f578adb9b3f69e46dfced704d11a0a149935a7f0399c7e7963",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/examples/unicorn.png",
+      "path": "AnalyseFuture/third_party/triposr/examples/unicorn.png",
+      "size_bytes": 530994,
+      "sha256": "35368caaf39cc5841a024d35cd4309f20aadae31fce58b6c63eb6d4b1bb9e129",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/figures/comparison800.gif",
+      "path": "AnalyseFuture/third_party/triposr/figures/comparison800.gif",
+      "size_bytes": 8871325,
+      "sha256": "887e69297e4446f122801ff2cc39962eda0933906d7ed7be7abf659e721914be",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/figures/scatter-comparison.png",
+      "path": "AnalyseFuture/third_party/triposr/figures/scatter-comparison.png",
+      "size_bytes": 326230,
+      "sha256": "531397494c63b414658ccc867203c39f201249d582d7c5a2e9320a384c23cfe1",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/figures/teaser800.gif",
+      "path": "AnalyseFuture/third_party/triposr/figures/teaser800.gif",
+      "size_bytes": 3842644,
+      "sha256": "52ecc6ff24e008b0d28236425a1b59718931841f6fb9f5e6f8471829fc9bc292",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/figures/visual_comparisons.jpg",
+      "path": "AnalyseFuture/third_party/triposr/figures/visual_comparisons.jpg",
+      "size_bytes": 10322597,
+      "sha256": "019235d716d8832aaa659acd31cf17267af94df6b5a9beca2a7002b41d59c8db",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/gradio_app.py",
+      "path": "AnalyseFuture/third_party/triposr/gradio_app.py",
+      "size_bytes": 7147,
+      "sha256": "966639162b0e54b8d02748968e77c90aec38bbc123aa5db2d1d81eb92fda9f80",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/requirements.txt",
+      "path": "AnalyseFuture/third_party/triposr/requirements.txt",
+      "size_bytes": 203,
+      "sha256": "741408247598c63e9f08cdb5f6fc753d78ac9185bb961cbe7ba8c5c0132aae48",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/run.py",
+      "path": "AnalyseFuture/third_party/triposr/run.py",
+      "size_bytes": 6292,
+      "sha256": "bc1c124b3439f8ceb00ebd441848487ae7650af71053a80b266ae5db15784282",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/tsr/bake_texture.py",
+      "path": "AnalyseFuture/third_party/triposr/tsr/bake_texture.py",
+      "size_bytes": 5374,
+      "sha256": "931d066c25d5943dc7b71469b63c308df3f37b8e7f6df558ee5e348d7936d5b7",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/tsr/models/isosurface.py",
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/isosurface.py",
+      "size_bytes": 1926,
+      "sha256": "94c9a2ec27f8fe3c2fb57558ef28be253eb77074d2c171d49a41cf73d95d6f5e",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/tsr/models/nerf_renderer.py",
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/nerf_renderer.py",
+      "size_bytes": 5673,
+      "sha256": "afe8c12c964078b2c6bb3922d2e30969aa59f7edbacb8cb73d2c3df839dc785f",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/tsr/models/network_utils.py",
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/network_utils.py",
+      "size_bytes": 3473,
+      "sha256": "b3d48e86be9ca3f3abc1bfd774f640fd350e4365843d804e2a3145e7692e1419",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/tsr/models/tokenizers/image.py",
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/tokenizers/image.py",
+      "size_bytes": 2116,
+      "sha256": "f6da23124dfabe6a1f8d0d27693d0cece6574de68be15487a77781b6a9d73195",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/tsr/models/tokenizers/triplane.py",
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/tokenizers/triplane.py",
+      "size_bytes": 1237,
+      "sha256": "44811fbd53013d6f49e229ecfd0717f89dd8ebeb71608aeb1f8e5ed1d5e8e378",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/tsr/models/transformer/attention.py",
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/transformer/attention.py",
+      "size_bytes": 26341,
+      "sha256": "347c1a707257cb4eb664ebe9ecd16db7b6006131e74925c049245d2c0101ba7e",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/tsr/models/transformer/basic_transformer_block.py",
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/transformer/basic_transformer_block.py",
+      "size_bytes": 13202,
+      "sha256": "ced8ce4c5c5bbc13368130bc15dee1717cc6bc7f35699f64d03aeec185b1198e",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/tsr/models/transformer/transformer_1d.py",
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/transformer/transformer_1d.py",
+      "size_bytes": 9325,
+      "sha256": "fd83a71d59d04ef0a45dbadcc63f9d56d354ebc011a40f5589eb1786a1dd15f4",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/tsr/system.py",
+      "path": "AnalyseFuture/third_party/triposr/tsr/system.py",
+      "size_bytes": 6608,
+      "sha256": "7aec93e421394ad7c746b6d63a0189532b57b26af9a199fc75ac3bb7c993c94f",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    },
+    {
+      "original_path": "third_party/triposr/tsr/utils.py",
+      "path": "AnalyseFuture/third_party/triposr/tsr/utils.py",
+      "size_bytes": 15172,
+      "sha256": "d9d1a645fef7ea489615bff3471fd01a4941a2c0e138c5dff5daae619563279b",
+      "classification": "RESEARCH_ONLY",
+      "reason": "Imported upstream snapshot or supplied sample asset/reference notes; not an enabled product component."
+    }
+  ]
+}

@@ -360,11 +360,13 @@ The owner also has independent discussions/projects concerning a reusable 2D ani
 
 ## 13. Archive organization — 17 November 2026
 
+Historical paths in this section were subsequently relocated under `AnalyseFuture/`; see [the current structure](REPOSITORY_STRUCTURE.md).
+
 The owner requested extraction of all three supplied ZIP archives, removal of the ZIP files after verification, and a direct update to `main` without a PR or additional branch. The imported source snapshots live at `third_party/3daigc-api/` and `third_party/triposr/`; the example bundle keeps its original internal hierarchy under `assets/reference/autorig/`. Existing first-party application and service paths are retained.
 
 Upstream source contents are preserved byte-for-byte with only the outer ZIP directory removed. Original licenses remain with their source. The example bundle contains no license, and the 3DAIGC-API ZIP omits the source of its declared submodules. All imported content is **RESEARCH_ONLY**; extraction is not product integration, model approval or inference evidence.
 
-References: [repository layout](../README.md#repository-layout), [source snapshot notes](../third_party/README.md), [reference assets](../assets/reference/README.md), and [archive inventory and hashes](ARCHIVE_IMPORTS.json). Earlier project and license decisions remain in force.
+References: [repository layout](../README.md#repository-layout), [source snapshot notes](../AnalyseFuture/third_party/README.md), [reference assets](../AnalyseFuture/assets/reference/README.md), and [archive inventory and hashes](ARCHIVE_IMPORTS.json). Earlier project and license decisions remain in force.
 
 
 ## 14. Session preservation — 17 November 2026
@@ -380,3 +382,13 @@ The next technical priority remains one real generation qualification and verifi
 ## 15. Main project goal adopted — 17 November 2026
 
 The owner explicitly adopted [BUILD_3D_AI_PROJECT_IDEA.txt](BUILD_3D_AI_PROJECT_IDEA.txt) as the main goal for the GitHub repository and requested a direct update to `main`. It is now the primary detailed product direction, linked prominently in the README and referenced by agent instructions and [PRODUCT_VISION.md](PRODUCT_VISION.md). Earlier notes describing the document as an unadopted proposal are historical. Its proposed features and one-/two-/later-year horizons remain conditional; adoption is not evidence of implementation or permission for paid resources. Preserve the existing foundation and follow the document's focused-first-release priorities and acceptance gates.
+
+## 16. Preservation-first structure review — 17 November 2026
+
+The owner reported compromised access and disrupted files, and requested a direct `main` restructure preserving uncertain material in `AnalyseFuture/`. The inspected local and remote main matched previously verified `e4b05f4`; no later main-branch changes were observed. This is not a conclusion about GitHub account access or an independent compromise clearance.
+
+All 242 tracked reference files from `third_party/` and `assets/reference/` were preserved under the corresponding paths in `AnalyseFuture/`. All 240 source/asset files retain their hashes; original copies of the two navigation notes are also retained under `AnalyseFuture/history/`. Active app, qualification service, script, Compose and dependency paths remain compatible. The file index, archive relocation records, [structure guide](REPOSITORY_STRUCTURE.md) and [dated audit](REPOSITORY_AUDIT_2026-11-17.md) document the move and its limits. Default pytest discovery and root Docker context exclude the inactive review area.
+
+The [main project goal TXT](BUILD_3D_AI_PROJECT_IDEA.txt) now includes a structure-review addendum while preserving the detailed vision, existing work, limitations, one-/two-/longer-year horizons and roles. The first real qualified generation/browser/Blender workflow remains the next gated priority; reference relocation does not grant model or spending approval.
+
+Structure-review validation: 136 default first-party Python tests, three preparation-helper tests, four web unit tests, six browser contracts, TypeScript checks, the production web build and both Compose configuration checks passed. File-hash checks retained all 242 original tracked references and all 241 extracted local files (one ignored metadata file); reference scripts/weights were not executed. See the dated audit for boundaries.

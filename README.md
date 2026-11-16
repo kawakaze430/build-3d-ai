@@ -67,20 +67,22 @@ See [browser studio details](apps/web/README.md), [artifact storage](docs/OBJECT
 ## Repository layout
 
 ```text
-apps/                         First-party web studio, product API and gateway
-services/                     Isolated model/service qualification work
-config/                       Reviewed configuration examples
-scripts/                      Development and packaging helpers
-docs/                         Project memory, audits, decisions and runbooks
-.github/                      First-party CI workflows and repository templates
-third_party/3daigc-api/        Extracted 3DAIGC-API source snapshot
-third_party/triposr/           Extracted TripoSR source snapshot
-assets/reference/autorig/      Extracted example models, demos and diagrams
+apps/                                  First-party web studio, product API and gateway
+services/                              First-party model/service qualification work
+config/                                Reviewed configuration examples
+scripts/                               Development and cloud setup helpers
+docs/                                  Main goal, memory, audits and runbooks
+.github/                               Active first-party CI and repository templates
+AnalyseFuture/third_party/3daigc-api/    Preserved upstream source snapshot
+AnalyseFuture/third_party/triposr/       Preserved upstream source snapshot
+AnalyseFuture/assets/reference/autorig/ Preserved example models, demos and diagrams
 ```
 
-The three supplied ZIP archives are unpacked into the paths above; their redundant root ZIP files are removed after extraction verification. Upstream files and license notices are retained. See the [source snapshot notes](third_party/README.md), [reference asset notes](assets/reference/README.md) and [archive inventory](docs/ARCHIVE_IMPORTS.json) for provenance and file hashes.
+The [structure guide](docs/REPOSITORY_STRUCTURE.md) explains active components, compatibility paths and preserved research material. The [17 November repository audit](docs/REPOSITORY_AUDIT_2026-11-17.md) records the review prompted by the owner's reported disruption. The review began at the expected `e4b05f4` baseline; this does not independently confirm compromise or establish account security.
 
-Imported source and assets are **RESEARCH_ONLY**. The 3DAIGC-API ZIP does not include its declared submodule source, and the example asset bundle supplies no license. These snapshots remain separate from the product applications; importing them does not approve a model or enable inference.
+Existing product applications, qualification services and runtime configuration stay in their working locations. The supplied source snapshots and asset bundle are preserved under [AnalyseFuture](AnalyseFuture/README.md) for review, with a [file index](AnalyseFuture/FILE_INDEX.json), [source snapshot notes](AnalyseFuture/third_party/README.md), [reference asset notes](AnalyseFuture/assets/reference/README.md) and [archive inventory](docs/ARCHIVE_IMPORTS.json).
+
+Imported source and assets remain **RESEARCH_ONLY**. The 3DAIGC-API ZIP omitted its declared submodule source, and the example asset bundle supplied no license. These references are separate from the product applications; relocating them does not approve a model or enable inference. `AnalyseFuture` identifies deferred reference material, not confirmed malware, and is not an execution sandbox.
 
 ## Session preservation — 17 November 2026
 
@@ -123,6 +125,9 @@ Do **not** indiscriminately merge these projects. Pin versions, test actual func
 
 | Document | Why it exists |
 |---|---|
+| [Main project goal (.txt)](docs/BUILD_3D_AI_PROJECT_IDEA.txt) | Owner-adopted product direction, future horizons and limits |
+| [Repository structure](docs/REPOSITORY_STRUCTURE.md) | Active code, compatible runtime paths and preserved references |
+| [Repository audit — 17 November 2026](docs/REPOSITORY_AUDIT_2026-11-17.md) | Observations, preservation work and remaining uncertainties |
 | [Vision and scope](docs/PRODUCT_VISION.md) | What we are trying to become and who it serves |
 | [Feature matrix](docs/FEATURE_MATRIX.md) | Complete goals, priorities and acceptance tests |
 | [Architecture](docs/ARCHITECTURE.md) | How independent components fit into one system |
