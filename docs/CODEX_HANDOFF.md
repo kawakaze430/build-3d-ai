@@ -118,3 +118,18 @@ Do not run `build3d-worker --confirm-gpu-spend` or `build3d-gpu-smoke --confirm-
 - private authenticated runtime that attests it is serving the approved revision/checkpoint.
 
 These gates block live inference, not further CPU-only engineering.
+
+
+## Archive organization — 17 November 2026
+
+The owner's archive extraction request uses these paths:
+
+- `third_party/3daigc-api/`: supplied 3DAIGC-API source, with its original license and internal layout.
+- `third_party/triposr/`: supplied TripoSR source, with its original license and internal layout.
+- `assets/reference/autorig/`: example bundle, preserving its model, demo and diagram hierarchy.
+
+The three root ZIP files are removed after extraction verification. Existing first-party application/service paths stay in place. See [source snapshot notes](../third_party/README.md), [reference asset notes](../assets/reference/README.md) and [archive inventory](ARCHIVE_IMPORTS.json).
+
+Treat all imported files as **RESEARCH_ONLY**. The source snapshots are independent references, not newly enabled product integrations. The 3DAIGC-API archive omits its declared submodule source, and the example bundle has no supplied license. No model approval or inference result follows from this organization change. The owner explicitly requested a direct `main` update without a PR or additional branch; verify live Git state before subsequent work.
+
+Validation for this organization change: all 241 extracted file hashes matched the supplied ZIPs; all 240 content files matched the staged Git blobs (only macOS `.DS_Store` remains ignored). The 136 first-party Python tests, four web unit tests and TypeScript check passed. Imported source and model assets were not executed.

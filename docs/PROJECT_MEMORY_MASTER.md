@@ -356,3 +356,12 @@ The owner also has independent discussions/projects concerning a reusable 2D ani
 - When a new chat begins, paste only the Section 0 recovery prompt and this document URL. An agent should be able to resume by following the actual GitHub code and links.
 
 **End of master project-memory snapshot.**
+
+
+## 13. Archive organization — 17 November 2026
+
+The owner requested extraction of all three supplied ZIP archives, removal of the ZIP files after verification, and a direct update to `main` without a PR or additional branch. The imported source snapshots live at `third_party/3daigc-api/` and `third_party/triposr/`; the example bundle keeps its original internal hierarchy under `assets/reference/autorig/`. Existing first-party application and service paths are retained.
+
+Upstream source contents are preserved byte-for-byte with only the outer ZIP directory removed. Original licenses remain with their source. The example bundle contains no license, and the 3DAIGC-API ZIP omits the source of its declared submodules. All imported content is **RESEARCH_ONLY**; extraction is not product integration, model approval or inference evidence.
+
+References: [repository layout](../README.md#repository-layout), [source snapshot notes](../third_party/README.md), [reference assets](../assets/reference/README.md), and [archive inventory and hashes](ARCHIVE_IMPORTS.json). Earlier project and license decisions remain in force.

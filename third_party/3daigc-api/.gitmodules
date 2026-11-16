@@ -1,0 +1,33 @@
+[submodule "thirdparty/TRELLIS"]
+	path = thirdparty/TRELLIS
+	url = https://github.com/FishWoWater/TRELLIS
+[submodule "thirdparty/PartField"]
+	path = thirdparty/PartField
+	url = https://github.com/nv-tlabs/PartField
+[submodule "thirdparty/PartPacker"]
+	path = thirdparty/PartPacker
+	url = https://github.com/NVlabs/PartPacker
+[submodule "thirdparty/Hunyuan3D-2.1"]
+	path = thirdparty/Hunyuan3D-2.1
+	url = https://github.com/FishWoWater/Hunyuan3D-2.1
+[submodule "thirdparty/UniRig"]
+	path = thirdparty/UniRig
+	url = https://github.com/FishWoWater/UniRig
+[submodule "thirdparty/FastMesh"]
+	path = thirdparty/FastMesh
+	url = https://github.com/FishWoWater/FastMesh
+[submodule "thirdparty/PartUV"]
+	path = thirdparty/PartUV
+	url = https://github.com/FishWoWater/PartUV
+[submodule "thirdparty/TRELLIS.2"]
+	path = thirdparty/TRELLIS.2
+	url = https://github.com/FishWoWater/TRELLIS.2
+[submodule "thirdparty/Hunyuan3DPart"]
+	path = thirdparty/Hunyuan3DPart
+	url = https://github.com/FishWoWater/Hunyuan3D-Part
+[submodule "thirdparty/UltraShape"]
+	path = thirdparty/UltraShape
+	url = https://github.com/PKU-YuanGroup/UltraShape-1.0
+[submodule "thirdparty/VoxHammer"]
+	path = thirdparty/VoxHammer
+	url = https://github.com/FishWoWater/VoxHammer

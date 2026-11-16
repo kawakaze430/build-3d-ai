@@ -60,6 +60,24 @@ Save the API key printed by `create-user` privately; it is displayed only once. 
 
 See [browser studio details](apps/web/README.md), [artifact storage](docs/OBJECT_STORAGE.md) and [identity/account lifecycle decision](docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md).
 
+## Repository layout
+
+```text
+apps/                         First-party web studio, product API and gateway
+services/                     Isolated model/service qualification work
+config/                       Reviewed configuration examples
+scripts/                      Development and packaging helpers
+docs/                         Project memory, audits, decisions and runbooks
+.github/                      First-party CI workflows and repository templates
+third_party/3daigc-api/        Extracted 3DAIGC-API source snapshot
+third_party/triposr/           Extracted TripoSR source snapshot
+assets/reference/autorig/      Extracted example models, demos and diagrams
+```
+
+The three supplied ZIP archives are unpacked into the paths above; their redundant root ZIP files are removed after extraction verification. Upstream files and license notices are retained. See the [source snapshot notes](third_party/README.md), [reference asset notes](assets/reference/README.md) and [archive inventory](docs/ARCHIVE_IMPORTS.json) for provenance and file hashes.
+
+Imported source and assets are **RESEARCH_ONLY**. The 3DAIGC-API ZIP does not include its declared submodule source, and the example asset bundle supplies no license. These snapshots remain separate from the product applications; importing them does not approve a model or enable inference.
+
 ## Architecture in brief
 
 ```text

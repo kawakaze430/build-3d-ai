@@ -1,0 +1,19 @@
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: null  # Set to file path to enable file logging
+
+# Security configuration
+security:
+  rate_limit_per_minute: 60
+  cors_origins: ["*"]
+  api_key_required: false
+
+# Environment settings
+environment: "production"
+debug: false
+
+# Essential configuration parameters (can be overridden via CLI or env vars)
+user_auth_enabled: false
