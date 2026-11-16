@@ -1,15 +1,18 @@
 BUILD 3D AI
-DETAILED PROJECT IDEA, EXISTING FOUNDATION, AND FUTURE DEVELOPMENT VISION
+MAIN PROJECT GOAL, EXISTING FOUNDATION, AND FUTURE DEVELOPMENT VISION
 
 Prepared: 17 November 2026
 Planning baseline: repository commit b32f88aa442cdd8eaad58d08f13514c475546644
 Project: https://github.com/kawakaze430/build-3d-ai
-Document type: proposed product concept and development strategy
+Document type: primary repository project goal and development strategy
+Adopted by the owner as the main project goal: 17 November 2026
 
-This document builds on the work already completed. It is not a proposal to
-restart the project. Future features below are proposals, not approved scope,
-completed integrations, spending authorization, or delivery promises. Dates
-refer to planning horizons from November 2026, not predicted AI breakthroughs.
+This document defines the repository's primary product direction and builds
+on the work already completed. It is not a proposal to restart the project.
+Adoption of this goal does not mark future features as implemented or authorize
+spending. Feature scope and acceptance remain separate decisions; future
+capabilities are proposals, not delivery promises. Dates refer to planning
+horizons from November 2026, not predicted AI breakthroughs.
 
 
 CONTENTS

@@ -1,5 +1,9 @@
 # Build 3D AI — Independent AI 3D Creation Platform
 
+> **Main project goal:** [Read the complete Build 3D AI project goal (.txt)](docs/BUILD_3D_AI_PROJECT_IDEA.txt). Adopted by the owner on 17 November 2026 as the repository's primary product direction.
+
+Build an independent AI-assisted 3D creation studio for reusable, editable assets, with a long-term focus on consistent stylized adult characters and environments for Blender animation. Build on the existing product foundation, prove a focused real asset workflow first, and expand through measured quality and practical artist control.
+
 > **Implementation baseline (15 Nov 2026):** `main` now contains the authenticated gateway, durable private product API/worker, browser studio/GLB viewer, and filesystem + optional S3-compatible artifact storage. Follow the [complete ordered checklist](docs/IMPLEMENTATION_CHECKLIST.md), [current handoff](docs/CODEX_HANDOFF.md), and [product backend runbook](docs/PRODUCT_BACKBONE.md). **No real GPU inference or production SaaS is deployed yet.**
 
 > **Verification boundary:** GitHub CI covers Python 3.11/3.12 gateway/API tests, SQLite/PostgreSQL behavior, TypeScript/unit/build checks and Playwright browser-contract tests. Browser/storage GLB fixtures are synthetic; they do not prove model quality, GPU cost, Blender import, commercial model clearance or production deployment.
@@ -80,7 +84,7 @@ Imported source and assets are **RESEARCH_ONLY**. The 3DAIGC-API ZIP does not in
 
 ## Session preservation — 17 November 2026
 
-The [detailed project idea](docs/BUILD_3D_AI_PROJECT_IDEA.txt) preserves the product vision, existing foundation, proposed roadmap and technical limits. It is a proposal, not evidence of implemented future features or approval to spend. The [cloud development guide](docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md) records reproducible setup and startup using the helpers in [`scripts/cloud/`](scripts/cloud/).
+The [main project goal](docs/BUILD_3D_AI_PROJECT_IDEA.txt) preserves the adopted product direction, existing foundation, proposed roadmap and technical limits. Its future features remain proposals, not evidence of implementation or approval to spend. The [cloud development guide](docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md) records reproducible setup and startup using the helpers in [`scripts/cloud/`](scripts/cloud/).
 
 Archive organization was already pushed to `main` in commit `b32f88a`. Git preserves committed files; running processes, installed dependencies, caches and private smoke-test credentials require separate restoration or regeneration. Resume with the cloud guide, then qualify one real generation workflow under the existing model, license and budget gates.
 

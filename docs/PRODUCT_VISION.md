@@ -1,5 +1,7 @@
 # Product Vision and Commercial Scope
 
+The [main project goal](BUILD_3D_AI_PROJECT_IDEA.txt), adopted by the owner on 17 November 2026, is the primary detailed product direction for this repository. It defines the existing foundation, focused first release, character/animation ambition, limitations and conditional future horizons. This document remains a concise companion; the main goal guides sequencing of the broader capabilities below. Adoption does not authorize spending or establish that planned features are implemented.
+
 ## North star
 
 Build an AI 3D platform that earns a place alongside or ahead of category leaders such as Meshy and Tripo through measurable output quality, artist control, speed, production compatibility and fair pricing. No universal “number 1” ranking is presumed; this is an ambitious goal, not a factual ranking.

@@ -376,3 +376,7 @@ The [detailed project idea](BUILD_3D_AI_PROJECT_IDEA.txt) records the existing f
 Committed files can be recovered from Git. Live processes, installed dependencies, caches, private smoke-test credentials and private application state are not preserved by that Git commit. Recreate or privately restore them as appropriate; never copy credentials into public project memory.
 
 The next technical priority remains one real generation qualification and verified textured GLB/browser/Blender path, subject to existing rights, runtime verification and explicitly bounded spending approvals. Recheck live repository state and follow the [developer handoff](CODEX_HANDOFF.md) before resuming.
+
+## 15. Main project goal adopted — 17 November 2026
+
+The owner explicitly adopted [BUILD_3D_AI_PROJECT_IDEA.txt](BUILD_3D_AI_PROJECT_IDEA.txt) as the main goal for the GitHub repository and requested a direct update to `main`. It is now the primary detailed product direction, linked prominently in the README and referenced by agent instructions and [PRODUCT_VISION.md](PRODUCT_VISION.md). Earlier notes describing the document as an unadopted proposal are historical. Its proposed features and one-/two-/later-year horizons remain conditional; adoption is not evidence of implementation or permission for paid resources. Preserve the existing foundation and follow the document's focused-first-release priorities and acceptance gates.

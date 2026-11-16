@@ -4,7 +4,9 @@ Applies to every coding agent (including Codex/Astra), engineer and PR in this r
 
 ## Mission and source of truth
 
-Read `docs/PROJECT_MEMORY_MASTER.md` first when resuming from a new/compacted chat. Then read `README.md`, `docs/PRODUCT_VISION.md`, `docs/ARCHITECTURE.md`, `docs/FEATURE_MATRIX.md`, `docs/OPEN_SOURCE_STRATEGY.md` and `docs/ROADMAP.md` before implementation. The master memory links the 112-repo study catalog, original owner assignment, exact PR/source history, decisions, videos, architecture chart and next tasks; it is a dated context index, not a substitute for checking live code/CI. Objective: an independently controlled **commercial** 3D creation platform, competitive with leading systems through **measured** quality.
+Read `docs/PROJECT_MEMORY_MASTER.md` first when resuming from a new/compacted chat. Then read `docs/BUILD_3D_AI_PROJECT_IDEA.txt` (the owner-adopted main project goal), `README.md`, `docs/PRODUCT_VISION.md`, `docs/ARCHITECTURE.md`, `docs/FEATURE_MATRIX.md`, `docs/OPEN_SOURCE_STRATEGY.md` and `docs/ROADMAP.md` before implementation. The master memory links the 112-repo study catalog, original owner assignment, exact PR/source history, decisions, videos, architecture chart and next tasks; it is a dated context index, not a substitute for checking live code/CI. Objective: an independently controlled **commercial** 3D creation platform, competitive with leading systems through **measured** quality.
+
+The [main project goal](docs/BUILD_3D_AI_PROJECT_IDEA.txt) defines product direction and release priorities. Treat its future capabilities and horizons as conditional plans; current implementation evidence, acceptance checks, license review and explicit spending authorization still govern execution.
 
 ## Required working method
 

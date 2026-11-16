@@ -147,3 +147,7 @@ A Git backup does not retain running services, installed dependencies, caches or
 On resume, inspect live source and Git state, follow the development guide, and prioritize qualification of one genuine generation-to-textured-GLB-to-Blender workflow. Existing exact model/runtime rights, dependency verification and explicit bounded GPU budget gates still apply.
 
 Preservation validation: the relocated web wrapper passed TypeScript checks and all six browser contract tests using the retained system-Chromium configuration. The installer passed `bash -n`, and the browser configuration passed `node --check`; the installer was not rerun end-to-end for this save. The project idea copy matched its original SHA256 (`03382c3d8c373253713f2aef266403db3f675bcfcbd8b5070d22d7f4a55ae2d9`). Generated Next.js file changes were restored.
+
+## Main project goal adopted — 17 November 2026
+
+The owner designated [BUILD_3D_AI_PROJECT_IDEA.txt](BUILD_3D_AI_PROJECT_IDEA.txt) as the repository's main project goal and requested a direct `main` update. The README now presents it prominently, and agent instructions and the concise product vision point to it as the primary product direction. This supersedes its earlier status as an unadopted planning proposal, while future features, timing, acceptance and spending remain subject to their stated decisions and gates. Build on the existing implementation and prioritize a focused real-generation qualification before broader expansion.
