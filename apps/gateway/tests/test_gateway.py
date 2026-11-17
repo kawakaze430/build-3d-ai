@@ -1,5 +1,6 @@
 """Tests use HTTPX in-memory transport only; they do NOT claim GPU inference success."""
 
+import asyncio
 import json
 
 import httpx
@@ -84,14 +85,24 @@ def test_text_submission_uses_real_upstream_contract():
     assert len(observed) == 1
 
 
-def test_image_upload_then_generation_uses_file_id():
+@pytest.mark.parametrize(
+    ("mime", "image", "extension"),
+    [
+        ("image/png", b"\x89PNG\r\n\x1a\n", "png"),
+        ("image/jpeg", b"\xff\xd8\xff", "jpg"),
+        ("image/webp", b"RIFF\x00\x00\x00\x00WEBP", "webp"),
+    ],
+)
+def test_image_upload_at_file_limit_uses_upstream_file_id(monkeypatch, mime, image, extension):
+    monkeypatch.setattr("build3d_gateway.main.MAX_IMAGE_BYTES", len(image))
     observed = []
 
     def handler(request):
         observed.append(request.url.path)
         assert request.headers["authorization"] == "Bearer upstream-private-token"
         if request.url.path == "/api/v1/file-upload/image":
-            assert b'filename="reference.png"' in request.content
+            assert f'filename="reference.{extension}"'.encode() in request.content
+            assert image in request.content
             return httpx.Response(200, json={"file_id": "image_44"})
         assert request.url.path == "/api/v1/mesh-generation/image-to-textured-mesh"
         assert b'"image_file_id":"image_44"' in request.content
@@ -103,7 +114,7 @@ def test_image_upload_then_generation_uses_file_id():
         response = client.post(
             "/v1/generations/image",
             headers={"X-Control-Key": KEY},
-            files={"file": ("reference.png", b"\x89PNG\r\n\x1a\n" + b"x" * 8, "image/png")},
+            files={"file": ("reference.upload", image, mime)},
             data={"model_preference": "test_model"},
         )
     assert response.status_code == 200
@@ -112,6 +123,96 @@ def test_image_upload_then_generation_uses_file_id():
         "/api/v1/file-upload/image",
         "/api/v1/mesh-generation/image-to-textured-mesh",
     ]
+
+
+@pytest.mark.parametrize(
+    ("lengths", "status"),
+    [
+        (["100000000"], 413),
+        (["invalid"], 400),
+        (["-1"], 400),
+        (["1", "2"], 400),
+    ],
+)
+def test_image_upload_invalid_declared_length_is_rejected_without_reading_body(lengths, status):
+    read = []
+    upstream_requests = []
+    mock_upstream(lambda request: upstream_requests.append(request))
+
+    async def upload():
+        read.append(True)
+        yield b"--fixture--\r\n"
+
+    async def send():
+        async with httpx.AsyncClient(
+            transport=httpx.ASGITransport(app=app), base_url="http://gateway"
+        ) as client:
+            return await client.post(
+                "/v1/generations/image",
+                headers=[
+                    ("X-Control-Key", KEY),
+                    ("Content-Type", "multipart/form-data; boundary=fixture"),
+                    *[("Content-Length", length) for length in lengths],
+                ],
+                content=upload(),
+            )
+
+    assert asyncio.run(send()).status_code == status
+    assert read == []
+    assert upstream_requests == []
+
+
+@pytest.mark.parametrize("declared_length", [None, "1"])
+def test_image_upload_stream_is_stopped_at_request_limit(monkeypatch, declared_length):
+    monkeypatch.setattr("build3d_gateway.main.MAX_IMAGE_BYTES", 16)
+    monkeypatch.setattr("build3d_gateway.main.MAX_MULTIPART_OVERHEAD_BYTES", 512)
+    first_part = (
+        b"--fixture\r\n"
+        b'Content-Disposition: form-data; name="model_preference"\r\n\r\n'
+        b"test_model\r\n--fixture\r\n"
+        b'Content-Disposition: form-data; name="file"; filename="reference.png"\r\n'
+        b"Content-Type: image/png\r\n\r\n\x89PNG\r\n\x1a\n"
+    )
+    chunks = (first_part.ljust(528, b"x"), b"x", b"\r\n--fixture--\r\n")
+    read = []
+    upstream_requests = []
+    mock_upstream(lambda request: upstream_requests.append(request))
+
+    async def upload():
+        for chunk in chunks:
+            read.append(chunk)
+            yield chunk
+
+    async def send():
+        headers = {"X-Control-Key": KEY, "Content-Type": "multipart/form-data; boundary=fixture"}
+        if declared_length is not None:
+            headers["Content-Length"] = declared_length
+        async with httpx.AsyncClient(
+            transport=httpx.ASGITransport(app=app), base_url="http://gateway"
+        ) as client:
+            return await client.post("/v1/generations/image", headers=headers, content=upload())
+
+    response = asyncio.run(send())
+    assert response.status_code == 413
+    assert response.json()["detail"] == "Multipart upload exceeds request limit"
+    assert read == list(chunks[:2])
+    assert upstream_requests == []
+
+
+@pytest.mark.parametrize("supplied_key", [None, "wrong"])
+def test_image_upload_requires_owner_key(supplied_key):
+    upstream_requests = []
+    mock_upstream(lambda request: upstream_requests.append(request))
+    headers = {} if supplied_key is None else {"X-Control-Key": supplied_key}
+    with TestClient(app) as client:
+        response = client.post(
+            "/v1/generations/image",
+            headers=headers,
+            files={"file": ("reference.png", b"\x89PNG\r\n\x1a\n", "image/png")},
+            data={"model_preference": "test_model"},
+        )
+    assert response.status_code == 401
+    assert upstream_requests == []
 
 
 def test_invalid_image_is_rejected_before_upstream_call():

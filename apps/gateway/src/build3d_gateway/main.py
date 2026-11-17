@@ -11,8 +11,9 @@ import hmac
 import os
 import re
 
-from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, UploadFile
+from fastapi import APIRouter, Depends, FastAPI, File, Form, Header, HTTPException, Request, UploadFile
 from fastapi.responses import FileResponse
+from fastapi.routing import APIRoute
 from starlette.background import BackgroundTask
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -22,6 +23,7 @@ from .upstream import UpstreamError, UpstreamGateway
 
 
 MAX_IMAGE_BYTES = 10 * 1024 * 1024
+MAX_MULTIPART_OVERHEAD_BYTES = 128 * 1024
 MAX_DOWNLOAD_BYTES = 250 * 1024 * 1024
 JOB_ID = re.compile(r"^[a-zA-Z0-9_-]{1,128}$")
 
@@ -30,6 +32,43 @@ app = FastAPI(
     description="Owner-authenticated, real upstream model integration. Not yet a customer SaaS.",
     version="0.1.0",
 )
+
+
+class ImageUploadRoute(APIRoute):
+    """Check the declared and received body size before multipart parsing."""
+
+    def get_route_handler(self):
+        handler = super().get_route_handler()
+
+        async def bounded_upload(request: Request):
+            limit = MAX_IMAGE_BYTES + MAX_MULTIPART_OVERHEAD_BYTES
+            lengths = request.headers.getlist("content-length")
+            if lengths:
+                length = lengths[0]
+                if len(lengths) != 1 or not length.isascii() or not length.isdecimal():
+                    raise HTTPException(400, "Invalid Content-Length")
+                # Avoid converting an arbitrarily long decimal header to an int.
+                digits = length.lstrip("0") or "0"
+                if len(digits) > len(str(limit)) or int(digits) > limit:
+                    raise HTTPException(413, "Multipart upload exceeds request limit")
+
+            received = 0
+
+            async def bounded_receive():
+                nonlocal received
+                message = await request.receive()
+                if message["type"] == "http.request":
+                    received += len(message.get("body", b""))
+                    if received > limit:
+                        raise HTTPException(413, "Multipart upload exceeds request limit")
+                return message
+
+            return await handler(Request(request.scope, receive=bounded_receive))
+
+        return bounded_upload
+
+
+image_uploads = APIRouter(route_class=ImageUploadRoute)
 
 
 class TextGenerationRequest(BaseModel):
@@ -117,7 +156,7 @@ async def text_to_3d(
     )
 
 
-@app.post("/v1/generations/image", dependencies=[Depends(require_control_key)])
+@image_uploads.post("/v1/generations/image", dependencies=[Depends(require_control_key)])
 async def image_to_3d(
     file: UploadFile = File(...),
     model_preference: str | None = Form(default=None),
@@ -132,6 +171,9 @@ async def image_to_3d(
         raise HTTPException(status_code=413, detail="Image exceeds 10 MiB")
     validate_image(data, file.content_type)
     return await gateway.image_to_3d(data, file.content_type or "", model)
+
+
+app.include_router(image_uploads)
 
 
 @app.get("/v1/jobs/{job_id}", dependencies=[Depends(require_control_key)])
