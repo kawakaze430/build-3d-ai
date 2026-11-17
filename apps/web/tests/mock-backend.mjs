@@ -13,6 +13,7 @@ let projects = [];
 let jobs = [];
 let idempotency = new Map();
 let storageUsed = new Map();
+let aliceRevoked = false;
 
 function reset() {
   projectCounter = 0;
@@ -21,13 +22,14 @@ function reset() {
   jobs = [];
   idempotency = new Map();
   storageUsed = new Map();
+  aliceRevoked = false;
 }
 
 function ownerFor(req) {
   const token = (req.headers.authorization ?? "").replace(/^Bearer\s+/, "");
   if (token === NO_MODEL) return { id: "no-model-user", token, models: [], storageLimit: DEFAULT_STORAGE_LIMIT };
   if (token === NEAR_LIMIT) return { id: "near-limit-user", token, models: ["test_model"], storageLimit: 1000, fixedStorageUsed: 900 };
-  if (token === ALICE) return { id: "alice", token, models: ["test_model"], storageLimit: DEFAULT_STORAGE_LIMIT };
+  if (token === ALICE && !aliceRevoked) return { id: "alice", token, models: ["test_model"], storageLimit: DEFAULT_STORAGE_LIMIT };
   if (token === BOB) return { id: "bob", token, models: ["test_model"], storageLimit: DEFAULT_STORAGE_LIMIT };
   return null;
 }
@@ -154,6 +156,10 @@ const server = createServer(async (req, res) => {
   if (url.pathname === "/__reset" && req.method === "POST") {
     reset();
     return json(res, 200, { reset: true });
+  }
+  if (url.pathname === "/__revoke_alice" && req.method === "POST") {
+    aliceRevoked = true;
+    return json(res, 200, { revoked: true });
   }
 
   const owner = ownerFor(req);

@@ -13,6 +13,8 @@ This is the first real browser product surface for the durable `apps/api` backen
 
 This is a private/development authentication mechanism. Public signup, recovery, email verification, account deletion and long-lived customer sessions still require a mature identity solution.
 
+The studio signs out after the web gateway confirms cookie deletion. A failed request leaves the sign-out control available for retry. If a protected workspace request returns 401, the studio clears the local workspace and returns to sign-in. Workspace refreshes also check storage and session validity when no project is selected.
+
 ## Run locally
 
 Start/migrate `apps/api`, provision a user key, then:

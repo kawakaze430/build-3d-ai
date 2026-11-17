@@ -28,7 +28,7 @@ import { ModelViewer } from "@/features/assets/components/model-viewer";
 
 type AuthState = "checking" | "anonymous" | "authenticated";
 type GenerationMode = "text" | "image";
-type ProjectScope = { id: string; refresh: AbortController | null };
+type ProjectScope = { id: string };
 
 function shortId(value: string): string {
   return value.length > 14 ? `${value.slice(0, 7)}…${value.slice(-5)}` : value;
@@ -72,8 +72,9 @@ export function Studio() {
   const [projectName, setProjectName] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const workspaceSignal = useRef<AbortSignal | null>(null);
+  const workspaceController = useRef<AbortController | null>(null);
   const activeProject = useRef<ProjectScope | null>(null);
+  const activeRefresh = useRef<AbortController | null>(null);
 
   const report = useCallback((cause: unknown) => {
     setError(apiErrorMessage(cause));
@@ -81,14 +82,47 @@ export function Studio() {
 
   const chooseProject = useCallback((projectId: string | null) => {
     if (projectId !== (activeProject.current?.id ?? null)) {
-      activeProject.current?.refresh?.abort();
-      activeProject.current = projectId ? { id: projectId, refresh: null } : null;
+      activeRefresh.current?.abort();
+      activeProject.current = projectId ? { id: projectId } : null;
       setSelectedProjectId(projectId);
       setJobs([]);
       setSelectedJobId(null);
     }
     router.replace(projectId ? `/?project=${encodeURIComponent(projectId)}` : "/");
   }, [router]);
+
+  const endSession = useCallback((message = "") => {
+    workspaceController.current?.abort();
+    workspaceController.current = new AbortController();
+    activeRefresh.current?.abort();
+    chooseProject(null);
+    setAuth("anonymous");
+    setUserId("");
+    setApiKey("");
+    setProjects([]);
+    setModels([]);
+    setModelId("");
+    setStorage(null);
+    setGenerationMode("text");
+    setPrompt("");
+    setImage(null);
+    setProjectName("");
+    setError(message);
+    setBusy(false);
+  }, [chooseProject]);
+
+  const reportWorkspaceFailure = useCallback((
+    cause: unknown,
+    signal: AbortSignal,
+    project?: ProjectScope,
+  ) => {
+    if (signal.aborted) return;
+    if (cause instanceof ApiClientError && cause.status === 401) {
+      endSession("Your session has ended. Sign in again with a valid user API key.");
+    } else if (!project || activeProject.current === project) {
+      report(cause);
+    }
+  }, [endSession, report]);
 
   const loadWorkspace = useCallback(
     async (preferredProject: string | null, signal: AbortSignal) => {
@@ -117,7 +151,7 @@ export function Studio() {
   useEffect(() => {
     const controller = new AbortController();
     const { signal } = controller;
-    workspaceSignal.current = signal;
+    workspaceController.current = controller;
     (async () => {
       try {
         const session = await getSession(signal);
@@ -136,24 +170,25 @@ export function Studio() {
       }
     })();
     return () => {
-      controller.abort();
-      activeProject.current?.refresh?.abort();
+      workspaceController.current?.abort();
+      workspaceController.current = null;
+      activeRefresh.current?.abort();
       activeProject.current = null;
     };
     // Initial session check intentionally runs once; projectFromUrl is used as the initial preference.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const refreshJobs = useCallback(
-    async (project: ProjectScope) => {
-      if (activeProject.current !== project) return;
-      project.refresh?.abort();
+  const refreshWorkspace = useCallback(
+    async (project: ProjectScope | null, workspaceSignal: AbortSignal) => {
+      if (workspaceSignal.aborted || activeProject.current !== project) return;
+      activeRefresh.current?.abort();
       const controller = new AbortController();
       const { signal } = controller;
-      project.refresh = controller;
+      activeRefresh.current = controller;
       try {
         const [latest, usage] = await Promise.all([
-          listJobs(project.id, signal),
+          project ? listJobs(project.id, signal) : Promise.resolve([]),
           getStorageUsage(signal),
         ]);
         if (signal.aborted || activeProject.current !== project) return;
@@ -165,23 +200,24 @@ export function Studio() {
             : (latest[0]?.id ?? null),
         );
       } catch (cause) {
-        if (!signal.aborted && activeProject.current === project) report(cause);
+        reportWorkspaceFailure(cause, signal);
       }
     },
-    [report],
+    [reportWorkspaceFailure],
   );
 
   useEffect(() => {
     const project = activeProject.current;
-    if (auth !== "authenticated" || !project || project.id !== selectedProjectId) return;
-    const run = () => void refreshJobs(project);
-    void run();
+    const signal = workspaceController.current?.signal;
+    if (auth !== "authenticated" || !signal || (project?.id ?? null) !== selectedProjectId) return;
+    const run = () => void refreshWorkspace(project, signal);
+    if (project) run();
     const timer = window.setInterval(run, 5000);
     return () => {
       window.clearInterval(timer);
-      project.refresh?.abort();
+      activeRefresh.current?.abort();
     };
-  }, [auth, refreshJobs, selectedProjectId]);
+  }, [auth, refreshWorkspace, selectedProjectId]);
 
   const selectedProject = useMemo(
     () => projects.find((item) => item.id === selectedProjectId) ?? null,
@@ -194,7 +230,7 @@ export function Studio() {
 
   async function handleLogin(event: FormEvent) {
     event.preventDefault();
-    const signal = workspaceSignal.current;
+    const signal = workspaceController.current?.signal;
     if (!signal || signal.aborted) return;
     setBusy(true);
     setError("");
@@ -213,40 +249,35 @@ export function Studio() {
   }
 
   async function handleLogout() {
-    const signal = workspaceSignal.current;
+    const signal = workspaceController.current?.signal;
     if (!signal || signal.aborted) return;
     setBusy(true);
-    try {
-      await logout();
-    } catch {
-      // Session is cleared locally even if the backend is unavailable.
-    }
-    if (signal.aborted) return;
-    chooseProject(null);
-    setAuth("anonymous");
-    setUserId("");
-    setProjects([]);
-    setModels([]);
-    setStorage(null);
     setError("");
-    setBusy(false);
+    try {
+      await logout(signal);
+      if (!signal.aborted) endSession();
+    } catch {
+      if (!signal.aborted) setError("Could not confirm sign-out. Try again.");
+    } finally {
+      if (!signal.aborted) setBusy(false);
+    }
   }
 
   async function handleCreateProject(event: FormEvent) {
     event.preventDefault();
-    const signal = workspaceSignal.current;
+    const signal = workspaceController.current?.signal;
     const project = activeProject.current;
     if (!signal || signal.aborted || !projectName.trim()) return;
     setBusy(true);
     setError("");
     try {
-      const created = await createProject(projectName.trim());
+      const created = await createProject(projectName.trim(), signal);
       if (signal.aborted) return;
       setProjectName("");
       setProjects((current) => [created, ...current.filter((item) => item.id !== created.id)]);
       if (activeProject.current === project) chooseProject(created.id);
     } catch (cause) {
-      if (!signal.aborted) report(cause);
+      reportWorkspaceFailure(cause, signal);
     } finally {
       if (!signal.aborted) setBusy(false);
     }
@@ -255,19 +286,19 @@ export function Studio() {
   async function handleTextGeneration(event: FormEvent) {
     event.preventDefault();
     const project = activeProject.current;
-    const signal = workspaceSignal.current;
+    const signal = workspaceController.current?.signal;
     if (!signal || signal.aborted || !project || !modelId || !prompt.trim()) return;
     setBusy(true);
     setError("");
     try {
-      const job = await submitTextJob(project.id, prompt.trim(), modelId);
+      const job = await submitTextJob(project.id, prompt.trim(), modelId, signal);
       if (activeProject.current !== project) return;
       setPrompt("");
       setJobs((current) => [job, ...current.filter((item) => item.id !== job.id)]);
       setSelectedJobId(job.id);
-      void refreshJobs(project);
+      void refreshWorkspace(project, signal);
     } catch (cause) {
-      if (activeProject.current === project) report(cause);
+      reportWorkspaceFailure(cause, signal, project);
     } finally {
       if (!signal.aborted) setBusy(false);
     }
@@ -276,21 +307,21 @@ export function Studio() {
   async function handleImageGeneration(event: FormEvent) {
     event.preventDefault();
     const project = activeProject.current;
-    const signal = workspaceSignal.current;
+    const signal = workspaceController.current?.signal;
     if (!signal || signal.aborted || !project || !modelId || !image) return;
     setBusy(true);
     setError("");
     try {
-      const job = await submitImageJob(project.id, image, modelId);
+      const job = await submitImageJob(project.id, image, modelId, signal);
       if (activeProject.current !== project) return;
       setImage(null);
       const input = document.getElementById("reference-image") as HTMLInputElement | null;
       if (input) input.value = "";
       setJobs((current) => [job, ...current.filter((item) => item.id !== job.id)]);
       setSelectedJobId(job.id);
-      void refreshJobs(project);
+      void refreshWorkspace(project, signal);
     } catch (cause) {
-      if (activeProject.current === project) report(cause);
+      reportWorkspaceFailure(cause, signal, project);
     } finally {
       if (!signal.aborted) setBusy(false);
     }

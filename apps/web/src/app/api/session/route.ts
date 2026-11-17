@@ -8,6 +8,11 @@ import {
 } from "@/lib/server/product-api";
 
 const MAX_SESSION_BODY = 8 * 1024;
+const SESSION_HEADERS = { "Cache-Control": "no-store" };
+
+function sessionJson(body: Record<string, unknown>, status = 200) {
+  return NextResponse.json(body, { status, headers: SESSION_HEADERS });
+}
 
 async function safeDetail(response: Response): Promise<string> {
   try {
@@ -24,24 +29,21 @@ async function safeDetail(response: Response): Promise<string> {
 export async function GET() {
   const key = await readSessionKey();
   if (!key) {
-    return NextResponse.json({ detail: "Not authenticated" }, { status: 401 });
+    return sessionJson({ detail: "Not authenticated" }, 401);
   }
   try {
     const response = await productFetch("/v1/me", { method: "GET" }, key);
     if (!response.ok) {
       if (response.status === 401) await clearSessionKey();
-      return NextResponse.json(
-        { detail: await safeDetail(response) },
-        { status: response.status },
-      );
+      return sessionJson({ detail: await safeDetail(response) }, response.status);
     }
     const data = (await response.json()) as { user_id?: unknown };
     if (typeof data.user_id !== "string") {
-      return NextResponse.json({ detail: "Malformed product API response" }, { status: 502 });
+      return sessionJson({ detail: "Malformed product API response" }, 502);
     }
-    return NextResponse.json({ authenticated: true, userId: data.user_id });
+    return sessionJson({ authenticated: true, userId: data.user_id });
   } catch {
-    return NextResponse.json({ detail: "Product API temporarily unavailable" }, { status: 503 });
+    return sessionJson({ detail: "Product API temporarily unavailable" }, 503);
   }
 }
 
@@ -52,34 +54,31 @@ export async function POST(request: Request) {
     ({ apiKey } = JSON.parse(new TextDecoder().decode(body)) as { apiKey?: unknown });
   } catch (error) {
     if (error instanceof RequestBodyTooLargeError) {
-      return NextResponse.json({ detail: "Login request exceeds web gateway limit" }, { status: 413 });
+      return sessionJson({ detail: "Login request exceeds web gateway limit" }, 413);
     }
-    return NextResponse.json({ detail: "Expected JSON login body" }, { status: 400 });
+    return sessionJson({ detail: "Expected JSON login body" }, 400);
   }
   if (typeof apiKey !== "string" || apiKey.length < 24 || apiKey.length > 512) {
-    return NextResponse.json({ detail: "Invalid user API key format" }, { status: 422 });
+    return sessionJson({ detail: "Invalid user API key format" }, 422);
   }
 
   try {
     const response = await productFetch("/v1/me", { method: "GET" }, apiKey);
     if (!response.ok) {
-      return NextResponse.json(
-        { detail: await safeDetail(response) },
-        { status: response.status },
-      );
+      return sessionJson({ detail: await safeDetail(response) }, response.status);
     }
     const data = (await response.json()) as { user_id?: unknown };
     if (typeof data.user_id !== "string") {
-      return NextResponse.json({ detail: "Malformed product API response" }, { status: 502 });
+      return sessionJson({ detail: "Malformed product API response" }, 502);
     }
     await storeSessionKey(apiKey);
-    return NextResponse.json({ authenticated: true, userId: data.user_id });
+    return sessionJson({ authenticated: true, userId: data.user_id });
   } catch {
-    return NextResponse.json({ detail: "Product API temporarily unavailable" }, { status: 503 });
+    return sessionJson({ detail: "Product API temporarily unavailable" }, 503);
   }
 }
 
 export async function DELETE() {
   await clearSessionKey();
-  return new Response(null, { status: 204 });
+  return new Response(null, { status: 204, headers: SESSION_HEADERS });
 }

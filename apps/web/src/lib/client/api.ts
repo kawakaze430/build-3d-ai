@@ -137,9 +137,14 @@ export async function login(apiKey: string, signal?: AbortSignal): Promise<Sessi
   return { authenticated: true, userId: value.userId };
 }
 
-export async function logout(): Promise<void> {
-  const response = await fetch("/api/session", { method: "DELETE" });
-  if (!response.ok && response.status !== 204) {
+export async function logout(signal?: AbortSignal): Promise<void> {
+  const response = await fetch("/api/session", {
+    method: "DELETE",
+    cache: "no-store",
+    redirect: "error",
+    signal,
+  });
+  if (response.status !== 204) {
     throw new ApiClientError(response.status, "Could not clear session");
   }
 }
@@ -189,11 +194,12 @@ export async function listProjects(signal?: AbortSignal): Promise<Project[]> {
   return value.items.map(parseProject);
 }
 
-export async function createProject(name: string): Promise<Project> {
+export async function createProject(name: string, signal?: AbortSignal): Promise<Project> {
   return parseProject(await requestJson("/api/product/v1/projects", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name }),
+    signal,
   }));
 }
 
@@ -208,7 +214,12 @@ export async function listJobs(projectId: string, signal?: AbortSignal): Promise
   return value.items.map(parseJob);
 }
 
-export async function submitTextJob(projectId: string, prompt: string, modelId: string): Promise<Job> {
+export async function submitTextJob(
+  projectId: string,
+  prompt: string,
+  modelId: string,
+  signal?: AbortSignal,
+): Promise<Job> {
   return parseJob(await requestJson(
     `/api/product/v1/projects/${encodeURIComponent(projectId)}/jobs/text`,
     {
@@ -218,11 +229,17 @@ export async function submitTextJob(projectId: string, prompt: string, modelId: 
         "Idempotency-Key": crypto.randomUUID(),
       },
       body: JSON.stringify({ prompt, model_id: modelId }),
+      signal,
     },
   ));
 }
 
-export async function submitImageJob(projectId: string, file: File, modelId: string): Promise<Job> {
+export async function submitImageJob(
+  projectId: string,
+  file: File,
+  modelId: string,
+  signal?: AbortSignal,
+): Promise<Job> {
   const form = new FormData();
   form.set("model_id", modelId);
   form.set("file", file);
@@ -232,6 +249,7 @@ export async function submitImageJob(projectId: string, file: File, modelId: str
       method: "POST",
       headers: { "Idempotency-Key": crypto.randomUUID() },
       body: form,
+      signal,
     },
   ));
 }

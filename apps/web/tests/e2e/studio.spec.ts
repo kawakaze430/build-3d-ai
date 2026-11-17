@@ -4,6 +4,7 @@ const ALICE = "b3d_" + "a".repeat(43);
 const BOB = "b3d_" + "b".repeat(43);
 const NO_MODEL = "b3d_" + "c".repeat(43);
 const NEAR_LIMIT = "b3d_" + "d".repeat(43);
+const SESSION_COOKIE = "build3d_user_key";
 
 async function login(page: Page, key = ALICE) {
   await page.goto("/");
@@ -239,6 +240,97 @@ test("discards a pending job history response when the workspace signs out", asy
     await expect(page.getByText("Create your first private project")).toBeVisible();
     await expect(page.getByRole("button", { name: /Previous session result/ })).toHaveCount(0);
     await expect(page.getByText(/Service temporarily unavailable/)).toHaveCount(0);
+  } finally {
+    release.resolve();
+  }
+});
+
+test("keeps sign-out retryable until the session cookie is cleared", async ({ page }) => {
+  await login(page);
+  const cookie = (await page.context().cookies()).find((item) => item.name === SESSION_COOKIE);
+  expect(cookie?.httpOnly).toBe(true);
+  expect(cookie?.sameSite).toBe("Strict");
+
+  await page.route("**/api/session", async (route) => {
+    if (route.request().method() === "DELETE") await route.abort("failed");
+    else await route.continue();
+  });
+  const signOut = page.getByRole("button", { name: "Sign out" });
+  await signOut.click();
+  await expect(page.getByText("Could not confirm sign-out. Try again.")).toBeVisible();
+  await expect(signOut).toBeEnabled();
+  expect((await page.context().cookies()).some((item) => item.name === SESSION_COOKIE)).toBe(true);
+  await page.reload();
+  await expect(signOut).toBeVisible();
+
+  await page.unroute("**/api/session");
+  const confirmation = page.waitForResponse((response) =>
+    response.url().endsWith("/api/session") && response.request().method() === "DELETE",
+  );
+  await signOut.click();
+  const response = await confirmation;
+  expect(response.status()).toBe(204);
+  expect(response.headers()["cache-control"]).toBe("no-store");
+  await expect(page.getByLabel("User API key")).toBeVisible();
+  expect((await page.context().cookies()).some((item) => item.name === SESSION_COOKIE)).toBe(false);
+  await page.reload();
+  await expect(page.getByLabel("User API key")).toBeVisible();
+});
+
+test("clears a revoked cookie when restoring the studio", async ({ page, request }) => {
+  await login(page);
+  expect((await request.post("http://127.0.0.1:8099/__revoke_alice")).ok()).toBe(true);
+
+  const restoration = page.waitForResponse((response) =>
+    response.url().endsWith("/api/session") && response.request().method() === "GET",
+  );
+  await page.reload();
+  expect((await restoration).status()).toBe(401);
+  await expect(page.getByLabel("User API key")).toBeVisible();
+  expect((await page.context().cookies()).some((item) => item.name === SESSION_COOKIE)).toBe(false);
+});
+
+test("expires an idle workspace after the browser loses its session cookie", async ({ page }) => {
+  await page.clock.install();
+  await login(page);
+  await expect(page.getByText("Create your first private project")).toBeVisible();
+
+  await page.context().clearCookies({ name: SESSION_COOKIE });
+  await page.clock.runFor(5000);
+  await expect(page.getByText("Your session has ended. Sign in again with a valid user API key.")).toBeVisible();
+  await expect(page.getByLabel("User API key")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Sign out" })).toHaveCount(0);
+});
+
+test("ends a revoked workspace and discards an earlier submission result after re-login", async ({ page, request }) => {
+  await page.clock.install();
+  await login(page);
+  const project = await createProject(page, "Previous user's workspace");
+
+  const submitted = Promise.withResolvers<number>();
+  const release = Promise.withResolvers<void>();
+  await page.route(`**/api/product/v1/projects/${project}/jobs/text`, async (route) => {
+    const response = await route.fetch();
+    submitted.resolve(response.status());
+    await release.promise;
+    await route.fulfill({ response }).catch(() => {});
+  });
+  try {
+    await page.getByLabel("Prompt").fill("Previous user's draft");
+    await page.getByRole("button", { name: "Generate 3D" }).click();
+    expect(await submitted.promise).toBe(202);
+    expect((await request.post("http://127.0.0.1:8099/__revoke_alice")).ok()).toBe(true);
+
+    await page.clock.runFor(5000);
+    await expect(page.getByText("Your session has ended. Sign in again with a valid user API key.")).toBeVisible();
+    expect((await page.context().cookies()).some((item) => item.name === SESSION_COOKIE)).toBe(false);
+    await page.getByLabel("User API key").fill(BOB);
+    await page.getByRole("button", { name: "Connect to product API" }).click();
+    await expect(page.getByTitle("bob")).toBeVisible();
+    release.resolve();
+    await expect(page.getByTitle("bob")).toBeVisible();
+    await expect(page.getByLabel("Prompt")).toHaveValue("");
+    await expect(page.getByRole("button", { name: /Previous user's workspace|Previous user's draft/ })).toHaveCount(0);
   } finally {
     release.resolve();
   }
