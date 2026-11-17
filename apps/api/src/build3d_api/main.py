@@ -4,7 +4,7 @@ from __future__ import annotations
 import hashlib
 from contextlib import asynccontextmanager
 
-from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, Query, UploadFile
+from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, Query, Response, UploadFile
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from starlette.background import BackgroundTask
@@ -18,9 +18,24 @@ from .config import Settings
 from .body_limit import BodyLimitMiddleware
 from .db import check_schema, create_database
 from .images import MAX_IMAGE_BYTES, normalize_image
+from .responses import ErrorResponse, JobPageResponse, JobResponse, StorageUsageResponse
 from .storage import ArtifactStorageError, create_artifact_storage
 from .store import Store, StoreError, public_job
 from .trusted_identity import ExternalJWTAuthenticator, TrustedIdentityError
+
+PRIVATE_ERRORS = {
+    401: {"model": ErrorResponse, "description": "Missing, expired or invalid credential"},
+    404: {"model": ErrorResponse, "description": "Resource unavailable to the requesting owner"},
+    429: {"model": ErrorResponse, "description": "Request or active job limit exceeded"},
+    503: {"model": ErrorResponse, "description": "Service temporarily unavailable"},
+}
+SUBMISSION_RESPONSES = {
+    **PRIVATE_ERRORS,
+    200: {"model": JobResponse, "description": "Existing job for the same idempotency key and input"},
+    403: {"model": ErrorResponse, "description": "Model approval required"},
+    409: {"model": ErrorResponse, "description": "Idempotency key already used for different input"},
+    413: {"model": ErrorResponse, "description": "Request body too large"},
+}
 
 
 class ProjectRequest(BaseModel):
@@ -138,7 +153,7 @@ def create_app(
     def models(owner: str = Depends(identity)):
         return {"approved_model_ids": sorted(approved_model_records())}
 
-    @app.get("/v1/storage")
+    @app.get("/v1/storage", response_model=StorageUsageResponse, responses=PRIVATE_ERRORS)
     def storage_usage(owner: str = Depends(identity)):
         return store.storage_usage(owner)
 
@@ -156,8 +171,9 @@ def create_app(
         row = store.project(owner, project_id)
         return {key: row[key] for key in ("id", "name", "created_at")}
 
-    @app.post("/v1/projects/{project_id}/jobs/text")
-    def submit_text(project_id: str, body: TextRequest, owner: str = Depends(identity),
+    @app.post("/v1/projects/{project_id}/jobs/text", status_code=202,
+              response_model=JobResponse, responses=SUBMISSION_RESPONSES)
+    def submit_text(project_id: str, body: TextRequest, response: Response, owner: str = Depends(identity),
                     idempotency_key: str = Header(alias="Idempotency-Key", min_length=1, max_length=128)):
         store.project(owner, project_id)
         row, created = store.submit(
@@ -165,11 +181,13 @@ def create_app(
             kind="text", model_id=body.model_id, prompt=body.prompt,
             approval=approval_for(body.model_id),
         )
-        return JSONResponse(public_job(row), status_code=202 if created else 200,
-                            headers={"Location": f"/v1/jobs/{row['id']}"})
+        response.status_code = 202 if created else 200
+        response.headers["Location"] = f"/v1/jobs/{row['id']}"
+        return public_job(row)
 
-    @app.post("/v1/projects/{project_id}/jobs/image")
-    def submit_image(project_id: str, file: UploadFile = File(...),
+    @app.post("/v1/projects/{project_id}/jobs/image", status_code=202, response_model=JobResponse,
+              responses={**SUBMISSION_RESPONSES, 415: {"model": ErrorResponse}})
+    def submit_image(project_id: str, response: Response, file: UploadFile = File(...),
                      model_id: str = Form(..., pattern=r"^[A-Za-z0-9_-]{1,128}$"),
                      owner: str = Depends(identity),
                      idempotency_key: str = Header(alias="Idempotency-Key", min_length=1, max_length=128)):
@@ -188,21 +206,23 @@ def create_app(
                 kind="image", model_id=model_id, approval=approval, image=normalized,
                 input_sha256=hashlib.sha256(data).hexdigest(),
             )
-            return JSONResponse(public_job(row), status_code=202 if created else 200,
-                                headers={"Location": f"/v1/jobs/{row['id']}"})
+            response.status_code = 202 if created else 200
+            response.headers["Location"] = f"/v1/jobs/{row['id']}"
+            return public_job(row)
         finally:
             file.file.close()
 
-    @app.get("/v1/projects/{project_id}/jobs")
+    @app.get("/v1/projects/{project_id}/jobs", response_model=JobPageResponse, responses=PRIVATE_ERRORS)
     def list_jobs(project_id: str, owner: str = Depends(identity),
                   limit: int = Query(50, ge=1, le=100), offset: int = Query(0, ge=0, le=100000)):
         return {"items": store.list_jobs(owner, project_id, limit, offset), "limit": limit, "offset": offset}
 
-    @app.get("/v1/jobs/{job_id}")
+    @app.get("/v1/jobs/{job_id}", response_model=JobResponse, responses=PRIVATE_ERRORS)
     def get_job(job_id: str, owner: str = Depends(identity)):
         return public_job(store.job(owner, job_id))
 
-    @app.post("/v1/jobs/{job_id}/cancel")
+    @app.post("/v1/jobs/{job_id}/cancel", response_model=JobResponse,
+              responses={**PRIVATE_ERRORS, 409: {"model": ErrorResponse}})
     def cancel_job(job_id: str, owner: str = Depends(identity)):
         return public_job(store.cancel(owner, job_id))
 

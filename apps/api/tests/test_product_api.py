@@ -29,6 +29,53 @@ def test_health_does_not_claim_inference(env):
     assert response.json()["gpu_verified"] is False
 
 
+def test_job_contract_documents_and_preserves_the_public_projection(env, project):
+    spec = env.client.get("/openapi.json").json()
+    models = spec["components"]["schemas"]
+    jobschema = {"$ref": "#/components/schemas/JobResponse"}
+    submit_responses = spec["paths"]["/v1/projects/{project_id}/jobs/text"]["post"]["responses"]
+    for code in ("200", "202"):
+        assert submit_responses[code]["content"]["application/json"]["schema"] == jobschema
+    assert submit_responses["409"]["content"]["application/json"]["schema"] == {
+        "$ref": "#/components/schemas/ErrorResponse",
+    }
+    assert models["JobResponse"]["properties"]["status"]["enum"] == [
+        "queued", "dispatching", "running", "completed", "failed", "canceled",
+        "submission_unknown", "polling_paused", "timed_out",
+    ]
+
+    created = submit(env, project)
+    replay = submit(env, project)
+    assert (created.status_code, replay.status_code) == (202, 200)
+    job = created.json()
+    assert created.headers["location"] == replay.headers["location"] == f"/v1/jobs/{job['id']}"
+    assert set(job) == {
+        "id", "project_id", "kind", "status", "model_id", "model_approval", "prompt",
+        "input_sha256", "error_code", "created_at", "updated_at", "started_at",
+    }
+    assert job["model_approval"]["model_id"] == "test_model"
+    assert job["input_sha256"] is job["started_at"] is job["error_code"] is None
+    assert replay.json() == job
+    assert env.client.get(f"/v1/jobs/{job['id']}", headers=env.auth).json() == job
+    assert env.client.get(f"/v1/projects/{project}/jobs?limit=10", headers=env.auth).json() == {
+        "items": [job], "limit": 10, "offset": 0,
+    }
+    foreign = env.client.get(f"/v1/jobs/{job['id']}", headers=env.other)
+    assert foreign.status_code == 404 and foreign.json() == {"detail": "Job not found"}
+
+
+def test_storage_contract_describes_zero_usage_without_internal_fields(env):
+    spec = env.client.get("/openapi.json").json()
+    response = spec["paths"]["/v1/storage"]["get"]["responses"]["200"]
+    assert response["content"]["application/json"]["schema"] == {
+        "$ref": "#/components/schemas/StorageUsageResponse",
+    }
+    assert env.client.get("/v1/storage", headers=env.auth).json() == {
+        "used_bytes": 0, "remaining_bytes": env.settings.default_storage_limit_bytes,
+        "limit_bytes": env.settings.default_storage_limit_bytes, "over_quota": False,
+    }
+
+
 def test_authentication_is_per_user_and_no_plaintext_keys_stored(env):
     assert env.client.get("/v1/projects").status_code == 401
     assert env.client.get("/v1/projects", headers={"X-Control-Key": "x" * 32}).status_code == 401
