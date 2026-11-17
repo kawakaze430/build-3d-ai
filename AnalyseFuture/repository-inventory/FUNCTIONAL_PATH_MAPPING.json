@@ -94,7 +94,7 @@
       "size_bytes": 6416,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "7c2304266818c31bdb527c3a75d38deb6e90635e1c4e5e01c5bd6fa323bc88f0",
-      "final_sha256": "7c2304266818c31bdb527c3a75d38deb6e90635e1c4e5e01c5bd6fa323bc88f0",
+      "final_sha256": "b55c1ac999970a15a7f152d03626c3f6f861a3dbba093b32f70cc22944f301aa",
       "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/ARCHITECTURE.md",
       "restructure_snapshot_sha256": "7c2304266818c31bdb527c3a75d38deb6e90635e1c4e5e01c5bd6fa323bc88f0"
     },
@@ -226,7 +226,7 @@
       "size_bytes": 3729,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "ba27a606d2e8b8d5c1525d37b01a0974215aad80d2b6a52365f99113b2e8c634",
-      "final_sha256": "ba27a606d2e8b8d5c1525d37b01a0974215aad80d2b6a52365f99113b2e8c634",
+      "final_sha256": "7f8f96712ab98ad6796b22109bfd62a4d5cb3349f0af19e64503bb96b30a2896",
       "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/AI_MODELS_AND_DATA.md",
       "restructure_snapshot_sha256": "ba27a606d2e8b8d5c1525d37b01a0974215aad80d2b6a52365f99113b2e8c634"
     },
@@ -298,7 +298,7 @@
       "size_bytes": 41309,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "09928573fb3bca0e69d565a53b09ed81c0fc8dc93909b88bfd44ac007df6d32c",
-      "final_sha256": "4590e58273fd387e096f023e129b1faaad939d8f043b8e57394e9caa73a4f5c5",
+      "final_sha256": "11e00b0839643333cf57186506e568d159ee846290a2d5274b5118bbba204e9e",
       "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/PROJECT_MEMORY_MASTER.md",
       "restructure_snapshot_sha256": "c97dba69d47b6ebc3aec2efb5e824933d0a50b0f3a85cd409c6625da2d950000"
     },
@@ -310,7 +310,7 @@
       "size_bytes": 14966,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "7061bb3c5a69fa88410dc69484004baec3a9d6145e0bbb63847d67ca3398bd42",
-      "final_sha256": "227a9a6e5343c465dcc5707bfe91b7b26f8ff5c8b83e71901ecd4bf15fdc3fc8",
+      "final_sha256": "512a3dd7c605a8c446445b4803ef37fc044cd0412e06b90f34d1b7e0b540eaa1",
       "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/CODEX_HANDOFF.md",
       "restructure_snapshot_sha256": "8fee88589885a3e76e2341a6caf2c6bb284379080deed8115a6ccaf0f8b75013"
     },

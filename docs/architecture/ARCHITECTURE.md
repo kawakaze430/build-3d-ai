@@ -59,3 +59,30 @@ The [main project goal](../project/BUILD_3D_AI_PROJECT_IDEA.txt) defines the lon
 Later work can add asset versions, tested processing utilities, body and face preparation, editable scenes and model-specific adaptation. Each capability needs its own downstream acceptance and rights review. Billing ledgers, public accounts, email delivery, GPU budgets, production observability, backups/restore and deletion policy are separate release requirements.
 
 Retain framework/package conventions and root packaging paths. Create shared modules only for compatible responsibilities actually reused; do not force Python packages and Next.js routes into a generic feature directory. The [structure guide](../../PROJECT_STRUCTURE.md) records present locations; the [future-roadmap supplement](../../AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt) describes conditional research rather than implemented service boundaries.
+
+## Expanded creation, world, agent and training boundaries —17November2026
+
+The owner expanded the target to image/text/genuine multi-image inputs for both
+3Dassets and environments,geometry/material editing,rigs/motions,an AIworkflow
+agent and future fine-tuned models. These are proposed extensions,not additional
+running services. Read [the detailed task handoff](../../PROJECT_STATUS_AND_TASKS.md)
+and [future fine-tuning research](../../research.md). Existing private product
+components and their ownership/transaction/fencing/integrity contracts remain
+canonical. Latest delivery policy is verified milestones pushed directly to main.
+
+| Proposed extension | Integration boundary and first useful slice | What is not implemented/assumed |
+|---|---|---|
+| Capability-aware generation/processing | GEN/ART/ANIM adapters declare exact supported modalities,formats,model/runtime provenance and resource limits; reuse tenant admission,SQLqueue and approval policy. Start with one accepted adapter/profile. | A commercial Tripo SDK is distinct from open TripoSR; the current3DAIGC-style client is not automatically a Tripo/Meshy/Marble integration. |
+| Asset versions and processing stages | ART-01 supplies one immutable asset-version/lineage authority; edits/UV/material/rig/export stages retain owner and byte accounting. | No alternate asset database or silent overwrite; skeleton/material filename alone is not downstream acceptance. |
+| Worlds and environments | ENV-01 declares a bounded owned scene manifest; ENV-02 adds a modular editable scene. Separate polygon,splat/neural,panorama and collision layers need their own validators,quota and delivery contracts. | Do not rename PLY/splat/sceneZIP as GLB or infer semantic objects/collision from a render; worlds are not shipped. |
+| Product AIagent | AGENT read tools/plans/typed adapters enforce server-side owner/version/capability/resource scope and reuse existing operations. Reads and reversible edits can proceed within approved scope; extra external/destructive/spend actions need their actual authorization. | No second job dispatcher,no arbitrary shell/SQL/proxy tool,no prompt-derived permission or self-approved budget. Agent not implemented. |
+| Fine-tuning research/runtime | RES tasks select one suitable task/base,licensed dataset,safe preprocessing,held-out evaluator and approved bounded experiment. A justified services/training/<selected-task>/ harness is proposed,isolated from CPU product and GPU inference environments. | No universal LoRA recipe,training dataset,trained checkpoint or approved run; don't merge incompatible CUDA environments. |
+| Model release | Reviewed base/adaptation/runtime/data provenance flows into one release/model registry and the existing approval boundary; pilot/rollback preserves known-good versions. | Fine-tuning does not automatically clear base rights,improve held-out quality or enable a production model. |
+
+Schema/module names proposed in task cards become real only in a verified
+implementation milestone. Coordinate shared Studio/store edits and preserve
+history rather than introduce a duplicate active implementation. Structure and
+QA cards list actual documentation drift/maintenance gaps and required tests;
+conventional Next.js/Python package boundaries and inactive upstream snapshots
+are intentional. No application tests,model execution or training ran for this
+architecture documentation update;prior253executions retain their dated scope.

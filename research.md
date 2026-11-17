@@ -2,7 +2,7 @@
 
 **Research plan · 17 November 2026 · status: proposed, not executed.** The owner wants to develop specialized model capability for image/text/multi-image → 3D assets and environments, alongside the broader creation studio. This file records how to research, select, evaluate and, when justified, fine-tune a model. It does not report a trained model, launch a job or approve resources.
 
-**Current delivery policy:** Fetch/record current `main`; preserve existing work; verify each bounded milestone; commit and push directly to `origin/main`; verify the remote SHA before continuing. No default branch or PR is required. Never force-push or bypass protections. The prior 28-card handoff is published at `7992107b613c680dee2a750045b6b7e1ff42e581`; current delivery is discoverable from Git refs. This first expanded-goal/research checkpoint adds documentation only; no new runtime tests or training ran.
+**Current delivery policy:** Fetch/record current `main`; preserve existing work; verify each bounded milestone; commit and push directly to `origin/main`; verify the remote SHA before continuing. No default branch or PR is required. Never force-push or bypass protections. The prior 28-card handoff is published at `7992107b613c680dee2a750045b6b7e1ff42e581`; current delivery is discoverable from Git refs. The expanded-goal/research checkpoint was pushed and verified at `e878e8ff4ef06f68b7a06648b8ad887ead882411`. The following documentation checkpoint integrates the capability/structure/test plan and cross-links these15research tasks. No runtime tests or training ran for either documentation milestone.
 
 Start with the [current project status and task handoff](PROJECT_STATUS_AND_TASKS.md), [adopted main goal](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt), [existing model/data strategy](docs/research/AI_MODELS_AND_DATA.md), [license matrix](docs/research/LICENSE_MATRIX.md) and [benchmark protocol](docs/project/BENCHMARKS.md). Keep these documents consistent rather than replacing existing work. Implement research infrastructure through focused verified commits pushed directly to `origin/main`; preserve originals, notices, results and failed experiments.
 
@@ -167,6 +167,24 @@ Stop on rights ambiguity, unsafe artifact drift, unexpected downloads, repeated 
 ## Research task register
 
 Every card below is **open**. IDs are proposed research work units, not existing issues or claims of implementation. Each should produce a focused commit/evidence record; real runs remain gated as specified.
+
+| Task | Research outcome |
+|---|---|
+| [RES-01](#res-01) | Choose one research question and supported user outcome |
+| [RES-02](#res-02) | Audit base models and real training recipes |
+| [RES-03](#res-03) | Clear the exact source, weights, data and derivative-use chain |
+| [RES-04](#res-04) | Implement a versioned dataset rights/provenance manifest |
+| [RES-05](#res-05) | Build deterministic, bounded model-specific preprocessing |
+| [RES-06](#res-06) | Lock asset/identity-disjoint splits and leakage checks |
+| [RES-07](#res-07) | Record the untouched real baseline and evaluation protocol |
+| [RES-08](#res-08) | Select adaptation targets and measure the resource envelope |
+| [RES-09](#res-09) | Implement the reproducible training-run and resume contract |
+| [RES-10](#res-10) | Run one small explicitly approved adaptation experiment |
+| [RES-11](#res-11) | Evaluate controlled ablations and one locked held-out comparison |
+| [RES-12](#res-12) | Validate the real downstream asset and supported domain |
+| [RES-13](#res-13) | Review model/data privacy, loading safety and release rights |
+| [RES-14](#res-14) | Register the qualified adaptation and prove rollback |
+| [RES-15](#res-15) | Maintain the research log, re-evaluation and next-study decision |
 
 <a id="res-01"></a>
 

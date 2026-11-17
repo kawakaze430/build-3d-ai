@@ -1,6 +1,6 @@
 # Build 3D AI — Project Status, File Guide and Implementation Tasks
 
-**Owner handoff, expanded creation/research scope · 17 November 2026 · tested source baseline: `8d09e3b6268d01bf7b3d2aa468ac537a7d80ae35`.** This is the practical starting point for the next implementation tool and reviewers. It consolidates current source, existing project plans and the latest local validation; it does not restart the project or turn research into shipped features. Re-fetch `main`, inspect open PRs and check the actual source before choosing a task. The containing documentation commit can be identified through Git history.
+**Owner handoff, expanded creation/research scope · 17 November 2026 · tested source baseline: `8d09e3b6268d01bf7b3d2aa468ac537a7d80ae35`.** This is the practical starting point for the next implementation tool and reviewers. It consolidates current source, existing project plans and the latest local validation; it does not restart the project or turn research into shipped features. Re-fetch `main`, inspect open milestones and check the actual source before choosing a task. The containing documentation commit can be identified through Git history.
 
 The [adopted main project goal](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt) remains the product direction. [research.md](research.md) is the future fine-tuning and model-research notebook. This file explains what exists, what remains, how to continue and what each repository file/folder does. The [structure guide](PROJECT_STRUCTURE.md), [feature ownership map](docs/project/FEATURE_MAP.md), [56 responsibility cards](AnalyseFuture/repository-inventory/FEATURE_REGISTRY.json) and [continuity handbook](docs/continuity/PROJECT_MEMORY_MASTER.md) supply supporting detail. The 56 cards are workstreams, not 56 shipped features.
 
@@ -8,7 +8,18 @@ The [adopted main project goal](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt) remai
 
 **Latest owner instruction: safe, completed, verified work is committed and pushed directly to `origin/main` after each meaningful milestone.** This supersedes earlier branch/PR-delivery wording in this handoff. GitHub `main` is the durable source of truth; do not leave verified work only in a cloud workspace. Fetch and record remote main before work and before every push, retain newer work, never force-push/rewrite shared history/bypass protections, and verify the expected remote SHA afterward.
 
-**Fetched starting main for this expansion:** `7992107b613c680dee2a750045b6b7e1ff42e581`. Earlier recovery/inventory, source preservation, functional restructuring and test-fix checkpoints are already published in its history. The current milestone saves the expanded goal and `research.md`; capability/structure/testing details are the next documentation checkpoint. No new 3D/agent/fine-tuning implementation or runtime result is claimed by these documentation checkpoints. The containing commit is available from Git refs; a following checkpoint records its verified SHA to avoid an impossible self-referential commit hash.
+**Fetched starting main for this expansion:** `7992107b613c680dee2a750045b6b7e1ff42e581`. Earlier recovery/inventory, source preservation, functional restructuring and test-fix checkpoints are already published in its history. The expanded-goal/research checkpoint was pushed and independently verified at `e878e8ff4ef06f68b7a06648b8ad887ead882411`. This following checkpoint completes the detailed capability/structure/testing backlog, architecture boundaries and handoff. No new 3D/agent/fine-tuning implementation or runtime result is claimed by these documentation checkpoints. Files changed in this checkpoint are the root task/research/navigation documents, adopted goal/architecture continuity, and inventory/hash/link reports; implementation sources remain unchanged. Next: WEB-01 CPU correctness or CAP-01/RES-01 research work. The last independently verified published SHA is recorded above; final HEAD is resolved from Git and verified after this push. The containing commit is available from Git refs; a following checkpoint records its verified SHA to avoid an impossible self-referential commit hash.
+
+### Published checkpoint ledger
+
+| Verified published milestone | Commit / evidence |
+|---|---|
+| Recovery/preservation and coherent functional layout | `2f5f2bd15695cf020a279f2da55a9bff97d3417f`; original-version manifests and structure evidence |
+| Test regression fix and recorded local253test executions | `8d09e3b6268d01bf7b3d2aa468ac537a7d80ae35`; [dated results](AnalyseFuture/validation/2026-11-17/REPORT.md) |
+| Original complete handoff | `7992107b613c680dee2a750045b6b7e1ff42e581` |
+| Expanded goal and fine-tuning research | `e878e8ff4ef06f68b7a06648b8ad887ead882411`; remote SHA independently matched |
+| Detailed capability/structure/testing and architecture handoff | This containing commit, identified through Git and verified after push; documentation checks only |
+| New runtime features / fine-tuned model | Not implemented by this documentation task; open cards require their actual acceptance evidence |
 
 ## Contents
 
@@ -20,12 +31,22 @@ The [adopted main project goal](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt) remai
 6. [Backend and model-qualification tasks](#backend-and-model-qualification-tasks)
 7. [Web studio tasks](#web-studio-tasks)
 8. [Platform, release and review tasks](#platform-release-and-review-tasks)
-9. [Later product capabilities](#later-product-capabilities)
-10. [Validation and safe development commands](#validation-and-safe-development-commands)
-11. [Direct-main delivery, review and monitoring](#direct-main-delivery-review-and-monitoring)
-12. [Copyable assignment for the next tool](#copyable-assignment-for-the-next-tool)
-13. [Every-folder guide](#every-folder-guide)
-14. [Every-file guide](#every-file-guide)
+9. [Expanded capability, structure and test index](#expanded-capability-structure-and-test-index)
+10. [Expanded model-creation and character-workflow targets](#expanded-model-creation-and-character-workflow-targets)
+11. [Proposed generation and asset capability task cards](#proposed-generation-and-asset-capability-task-cards)
+12. [Proposed character, rig and motion task cards](#proposed-character-rig-and-motion-task-cards)
+13. [Expanded world and environment product track](#expanded-world-and-environment-product-track)
+14. [Expanded AI asset-assistant product track](#expanded-ai-asset-assistant-product-track)
+15. [Expanded-track dependency and scope notes](#expanded-track-dependency-and-scope-notes)
+16. [Remaining structure and documentation work](#remaining-structure-and-documentation-work)
+17. [Test backlog: what needs to be tested next](#test-backlog-what-needs-to-be-tested-next)
+18. [Model research and fine-tuning task register](#model-research-and-fine-tuning-task-register)
+19. [Later product capabilities](#later-product-capabilities)
+20. [Validation and safe development commands](#validation-and-safe-development-commands)
+21. [Direct-main delivery, review and monitoring](#direct-main-delivery-review-and-monitoring)
+22. [Copyable assignment for the next tool](#copyable-assignment-for-the-next-tool)
+23. [Every-folder guide](#every-folder-guide)
+24. [Every-file guide](#every-file-guide)
 
 ## Main goal and first milestone
 
@@ -47,7 +68,7 @@ Build **Build 3D AI**, an independently controlled AI 3D creation platform where
 
 The system serves game/3D artists, animation teams, independent Blender creators, environment designers and developer/API users. Its differentiator is **editable, repeatable production work**: useful geometry and materials from all relevant views, stable asset identity/version history, actual rig deformation, private ownership, predictable cost and importable deliverables. Impressive screenshots alone are insufficient. The adult-character animation direction remains a specialization inside the wider model/environment platform.
 
-The owner wants the breadth of useful workflows associated with **World Labs/Marble World, Tripo 3D, Meshy and Adobe Mixamo**, plus our own integrated AI agent and fine-tuned models. These names identify comparison targets, not ownership of those services, access to their proprietary model weights or an exhaustive verified list of their current features. Implement independently or through rights-cleared components/integrations. `CAP-01` maintains a dated feature-by-feature comparison registry, including plan/API/region/format limits and evidence. At this update official product pages were blocked by the managed proxy; detailed parity claims remain unverified and must not be inferred from this roadmap.
+The owner wants the breadth of useful workflows associated with **World Labs/Marble World, Tripo 3D, Meshy and Adobe Mixamo**, plus our own integrated AI agent and fine-tuned models. These names identify comparison targets, not ownership of those services, access to their proprietary model weights or an exhaustive verified list of their current features. Implement independently or through rights-cleared components/integrations. `CAP-01` maintains a dated feature-by-feature comparison registry, including plan/API/region/format limits and evidence. At this update direct product pages were blocked by the managed proxy; selected vendor GitHub SDK/integration sources were accessible and are pinned below. Service access, entitlements and complete current parity remain unverified.
 
 ### 2. Complete input/output scope
 
@@ -168,11 +189,11 @@ The product API owns tenant state and transactions. The gateway package owns reu
 
 ## Task dispatch and dependencies
 
-All new cards start **open**, unless explicitly marked blocked. Existing code is credited above. Pick one bounded card per verified milestone and identify it in the title/description. A card may need several milestones; close it only when its acceptance evidence is recorded.
+All implementation/research cards start **open**, unless explicitly marked blocked. Existing code is credited above. Pick one bounded card per verified milestone and identify it in the title/description. A card may need several milestones; close it only when its acceptance evidence is recorded.
 
 Priority meanings: **P0** blocks its dependent release milestone; **P1** closes a concrete correctness/security/release gap; **P2** improves a supported product workflow; **P3** is conditional product research. Priority is not permission to spend or expose a service. “Ready on CPU” means implementation/fixture work can start without model execution. “Gated” means a named external decision/resource is needed before the dependent step.
 
-**Recommended first assignment: `WEB-01`, the slow-poll cancellation/stale-result fix.** It is narrow, protects an existing workflow and needs no GPU. `WEB-02` pagination and the CPU-only prepared-source boundary task can proceed independently if they touch separate files and PRs. Do not have two tools rewrite Studio simultaneously; coordinate or rebase the second PR.
+**Recommended first assignment: `WEB-01`, the slow-poll cancellation/stale-result fix.** It is narrow, protects an existing workflow and needs no GPU. `WEB-02` pagination and the CPU-only prepared-source boundary task can proceed independently if they touch separate files and verified milestones. Do not have two tools rewrite Studio simultaneously; coordinate milestone order and integrate newer main before testing the next change.
 
 Two tracks can progress in parallel:
 
@@ -183,7 +204,7 @@ Public accounts, destructive data lifecycle and payments each need their own rev
 
 ### Work queue
 
-These are proposed task IDs, not GitHub issue/PR numbers. None is marked accepted or merged by this document.
+These are proposed task IDs, not GitHub issue/milestone numbers. None is marked accepted or merged by this document.
 
 | Task | Current state | First bounded outcome | Dependency / limit |
 |---|---|---|---|
@@ -199,7 +220,7 @@ These are proposed task IDs, not GitHub issue/PR numbers. None is marked accepte
 | [BE-12](#be-12) | Open · CPU contract slice | Explicit API response contract | Coordinate current TS parsers |
 | [WEB-04](#web-04) | Open · isolated test setup | Real-API browser acceptance | No actual model needed |
 | [WEB-07](#web-07) | Open · CPU ready | Queued cancel controls | WEB-01; existing API cancel contract |
-| [WEB-08](#web-08) | Open · CPU/browser ready | Accessible supported workflows | Coordinate overlapping UI PRs |
+| [WEB-08](#web-08) | Open · CPU/browser ready | Accessible supported workflows | Coordinate overlapping UI milestones |
 | [OPS-01](#ops-01) | Open · CPU release work | Locks/artifacts/notices and matrix | Large artifact operations separately gated |
 | [BE-02](#be-02) | Open · evidence review | Candidate artifact/rights record | BE-01; bounded artifact resources |
 | [BE-03](#be-03) | Gated · exact artifacts/resources | Candidate image/headless readiness | BE-01/02; isolated environment |
@@ -214,7 +235,7 @@ These are proposed task IDs, not GitHub issue/PR numbers. None is marked accepte
 | [OPS-06](#ops-06) | Open design · live use gated | GPU admission/spending controls | Qualified model; costs; budget authority |
 | [BE-11](#be-11) | Gated · economics/policy | Persistent usage/credit ledger | Real cost and lifecycle decisions |
 | [BE-14](#be-14) | Gated · sandbox/provider policy | One payment lifecycle | BE-11; identity; owner/provider decision |
-| [OPS-05](#ops-05) | Optional · integration needed | Persistent PR visibility/review automation | Authorized integration/settings; no watcher yet |
+| [OPS-05](#ops-05) | Optional · integration needed | Main/checkpoint status and review visibility | Authorized integration/settings; no watcher yet |
 
 ## Backend and model-qualification tasks
 
@@ -457,7 +478,7 @@ Default public/external enablement remains off until the separate rollout gate.
 
 **Meaningful tests:** Existing JWT/mapping/key tests, short-lived assertion
 fixtures and an isolated real-backend browser login/ownership contract. Scope
-this PR to the trust bridge; full signup/mail recovery/session administration
+this milestone to the trust bridge; full signup/mail recovery/session administration
 and public launch remain separate work. No paid email/provider deployment or
 account migration is inferred from this task.
 
@@ -502,7 +523,7 @@ backups/restoration and isolated staging, which this task must not duplicate.
 
 **Scope/files:** `storage.py`, `maintenance.py`, `migration.py`, `cli.py`,
 `store.py`, `test_storage.py`; `docs/operations/OBJECT_STORAGE.md` and the identity
-lifecycle decision. First PR should provide the contract and a bounded read-only
+lifecycle decision. First milestone should provide the contract and a bounded read-only
 plan/report, not immediate garbage collection or irreversible account erasure.
 
 **Acceptance:** A plan identifies owned DB references, persisted inputs,
@@ -542,8 +563,8 @@ webhook secret is used in development fixtures.
 
 **Meaningful tests:** Duplicate/out-of-order events, lost acknowledgements,
 failed jobs, uncertain submissions, concurrent settlement and owner isolation.
-An initial design-only PR must clearly say no billing is implemented; an
-implementation PR must prove persistent ledger behavior. Public payment-provider
+An initial design-only milestone must clearly say no billing is implemented; an
+implementation milestone must prove persistent ledger behavior. Public payment-provider
 integration and hard cloud spending enforcement require later scoped work.
 
 <a id="be-12"></a>
@@ -564,7 +585,7 @@ response-schema module if justified; existing API tests; current web contracts
 at `apps/web/src/lib/contracts.ts` and API parser tests at
 `apps/web/src/lib/client/api.test.ts`; `docs/project/FEATURE_MAP.md`.
 Start with one supported endpoint family (for example storage usage plus the
-stable public job projection) rather than replace every schema in one PR.
+stable public job projection) rather than replace every schema in one milestone.
 
 **Acceptance:** The API documents and tests the supported successful/error
 shapes and status values, strips no currently supported public field without a
@@ -686,7 +707,7 @@ The current fast browser suite is deliberately synthetic. These cards improve ac
 
 - **Owner:** frontend/QA engineer. **Files:** `apps/web/src/features/studio/components/studio.tsx`, viewer/status components, `apps/web/src/app/globals.css`, `apps/web/tests/e2e/studio.spec.ts` and focused new accessibility tests where meaningful.
 - **Scope:** Audit and fix one defined workflow from private login through project/job/quota and download using keyboard/focus, form labels/errors, status announcements, contrast and narrow screens. Provide usable loading/error/fallback states for the 3D canvas. State tested browser/device and assistive configurations; do not claim universal accessibility from responsive CSS.
-- **Dependencies:** Coordinate changing Studio controls with WEB-01/02/07 so concurrent PRs do not overwrite fixes. No GPU/model/provider account is needed for controlled browser fixtures.
+- **Dependencies:** Coordinate changing Studio controls with WEB-01/02/07 so concurrent milestones do not overwrite fixes. No GPU/model/provider account is needed for controlled browser fixtures.
 - **Acceptance:** Logical focus order and visible focus; named controls; understandable validation/async errors and job updates; dialogs/menus do not trap focus unintentionally; essential controls and private download remain usable at declared widths and zoom. Viewer-only information has an appropriate supported alternative.
 - **Tests/evidence:** Keyboard-driven browser cases and automated accessibility checks for critical rules, plus documented manual screen-reader/zoom checks where automation is insufficient. Include a loading/failure state and >100-history controls after pagination is added.
 - **Rollback:** Keep existing private routes, ownership and viewer download behavior; change the affected UI slice without a wholesale redesign.
@@ -699,9 +720,9 @@ The current fast browser suite is deliberately synthetic. These cards improve ac
 ### OPS-01 — Make release inputs reproducible and verify the supported CI matrix (P1; CPU work ready)
 
 - **Owner:** release/platform engineer with package owners. **Current foundation:** root `requirements.lock`, app `pyproject.toml`, `apps/web/package.json`, four CI workflows, both CPU Dockerfiles, candidate manifest and packaging checks already exist.
-- **Scope:** Add a reviewed npm lockfile and align installer/CI with deterministic installation; record exact Python/transitive wheel artifacts and notices, base-image/action revisions and update procedure. Keep CPU and candidate CUDA environments separate. Reuse candidate provenance work rather than equating pip metadata with inspected artifacts. Split lockfile, release inventory and CI changes into narrow PRs if needed.
+- **Scope:** Add a reviewed npm lockfile and align installer/CI with deterministic installation; record exact Python/transitive wheel artifacts and notices, base-image/action revisions and update procedure. Keep CPU and candidate CUDA environments separate. Reuse candidate provenance work rather than equating pip metadata with inspected artifacts. Split lockfile, release inventory and CI changes into narrow milestones if needed.
 - **Dependencies:** Backend candidate artifact work for its own environment; no new model license decision is implied. Existing normal package installation must retain certificate/artifact verification.
-- **Acceptance:** Fresh supported installs use the reviewed dependency graph and fail on altered hashes where the release policy requires them; notices/SBOM include selected binary/system libraries. Wheel verification still includes all four migrations. Hosted Python 3.11/3.12 API/gateway, Python 3.10 qualification and Node 22 web jobs have recorded results for the exact PR revision; investigate incompatibilities rather than silently changing the supported matrix. Update path triggers for any new shared configuration.
+- **Acceptance:** Fresh supported installs use the reviewed dependency graph and fail on altered hashes where the release policy requires them; notices/SBOM include selected binary/system libraries. Wheel verification still includes all four migrations. Hosted Python 3.11/3.12 API/gateway, Python 3.10 qualification and Node 22 web jobs have recorded results for the exact commit revision; investigate incompatibilities rather than silently changing the supported matrix. Update path triggers for any new shared configuration.
 - **Tests/evidence:** Clean package installation, `pip check`, relevant API/gateway/qualification suites, web type/unit/build/browser, fresh wheels and Compose checks. Audit a lockfile diff and intended update workflow. Local Python 3.12/Node 24 results remain separately labeled.
 - **Rollback:** Revert the affected dependency/workflow change as one slice; preserve older manifests in Git. Do not remove notices or weaken TLS to reproduce an install.
 
@@ -710,7 +731,7 @@ The current fast browser suite is deliberately synthetic. These cards improve ac
 ### OPS-02 — Qualify one isolated deployment, real object storage and recovery (P0 before public operation; deployment gated)
 
 - **Owner:** platform/storage/security engineers. **Files:** `infrastructure/compose/`, both CPU Dockerfiles, API settings/storage/maintenance/migration, `docs/operations/{OBJECT_STORAGE,PRODUCT_BACKBONE,OPERATIONS_SECURITY}.md` and the cloud setup guide.
-- **Scope:** First write a supported staging design: private service boundaries, database/storage/identity configuration, runtime TLS trust, secret delivery, bounded logs/metrics, readiness, migrations and rollback. Then, under approved account/resources, qualify an isolated real S3-compatible bucket, database backup/restore, storage recovery and failure paths. Separate the deployment design, observability and provider drill PRs; do not combine them with model integration.
+- **Scope:** First write a supported staging design: private service boundaries, database/storage/identity configuration, runtime TLS trust, secret delivery, bounded logs/metrics, readiness, migrations and rollback. Then, under approved account/resources, qualify an isolated real S3-compatible bucket, database backup/restore, storage recovery and failure paths. Separate the deployment design, observability and provider drill milestones; do not combine them with model integration.
 - **Dependencies:** Owner-selected account/region/service permissions and any spend cap before creating paid infrastructure; applicable identity and data-lifecycle tasks before public exposure. A build-only CA mount does not establish the runtime's trust to upstream/JWKS/S3 services.
 - **Acceptance:** Intended services are reachable only through declared boundaries; liveness does not claim a GPU is ready. Real provider upload/list/read/checksum/owner-isolation and quota behavior pass; injected corruption, timeout and denied permissions fail safely. Restore a known database/artifact set and compare ownership/checksums. Demonstrate worker crash/lease reconciliation without duplicate paid submissions. Capture bounded non-secret request/job/error/latency/storage telemetry and a usable alert/incident runbook.
 - **Tests/evidence:** Container/nonroot/config tests plus recorded isolated provider and restore drills, failure logs, restore point/time and exact deployment versions. Synthetic S3 tests stay in CI and are labeled; they cannot close the real-provider gate. No public customer data or private backup is committed.
@@ -731,21 +752,21 @@ The current fast browser suite is deliberately synthetic. These cards improve ac
 
 ### OPS-04 — Resolve repository/account access evidence with the owner (P0 for incident closure; owner action)
 
-- **Owner:** repository/account owner or authorized organization administrator. **Context:** The owner reported disruption; source/history preservation did not establish account compromise or account recovery. The API is not currently accessible from this environment for authoritative PR/check/rules metadata; native Git main access works.
-- **Scope:** Through the owner's approved GitHub access, account for sessions, tokens/SSH/deploy keys, installed apps, collaborators, Actions permissions and branch rules. Revoke unauthorized access and rotate actually exposed secrets; record a non-secret outcome and operating policy privately/as appropriate. The next implementation tool must check existing PRs before duplicating a task.
-- **Acceptance:** An authorized owner can explain active access, intended branch/review rules and response to the reported incident. Required checks/reviewers are consistent with the future PR workflow. No force push, rule bypass or proxy/platform credential extraction is used.
+- **Owner:** repository/account owner or authorized organization administrator. **Context:** The owner reported disruption; source/history preservation did not establish account compromise or account recovery. The API is not currently accessible from this environment for authoritative milestone/check/rules metadata; native Git main access works.
+- **Scope:** Through the owner's approved GitHub access, account for sessions, tokens/SSH/deploy keys, installed apps, collaborators, Actions permissions and branch rules. Revoke unauthorized access and rotate actually exposed secrets; record a non-secret outcome and operating policy privately/as appropriate. The next implementation tool must check existing milestones before duplicating a task.
+- **Acceptance:** An authorized owner can explain active access, intended branch/review rules and response to the reported incident. Required checks/reviewers are consistent with the future implementation workflow. No force push, rule bypass or proxy/platform credential extraction is used.
 - **Evidence:** Owner-confirmed non-secret checklist or platform settings review, not a claim that moving folders fixed the account. Do not publish tokens, security logs or personal account details in this public document.
 - **Rollback/limit:** Permission revocation and credential rotation are deliberate owner operations. This card is not an automated repository-cleanup script.
 
 <a id="ops-05"></a>
 
-### OPS-05 — Optionally automate PR check visibility and review assignment (P2; proposal, no watcher installed)
+### OPS-05 — Optionally automate main/checkpoint status and review visibility (P2; proposal, no watcher installed)
 
-- **Owner:** maintainer/platform engineer. **Current workflow:** The implementation tool opens a focused PR; the owner shares its URL/number with Codex for an interactive review. Creating this Markdown file does not schedule background monitoring, send notifications, run periodic jobs or grant automatic merge authority.
-- **Scope:** If persistent monitoring is wanted, submit a separate PR designing GitHub-native required checks/review assignment/status reporting. Define events, repository scope, notification destination/permission, failure behavior, minimal permissions and who receives reports. Reuse the current workflows and project permissions; do not add a bot token just to read public status.
-- **Dependencies:** An available authorized automation integration and owner agreement on delivery/settings. Configuring branch rules or sending messages is a distinct authorized action, not implicit in this documentation task.
-- **Acceptance:** A new PR and an added commit produce visible check/review status for the exact head SHA; stale approval is identified after changes; failures do not auto-merge. Forked/untrusted PR code never receives secrets or privileged write context. If the API/integration is unavailable, show an explicit unknown status rather than green.
-- **Tests/evidence:** Controlled sample PR/status transitions, least-privilege workflow review and documented disable/rollback path. No continuous monitor or remote check success is claimed until the automation actually exists and is verified.
+- **Owner:** maintainer/platform engineer. **Current workflow:** Each safe verified milestone is committed/pushed directly to main and the remote SHA is checked. If another tool supplies an existing pull request, Codex can review it in an active session; creating this file does not install persistent monitoring or require a pull request before delivery.
+- **Scope:** Submit a separately verified direct-main automation milestone for GitHub-native check/status visibility on main pushes, plus optional existing-pull-request review visibility. Define events,repository scope,authorized notification destinations,minimal permissions,failure behavior and responsible reviewer. Reuse current workflows and intended protections; do not add a bot token merely to read public status.
+- **Dependencies:** Available authorized automation integration and owner agreement for settings or external messages. Do not bypass required branch protection,alter it silently or infer posting/notification permission from this documentation task.
+- **Acceptance:** A pushed commit and an update to an existing reviewable change show actual status for the exact head SHA; stale results are identified. Failures do not automatically approve/merge,degrade protection or become green when metadata is unavailable. Untrusted contributed code never receives privileged secrets or write context. No unattended source-changing loop is installed.
+- **Tests/evidence:** Controlled main/check transitions and optional supplied-review updates,least-privilege review,redaction and a documented disable/rollback path. A watcher or hosted check is claimed only after the integration actually exists and is verified.
 
 <a id="ops-06"></a>
 
@@ -757,6 +778,903 @@ The current fast browser suite is deliberately synthetic. These cards improve ac
 - **Acceptance:** Concurrent jobs cannot exceed the declared local admission/reservation envelope; unverified models are rejected; retries retain non-idempotent submission uncertainty. Provider budget/termination controls and delayed-billing limits are explicit. Local cancel/timeout is never presented as proof that remote GPU cost stopped. Operators can halt new admissions and reconcile in-flight/unknown outcomes without replaying paid work.
 - **Tests/evidence:** CPU/synthetic tests for cap races, exhausted budgets, lost submit responses, stale leases, provider outage and operator drain; later a separately approved bounded provider drill with actual cost/termination evidence. Do not promise a perfect dollar ceiling if provider metering/shutdown latency cannot guarantee it.
 - **Rollback:** Stop new admissions, reconcile existing reservations/jobs, retain immutable usage evidence and release resources using the approved provider procedure.
+
+## Expanded capability, structure and test index
+
+The 28 existing BE/WEB/OPS software cards are preserved. The expansion adds **35 product capability cards**, **5 structure/documentation cards** and **10 QA evidence families**; [research.md](research.md) contains **15 RES cards**. All are open or gated as their detailed prerequisites state. These are planning/evidence units, not a count of shipped features. The 14 FUT rows are higher-level cross-references, not additional duplicate implementations; STR-05 is the existing BE-01 boundary work viewed from structure.
+
+Start with one bounded ready task. CAP-01 official-source review, ENV-01 scene schema, AGENT-01 read-only fixtures, STR-01 current-link repair and RES-01/02 research charter/recipe review can begin as CPU/specification work alongside the existing correctness queue. Real generation, training, provider calls and public/paid release retain their exact rights/resource gates. Use direct-main verified milestones, without creating default branches or pull requests.
+
+| Expanded task | Scope / detail |
+|---|---|
+| [CAP-01](#cap-01) | Maintain a versioned capability and comparison scope register |
+| [GEN-01](#gen-01) | Productize one capability-aware generation adapter/profile |
+| [GEN-02](#gen-02) | Add truthful text-to-3D workflow provenance |
+| [GEN-03](#gen-03) | Add a bounded multi-image / multi-view conditioning contract |
+| [GEN-04](#gen-04) | Add controlled reference preparation and image generation |
+| [GEN-05](#gen-05) | Import existing licensed 3D assets into supported workflows |
+| [GEN-06](#gen-06) | Add supported presets, reproducible variants and bounded batches |
+| [ART-01](#art-01) | Create a versioned owned asset library and comparison workflow |
+| [ART-02](#art-02) | Qualify remesh, topology profiles, polygon budgets and LODs |
+| [ART-03](#art-03) | Add UV inspection, unwrapping and texture-bake acceptance |
+| [ART-04](#art-04) | Add material editing, retexture and explicitly supported PBR maps |
+| [ART-05](#art-05) | Add semantic parts and bounded local editing |
+| [ART-06](#art-06) | Add bounded mesh diagnostics, repair and completion profiles |
+| [ART-07](#art-07) | Qualify export formats, axes/units and application handoff |
+| [ANIM-01](#anim-01) | Establish an accepted reusable character master/template lane |
+| [ANIM-02](#anim-02) | Add a supported body rig-check, auto-rig and skinning lane |
+| [ANIM-03](#anim-03) | Create a rights-cleared searchable motion library |
+| [ANIM-04](#anim-04) | Retarget compatible motions with root/contact controls |
+| [ANIM-05](#anim-05) | Add a separately labeled text-to-motion experiment |
+| [ANIM-06](#anim-06) | Build facial controls and speech performance as independent stages |
+| [ANIM-07](#anim-07) | Assemble, edit and export short reusable motion sequences |
+| [ENV-01](#env-01) | Define owned world representations and a versioned scene manifest (P2; CPU design/schema work ready) |
+| [ENV-02](#env-02) | Build a small modular scene assembly/editor slice (P2; after ENV-01) |
+| [ENV-03](#env-03) | Add bounded world navigation and explicit collision/navigation layers (P2; geometry validation required) |
+| [ENV-04](#env-04) | Qualify one real environment-generation input route (P3 initially; model/provider execution gated) |
+| [ENV-05](#env-05) | Add reviewable semantic parts and constrained scene edits (P3; begin with manual labels) |
+| [ENV-06](#env-06) | Introduce a clearly separate neural/splat world mode (P3; renderer/source review first) |
+| [ENV-07](#env-07) | Qualify one world export and downstream engine workflow (P2 after an accepted representation) |
+| [AGENT-01](#agent-01) | Add an owner-scoped read-only project explanation assistant (P2; CPU prototype ready) |
+| [AGENT-02](#agent-02) | Define a typed operation planner and truthful preview (P2; CPU design/test ready) |
+| [AGENT-03](#agent-03) | Enforce usable scoped permissions and bounded action approval (P1 before agent mutations) |
+| [AGENT-04](#agent-04) | Execute one deterministic tool adapter through existing product contracts (P2; after policy gate) |
+| [AGENT-05](#agent-05) | Record provenance, version history and truthful rollback (P2; required for useful edits) |
+| [AGENT-06](#agent-06) | Evaluate agent safety, usefulness and bounded autonomy before widening tools (P1 release gate; CPU fixtures ready) |
+| [AGENT-07](#agent-07) | Qualify one provider/model and a staged assistant rollout (P2; external inference gated) |
+| [STR-01](#str-01) | Repair current path shorthand without rewriting historical evidence |
+| [STR-02](#str-02) | Make inventory and handoff updates reproducible |
+| [STR-03](#str-03) | Keep the comprehensive root handoff usable as it grows |
+| [STR-04](#str-04) | Investigate cohesive module seams only when a real task needs them |
+| [STR-05](#str-05) | Close the qualification source/build-context boundary through BE-01 |
+
+QA-01–QA-10 below cover preservation/release, identity/API, jobs/storage, web, real generation, mesh/material/export, rigs/motions, fine-tuning, worlds and agents/integrations. Each family names existing evidence, required new cases and its acceptance gate.
+
+## Expanded model-creation and character-workflow targets
+
+**Research date: 17 November 2026. Status: proposed capability catalog and scoped
+implementation queue; no new runtime or paid service was executed for this
+research.** The target is an independently controlled platform for text,
+single-image, multiple-image and existing-asset workflows, with editable models,
+materials, characters and reusable worlds. Comparable workflows can be a goal;
+complete Tripo/Meshy/Mixamo/Marble parity is not an established fact or a finite
+checklist that this dated catalog can certify. The separate environment/Marble
+and agent plans must integrate with the same asset, permission, job and budget
+authorities rather than create parallel products inside the repository.
+
+The existing BE, WEB and OPS task cards stay valid and retain their IDs. The
+new cards below add **21 capability work units**: CAP-01, GEN-01–GEN-06,
+ART-01–ART-07 and ANIM-01–ANIM-07. They do not supersede the existing first real
+qualified image-to-GLB milestone, public-account gates or operating protections.
+They are not 21 implemented features.
+
+### Dated official-source observations and access limits
+
+Direct website/API-document pages on `tripo3d.ai`, `platform.tripo3d.ai`,
+`meshy.ai`, `docs.meshy.ai`, `mixamo.com` and Adobe's Mixamo FAQ were blocked by
+the managed CONNECT proxy with HTTP 403 during this research. Certificate
+verification was retained, no proxy bypass or policy change was attempted,
+and no account, API key, signup or paid request was used. Public vendor GitHub
+materials were reachable and provide the more limited evidence below.
+
+| Source | Reachable evidence pinned on 17 November 2026 | What was actually observed |
+|---|---|---|
+| S-TRIPO | [Tripo official SDK README](https://github.com/Tripo-Developer/tripo-python-sdk/blob/aa94035f66cbefbd953ff9353078a769e6f06b48/README.md) and [API reference](https://github.com/Tripo-Developer/tripo-python-sdk/blob/aa94035f66cbefbd953ff9353078a769e6f06b48/docs/API.md) | The earlier VAST SDK URL redirects to `Tripo-Developer`; the repository identifies itself as the official Python client and links Tripo's platform. The checked source describes text/image/multiview model generation; text/image and multiview-image preparation; model import/conversion; texture, segment, complete, decimate and UV tasks; rig checks, versioned rigging and retargeted motion; depth/splat outputs; asynchronous task/upload/usage interfaces. These are documented client/service claims, not results from invoking the service. |
+| S-MESHY-CLI | [Meshy CLI README](https://github.com/meshy-dev/meshy-cli/blob/9bd6412f3da6d46cf91d1c1e148137cd1ddd5189/README.md) | The vendor-associated organization links `meshy.ai`; its CLI source describes model generation, motion, remesh, conversion/size/UV, rigging, animation, retexture, image preparation and optional printing workflows. It also describes asynchronous commands, structured machine-readable results and uncertainty-aware submission behavior. No CLI was installed or run. |
+| S-MESHY-MCP | [Meshy MCP README](https://github.com/meshy-dev/meshy-mcp-server/blob/ad5f64836a3cecadfb1a4bb6cb68d3b09299bb5c/README.md) | The checked source lists tools for text/image/multi-image generation, remesh/retexture, rigging/animation/text-to-motion and action discovery, conversion/resize/UV, image generation, task/model management and account usage. It distinguishes options and limitations by endpoint/model and includes optional printability tools. This is a dated integration catalog, not proof that every option is available to every account or model. |
+| S-MESHY-GUIDE | [Meshy guide README](https://github.com/meshy-dev/Meshy-guide/blob/f9dac08bcc50bb0a880cc528c4f34730a5db713c/README.md) | The page is explicitly updated 23 April 2026 and lists broad generation, texturing, rigging, motion, export and integration families. Its model/version statements differ from newer MCP descriptions. Treat it as dated product guidance; do not reuse its marketing speed, user counts, pricing, motion counts or quality claims as measured facts for this project. |
+| S-MESHY-AGENT | [Meshy agent README](https://github.com/meshy-dev/meshy-3d-agent/blob/9f03bcb66cf51dc3b0063bd896d4c85c1e5dee0a/README.md) | The checked instructions describe agent-assisted generation/postprocessing/rigging/motion through a CLI, local workspace boundaries, task provenance, approved budgets and separate authentication. They state that generation has account/plan and credit prerequisites. Reading the source does not certify any agent host, service entitlement or our own agent implementation. |
+| S-MIXAMO | [Adobe Mixamo FAQ](https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html) and [Mixamo](https://www.mixamo.com/) | Both direct official pages were inaccessible in this environment. Humanoid auto-rigging and a searchable reusable-motion workflow are owner-requested benchmark directions here, not freshly verified current product claims. Public API availability, permitted automation, format limits, motion-library redistribution and current terms remain unverified. |
+
+**Freshness matters.** The checked Tripo SDK documentation says its 1.x client
+uses apiv3, reports the older v2 API retirement on 31 October 2026, and marks
+`refine_model`/`stylize_model` as removed methods that reject locally. The same
+documents specify model/rig-version compatibility rather than a universal
+animation capability. Do not build against an old tutorial or assume a method
+name still invokes a service. Meshy's older guide and newer integration README
+also illustrate why endpoint, model, account and observation date belong in the
+capability record. Source access was not a live endpoint verification.
+
+**Tripo is not TripoSR.** The commercial API/SDK above and this repository's
+pinned open-source TripoSR qualification candidate are different integration
+and rights boundaries. The existing private `UpstreamGateway` speaks the
+3DAIGC-style contract, not Tripo's commercial apiv3 or Meshy's API. A separate,
+reviewed provider adapter would be needed if a commercial service is chosen.
+An SDK's permissive source license does not confer model weights, hosted API,
+training data, generated-asset or motion-library rights. Optional provider
+integration must not silently replace the goal of owner-controlled workflows.
+
+### Capability families to target, without claiming current parity
+
+| Family | Dated comparison evidence / owner target | Our existing foundation and actual gap |
+|---|---|---|
+| Text, image and multiple-view model creation | S-TRIPO and S-MESHY source catalogs describe separate endpoint families | We have private text/image admission, normalized single images, durable jobs and policy controls. Real inference is unverified; multi-image payloads, conditioning and quality acceptance are not implemented. |
+| Geometry/topology controls | Sources describe remesh/decimate, low-poly/topology options and different constraints by model | Shared GLB integrity and an inactive retopology reference exist. No qualified production remesh, animation edge flow or complete LOD toolchain is integrated. |
+| UVs, materials, texture/retexture and PBR | Sources describe separate UV/texture/retexture operations and model-specific map support | The narrow first-party OBJ+PNG packager consumes UVs and embeds base color. It is not a UV generator, full material editor, delighting system or complete PBR reconstruction. |
+| Parts, repair and completion | S-TRIPO describes segmentation and completion; Meshy catalogs include part splitting/repair in supported workflows | Preserved PartField/PartPacker/VoxHammer/UV/retopo code is inactive research with missing dependencies and rights/safety limits. No product part editor or mesh-repair feature is proven. |
+| Import/export and real scale | Sources describe multiple model/animation formats, size/orientation and application handoff | Product artifact delivery currently expects verified GLB. Other formats require their own parser, preservation and downstream import checks. |
+| Body rigging, skinning and motion application | S-TRIPO and S-MESHY catalog rig/retarget/animation; Mixamo is an unverified benchmark target | UniRig source and sample GLB/FBX assets are preserved, not a product rigging result. A skeleton does not establish good deformation or a facial rig. |
+| Reusable motion, clip search and generated motion | Meshy MCP source lists action discovery and text-to-motion; Tripo source describes compatible preset retargeting | No licensed motion library, clip state, retarget product or motion-generation service is integrated. No assumption of a supported public Mixamo automation API is warranted. |
+| AI-agent and developer workflows | S-MESHY agent/CLI/MCP material demonstrates a documented tool-oriented workflow concept | The private API, durable job states, provenance and budgets are useful prerequisites. An agent must use restricted product tools; agent fluency does not solve asset quality, rights or renderer safety. |
+| Editable environments and worlds | Owner target plus separate Marble/environment research | Assets must remain independently editable with stable identity and scale. Scene/world and splat capabilities have different representations and acceptance; a textured mesh viewer is not world authoring. |
+
+The comparison scope is broad enough to guide development, but must remain
+open-ended: capability sets change, documentation can conflict, and some
+features can be plan-specific or unavailable. CAP-01 keeps the record honest.
+
+## Proposed generation and asset capability task cards
+
+All cards below are **planned**, with existing prerequisites credited. Listed
+source paths are current foundation locations, not claims that the proposed
+module exists. Add a new module or migration only when that card's reviewed
+design requires it. Each implementation milestone should retain current ownership,
+fencing, uncertain-submission and integrity behavior and state which acceptance
+checks were actually executed.
+
+<a id="cap-01"></a>
+
+### CAP-01 — Maintain a versioned capability and comparison scope register
+
+**Scope/current foundation:** Extend the existing `FEATURE_MAP`, 56 responsibility
+cards and model-approval lineage with a clear supported-capability register.
+Record provider/model/runtime/version, input types, options, rig/format support,
+restrictions, source URL/date, evidence level, missing prerequisites and whether
+a claim was documented, mocked, locally demonstrated, artist accepted or hosted.
+Do not replace the approval authority with a marketing feature matrix.
+
+**Dependencies:** Existing model policy, BE-02/BE-12 where schemas change;
+OPS-03 evaluation. Recheck inaccessible sources through an approved access path.
+
+**Acceptance/tests:** A dated unsupported/retired or unverified capability
+cannot appear as available merely because it is in a competitor list. Tests
+cover option compatibility, unknown/retired features, model-specific inputs and
+stable existing `/v1/models` clients. Track comparison coverage rather than
+claiming completeness or “all features matched.”
+
+**Owners:** Product/architecture with inference and QA reviewers. **Evidence:**
+S-TRIPO version/retirement notes and conflicting dated S-MESHY guides. This card
+organizes scope; it does not install a competitor SDK or enable generation.
+
+<a id="gen-01"></a>
+
+### GEN-01 — Productize one capability-aware generation adapter/profile
+
+**Scope/current foundation:** Build on `UpstreamGateway`, existing API text/image
+admission, worker snapshots and approved-model selection. Define one supported
+asset profile and model-specific parameter contract; preserve the existing
+simple requests. Surface only options the qualified adapter actually supports.
+Keep operator credentials and commercial-provider contracts out of the browser.
+
+**Prerequisites:** BE-01–BE-04 for real model proof; CAP-01; OPS-06 spending
+controls before paid scale. A commercial provider is optional and separately
+reviewed; TripoSR must not be relabeled the commercial Tripo service.
+
+**Acceptance/tests:** Inputs/options are validated before dispatch; model and
+configuration lineage persists; unsupported modes fail clearly; policy drift
+and uncertain POST outcomes retain current behavior. Test fake adapter contracts,
+then demonstrate the supported profile using approved real artifacts and
+OPS-03 quality/cost evidence. **Owners:** Inference/backend plus creator QA.
+**Sources/workstreams:** S-TRIPO/S-MESHY; existing generation F003/F018, F056.
+
+<a id="gen-02"></a>
+
+### GEN-02 — Add truthful text-to-3D workflow provenance
+
+**Scope/current foundation:** Existing text admission is a transport capability.
+Qualify one native text-to-3D adapter or an explicitly labeled text-to-image-to-3D
+chain. If chained, retain the intermediate image, rights, hashes, parameters,
+step state and parent/child artifact relationship using the workflow/agent
+contract, not opaque repeated submissions.
+
+**Prerequisites:** GEN-01; the bounded workflow/agent plan; BE-04; reviewed 2D
+and 3D runtimes and separate aggregate resource approval.
+
+**Acceptance/tests:** The UI/API identify native versus chained generation;
+failed/restarted steps do not duplicate accepted remote work; an intermediate
+image remains private and inspectable; prompt/negative-prompt fields are exposed
+only if supported. Use deterministic fake-step recovery tests plus a real,
+rights-cleared end-to-end text case before claiming availability. No fallback
+sample mesh is allowed. **Owners:** Inference/workflow/backend and product UI.
+**Evidence:** S-TRIPO/S-MESHY describe text paths; no output-quality parity proven.
+
+<a id="gen-03"></a>
+
+### GEN-03 — Add a bounded multi-image / multi-view conditioning contract
+
+**Scope/current foundation:** Extend the single-image upload/job model with a
+bounded ordered input set and explicit view labels or calibrated metadata only
+where the chosen model uses it. Native multiple-view conditioning differs from
+creating several independent single-image jobs or using extra views only for
+texture.
+
+**Prerequisites:** GEN-01, CAP-01, BE-05/BE-07 input/resource policies; F050
+multi-view workstream; qualified multi-view model rights/runtime.
+
+**Acceptance/tests:** Per-image and aggregate bytes/pixels/counts are bounded;
+all inputs are normalized, owner-scoped and retained with hashes and ordering;
+missing/duplicate/unsupported views have defined behavior. Conflicting references
+produce a documented warning/failure policy, without promising perfect automatic
+identity detection. Verify real improvement or limitations on permitted
+multi-angle inputs. **Owners:** ML/geometry, backend, UI and QA. **Sources:**
+S-TRIPO documents front/left/back/right semantics for specific methods;
+S-MESHY distinguishes multi-image geometry and texture options. Do not impose
+one vendor's exact count/order on every future model.
+
+<a id="gen-04"></a>
+
+### GEN-04 — Add controlled reference preparation and image generation
+
+**Scope/current foundation:** Reuse `images.py` for safe existing-image input;
+add reversible crop/background/alignment guidance and, as separate qualified
+operations, text-to-image, image-to-image or synthesized multiview references.
+Preserve originals and label generated views as inferred rather than observed.
+
+**Prerequisites:** Model-specific preprocessing evidence, reviewed image-model
+rights/terms, approved compute/provider usage and the workflow contract. Do not
+reactivate hidden background-removal/model downloads in the TripoSR candidate.
+
+**Acceptance/tests:** Original and derived images are distinguishable; outputs
+match the next model's required framing; metadata/privacy controls remain;
+budgets account for every 2D step. Boundary fixtures test malformed/large images,
+lineage and restart behavior; real approved examples demonstrate the actual
+pipeline. **Owners:** Inference/image processing and creator UX. **Evidence:**
+S-TRIPO/S-MESHY list image preparation/generation families; not a currently
+implemented native product image generator.
+
+<a id="gen-05"></a>
+
+### GEN-05 — Import existing licensed 3D assets into supported workflows
+
+**Scope/current foundation:** Add an owned, bounded model-import path alongside
+generation. Start with the declared safe GLB subset, reuse private storage and
+BE-07 validation, and record source/rights/hash/units/known compatibility. Other
+formats depend on ART-07 rather than arbitrary unsandboxed parsers or user paths.
+
+**Prerequisites:** BE-07, ART-01 lineage, explicit upload/resource limits and
+isolation. Asset files under `AnalyseFuture` are not automatically licensed test
+inputs. Avoid arbitrary URL fetches/local filesystem paths as import identifiers.
+
+**Acceptance/tests:** Valid permitted assets can be retained, inspected and used
+as the source of a supported processing step; external-resource/path traversal,
+foreign-owner, malformed and oversized inputs fail. Preserve originals and
+reject embedded execution. Test the actual private import/download route and
+then supported downstream import. **Owners:** Backend/graphics/security.
+**Evidence:** S-TRIPO describes external model import; S-MESHY utilities accept
+existing assets. Import is not generation or proof that asset rights are known.
+
+<a id="gen-06"></a>
+
+### GEN-06 — Add supported presets, reproducible variants and bounded batches
+
+**Scope/current foundation:** Extend existing job admission/history, not a new
+queue. Store declared model-specific seeds/settings, quality/resource presets,
+variant lineage and a bounded batch parent. A seed is optional when unsupported
+and does not guarantee reproduction across changed runtimes or character identity.
+
+**Prerequisites:** GEN-01, ART-01, CAP-01, existing BE worker/quota invariants and
+OPS-06 aggregate spending limits. Do not translate a vendor's bulk-concurrency
+marketing into permission to launch that many jobs.
+
+**Acceptance/tests:** Resuming/canceling a batch does not duplicate remote work;
+individual failures remain visible; admission, byte storage and cost limits are
+separate and enforced; accepted results retain their actual settings and bytes.
+Use race/recovery fixtures and a small explicitly approved real batch only when
+ready. **Owners:** Backend/workflow and product UX; OPS owns capacity and costs.
+**Evidence:** Source catalogs expose task/settings/usage families, not universal
+model-equivalent knobs.
+
+<a id="art-01"></a>
+
+### ART-01 — Create a versioned owned asset library and comparison workflow
+
+**Scope/current foundation:** Extend private projects/jobs/storage into accepted
+assets with original, derived and approved versions. Retain inputs, model/step
+lineage, geometry/material/rig metadata, thumbnails, rights notes and known
+issues. Project history is not already a complete asset version library.
+
+**Prerequisites:** F049, BE-10 lifecycle, BE-12 contract work, GEN-01/GEN-05;
+reuse existing owner authorization and quota accounting.
+
+**Acceptance/tests:** A creator can compare, name, approve and recover versions
+without overwriting an original or exposing another owner's asset. Edits produce
+traceable derived versions; duplicate requests and partial failures have defined
+behavior; deletion consequences remain explicit. Test against the real private
+API and UI, with current synthetic and later accepted real artifacts.
+**Owners:** Backend/library, frontend and artist QA. This is the common asset
+foundation for environments, characters and agents, not another parallel store.
+
+<a id="art-02"></a>
+
+### ART-02 — Qualify remesh, topology profiles, polygon budgets and LODs
+
+**Scope/current foundation:** Add one reviewed mesh-reduction/remesh path and
+explicit output profiles: static prop, close-up or deforming character. Preserve
+the high-detail source. Decimation, quad/triangle topology and animation-friendly
+edge flow are different claims. Add LOD derivation after one profile passes.
+
+**Prerequisites:** ART-01, BE-07, OPS-03; license/runtime review of selected
+utilities/models. Preserved FastMesh/other references remain research-only.
+
+**Acceptance/tests:** Output complexity and silhouette/material losses are
+measured against declared tolerances; bounds/units/UVs remain valid; protected
+regions are compared; character claims require pose/deformation review. Fail
+clearly when a requested budget cannot preserve the needed detail. Test several
+controlled meshes and actual supported exports. **Owners:** Geometry engineer
+and technical artist. **Sources:** S-TRIPO low-poly and S-MESHY remesh/topology
+families; none proves this project's automatic face topology.
+
+<a id="art-03"></a>
+
+### ART-03 — Add UV inspection, unwrapping and texture-bake acceptance
+
+**Scope/current foundation:** The current packager consumes UV coordinates and
+one baked PNG; add actual UV diagnostics and one reviewed unwrap/bake path.
+Define supported atlas/tiling/UDIM behavior, seams, overlap and material-region
+preservation rather than assuming every UV must share one representation.
+
+**Prerequisites:** ART-01/ART-02, qualified xatlas or alternative, isolated
+headless rendering where needed, BE-03/BE-07 and OPS-03.
+
+**Acceptance/tests:** UV data maps to geometry correctly; the agreed atlas or
+intentional tiling policy holds; orientation/seams and baked texture alignment
+are inspected in viewer and Blender. Synthetic axis/UV fixtures catch flips and
+real accepted assets prove the visual bake. No auto-unwrap claim follows merely
+from emitting `TEXCOORD_0`. **Owners:** Geometry/materials engineer and artist.
+**Sources:** S-TRIPO Smart UV and S-MESHY UV utilities are dated comparisons;
+current model/input restrictions require CAP-01 records.
+
+<a id="art-04"></a>
+
+### ART-04 — Add material editing, retexture and explicitly supported PBR maps
+
+**Scope/current foundation:** Build a versioned material operation on existing
+GLB packaging and the private viewer. Support local color/material controls
+first, then one approved text/reference-image retexture path. Record which maps
+actually exist: base color, roughness, metalness, normal and other maps separately.
+
+**Prerequisites:** ART-01/ART-03, qualified texture runtime/provider, BE-07 and
+model-specific permissions/settings. Retexturing must not silently regenerate
+geometry, rig or character identity.
+
+**Acceptance/tests:** A supported edit preserves geometry/UV/rig unless clearly
+declared otherwise; material channels use correct conventions and appear
+consistently under reference lighting and Blender import. Validate map presence,
+paths, size/resource limits and visual seams. Base-color-only results must not
+be labeled full PBR recovery. **Owners:** Material/graphics and UI engineers.
+**Sources:** S-TRIPO/S-MESHY describe texture/retexture; Meshy's integration
+source explicitly varies map/resolution/prompt support by model.
+
+<a id="art-05"></a>
+
+### ART-05 — Add semantic parts and bounded local editing
+
+**Scope/current foundation:** Add stable part identifiers, selection/isolation,
+material/geometry edit masks and lineage on accepted models. Separate connected
+component splitting from semantic segmentation; use conventional operations or
+one reviewed model behind the same asset contract.
+
+**Prerequisites:** ART-01, GEN-05, BE-07; F051 controlled edits; separate rights/
+runtime review of inactive PartField/P3SAM/PartPacker/VoxHammer references.
+
+**Acceptance/tests:** Edited and preserved regions are visible in comparisons;
+part IDs survive supported operations; hidden/missing interiors are reported;
+foreign-owner masks/models are rejected. Tests cover component/selection
+semantics and unsupported topology; actual qualified artifacts must demonstrate
+useful local results before exposure. **Owners:** Geometry/ML and technical art.
+**Evidence:** S-TRIPO segmentation/completion and S-MESHY splitting/edit workflows.
+Do not call a removed Tripo `refine_model`/`stylize_model` method as a substitute.
+
+<a id="art-06"></a>
+
+### ART-06 — Add bounded mesh diagnostics, repair and completion profiles
+
+**Scope/current foundation:** Extend structural integrity into declared mesh
+checks: finite vertices, degenerate faces, normals, components, holes and
+supported repairs/completion. Keep automatic capping separate from inferred
+hidden geometry. An optional printable profile is a separate supported use,
+not a manufacturing-accuracy guarantee.
+
+**Prerequisites:** BE-07, ART-01/ART-05 and reviewed geometry libraries; OPS-03
+metric fixtures. Preserve both original and repaired outputs.
+
+**Acceptance/tests:** Diagnostics are reproducible; the repair changes only the
+declared problems or reports damage/uncertainty; empty/inverted/self-intersecting
+outputs fail supported acceptance. When printing is pursued, declared units,
+wall/volume checks and downstream slicer evidence are required; watertightness
+alone is insufficient. **Owners:** Geometry/QA and artist; printing expertise
+only if that optional category is selected. **Sources:** S-TRIPO completion and
+S-MESHY printability/repair catalogs; no vendor performance percentage is adopted.
+
+<a id="art-07"></a>
+
+### ART-07 — Qualify export formats, axes/units and application handoff
+
+**Scope/current foundation:** Keep GLB as the first supported artifact. Add one
+format at a time—such as OBJ with maps, FBX with supported rig/clips, STL/3MF for
+a declared printing use, or USDZ/BLEND where justified—with a format capability
+matrix and private downloadable package/manifest.
+
+**Prerequisites:** BE-07, ART-01/ART-03 and ANIM tasks for animated exports;
+review exporter licenses and isolate Blender/converter processing. Do not copy
+the unsafe raw-path-to-Python converter from inactive references.
+
+**Acceptance/tests:** Scale, up/forward axes, origin/pivot, textures, named parts
+and declared skeleton/animation channels survive round-trip to the stated
+Blender/game/DCC version. Unsupported content loss is explicit. Archive/path
+checks prevent extraction escape and external fetches; acceptance uses actual
+imports, not filename extensions. **Owners:** Graphics/export and technical art.
+**Sources:** S-TRIPO conversion matrix and S-MESHY format catalogs; existence of
+an export name is not our own interoperability proof.
+
+## Proposed character, rig and motion task cards
+
+<a id="anim-01"></a>
+
+### ANIM-01 — Establish an accepted reusable character master/template lane
+
+**Scope/current foundation:** Use ART-01 to retain a rights-cleared base mesh,
+materials, proportions and rig as the accepted identity. Add guided supported
+customization and approved variants. This advances the owner's adult stylized
+character goal while arbitrary generated heads remain unsuitable for many rigs.
+
+**Prerequisites:** Licensed base/template and artist review; ART-01; F051. A
+sample from the supplied bundle is not licensed by its presence in Git.
+
+**Acceptance/tests:** The same accepted asset is reused across views/poses;
+allowed clothing/material/proportion edits record what they preserve; user
+choices do not silently change face, age/proportions or rig. Test lineage and
+approved-variant rules plus artist comparisons. Exact asset reuse is different
+from promising identity across unrelated generations. **Owners:** Character
+artist, backend library and UI. **Comparison:** owner-requested reusable cast,
+not a claim of Tripo/Meshy/Mixamo universal identity control.
+
+<a id="anim-02"></a>
+
+### ANIM-02 — Add a supported body rig-check, auto-rig and skinning lane
+
+**Scope/current foundation:** Qualify one declared skeleton/body category with
+landmark review, rig compatibility checks, skinning and corrective controls where
+supported. Keep skeleton provenance and mesh/rig versions in ART-01. Preserved
+UniRig code is a candidate, not an enabled implementation.
+
+**Prerequisites:** ANIM-01 or an explicitly supported imported character;
+reviewed model/source/weights/runtime rights; BE-07 and ART-07. GPU usage needs
+its own approval and must respect OPS-06.
+
+**Acceptance/tests:** Defined shoulder/elbow/hip/knee/wrist poses preserve useful
+volume and bound clipping; unsupported clothes/accessories/anatomy fail clearly;
+scale, root and joint naming are recorded; exported rig imports correctly.
+No facial capability is implied. **Owners:** Rigging technical artist and
+inference/graphics engineer. **Sources:** S-TRIPO versioned rig checks/specs and
+S-MESHY rig tools; Mixamo comparison remains unverified official-source scope.
+
+<a id="anim-03"></a>
+
+### ANIM-03 — Create a rights-cleared searchable motion library
+
+**Scope/current foundation:** Add motion assets, searchable tags, previews,
+skeleton specifications, duration/loop/root-motion metadata and attribution/
+usage rights. Start with a small independently permitted collection rather
+than copying another service's full library.
+
+**Prerequisites:** ART-01/ART-07 and a supported skeleton; explicit per-source
+rights, redistribution and privacy decisions. CAP-01 must verify any proposed
+Mixamo interaction or public API; do not scrape, bulk download or republish
+motions based on assumption.
+
+**Acceptance/tests:** Every listed clip has lawful provenance and declared
+compatibility; search/preview/apply work on permitted fixtures; unsupported rigs
+are rejected; clip access remains owner/team scoped. A catalog entry is not
+proof that an animation imported or deformed correctly. **Owners:** Animation
+curator, technical artist and backend/UI. **Sources:** S-MESHY action discovery
+and S-TRIPO presets; “Mixamo-like” is the owner's workflow target, not a license.
+
+<a id="anim-04"></a>
+
+### ANIM-04 — Retarget compatible motions with root/contact controls
+
+**Scope/current foundation:** Add explicit source/target skeleton mapping,
+retarget profiles, scale correction, loop selection and root-motion versus
+in-place behavior. Reuse body-rig and motion assets rather than regenerate the
+character for every action.
+
+**Prerequisites:** ANIM-02/ANIM-03, ART-07 and a defined compatibility envelope.
+Do not assume a skeleton/rig version accepts every named preset.
+
+**Acceptance/tests:** The declared supported pairs produce readable motion
+without unacceptable joint flipping, foot sliding or scale mismatch; root
+behavior and clip timing persist through export. Test two supported rig pairs,
+known unsupported pairs and actual short Blender/game previews. **Owners:**
+Animation/rigging and graphics engineers. **Evidence:** S-TRIPO publishes a
+specific rig/preset compatibility matrix; S-MESHY exposes animation application.
+Our own compatibility claims require local evidence.
+
+<a id="anim-05"></a>
+
+### ANIM-05 — Add a separately labeled text-to-motion experiment
+
+**Scope/current foundation:** After preset retargeting works, evaluate one
+reviewed model/provider for a short motion clip from text and route it through
+the same rig/clip library. Retrieval of an existing preset must be labeled
+retrieval; a text prompt does not establish newly generated motion.
+
+**Prerequisites:** ANIM-03/ANIM-04, qualified motion model/rights/data and
+explicit resource limits; OPS-03/OPS-06. Foundation-model training is not required
+for the first evaluation and is not authorized by this card.
+
+**Acceptance/tests:** Prompt/config/seed where exposed and actual generated
+clip lineage persist; unsupported body/actions have clear limits; timing,
+contacts, joint range and retarget/export quality are reviewed on short cases.
+Use mocked provider contracts for software tests and separately approved real
+clips for the capability claim. **Owners:** Motion ML and animator reviewers.
+**Evidence:** S-MESHY MCP source lists text-to-motion; no product implementation
+or provider parity is presently demonstrated.
+
+<a id="anim-06"></a>
+
+### ANIM-06 — Build facial controls and speech performance as independent stages
+
+**Scope/current foundation:** Develop a constrained template-based facial lane:
+independent eyes/gaze, eyelid/blink surfaces, brows, jaw and mouth interior,
+then expression combinations and supported visemes/lip sync. Body rigging alone
+provides none of these guarantees.
+
+**Prerequisites:** Suitable rights-cleared topology/template, ANIM-01/ANIM-02,
+ART-01 and expert artist acceptance; F052. Voice/audio rights and consent are
+separate if speech models or recordings are used.
+
+**Acceptance/tests:** Named poses and expression combinations preserve identity
+and deform without exposed gaps/collisions; blink tracks the eye surface; jaw,
+teeth/tongue/interior work where required; supported phoneme transitions are
+reviewed in actual short rendered/imported shots. Label unsupported arbitrary
+heads honestly. **Owners:** Facial technical artist, animator and specialized
+ML/audio contributors. **Comparison:** owner-proposed advanced target; this
+research establishes no universal equivalent capability in any named service.
+
+<a id="anim-07"></a>
+
+### ANIM-07 — Assemble, edit and export short reusable motion sequences
+
+**Scope/current foundation:** Add bounded clip trim, speed, loop, transition,
+blend and pose-preview controls for an accepted character. Record sequence
+versions and export the declared animation channels. The environment/timeline
+plan may compose these assets into scenes through the same IDs/contracts.
+
+**Prerequisites:** ANIM-03/ANIM-04, ART-01/ART-07; ANIM-06 only for sequences
+claiming facial performance. Start with a short idle/walk/gesture test, not a
+fully automatic episode or film.
+
+**Acceptance/tests:** Clips transition according to an explicit supported
+policy; foot/root behavior, frame rate and timestamps remain coherent; creator
+edits are preserved; saved sequences re-open and export into the tested downstream
+application. Use synthetic clip timing tests and a rights-cleared short real
+character scene. **Owners:** Animation/frontend/graphics and creator QA.
+**Comparison:** motion/animation workflow ambition inspired by the owner's
+Mixamo/Tripo/Meshy target, with no current parity or acting-quality guarantee.
+
+### Integration order and boundaries for the new catalog
+
+1. Keep existing **BE-01–BE-04** model qualification and **OPS-03/OPS-06** quality
+   and spending gates ahead of broad real generation. Most contracts, UI and
+   fixture-based capability work can proceed while runtime approval is blocked.
+2. Start **CAP-01**, then one **GEN-01** profile. Add **ART-01** as the common
+   version/lineage foundation; do not create an alternative project/job store.
+3. Text, multi-view and reference-image paths are separate **GEN-02–GEN-04**
+   acceptances; import/existing-asset workflows **GEN-05** can deliver value
+   independently of generative quality; **GEN-06** remains bounded by capacity
+   and total approved cost.
+4. Add accepted **ART** operations individually. Rights-cleared conventional
+   utilities/templates are legitimate alternatives where model quality is weak.
+5. Establish **ANIM-01–ANIM-04** before claiming generated motions, facial rigs
+   or sequence automation. Human technical art/animation review remains a real
+   acceptance role; an AI agent cannot waive it by describing a successful plan.
+6. Environment/world and agent capabilities consume these owned, versioned
+   artifacts through typed product tools. Neither embedded vendor instructions,
+   unfamiliar SDK methods nor raw `AnalyseFuture` scripts should gain unrestricted
+   filesystem/network/execution access.
+7. Revisit this finite source catalog at each meaningful release. Record observed
+   limits, actual accepted outputs and excluded claims; do not advertise complete
+   competitor parity, unlimited resource use, exact hidden-surface recovery,
+   automatic film-ready results, or guaranteed one-/two-/five-year breakthroughs.
+
+## Expanded world and environment product track
+
+**Status: proposed product work, not currently implemented.** The current product has tenant projects/jobs, one-artifact GLB delivery and a browser asset viewer. It does not yet provide generated navigable worlds, a scene graph editor, collision/navigation data, neural-world viewing or a general world-generation adapter. These cards expand FUT-10 (editable environments) and FUT-11 (separate neural/splat mode), and reuse the existing platform rather than replace its API, queue, storage or identity.
+
+The intended experience is: describe a place, provide licensed reference images/panoramas/layouts or import owned assets; choose a supported representation; create or assemble a bounded environment; navigate and inspect it; edit the supported elements; save versions; and export to a stated downstream tool. Begin with a small modular room/set or bounded outdoor patch. Streets, terrain, buildings, vegetation, water, lighting and larger worlds require explicit supported scope, resource budgets and individual quality gates. A convincing fly-through does not establish an editable, collision-correct, game-ready world.
+
+| Representation | Useful product promise if separately validated | Claims it cannot establish by itself |
+|---|---|---|
+| Polygon mesh asset / scene graph | Selectable objects, transforms, materials, cameras, shared asset references and qualified mesh export | A single fused mesh does not automatically have semantic objects, clean topology, scale, rigging or collision. |
+| Gaussian splat / other neural scene | A separately labeled supported novel-view/navigation experience with its own renderer, format and limits | Splats are not editable polygon meshes, watertight surfaces, semantic parts, collision or automatic Blender/game-engine interchange. A collider proxy does not become the rendered texture/material mesh. |
+| Panorama / depth panorama | Input/reference or bounded background experience; potentially an intermediate for a reviewed pipeline | A panorama is not a complete navigable world. Predicted depth does not establish unseen geometry, scale or stable parallax. |
+| Layout / floorplan / semantic scene specification | User-guided placement, known units, modular composition and constraints | A 2D plan does not uniquely specify unseen floors, material systems or physically valid 3D geometry. |
+| Hybrid world | Explicitly linked visual representation, editable mesh objects and separately versioned collision/navigation proxies | The UI must identify which layer is editable/exportable and where generated geometry is approximate; one layer cannot silently substitute for another. |
+
+**Reference evidence:** Public World Labs/Marble material is an inspiration to inspect, not a verified compatibility target or a license to copy. On 17 November 2026, attempts to read `https://www.worldlabs.ai/marble`, `https://docs.worldlabs.ai/` and `https://www.worldlabs.ai/blog/marble-world-model` returned managed-proxy HTTP403 before page content was available. Current product features, API versions, pricing, export formats, commercial terms and service rights were therefore **not verified**. Recheck the official product/docs/terms through an authorized connection before naming a specific provider integration. No API call, account creation, external upload or paid service was used for this document.
+
+<a id="env-01"></a>
+
+### ENV-01 — Define owned world representations and a versioned scene manifest (P2; CPU design/schema work ready)
+
+- **First milestone slice:** Write and fixture-test a representation manifest for one polygon scene before adding a world-generation service. Record project/owner, representation kind/version, units/up-axis, bounds, asset-version references, nodes/transforms, camera/start pose, material references, resource estimates and optional collision/provenance links. Mark neural, panorama and layout support explicitly unsupported until their own acceptance gates pass.
+- **Integration points / proposed paths:** Reuse `apps/api/src/build3d_api/{main.py,store.py,storage.py,db.py}` ownership, private storage, migration and quota patterns, plus `apps/web/src/lib/contracts.ts`. Proposed, **not existing**: `docs/architecture/WORLD_REPRESENTATION_CONTRACT.md` and a narrowly scoped `apps/api/src/build3d_api/world_schema.py`; a persistent schema/migration follows a separately reviewed design. Do not return PLY/splat/ZIP data from the existing GLB-only download contract by renaming it.
+- **Dependencies:** FUT-04 asset-version/lineage design for immutable references; BE-07/WEB-06 resource policy; BE-10 retention planning so referenced assets cannot later be erased by an uninformed cleanup path. Initial CPU schema fixtures can precede persistence.
+- **Acceptance:** A manifest can reference only authorized immutable assets, reject foreign/unknown IDs, cycles, invalid transforms/units and declared resource excess, and round-trip without losing object identity. Scene bytes/references have a stated quota policy. The representation label and export support remain truthful.
+- **Meaningful tests:** Schema/version rejection, cross-owner references, reference cycles, finite numeric ranges, transform round-trip, resource caps and read-only compatibility with old artifacts. No model or arbitrary asset script is executed.
+- **Rights/resources:** Only licensed/owned fixtures; preserve each referenced asset's rights and provenance. This card does not approve world weights, public sharing or destructive migration.
+
+<a id="env-02"></a>
+
+### ENV-02 — Build a small modular scene assembly/editor slice (P2; after ENV-01)
+
+- **First milestone slice:** Create a CPU/browser room-set fixture with a few owned mesh assets and one editable transform operation. Add select/move/rotate/scale, stable object IDs, save/reopen and undo for that supported operation, then incrementally add materials/lights/cameras/prefabs. Human assembly is a useful feature before generative scene creation.
+- **Integration points / proposed paths:** Reuse the current private project selection, artifact URLs and Three.js/R3F patterns in `apps/web/src/features/{studio,assets}/components/`, and API owner/storage contracts. Proposed, **not existing**: `apps/web/src/features/worlds/` and a scene endpoint module such as `apps/api/src/build3d_api/worlds.py`. Keep the existing single-asset viewer working; do not transplant inactive upstream studio code wholesale.
+- **Dependencies:** ENV-01, FUT-04 version/undo semantics, WEB-01 stale-state protection and WEB-08 accessibility. Coordinate the reference-count/retention policy before persistent editing.
+- **Acceptance:** A user selects one object, changes a supported transform, saves a new scene revision, reopens the same arrangement and restores the prior version. A project switch cannot save changes into the wrong project. Shared underlying geometry/material changes do not silently mutate unrelated instances. Mesh/material/scene complexity remains bounded.
+- **Meaningful tests:** Deterministic transform and save/reload fixtures, stale revision conflict, two instances sharing an asset, undo/redo within the supported envelope, foreign-owner denial and keyboard-accessible control paths. Record browser resource measurements on the small declared fixture.
+- **Rights/resources:** CPU fixtures need no paid provider; no asset uploads to external services. This is an editor slice, not proof of automatic scene generation or completed professional DCC parity.
+
+<a id="env-03"></a>
+
+### ENV-03 — Add bounded world navigation and explicit collision/navigation layers (P2; geometry validation required)
+
+- **First milestone slice:** For the small accepted mesh scene, add orbit and controlled walk navigation with a declared start pose and simple reviewed collision proxies. Treat collision/navmesh generation and visual geometry as distinct artifacts; navigation controls alone do not prove traversable geometry.
+- **Integration points / proposed paths:** Reuse the viewer's camera/controls and GLB boundary; store typed collision/start-pose references in the ENV-01 manifest. Proposed, **not existing**: a `navigation/` module beneath `apps/web/src/features/worlds/` and a versioned collision-policy note. Any server-side geometry processor is a separately isolated proposed processing component, not arbitrary Blender script execution in the API.
+- **Dependencies:** ENV-01/02, BE-07/WEB-06, reviewed collision library/license, consistent units/up-axis and declared browser/device limits.
+- **Acceptance:** In a known room fixture, the camera spawns outside solids, respects configured walls/floor/step/slope bounds and can recover to a safe view. Collision gaps, blocked routes, falling out of bounds and unsupported proxies are reported. Neural visual layers without accepted collision are labeled visual navigation only, not a physically valid game space.
+- **Meaningful tests:** Known collision intersections, slopes/steps, world bounds, floating/falling recovery, coordinate/scale changes and performance caps. Exported collision is tested separately from rendered visuals. Accessibility fallback permits viewing/downloading without pointer-lock controls.
+- **Rights/resources:** Use harmless reviewed geometry, no live generation or game-server deployment. Do not promise collision completeness for unseen, predicted or partially reconstructed surfaces.
+
+<a id="env-04"></a>
+
+### ENV-04 — Qualify one real environment-generation input route (P3 initially; model/provider execution gated)
+
+- **First milestone slice:** Create a capability and input/output contract for **one** route: text, single reference image, panorama/depth, layout, or a genuine multi-image-conditioned model. Evaluate legally usable candidates on paper and design an adapter fixture before starting inference. Record model revision, input modality limits, camera/layout requirements, units/scale assumptions, output representation and supported region/category. Add modalities only after independent acceptance; a multi-upload UI is not multi-image conditioning.
+- **Integration points / proposed paths:** Reuse `apps/api/src/build3d_api/{images.py,store.py,worker.py}`, model-approval policy and the shared gateway client. The current single-image job schema and GLB completion path do not already handle world bundles. Proposed, **not existing**: a versioned environment-input bundle and `services/generation/world_candidate/` for an exact reviewed isolated adapter; any new API/job kind must deliberately extend response contracts and quotas rather than overload existing fields.
+- **Dependencies:** ENV-01 output contract; BE-01..04 model source/artifact/rights/real-proof discipline for whichever candidate is chosen; OPS-03 quality/cost measurement and OPS-06 admission/budget policy. TripoSR qualification is not automatically world-model qualification.
+- **Acceptance:** A separately approved bounded run produces the declared representation from permitted inputs, retains exact input/config/model/output lineage and reports failures/unsupported inputs. Evaluate several views, spatial consistency, scale and navigability where claimed. Real multi-image tests must show the supported model uses multiple inputs rather than silently choosing one. Output is not advertised as semantically editable unless ENV-05 proves that separately.
+- **Meaningful tests:** CPU contract/admission tests first, then a small approved held-out environment set with real outputs and actual time/VRAM/cost. Assess input rights, difficult views and malformed/oversized bundles. No attractive screenshot or fixture closes this card.
+- **Rights/resources:** Exact source, weights, data, SaaS/provider terms, input privacy and output rights review; owner-approved provider/account/region/spend/storage/termination envelope before live work. No external customer upload or large download under this handoff.
+
+<a id="env-05"></a>
+
+### ENV-05 — Add reviewable semantic parts and constrained scene edits (P3; begin with manual labels)
+
+- **First milestone slice:** On an accepted scene, allow a user to assign a semantic label to one already-separate object and edit its transform without affecting other nodes. Store label confidence/source and preserve the original. Later, evaluate reviewed segmentation/object extraction and bounded appearance/geometry edits as separate capabilities; separate-image segmentation does not by itself recover a complete 3D object.
+- **Integration points / proposed paths:** Extend the ENV-01 manifest and ENV-02 world UI, immutable asset/scene versions and existing project ownership. Proposed, **not existing**: typed semantic-part and edit-result schemas in `apps/api/src/build3d_api/world_schema.py`; isolated model-specific segmentation/edit adapters only after candidate review. Reuse FUT-07 identity/local-edit research for shared asset behavior.
+- **Dependencies:** ENV-01/02 and FUT-04 versioning; chosen segmentation/edit model review and OPS-03 evaluation for any AI extension. Do not duplicate ordinary transforms behind an unnecessary model call.
+- **Acceptance:** Labels and transformations are editable/reversible, target explicit IDs and remain scoped to the user's scene. A change records affected versions and declared unchanged regions. Segmentation uncertainty, incomplete backsides and fused-object limitations are visible. Generative object removal/inpainting/scene completion remains experimental until multi-view consistency and geometry/texture/collision acceptance are demonstrated.
+- **Meaningful tests:** Manual-label persistence, invalid/foreign targets, shared-instance isolation, before/after unaffected-node checks and undo; later held-out semantic-mask/3D-part consistency and edit-locality evaluation with artist review. A plausible filled image is not completed 3D geometry.
+- **Rights/resources:** New model/data/weights and any training need separate review and capped resources. Never execute retrieved asset instructions or scripts as part of segmentation/editing.
+
+<a id="env-06"></a>
+
+### ENV-06 — Introduce a clearly separate neural/splat world mode (P3; renderer/source review first)
+
+- **First milestone slice:** Write a supported representation/format and renderer ADR with a tiny licensed inert fixture. Implement bounded import/inspection only after reviewing parser, decoder, worker isolation and GPU/browser requirements. Keep representation-specific metadata, loading/error states, units/pose and supported export list separate from polygon scenes.
+- **Integration points / proposed paths:** ENV-01 representation dispatch and owner-scoped asset storage; a proposed renderer module under `apps/web/src/features/worlds/`. New non-GLB storage/download admission must have its own typed validation; the existing GLB validator does not qualify splat/point-cloud/neural files. No new renderer dependency is already approved by this document.
+- **Dependencies:** ENV-01, BE-07/WEB-06-style resource budgets applied to this format, exact parser/runtime/dependency rights and a declared device support envelope. ENV-03 collision can be an explicit independent proxy, not inferred from visual density.
+- **Acceptance:** The interface identifies neural/splat content, its editable fields, limitations, renderer/device requirements and actual export formats. File/point/decoded-memory/shader/network limits and unsupported cases fail clearly. Visual navigation is not advertised as editable mesh semantics, watertight collision or unrestricted Blender/game-engine portability.
+- **Meaningful tests:** Version/format detection, bounded resource limits, malformed header/count/attribute cases, coordinate/origin correctness, tenant download isolation, job switching and context-loss/failure recovery on a controlled fixture. Later genuine outputs need their own accepted-asset evidence.
+- **Rights/resources:** Official provider/library terms and model/output rights are not inferred from a demo page. No automatic splat-to-production-mesh promise; any conversion is a distinct measured research experiment.
+
+<a id="env-07"></a>
+
+### ENV-07 — Qualify one world export and downstream engine workflow (P2 after an accepted representation)
+
+- **First milestone slice:** Export the small ENV-02 polygon scene as a supported GLB scene with deterministic units/transforms/material references and an explicit asset manifest. Add a bounded Blender import inspection. Later qualify a specific Unity/Unreal/Godot or other engine/version separately; collision, navigation, lighting and scripts each need a declared mapping.
+- **Integration points / proposed paths:** Reuse `apps/gateway/src/build3d_gateway/{glb_validation.py,textured_glb.py}` only for their actual supported contracts; the OBJ+PNG asset packager is not already a scene exporter. Reuse private storage/downloads and existing operation runbooks. Proposed, **not existing**: a scene export schema/processor and `docs/operations/WORLD_EXPORT_ACCEPTANCE.md`. The general format work in FUT-03 owns shared converter policy; this card adds world-specific acceptance.
+- **Dependencies:** ENV-01/02, FUT-03 qualified format/converter, reviewed isolated downstream processing and exact tool versions; ENV-03 for any collision/navigation claim. Neural output uses ENV-06's actual supported formats instead of a fake GLB rename.
+- **Acceptance:** Object identities/transforms, axes/units, intended materials/textures and supported cameras survive export/import within declared tolerances. Exported dependencies are local/owned and accounted for. Unsupported features are explicitly omitted/rejected; collider proxies are not shown as visual texture meshes. Save/reopen and a controlled downstream walk/render work where promised.
+- **Meaningful tests:** Deterministic scene fixture, transform/material/texture round-trip, missing/foreign asset references, package size/resource caps and downstream import logs/screenshots from actual accepted files. Export/reimport does not assert game-ready performance for arbitrary large worlds.
+- **Rights/resources:** Converter, engine, dependency and asset rights retained; no arbitrary imported scripts/add-ons or unapproved service account. Large render/builds and commercial engine/provider requirements need the applicable explicit resource/terms decisions.
+
+## Expanded AI asset-assistant product track
+
+**Status: proposed; there is no current product assistant or tool-execution agent.** This expands the assistant portion of FUT-13 while reusing existing product APIs and future scene/version contracts. The desired progression is read-only explanation → structured recommendations/plans → previewed bounded reversible actions within the user's approved scope → separately qualified generation/processing workflows. An assistant's confident language is never evidence that a job completed, a mesh is valid, a bill stopped or a model is legally cleared.
+
+Usable permission policy: ordinary authorized read-only actions need no per-call confirmation. Reversible edits may execute inside a user-approved project/asset scope and compute envelope with version history and undo; the product should not interrupt for every harmless step. Ask only when a proposed action adds unapproved spend/service/data transfer, becomes irreversible/destructive, exceeds scope/capabilities or needs another external authorization. Existing scoped authorization persists until expiry/revocation or a material scope change. Retrieved documents, user-uploaded asset metadata, model output and provider errors are untrusted data and cannot change owner identity, capabilities, policy or budget.
+
+<a id="agent-01"></a>
+
+### AGENT-01 — Add an owner-scoped read-only project explanation assistant (P2; CPU prototype ready)
+
+- **First milestone slice:** Define typed read tools and produce grounded explanations for a private project fixture without changing state: list accessible project/job/asset metadata, explain persisted job state or a supported operation, and cite the relevant record/version. Start with a deterministic fake planner/provider for tests, clearly labeled as such; add a live model only after its separate adapter/resource review.
+- **Integration points / proposed paths:** Reuse API owner authorization, current projections, `apps/web/src/lib/contracts.ts`, job-status descriptions and the existing project selection. Proposed, **not existing**: `apps/api/src/build3d_api/assistant_contracts.py`, a narrow `assistant.py` route/service and `apps/web/src/features/assistant/`. Do not send DB internals, lease tokens, API keys or arbitrary filesystem content into a prompt.
+- **Dependencies:** BE-12 response contract and a reviewed limited retrieval/context policy. Existing private auth suffices for an isolated prototype; public identity rollout is a separate gate.
+- **Acceptance:** Answers identify source records and uncertainty, distinguish software support from real inferred output, and cannot read another owner's projects or invent a completed job. Read access requires existing product authorization but no new per-question confirmation. User/asset instructions retrieved as content cannot expand the tool list or system policy.
+- **Meaningful tests:** Cross-owner reads, absent/deleted records, malicious embedded instructions, unsupported questions, secret-bearing internal fields and stale status records. Evaluate answers against known fixture facts; fluent text alone is not a passing oracle.
+- **Rights/resources:** Review provider data retention/training terms and disclosure before external inference; use only permitted documentation/context. No external upload, training or paid call is enabled by the CPU prototype.
+
+<a id="agent-02"></a>
+
+### AGENT-02 — Define a typed operation planner and truthful preview (P2; CPU design/test ready)
+
+- **First milestone slice:** Define a small operation catalog and plan schema for one supported action, such as arranging an existing scene node or preparing a job request without submitting it. Include opaque target IDs/versions, typed parameters, input/output expectations, prerequisites, estimated resource/cost range, uncertainty and rollback class. Unsupported operations must remain unresolved rather than hallucinated as available tools.
+- **Integration points / proposed paths:** Existing API model policy/job-admission contracts and ENV-01/02 world/transform contracts. Proposed, **not existing**: a typed operation catalog in `assistant_contracts.py` and `docs/architecture/ASSISTANT_TOOL_CONTRACT.md`. Shell commands, arbitrary Python/Blender source, raw SQL and unrestricted URLs are not plan primitives.
+- **Dependencies:** AGENT-01 context rules, actual supported operation definitions and FUT-04 asset/scene revisions for editable targets. ENV tasks are needed only for scene operations, not read-only explanation.
+- **Acceptance:** A plan is schema-valid, references current authorized targets, exposes what will change, names required services/artifacts and clearly separates estimates from actual charges. A request such as “make this into a navigable castle” is decomposed into supported/research/blocked steps, not falsely marked complete. Preview generation alone performs no GPU submission or mutation.
+- **Meaningful tests:** Missing targets, invalid/out-of-range arguments, conflicting versions, unsupported capabilities, prompt-injected tool names/URLs and deterministic plan serialization. Test the actual catalog/schema boundary, not a duplicated string list.
+- **Rights/resources:** Plans carry relevant asset/model rights constraints forward; no external model/service permission or paid budget is inferred from a natural-language wish.
+
+<a id="agent-03"></a>
+
+### AGENT-03 — Enforce usable scoped permissions and bounded action approval (P1 before agent mutations)
+
+- **First milestone slice:** Implement a server-enforced capability scope for one existing reversible edit, with project/asset/version constraints and an expiry/revocation policy. A user can approve a bounded work envelope; safe reads and reversible actions within that envelope proceed without repetitive confirmation. Bind execution to the authenticated owner and enforce policy independently of planner output.
+- **Integration points / proposed paths:** Existing API identity/owner checks and ENV/FUT-04 edit/version contract; proposed capability/policy data in the assistant service, not a new identity authority. Reuse OPS-06 approved resource envelope and BE-11 metering identity where relevant; do not create a competing budget/credit ledger.
+- **Dependencies:** AGENT-02 supported operations; explicit policy for read/reversible/paid/external/destructive classes, and version conflict behavior. Initial fixtures can avoid all external service/cost actions.
+- **Acceptance:** Reads need no per-call approval. Reversible edits inside the user's active scope are versioned and undoable. Foreign targets, expired/revoked scopes and exceeded caps fail. New unapproved provider/upload/spend, irreversible deletion or out-of-scope requests require the appropriate fresh authorization; a materially changed plan cannot reuse a scope that no longer covers it. The model cannot mint approval, alter the owner, raise limits or treat retrieved text as permission.
+- **Meaningful tests:** Scope expiry/revocation, target/version mismatch, approved multi-step reversible sequence without duplicate prompts, forbidden action classes, budget exhaustion, ownership change and injected “approval” claims. Server checks must hold even if a client omits the preview UI.
+- **Rights/resources:** A roadmap card is not a GPU/spending authorization. Approved project scope cannot override model/data rights, provider policy or account permissions.
+
+<a id="agent-04"></a>
+
+### AGENT-04 — Execute one deterministic tool adapter through existing product contracts (P2; after policy gate)
+
+- **First milestone slice:** Connect one allowed reversible action to its real API/scene implementation, then extend to a separately approved generation-admission action. Use stable plan/step idempotency identity, typed results and bounded attempts/timeouts. The product SQL queue remains the authority for job execution; the assistant is not a second dispatcher.
+- **Integration points / proposed paths:** `apps/api/src/build3d_api/{main.py,store.py,worker.py}`, current job admission/cancel semantics, model policy and future scene revision operations. Proposed, **not existing**: `apps/api/src/build3d_api/assistant_tools.py` behind the same owner/policy boundary. Never expose operator gateway credentials or execute raw generated source.
+- **Dependencies:** AGENT-02/03; accepted implementation of the chosen action. Real model calls additionally need BE-04 and the applicable approved OPS-06 envelope. Do not add an apparent generation tool that returns a canned mesh.
+- **Acceptance:** Each tool call validates owner, target/version, parameters, scope and resource policy again at execution time. Duplicate requests do not duplicate a paid submit or edit. Results say queued/running/failed/unknown/completed according to persisted state; the assistant cannot claim completion from admission. Lost non-idempotent submission responses remain quarantined for reconciliation instead of automatic replay.
+- **Meaningful tests:** Duplicate plan/step delivery, concurrent execution, stale versions, revoked scope, tool timeout, malformed model arguments, lost acknowledgement and post-submit uncertainty. Exercise the real target boundary with controlled upstreams, not only a fake tool returning success.
+- **Rights/resources:** Honor existing approved model/input/operation rights and budgets. Local cancellation is not proof of remote compute termination; external side effects require their accepted provider contract.
+
+<a id="agent-05"></a>
+
+### AGENT-05 — Record provenance, version history and truthful rollback (P2; required for useful edits)
+
+- **First milestone slice:** For one reversible action, record who requested it, capability/plan version, source asset/scene versions, model/tool revisions if any, operation parameters, result version and an audit-safe outcome. Add a user-visible undo that restores the prior accepted version without deleting the original evidence.
+- **Integration points / proposed paths:** FUT-04 canonical version/lineage store, current project/job/artifact ownership and BE-10 retention design. Proposed assistant event records reference canonical versions; they must not become a second mutable asset database. Reuse BE-11 usage/credit IDs instead of copying financial truth into chat history.
+- **Dependencies:** AGENT-03/04 and the actual target's version/transaction contract. Define transcript retention/redaction separately from operational audit fields.
+- **Acceptance:** A user can inspect an action's source/result and undo within the documented reversible scope. A version conflict fails clearly. Partial success and uncertain external effects remain visible. Software rollback cannot claim to refund a payment, stop a provider job or recover deleted external data unless that separate operation is confirmed.
+- **Meaningful tests:** Apply/undo/redo on a supported edit, shared-reference isolation, failed/partial steps, replay, transaction loss, concurrent human edit and audit redaction. Preserve original versions and failed outcomes; do not overwrite history to make a run appear successful.
+- **Rights/resources:** Store only necessary non-secret provenance; do not persist customer inputs/transcripts into public Git. Destructive customer erasure remains FUT-14, separately reviewed and authorized.
+
+<a id="agent-06"></a>
+
+### AGENT-06 — Evaluate agent safety, usefulness and bounded autonomy before widening tools (P1 release gate; CPU fixtures ready)
+
+- **First milestone slice:** Define a small versioned evaluation set for the first read/plan/edit tools, using deterministic fake-provider responses and controlled fixtures. Test task completion, correct abstention, unauthorized access, prompt injection, fabricated status, repeated/out-of-order delivery and cost/step limits. Keep real asset quality evaluation in OPS-03 rather than using chat satisfaction as a geometry score.
+- **Integration points / proposed paths:** Current API/web test patterns and canonical job/owner/policy modules; proposed focused assistant tests such as `apps/api/tests/test_assistant.py` and controlled web assistant cases. Add named fixtures/versions, not copied customer transcripts without consent.
+- **Dependencies:** AGENT-01..05's actual supported subset. Real provider evaluation follows AGENT-07 data/resource review; a stub passing is not a validated live assistant.
+- **Acceptance:** Reports include failed/blocked cases and distinguish schema validity from correct actions. Agent loops have explicit maximum steps/tool calls/jobs/time/resource envelope and stop on exhausted budgets, permission failures or unresolved uncertainty. Untrusted asset/retrieval text cannot raise privilege, change owners/caps or force external calls. Human review remains available for new ambiguous/destructive/out-of-scope requests.
+- **Meaningful tests:** Adversarial metadata, hidden instructions in retrieved docs, tool-result injection, forged tool names/approvals, stale records, infinite-plan patterns and reset/recovery. Assert actual denied side effects, not just a polite refusal string. Later run a small permitted provider evaluation with total cost and regressions recorded.
+- **Rights/resources:** No red-team fixture executes an actual hostile script or exfiltrates secrets. No autonomous indefinite loops or paid evaluation sweep under this documentation task.
+
+<a id="agent-07"></a>
+
+### AGENT-07 — Qualify one provider/model and a staged assistant rollout (P2; external inference gated)
+
+- **First milestone slice:** Write a provider/runtime ADR comparing an appropriate hosted model and/or licensed local model for the existing typed task subset: structured-output reliability, context limits, latency, privacy/data residence/retention, rights, actual total cost and operational fit. Prototype one provider behind a disabled-by-default adapter only after review. The platform must still have a useful non-agent UI when inference is unavailable.
+- **Integration points / proposed paths:** Proposed assistant provider adapter/config in the existing API service or an isolated runtime when justified; existing configuration/secret delivery patterns and OPS-02 observability/deployment. Do not install a full agent framework solely to obtain a chat panel; review mature alternatives and dependency/maintainer/license risk first.
+- **Dependencies:** AGENT-01..06 for the supported tool envelope, owner-approved external service/data transfer and a capped resource envelope for live evaluation. OPS-02 handles actual deployment and telemetry infrastructure; OPS-05 handles repository milestone monitoring, not product-agent execution.
+- **Acceptance:** Feature flags restrict pilot access and tools. Provider failure, rate limits, malformed output and model revision drift fail safely; no fallback silently sends data to an unapproved provider. Model/version and permitted retention/training behavior are explicit. Tool/action/cost telemetry is bounded and redacted; an operator can disable new agent actions without corrupting pending jobs or version history.
+- **Meaningful tests:** Provider-adapter contract/error fixtures, staged subset evaluation from AGENT-06, safe degraded UI, policy preservation across a model update, redaction and rollback. Record real provider latency/cost only when actually measured; simulated replies do not establish live model quality.
+- **Rights/resources and future training:** Prompting/retrieval/tool design should be evaluated before fine-tuning. Future assistant tuning requires a separate research.md/RES decision: consented/licensed examples, customer-data exclusion or explicit permission, retention, immutable train/validation/test splits, baseline comparison, artifact rights and capped training resources. Training on conversations/assets is **off by default**; a provider's retention/training policy is not inferred from its brand. No autonomous training or provider account creation is authorized here.
+
+## Expanded-track dependency and scope notes
+
+- ENV-01/02 provide a useful owned modular scene slice without waiting for world-model research; ENV-04 and ENV-06 need independent representation/model/renderer qualification. ENV-05 cannot promise semantic reconstruction or generative scene completion merely because a segmentation model exists.
+- AGENT-01/02 can begin with read-only/local fixtures. AGENT-03 is a gate before mutations, AGENT-04 executes only accepted operations, AGENT-05 supplies reversibility/provenance, AGENT-06 measures the real supported envelope, and AGENT-07 qualifies the actual inference provider. These are bounded deliveries, not a mandate to build one unlimited autonomous agent.
+- FUT-10 maps to ENV-01..05/07; FUT-11 maps to ENV-06 and any separately reviewed neural-world adapter; the assistant portion of FUT-13 maps to AGENT-01..07. Developer APIs/plugins/webhooks in FUT-13 retain their independent contracts. Shared asset versioning, GLB/security controls, source/artifact review, identity, storage, resource budgets and hosted review infrastructure stay with the existing BE/WEB/OPS/FUT owners.
+- All new module paths above are proposals. Their names and ownership should be settled in the first relevant design milestone; their mention does not mean those modules, dependencies, database tables, services or features exist today. Each accepted implementation must update the current inventory and linked feature/task documents while retaining historical evidence.
+
+## Remaining structure and documentation work
+
+This is a read-only review of the connected repository at `7992107b613c680dee2a750045b6b7e1ff42e581`, with 509 tracked files and 167 tracked ancestor directories. **No tests were run, no files were moved, and no repository files were edited to prepare this section.** These are bounded future tasks, not a claim that the repository needs another wholesale restructure.
+
+The current applications, Python packages/migrations, Next.js filesystem routes, isolated model qualification, Compose infrastructure, development scripts, scoped documentation and preserved references have clear responsibilities. A feature can span these layers without putting its Python runtime, browser UI, tests and GPU dependencies in a single folder. Preserve those boundaries. Imported code is not active merely because it remains readable in Git; archived paths and instructions can intentionally remain historical. Placement in `AnalyseFuture/` is neither a maliciousness verdict nor an execution sandbox.
+
+The issues below come from actual content and ownership, not filename extensions. The static handoff review already accounted for all 509 tracked/authored files and all 167 ancestor directories; this review does not identify a missing current file or an active import failure. The work is to reduce ambiguity and maintenance risk while preserving all useful source and historical evidence.
+
+<a id="str-01"></a>
+
+### STR-01 — Repair current path shorthand without rewriting historical evidence
+
+**Priority/owner:** P1 documentation correctness; maintainer plus frontend lead. **Scope:** current guidance only, beginning with `docs/project/FEATURE_MAP.md:13–21`.
+
+The feature map still names `lib/server-product-api.ts`, `lib/api.ts`, `lib/status.ts` and `components/studio.tsx` even though it explains web paths as relative to `apps/web/src/`. Current ownership is `lib/server/product-api.ts`, `lib/client/api.ts`, `features/jobs/status.ts` and `features/studio/components/studio.tsx`. These are useful feature relationships, but the old shorthand makes the current implementation harder to find. Some current inventory dependency descriptions also inherit former `docs/NAME.md` paths without clearly marking them as historical review strings.
+
+**First bounded change:** replace ambiguous current guidance with full current paths or a documented shorthand table. In `AnalyseFuture/repository-inventory/FINAL_FILE_CLASSIFICATION.json` and `AnalyseFuture/COMPLETE_FILE_INVENTORY.txt`, distinguish current dependency/navigation fields from `reviewed_starting_path` and explicitly historical dependencies. Do not globally replace strings in `before_functional_*`, source receipts, preserved docs or archive inventories.
+
+**Required checks:** resolve every changed current path and local Markdown target; check local TypeScript aliases only where guidance claims they are imports; verify original/preserved hashes remain intact. A deliberately historical missing old path should not fail a current-path check.
+
+**Acceptance:** a new developer can navigate every affected feature row to its actual source; current and historical dependency fields are distinguishable; no source/interface move, lost content, invented runtime validation or reclassification of references occurs. Link this work to the existing feature map and functional mapping rather than creating another competing map.
+
+<a id="str-02"></a>
+
+### STR-02 — Make inventory and handoff updates reproducible
+
+**Priority/owner:** P1 maintenance correctness; platform/maintainer. **Scope:** `PROJECT_STATUS_AND_TASKS.md`, `AnalyseFuture/COMPLETE_FILE_INVENTORY.txt`, `AnalyseFuture/repository-inventory/FINAL_FILE_CLASSIFICATION.json`, `FEATURE_REGISTRY.json`, `FUNCTIONAL_PATH_MAPPING.json` and `PRESERVATION_RECORDS.json`.
+
+There are several manually synchronized views of the same paths, responsibilities and counts. The prior reconciliation needed explicit repairs for stale test-pause text, old final hashes and the 508-to-509 file count. Current tables cover the recorded snapshot; that success does not make future updates automatic. The ad hoc generation helpers used during recovery live outside the checkout, so a later workspace cannot assume those helpers survive.
+
+**First bounded change:** choose a small reviewed schema/source of truth for human-authored purpose/owner/status data plus the actual Git path set. Add a deterministic, repository-owned, explicitly invoked render/check helper. Generate only declared sections or generated artifacts; preserve the handoff's narrative, acceptance cards, source snapshots and original count/hash context. Record a checkable `source_commit`/snapshot meaning. Do not recursively self-hash generated reports or relabel old snapshots as current.
+
+**Required checks:** a harmless added/renamed fixture file is reported as missing until deliberately classified; duplicate entries and unresolved current paths fail; deterministic repeated rendering has no drift; generator output cannot overwrite arbitrary paths or private files. Compare all 801 original-version hashes and current path mappings after changes. Do not import/execute archived modules to discover purposes.
+
+**Acceptance:** one documented command detects outdated coverage and one explicitly reviewed render updates its owned sections; all current tracked files retain meaningful purpose/owner/state and every ancestor directory remains accounted for. Historical records remain immutable snapshots, and no private runtime/dependency cache enters the inventory.
+
+<a id="str-03"></a>
+
+### STR-03 — Keep the comprehensive root handoff usable as it grows
+
+**Priority/owner:** P2 documentation usability; product/maintainer. **Scope:** `PROJECT_STATUS_AND_TASKS.md`, `README.md`, `docs/README.md`, `docs/project/FEATURE_MAP.md` and the declared inventory renderer from STR-02.
+
+At the inspected baseline the root guide is **302,290 bytes and 1,634 lines**, including 509 file rows and 167 folder rows. Its collapsible groups and current summaries already help. The size is a measurable maintenance/reading cost, not proof that GitHub rendering is broken or that the detailed material is unwanted. Adding generation, environments and agent plans increases the need for stable navigation and one authoritative task status.
+
+**First bounded change:** retain the full owner-requested detail and every-file/folder explanation, while defining a short stable “start here / choose a task / check evidence” reading path. Keep complete appendices grouped and clearly generated, use stable task IDs/anchors, and identify the canonical status location when a task appears in both dispatch and detailed sections. If future supplemental pages are proposed, preserve the full existing text and current root navigation; do not silently reduce this handoff into a short summary.
+
+**Required checks:** table row coverage, balanced collapsible blocks, local links/task anchors, duplicate IDs, readable narrow-screen tables and a plain-GitHub navigation review. A docs preview check cannot establish application accessibility or model functionality.
+
+**Acceptance:** a reader can locate the first CPU task, its prerequisites, acceptance tests and evidence without scanning hundreds of reference rows; full detail is still recoverable and no task state contradicts its canonical card. This is a documentation change, not an excuse for application rewrites or extra services.
+
+<a id="str-04"></a>
+
+### STR-04 — Investigate cohesive module seams only when a real task needs them
+
+**Priority/owner:** P2 conditional maintenance; owning backend/frontend engineers. **Scope:** `apps/api/src/build3d_api/store.py` (545 lines), `storage.py` (444), `main.py` (236), `apps/web/src/features/studio/components/studio.tsx` (577) and `apps/web/src/lib/client/api.ts` (234) at this baseline.
+
+These modules combine several related responsibilities. They are not automatically unstructured: `store.py` centralizes transaction/ownership/fencing invariants, storage implementations share one protocol, and Studio coordinates a single workspace. The concrete pressure is that `WEB-01`, `WEB-02`, `WEB-05`, `WEB-07` and `WEB-08` can overlap Studio state/lifecycle edits; backend quota/identity/reconciliation tasks can overlap the same transactions. Blindly splitting by line count could weaken those boundaries or produce circular imports.
+
+**First bounded change:** before an overlapping task, document the existing state/transaction seam. Extract one testable helper/hook/service only if it reduces that task's coupling; preserve public imports, HTTP/schema behavior, owner checks, transaction atomicity, leases and uncertain-submit rules. Coordinate change ownership. There is no requirement to split all named modules.
+
+**Required checks:** behavior tests that reproduce the actual bug or invariant before extraction, existing relevant API/worker or browser contracts after it, import-cycle checks and side-effect-free module loading. For polling, use deterministic delayed/reordered responses and verify cleanup; for store changes, exercise concurrent claim/admission/quota transitions against SQLite and isolated PostgreSQL.
+
+**Acceptance:** the selected change becomes easier to reason about without a second owner/state authority, changed externally visible contract, weakened transaction boundary or mass unrelated formatting. Preserve originals through normal Git history and the repository's explicit preservation policy; do not leave a second active implementation.
+
+<a id="str-05"></a>
+
+### STR-05 — Close the qualification source/build-context boundary through BE-01
+
+**Priority/owner:** P0 for model qualification; ML/runtime engineer. **This is the existing BE-01 work, not a competing new implementation.** **Scope:** `services/generation/triposr_candidate/prepare_runtime.py`, `test_prepare_runtime.py`, candidate `README.md` and `docs/operations/FIRST_REAL_GPU_RUNBOOK.md`.
+
+`assert_clean_source()` checks ordinary `git status --porcelain`, while `prepare()` copies the working directory with only `.git` ignored. Ignored additions can therefore enter the prepared tree despite the exact commit/six guarded-file checks. The candidate Dockerfile later copies its prepared context. This is a concrete source-identified boundary gap; it is not a demonstrated compromise or a claim the reference tree is malicious.
+
+**First bounded change:** copy only the deliberately reviewed tracked source set or explicitly reject unreviewed additions; define symlink, file-mode, path-containment and output-directory behavior. Keep the exact upstream revision/blob guards, notices, runtime manifest, local configs and checkpoint hash. Raw reference snapshots remain inactive.
+
+**Required checks:** ignored harmless planted file, escaping symlink, wrong commit/blob, unexpected destination/file mode, and a valid exact source tree. Preparation must neither execute planted files nor load a model/download weights. Record deterministic prepared-content evidence, then run the already approved CPU preparation/auditor contracts when implementation is authorized; no test was run to write this card.
+
+**Acceptance:** every prepared input byte has explicit reviewed provenance; ignored/untracked content cannot silently join the build context; required license/config/source files remain; one canonical preparer exists. Image/model/GPU acceptance stays behind BE-02/03/04 gates.
+
+## Test backlog: what needs to be tested next
+
+**Listing these requirements does not execute tests or authorize spend, model loading, deployment, destructive operations or training.** Relevant active CPU checks accompany implementation; external/unsafe/resource gates still apply. Select tests after choosing one bounded implementation. Preserve actual failures and report passes, skips, unrun/gated targets and versions separately. A family below can contain several milestones; do not interpret a single green fixture as completing the entire family.
+
+### Existing evidence and its exact boundary
+
+The dated **17 November 2026** validation recorded **253 case executions** against the `8d09e3b` software state: 136 SQLite API/gateway, 83 PostgreSQL API, 12 preparation/auditor, two CPU marching-cubes, 14 web units and six browser contracts. Database runs overlap behavior; these are not 253 distinct features. TypeScript, production build/startup, packaging/migrations, CLI/dependency checks, two nonroot CPU images, Compose configuration, fresh pinned source preparation and local API/studio HTTP flows also passed under their recorded commands.
+
+A read-only Git comparison found no change to `apps/`, `services/`, `scripts/`, `infrastructure/`, `requirements.lock` or root workflows between `8d09e3b` and the inspected `7992107` documentation baseline. That makes the older evidence relevant to the unchanged software; it does **not** create a new test execution or guarantee a future implementation. Local execution used Python 3.12 and Node 24. Hosted Python 3.11/3.12, candidate Python 3.10 and Node 22 jobs need exact-head CI evidence; file definitions and a successful different local version are insufficient.
+
+The synthetic browser backend/triangle GLB, mock upstreams and synthetic S3 client do not prove real inference, real bucket/identity-provider behavior, Blender compatibility, high-quality rigs/worlds, trained model gains or production scale. None of those missing results is silently described as skipped/passed. The original receipts and archived test-pause instructions remain historical; this documentation task lists test needs; no runtime suite was rerun for it. Static path/anchor/hash checks are recorded separately.
+
+### QA matrix
+
+| Family / related cards | Existing dated coverage | Required new evidence and first meaningful cases | Acceptance / execution gate |
+|---|---|---|---|
+| <a id="qa-01"></a> **QA-01 — Source, preservation, release inputs and CI**. STR-01/02/03/05; BE-01/02/03; OPS-01/04. | The 801 preservation hashes, archive-content hashes, path/import/link checks, CPU packaging/preparation and 12 preparation/auditor fixtures were verified in their recorded scopes. Full external account/audit and new hosted matrices are not established. | Harmless ignored/symlink source fixtures; deterministic tracked-file preparation and inventory render; wrong/missing artifact hash; source archive blocker; migration/policy package data; supported Python/Node matrix; exact-input container rebuild and notices. Review repository/account/rules metadata through an authorized interface separately from code tests. | Changed input produces a meaningful failure, all retained content remains verifiable and exact commit/tool/artifact context is recorded. Package metadata is not independent byte verification or legal approval. Large artifacts, external accounts and model images require their existing reviewed resource/trust gates. |
+| <a id="qa-02"></a> **QA-02 — Tenant/API/identity response contracts**. BE-08/09/12/13; WEB-03/04/05; FUT-05. | Existing API authentication/ownership/migrations, optional JWT/JWKS and concurrency cases are subsets of the 136/83 runs; external JWT is disabled by default. Full public account/browser lifecycle is absent. | Direct BFF→real isolated API acceptance; API response schema vs TypeScript parsers; foreign/disabled/revoked owners; bad issuer/audience/algorithm/expiry; JWKS cache/rotation bounds; provider assertions and signup/verification/reset/logout/recovery semantics. Later test memberships/role removal and workspace isolation when teams exist. | No claim/email mapping may transfer another owner's assets; malformed assertions/claims fail closed; current private-key login remains valid until intentionally migrated. Live provider/public lifecycle tests wait for reviewed provider and account/trust design. |
+| <a id="qa-03"></a> **QA-03 — Durable jobs, accounting and paid control-plane semantics**. BE-09/11/14; WEB-07; OPS-06; FUT-04/05. | Existing SQLite/PostgreSQL and worker fixtures cover idempotency, active/storage quota, fencing, uncertain-submit quarantine, polling/reconcile and queued cancellation. There is no billing ledger, payment integration or production GPU scheduler proof. | Controlled duplicate/concurrent submissions; crash before/after upstream acknowledgement and DB commit; expired/stale leases; disable/revoke during queued/running jobs; UI queued-cancel race; later usage reservation/settlement/refund and signed duplicate/out-of-order payment events; model VRAM/concurrency/budget/pause/drain policy. | Never duplicate ambiguous billable POSTs, double-release slots, overspend reservations or let stale workers commit. Local timeout must not imply remote cancellation or a refund. Design/fixture work can be bounded; provider/payment/live compute checks require explicit reviewed accounts, economics and resource limits. |
+| <a id="qa-04"></a> **QA-04 — Uploaded/BFF input, parser and session boundaries**. BE-05/12; WEB-03/05; QA-02. | API request/pixel/metadata checks and ten streamed-body-reader unit cases passed; two client error tests are not comprehensive parser or route acceptance. Operator gateway preparse bounds remain open. | Direct session/product/gateway route tests at exact and overflowing byte limits, missing/understated length, chunk errors, malformed JSON/multipart/EXIF, decompression/pixel/decoded-resource budgets, disallowed routes/queries/encoded IDs, redirects/timeouts, fixed backend origin, cookie flags and truthful expired/failed logout. | Limits act before excessive allocation/spooling, private tokens/origins cannot be redirected, parser failures have safe typed outcomes and logout does not falsely announce success. Use isolated harmless inputs; do not execute uploaded scripts or put credentials in public fixtures. |
+| <a id="qa-05"></a> **QA-05 — Browser lifecycle, full history and accessibility**. WEB-01/02/04/05/07/08; BE-12. | Six synthetic Playwright scenarios and status/error/body-reader units passed. `isPollable` tests do not exercise Studio's actual polling effect; list helpers still request `limit=100&offset=0`. | Delay/reorder/cancel requests while switching project/session; logout/unmount during reads; ensure abort is not a user-visible server error; more than 100 projects/jobs with page navigation and stable ordering; cancellation controls; keyboard/focus/labels/error recovery; narrow-screen/assistive checks; browser run against a fresh real API and synthetic permitted artifacts. | Old responses cannot overwrite new selection/session, no request loop survives cleanup, every persisted supported page is reachable, and supported controls are usable without a pointer. Coordinate Studio milestones; tests use deterministic local fixtures, not paid generation. |
+| <a id="qa-06"></a> **QA-06 — Geometry/material/export/viewer/body/face asset contracts**. BE-07; WEB-06; FUT-02/03/08/09. | Structural GLB and OBJ+PNG packaging cases plus synthetic viewer acceptance passed. They do not prove decoded-memory policy, real texture orientation, correct FBX/BLEND, usable skinning or facial deformation. | Boundary GLB buffers/accessors/extensions/resource memory; corrupt/unsupported payloads; worker/main-thread/viewer cleanup limits; genuine textured GLB browser+Blender import; supported UV/PBR channels/seams; axis/units/normals/export/reimport; separate body pose/skin tests and facial eyes/lids/brows/jaw/mouth/viseme/corrective tests on licensed fixtures. | Each declared format/profile must open and behave in stated versions; resource rejection is bounded and comprehensible; a texture or skeleton is not complete PBR/animation readiness. Blender/parser/model execution requires reviewed isolated tools/inputs, and any licensed motion/rig/weight chain needs its own approval. |
+| <a id="qa-07"></a> **QA-07 — Real storage, retention, erasure and deployment recovery**. BE-06/10; OPS-02; FUT-04/05/14. | Filesystem and synthetic-S3 integrity, quotas, read-only scan and copy-only migration fixtures passed. Current scan can collect filesystem candidates before its output limit; real bucket/restore/deletion operations were not qualified. | Directory discovery with more than the scan bound, hostile paths/symlinks and interrupted scans; real isolated S3 endpoint IAM/private access/checksum behavior; concurrent versions/ownership/quotas; DB/object crash consistency; backup restore/reconciliation; dry-run retention/holds/deletion plans; later authorized erasure, backup-expiry and audit/idempotency semantics. | Scans bound discovery work, read-only checks never delete, migration preserves source, restore proves DB/bytes/owner integrity, erasure preserves foreign/held/referenced objects and reports backup limits truthfully. Provider/resources/destructive actions remain separately gated; use disposable isolated test data. |
+| <a id="qa-08"></a> **QA-08 — Genuine generation, quality/cost and adaptation**. BE-02/03/04; OPS-03/06; FUT-01/06/07/12. | Pinned source preparation, metadata audit and two marching-cubes contracts are CPU qualification evidence only. No real model/checkpoint load, inference benchmark, multiview improvement, trained model or accepted-asset cost baseline exists. | Exact verified source/weights/runtime; headless bake/checkpoint compatibility; one rights-cleared image→actual texture/GLB→API→viewer→Blender case; then a fixed permitted set retaining failures and total latency/VRAM/cost. Separately test disclosed text→image→3D or native text path; genuine multiview conditioning vs single view; repeated identity/local edits; asset-disjoint dataset splits and measured adaptation regressions. | Supported all-angle output/import quality and cost are measured rather than inferred from a demo. Held-out artist review and negative cases constrain claims; no guarantee of hidden-geometry truth or arbitrary identity. Real runs/downloads/training require exact rights/runtime/provider/budget approvals, and a calendar horizon supplies none. |
+| <a id="qa-09"></a> **QA-09 — Editable scenes, environments and world representations**. FUT-04/05/10/11; OPS-03/06; later environment-generation cards. | A single-asset viewer and supplied scene diagrams/media exist; no editable scene graph, generated environment, persistent world or splat-edit/export acceptance is established. | Stable object IDs/versions, independent selection/transforms/materials/cameras/lights, save/reload and scene export/reimport; layout scale/placement/intersections/navigation; geometry/texture budgets and level-of-detail/resource behavior. Separately test licensed polygon versus splat/neural worlds, partial edits, streaming/chunks, coordinate consistency, cross-shot continuity and any supported collision/physics semantics. | A creator can move one prop/change a room without regenerating the world or corrupting ownership/lineage; serialized scene stays editable and costs stay inside its declared envelope. Label representation/edit/conversion limitations. Infinite coherent worlds or editable splat→mesh recovery cannot be accepted from one rendered panorama. |
+| <a id="qa-10"></a> **QA-10 — Studio assistant, bounded agents, APIs/integrations and milestone visibility**. FUT-13; OPS-05/06; BE-08/11/12; later agent/orchestration cards. | There is no deployed studio agent, public SDK/webhook integration or persistent milestone watcher. Existing route/client contracts are useful boundaries, not autonomous-agent proof. | Read-only explanations first; tool-schema/tenant/path allowlists; untrusted prompts/assets/tool output cannot grant authority; dry-run/plans and human-visible action/result distinction; versioned reversible edits; request IDs/idempotency, bounded step/time/cost, cancellation/recovery, audit trace and negative permission cases. Later test signed/replayed/out-of-order webhooks, plugin/Blender compatibility, separate review/milestone-watch permissions and multiple agents contending for one asset/task. | Suggestions cannot masquerade as completed geometry; agents cannot bypass model approval, owner rights, destructive/publication/spending gates or duplicate paid work after interruption. An agent draft/visual result does not prove semantic edit success. Exercise ordinary local fixtures first; external messaging, watchers, providers and paid actions require their actual authorized integration. |
+
+### Choosing the first tests without expanding into an unbounded audit
+
+1. Start with the selected CPU behavior: `WEB-01` race/abort regression, `BE-01` prepared-context fixture, `BE-05` preparse limit, or `BE-06` bounded discovery. Each has a concrete existing failure mode and an acceptance case that can fail.
+2. Reuse the existing fixtures and test locations. Add only the tests that prove the new boundary/behavior, then run the relevant existing suites when implementing the selected behavior. Do not make a synthetic generator return a triangle merely to make a future capability green.
+3. Tie broader families to a declared supported profile and prerequisite. For example, a static prop does not require facial tests; a speech-ready character does. A scene snapshot is not a world editor, and a read-only assistant is not a production agent.
+4. Record exact head, input/artifact hashes, interpreter/runtime/tool versions, selected tests, pass/fail/skip/unrun outcomes and external approvals. Recheck a hosted run for its actual head after source changes; keep the dated 253-case run as historical evidence rather than silently refreshing its date.
+5. Preserve source/history and private-state boundaries. Never run archived upstream tests/installers, candidate checkpoints, Blender importers or paid compute merely because the phrase “all tests” appears in a task. Select the explicitly supported active target; record why a gated capability is unrun.
+
+The 5 STR cards and 10 QA families add clarity to the existing BE/WEB/OPS/FUT plan. They do not replace its concrete tasks, enable an inactive model or require a new repository restructure before ordinary development can continue.
+
 
 ## Model research and fine-tuning task register
 
@@ -786,26 +1704,26 @@ These are open workstreams, not existing GitHub issue IDs or promised dates. Sco
 
 | ID / intended owner | Required work and prerequisite | Acceptance before calling it implemented |
 |---|---|---|
-| FUT-01 — ML/product: real text pipeline | After one qualified image pathway, select permitted native text-to-3D or explicitly labeled text→image→3D. Preserve prompt, intermediate input, versions, parameters, safety/rights and costs. | Real permitted prompts produce validated private artifacts; intermediate pipeline is disclosed; failures/costs and multi-view output quality are measured. Text job admission alone does not close this. |
-| FUT-02 — graphics/technical artist: mesh/PBR tools | On genuine supported assets, integrate reviewed UV, cleanup, texture-bake, material inspection and optional decimation tools. Distinguish decimation from deformation-aware retopology. | UV/material maps, seams, normals, triangle budgets and downstream renders/imports pass representative artist-reviewed cases; outputs and parameters are versioned. |
-| FUT-03 — graphics/platform: exports | After GLB baseline, qualify OBJ/FBX/BLEND individually with exact converter/license/process isolation and supported texture/axis/unit/animation policy. | Real files import in the stated downstream versions with materials, scale and rig data as promised; wrong format with a renamed extension is rejected. |
-| FUT-04 — product/backend: asset versions and lineage | Extend existing project/job/artifact ownership into immutable asset versions, inputs/operations, parameters, parent lineage and safe revert/download. Define schema/quotas before team features. | Regeneration/edit/export create navigable versions without losing previous work; owner permissions and byte accounting hold under concurrent writes. |
+| FUT-01 — ML/product: real text pipeline | After one qualified image pathway, select permitted native text-to-3D or explicitly labeled text→image→3D. Preserve prompt, intermediate input, versions, parameters, safety/rights and costs. | Real permitted prompts produce validated private artifacts; intermediate pipeline is disclosed; failures/costs and multi-view output quality are measured. Text job admission alone does not close this. Detailed implementation/research cards: GEN-02. |
+| FUT-02 — graphics/technical artist: mesh/PBR tools | On genuine supported assets, integrate reviewed UV, cleanup, texture-bake, material inspection and optional decimation tools. Distinguish decimation from deformation-aware retopology. | UV/material maps, seams, normals, triangle budgets and downstream renders/imports pass representative artist-reviewed cases; outputs and parameters are versioned. Detailed implementation/research cards: ART-02/03/04/06. |
+| FUT-03 — graphics/platform: exports | After GLB baseline, qualify OBJ/FBX/BLEND individually with exact converter/license/process isolation and supported texture/axis/unit/animation policy. | Real files import in the stated downstream versions with materials, scale and rig data as promised; wrong format with a renamed extension is rejected. Detailed implementation/research cards: ART-07. |
+| FUT-04 — product/backend: asset versions and lineage | Extend existing project/job/artifact ownership into immutable asset versions, inputs/operations, parameters, parent lineage and safe revert/download. Define schema/quotas before team features. | Regeneration/edit/export create navigable versions without losing previous work; owner permissions and byte accounting hold under concurrent writes. Detailed implementation/research cards: ART-01. |
 | FUT-05 — backend/product: team collaboration | After version/permission design, define workspaces, membership/invites, role changes, sharing/revocation and ownership transfer. Reuse one tenant authority. | Tests cover membership/role changes and cross-workspace leakage; revoked access stops downloads/jobs; no public artifact exposure by default. |
-| FUT-06 — ML/QA: genuine multi-view input | Review a legally usable model that actually conditions on multiple images; define camera/view expectations and baseline comparison. | Held-out multi-view cases show measured consistency/geometry improvements and stated failure limits; silently selecting one input is not multi-view support. |
-| FUT-07 — ML/artist: stable adult-character identity and local edits | Evaluate template/control/segmentation or model-specific approaches on licensed characters. Version semantic parts and preserve unaffected regions where supported. | Multi-angle and repeated-edit tests measure proportions, face/clothing identity and unintended changes; human review states where automatic consistency fails. |
-| FUT-08 — technical artist/animation engineer: body rigs and motions | Qualify separately licensed rig/weights and retargeting tools; define skeleton/unit/skin conventions and adult-proportion inputs. | Blender deformation tests cover shoulders/elbows/hands/hips/knees, walk/gesture/sit and export/reimport; a skeleton file alone is insufficient. |
-| FUT-09 — facial-rig/animation specialists: expressions and speech | After a supported character topology/template, create independent eyes/lids/brows/jaw/mouth interior, corrective shapes, expressions, visemes and audio alignment. | Look/blink/smile/frown/jaw/speech tests pass in Blender with natural deformation and documented limitations. Generic body auto-rigging is not facial animation. |
-| FUT-10 — graphics/product: editable environments | Build a scene graph with individually selectable/versioned props, placement, transforms, materials, cameras and export; define resource limits and scene ownership. | A room/street/set remains independently editable after save/reload/export; assets retain lineage; rendering and memory costs are measured. |
-| FUT-11 — research/graphics: splat/world mode | Evaluate licensed neural/splat representations separately from polygon tools; define viewer, storage, edit and conversion limits. | Supported representations render/export correctly and are clearly labeled. Do not promise splat→production-mesh conversion without measured evidence. |
-| FUT-12 — ML/data/release: licensed model adaptation | Only after a measured baseline, curate rights/consent/lineage, asset-disjoint train/validation/test splits, versioned training config and explicit spend cap. | Reproducible adaptation improves a declared held-out metric without hiding regressions; checkpoint/dataset rights, notices, provenance and full training cost are recorded. No training is authorized by this table. |
-| FUT-13 — full-stack/product: assistant, developer API and integrations | Begin with reviewed read-only explanations/workflow suggestions; later versioned API/webhooks/Blender tooling need scoped credentials, retries, signatures and user-visible action control. | Requests preserve tenant/asset rights and produce auditable bounded actions; suggestions are not presented as completed geometry edits. API/export compatibility has meaningful integration tests. |
+| FUT-06 — ML/QA: genuine multi-view input | Review a legally usable model that actually conditions on multiple images; define camera/view expectations and baseline comparison. | Held-out multi-view cases show measured consistency/geometry improvements and stated failure limits; silently selecting one input is not multi-view support. Detailed implementation/research cards: GEN-03. |
+| FUT-07 — ML/artist: stable adult-character identity and local edits | Evaluate template/control/segmentation or model-specific approaches on licensed characters. Version semantic parts and preserve unaffected regions where supported. | Multi-angle and repeated-edit tests measure proportions, face/clothing identity and unintended changes; human review states where automatic consistency fails. Detailed implementation/research cards: ANIM-01 and ART-05. |
+| FUT-08 — technical artist/animation engineer: body rigs and motions | Qualify separately licensed rig/weights and retargeting tools; define skeleton/unit/skin conventions and adult-proportion inputs. | Blender deformation tests cover shoulders/elbows/hands/hips/knees, walk/gesture/sit and export/reimport; a skeleton file alone is insufficient. Detailed implementation/research cards: ANIM-02/03/04/07. |
+| FUT-09 — facial-rig/animation specialists: expressions and speech | After a supported character topology/template, create independent eyes/lids/brows/jaw/mouth interior, corrective shapes, expressions, visemes and audio alignment. | Look/blink/smile/frown/jaw/speech tests pass in Blender with natural deformation and documented limitations. Generic body auto-rigging is not facial animation. Detailed implementation/research cards: ANIM-06. |
+| FUT-10 — graphics/product: editable environments | Build a scene graph with individually selectable/versioned props, placement, transforms, materials, cameras and export; define resource limits and scene ownership. | A room/street/set remains independently editable after save/reload/export; assets retain lineage; rendering and memory costs are measured. Detailed implementation/research cards: ENV-01..05/07. |
+| FUT-11 — research/graphics: splat/world mode | Evaluate licensed neural/splat representations separately from polygon tools; define viewer, storage, edit and conversion limits. | Supported representations render/export correctly and are clearly labeled. Do not promise splat→production-mesh conversion without measured evidence. Detailed implementation/research cards: ENV-06. |
+| FUT-12 — ML/data/release: licensed model adaptation | Only after a measured baseline, curate rights/consent/lineage, asset-disjoint train/validation/test splits, versioned training config and explicit spend cap. | Reproducible adaptation improves a declared held-out metric without hiding regressions; checkpoint/dataset rights, notices, provenance and full training cost are recorded. No training is authorized by this table. Detailed implementation/research cards: RES-01..15 in research.md. |
+| FUT-13 — full-stack/product: assistant, developer API and integrations | Begin with reviewed read-only explanations/workflow suggestions; later versioned API/webhooks/Blender tooling need scoped credentials, retries, signatures and user-visible action control. | Requests preserve tenant/asset rights and produce auditable bounded actions; suggestions are not presented as completed geometry edits. API/export compatibility has meaningful integration tests. Detailed implementation/research cards: AGENT-01..07 plus the existing API/integration scope. |
 | FUT-14 — storage/security/product: customer erasure | After BE-10 planning and accepted restore/retention policy, implement a separately reviewed, audited owner-authorized deletion workflow with legal holds/backups/derived-version consequences defined. This is customer data lifecycle, not permission to remove repository/history material. | Dry-run and authorization are explicit; approved test objects are removed exactly once with quota/reference integrity; protected/foreign objects remain; backup expiry/recovery limits are truthful. No irreversible production deletion occurs under this handoff. |
 
 ## Validation and safe development commands
 
 The latest full local software validation applies to the `8d09e3b` code state, including the Vitest alias correction. It recorded **253 test executions**: 136 API/gateway on SQLite, 83 API on PostgreSQL, 12 preparation/auditor, two CPU marching-cubes, 14 web units and six browser contracts. The PostgreSQL/API overlap is intentional; these are not 253 distinct product features. TypeScript, production build/startup, packaging/migrations, dependency checks, Compose, nonroot CPU images, actual API/studio HTTP flows and fresh pinned source preparation also passed.
 
-Read the [full record and commands](AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt) and [dated evidence](AnalyseFuture/validation/2026-11-17/REPORT.md). A docs-only handoff does not rerun those suites or establish a new model result. Future implementation milestones run the checks relevant to their real behavior. Hosted CI/check status must be read for the exact PR head; it remains unknown when the API/status interface is unavailable.
+Read the [full record and commands](AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt) and [dated evidence](AnalyseFuture/validation/2026-11-17/REPORT.md). A docs-only handoff does not rerun those suites or establish a new model result. Future implementation milestones run the checks relevant to their real behavior. Hosted CI/check status must be read for the exact commit/main run; it remains unknown when the API/status interface is unavailable.
 
 From the repository root, using the documented CPU environment:
 
@@ -1053,7 +1971,7 @@ Reference/history rows all inherit the inactive, rights and execution limits sta
 | [.gitignore](.gitignore) | Prevents private configuration, databases, dependencies, checkpoints and generated assets from ordinary staging. | Configuration |
 | [AGENTS.md](AGENTS.md) | Repository working rules, rights/spend controls and continuation order | documentation |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Contributor process and rights/verification expectations | documentation |
-| [PROJECT_STATUS_AND_TASKS.md](PROJECT_STATUS_AND_TASKS.md) | Homepage-linked implementation handoff: main goal, feature status,28 scoped PR tasks,14 later workstreams, evidence/review process and every tracked file/folder explained. | Documentation |
+| [PROJECT_STATUS_AND_TASKS.md](PROJECT_STATUS_AND_TASKS.md) | Homepage-linked expanded platform idea and source status; 28 software, 35 capability and 5 structure cards, 10 QA families, 15 research links, direct-main workflow and all 510 files/167 folders explained. | Documentation |
 | [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) | Functional ownership/directory guide including this handoff; maintains coherent framework/package and private-state boundaries. | documentation |
 | [README.md](README.md) | GitHub homepage linking this execution handoff, the adopted goal, existing private product, setup and documentation navigation. | documentation |
 | [pytest.ini](pytest.ini) | Default first-party testpaths; excludes preserved upstream material from traversal. | Configuration |
@@ -1080,7 +1998,7 @@ Reference/history rows all inherit the inactive, rights and execution limits sta
 | File within this collection | Purpose and relationship | State |
 |---|---|---|
 | [AnalyseFuture/ARCHIVED_FILES_MANIFEST.txt](AnalyseFuture/ARCHIVED_FILES_MANIFEST.txt) | Locations/source hashes for retained earlier versions and inactive references, separating prior relocations from current preservation | evidence/documentation |
-| [AnalyseFuture/COMPLETE_FILE_INVENTORY.txt](AnalyseFuture/COMPLETE_FILE_INVENTORY.txt) | Complete current509-file path-by-path responsibilities, owners, dependencies and validation limits | evidence/documentation |
+| [AnalyseFuture/COMPLETE_FILE_INVENTORY.txt](AnalyseFuture/COMPLETE_FILE_INVENTORY.txt) | Complete current510-file path-by-path responsibilities, owners, dependencies and validation limits | evidence/documentation |
 | [AnalyseFuture/CONSOLIDATION_REPORT.txt](AnalyseFuture/CONSOLIDATION_REPORT.txt) | Four shared responsibilities across eight consumers, recovered offline auditor, compatibility and actual reuse decisions | evidence/documentation |
 | [AnalyseFuture/DUPLICATE_ANALYSIS.txt](AnalyseFuture/DUPLICATE_ANALYSIS.txt) | Six exact reference duplicate groups and four active shared-responsibility consolidations with deliberate retention decisions | evidence/documentation |
 | [AnalyseFuture/FEATURE_INVENTORY.txt](AnalyseFuture/FEATURE_INVENTORY.txt) | 56 implementation/research/future responsibility cards; not56 shipped features | evidence/documentation |
@@ -1266,7 +2184,7 @@ Reference/history rows all inherit the inactive, rights and execution limits sta
 | [DOCS_DEEP_REVIEW.json](AnalyseFuture/repository-inventory/DOCS_DEEP_REVIEW.json) | Documentation-by-document review, stale status distinctions and reconciliation opportunities | Evidence |
 | [DOCUMENTATION_RECONCILIATION.json](AnalyseFuture/repository-inventory/DOCUMENTATION_RECONCILIATION.json) | Records current-document reconciliations while preserving dated source evidence and distinguishing partial versus implemented slices | Evidence |
 | [FEATURE_REGISTRY.json](AnalyseFuture/repository-inventory/FEATURE_REGISTRY.json) | 56 responsibility cards with owners, sources, dependencies, tests/status, missing work and scoped253-case validation context | Evidence |
-| [FINAL_FILE_CLASSIFICATION.json](AnalyseFuture/repository-inventory/FINAL_FILE_CLASSIFICATION.json) | 509-entry current path/purpose/owner/dependency classification, including authored validation and preserved metadata; not recursive self-hashing | Evidence |
+| [FINAL_FILE_CLASSIFICATION.json](AnalyseFuture/repository-inventory/FINAL_FILE_CLASSIFICATION.json) | 510-entry current path/purpose/owner/dependency classification, including authored validation and preserved metadata; not recursive self-hashing | Evidence |
 | [FINAL_STATIC_SECRET_REVIEW.json](AnalyseFuture/repository-inventory/FINAL_STATIC_SECRET_REVIEW.json) | Bounded static credential-pattern/content review of the final repository-owned files; not an absence-of-compromise certificate | Evidence |
 | [FRONTEND_DEEP_REVIEW.json](AnalyseFuture/repository-inventory/FRONTEND_DEEP_REVIEW.json) | Static frontend/3D/BFF/configuration review, contract inventory, existing defects and consolidation decisions | Evidence |
 | [FUNCTIONAL_PATH_MAPPING.json](AnalyseFuture/repository-inventory/FUNCTIONAL_PATH_MAPPING.json) | 45 original/current functional moves with pre-move, restructure-snapshot and current hashes plus exact preserved originals | Evidence |

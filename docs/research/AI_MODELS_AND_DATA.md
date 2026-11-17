@@ -33,3 +33,14 @@ Codex creates training code, but dedicated GPU compute executes training. AWS is
 ## Ownership and release
 
 The product can own its fine-tune dataset and adaptation artifacts where legally permitted, but underlying third-party code/weights retain their licenses and rights. Record base checkpoint source and derivative obligations in every model card.
+
+## Expanded future research entry point —17November2026
+
+The owner explicitly requested future model fine-tuning. Root [research.md](../../research.md)
+now owns15RES study/harness/evaluation cards with candidate/rights/data decisions,
+asset/identity-disjoint splits,architecture-specific adaptation feasibility,
+bounded resource proposals,held-out results,downstream acceptance and release/rollback.
+It extends this strategy. TripoSR remains inference qualification,not an automatic
+training-base choice. The expanded [platform handoff](../../PROJECT_STATUS_AND_TASKS.md)
+links model/world/agent tasks to this program. No training or model-quality gain
+is claimed. Current delivery uses small verified direct-main milestones.

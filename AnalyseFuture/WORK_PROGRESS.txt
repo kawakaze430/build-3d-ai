@@ -1,3 +1,10 @@
+CURRENT DETAILED EXPANSION CHECKPOINT —17November2026
+Verified published core/research checkpoint:e878e8ff4ef06f68b7a06648b8ad887ead882411.
+Completed detailed rootcapability/world/agent/animation plan,5structurecards,10QA families and15RES research links;28existingsoftware cards preserved.
+510project paths/167directories retained; architecture and continuity updated; no runtime code/new test/training result.
+Actual local link/anchor/ID/table/path/hash/whitespace checks and final Git refs identify this delivery.
+Next verified implementation:WEB-01 or boundedCAP-01/RES-01/02research; current policy directmain checkpoints,notPRbranches.
+
 CURRENT EXPANDED-GOAL/RESEARCH CHECKPOINT —17November2026
 Fetched starting main:7992107b613c680dee2a750045b6b7e1ff42e581.
 Owner requires verified direct-main milestones; previous PR/branch defaults are superseded.

@@ -5939,7 +5939,7 @@
     {
       "path": "PROJECT_STATUS_AND_TASKS.md",
       "reviewed_starting_path": null,
-      "purpose": "Homepage-linked expanded3Dplatform idea,current features,existing28software cards,15research links,task/evidence delivery workflow and complete510-file/167-directory guide; capability/structure/testing expansion follows next checkpoint.",
+      "purpose": "Homepage-linked detailed project idea,current feature status,28software+35capability+5structure cards,10QA families,15research links,current direct-main checkpoints and all510files/167directories explained.",
       "functional_owner": "Project maintainer and assigned task owners",
       "dependencies": [
         "AGENTS.md",
@@ -7812,7 +7812,7 @@
     {
       "path": "research.md",
       "reviewed_starting_path": null,
-      "purpose": "Future fine-tuning research plan:15 RES tasks,base/data/rights decisions,held-out evaluation,architecture-specific training feasibility,bounded experiments and release/rollback; no training executed.",
+      "purpose": "Future model fine-tuning program:15RES cards,candidate/data/rights decisions,architecture-specific training feasibility,held-out evaluation,bounded experiments,release/rollback and living ledger; no training executed.",
       "functional_owner": "ML/data/release reviewers and project owner",
       "dependencies": [
         "PROJECT_STATUS_AND_TASKS.md",
@@ -8061,5 +8061,15 @@
   "current_validation_passed_case_executions": 253,
   "count_scope": "All current tracked and nonignored authored project paths, including the new root handoff; excludes installed dependencies, private runtime state and generated caches. Dated validation covers its stated code snapshot; documentation does not create a new runtime result.",
   "current_handoff": "PROJECT_STATUS_AND_TASKS.md",
-  "current_research_plan": "research.md"
+  "current_research_plan": "research.md",
+  "current_expanded_planning": {
+    "software_cards": 28,
+    "product_capability_cards": 35,
+    "structure_cards": 5,
+    "qa_families": 10,
+    "research_cards": 15,
+    "current_direct_main_delivery": true,
+    "last_verified_published_checkpoint": "e878e8ff4ef06f68b7a06648b8ad887ead882411",
+    "runtime_feature_change": false
+  }
 }

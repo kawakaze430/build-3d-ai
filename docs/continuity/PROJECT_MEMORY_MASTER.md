@@ -1,5 +1,31 @@
 # BUILD 3D AI — Master Project Memory and Continuation Handbook
 
+## Completed expanded planning handoff —17November2026
+
+Last independently verified published checkpoint:
+`e878e8ff4ef06f68b7a06648b8ad887ead882411` (expanded core goal and research.md).
+This following checkpoint completes the root detailed plan:28existingsoftware
+cards+35productcapabilitycards+5structurecards+10QAevidencefamilies+15REScards,
+with510file/167directory coverage. Existing14FUT summaries cross-reference the
+new detail;these are work units,not shipped features. Main goals prioritize
+completed private foundations and extend image/text/multi-image models AND
+worlds,materials/geometry,rigs/motion,AIagents and model fine-tuning research.
+
+Changed:PROJECT_STATUS_AND_TASKS.md,research.md,README/navigation,adopted-goal and
+architecture/model-strategy docs,continuity,structure/inventory/hash/link reports.
+Checks:local links/anchors,tables/ID/path coverage,preservation hashes and Git
+whitespace/state;no new runtime suite,inference,weights,paid service or training.
+Remaining:all plannednewcapabilities,model rights/runtime/real-output proof and
+listed structural/test gaps;prior253test executions remain dated code evidence.
+Next:WEB-01poll/stale-state regression fix or CAP-01/RES-01/02CPU research work.
+
+Owner's latest policy:commit and push coherent verified milestones directly to
+main,fetch before every push,integrate newer work without loss,verify remote SHA.
+No branch/PRdefault,no force-push/history/protection bypass. The containing SHA
+is resolved from Git refs and final delivery proof;no self-referential hash is
+invented. Existing PRs can still be reviewed if supplied;no background watcher.
+
+
 ## Current direct-main expansion checkpoint — 17 November 2026
 
 The owner now requires small verified milestones pushed directly to origin/main,
@@ -9,7 +35,7 @@ The expanded goal covers image/text/multi-image assets AND environments, geometr
 materials,rigs/motion,AI agents and future fine-tuning. Read the updated root
 [task handoff](../../PROJECT_STATUS_AND_TASKS.md) and new [research.md](../../research.md).
 This milestone adds the core vision and15research cards; detailed capability,
-structure/testing expansion follows as the next documentation checkpoint. No new
+structure/testing expansion is completed in the following current checkpoint. No new
 runtime tests,inference or training ran. Existing253test executions remain dated.
 Update goal/research/README/navigation/inventories and preservation hashes together;
 the actual containing SHA is discoverable via Git,then recorded in the following
@@ -17,7 +43,7 @@ verified checkpoint. Existing28software tasks remain open;WEB-01 or RES-01/02 CP
 charter/recipe research are useful next work. No continuous watcher is configured.
 
 
-## Current execution handoff — 17 November 2026
+## Historical handoff before the direct-main update — 17 November 2026
 
 The owner requested a homepage-linked Markdown handoff for another tool to
 continue through pull requests. Read [PROJECT_STATUS_AND_TASKS.md](../../PROJECT_STATUS_AND_TASKS.md):
@@ -25,7 +51,8 @@ it explains implemented/partial/future features, all tracked files/folders,
 28 scoped implementation cards, 14 later workstreams and acceptance criteria.
 Start with WEB-01 unless an existing PR owns it. The first-party foundations
 and the dated 253-execution validation remain credited; this is documentation,
-not a new model result. Future tool work uses focused branches/PRs for review.
+not a new model result. That earlier branches/PRs delivery rule is now superseded
+by the current direct-main milestone policy above.
 Codex can review supplied PRs in an active session; persistent monitoring needs
 the explicit OPS-05 integration and is not configured by this document. Recheck
 current main, open PRs and checks before work; GitHub API metadata was unavailable

@@ -4,7 +4,7 @@ Current implementation reconciliation: 17 November 2026. The [pre-review version
 
 > **Main project goal:** [Read the complete Build 3D AI project goal (.txt)](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt). Adopted by the owner on 17 November 2026 as the repository's primary product direction.
 
-> **Start here — status and next tasks:** [Project status, complete file/folder guide and detailed implementation handoff](PROJECT_STATUS_AND_TASKS.md). Includes implemented features and limits, prioritized software/capability tasks, structure/testing requirements and the current direct-main checkpoint workflow.
+> **Start here — status and next tasks:** [Project status, complete file/folder guide and detailed implementation handoff](PROJECT_STATUS_AND_TASKS.md). Includes implemented features and limits, 28 software, 35 capability and 5 structure task cards, 10 testing families, fine-tuning research and the direct-main checkpoint workflow.
 
 > **Model fine-tuning research:** [research.md](research.md) records hypotheses, candidate/data rights, 15 research tasks, evaluation, resource proposals and release criteria. It is a future research plan; no training has run.
 
