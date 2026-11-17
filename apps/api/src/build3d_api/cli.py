@@ -10,7 +10,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from .config import Settings
 from .db import check_schema, create_database, migrate
-from .maintenance import scan_artifact_storage
+from .maintenance import ArtifactInventoryLimit, scan_artifact_storage
 from .migration import ArtifactMigrationError, migrate_filesystem_to_s3
 from .storage import (
     ArtifactStorageError,
@@ -135,6 +135,9 @@ def main(argv=None) -> int:
                 result = {"reconciled": True}
         print(json.dumps(result))
         return 0
+    except ArtifactInventoryLimit as exc:
+        print(str(exc), file=sys.stderr)
+        return 1
     except StoreError as exc:
         print(exc.detail, file=sys.stderr)
         return 1

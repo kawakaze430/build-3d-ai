@@ -9,7 +9,10 @@ from __future__ import annotations
 import os
 import re
 import shutil
+import stat
 import tempfile
+from collections.abc import Iterator
+from contextlib import closing
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable, Protocol
@@ -102,6 +105,42 @@ def _parse_current_key(key: str, prefix: str) -> tuple[str, str] | None:
     return match.group("owner"), match.group("artifact")
 
 
+def _filesystem_entries(root: Path, prefix: str) -> Iterator[os.DirEntry[str]]:
+    """Stream flat legacy entries, then the current prefix without following symlinks."""
+    try:
+        root_entries = os.scandir(root)
+    except FileNotFoundError:
+        return
+    with root_entries:
+        yield from root_entries
+
+    base = root
+    for part in Path(prefix.strip("/")).parts:
+        base /= part
+        try:
+            mode = base.lstat().st_mode
+        except FileNotFoundError:
+            return
+        if stat.S_ISLNK(mode):
+            raise ArtifactStorageError("Filesystem artifact inventory prefix contains a symlink")
+        if not stat.S_ISDIR(mode):
+            return
+
+    stack = [os.scandir(base)]
+    try:
+        while stack:
+            entry = next(stack[-1], None)
+            if entry is None:
+                stack.pop().close()
+                continue
+            yield entry
+            if entry.is_dir(follow_symlinks=False):
+                stack.append(os.scandir(entry.path))
+    finally:
+        for entries in reversed(stack):
+            entries.close()
+
+
 class FileSystemArtifactStorage:
     """Atomic local storage with a legacy flat-path read fallback."""
 
@@ -187,40 +226,45 @@ class FileSystemArtifactStorage:
 
     def inventory(self, *, limit: int) -> StorageInventory:
         limit = _inventory_limit(limit)
+        # Every object may have its own owner directory. Allow room for other
+        # directory entries while also bounding a tree with few or no GLBs.
+        entry_limit = max(256, 4 * limit)
         items: list[StoredArtifactObject] = []
-        base = self.root / self.prefix.strip("/")
+        truncated = False
         try:
-            candidates: list[Path] = []
-            if base.exists():
-                candidates.extend(path for path in base.rglob("*.glb"))
-            candidates.extend(self.root.glob("*.glb"))
-            for path in sorted(candidates, key=lambda item: item.as_posix()):
-                key = path.relative_to(self.root).as_posix()
-                is_symlink = path.is_symlink()
-                try:
-                    size = path.lstat().st_size
-                    is_regular = not is_symlink and path.is_file()
-                except OSError:
-                    size = -1
-                    is_regular = False
-                parsed = _parse_current_key(key, self.prefix)
-                legacy = path.parent == self.root
-                artifact_id = path.stem if legacy and _ID.fullmatch(path.stem) else None
-                if parsed is not None and is_regular and size >= 0:
-                    owner_id, artifact_id = parsed
-                    item = StoredArtifactObject(key, size, owner_id, artifact_id)
-                elif legacy and artifact_id is not None and is_regular and size >= 0:
-                    item = StoredArtifactObject(key, size, None, artifact_id, legacy=True)
-                else:
-                    item = StoredArtifactObject(
-                        key, max(size, 0), None, artifact_id, legacy=legacy, recognized=False
-                    )
-                items.append(item)
-                if len(items) > limit:
-                    return StorageInventory(tuple(items[:limit]), truncated=True)
+            with closing(_filesystem_entries(self.root, self.prefix)) as entries:
+                for scanned, entry in enumerate(entries, start=1):
+                    if scanned > entry_limit:
+                        truncated = True
+                        break
+                    if not entry.name.endswith(".glb"):
+                        continue
+                    if len(items) == limit:
+                        truncated = True
+                        break
+                    path = Path(entry.path)
+                    key = path.relative_to(self.root).as_posix()
+                    metadata = entry.stat(follow_symlinks=False)
+                    is_regular = stat.S_ISREG(metadata.st_mode)
+                    parsed = _parse_current_key(key, self.prefix)
+                    legacy = path.parent == self.root
+                    artifact_id = path.stem if legacy and _ID.fullmatch(path.stem) else None
+                    if parsed is not None and is_regular:
+                        owner_id, artifact_id = parsed
+                        item = StoredArtifactObject(key, metadata.st_size, owner_id, artifact_id)
+                    elif legacy and artifact_id is not None and is_regular:
+                        item = StoredArtifactObject(key, metadata.st_size, None, artifact_id, legacy=True)
+                    else:
+                        item = StoredArtifactObject(
+                            key, metadata.st_size, None, artifact_id, legacy=legacy, recognized=False
+                        )
+                    items.append(item)
+        except ArtifactStorageError:
+            raise
         except OSError as exc:
             raise ArtifactStorageError("Filesystem artifact inventory failed") from exc
-        return StorageInventory(tuple(items), truncated=False)
+        items.sort(key=lambda item: item.key)
+        return StorageInventory(tuple(items), truncated=truncated)
 
 
 class S3ArtifactStorage:

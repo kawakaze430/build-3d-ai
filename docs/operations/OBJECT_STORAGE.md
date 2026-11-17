@@ -109,7 +109,7 @@ The operator now has a **read-only bounded scanner**:
 build3d-admin scan-artifacts --max-objects 10000
 ```
 
-It compares the complete bounded database artifact set with the configured storage backend and reports missing DB-referenced objects, storage orphans, duplicate current/legacy filesystem copies, owner/size mismatches, malformed keys and byte totals. If either side exceeds `--max-objects`, the command refuses to classify a partial scan and asks the operator to rerun with a higher bound.
+It compares the complete bounded database artifact set with the configured storage backend and reports missing DB-referenced objects, storage orphans, duplicate current/legacy filesystem copies, owner/size mismatches, malformed keys and byte totals. Filesystem discovery streams directory entries and looks at most one entry past `max(256, 4 × --max-objects)`. The entry budget counts directories and non-GLB files as well as artifact candidates. Complete results are sorted by relative key. If the database, object count or entry scan exceeds its bound, the command exits with an error and gives no partial classifications.
 
 The scanner **never deletes anything**. It also does not download every object to recompute SHA-256; normal artifact downloads keep the stronger GLB/checksum revalidation boundary. For S3-compatible storage, this operator-only command needs list permission on the configured private prefix. The normal tenant API/worker does not require bucket-list permission.
 

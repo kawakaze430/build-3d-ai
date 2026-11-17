@@ -1,6 +1,7 @@
 import asyncio
 import hashlib
 import io
+import os
 import time
 from dataclasses import replace
 
@@ -267,8 +268,86 @@ def test_filesystem_inventory_and_scanner_are_bounded_and_non_destructive(tmp_pa
 
     with pytest.raises(ArtifactInventoryLimit, match="Database artifact count"):
         scan_artifact_storage(StaticArtifactRows(rows), storage, max_objects=1)
-    with pytest.raises(ArtifactInventoryLimit, match="Storage object count"):
+    with pytest.raises(ArtifactInventoryLimit, match="Storage inventory"):
         scan_artifact_storage(StaticArtifactRows(rows[:1]), storage, max_objects=1)
+
+
+@pytest.mark.parametrize(
+    ("suffix", "expected_visits", "expected_objects"),
+    [(".glb", 5, 2), (".part", 257, 0)],
+)
+def test_filesystem_inventory_stops_discovery_at_its_limits(
+    tmp_path, monkeypatch, suffix, expected_visits, expected_objects
+):
+    root = tmp_path / "artifacts"
+    storage = FileSystemArtifactStorage(root)
+    owner_dir = root / storage.prefix / ("1" * 32)
+    owner_dir.mkdir(parents=True)
+    for index in range(300):
+        (owner_dir / f"{index:032x}{suffix}").touch()
+
+    real_scandir = os.scandir
+    visited = []
+    opened = set()
+
+    class CountedEntries:
+        def __init__(self, path):
+            self.entries = real_scandir(path)
+            opened.add(self)
+
+        def __iter__(self):
+            return self
+
+        def __next__(self):
+            entry = next(self.entries)
+            visited.append(entry.name)
+            return entry
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_):
+            self.close()
+
+        def close(self):
+            self.entries.close()
+            opened.remove(self)
+
+    with monkeypatch.context() as context:
+        context.setattr(os, "scandir", CountedEntries)
+        inventory = storage.inventory(limit=2)
+
+    assert inventory.truncated
+    assert len(inventory.objects) == expected_objects
+    assert len(visited) == expected_visits
+    assert not opened
+    with pytest.raises(ArtifactInventoryLimit, match="Storage inventory"):
+        scan_artifact_storage(StaticArtifactRows([]), storage, max_objects=2)
+
+
+def test_filesystem_inventory_exact_limit_keeps_legacy_and_symlink_classification(tmp_path):
+    root = tmp_path / "artifacts"
+    storage = FileSystemArtifactStorage(root)
+    owner = "1" * 32
+    artifact = "a" * 32
+    current = root / artifact_object_key(owner, artifact)
+    current.parent.mkdir(parents=True)
+    current.write_bytes(b"current")
+    legacy = root / f"{artifact}.glb"
+    legacy.write_bytes(b"legacy")
+    link = current.parent / f"{'b' * 32}.glb"
+    link.symlink_to(legacy)
+    aliased_owner = current.parent.with_name("2" * 32)
+    aliased_owner.symlink_to(current.parent, target_is_directory=True)
+
+    inventory = storage.inventory(limit=3)
+    assert not inventory.truncated
+    assert [item.key for item in inventory.objects] == [
+        legacy.name, current.relative_to(root).as_posix(), link.relative_to(root).as_posix(),
+    ]
+    assert inventory.objects[0].legacy and inventory.objects[0].recognized
+    assert inventory.objects[1].owner_id == owner
+    assert not inventory.objects[2].recognized
 
 
 def test_s3_inventory_paginates_and_respects_hard_scan_limit(tmp_path):

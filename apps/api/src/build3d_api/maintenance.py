@@ -35,7 +35,7 @@ def scan_artifact_storage(
     inventory = storage.inventory(limit=max_objects)
     if inventory.truncated:
         raise ArtifactInventoryLimit(
-            "Storage object count exceeds scan limit; rerun with a higher --max-objects"
+            "Storage inventory exceeds scan limit; rerun with a higher --max-objects"
         )
 
     by_id = {row["id"]: row for row in rows}
