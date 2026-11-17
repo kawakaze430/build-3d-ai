@@ -14,6 +14,7 @@ import json
 import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 UPSTREAM_COMMIT = "107cefdc244c39106fa830359024f6a2f1c78871"
@@ -57,22 +58,24 @@ def source_head(source: Path) -> str:
     return completed.stdout.strip()
 
 
-def assert_clean_source(source: Path) -> None:
-    completed = subprocess.run(
-        ["git", "-C", str(source), "status", "--porcelain"],
-        check=True,
-        capture_output=True,
-        text=True,
-    )
-    if completed.stdout.strip():
-        raise RuntimeError("source checkout must be clean before qualification preparation")
+def copy_reviewed_tree(source: Path, destination: Path) -> None:
+    git = ["git", "--no-replace-objects", "-C", str(source)]
+    tree = subprocess.check_output([*git, "ls-tree", "-r", "-z", "--full-tree", UPSTREAM_COMMIT])
+    for entry in tree.split(b"\0")[:-1]:
+        metadata, path_bytes = entry.split(b"\t", 1)
+        mode, kind, blob = metadata.split()
+        relative = path_bytes.decode("utf-8")
+        if kind != b"blob" or mode not in {b"100644", b"100755"}:
+            raise RuntimeError(f"unsupported Git entry for qualification: {relative}")
+        if any(part in {"", ".", "..", ".git"} for part in relative.split("/")):
+            raise RuntimeError(f"invalid Git path for qualification: {relative}")
+        target = destination / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(subprocess.check_output([*git, "cat-file", "blob", blob.decode("ascii")]))
+        target.chmod(0o755 if mode == b"100755" else 0o644)
 
 
-def verify_upstream(source: Path) -> None:
-    head = source_head(source)
-    if head != UPSTREAM_COMMIT:
-        raise RuntimeError(f"unexpected TripoSR revision: {head}")
-    assert_clean_source(source)
+def verify_upstream_blobs(source: Path) -> None:
     for relative, expected in EXPECTED_BLOBS.items():
         path = source / relative
         if not path.is_file():
@@ -338,13 +341,35 @@ def verify_prepared(destination: Path) -> None:
 
 
 def prepare(source: Path, destination: Path) -> None:
-    verify_upstream(source)
-    if destination.exists():
-        if any(destination.iterdir()):
-            raise RuntimeError("output-dir must be absent or empty")
-        destination.rmdir()
-    shutil.copytree(source, destination, ignore=shutil.ignore_patterns(".git"))
+    source = source.resolve()
+    root = subprocess.check_output(
+        ["git", "-C", str(source), "rev-parse", "--show-toplevel"], text=True,
+    ).rstrip("\n")
+    if Path(root).resolve() != source:
+        raise RuntimeError("source-dir must be the checkout root")
+    if destination.is_symlink():
+        raise RuntimeError("output-dir must not be a symlink")
+    destination = destination.resolve()
+    if destination.is_relative_to(source):
+        raise RuntimeError("output-dir must be outside the source checkout")
+    if destination.exists() and (not destination.is_dir() or any(destination.iterdir())):
+        raise RuntimeError("output-dir must be absent or empty")
 
+    head = source_head(source)
+    if head != UPSTREAM_COMMIT:
+        raise RuntimeError(f"unexpected TripoSR revision: {head}")
+
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix=".triposr-prepare-", dir=destination.parent) as staging:
+        prepared = Path(staging) / "source"
+        prepared.mkdir()
+        copy_reviewed_tree(source, prepared)
+        verify_upstream_blobs(prepared)
+        apply_patches(prepared)
+        prepared.rename(destination)
+
+
+def apply_patches(destination: Path) -> None:
     # The original requirements file is intentionally replaced with the
     # qualification-only direct pins. The full transitive/wheel-hash lock is a
     # separate release gate and is not claimed by this file.
@@ -367,7 +392,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args(argv)
     try:
-        prepare(args.source_dir.resolve(), args.output_dir.resolve())
+        prepare(args.source_dir, args.output_dir)
     except (OSError, RuntimeError, subprocess.CalledProcessError) as exc:
         print(f"qualification preparation failed: {exc}", file=sys.stderr)
         return 2

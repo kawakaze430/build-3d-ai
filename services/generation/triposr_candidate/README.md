@@ -6,11 +6,11 @@ This slice removes the known non-deterministic/hidden-download paths from the fi
 
 ## What it does
 
-`prepare_runtime.py` accepts only a clean checkout of:
+`prepare_runtime.py` requires a checkout at:
 
 - `VAST-AI-Research/TripoSR@107cefdc244c39106fa830359024f6a2f1c78871`
 
-It verifies the Git blob ID of every upstream file it modifies, copies the source tree, then applies a narrow patchset:
+It exports regular files directly from that Git commit and preserves their executable bits. Local edits, ignored files and checkout metadata never enter the export. Tracked links and submodules cause preparation to fail. The tool verifies the blob ID of every upstream file it modifies and applies a narrow patchset:
 
 - replaces the unpinned `torchmcubes` import with `scikit-image==0.25.2` marching cubes;
 - applies the face-winding adjustment documented by the MIT `vltmedia/TripoSR-scikit` patch evidence;
@@ -36,7 +36,7 @@ python services/generation/triposr_candidate/prepare_runtime.py \
   --output-dir /tmp/TripoSR-build3d
 ```
 
-Preparation stops if the source commit, source blob IDs, replacement fragments or runtime manifest differ from the reviewed values.
+Pass the checkout root as the source. The output path must be outside the checkout and either absent or an empty directory. Preparation stops if the source commit, source blob IDs, replacement fragments or runtime manifest differ from the reviewed values. The prepared directory is published only after validation.
 
 ## Candidate container
 
