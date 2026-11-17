@@ -149,6 +149,70 @@ def test_queued_cancel_and_worker_claim_race_cannot_dispatch_canceled_job(env, q
         assert canceled == 409 and claimed["status"] == "dispatching" and slots(env) == 1
 
 
+def test_disable_only_cancels_local_queue_and_preserves_worker_recovery(env, project, queued, png):
+    owner = env.alice["user_id"]
+    now = time.time() + 5
+    running = env.store.claim(now=now)
+    assert running["id"] == queued
+    assert env.store.transition(
+        running, "running", now=now, upstream_job_id="already-running", poll_after=now + 1000,
+    )
+    pending, _ = env.store.submit(
+        owner_id=owner, project_id=project, key="uncertain", kind="text",
+        model_id="test_model", approval=env.approval, prompt="uncertain submission",
+    )
+    assert env.store.claim(now=now)["id"] == pending["id"]
+    assert env.store.claim(now=now + env.settings.lease_seconds + 1) is None
+    local, _ = env.store.submit(
+        owner_id=owner, project_id=project, key="local-image", kind="image",
+        model_id="test_model", approval=env.approval,
+        image=png, input_sha256=hashlib.sha256(png).hexdigest(),
+    )
+
+    report = env.store.disable_user(owner)
+    assert report["canceled_queued_jobs"] == 1
+    assert report["remaining_active_jobs"] == 2
+    assert env.store.disable_user(owner)["canceled_queued_jobs"] == 0
+    assert row(env, local["id"])["status"] == "canceled"
+    assert row(env, local["id"])["input_image"] is None
+    assert row(env, pending["id"])["status"] == "submission_unknown"
+
+    recovered = env.store.claim(now=now + 1001)
+    assert recovered["id"] == queued and recovered["status"] == "running"
+    assert env.store.transition(recovered, "failed", now=now + 1001)
+    env.store.reconcile(pending["id"], None, confirm_stopped=True)
+    assert slots(env) == 0
+
+
+def test_disable_serializes_with_queue_claim_and_admission(env, project, queued):
+    owner = env.alice["user_id"]
+
+    def admit():
+        try:
+            return env.store.submit(
+                owner_id=owner, project_id=project, key="concurrent",
+                kind="text", model_id="test_model", approval=env.approval, prompt="concurrent job",
+            )[0]
+        except StoreError as exc:
+            assert exc.status == 401
+            return None
+
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        disable = pool.submit(env.store.disable_user, owner)
+        claim = pool.submit(env.store.claim)
+        admission = pool.submit(admit)
+        disable.result(timeout=10)
+        claimed = claim.result(timeout=10)
+        admitted = admission.result(timeout=10)
+    observed = [row(env, queued)]
+    if admitted:
+        observed.append(row(env, admitted["id"]))
+    assert {job["status"] for job in observed} <= {"canceled", "dispatching"}
+    assert slots(env) == int(claimed is not None)
+    assert env.store.claim() is None
+    assert admit() is None
+
+
 def test_revoked_or_changed_policy_blocks_pending_gpu_job(env, queued, triangle):
     changed = {**env.approval, "checkpoint_sha256": "c" * 64}
     env.policy.write_text(json.dumps({"schema_version": 1, "approved_models": [changed]}))

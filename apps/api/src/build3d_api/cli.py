@@ -31,6 +31,11 @@ def main(argv=None) -> int:
     key.add_argument("--user-id", required=True)
     revoke = commands.add_parser("revoke-key")
     revoke.add_argument("--key-id", required=True)
+    disable = commands.add_parser(
+        "disable-user",
+        help="Disable access, revoke API keys and cancel work still in the local queue",
+    )
+    disable.add_argument("--user-id", required=True)
     quota = commands.add_parser(
         "set-storage-quota",
         help="Set one user's persistent artifact-byte quota; existing artifacts are never deleted",
@@ -101,6 +106,8 @@ def main(argv=None) -> int:
             elif args.command == "revoke-key":
                 store.revoke_key(args.key_id)
                 result = {"revoked": True}
+            elif args.command == "disable-user":
+                result = store.disable_user(args.user_id)
             elif args.command == "set-storage-quota":
                 result = store.set_storage_quota(args.user_id, args.limit_bytes)
             elif args.command == "storage-usage":

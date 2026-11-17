@@ -4,13 +4,12 @@ from dataclasses import replace
 
 import jwt
 import pytest
-import sqlalchemy as sa
 from cryptography.hazmat.primitives.asymmetric import rsa
 from fastapi.testclient import TestClient
 from jwt.algorithms import RSAAlgorithm
 
 from build3d_api.main import create_app
-from build3d_api.store import Store, StoreError, users
+from build3d_api.store import Store, StoreError
 from build3d_api.trusted_identity import (
     ExternalJWTAuthenticator,
     TrustedIdentityError,
@@ -199,17 +198,13 @@ def test_disabled_product_user_cannot_use_valid_external_assertion(env, tmp_path
     path = provider_file(tmp_path)
     fetcher = StaticFetcher(jwks)
     env.store.link_external_identity(env.alice["user_id"], ISSUER, "provider-alice")
-    with env.engine.begin() as conn:
-        conn.execute(users.update().where(
-            users.c.id == env.alice["user_id"]
-        ).values(active=False))
     app, _ = jwt_app(env, path, fetcher)
 
     with TestClient(app) as client:
-        response = client.get(
-            "/v1/me",
-            headers={"Authorization": f"Bearer {token(private)}"},
-        )
+        headers = {"Authorization": f"Bearer {token(private)}"}
+        assert client.get("/v1/me", headers=headers).status_code == 200
+        env.store.disable_user(env.alice["user_id"])
+        response = client.get("/v1/me", headers=headers)
         assert response.status_code == 401
 
 

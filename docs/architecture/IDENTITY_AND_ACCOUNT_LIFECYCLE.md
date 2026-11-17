@@ -97,6 +97,14 @@ IDENTITY_PROVIDER_FILE=/run/secrets/build3d-identity-providers.json
 
 Existing `b3d_...` developer API keys remain independently valid. A disabled/unmapped product user cannot gain access merely because the external JWT is valid.
 
+## Operator disablement
+
+`build3d-admin disable-user --user-id "$OWNER_ID"` disables one existing account, revokes its issued keys and cancels jobs still in the local queue. The database applies all three changes in one transaction. Repeating the command reports zero new cancellations or revocations. The command returns how many active jobs still require completion or reconciliation.
+
+A claim that wins the race against disablement keeps its lease and follows the normal recovery rules. Running jobs may still complete. An expired dispatch remains uncertain until an operator verifies its upstream outcome. Disablement blocks subsequent product authentication, including trusted provider assertions. It does not revoke sessions at the identity provider, retract responses already authorized, erase artifacts or stop remote computation.
+
+Operator recovery must review the owner's existing identity mappings and outstanding jobs before re-enabling access. Existing API keys stay revoked and a new key requires separate issuance. The command has no re-enable or account-deletion mode.
+
 This still does **not** enable Better Auth itself or public signup/session lifecycle. The browser/BFF integration remains the next layer.
 
 ## Feature flag / rollout

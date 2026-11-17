@@ -90,9 +90,17 @@ def test_authentication_is_per_user_and_no_plaintext_keys_stored(env):
 
 
 def test_disabled_user_is_rejected(env):
-    with env.engine.begin() as conn:
-        conn.execute(users.update().where(users.c.id == env.alice["user_id"]).values(active=False))
+    owner = env.alice["user_id"]
+    second_key = env.store.issue_key(owner)
+    report = env.store.disable_user(owner)
+    assert report["revoked_keys"] == 2
+    assert env.store.disable_user(owner)["revoked_keys"] == 0
     assert env.client.get("/v1/projects", headers=env.auth).status_code == 401
+    other_key = {"Authorization": f"Bearer {second_key['api_key']}"}
+    assert env.client.get("/v1/me", headers=other_key).status_code == 401
+    assert env.client.get("/v1/me", headers=env.other).status_code == 200
+    with pytest.raises(StoreError, match="Active user not found"):
+        env.store.issue_key(owner)
 
 
 def test_external_identity_mapping_is_immutable_and_not_email_based(env):

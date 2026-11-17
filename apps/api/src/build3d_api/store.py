@@ -111,13 +111,39 @@ class Store:
     def issue_key(self, owner_id: str) -> dict:
         token, key_id = "b3d_" + secrets.token_urlsafe(32), new_id()
         with self.engine.begin() as conn:
-            if not conn.execute(sa.select(users.c.id).where(users.c.id == owner_id, users.c.active.is_(True))).first():
+            locked = conn.execute(users.update().where(
+                users.c.id == owner_id, users.c.active.is_(True),
+            ).values(active=users.c.active)).rowcount
+            if locked != 1:
                 raise StoreError(404, "Active user not found")
             conn.execute(api_keys.insert().values(
                 id=key_id, owner_id=owner_id, digest=hashlib.sha256(token.encode()).hexdigest(),
                 created_at=time.time(), window_start=0, request_count=0,
             ))
         return {"user_id": owner_id, "key_id": key_id, "api_key": token}
+
+    def disable_user(self, owner_id: str) -> dict:
+        """Stop new work and release only jobs that never left the local queue."""
+        now = time.time()
+        with self.engine.begin() as conn:
+            owner = conn.execute(users.update().where(users.c.id == owner_id).values(active=False))
+            if owner.rowcount != 1:
+                raise StoreError(404, "User not found")
+            revoked = conn.execute(api_keys.update().where(
+                api_keys.c.owner_id == owner_id, api_keys.c.revoked_at.is_(None),
+            ).values(revoked_at=now)).rowcount
+            canceled = conn.execute(jobs.update().where(
+                jobs.c.owner_id == owner_id, jobs.c.status == "queued",
+            ).values(status="canceled", updated_at=now, input_image=None)).rowcount
+            if canceled:
+                conn.execute(users.update().where(
+                    users.c.id == owner_id,
+                ).values(active_jobs=users.c.active_jobs - canceled))
+            remaining = conn.scalar(sa.select(users.c.active_jobs).where(users.c.id == owner_id))
+        return {
+            "user_id": owner_id, "active": False, "revoked_keys": revoked,
+            "canceled_queued_jobs": canceled, "remaining_active_jobs": remaining,
+        }
 
     def set_storage_quota(self, owner_id: str, limit_bytes: int) -> dict:
         if not isinstance(limit_bytes, int) or isinstance(limit_bytes, bool):
@@ -374,6 +400,9 @@ class Store:
         })
         now = time.time()
         with self.engine.begin() as conn:
+            active = conn.scalar(sa.select(users.c.active).where(users.c.id == owner_id))
+            if active is not True:
+                raise StoreError(401, "User is disabled")
             if not conn.execute(sa.select(projects.c.id).where(
                 projects.c.id == project_id, projects.c.owner_id == owner_id,
             )).first():
@@ -392,6 +421,8 @@ class Store:
                     conn.execute(users.update().where(users.c.id == owner_id).values(active_jobs=users.c.active_jobs - 1))
                 return existing, False
             if not admitted:
+                if conn.scalar(sa.select(users.c.active).where(users.c.id == owner_id)) is not True:
+                    raise StoreError(401, "User is disabled")
                 raise StoreError(429, "Active job limit reached; complete or cancel queued jobs first")
             job_id = new_id()
             conn.execute(jobs.insert().values(
@@ -421,6 +452,10 @@ class Store:
 
     def cancel(self, owner_id: str, job_id: str) -> dict:
         with self.engine.begin() as conn:
+            # Use the same owner-before-job lock order as account disablement.
+            conn.execute(users.update().where(
+                users.c.id == owner_id,
+            ).values(active=users.c.active))
             changed = conn.execute(jobs.update().where(
                 jobs.c.id == job_id, jobs.c.owner_id == owner_id, jobs.c.status == "queued",
             ).values(status="canceled", updated_at=time.time(), input_image=None)).rowcount
@@ -442,7 +477,16 @@ class Store:
             ).values(status="submission_unknown", error_code="submission_outcome_unknown",
                      updated_at=now, lease_token=None, lease_until=None))
             available = sa.and_(
-                jobs.c.status.in_(["queued", "running"]), jobs.c.poll_after <= now,
+                sa.or_(
+                    jobs.c.status == "running",
+                    sa.and_(
+                        jobs.c.status == "queued",
+                        sa.exists(sa.select(users.c.id).where(
+                            users.c.id == jobs.c.owner_id, users.c.active.is_(True),
+                        )),
+                    ),
+                ),
+                jobs.c.poll_after <= now,
                 sa.or_(jobs.c.lease_until.is_(None), jobs.c.lease_until <= now),
             )
             candidates = conn.execute(sa.select(jobs.c.id).where(available).order_by(
