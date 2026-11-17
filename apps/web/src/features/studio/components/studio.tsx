@@ -1,12 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   ApiClientError,
   apiErrorMessage,
   artifactDownloadUrl,
   createProject,
+  getJob,
+  getProject,
   getSession,
   getStorageUsage,
   listJobs,
@@ -17,7 +19,14 @@ import {
   submitImageJob,
   submitTextJob,
 } from "@/lib/client/api";
-import type { Job, Project, StorageUsage } from "@/lib/contracts";
+import {
+  HISTORY_MAX_OFFSET,
+  HISTORY_PAGE_SIZE,
+  type HistoryPage,
+  type Job,
+  type Project,
+  type StorageUsage,
+} from "@/lib/contracts";
 import {
   jobStatusDescription,
   jobStatusLabel,
@@ -29,6 +38,49 @@ import { ModelViewer } from "@/features/assets/components/model-viewer";
 type AuthState = "checking" | "anonymous" | "authenticated";
 type GenerationMode = "text" | "image";
 type ProjectScope = { id: string };
+type JobRefresh = { controller: AbortController; navigating: boolean };
+
+const EMPTY_PAGE = { items: [], offset: 0 };
+
+function jobTitle(job: Job): string {
+  return job.prompt || (job.kind === "image" ? "Image reference" : "Text generation");
+}
+
+function HistoryControls({
+  kind,
+  page,
+  loading,
+  onPage,
+}: {
+  kind: "project" | "job";
+  page: HistoryPage<Project | Job>;
+  loading: boolean;
+  onPage: (offset: number) => void;
+}) {
+  const hasNext = page.items.length === HISTORY_PAGE_SIZE && page.offset < HISTORY_MAX_OFFSET;
+  if (!page.offset && !hasNext) return null;
+  return (
+    <nav className="history-controls" aria-label={`${kind} history pages`}>
+      <button
+        className="secondary-button compact"
+        aria-label={`Previous ${kind} page`}
+        disabled={loading || page.offset === 0}
+        onClick={() => onPage(page.offset - HISTORY_PAGE_SIZE)}
+      >
+        Previous
+      </button>
+      <span role="status">{loading ? "Loading…" : `Page ${page.offset / HISTORY_PAGE_SIZE + 1}`}</span>
+      <button
+        className="secondary-button compact"
+        aria-label={`Next ${kind} page`}
+        disabled={loading || !hasNext}
+        onClick={() => onPage(page.offset + HISTORY_PAGE_SIZE)}
+      >
+        Next
+      </button>
+    </nav>
+  );
+}
 
 function shortId(value: string): string {
   return value.length > 14 ? `${value.slice(0, 7)}…${value.slice(-5)}` : value;
@@ -61,11 +113,13 @@ export function Studio() {
   const [apiKey, setApiKey] = useState("");
   const [models, setModels] = useState<string[]>([]);
   const [modelId, setModelId] = useState("");
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projectPage, setProjectPage] = useState<HistoryPage<Project>>(EMPTY_PAGE);
+  const [projectsLoading, setProjectsLoading] = useState(false);
   const [storage, setStorage] = useState<StorageUsage | null>(null);
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
-  const [jobs, setJobs] = useState<Job[]>([]);
-  const [selectedJobId, setSelectedJobId] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [jobPage, setJobPage] = useState<HistoryPage<Job>>(EMPTY_PAGE);
+  const [jobsLoading, setJobsLoading] = useState(false);
+  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [generationMode, setGenerationMode] = useState<GenerationMode>("text");
   const [prompt, setPrompt] = useState("");
   const [image, setImage] = useState<File | null>(null);
@@ -74,32 +128,53 @@ export function Studio() {
   const [error, setError] = useState("");
   const workspaceController = useRef<AbortController | null>(null);
   const activeProject = useRef<ProjectScope | null>(null);
-  const activeRefresh = useRef<AbortController | null>(null);
+  const projectPaging = useRef<{ controller: AbortController; offset: number } | null>(null);
+  const activeRefresh = useRef<JobRefresh | null>(null);
+  const projectOffset = useRef(0);
+  const jobOffset = useRef(0);
+  const activeJob = useRef<Job | null>(null);
+  const selectedProjectId = selectedProject?.id ?? null;
+  const projects = projectPage.items;
+  const jobs = jobPage.items;
 
   const report = useCallback((cause: unknown) => {
     setError(apiErrorMessage(cause));
   }, []);
 
-  const chooseProject = useCallback((projectId: string | null) => {
+  const chooseJob = useCallback((job: Job | null) => {
+    activeJob.current = job;
+    setSelectedJob(job);
+  }, []);
+
+  const chooseProject = useCallback((project: Project | null) => {
+    const projectId = project?.id ?? null;
     if (projectId !== (activeProject.current?.id ?? null)) {
-      activeRefresh.current?.abort();
+      activeRefresh.current?.controller.abort();
+      activeRefresh.current = null;
       activeProject.current = projectId ? { id: projectId } : null;
-      setSelectedProjectId(projectId);
-      setJobs([]);
-      setSelectedJobId(null);
+      jobOffset.current = 0;
+      setJobPage(EMPTY_PAGE);
+      setJobsLoading(Boolean(project));
+      chooseJob(null);
     }
+    setSelectedProject(project);
     router.replace(projectId ? `/?project=${encodeURIComponent(projectId)}` : "/");
-  }, [router]);
+  }, [chooseJob, router]);
 
   const endSession = useCallback((message = "") => {
     workspaceController.current?.abort();
     workspaceController.current = new AbortController();
-    activeRefresh.current?.abort();
+    activeRefresh.current?.controller.abort();
+    activeRefresh.current = null;
+    projectPaging.current?.controller.abort();
+    projectPaging.current = null;
+    projectOffset.current = 0;
     chooseProject(null);
     setAuth("anonymous");
     setUserId("");
     setApiKey("");
-    setProjects([]);
+    setProjectPage(EMPTY_PAGE);
+    setProjectsLoading(false);
     setModels([]);
     setModelId("");
     setStorage(null);
@@ -126,24 +201,28 @@ export function Studio() {
 
   const loadWorkspace = useCallback(
     async (preferredProject: string | null, signal: AbortSignal) => {
-      const [availableModels, availableProjects, usage] = await Promise.all([
+      const [availableModels, firstPage, usage] = await Promise.all([
         listModels(signal),
-        listProjects(signal),
+        listProjects(0, signal),
         getStorageUsage(signal),
       ]);
+      let nextProject = firstPage.items.find((item) => item.id === preferredProject);
+      if (!nextProject && preferredProject) {
+        try {
+          nextProject = await getProject(preferredProject, signal);
+        } catch (cause) {
+          if (!(cause instanceof ApiClientError && cause.status === 404)) throw cause;
+        }
+      }
       signal.throwIfAborted();
       setModels(availableModels);
       setModelId((current) =>
         availableModels.includes(current) ? current : (availableModels[0] ?? ""),
       );
-      setProjects(availableProjects);
+      projectOffset.current = 0;
+      setProjectPage(firstPage);
       setStorage(usage);
-
-      const nextProject =
-        (preferredProject && availableProjects.some((item) => item.id === preferredProject)
-          ? preferredProject
-          : availableProjects[0]?.id) ?? null;
-      chooseProject(nextProject);
+      chooseProject(nextProject ?? firstPage.items[0] ?? null);
     },
     [chooseProject],
   );
@@ -172,61 +251,113 @@ export function Studio() {
     return () => {
       workspaceController.current?.abort();
       workspaceController.current = null;
-      activeRefresh.current?.abort();
+      activeRefresh.current?.controller.abort();
+      projectPaging.current?.controller.abort();
       activeProject.current = null;
     };
     // Initial session check intentionally runs once; projectFromUrl is used as the initial preference.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const refreshProjects = useCallback(async (offset: number, workspaceSignal: AbortSignal) => {
+    if (workspaceSignal.aborted) return;
+    projectPaging.current?.controller.abort();
+    const controller = new AbortController();
+    const { signal } = controller;
+    const request = { controller, offset };
+    projectPaging.current = request;
+    setProjectsLoading(true);
+    try {
+      const page = await listProjects(offset, signal);
+      if (signal.aborted) return;
+      projectOffset.current = offset;
+      setProjectPage(page);
+    } catch (cause) {
+      reportWorkspaceFailure(cause, signal);
+    } finally {
+      if (projectPaging.current === request && !signal.aborted) {
+        projectPaging.current = null;
+        setProjectsLoading(false);
+      }
+    }
+  }, [reportWorkspaceFailure]);
+
   const refreshWorkspace = useCallback(
-    async (project: ProjectScope | null, workspaceSignal: AbortSignal) => {
+    async (
+      project: ProjectScope | null,
+      workspaceSignal: AbortSignal,
+      offset: number,
+      navigating = false,
+    ) => {
       if (workspaceSignal.aborted || activeProject.current !== project) return;
-      activeRefresh.current?.abort();
+      if (!navigating && activeRefresh.current?.navigating) return;
+      activeRefresh.current?.controller.abort();
       const controller = new AbortController();
       const { signal } = controller;
-      activeRefresh.current = controller;
+      const refresh = { controller, navigating };
+      activeRefresh.current = refresh;
+      if (navigating) setJobsLoading(true);
       try {
-        const [latest, usage] = await Promise.all([
-          project ? listJobs(project.id, signal) : Promise.resolve([]),
-          getStorageUsage(signal),
+        const [page, usage] = await Promise.all([
+          project ? listJobs(project.id, offset, signal) : Promise.resolve(EMPTY_PAGE),
+          navigating ? Promise.resolve(null) : getStorageUsage(signal),
         ]);
         if (signal.aborted || activeProject.current !== project) return;
-        setJobs(latest);
-        setStorage(usage);
-        setSelectedJobId((current) =>
-          current && latest.some((job) => job.id === current)
-            ? current
-            : (latest[0]?.id ?? null),
-        );
+        jobOffset.current = page.offset;
+        setJobPage(page);
+        if (usage) setStorage(usage);
+        const selected = activeJob.current;
+        if (!selected) {
+          chooseJob(page.items[0] ?? null);
+        } else {
+          const visible = page.items.find((job) => job.id === selected.id);
+          if (visible) {
+            chooseJob(visible);
+          } else if (!navigating) {
+            const latest = await getJob(selected.id, signal);
+            if (!signal.aborted && activeJob.current?.id === selected.id) chooseJob(latest);
+          }
+        }
       } catch (cause) {
         reportWorkspaceFailure(cause, signal);
+      } finally {
+        if (!signal.aborted && activeRefresh.current === refresh) {
+          activeRefresh.current = null;
+          setJobsLoading(false);
+        }
       }
     },
-    [reportWorkspaceFailure],
+    [chooseJob, reportWorkspaceFailure],
   );
 
   useEffect(() => {
     const project = activeProject.current;
     const signal = workspaceController.current?.signal;
     if (auth !== "authenticated" || !signal || (project?.id ?? null) !== selectedProjectId) return;
-    const run = () => void refreshWorkspace(project, signal);
-    if (project) run();
+    if (project) void refreshWorkspace(project, signal, 0);
+    const run = () => void refreshWorkspace(project, signal, jobOffset.current);
     const timer = window.setInterval(run, 5000);
     return () => {
       window.clearInterval(timer);
-      activeRefresh.current?.abort();
+      activeRefresh.current?.controller.abort();
+      activeRefresh.current = null;
     };
   }, [auth, refreshWorkspace, selectedProjectId]);
 
-  const selectedProject = useMemo(
-    () => projects.find((item) => item.id === selectedProjectId) ?? null,
-    [projects, selectedProjectId],
-  );
-  const selectedJob = useMemo(
-    () => jobs.find((item) => item.id === selectedJobId) ?? null,
-    [jobs, selectedJobId],
-  );
+  function showProjectPage(offset: number) {
+    const signal = workspaceController.current?.signal;
+    if (!signal) return;
+    setError("");
+    void refreshProjects(offset, signal);
+  }
+
+  function showJobPage(offset: number) {
+    const signal = workspaceController.current?.signal;
+    const project = activeProject.current;
+    if (!signal || !project) return;
+    setError("");
+    void refreshWorkspace(project, signal, offset, true);
+  }
 
   async function handleLogin(event: FormEvent) {
     event.preventDefault();
@@ -274,8 +405,8 @@ export function Studio() {
       const created = await createProject(projectName.trim(), signal);
       if (signal.aborted) return;
       setProjectName("");
-      setProjects((current) => [created, ...current.filter((item) => item.id !== created.id)]);
-      if (activeProject.current === project) chooseProject(created.id);
+      if (activeProject.current === project) chooseProject(created);
+      void refreshProjects(projectPaging.current?.offset ?? projectOffset.current, signal);
     } catch (cause) {
       reportWorkspaceFailure(cause, signal);
     } finally {
@@ -294,9 +425,8 @@ export function Studio() {
       const job = await submitTextJob(project.id, prompt.trim(), modelId, signal);
       if (activeProject.current !== project) return;
       setPrompt("");
-      setJobs((current) => [job, ...current.filter((item) => item.id !== job.id)]);
-      setSelectedJobId(job.id);
-      void refreshWorkspace(project, signal);
+      chooseJob(job);
+      void refreshWorkspace(project, signal, jobOffset.current);
     } catch (cause) {
       reportWorkspaceFailure(cause, signal, project);
     } finally {
@@ -317,9 +447,8 @@ export function Studio() {
       setImage(null);
       const input = document.getElementById("reference-image") as HTMLInputElement | null;
       if (input) input.value = "";
-      setJobs((current) => [job, ...current.filter((item) => item.id !== job.id)]);
-      setSelectedJobId(job.id);
-      void refreshWorkspace(project, signal);
+      chooseJob(job);
+      void refreshWorkspace(project, signal, jobOffset.current);
     } catch (cause) {
       reportWorkspaceFailure(cause, signal, project);
     } finally {
@@ -407,7 +536,7 @@ export function Studio() {
               <p className="eyebrow">Workspace</p>
               <h2>Projects</h2>
             </div>
-            <span className="count-badge">{projects.length}</span>
+            <span className="count-badge" title="Projects on this page">{projects.length}</span>
           </div>
           <form onSubmit={handleCreateProject} className="mini-form">
             <label htmlFor="project-name">New project</label>
@@ -458,15 +587,20 @@ export function Studio() {
               ) : null}
             </section>
           )}
+          <HistoryControls kind="project" page={projectPage} loading={projectsLoading} onPage={showProjectPage} />
           <div className="project-list" aria-label="Project list">
-            {projects.length === 0 && (
+            {projects.length === 0 && projectPage.offset === 0 && (
               <div className="empty-card">Create your first private project to submit work.</div>
+            )}
+            {projects.length === 0 && projectPage.offset > 0 && (
+              <div className="empty-card">No projects on this page.</div>
             )}
             {projects.map((project) => (
               <button
                 key={project.id}
                 className={`project-item ${project.id === selectedProjectId ? "selected" : ""}`}
-                onClick={() => chooseProject(project.id)}
+                onClick={() => chooseProject(project)}
+                aria-current={project.id === selectedProjectId || undefined}
                 data-project-id={project.id}
               >
                 <strong>{project.name}</strong>
@@ -571,6 +705,7 @@ export function Studio() {
             {!selectedJob && (
               <div className="viewer-placeholder">Select a job to inspect its real persisted state.</div>
             )}
+            {selectedJob && <p className="muted job-selection" title={jobTitle(selectedJob)}>{jobTitle(selectedJob)}</p>}
             {selectedJob && selectedJob.status === "completed" && (
               <ModelViewer jobId={selectedJob.id} />
             )}
@@ -595,22 +730,28 @@ export function Studio() {
               <p className="eyebrow">Persisted history</p>
               <h2>Jobs</h2>
             </div>
-            <span className="count-badge">{jobs.length}</span>
+            <span className="count-badge" title="Jobs on this page">{jobs.length}</span>
           </div>
+          <HistoryControls kind="job" page={jobPage} loading={jobsLoading} onPage={showJobPage} />
           <div className="job-list">
             {!selectedProjectId && <div className="empty-card">Select or create a project.</div>}
-            {selectedProjectId && jobs.length === 0 && <div className="empty-card">No jobs yet.</div>}
+            {selectedProjectId && jobs.length === 0 && (
+              <div className="empty-card">
+                {jobsLoading ? "Loading jobs…" : jobPage.offset ? "No jobs on this page." : "No jobs yet."}
+              </div>
+            )}
             {jobs.map((job) => (
               <button
                 key={job.id}
-                onClick={() => setSelectedJobId(job.id)}
-                className={`job-card ${selectedJobId === job.id ? "selected" : ""}`}
+                onClick={() => chooseJob(job)}
+                aria-current={job.id === selectedJob?.id || undefined}
+                className={`job-card ${selectedJob?.id === job.id ? "selected" : ""}`}
               >
                 <div className="job-card-top">
                   <span className={`status-chip tone-${statusTone(job.status)}`}>{jobStatusLabel(job.status)}</span>
                   <span className="job-kind">{job.kind}</span>
                 </div>
-                <strong>{job.prompt || (job.kind === "image" ? "Image reference" : "Text generation")}</strong>
+                <strong>{jobTitle(job)}</strong>
                 <span>{job.model_id}</span>
                 <time>{when(job.created_at)}</time>
                 {needsOperatorAttention(job.status) && <span className="attention-note">Operator attention</span>}

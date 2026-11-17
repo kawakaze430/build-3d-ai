@@ -23,6 +23,14 @@ export interface Project {
   created_at: number;
 }
 
+export interface HistoryPage<T> {
+  items: T[];
+  offset: number;
+}
+
+export const HISTORY_PAGE_SIZE = 100;
+export const HISTORY_MAX_OFFSET = 100_000;
+
 export interface Job {
   id: string;
   project_id: string;

@@ -71,6 +71,46 @@ function publicProject(item) {
   return { id: item.id, name: item.name, created_at: item.created_at };
 }
 
+function historyPage(res, url, items, serialize) {
+  const limit = Number(url.searchParams.get("limit") ?? 50);
+  const offset = Number(url.searchParams.get("offset") ?? 0);
+  if (!Number.isInteger(limit) || limit < 1 || limit > 100 ||
+      !Number.isInteger(offset) || offset < 0 || offset > 100000) {
+    return json(res, 422, { detail: "History limit or offset is outside the supported range" });
+  }
+  return json(res, 200, {
+    items: items.slice(offset, offset + limit).map(serialize),
+    limit,
+    offset,
+  });
+}
+
+function seedHistory() {
+  for (let index = 1; index <= 102; index += 1) {
+    const number = String(index).padStart(3, "0");
+    projects.unshift({
+      id: `history_project_${number}`,
+      owner: "alice",
+      name: `History project ${number}`,
+      created_at: index,
+    });
+  }
+  for (let index = 1; index <= 200; index += 1) {
+    const number = String(index).padStart(3, "0");
+    jobs.unshift({
+      id: `history_job_${number}`,
+      owner: "alice",
+      project_id: "history_project_102",
+      kind: "text",
+      status: "queued",
+      model_id: "test_model",
+      prompt: `History job ${number}`,
+      created_at: index,
+      updated_at: index,
+    });
+  }
+}
+
 function storageFor(owner) {
   const used = owner.fixedStorageUsed ?? (storageUsed.get(owner.id) ?? 0);
   const limit = owner.storageLimit ?? DEFAULT_STORAGE_LIMIT;
@@ -161,6 +201,10 @@ const server = createServer(async (req, res) => {
     aliceRevoked = true;
     return json(res, 200, { revoked: true });
   }
+  if (url.pathname === "/__seed_history" && req.method === "POST") {
+    seedHistory();
+    return json(res, 200, { seeded: true });
+  }
 
   const owner = ownerFor(req);
   if (!owner) return json(res, 401, { detail: "Invalid API key" });
@@ -175,11 +219,7 @@ const server = createServer(async (req, res) => {
     return json(res, 200, storageFor(owner));
   }
   if (url.pathname === "/v1/projects" && req.method === "GET") {
-    return json(res, 200, {
-      items: projects.filter((item) => item.owner === owner.id).map(publicProject),
-      limit: 100,
-      offset: 0,
-    });
+    return historyPage(res, url, projects.filter((item) => item.owner === owner.id), publicProject);
   }
   if (url.pathname === "/v1/projects" && req.method === "POST") {
     const raw = await readBody(req);
@@ -203,13 +243,12 @@ const server = createServer(async (req, res) => {
   match = url.pathname.match(/^\/v1\/projects\/([A-Za-z0-9_-]+)\/jobs$/);
   if (match && req.method === "GET") {
     if (!project(owner, match[1])) return json(res, 404, { detail: "Project not found" });
-    return json(res, 200, {
-      items: jobs
-        .filter((item) => item.owner === owner.id && item.project_id === match[1])
-        .map(publicJob),
-      limit: 100,
-      offset: 0,
-    });
+    return historyPage(
+      res,
+      url,
+      jobs.filter((item) => item.owner === owner.id && item.project_id === match[1]),
+      publicJob,
+    );
   }
 
   match = url.pathname.match(/^\/v1\/projects\/([A-Za-z0-9_-]+)\/jobs\/(text|image)$/);

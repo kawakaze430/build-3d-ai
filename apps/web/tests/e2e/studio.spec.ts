@@ -335,3 +335,111 @@ test("ends a revoked workspace and discards an earlier submission result after r
     release.resolve();
   }
 });
+
+test("browses project and job history beyond the first 100 with stable selection and deep links", async ({ page, request }) => {
+  expect((await request.post("http://127.0.0.1:8099/__seed_history")).ok()).toBe(true);
+  await login(page);
+  const projectList = page.locator(".project-list .project-item");
+  const jobList = page.locator(".job-list .job-card");
+  await expect(projectList).toHaveCount(100);
+  await expect(jobList).toHaveCount(100);
+  const initialProjects = await projectList.evaluateAll((items) => items.map((item) => item.textContent));
+  const initialJobs = await jobList.evaluateAll((items) => items.map((item) => item.querySelector("strong")?.textContent));
+
+  await page.getByRole("button", { name: "Next project page" }).click();
+  await expect(projectList).toHaveCount(2);
+  await expect(page.getByRole("button", { name: "Next project page" })).toBeDisabled();
+  await expect(page.getByRole("heading", { name: "History project 102" })).toBeVisible();
+  const olderProjects = await projectList.evaluateAll((items) => items.map((item) => item.textContent));
+  expect(new Set([...initialProjects, ...olderProjects]).size).toBe(102);
+
+  await page.getByRole("button", { name: "Next job page" }).click();
+  const olderJob = page.getByRole("button", { name: /History job 001/ });
+  await expect(olderJob).toBeVisible();
+  const olderJobs = await jobList.evaluateAll((items) => items.map((item) => item.querySelector("strong")?.textContent));
+  expect(new Set([...initialJobs, ...olderJobs]).size).toBe(200);
+  await olderJob.click();
+  await expect(olderJob).toHaveAttribute("aria-current", "true");
+  await page.getByRole("button", { name: "Next job page" }).click();
+  await expect(page.getByText("No jobs on this page.")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Next job page" })).toBeDisabled();
+  await expect(page.getByTitle("History job 001")).toBeVisible();
+  await page.getByRole("button", { name: "Previous job page" }).click();
+  await expect(olderJob).toHaveAttribute("aria-current", "true");
+
+  await page.getByRole("button", { name: /History project 001/ }).click();
+  await expect(page.getByRole("heading", { name: "History project 001" })).toBeVisible();
+  await expect(page.getByText("No jobs yet.")).toBeVisible();
+  await expect(page).toHaveURL(/\?project=history_project_001$/);
+  await page.reload();
+  await expect(page.getByRole("heading", { name: "History project 001" })).toBeVisible();
+  await expect(projectList).toHaveCount(100);
+});
+
+test("discards an in-flight history page when its project is no longer active", async ({ page, request }) => {
+  expect((await request.post("http://127.0.0.1:8099/__seed_history")).ok()).toBe(true);
+  await login(page);
+  const requested = Promise.withResolvers<void>();
+  const release = Promise.withResolvers<void>();
+  const settled = Promise.withResolvers<void>();
+  await page.route(
+    (url) => url.pathname.endsWith("/history_project_102/jobs") && url.searchParams.get("offset") === "100",
+    async (route) => {
+      const response = await route.fetch();
+      requested.resolve();
+      await release.promise;
+      await route.fulfill({ response }).catch(() => {});
+      settled.resolve();
+    },
+  );
+  try {
+    await page.getByRole("button", { name: "Next job page" }).click();
+    await requested.promise;
+    await expect(page.getByRole("status").filter({ hasText: "Loading…" })).toBeVisible();
+    await page.getByRole("button", { name: /History project 101/ }).click();
+    await expect(page.getByText("No jobs yet.")).toBeVisible();
+    release.resolve();
+    await settled.promise;
+    await expect(page.getByRole("heading", { name: "History project 101" })).toBeVisible();
+    await expect(page.getByRole("button", { name: /History job 001/ })).toHaveCount(0);
+  } finally {
+    release.resolve();
+  }
+});
+
+test("refreshes the chosen offsets after inserts and preserves them after a rejected page", async ({ page, request }) => {
+  expect((await request.post("http://127.0.0.1:8099/__seed_history")).ok()).toBe(true);
+  await login(page);
+  const rejectedJobPage = (url: URL) =>
+    url.pathname.endsWith("/history_project_102/jobs") && url.searchParams.get("offset") === "100";
+  await page.route(rejectedJobPage, (route) => route.fulfill({
+    status: 422,
+    json: { detail: "History page rejected" },
+  }));
+  const nextJob = page.getByRole("button", { name: "Next job page" });
+  await nextJob.click();
+  await expect(page.getByText("History page rejected")).toBeVisible();
+  await expect(page.getByRole("button", { name: /History job 200/ })).toBeVisible();
+  await page.unroute(rejectedJobPage);
+  await nextJob.click();
+  await expect(page.getByRole("button", { name: /History job 001/ })).toBeVisible();
+
+  await page.getByLabel("Prompt").fill("New independent job selection");
+  await page.getByRole("button", { name: "Generate 3D" }).click();
+  await expect(page.getByTitle("New independent job selection")).toBeVisible();
+  await expect(page.getByRole("button", { name: /History job 101/ })).toBeVisible();
+  await expect(page.getByRole("button", { name: /History job 001/ })).toHaveCount(0);
+
+  await page.getByRole("button", { name: "Next project page" }).click();
+  await expect(page.getByRole("button", { name: /History project 001/ })).toBeVisible();
+  await page.getByLabel("New project").fill("New independent project selection");
+  await page.getByRole("button", { name: "Add" }).click();
+  await expect(page.getByRole("heading", { name: "New independent project selection" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /History project 003/ })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Previous project page" })).toBeEnabled();
+
+  const unsupported = await page.request.get("/api/product/v1/projects?limit=101&offset=0");
+  expect(unsupported.status()).toBe(422);
+  const outsideRange = await page.request.get("/api/product/v1/projects?limit=100&offset=100001");
+  expect(outsideRange.status()).toBe(422);
+});

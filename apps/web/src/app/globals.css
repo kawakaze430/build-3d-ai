@@ -128,6 +128,10 @@ textarea { min-height: 104px; resize: vertical; }
 .storage-warning { margin: 2px 0 0; color: var(--warn); font-size: 10px; line-height: 1.4; }
 .storage-over .storage-warning { color: var(--bad); }
 .project-list, .job-list { display: grid; gap: 7px; margin-top: 12px; }
+.history-controls {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;
+  margin-top: 12px; color: var(--muted); font-size: 12px;
+}
 .project-item, .job-card {
   width: 100%; text-align: left; border: 1px solid transparent; border-radius: 11px; background: transparent; color: var(--text); padding: 10px;
 }
@@ -159,6 +163,7 @@ textarea { min-height: 104px; resize: vertical; }
 .attention-note { color: var(--warn) !important; font-weight: 800; }
 
 .viewer-panel { min-height: 460px; }
+.job-selection { margin: 0 0 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .viewer-placeholder {
   min-height: 360px; border: 1px dashed var(--border); border-radius: 12px; display: grid; place-items: center;
   color: var(--muted); text-align: center; padding: 28px;

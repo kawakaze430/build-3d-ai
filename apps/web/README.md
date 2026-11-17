@@ -45,6 +45,8 @@ Review the lockfile diff and run the validation commands after a clean `npm ci`.
 - responsive UI and explicit error handling for 401/404/409/413/429/5xx;
 - unit and Playwright browser tests using a clearly synthetic test backend/triangle GLB fixture.
 
+Project and job history use newest-first pages of up to 100 items. Previous and Next change the visible page while the active project and inspected job stay selected. Direct links still open owned projects outside the first page. New records can shift results between offset pages. If the last page contains exactly 100 items, Next can show an empty page with Previous still available.
+
 ## Validation
 
 ```bash

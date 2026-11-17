@@ -1,5 +1,7 @@
 import {
+  HISTORY_PAGE_SIZE,
   JOB_STATUSES,
+  type HistoryPage,
   type Job,
   type JobStatus,
   type Project,
@@ -186,12 +188,31 @@ export async function getStorageUsage(signal?: AbortSignal): Promise<StorageUsag
   };
 }
 
-export async function listProjects(signal?: AbortSignal): Promise<Project[]> {
-  const value = await requestJson("/api/product/v1/projects?limit=100&offset=0", { signal });
-  if (!isRecord(value) || !Array.isArray(value.items)) {
-    throw new ApiClientError(502, "Backend returned malformed project list");
+function parseHistoryPage<T>(
+  value: unknown,
+  offset: number,
+  parseItem: (item: unknown) => T,
+): HistoryPage<T> {
+  if (
+    !isRecord(value) ||
+    !Array.isArray(value.items) ||
+    value.limit !== HISTORY_PAGE_SIZE ||
+    value.offset !== offset ||
+    value.items.length > HISTORY_PAGE_SIZE
+  ) {
+    throw new ApiClientError(502, "Backend returned a malformed history page");
   }
-  return value.items.map(parseProject);
+  return { items: value.items.map(parseItem), offset };
+}
+
+export async function listProjects(offset: number, signal?: AbortSignal): Promise<HistoryPage<Project>> {
+  const value = await requestJson(`/api/product/v1/projects?limit=${HISTORY_PAGE_SIZE}&offset=${offset}`, { signal });
+  return parseHistoryPage(value, offset, parseProject);
+}
+
+export async function getProject(projectId: string, signal?: AbortSignal): Promise<Project> {
+  const value = await requestJson(`/api/product/v1/projects/${encodeURIComponent(projectId)}`, { signal });
+  return parseProject(value);
 }
 
 export async function createProject(name: string, signal?: AbortSignal): Promise<Project> {
@@ -203,15 +224,17 @@ export async function createProject(name: string, signal?: AbortSignal): Promise
   }));
 }
 
-export async function listJobs(projectId: string, signal?: AbortSignal): Promise<Job[]> {
+export async function listJobs(projectId: string, offset: number, signal?: AbortSignal): Promise<HistoryPage<Job>> {
   const value = await requestJson(
-    `/api/product/v1/projects/${encodeURIComponent(projectId)}/jobs?limit=100&offset=0`,
+    `/api/product/v1/projects/${encodeURIComponent(projectId)}/jobs?limit=${HISTORY_PAGE_SIZE}&offset=${offset}`,
     { signal },
   );
-  if (!isRecord(value) || !Array.isArray(value.items)) {
-    throw new ApiClientError(502, "Backend returned malformed job list");
-  }
-  return value.items.map(parseJob);
+  return parseHistoryPage(value, offset, parseJob);
+}
+
+export async function getJob(jobId: string, signal?: AbortSignal): Promise<Job> {
+  const value = await requestJson(`/api/product/v1/jobs/${encodeURIComponent(jobId)}`, { signal });
+  return parseJob(value);
 }
 
 export async function submitTextJob(
