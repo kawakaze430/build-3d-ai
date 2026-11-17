@@ -56,3 +56,22 @@ npm run test:e2e
 ```
 
 Browser fixtures prove the web/API contract and GLB viewer path only. They **do not** prove real AI generation, model quality, GPU cost, Blender import or production deployment.
+
+### Real product API browser acceptance
+
+From the repository root, with the CPU dependencies and Playwright Chromium installed:
+
+```bash
+.venv/bin/python apps/web/tests/real-api/run.py
+```
+
+Set `BUILD3D_SYSTEM_CHROMIUM=/usr/bin/chromium` to use managed Chromium.
+Stop any active Next.js development server in this checkout before running.
+The suite starts its own loopback API on port 18181 and studio on port 13000.
+It removes the temporary SQLite database, artifact store and test keys after
+Playwright shuts down both servers.
+
+The suite verifies project persistence after reload, sign-out, tenant
+isolation, quota and history responses, and a real browser download with a
+matching checksum. The viewer displays a synthetic GLB seeded through the
+local persistence layer. The API runs with an empty approval policy.
