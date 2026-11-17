@@ -1,5 +1,17 @@
 BUILD 3D AI — WORK PROGRESS AND HANDOFF
 Date: 17 November2026
+CURRENT EXECUTION HANDOFF ADDITION
+The owner requested a homepage-linked root Markdown continuation guide.
+PROJECT_STATUS_AND_TASKS.md now explains the goal, current features and limits,
+28 scoped implementation cards,14 later workstreams,all509project files and
+167trackedancestor directories,with acceptance/testing/review requirements.
+The next implementation tool should use focused PRs;WEB-01 is recommended first.
+Codex can review supplied PRs in an active session;no background watcher exists.
+This documentation adds no runtime feature and does not rerun the dated253tests.
+The prior validation/source delivery is verified main commit8d09e3b6268d01bf7b3d2aa468ac537a7d80ae35.
+The current documentation delivery is identified and verified through Git refs;
+no unverified new SHA or live hosted check outcome is invented below.
+
 Starting main:56f412f0722394300a522b7392b191702d3f2c48
 Inspected pre-validation main:ddd7c595b968bca57671beed887ec41856f38ea6
 
@@ -8,7 +20,7 @@ COMPLETED RECOVERY AND ORGANIZATION
 - The earlier all-ref snapshot covered 18 remote heads, 96 commits, 620 historical paths and 529 unique blobs; its evidence remains scoped to that snapshot.
 - 56 responsibility/workstream cards describe implemented, recovered, inactive reference and future work; they are not 56 shipped features.
 - 45 functional moves retain framework/package boundaries and recorded original/snapshot/current hashes.
-- Current relevant repository-owned file count:508, including new validation records and preserved pre-refresh metadata. No credentials, private databases, installed caches or CA bytes are included.
+- Validation-delivery snapshot file count:508, including new validation records and preserved pre-refresh metadata. No credentials, private databases, installed caches or CA bytes are included.
 
 AUTHORIZED POST-RESTRUCTURE VALIDATION
 The owner lifted the earlier execution pause and requested all available tests.

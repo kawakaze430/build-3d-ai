@@ -298,7 +298,7 @@
       "size_bytes": 41309,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "09928573fb3bca0e69d565a53b09ed81c0fc8dc93909b88bfd44ac007df6d32c",
-      "final_sha256": "8ef3ef8540c86dfe55b50c31fd0593d1a3e3eb21c92e645ff6d8e467c5e42ef1",
+      "final_sha256": "1c8347afd9de23bdffb544b13d5e4f3ba0c6856c36fc5d152a1994f5b2d04b3d",
       "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/PROJECT_MEMORY_MASTER.md",
       "restructure_snapshot_sha256": "c97dba69d47b6ebc3aec2efb5e824933d0a50b0f3a85cd409c6625da2d950000"
     },
@@ -310,7 +310,7 @@
       "size_bytes": 14966,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "7061bb3c5a69fa88410dc69484004baec3a9d6145e0bbb63847d67ca3398bd42",
-      "final_sha256": "1a9767c5978d4e8c9e00ebcf9815f245107d6d5a0b1c53d90b0313a24c15cbbd",
+      "final_sha256": "6f870eab69cafc63536d208a670a571fc640c57e96f10c5965c6c183dfde69fd",
       "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/CODEX_HANDOFF.md",
       "restructure_snapshot_sha256": "8fee88589885a3e76e2341a6caf2c6bb284379080deed8115a6ccaf0f8b75013"
     },
@@ -546,5 +546,6 @@
   "note": "Pre-move and initial-repair hashes preserve original phase snapshots. restructure_snapshot_sha256 preserves the prior static restructure snapshot. final_sha256 records current content after authorized validation/documentation updates; see current validation report.",
   "latest_instruction": "Owner reauthorized all available testing;253 selected case executions and documented build/runtime checks passed. Current evidence: AnalyseFuture/validation/2026-11-17/REPORT.md",
   "restructure_snapshot_latest_instruction": "No tests. Final checks are static source/path/hash/Git inspection only.",
-  "current_validation_report": "AnalyseFuture/validation/2026-11-17/REPORT.md"
+  "current_validation_report": "AnalyseFuture/validation/2026-11-17/REPORT.md",
+  "current_execution_handoff": "PROJECT_STATUS_AND_TASKS.md"
 }

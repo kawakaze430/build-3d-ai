@@ -1,5 +1,16 @@
 # Developer handoff — 15 November 2026
 
+## Current execution handoff — 17 November 2026
+
+Start with [PROJECT_STATUS_AND_TASKS.md](../../PROJECT_STATUS_AND_TASKS.md) for
+the source-reconciled feature status, every-file/folder guide, 28 scoped task
+cards, 14 later workstreams and acceptance/review requirements. The next tool
+should open focused PRs; the recommended first task is WEB-01 polling and stale
+completion correctness. This documentation adds no runtime feature or new test
+result. PRs can be brought to Codex for review in an active session; no continuous
+watcher is configured. Current PR/check metadata still needs an authorized live
+interface rather than an inferred status from historical notes.
+
 ## Post-restructure validation authorized — 17 November 2026
 
 The owner subsequently requested **“pls test all”**, lifting the earlier pause.

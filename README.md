@@ -4,6 +4,8 @@ Current implementation reconciliation: 17 November 2026. The [pre-review version
 
 > **Main project goal:** [Read the complete Build 3D AI project goal (.txt)](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt). Adopted by the owner on 17 November 2026 as the repository's primary product direction.
 
+> **Start here — status and next tasks:** [Project status, complete file/folder guide and detailed implementation handoff](PROJECT_STATUS_AND_TASKS.md). Includes implemented features and limits, 28 scoped PR tasks, later capabilities, acceptance criteria, test expectations and the review workflow for the next tool.
+
 Build an independent AI-assisted 3D creation studio for reusable, editable assets, with a long-term focus on consistent stylized adult characters and environments for Blender animation. Build on the existing product foundation, prove a focused real asset workflow first, and expand through measured quality and practical artist control.
 
 > **Implementation baseline (15 Nov 2026):** `main` now contains the authenticated gateway, durable private product API/worker, browser studio/GLB viewer, and filesystem + optional S3-compatible artifact storage. Follow the [complete ordered checklist](docs/continuity/IMPLEMENTATION_CHECKLIST.md), [current handoff](docs/continuity/CODEX_HANDOFF.md), and [product backend runbook](docs/operations/PRODUCT_BACKBONE.md). **No real GPU inference or production SaaS is deployed yet.**

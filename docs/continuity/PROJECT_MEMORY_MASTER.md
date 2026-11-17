@@ -1,5 +1,19 @@
 # BUILD 3D AI — Master Project Memory and Continuation Handbook
 
+## Current execution handoff — 17 November 2026
+
+The owner requested a homepage-linked Markdown handoff for another tool to
+continue through pull requests. Read [PROJECT_STATUS_AND_TASKS.md](../../PROJECT_STATUS_AND_TASKS.md):
+it explains implemented/partial/future features, all tracked files/folders,
+28 scoped implementation cards, 14 later workstreams and acceptance criteria.
+Start with WEB-01 unless an existing PR owns it. The first-party foundations
+and the dated 253-execution validation remain credited; this is documentation,
+not a new model result. Future tool work uses focused branches/PRs for review.
+Codex can review supplied PRs in an active session; persistent monitoring needs
+the explicit OPS-05 integration and is not configured by this document. Recheck
+current main, open PRs and checks before work; GitHub API metadata was unavailable
+at handoff while native Git main verification worked.
+
 ## Post-restructure validation authorized — 17 November 2026
 
 The owner subsequently requested **“pls test all”**, lifting the earlier pause.

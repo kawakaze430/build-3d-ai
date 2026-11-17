@@ -1,11 +1,13 @@
 COMPLETE FILE INVENTORY — BUILD 3D AI
 Starting commit: 56f412f0722394300a522b7392b191702d3f2c48
-Starting tracked files: 369 (309 text; 60 binary). Current relevant repository-owned paths: 508.
+Starting tracked files: 369 (309 text; 60 binary). Current relevant repository-owned paths: 509.
 Functional moves: 45 (42 starting tracked;3 earlier-authored). Responsibility/workstream cards: 56.
 
 CURRENT SCOPE AND VALIDATION
 All current tracked and nonignored authored paths are enumerated below; old phase inventories remain preserved as snapshots. The prior 495-path restructure inventory is historical. 253 passing case executions and other documented software/build/runtime/container checks now validate the final layout within their specific contracts. Evidence: AnalyseFuture/validation/2026-11-17/REPORT.md
 No real GPU inference, real S3 provider, Blender import or production/public-service acceptance is inferred. Reports do not recursively self-hash; original/snapshot bytes and 801 preservation records carry explicit hashes. Private local state and generated dependencies remain outside publication.
+
+Current execution handoff: PROJECT_STATUS_AND_TASKS.md; 28 scoped PR cards and 14 later workstreams. This documentation adds one path and no new runtime/test result.
 
 CURRENT PATH-BY-PATH CLASSIFICATION
 
@@ -3138,7 +3140,7 @@ Feature cards: cross-cutting context/evidence
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
 [392] PROJECT_STRUCTURE.md
-Purpose: Current functional ownership/directory guide and links to authorized post-restructure validation evidence.
+Purpose: Current functional ownership/directory guide and links to the root feature/task handoff and dated validation.
 Owner/role: current recovery or functional source; active source/configuration or current documentation/evidence
 Starting source: new authored or preserved-phase evidence
 Dependencies: No additional executable dependency asserted; consult owning package/feature and source provenance.
@@ -3146,7 +3148,7 @@ Feature cards: cross-cutting context/evidence
 Inspection: Current authored source/review evidence statically inspected; executed software validation is separately scoped in AnalyseFuture/validation/2026-11-17/REPORT.md
 
 [393] README.md
-Purpose: Product entry point, adopted goal, implemented private slices and navigation
+Purpose: GitHub homepage linking the adopted goal, root execution handoff, implemented private product, setup and navigation.
 Owner/role: live_reference; active source/configuration or current documentation/evidence
 Starting source: README.md
 Dependencies: apps/api; apps/gateway; apps/web; docs/BUILD_3D_AI_PROJECT_IDEA.txt; docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md
@@ -3362,7 +3364,7 @@ Feature cards: F019, F032, F048
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
 [420] apps/gateway/pyproject.toml
-Purpose: Package dependencies, entrypoints, source discovery and migration/policy data inclusion
+Purpose: Installable gateway package metadata, optional test dependencies, model-policy package data and GPU-smoke/textured-GLB CLI entrypoints.
 Owner/role: package_manifest; active source/configuration or current documentation/evidence
 Starting source: apps/gateway/pyproject.toml
 Dependencies: No additional executable dependency asserted; consult owning package/feature and source provenance.
@@ -3634,7 +3636,7 @@ Feature cards: F020, F026
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
 [454] apps/web/src/lib/server/request-body.test.ts
-Purpose: Retained ten boundary/error cases for the shared body reader; execution deferred after final moves.
+Purpose: Ten bounded streaming-body boundary/error cases; passed in the dated post-restructure web unit suite.
 Owner/role: current recovery or functional source; active source/configuration or current documentation/evidence
 Starting source: new authored or preserved-phase evidence
 Dependencies: No additional executable dependency asserted; consult owning package/feature and source provenance.
@@ -3690,7 +3692,7 @@ Feature cards: F033, F046
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
 [461] docs/README.md
-Purpose: Navigation index for project, architecture, development, operations, research and continuity documentation.
+Purpose: Documentation entry index, including the root current status/task handoff and dated validation instead of the superseded testing pause.
 Owner/role: current recovery or functional source; active source/configuration or current documentation/evidence
 Starting source: new authored or preserved-phase evidence
 Dependencies: No additional executable dependency asserted; consult owning package/feature and source provenance.
@@ -3698,7 +3700,7 @@ Feature cards: cross-cutting context/evidence
 Inspection: Current authored source/review evidence statically inspected; executed software validation is separately scoped in AnalyseFuture/validation/2026-11-17/REPORT.md
 
 [462] docs/architecture/ARCHITECTURE.md
-Purpose: Historical target architecture and component/data responsibilities
+Purpose: Current component/data responsibility and dependency boundaries, with explicitly labeled expansion targets and preserved earlier architecture.
 Owner/role: mixed_current_and_target; active source/configuration or current documentation/evidence
 Starting source: docs/ARCHITECTURE.md
 Dependencies: apps/api; apps/gateway; apps/web; docs/PRODUCT_BACKBONE.md
@@ -3842,7 +3844,7 @@ Feature cards: F047, F049, F050, F051, F052, F053, F054, F055, F056
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
 [480] docs/project/FEATURE_MAP.md
-Purpose: Current authored recovery documentation or explicit preservation context; retained and classified in its functional collection.
+Purpose: Current cross-layer feature ownership map connecting UI, API, worker, storage, tests, configuration and remaining evidence limits.
 Owner/role: recovery documentation; active source/configuration or current documentation/evidence
 Starting source: new authored or preserved-phase evidence
 Dependencies: No additional executable dependency asserted; consult owning package/feature and source provenance.
@@ -3962,7 +3964,7 @@ Feature cards: F030
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
 [495] scripts/cloud/playwright.config.cjs
-Purpose: System Chromium cloud alternative with explicit mock/studio working dirs; does not reuse arbitrary existing servers.
+Purpose: Thin managed-Chromium selector delegating to canonical apps/web/playwright.config.ts; disables reuse of unrelated servers in cloud mode.
 Owner/role: Cloud browser configuration; active source/configuration or current documentation/evidence
 Starting source: scripts/cloud/playwright.config.cjs
 Dependencies: node:path
@@ -4077,3 +4079,11 @@ BOUNDARIES
 All 369 starting and 432 pre-functional content hashes remain preserved. Seven pre-refresh metadata snapshots retain the superseded instruction and inventory/hash context. Current physical delivery must be verified through Git refs; this report does not invent a new delivered SHA.
 Ignored local dependency/private runtime categories remain documented as metadata-only historical snapshots in LOCAL_EXCLUSIONS.json. Their contents are not part of this public inventory.
 The metadata refresh performed static path/hash/import/config review only; it did not rerun software suites. Those 253 passed executions are evidenced in the separate current validation report.
+
+[509] PROJECT_STATUS_AND_TASKS.md
+Purpose: Homepage-linked source-reconciled feature status,28 detailed PR cards,14 later workstreams,review/acceptance workflow and complete509-file/167-directory guide.
+Owner/role: Project maintainer and assigned task owners; current documentation/handoff; no new runtime feature
+Starting source: new authored continuation handoff
+Dependencies: AGENTS.md; docs/project/BUILD_3D_AI_PROJECT_IDEA.txt; current source/tests; dated validation/preservation evidence
+Feature cards: No additional feature card; this document explains existing responsibilities.
+Inspection: Source and prior review evidence reconciled; local links, anchors and complete Git path coverage checked without rerunning runtime suites.

@@ -1,5 +1,7 @@
 # Documentation by responsibility
 
+- [Current status and detailed tasks](../PROJECT_STATUS_AND_TASKS.md): implemented
+  features, every file/folder, scoped PR assignments and review/acceptance criteria.
 - [Project goal](project/BUILD_3D_AI_PROJECT_IDEA.txt): primary product direction.
 - [Project planning](project/): scope, capabilities, roadmap, backlog and benchmarks.
 - [Architecture](architecture/): components, identity boundaries and design decisions.
@@ -14,5 +16,7 @@
 
 Historical snapshots, prior requests and superseded documents are retained in
 `AnalyseFuture/`; they are not the current operating instructions. Current code
-and explicit approval/acceptance rules govern execution. The latest owner
-instruction defers testing of the final reorganized layout.
+and explicit approval/acceptance rules govern execution. The owner subsequently
+reauthorized tests; the [dated validation](../AnalyseFuture/validation/2026-11-17/REPORT.md)
+records the passing local software checks and remaining limits. The next
+implementation tool should use focused PRs as described in the current handoff.

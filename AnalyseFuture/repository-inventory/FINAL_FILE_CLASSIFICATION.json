@@ -1,6 +1,6 @@
 {
   "starting_count": 369,
-  "final_project_file_count": 508,
+  "final_project_file_count": 509,
   "feature_card_count": 56,
   "physical_move_count": 45,
   "files": [
@@ -5937,9 +5937,25 @@
       "hash_policy": "Baseline hashes and full source-copy hashes are in immutable starting/preservation inventories; generated reports are not recursively self-hashed."
     },
     {
+      "path": "PROJECT_STATUS_AND_TASKS.md",
+      "reviewed_starting_path": null,
+      "purpose": "Homepage-linked source-reconciled feature status,28 detailed PR cards,14 later workstreams,review/acceptance workflow and complete509-file/167-directory guide.",
+      "functional_owner": "Project maintainer and assigned task owners",
+      "dependencies": [
+        "AGENTS.md",
+        "docs/project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "current source/tests",
+        "dated validation/preservation evidence"
+      ],
+      "feature_cards": [],
+      "role": "current documentation/handoff; no new runtime feature",
+      "inspection": "Source and prior review evidence reconciled; local links, anchors and complete Git path coverage checked without rerunning runtime suites.",
+      "hash_policy": "Generated handoff does not recursively self-hash; baseline source hashes remain preserved."
+    },
+    {
       "path": "PROJECT_STRUCTURE.md",
       "reviewed_starting_path": null,
-      "purpose": "Current functional ownership/directory guide and links to authorized post-restructure validation evidence.",
+      "purpose": "Current functional ownership/directory guide and links to the root feature/task handoff and dated validation.",
       "functional_owner": "current recovery or functional source",
       "dependencies": [],
       "feature_cards": [],
@@ -5950,7 +5966,7 @@
     {
       "path": "README.md",
       "reviewed_starting_path": "README.md",
-      "purpose": "Product entry point, adopted goal, implemented private slices and navigation",
+      "purpose": "GitHub homepage linking the adopted goal, root execution handoff, implemented private product, setup and navigation.",
       "functional_owner": "live_reference",
       "dependencies": [
         "apps/api",
@@ -6587,7 +6603,7 @@
     {
       "path": "apps/gateway/pyproject.toml",
       "reviewed_starting_path": "apps/gateway/pyproject.toml",
-      "purpose": "Package dependencies, entrypoints, source discovery and migration/policy data inclusion",
+      "purpose": "Installable gateway package metadata, optional test dependencies, model-policy package data and GPU-smoke/textured-GLB CLI entrypoints.",
       "functional_owner": "package_manifest",
       "dependencies": [],
       "feature_cards": [
@@ -7182,7 +7198,7 @@
     {
       "path": "apps/web/src/lib/server/request-body.test.ts",
       "reviewed_starting_path": null,
-      "purpose": "Retained ten boundary/error cases for the shared body reader; execution deferred after final moves.",
+      "purpose": "Ten bounded streaming-body boundary/error cases; passed in the dated post-restructure web unit suite.",
       "functional_owner": "current recovery or functional source",
       "dependencies": [],
       "feature_cards": [
@@ -7289,7 +7305,7 @@
     {
       "path": "docs/README.md",
       "reviewed_starting_path": null,
-      "purpose": "Navigation index for project, architecture, development, operations, research and continuity documentation.",
+      "purpose": "Documentation entry index, including the root current status/task handoff and dated validation instead of the superseded testing pause.",
       "functional_owner": "current recovery or functional source",
       "dependencies": [],
       "feature_cards": [],
@@ -7300,7 +7316,7 @@
     {
       "path": "docs/architecture/ARCHITECTURE.md",
       "reviewed_starting_path": "docs/ARCHITECTURE.md",
-      "purpose": "Historical target architecture and component/data responsibilities",
+      "purpose": "Current component/data responsibility and dependency boundaries, with explicitly labeled expansion targets and preserved earlier architecture.",
       "functional_owner": "mixed_current_and_target",
       "dependencies": [
         "apps/api",
@@ -7594,7 +7610,7 @@
     {
       "path": "docs/project/FEATURE_MAP.md",
       "reviewed_starting_path": null,
-      "purpose": "Current authored recovery documentation or explicit preservation context; retained and classified in its functional collection.",
+      "purpose": "Current cross-layer feature ownership map connecting UI, API, worker, storage, tests, configuration and remaining evidence limits.",
       "functional_owner": "recovery documentation",
       "dependencies": [],
       "feature_cards": [],
@@ -7809,7 +7825,7 @@
     {
       "path": "scripts/cloud/playwright.config.cjs",
       "reviewed_starting_path": "scripts/cloud/playwright.config.cjs",
-      "purpose": "System Chromium cloud alternative with explicit mock/studio working dirs; does not reuse arbitrary existing servers.",
+      "purpose": "Thin managed-Chromium selector delegating to canonical apps/web/playwright.config.ts; disables reuse of unrelated servers in cloud mode.",
       "functional_owner": "Cloud browser configuration",
       "dependencies": [
         "node:path"
@@ -8024,5 +8040,6 @@
   "restructure_snapshot_file_count": 495,
   "current_validation_report": "AnalyseFuture/validation/2026-11-17/REPORT.md",
   "current_validation_passed_case_executions": 253,
-  "count_scope": "All currently tracked files plus nonignored authored files on disk at this metadata refresh; excludes installed dependencies, generated output and private runtime files. Newly authored paths are not claimed remotely delivered before Git verification."
+  "count_scope": "All current tracked and nonignored authored project paths, including the new root handoff; excludes installed dependencies, private runtime state and generated caches. Dated validation covers its stated code snapshot; documentation does not create a new runtime result.",
+  "current_handoff": "PROJECT_STATUS_AND_TASKS.md"
 }
