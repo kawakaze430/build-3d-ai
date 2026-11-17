@@ -73,7 +73,9 @@
       "Blender import of real generated output",
       "production SaaS deployment",
       "GitHub-hosted result of the new commit"
-    ]
+    ],
+    "passed_case_executions": 253,
+    "report": "AnalyseFuture/validation/2026-11-17/REPORT.md"
   },
   "features": [
     {
@@ -794,7 +796,7 @@
         "Actualcontainerdeployment notproven; mutable pythonbase/build-backend minimum still not completeartifacthashlock"
       ],
       "consolidation_or_reuse_decision": "Implemented consolidation: both CPU images consume requirements.lock; original gateway Docker/Compose files are preserved under AnalyseFuture/historical-implementations/gateway-packaging/.",
-      "final_ownership": "Platform engineer; apps/api/Dockerfile, apps/gateway/Dockerfile and root Compose entry points",
+      "final_ownership": "Platform engineer; apps/api/Dockerfile, apps/gateway/Dockerfile and infrastructure/compose/ entry points",
       "proposed_nonexisting_path": null,
       "planning_horizon": null,
       "before_functional_related_files": [
@@ -1174,7 +1176,7 @@
         "apps/web/src/lib/server/request-body.test.ts"
       ],
       "status": "existing_and_verified_within_software_contracts",
-      "evidence": "Current TypeScript, 14 web unit and six synthetic browser contract cases passed; this does not validate real generation or production operation.",
+      "evidence": "Current TypeScript,14 web unit and6 synthetic browser contract executions passed after fixing the Vitest @ alias resolution for relocated modules. Production build/startup passed; no real generation or production-operation claim. See AnalyseFuture/validation/2026-11-17/REPORT.md",
       "missing_functionality": [
         "production backend browser acceptance suite",
         "some proxy/parser adversarial contracts"
@@ -1222,7 +1224,7 @@
         "Generated-file restoration requires normal helper exit"
       ],
       "consolidation_or_reuse_decision": "Keep framework-conventional ownership in apps/web; share the existing tenant API/contract rather than move unrelated Python and React code into one runtime.",
-      "final_ownership": "Developer/platform engineer; scripts/cloud/ and docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+      "final_ownership": "Developer/platform engineer; scripts/cloud/ and docs/development/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
       "proposed_nonexisting_path": null,
       "planning_horizon": null,
       "before_functional_related_files": [
@@ -1299,7 +1301,7 @@
         "Production rollout, backup/restore, monitoring and operational acceptance"
       ],
       "consolidation_or_reuse_decision": "Same packaging responsibility as F019 viewed from operational composition; not another engine. Gateway root-context installation now shares requirements.lock with API.",
-      "final_ownership": "Platform engineer; root Compose files and apps/*/Dockerfile",
+      "final_ownership": "Platform engineer; infrastructure/compose/ and apps/*/Dockerfile",
       "proposed_nonexisting_path": null,
       "planning_horizon": null,
       "before_functional_related_files": [
@@ -2385,5 +2387,14 @@
     "AnalyseFuture/repository-inventory/HISTORY_DEEP_REVIEW.json"
   ],
   "limits": "This registry inventories responsibilities evidenced in accessible current/history/reference material and stated plans. It is not a claim that every external upstream implementation runs, that all possible latent behaviors were executed, or that all production/security issues are resolved.",
-  "final_layout_validation": "Not executed. The latest owner instruction explicitly defers tests, builds, type checks, startup and migration execution. Earlier outcomes apply only to the pre-move layout; final changes receive static path/preservation review."
+  "final_layout_validation": {
+    "status": "passed_within_executed_software_contracts",
+    "authorization": "Owner explicitly lifted the earlier testing pause and requested all available tests.",
+    "passed_case_executions": 253,
+    "count_definition": "Sum across selected suites:136 SQLite API/gateway +83 PostgreSQL API +12 preparation/auditor +2 marching cubes +14 web unit +6 browser. This is253 passing case executions, not253 unique features; database suites exercise overlapping behavior.",
+    "report": "AnalyseFuture/validation/2026-11-17/REPORT.md",
+    "additional_passed_checks": "TypeScript, production build/startup, installed CLI/dependency checks, wheel/migration packaging, relocated Compose configuration, nonroot CPU containers, fresh pinned source preparation and real local API/studio flows.",
+    "limits": "Software/fixture contracts only; no real GPU inference, real S3 provider, Blender or production/public-service acceptance. Hosted CI matrix remains unobserved."
+  },
+  "restructure_snapshot_final_layout_validation": "Not executed. The latest owner instruction explicitly defers tests, builds, type checks, startup and migration execution. Earlier outcomes apply only to the pre-move layout; final changes receive static path/preservation review."
 }

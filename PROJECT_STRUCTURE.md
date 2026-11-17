@@ -64,6 +64,7 @@ build-3d-ai/
     experiments/                Generated/uncertain artifacts preserved outside active code
     recovery-notes/             Owner requests, earlier audits and diagnostic recipes
     repository-inventory/       Baseline, history, feature, path and preservation evidence
+    validation/                 Dated executed checks, fixes and remaining limits
     *.txt                       Complete audit, consolidation and continuation reports
   .github/workflows/            Active first-party GitHub Actions entry points
   requirements.lock             Common root CPU dependency constraints
@@ -150,13 +151,15 @@ Git internals and supplied credentials are not rearranged.
 
 ## Validation status for this reorganization
 
-The owner's latest instruction is **do not run tests**. No further unit,
-integration, browser, build, type-check, application-startup or migration check
-is run after that instruction. Checks earlier in the session are historical
-results for the pre-move layout, not proof of the final moved layout.
+The owner subsequently requested **“pls test all”**, lifting the earlier pause.
+Available local validation now passed: 136 SQLite/API/gateway tests, 83 PostgreSQL
+API tests, 14 qualification tests, 14 web unit tests and six browser contracts.
+TypeScript, production build, packaging/migrations, Compose configuration,
+CPU containers and real API/studio flows also passed. One missing Vitest alias
+was found and corrected; the original configuration is retained.
 
-Final checks are limited to static file inventories, hashes, local path/import
-references, configuration-path inspection and Git diff review. The final commit
-uses `[skip ci]` to avoid initiating GitHub test workflows for this delivery.
-No branch protection or history is bypassed. Resume runtime validation only
-when the owner authorizes it.
+Read the [current report](AnalyseFuture/validation/2026-11-17/REPORT.md) for scope,
+local versions, the initial failure and unavailable checks. GPU inference,
+real S3, Blender and full production/hosted-CI acceptance remain unverified.
+The earlier skip-CI commits record the owner's former pause; this validation
+update no longer requests CI skipping. No history or protection is bypassed.

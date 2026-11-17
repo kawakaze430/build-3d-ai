@@ -44,7 +44,8 @@ CONTENTS
 24. Definition of success
 25. Repository references and evidence boundaries
 26. Repository structure review and preservation for future work
-27. Functional collections and the latest no-test instruction
+27. Functional collections and the restructure-phase testing pause
+28. Post-restructure software validation — 17 November 2026
 
 
 01. THE CENTRAL PROJECT IDEA
@@ -1102,7 +1103,7 @@ validation results. New discoveries should receive their own review record;
 retain original material privately if it contains credentials or customer data
 rather than putting sensitive evidence into this public repository.
 
-27. FUNCTIONAL COLLECTIONS AND THE LATEST NO-TEST INSTRUCTION
+27. FUNCTIONAL COLLECTIONS AND THE RESTRUCTURE-PHASE TESTING PAUSE
 
 The owner requested that every file be classified by its real responsibility.
 The project now groups its plans, architecture, development, operations,
@@ -1117,14 +1118,34 @@ tracked/authored source file and retained original. Uncertain source, duplicates
 generated notes and historical work stay under AnalyseFuture without being
 promoted into active execution or branded malicious without evidence.
 
-The latest instruction is not to run tests. No further tests, builds, type
-checks, application startup or migration checks are executed after that change.
-Previous successes are historical evidence for the pre-move layout. Runtime
-validation of the final collections remains a future authorized step; this
-reorganization is not permission for GPU spend or a model-quality claim.
+During the restructuring phase, the owner paused tests, builds, type checks,
+application startup and migration checks. That phase retained earlier successes
+as historical evidence. The owner subsequently reauthorized testing; section28
+records the resulting final-layout validation. Neither instruction authorizes
+GPU spend or establishes model quality.
 
 The original detailed goal and one-/two-/three-to-five-year research directions
 are preserved. Existing work stays the priority: maintain the product foundation,
 qualify one real asset workflow, then expand only through measured acceptance.
+
+28. POST-RESTRUCTURE SOFTWARE VALIDATION — 17 NOVEMBER 2026
+
+The owner requested "pls test all" after the restructuring delivery. All available
+first-party local suites passed after correcting Vitest's @/ import alias to
+match TypeScript. There were253test executions across SQLite/gateway, PostgreSQL,
+preparation/auditor, CPU marching cubes, web unit and browser suites. TypeScript,
+production build/startup, wheel/migration packaging, Compose configuration, both
+CPU containers, the real API-to-studio flow and pinned source preparation passed.
+The complete current evidence and commands are in
+AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt and
+AnalyseFuture/validation/2026-11-17/REPORT.md.
+
+These results validate bounded software contracts on the tested local versions.
+Real model inference, GPU candidate execution, external S3, Blender/game-engine
+import, public production operation and the hosted version matrix remain
+unverified. The detailed product idea, licensing requirements, benchmark goals
+and future research horizons above remain conditional rather than delivered
+capabilities. The original test configuration and prior pause report are retained
+for recovery and provenance.
 
 END OF PROJECT IDEA

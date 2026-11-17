@@ -10,8 +10,9 @@
       "size_bytes": 53561,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "659611ef5a65b18dd20a1319576a2dd411a19fb19418ba20dd11d0530959da15",
-      "final_sha256": "dcde97509537577fa91cfc6e3653031ed907bfe586381de23e371d6aa8580a92",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/BUILD_3D_AI_PROJECT_IDEA.txt"
+      "final_sha256": "3667bb4d4e0433b9fd2565f4d2c57aaa1508e61814d14207997515c9161e2fc7",
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/BUILD_3D_AI_PROJECT_IDEA.txt",
+      "restructure_snapshot_sha256": "dcde97509537577fa91cfc6e3653031ed907bfe586381de23e371d6aa8580a92"
     },
     {
       "original_path": "docs/PRODUCT_VISION.md",
@@ -22,7 +23,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "1fe036b07c081a26c124ecb73afef6175e638ecffe5a5f26af4ea865776c71f5",
       "final_sha256": "1fe036b07c081a26c124ecb73afef6175e638ecffe5a5f26af4ea865776c71f5",
-      "original_bytes_preserved_at": "docs/project/PRODUCT_VISION.md"
+      "original_bytes_preserved_at": "docs/project/PRODUCT_VISION.md",
+      "restructure_snapshot_sha256": "1fe036b07c081a26c124ecb73afef6175e638ecffe5a5f26af4ea865776c71f5"
     },
     {
       "original_path": "docs/FEATURE_MATRIX.md",
@@ -33,7 +35,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "66c02ffca47eeea0a6a008040dc82163c076c504d23e91e877969efbaf243880",
       "final_sha256": "66c02ffca47eeea0a6a008040dc82163c076c504d23e91e877969efbaf243880",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/FEATURE_MATRIX.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/FEATURE_MATRIX.md",
+      "restructure_snapshot_sha256": "66c02ffca47eeea0a6a008040dc82163c076c504d23e91e877969efbaf243880"
     },
     {
       "original_path": "docs/ROADMAP.md",
@@ -44,7 +47,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "06d387748ee6556f44dffde543e1ba98818b4f48f43eacdd06894c6880339beb",
       "final_sha256": "06d387748ee6556f44dffde543e1ba98818b4f48f43eacdd06894c6880339beb",
-      "original_bytes_preserved_at": "docs/project/ROADMAP.md"
+      "original_bytes_preserved_at": "docs/project/ROADMAP.md",
+      "restructure_snapshot_sha256": "06d387748ee6556f44dffde543e1ba98818b4f48f43eacdd06894c6880339beb"
     },
     {
       "original_path": "docs/BACKLOG.md",
@@ -55,7 +59,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "7cc13aab5aa59627510e5c0c09db16786b58fee1d669523d35b8b799ffd29855",
       "final_sha256": "7cc13aab5aa59627510e5c0c09db16786b58fee1d669523d35b8b799ffd29855",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/BACKLOG.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/BACKLOG.md",
+      "restructure_snapshot_sha256": "7cc13aab5aa59627510e5c0c09db16786b58fee1d669523d35b8b799ffd29855"
     },
     {
       "original_path": "docs/BENCHMARKS.md",
@@ -66,7 +71,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "7303f7360321e14e0e8e4d95e3848991aaa06b712a31d9c09b926feb28b81573",
       "final_sha256": "7303f7360321e14e0e8e4d95e3848991aaa06b712a31d9c09b926feb28b81573",
-      "original_bytes_preserved_at": "docs/project/BENCHMARKS.md"
+      "original_bytes_preserved_at": "docs/project/BENCHMARKS.md",
+      "restructure_snapshot_sha256": "7303f7360321e14e0e8e4d95e3848991aaa06b712a31d9c09b926feb28b81573"
     },
     {
       "original_path": "docs/FEATURE_MAP.md",
@@ -76,8 +82,9 @@
       "size_bytes": 12657,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "cd415cd14667d044210c0fd9f5e324f7886dae42b743e8d467f583ab78a842a4",
-      "final_sha256": "cd415cd14667d044210c0fd9f5e324f7886dae42b743e8d467f583ab78a842a4",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/FEATURE_MAP.md"
+      "final_sha256": "854ad3da46edf206093142665f5296ff67780a6ddce27225d99f606a7d49c7dd",
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/FEATURE_MAP.md",
+      "restructure_snapshot_sha256": "cd415cd14667d044210c0fd9f5e324f7886dae42b743e8d467f583ab78a842a4"
     },
     {
       "original_path": "docs/ARCHITECTURE.md",
@@ -88,7 +95,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "7c2304266818c31bdb527c3a75d38deb6e90635e1c4e5e01c5bd6fa323bc88f0",
       "final_sha256": "7c2304266818c31bdb527c3a75d38deb6e90635e1c4e5e01c5bd6fa323bc88f0",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/ARCHITECTURE.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/ARCHITECTURE.md",
+      "restructure_snapshot_sha256": "7c2304266818c31bdb527c3a75d38deb6e90635e1c4e5e01c5bd6fa323bc88f0"
     },
     {
       "original_path": "docs/DECISIONS.md",
@@ -99,7 +107,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "60d846d1b2bcfc0a93d7efe809f089c3dd2a65bc0a073261062ac5dbc48ff9b9",
       "final_sha256": "60d846d1b2bcfc0a93d7efe809f089c3dd2a65bc0a073261062ac5dbc48ff9b9",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/DECISIONS.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/DECISIONS.md",
+      "restructure_snapshot_sha256": "60d846d1b2bcfc0a93d7efe809f089c3dd2a65bc0a073261062ac5dbc48ff9b9"
     },
     {
       "original_path": "docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
@@ -110,7 +119,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "22853acd5509c269f31791c9fac33de35c6d0f8bd0fca30dad1d13dcb31b8640",
       "final_sha256": "22853acd5509c269f31791c9fac33de35c6d0f8bd0fca30dad1d13dcb31b8640",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+      "restructure_snapshot_sha256": "22853acd5509c269f31791c9fac33de35c6d0f8bd0fca30dad1d13dcb31b8640"
     },
     {
       "original_path": "docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
@@ -120,8 +130,9 @@
       "size_bytes": 5940,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "895d9109ba691ab9faf1660b4ed283abeaae4fbc68e63c85ebf55e070b24702b",
-      "final_sha256": "4fa0698c5854b183100ee146ae6f3fc884349bea4eb488f76a7c743c38d66020",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md"
+      "final_sha256": "1c24f172f695c1b17487625a256e0dc2000e2df40730cd9ffc63c7353316c192",
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+      "restructure_snapshot_sha256": "4fa0698c5854b183100ee146ae6f3fc884349bea4eb488f76a7c743c38d66020"
     },
     {
       "original_path": "docs/PHASE0_GATEWAY.md",
@@ -132,7 +143,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "44f03f257bfa1a618ec97c0604e727c1084eb027ef33f0fba79338e7eea3bdb7",
       "final_sha256": "44f03f257bfa1a618ec97c0604e727c1084eb027ef33f0fba79338e7eea3bdb7",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/PHASE0_GATEWAY.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/PHASE0_GATEWAY.md",
+      "restructure_snapshot_sha256": "44f03f257bfa1a618ec97c0604e727c1084eb027ef33f0fba79338e7eea3bdb7"
     },
     {
       "original_path": "docs/PRODUCT_BACKBONE.md",
@@ -143,7 +155,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "7eb120d195a8b2af58a168d0eb3ce1cfe1292e37532d298bc571bd0406fbbf29",
       "final_sha256": "7eb120d195a8b2af58a168d0eb3ce1cfe1292e37532d298bc571bd0406fbbf29",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/PRODUCT_BACKBONE.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/PRODUCT_BACKBONE.md",
+      "restructure_snapshot_sha256": "7eb120d195a8b2af58a168d0eb3ce1cfe1292e37532d298bc571bd0406fbbf29"
     },
     {
       "original_path": "docs/OBJECT_STORAGE.md",
@@ -154,7 +167,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "3810c284719c609155f5bbe849f4376ae0ea067bff9f73e716c880cdc31ab9e7",
       "final_sha256": "3810c284719c609155f5bbe849f4376ae0ea067bff9f73e716c880cdc31ab9e7",
-      "original_bytes_preserved_at": "docs/operations/OBJECT_STORAGE.md"
+      "original_bytes_preserved_at": "docs/operations/OBJECT_STORAGE.md",
+      "restructure_snapshot_sha256": "3810c284719c609155f5bbe849f4376ae0ea067bff9f73e716c880cdc31ab9e7"
     },
     {
       "original_path": "docs/FIRST_REAL_GPU_RUNBOOK.md",
@@ -165,7 +179,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "f8f32a53e5339e48728f858e4681b04b7ad28fd952b5a0cfbba35790cf82d1c8",
       "final_sha256": "f8f32a53e5339e48728f858e4681b04b7ad28fd952b5a0cfbba35790cf82d1c8",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/FIRST_REAL_GPU_RUNBOOK.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/FIRST_REAL_GPU_RUNBOOK.md",
+      "restructure_snapshot_sha256": "f8f32a53e5339e48728f858e4681b04b7ad28fd952b5a0cfbba35790cf82d1c8"
     },
     {
       "original_path": "docs/GPU_SMOKE_AND_ARTIFACTS.md",
@@ -176,7 +191,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "73bc60149a17ed34c0d048d1c27b4f57cf8887b3a116e8bfc29b05c141eea88b",
       "final_sha256": "73bc60149a17ed34c0d048d1c27b4f57cf8887b3a116e8bfc29b05c141eea88b",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/GPU_SMOKE_AND_ARTIFACTS.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/GPU_SMOKE_AND_ARTIFACTS.md",
+      "restructure_snapshot_sha256": "73bc60149a17ed34c0d048d1c27b4f57cf8887b3a116e8bfc29b05c141eea88b"
     },
     {
       "original_path": "docs/MODEL_APPROVAL_GATE.md",
@@ -187,7 +203,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "c3531d3fe74dedf033a8c953799e443794c4bf81c0adefe372f69b5c806c80e0",
       "final_sha256": "c3531d3fe74dedf033a8c953799e443794c4bf81c0adefe372f69b5c806c80e0",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/MODEL_APPROVAL_GATE.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/MODEL_APPROVAL_GATE.md",
+      "restructure_snapshot_sha256": "c3531d3fe74dedf033a8c953799e443794c4bf81c0adefe372f69b5c806c80e0"
     },
     {
       "original_path": "docs/OPERATIONS_SECURITY.md",
@@ -198,7 +215,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "78273fd359e980219e28dab5b5e50bdcb5f7574323ec8bb01d2f404c5bc74a5a",
       "final_sha256": "78273fd359e980219e28dab5b5e50bdcb5f7574323ec8bb01d2f404c5bc74a5a",
-      "original_bytes_preserved_at": "docs/operations/OPERATIONS_SECURITY.md"
+      "original_bytes_preserved_at": "docs/operations/OPERATIONS_SECURITY.md",
+      "restructure_snapshot_sha256": "78273fd359e980219e28dab5b5e50bdcb5f7574323ec8bb01d2f404c5bc74a5a"
     },
     {
       "original_path": "docs/AI_MODELS_AND_DATA.md",
@@ -209,7 +227,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "ba27a606d2e8b8d5c1525d37b01a0974215aad80d2b6a52365f99113b2e8c634",
       "final_sha256": "ba27a606d2e8b8d5c1525d37b01a0974215aad80d2b6a52365f99113b2e8c634",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/AI_MODELS_AND_DATA.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/AI_MODELS_AND_DATA.md",
+      "restructure_snapshot_sha256": "ba27a606d2e8b8d5c1525d37b01a0974215aad80d2b6a52365f99113b2e8c634"
     },
     {
       "original_path": "docs/OPEN_SOURCE_STRATEGY.md",
@@ -220,7 +239,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "b5d619f24339e9810a5f43e0167efcd0ca11b7a5f9b9acea12fc60827f7b3252",
       "final_sha256": "b5d619f24339e9810a5f43e0167efcd0ca11b7a5f9b9acea12fc60827f7b3252",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/OPEN_SOURCE_STRATEGY.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/OPEN_SOURCE_STRATEGY.md",
+      "restructure_snapshot_sha256": "b5d619f24339e9810a5f43e0167efcd0ca11b7a5f9b9acea12fc60827f7b3252"
     },
     {
       "original_path": "docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt",
@@ -231,7 +251,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "991db1cb43abfbc3b3f49e0b6cdd5e77957d052b1ac2991657a762b906f000f0",
       "final_sha256": "991db1cb43abfbc3b3f49e0b6cdd5e77957d052b1ac2991657a762b906f000f0",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt",
+      "restructure_snapshot_sha256": "991db1cb43abfbc3b3f49e0b6cdd5e77957d052b1ac2991657a762b906f000f0"
     },
     {
       "original_path": "docs/LICENSE_MATRIX.md",
@@ -242,7 +263,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "bfeab8fd25b3e07e7789b52987552abbe7fd4d3ef659207e4c965f1f093c659c",
       "final_sha256": "bfeab8fd25b3e07e7789b52987552abbe7fd4d3ef659207e4c965f1f093c659c",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/LICENSE_MATRIX.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/LICENSE_MATRIX.md",
+      "restructure_snapshot_sha256": "bfeab8fd25b3e07e7789b52987552abbe7fd4d3ef659207e4c965f1f093c659c"
     },
     {
       "original_path": "docs/REUSE_AUDIT.md",
@@ -253,7 +275,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "d53f3bf3c91463a7bc7b8a2eb8b1f4d825989336ca9f781a93ba2fcc063d5d80",
       "final_sha256": "d53f3bf3c91463a7bc7b8a2eb8b1f4d825989336ca9f781a93ba2fcc063d5d80",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/REUSE_AUDIT.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/REUSE_AUDIT.md",
+      "restructure_snapshot_sha256": "d53f3bf3c91463a7bc7b8a2eb8b1f4d825989336ca9f781a93ba2fcc063d5d80"
     },
     {
       "original_path": "docs/CPU_DEPENDENCY_INVENTORY.json",
@@ -264,7 +287,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "742e0ab9c12b3ae94050bfc051ca12c934875adc336f9af4105164aa642c4862",
       "final_sha256": "742e0ab9c12b3ae94050bfc051ca12c934875adc336f9af4105164aa642c4862",
-      "original_bytes_preserved_at": "docs/research/CPU_DEPENDENCY_INVENTORY.json"
+      "original_bytes_preserved_at": "docs/research/CPU_DEPENDENCY_INVENTORY.json",
+      "restructure_snapshot_sha256": "742e0ab9c12b3ae94050bfc051ca12c934875adc336f9af4105164aa642c4862"
     },
     {
       "original_path": "docs/PROJECT_MEMORY_MASTER.md",
@@ -274,8 +298,9 @@
       "size_bytes": 41309,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "09928573fb3bca0e69d565a53b09ed81c0fc8dc93909b88bfd44ac007df6d32c",
-      "final_sha256": "c97dba69d47b6ebc3aec2efb5e824933d0a50b0f3a85cd409c6625da2d950000",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/PROJECT_MEMORY_MASTER.md"
+      "final_sha256": "8ef3ef8540c86dfe55b50c31fd0593d1a3e3eb21c92e645ff6d8e467c5e42ef1",
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/PROJECT_MEMORY_MASTER.md",
+      "restructure_snapshot_sha256": "c97dba69d47b6ebc3aec2efb5e824933d0a50b0f3a85cd409c6625da2d950000"
     },
     {
       "original_path": "docs/CODEX_HANDOFF.md",
@@ -285,8 +310,9 @@
       "size_bytes": 14966,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "7061bb3c5a69fa88410dc69484004baec3a9d6145e0bbb63847d67ca3398bd42",
-      "final_sha256": "8fee88589885a3e76e2341a6caf2c6bb284379080deed8115a6ccaf0f8b75013",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/CODEX_HANDOFF.md"
+      "final_sha256": "1a9767c5978d4e8c9e00ebcf9815f245107d6d5a0b1c53d90b0313a24c15cbbd",
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/CODEX_HANDOFF.md",
+      "restructure_snapshot_sha256": "8fee88589885a3e76e2341a6caf2c6bb284379080deed8115a6ccaf0f8b75013"
     },
     {
       "original_path": "docs/IMPLEMENTATION_CHECKLIST.md",
@@ -297,7 +323,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "d2309929c3563f20680c5ffbc34cf274ddbe257dbf146e523495966ecb6c55c0",
       "final_sha256": "d2309929c3563f20680c5ffbc34cf274ddbe257dbf146e523495966ecb6c55c0",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/IMPLEMENTATION_CHECKLIST.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/IMPLEMENTATION_CHECKLIST.md",
+      "restructure_snapshot_sha256": "d2309929c3563f20680c5ffbc34cf274ddbe257dbf146e523495966ecb6c55c0"
     },
     {
       "original_path": "docs/adr/0001-web-studio-foundation.md",
@@ -308,7 +335,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "a1cf9dadcf2ba5681377b5e1f3a98267102138a714164bb0e34e1d1a196c4ca3",
       "final_sha256": "a1cf9dadcf2ba5681377b5e1f3a98267102138a714164bb0e34e1d1a196c4ca3",
-      "original_bytes_preserved_at": "docs/architecture/adr/0001-web-studio-foundation.md"
+      "original_bytes_preserved_at": "docs/architecture/adr/0001-web-studio-foundation.md",
+      "restructure_snapshot_sha256": "a1cf9dadcf2ba5681377b5e1f3a98267102138a714164bb0e34e1d1a196c4ca3"
     },
     {
       "original_path": "docs/ARCHIVE_IMPORTS.json",
@@ -319,7 +347,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "93105e891e1d700439f4e557143964dbe9f6fe91d5ce82f56070d7560c1f28cf",
       "final_sha256": "93105e891e1d700439f4e557143964dbe9f6fe91d5ce82f56070d7560c1f28cf",
-      "original_bytes_preserved_at": "AnalyseFuture/repository-inventory/ARCHIVE_IMPORTS.json"
+      "original_bytes_preserved_at": "AnalyseFuture/repository-inventory/ARCHIVE_IMPORTS.json",
+      "restructure_snapshot_sha256": "93105e891e1d700439f4e557143964dbe9f6fe91d5ce82f56070d7560c1f28cf"
     },
     {
       "original_path": "docs/REPOSITORY_STRUCTURE.md",
@@ -330,7 +359,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "80043773a0a542c16d34d2b6e53201efca6b18b38aaf8508477e19ae7f2d6c68",
       "final_sha256": "80043773a0a542c16d34d2b6e53201efca6b18b38aaf8508477e19ae7f2d6c68",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/structure-before-functional/REPOSITORY_STRUCTURE.md"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/structure-before-functional/REPOSITORY_STRUCTURE.md",
+      "restructure_snapshot_sha256": "80043773a0a542c16d34d2b6e53201efca6b18b38aaf8508477e19ae7f2d6c68"
     },
     {
       "original_path": "docs/REPOSITORY_AUDIT_2026-11-17.md",
@@ -341,7 +371,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "ffb2eeb236093a111da73aa9668bd212da5b1308ae87b538e8aa9fb0fe2a24a6",
       "final_sha256": "ffb2eeb236093a111da73aa9668bd212da5b1308ae87b538e8aa9fb0fe2a24a6",
-      "original_bytes_preserved_at": "AnalyseFuture/recovery-notes/REPOSITORY_AUDIT_2026-11-17.md"
+      "original_bytes_preserved_at": "AnalyseFuture/recovery-notes/REPOSITORY_AUDIT_2026-11-17.md",
+      "restructure_snapshot_sha256": "ffb2eeb236093a111da73aa9668bd212da5b1308ae87b538e8aa9fb0fe2a24a6"
     },
     {
       "original_path": "docs/archives/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt",
@@ -352,7 +383,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "81c915e1882721d26ee16191be4410063414b356ddf910488cfccc197f590b18",
       "final_sha256": "81c915e1882721d26ee16191be4410063414b356ddf910488cfccc197f590b18",
-      "original_bytes_preserved_at": "AnalyseFuture/recovery-notes/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt"
+      "original_bytes_preserved_at": "AnalyseFuture/recovery-notes/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt",
+      "restructure_snapshot_sha256": "81c915e1882721d26ee16191be4410063414b356ddf910488cfccc197f590b18"
     },
     {
       "original_path": "compose.gateway.yml",
@@ -363,7 +395,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "d7350fd7893c785a74674a72aee525e67f175448e8272c3109b671f85c47d7b4",
       "final_sha256": "d7350fd7893c785a74674a72aee525e67f175448e8272c3109b671f85c47d7b4",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/compose.gateway.yml"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/compose.gateway.yml",
+      "restructure_snapshot_sha256": "d7350fd7893c785a74674a72aee525e67f175448e8272c3109b671f85c47d7b4"
     },
     {
       "original_path": "compose.product.yml",
@@ -374,7 +407,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "4a9b792e07c6c9251d3a02787c987ae3b3a52c5d982f2c61fe88723bf51dfece",
       "final_sha256": "4a9b792e07c6c9251d3a02787c987ae3b3a52c5d982f2c61fe88723bf51dfece",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/compose.product.yml"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/compose.product.yml",
+      "restructure_snapshot_sha256": "4a9b792e07c6c9251d3a02787c987ae3b3a52c5d982f2c61fe88723bf51dfece"
     },
     {
       "original_path": "config/identity-providers.example.json",
@@ -385,7 +419,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "8d4338222e12a7c6b958a9e458aaeca72aa2da0249b9c51acc2dd087d2b5d91c",
       "final_sha256": "8d4338222e12a7c6b958a9e458aaeca72aa2da0249b9c51acc2dd087d2b5d91c",
-      "original_bytes_preserved_at": "config/identity/providers.example.json"
+      "original_bytes_preserved_at": "config/identity/providers.example.json",
+      "restructure_snapshot_sha256": "8d4338222e12a7c6b958a9e458aaeca72aa2da0249b9c51acc2dd087d2b5d91c"
     },
     {
       "original_path": "scripts/check_api_wheel.py",
@@ -396,7 +431,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "60c5a38ec4bbc9dc6fb1f8ed9c9a4af7318bb03b6a484b6ca949d30c7779c781",
       "final_sha256": "60c5a38ec4bbc9dc6fb1f8ed9c9a4af7318bb03b6a484b6ca949d30c7779c781",
-      "original_bytes_preserved_at": "scripts/packaging/check_api_wheel.py"
+      "original_bytes_preserved_at": "scripts/packaging/check_api_wheel.py",
+      "restructure_snapshot_sha256": "60c5a38ec4bbc9dc6fb1f8ed9c9a4af7318bb03b6a484b6ca949d30c7779c781"
     },
     {
       "original_path": "apps/web/src/components/studio.tsx",
@@ -407,7 +443,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "3daef1f4913b3301c244320ef7bc3f99f185754f2c2cfc286ea604b95be74ab8",
       "final_sha256": "3daef1f4913b3301c244320ef7bc3f99f185754f2c2cfc286ea604b95be74ab8",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/components/studio.tsx"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/components/studio.tsx",
+      "restructure_snapshot_sha256": "3daef1f4913b3301c244320ef7bc3f99f185754f2c2cfc286ea604b95be74ab8"
     },
     {
       "original_path": "apps/web/src/components/model-viewer.tsx",
@@ -418,7 +455,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "aea38d908aa5cb89a60769037c721ab7f43fe0c79c4a930ed5a15627856376e8",
       "final_sha256": "aea38d908aa5cb89a60769037c721ab7f43fe0c79c4a930ed5a15627856376e8",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/components/model-viewer.tsx"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/components/model-viewer.tsx",
+      "restructure_snapshot_sha256": "aea38d908aa5cb89a60769037c721ab7f43fe0c79c4a930ed5a15627856376e8"
     },
     {
       "original_path": "apps/web/src/lib/status.ts",
@@ -429,7 +467,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "66ffdc9f9edab1dc861d463a48b7ed75e3aa9c7c4ecec2db668873e589ee93a0",
       "final_sha256": "66ffdc9f9edab1dc861d463a48b7ed75e3aa9c7c4ecec2db668873e589ee93a0",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/lib/status.ts"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/lib/status.ts",
+      "restructure_snapshot_sha256": "66ffdc9f9edab1dc861d463a48b7ed75e3aa9c7c4ecec2db668873e589ee93a0"
     },
     {
       "original_path": "apps/web/src/lib/status.test.ts",
@@ -440,7 +479,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "3345f6b56598ee0afee4364413817ac7a5c69253178612ccb8f9851f4157e251",
       "final_sha256": "3345f6b56598ee0afee4364413817ac7a5c69253178612ccb8f9851f4157e251",
-      "original_bytes_preserved_at": "apps/web/src/features/jobs/status.test.ts"
+      "original_bytes_preserved_at": "apps/web/src/features/jobs/status.test.ts",
+      "restructure_snapshot_sha256": "3345f6b56598ee0afee4364413817ac7a5c69253178612ccb8f9851f4157e251"
     },
     {
       "original_path": "apps/web/src/lib/api.ts",
@@ -451,7 +491,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "a34eac22f2d8d9f7198be9eea686a2de8c9abff621e1ecc3a6d99c7504971adc",
       "final_sha256": "a34eac22f2d8d9f7198be9eea686a2de8c9abff621e1ecc3a6d99c7504971adc",
-      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/lib/api.ts"
+      "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/lib/api.ts",
+      "restructure_snapshot_sha256": "a34eac22f2d8d9f7198be9eea686a2de8c9abff621e1ecc3a6d99c7504971adc"
     },
     {
       "original_path": "apps/web/src/lib/api.test.ts",
@@ -462,7 +503,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "d1e58150997086d01b2f12b9ceca9833458a7557253bf9171b894149e0195218",
       "final_sha256": "d1e58150997086d01b2f12b9ceca9833458a7557253bf9171b894149e0195218",
-      "original_bytes_preserved_at": "apps/web/src/lib/client/api.test.ts"
+      "original_bytes_preserved_at": "apps/web/src/lib/client/api.test.ts",
+      "restructure_snapshot_sha256": "d1e58150997086d01b2f12b9ceca9833458a7557253bf9171b894149e0195218"
     },
     {
       "original_path": "apps/web/src/lib/server-product-api.ts",
@@ -473,7 +515,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "7df06bdd47468c1c1b7a545438a6e9c0f00394fb80126f04d80d45023bb3dc97",
       "final_sha256": "7df06bdd47468c1c1b7a545438a6e9c0f00394fb80126f04d80d45023bb3dc97",
-      "original_bytes_preserved_at": "apps/web/src/lib/server/product-api.ts"
+      "original_bytes_preserved_at": "apps/web/src/lib/server/product-api.ts",
+      "restructure_snapshot_sha256": "7df06bdd47468c1c1b7a545438a6e9c0f00394fb80126f04d80d45023bb3dc97"
     },
     {
       "original_path": "apps/web/src/lib/request-body.ts",
@@ -484,7 +527,8 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "2e0a7b0de34538ce890cea1ec5ad51239ab1919c46e728d6fb884c67aa71b4af",
       "final_sha256": "2e0a7b0de34538ce890cea1ec5ad51239ab1919c46e728d6fb884c67aa71b4af",
-      "original_bytes_preserved_at": "apps/web/src/lib/server/request-body.ts"
+      "original_bytes_preserved_at": "apps/web/src/lib/server/request-body.ts",
+      "restructure_snapshot_sha256": "2e0a7b0de34538ce890cea1ec5ad51239ab1919c46e728d6fb884c67aa71b4af"
     },
     {
       "original_path": "apps/web/src/lib/request-body.test.ts",
@@ -495,9 +539,12 @@
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "f7092a886d344dd684e3890ee89e622f1ac8042b65cbfa883a224373a98f0267",
       "final_sha256": "f7092a886d344dd684e3890ee89e622f1ac8042b65cbfa883a224373a98f0267",
-      "original_bytes_preserved_at": "apps/web/src/lib/server/request-body.test.ts"
+      "original_bytes_preserved_at": "apps/web/src/lib/server/request-body.test.ts",
+      "restructure_snapshot_sha256": "f7092a886d344dd684e3890ee89e622f1ac8042b65cbfa883a224373a98f0267"
     }
   ],
-  "note": "Hashes are snapshots before/after initial move and path repair; documentation may subsequently receive final navigation updates.",
-  "latest_instruction": "No tests. Final checks are static source/path/hash/Git inspection only."
+  "note": "Pre-move and initial-repair hashes preserve original phase snapshots. restructure_snapshot_sha256 preserves the prior static restructure snapshot. final_sha256 records current content after authorized validation/documentation updates; see current validation report.",
+  "latest_instruction": "Owner reauthorized all available testing;253 selected case executions and documented build/runtime checks passed. Current evidence: AnalyseFuture/validation/2026-11-17/REPORT.md",
+  "restructure_snapshot_latest_instruction": "No tests. Final checks are static source/path/hash/Git inspection only.",
+  "current_validation_report": "AnalyseFuture/validation/2026-11-17/REPORT.md"
 }

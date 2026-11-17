@@ -119,12 +119,14 @@ session. Continue next time with the exact runtime/license review and bounded
 owner-approved qualification in [FIRST_REAL_GPU_RUNBOOK.md](../operations/FIRST_REAL_GPU_RUNBOOK.md).
 Do not start a worker or paid compute merely to recreate this development setup.
 
-## Current functional paths and execution pause
+## Current functional paths and validation
 
 The repository now uses [PROJECT_STRUCTURE.md](../../PROJECT_STRUCTURE.md).
 Compose definitions live under `infrastructure/compose/`; web feature and
 client/server modules have dedicated collections. Existing setup commands in
-this guide are retained for future authorized use. The latest owner instruction
-prohibits further tests/builds/startup/migrations during this restructuring, so
-prior passing results do not establish the final layout's runtime behavior.
+this guide are retained for future authorized use. The owner subsequently authorized full available testing. Final-layout checks
+now pass after adding the missing Vitest alias; see the current validation
+report for exact scope, versions and limits.
 See [the validation record](../../AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt).
+
+Current post-restructure results: [validation report](../../AnalyseFuture/validation/2026-11-17/REPORT.md). The earlier pause is retained as history, not a current execution restriction.

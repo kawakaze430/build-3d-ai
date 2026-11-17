@@ -9,11 +9,12 @@ Repository: https://github.com/kawakaze430/build-3d-ai
 2. Use COMPLETE_FILE_INVENTORY, FEATURE_INVENTORY, FUNCTIONAL_PATH_MAPPING and
    CONSOLIDATION_REPORT to locate responsibilities. Preserve the existing
    product API, worker, storage, studio and GLB validator rather than rebuild.
-3. The latest owner instruction deferred tests. The final functional moves have
-   not been runtime validated. Do not present old passing results as evidence
-   for final paths. Resume execution only when a later task authorizes it;
-   keep all test and CI definitions intact.
-4. When authorized, start with web imports/build/browser contracts, Compose
+3. The owner subsequently requested all available tests. They passed on the
+   reorganized layout after correcting Vitest's missing @ alias. Use
+   validation/2026-11-17/REPORT.md as the current evidence; the previous pause
+   is historical. Continue running relevant checks for later authorized work.
+
+4. For future changes, start with web imports/build/browser contracts, Compose
    paths, package distribution and API/gateway SQLite/PostgreSQL checks. Then
    run the preparation, pip metadata and CPU marching-cubes contracts.
 5. Identity examples live at config/identity/providers.example.json. Credentials,

@@ -14,6 +14,7 @@ of commercial permission.
 | `experiments/generated-nextjs/` | Generated configuration/instruction artifacts retained as inactive text |
 | `recovery-notes/` | Owner requests, earlier audit context and managed-build diagnostic recipes |
 | `repository-inventory/` | Starting/current classifications, branch/history reviews, hashes, mappings and delivery evidence |
+| `validation/` | Dated executed checks, initial failures, fixes and remaining limits |
 | Root `*.txt` reports | Current recovery, feature, security, consolidation and continuation records |
 
 Start with the [repository audit](REPOSITORY_AUDIT.txt),
@@ -43,5 +44,5 @@ discovery; explicitly targeting them can still execute code.
 
 Private credentials, live databases and installed dependency caches do not
 belong in this public evidence area. They remain local or need a private backup.
-The latest owner instruction defers tests: final path changes receive static
-source/path/hash review only, with no final-layout runtime guarantee.
+The owner subsequently authorized tests; available local final-layout checks
+passed after the Vitest alias fix. See [the current report](validation/2026-11-17/REPORT.md). This does not establish real inference or production readiness.

@@ -3197,7 +3197,7 @@
     {
       "source": "56f412f0722394300a522b7392b191702d3f2c48",
       "original_path": "apps/web/vitest.config.ts",
-      "preserved_path": "apps/web/vitest.config.ts",
+      "preserved_path": "AnalyseFuture/historical-implementations/validation-fixes/apps/web/vitest.config.ts",
       "sha256": "4f49d01f0120eff8b5bac0c9abc9bf6263c8da9834d288ff884c1e397436209f",
       "size_bytes": 156,
       "mode": "0o100644",
@@ -7487,7 +7487,7 @@
     {
       "source": "working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25",
       "original_path": "apps/web/vitest.config.ts",
-      "preserved_path": "apps/web/vitest.config.ts",
+      "preserved_path": "AnalyseFuture/historical-implementations/validation-fixes/apps/web/vitest.config.ts",
       "sha256": "4f49d01f0120eff8b5bac0c9abc9bf6263c8da9834d288ff884c1e397436209f",
       "size_bytes": 156,
       "mode": "0o600",
@@ -8071,5 +8071,56 @@
     "Many records share a retained copy because identical content already exists; no destructive deduplication was performed.",
     "This inventory does not publish ignored credentials, databases, caches or installed dependency trees.",
     "Paths refer to retained source bytes; final functional locations are recorded separately."
+  ],
+  "validation_metadata_original_copies": [
+    {
+      "original_path": "AnalyseFuture/repository-inventory/FEATURE_REGISTRY.json",
+      "preserved_path": "AnalyseFuture/history/validation-before-authorization/metadata/FEATURE_REGISTRY.json",
+      "sha256": "33fc543f283d4afee56d60e2a5ae52599c0ed874903c7ba0135dd3072f28baae",
+      "size_bytes": 117279,
+      "source_phase": "Exact pre-validation-metadata-refresh working version; original phase context retained, not current instruction"
+    },
+    {
+      "original_path": "AnalyseFuture/repository-inventory/FUNCTIONAL_PATH_MAPPING.json",
+      "preserved_path": "AnalyseFuture/history/validation-before-authorization/metadata/FUNCTIONAL_PATH_MAPPING.json",
+      "sha256": "9bed7029f08023f35b226041a70635df7adf5ddc9cf48e02f6f760b533e26e37",
+      "size_bytes": 31385,
+      "source_phase": "Exact pre-validation-metadata-refresh working version; original phase context retained, not current instruction"
+    },
+    {
+      "original_path": "AnalyseFuture/repository-inventory/FINAL_FILE_CLASSIFICATION.json",
+      "preserved_path": "AnalyseFuture/history/validation-before-authorization/metadata/FINAL_FILE_CLASSIFICATION.json",
+      "sha256": "561a0195393ba05ec09dd225aa34d60cfab30e3112bc5ebe6517c258fe907ad9",
+      "size_bytes": 427003,
+      "source_phase": "Exact pre-validation-metadata-refresh working version; original phase context retained, not current instruction"
+    },
+    {
+      "original_path": "AnalyseFuture/repository-inventory/STATIC_STRUCTURE_REVIEW.json",
+      "preserved_path": "AnalyseFuture/history/validation-before-authorization/metadata/STATIC_STRUCTURE_REVIEW.json",
+      "sha256": "4ecfb2cef105dd82e677375b8e310395e004bd7d6319dc6be9a5694e5d0a06d1",
+      "size_bytes": 567,
+      "source_phase": "Exact pre-validation-metadata-refresh working version; original phase context retained, not current instruction"
+    },
+    {
+      "original_path": "AnalyseFuture/repository-inventory/PRESERVATION_RECORDS.json",
+      "preserved_path": "AnalyseFuture/history/validation-before-authorization/metadata/PRESERVATION_RECORDS.json",
+      "sha256": "942c85a6f584067942b22969be3daf4cb416342b1ae94f0cae57baa9588103c0",
+      "size_bytes": 459610,
+      "source_phase": "Exact pre-validation-metadata-refresh working version; original phase context retained, not current instruction"
+    },
+    {
+      "original_path": "AnalyseFuture/COMPLETE_FILE_INVENTORY.txt",
+      "preserved_path": "AnalyseFuture/history/validation-before-authorization/metadata/COMPLETE_FILE_INVENTORY.txt",
+      "sha256": "80e61565bd3f0eb543b1785c1d8e42e84bd487e3eab9d7234862f16f97de6466",
+      "size_bytes": 315934,
+      "source_phase": "Exact pre-validation-metadata-refresh working version; original phase context retained, not current instruction"
+    },
+    {
+      "original_path": "AnalyseFuture/WORK_PROGRESS.txt",
+      "preserved_path": "AnalyseFuture/history/validation-before-authorization/metadata/WORK_PROGRESS.txt",
+      "sha256": "66b5ba678546f081bfb193f6ec51a64586651a03fc17e2bf78c3d231956e16a8",
+      "size_bytes": 2179,
+      "source_phase": "Exact pre-validation-metadata-refresh working version; original phase context retained, not current instruction"
+    }
   ]
 }

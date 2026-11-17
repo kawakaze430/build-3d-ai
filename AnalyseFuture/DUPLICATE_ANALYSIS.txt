@@ -1,3 +1,10 @@
+POST-RESTRUCTURE VALIDATION UPDATE — 17 November 2026
+The owner reauthorized testing with "pls test all". All available local checks
+now passed after the Vitest alias correction. Earlier no-tests statements below
+record the prior migration phase and are superseded by this update.
+See validation/2026-11-17/REPORT.md and TEST_AND_VALIDATION_REPORT.txt for results,
+local-version scope, the initial failed suite and unavailable real-model checks.
+
 CURRENT FUNCTIONAL-RESTRUCTURE ADDENDUM
 The final owner instruction expanded physical collection and deferred all further tests.
 This pass now has45moves (42startingtracked,3earlier-authored), not zero. Eight

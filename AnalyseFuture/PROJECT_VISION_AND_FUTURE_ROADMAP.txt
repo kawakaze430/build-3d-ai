@@ -1,3 +1,10 @@
+POST-RESTRUCTURE VALIDATION UPDATE — 17 November 2026
+The owner reauthorized testing with "pls test all". All available local checks
+now passed after the Vitest alias correction. Earlier no-tests statements below
+record the prior migration phase and are superseded by this update.
+See validation/2026-11-17/REPORT.md and TEST_AND_VALIDATION_REPORT.txt for results,
+local-version scope, the initial failed suite and unavailable real-model checks.
+
 FINAL FUNCTIONAL-RESTRUCTURE NOTE
 The latest owner instruction is DO NOT RUN TESTS. Source paths below have been
 repaired for the final collections. Any passing test/build/container result in

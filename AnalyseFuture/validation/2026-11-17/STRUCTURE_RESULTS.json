@@ -1,0 +1,2240 @@
+{
+  "head": "ddd7c595b968bca57671beed887ec41856f38ea6",
+  "method": "Independent read-only file/hash/path/static import/navigation validation. No reference code/tests/scripts executed; no credentials/private database contents read. Runtime/tests handled by parent and backend agents.",
+  "preservation": {
+    "records": 801,
+    "source_counts": {
+      "56f412f0722394300a522b7392b191702d3f2c48": 369,
+      "working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25": 432
+    },
+    "starting_git_records": 369,
+    "pre_functional_snapshot_records": 432,
+    "failures": [
+      {
+        "record": 319,
+        "path": "AnalyseFuture/historical-implementations/validation-fixes/apps/web/vitest.config.ts",
+        "failure": "preserved path not tracked"
+      },
+      {
+        "record": 748,
+        "path": "AnalyseFuture/historical-implementations/validation-fixes/apps/web/vitest.config.ts",
+        "failure": "preserved path not tracked"
+      }
+    ],
+    "scope_limit": "369 starting originals compared to Git source bytes and preserved copies;432 authored pre-functional records checked against recorded SHA256/size and tracked preserved path; source snapshot tar not expanded.",
+    "content_failures": [],
+    "publication_pending_records": [
+      {
+        "record": 319,
+        "path": "AnalyseFuture/historical-implementations/validation-fixes/apps/web/vitest.config.ts",
+        "failure": "preserved path not tracked"
+      },
+      {
+        "record": 748,
+        "path": "AnalyseFuture/historical-implementations/validation-fixes/apps/web/vitest.config.ts",
+        "failure": "preserved path not tracked"
+      }
+    ],
+    "publication_pending_unique_paths": [
+      "AnalyseFuture/historical-implementations/validation-fixes/apps/web/vitest.config.ts"
+    ],
+    "concurrent_parent_changes": "Parent began a reviewed active Vitest configuration fix during validation. Two preservation records redirect their exact original bytes to a newly authored/untracked validation-fixes copy; content is intact but this copy requires staging/commit. Original HEAD/inventory snapshot remains495tracked paths."
+  },
+  "archive_content": {
+    "verified_tracked_files": 240,
+    "failures": [],
+    "ignored_metadata_entries": 1
+  },
+  "inventory": {
+    "tracked_count": 495,
+    "classification_count": 495,
+    "classification_missing": [],
+    "classification_extra": [],
+    "classification_duplicate_paths": [],
+    "txt_count": 495,
+    "txt_missing": [],
+    "txt_extra": []
+  },
+  "functional_path_mapping": {
+    "records": 45,
+    "checks": [
+      {
+        "original": "docs/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "current": "docs/project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/PRODUCT_VISION.md",
+        "current": "docs/project/PRODUCT_VISION.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/FEATURE_MATRIX.md",
+        "current": "docs/project/FEATURE_MATRIX.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/ROADMAP.md",
+        "current": "docs/project/ROADMAP.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/BACKLOG.md",
+        "current": "docs/project/BACKLOG.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/BENCHMARKS.md",
+        "current": "docs/project/BENCHMARKS.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/FEATURE_MAP.md",
+        "current": "docs/project/FEATURE_MAP.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/ARCHITECTURE.md",
+        "current": "docs/architecture/ARCHITECTURE.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/DECISIONS.md",
+        "current": "docs/architecture/DECISIONS.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+        "current": "docs/architecture/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+        "current": "docs/development/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/PHASE0_GATEWAY.md",
+        "current": "docs/development/PHASE0_GATEWAY.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/PRODUCT_BACKBONE.md",
+        "current": "docs/operations/PRODUCT_BACKBONE.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/OBJECT_STORAGE.md",
+        "current": "docs/operations/OBJECT_STORAGE.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/FIRST_REAL_GPU_RUNBOOK.md",
+        "current": "docs/operations/FIRST_REAL_GPU_RUNBOOK.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/GPU_SMOKE_AND_ARTIFACTS.md",
+        "current": "docs/operations/GPU_SMOKE_AND_ARTIFACTS.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/MODEL_APPROVAL_GATE.md",
+        "current": "docs/operations/MODEL_APPROVAL_GATE.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/OPERATIONS_SECURITY.md",
+        "current": "docs/operations/OPERATIONS_SECURITY.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/AI_MODELS_AND_DATA.md",
+        "current": "docs/research/AI_MODELS_AND_DATA.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/OPEN_SOURCE_STRATEGY.md",
+        "current": "docs/research/OPEN_SOURCE_STRATEGY.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt",
+        "current": "docs/research/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/LICENSE_MATRIX.md",
+        "current": "docs/research/LICENSE_MATRIX.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/REUSE_AUDIT.md",
+        "current": "docs/research/REUSE_AUDIT.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/CPU_DEPENDENCY_INVENTORY.json",
+        "current": "docs/research/CPU_DEPENDENCY_INVENTORY.json",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/PROJECT_MEMORY_MASTER.md",
+        "current": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/CODEX_HANDOFF.md",
+        "current": "docs/continuity/CODEX_HANDOFF.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/IMPLEMENTATION_CHECKLIST.md",
+        "current": "docs/continuity/IMPLEMENTATION_CHECKLIST.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/adr/0001-web-studio-foundation.md",
+        "current": "docs/architecture/adr/0001-web-studio-foundation.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/ARCHIVE_IMPORTS.json",
+        "current": "AnalyseFuture/repository-inventory/ARCHIVE_IMPORTS.json",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/REPOSITORY_STRUCTURE.md",
+        "current": "AnalyseFuture/historical-implementations/structure-before-functional/REPOSITORY_STRUCTURE.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/REPOSITORY_AUDIT_2026-11-17.md",
+        "current": "AnalyseFuture/recovery-notes/REPOSITORY_AUDIT_2026-11-17.md",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "docs/archives/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt",
+        "current": "AnalyseFuture/recovery-notes/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "compose.gateway.yml",
+        "current": "infrastructure/compose/gateway.yml",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "compose.product.yml",
+        "current": "infrastructure/compose/product.yml",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "config/identity-providers.example.json",
+        "current": "config/identity/providers.example.json",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "scripts/check_api_wheel.py",
+        "current": "scripts/packaging/check_api_wheel.py",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "apps/web/src/components/studio.tsx",
+        "current": "apps/web/src/features/studio/components/studio.tsx",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "apps/web/src/components/model-viewer.tsx",
+        "current": "apps/web/src/features/assets/components/model-viewer.tsx",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "apps/web/src/lib/status.ts",
+        "current": "apps/web/src/features/jobs/status.ts",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "apps/web/src/lib/status.test.ts",
+        "current": "apps/web/src/features/jobs/status.test.ts",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "apps/web/src/lib/api.ts",
+        "current": "apps/web/src/lib/client/api.ts",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "apps/web/src/lib/api.test.ts",
+        "current": "apps/web/src/lib/client/api.test.ts",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "apps/web/src/lib/server-product-api.ts",
+        "current": "apps/web/src/lib/server/product-api.ts",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "apps/web/src/lib/request-body.ts",
+        "current": "apps/web/src/lib/server/request-body.ts",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      },
+      {
+        "original": "apps/web/src/lib/request-body.test.ts",
+        "current": "apps/web/src/lib/server/request-body.test.ts",
+        "current_exists": true,
+        "current_hash_matches_mapping_final": true,
+        "original_copy_exists": true,
+        "original_hash_matches_pre_move": true,
+        "current_tracked": true
+      }
+    ],
+    "failed_checks": []
+  },
+  "markdown_navigation": {
+    "active_files": 32,
+    "local_links": 214,
+    "missing_targets": [],
+    "checks": [
+      {
+        "source": "AGENTS.md",
+        "target": "docs/project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 9,
+        "exists": true
+      },
+      {
+        "source": "AGENTS.md",
+        "target": "PROJECT_STRUCTURE.md",
+        "line": 11,
+        "exists": true
+      },
+      {
+        "source": "AGENTS.md",
+        "target": "PROJECT_STRUCTURE.md",
+        "line": 55,
+        "exists": true
+      },
+      {
+        "source": "AGENTS.md",
+        "target": "AnalyseFuture/COMPLETE_FILE_INVENTORY.txt",
+        "line": 55,
+        "exists": true
+      },
+      {
+        "source": "CONTRIBUTING.md",
+        "target": "docs/project/PRODUCT_VISION.md",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "CONTRIBUTING.md",
+        "target": "docs/project/FEATURE_MATRIX.md",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "CONTRIBUTING.md",
+        "target": "docs/architecture/ARCHITECTURE.md",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "CONTRIBUTING.md",
+        "target": "AGENTS.md",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "CONTRIBUTING.md",
+        "target": "docs/project/BACKLOG.md",
+        "line": 6,
+        "exists": true
+      },
+      {
+        "source": "PROJECT_STRUCTURE.md",
+        "target": "AnalyseFuture/COMPLETE_FILE_INVENTORY.txt",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "PROJECT_STRUCTURE.md",
+        "target": "docs/project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 6,
+        "exists": true
+      },
+      {
+        "source": "PROJECT_STRUCTURE.md",
+        "target": "docs/README.md",
+        "line": 125,
+        "exists": true
+      },
+      {
+        "source": "PROJECT_STRUCTURE.md",
+        "target": "docs/project/FEATURE_MAP.md",
+        "line": 126,
+        "exists": true
+      },
+      {
+        "source": "PROJECT_STRUCTURE.md",
+        "target": "AnalyseFuture/ORIGINAL_TO_NEW_PATH_MAPPING.txt",
+        "line": 133,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "AnalyseFuture/historical-implementations/documentation-before-universal/README.md",
+        "line": 3,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/continuity/IMPLEMENTATION_CHECKLIST.md",
+        "line": 9,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/continuity/CODEX_HANDOFF.md",
+        "line": 9,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/operations/PRODUCT_BACKBONE.md",
+        "line": 9,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "line": 13,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/development/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+        "line": 50,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "apps/web/README.md",
+        "line": 65,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/operations/OBJECT_STORAGE.md",
+        "line": 65,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/architecture/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+        "line": 65,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "PROJECT_STRUCTURE.md",
+        "line": 69,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "AnalyseFuture/COMPLETE_FILE_INVENTORY.txt",
+        "line": 70,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "AnalyseFuture/REPOSITORY_AUDIT.txt",
+        "line": 90,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "AnalyseFuture/ORIGINAL_TO_NEW_PATH_MAPPING.txt",
+        "line": 91,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "AnalyseFuture/FEATURE_INVENTORY.txt",
+        "line": 92,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt",
+        "line": 93,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 101,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/development/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+        "line": 101,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "scripts/cloud",
+        "line": 101,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/project/FEATURE_MAP.md",
+        "line": 138,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "AnalyseFuture/REPOSITORY_AUDIT.txt",
+        "line": 138,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "AnalyseFuture/FEATURE_INVENTORY.txt",
+        "line": 138,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt",
+        "line": 138,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 142,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "PROJECT_STRUCTURE.md",
+        "line": 143,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "AnalyseFuture/recovery-notes/REPOSITORY_AUDIT_2026-11-17.md",
+        "line": 144,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/project/PRODUCT_VISION.md",
+        "line": 145,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/project/FEATURE_MATRIX.md",
+        "line": 146,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/architecture/ARCHITECTURE.md",
+        "line": 147,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/research/OPEN_SOURCE_STRATEGY.md",
+        "line": 148,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/research/AI_MODELS_AND_DATA.md",
+        "line": 149,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/project/ROADMAP.md",
+        "line": 150,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/project/BACKLOG.md",
+        "line": 151,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/project/BENCHMARKS.md",
+        "line": 152,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/operations/OPERATIONS_SECURITY.md",
+        "line": 153,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "docs/architecture/DECISIONS.md",
+        "line": 154,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "AGENTS.md",
+        "line": 155,
+        "exists": true
+      },
+      {
+        "source": "README.md",
+        "target": "CONTRIBUTING.md",
+        "line": 156,
+        "exists": true
+      },
+      {
+        "source": "docs/README.md",
+        "target": "project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 3,
+        "exists": true
+      },
+      {
+        "source": "docs/README.md",
+        "target": "project/",
+        "line": 4,
+        "exists": true
+      },
+      {
+        "source": "docs/README.md",
+        "target": "architecture/",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "docs/README.md",
+        "target": "development/",
+        "line": 6,
+        "exists": true
+      },
+      {
+        "source": "docs/README.md",
+        "target": "operations/",
+        "line": 7,
+        "exists": true
+      },
+      {
+        "source": "docs/README.md",
+        "target": "research/",
+        "line": 8,
+        "exists": true
+      },
+      {
+        "source": "docs/README.md",
+        "target": "continuity/",
+        "line": 9,
+        "exists": true
+      },
+      {
+        "source": "docs/README.md",
+        "target": "project/FEATURE_MAP.md",
+        "line": 10,
+        "exists": true
+      },
+      {
+        "source": "docs/README.md",
+        "target": "../PROJECT_STRUCTURE.md",
+        "line": 11,
+        "exists": true
+      },
+      {
+        "source": "docs/README.md",
+        "target": "../AnalyseFuture/REPOSITORY_AUDIT.txt",
+        "line": 12,
+        "exists": true
+      },
+      {
+        "source": "docs/architecture/ARCHITECTURE.md",
+        "target": "../../AnalyseFuture/historical-implementations/documentation-before-universal/docs/ARCHITECTURE.md",
+        "line": 3,
+        "exists": true
+      },
+      {
+        "source": "docs/architecture/ARCHITECTURE.md",
+        "target": "../project/FEATURE_MAP.md",
+        "line": 53,
+        "exists": true
+      },
+      {
+        "source": "docs/architecture/ARCHITECTURE.md",
+        "target": "../operations/PRODUCT_BACKBONE.md",
+        "line": 53,
+        "exists": true
+      },
+      {
+        "source": "docs/architecture/ARCHITECTURE.md",
+        "target": "../operations/OBJECT_STORAGE.md",
+        "line": 53,
+        "exists": true
+      },
+      {
+        "source": "docs/architecture/ARCHITECTURE.md",
+        "target": "IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+        "line": 53,
+        "exists": true
+      },
+      {
+        "source": "docs/architecture/ARCHITECTURE.md",
+        "target": "../project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 57,
+        "exists": true
+      },
+      {
+        "source": "docs/architecture/ARCHITECTURE.md",
+        "target": "../../PROJECT_STRUCTURE.md",
+        "line": 61,
+        "exists": true
+      },
+      {
+        "source": "docs/architecture/ARCHITECTURE.md",
+        "target": "../../AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt",
+        "line": 61,
+        "exists": true
+      },
+      {
+        "source": "docs/architecture/DECISIONS.md",
+        "target": "../../AnalyseFuture/historical-implementations/documentation-before-universal/docs/DECISIONS.md",
+        "line": 3,
+        "exists": true
+      },
+      {
+        "source": "docs/architecture/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+        "target": "../../config/identity/providers.example.json",
+        "line": 91,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../../PROJECT_STRUCTURE.md",
+        "line": 12,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../../AnalyseFuture/COMPLETE_FILE_INVENTORY.txt",
+        "line": 13,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../../AnalyseFuture/FEATURE_INVENTORY.txt",
+        "line": 14,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../../AnalyseFuture/ORIGINAL_TO_NEW_PATH_MAPPING.txt",
+        "line": 15,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../../AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt",
+        "line": 16,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../architecture/adr/0001-web-studio-foundation.md",
+        "line": 88,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../operations/OBJECT_STORAGE.md",
+        "line": 89,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../architecture/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+        "line": 90,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../operations/FIRST_REAL_GPU_RUNBOOK.md",
+        "line": 96,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../operations/FIRST_REAL_GPU_RUNBOOK.md",
+        "line": 107,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../../PROJECT_STRUCTURE.md",
+        "line": 145,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../../AnalyseFuture/third_party/README.md",
+        "line": 153,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../../AnalyseFuture/assets/reference/README.md",
+        "line": 153,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../../AnalyseFuture/repository-inventory/ARCHIVE_IMPORTS.json",
+        "line": 153,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 164,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../development/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+        "line": 165,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../../scripts/cloud/install.sh",
+        "line": 165,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../../scripts/cloud/run_web.py",
+        "line": 165,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../../scripts/cloud/playwright.config.cjs",
+        "line": 165,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 175,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../../PROJECT_STRUCTURE.md",
+        "line": 181,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../../AnalyseFuture/recovery-notes/REPOSITORY_AUDIT_2026-11-17.md",
+        "line": 181,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/CODEX_HANDOFF.md",
+        "target": "../project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 183,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/IMPLEMENTATION_CHECKLIST.md",
+        "target": "../../AnalyseFuture/historical-implementations/documentation-before-universal/docs/IMPLEMENTATION_CHECKLIST.md",
+        "line": 3,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/IMPLEMENTATION_CHECKLIST.md",
+        "target": "../project/FEATURE_MAP.md",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/IMPLEMENTATION_CHECKLIST.md",
+        "target": "../../AnalyseFuture/FEATURE_INVENTORY.txt",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/IMPLEMENTATION_CHECKLIST.md",
+        "target": "../research/REUSE_AUDIT.md",
+        "line": 15,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/IMPLEMENTATION_CHECKLIST.md",
+        "target": "../../AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt",
+        "line": 34,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/IMPLEMENTATION_CHECKLIST.md",
+        "target": "../operations/PRODUCT_BACKBONE.md",
+        "line": 38,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/IMPLEMENTATION_CHECKLIST.md",
+        "target": "../architecture/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+        "line": 56,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/IMPLEMENTATION_CHECKLIST.md",
+        "target": "../operations/OBJECT_STORAGE.md",
+        "line": 58,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/IMPLEMENTATION_CHECKLIST.md",
+        "target": "CODEX_HANDOFF.md",
+        "line": 133,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../PROJECT_STRUCTURE.md",
+        "line": 12,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../AnalyseFuture/COMPLETE_FILE_INVENTORY.txt",
+        "line": 13,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../AnalyseFuture/FEATURE_INVENTORY.txt",
+        "line": 14,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../AnalyseFuture/ORIGINAL_TO_NEW_PATH_MAPPING.txt",
+        "line": 15,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt",
+        "line": 16,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../research/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt",
+        "line": 207,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../AGENTS.md",
+        "line": 287,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../README.md",
+        "line": 288,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../project/PRODUCT_VISION.md",
+        "line": 289,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../architecture/ARCHITECTURE.md",
+        "line": 290,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../project/FEATURE_MATRIX.md",
+        "line": 291,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../project/ROADMAP.md",
+        "line": 292,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "IMPLEMENTATION_CHECKLIST.md",
+        "line": 293,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "CODEX_HANDOFF.md",
+        "line": 294,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../project/BACKLOG.md",
+        "line": 295,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../architecture/DECISIONS.md",
+        "line": 296,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../research/OPEN_SOURCE_STRATEGY.md",
+        "line": 297,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../research/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt",
+        "line": 298,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../research/REUSE_AUDIT.md",
+        "line": 299,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../research/LICENSE_MATRIX.md",
+        "line": 300,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../operations/FIRST_REAL_GPU_RUNBOOK.md",
+        "line": 301,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../operations/MODEL_APPROVAL_GATE.md",
+        "line": 302,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../operations/PRODUCT_BACKBONE.md",
+        "line": 303,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../operations/OBJECT_STORAGE.md",
+        "line": 304,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../architecture/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+        "line": 305,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../operations/GPU_SMOKE_AND_ARTIFACTS.md",
+        "line": 306,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../project/BENCHMARKS.md",
+        "line": 307,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../research/AI_MODELS_AND_DATA.md",
+        "line": 308,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../operations/OPERATIONS_SECURITY.md",
+        "line": 309,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../development/PHASE0_GATEWAY.md",
+        "line": 310,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../research/CPU_DEPENDENCY_INVENTORY.json",
+        "line": 311,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../architecture/adr/0001-web-studio-foundation.md",
+        "line": 312,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../AnalyseFuture/recovery-notes/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt",
+        "line": 313,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../PROJECT_STRUCTURE.md",
+        "line": 383,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../README.md#repository-layout",
+        "line": 389,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../AnalyseFuture/third_party/README.md",
+        "line": 389,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../AnalyseFuture/assets/reference/README.md",
+        "line": 389,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../AnalyseFuture/repository-inventory/ARCHIVE_IMPORTS.json",
+        "line": 389,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 396,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../development/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+        "line": 396,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../scripts/cloud",
+        "line": 396,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "CODEX_HANDOFF.md",
+        "line": 400,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 404,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../project/PRODUCT_VISION.md",
+        "line": 404,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../PROJECT_STRUCTURE.md",
+        "line": 410,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../../AnalyseFuture/recovery-notes/REPOSITORY_AUDIT_2026-11-17.md",
+        "line": 410,
+        "exists": true
+      },
+      {
+        "source": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+        "target": "../project/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 412,
+        "exists": true
+      },
+      {
+        "source": "docs/development/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+        "target": "../operations/FIRST_REAL_GPU_RUNBOOK.md",
+        "line": 119,
+        "exists": true
+      },
+      {
+        "source": "docs/development/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+        "target": "../../PROJECT_STRUCTURE.md",
+        "line": 124,
+        "exists": true
+      },
+      {
+        "source": "docs/development/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+        "target": "../../AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt",
+        "line": 130,
+        "exists": true
+      },
+      {
+        "source": "docs/development/PHASE0_GATEWAY.md",
+        "target": "../../AnalyseFuture/historical-implementations/documentation-before-universal/docs/PHASE0_GATEWAY.md",
+        "line": 3,
+        "exists": true
+      },
+      {
+        "source": "docs/development/PHASE0_GATEWAY.md",
+        "target": "../operations/MODEL_APPROVAL_GATE.md",
+        "line": 12,
+        "exists": true
+      },
+      {
+        "source": "docs/operations/FIRST_REAL_GPU_RUNBOOK.md",
+        "target": "../../AnalyseFuture/historical-implementations/documentation-before-universal/docs/FIRST_REAL_GPU_RUNBOOK.md",
+        "line": 3,
+        "exists": true
+      },
+      {
+        "source": "docs/operations/GPU_SMOKE_AND_ARTIFACTS.md",
+        "target": "../../AnalyseFuture/historical-implementations/documentation-before-universal/docs/GPU_SMOKE_AND_ARTIFACTS.md",
+        "line": 3,
+        "exists": true
+      },
+      {
+        "source": "docs/operations/GPU_SMOKE_AND_ARTIFACTS.md",
+        "target": "FIRST_REAL_GPU_RUNBOOK.md",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "docs/operations/GPU_SMOKE_AND_ARTIFACTS.md",
+        "target": "../continuity/CODEX_HANDOFF.md",
+        "line": 18,
+        "exists": true
+      },
+      {
+        "source": "docs/operations/GPU_SMOKE_AND_ARTIFACTS.md",
+        "target": "../research/LICENSE_MATRIX.md",
+        "line": 19,
+        "exists": true
+      },
+      {
+        "source": "docs/operations/MODEL_APPROVAL_GATE.md",
+        "target": "../research/LICENSE_MATRIX.md",
+        "line": 20,
+        "exists": true
+      },
+      {
+        "source": "docs/operations/PRODUCT_BACKBONE.md",
+        "target": "../../AnalyseFuture/historical-implementations/documentation-before-universal/docs/PRODUCT_BACKBONE.md",
+        "line": 3,
+        "exists": true
+      },
+      {
+        "source": "docs/operations/PRODUCT_BACKBONE.md",
+        "target": "OBJECT_STORAGE.md",
+        "line": 42,
+        "exists": true
+      },
+      {
+        "source": "docs/operations/PRODUCT_BACKBONE.md",
+        "target": "../architecture/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+        "line": 46,
+        "exists": true
+      },
+      {
+        "source": "docs/operations/PRODUCT_BACKBONE.md",
+        "target": "OBJECT_STORAGE.md",
+        "line": 122,
+        "exists": true
+      },
+      {
+        "source": "docs/operations/PRODUCT_BACKBONE.md",
+        "target": "../../AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt",
+        "line": 141,
+        "exists": true
+      },
+      {
+        "source": "docs/project/BACKLOG.md",
+        "target": "../../AnalyseFuture/historical-implementations/documentation-before-universal/docs/BACKLOG.md",
+        "line": 3,
+        "exists": true
+      },
+      {
+        "source": "docs/project/BACKLOG.md",
+        "target": "FEATURE_MAP.md",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "docs/project/BACKLOG.md",
+        "target": "../../AnalyseFuture/FEATURE_INVENTORY.txt",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "docs/project/BACKLOG.md",
+        "target": "../continuity/IMPLEMENTATION_CHECKLIST.md",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../../AnalyseFuture/FEATURE_INVENTORY.txt",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "FEATURE_MATRIX.md",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../../AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt",
+        "line": 7,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../architecture/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+        "line": 13,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../architecture/adr/0001-web-studio-foundation.md",
+        "line": 13,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../architecture/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+        "line": 14,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../operations/PRODUCT_BACKBONE.md",
+        "line": 15,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../operations/PRODUCT_BACKBONE.md",
+        "line": 16,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../../AnalyseFuture/FEATURE_INVENTORY.txt",
+        "line": 17,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../operations/PRODUCT_BACKBONE.md",
+        "line": 18,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../operations/PRODUCT_BACKBONE.md",
+        "line": 19,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../operations/MODEL_APPROVAL_GATE.md",
+        "line": 20,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../research/LICENSE_MATRIX.md",
+        "line": 20,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../operations/OBJECT_STORAGE.md",
+        "line": 21,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../operations/OBJECT_STORAGE.md",
+        "line": 22,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../operations/OBJECT_STORAGE.md",
+        "line": 23,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../operations/OBJECT_STORAGE.md",
+        "line": 24,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../../apps/web/README.md",
+        "line": 25,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../development/PHASE0_GATEWAY.md",
+        "line": 35,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../operations/GPU_SMOKE_AND_ARTIFACTS.md",
+        "line": 37,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../../AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt",
+        "line": 53,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../../AnalyseFuture/CONSOLIDATION_REPORT.txt",
+        "line": 80,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../../AnalyseFuture/ORIGINAL_TO_NEW_PATH_MAPPING.txt",
+        "line": 80,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../../AnalyseFuture/ARCHIVED_FILES_MANIFEST.txt",
+        "line": 80,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../../AnalyseFuture/TECHNICAL_DEBT.txt",
+        "line": 80,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../../AnalyseFuture/historical-implementations/documentation-before-universal",
+        "line": 80,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MAP.md",
+        "target": "../../AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt",
+        "line": 82,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MATRIX.md",
+        "target": "../../AnalyseFuture/historical-implementations/documentation-before-universal/docs/FEATURE_MATRIX.md",
+        "line": 3,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MATRIX.md",
+        "target": "../../AnalyseFuture/FEATURE_INVENTORY.txt",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MATRIX.md",
+        "target": "FEATURE_MAP.md",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MATRIX.md",
+        "target": "../operations/PRODUCT_BACKBONE.md",
+        "line": 7,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MATRIX.md",
+        "target": "../operations/OBJECT_STORAGE.md",
+        "line": 7,
+        "exists": true
+      },
+      {
+        "source": "docs/project/FEATURE_MATRIX.md",
+        "target": "../architecture/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+        "line": 7,
+        "exists": true
+      },
+      {
+        "source": "docs/project/PRODUCT_VISION.md",
+        "target": "BUILD_3D_AI_PROJECT_IDEA.txt",
+        "line": 3,
+        "exists": true
+      },
+      {
+        "source": "docs/research/AI_MODELS_AND_DATA.md",
+        "target": "../operations/FIRST_REAL_GPU_RUNBOOK.md",
+        "line": 31,
+        "exists": true
+      },
+      {
+        "source": "docs/research/LICENSE_MATRIX.md",
+        "target": "CPU_DEPENDENCY_INVENTORY.json",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "docs/research/LICENSE_MATRIX.md",
+        "target": "../../requirements.lock",
+        "line": 5,
+        "exists": true
+      },
+      {
+        "source": "docs/research/REUSE_AUDIT.md",
+        "target": "../../AnalyseFuture/historical-implementations/documentation-before-universal/docs/REUSE_AUDIT.md",
+        "line": 3,
+        "exists": true
+      },
+      {
+        "source": "docs/research/REUSE_AUDIT.md",
+        "target": "LICENSE_MATRIX.md",
+        "line": 7,
+        "exists": true
+      },
+      {
+        "source": "docs/research/REUSE_AUDIT.md",
+        "target": "../operations/FIRST_REAL_GPU_RUNBOOK.md",
+        "line": 54,
+        "exists": true
+      },
+      {
+        "source": "docs/research/REUSE_AUDIT.md",
+        "target": "CPU_DEPENDENCY_INVENTORY.json",
+        "line": 113,
+        "exists": true
+      },
+      {
+        "source": "docs/research/REUSE_AUDIT.md",
+        "target": "../../AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt",
+        "line": 126,
+        "exists": true
+      }
+    ],
+    "limits": "Local path targets only; remote links not fetched and GFM heading anchors not independently normalized/validated. Immutable historical/upstream documents intentionally excluded."
+  },
+  "local_web_imports": {
+    "checked": 16,
+    "unresolved": [],
+    "checks": [
+      {
+        "source": "apps/web/src/app/api/product/[...segments]/route.ts",
+        "specifier": "@/lib/server/product-api",
+        "resolved": "apps/web/src/lib/server/product-api.ts"
+      },
+      {
+        "source": "apps/web/src/app/api/product/[...segments]/route.ts",
+        "specifier": "@/lib/server/request-body",
+        "resolved": "apps/web/src/lib/server/request-body.ts"
+      },
+      {
+        "source": "apps/web/src/app/api/session/route.ts",
+        "specifier": "@/lib/server/request-body",
+        "resolved": "apps/web/src/lib/server/request-body.ts"
+      },
+      {
+        "source": "apps/web/src/app/api/session/route.ts",
+        "specifier": "@/lib/server/product-api",
+        "resolved": "apps/web/src/lib/server/product-api.ts"
+      },
+      {
+        "source": "apps/web/src/app/layout.tsx",
+        "specifier": "./globals.css",
+        "resolved": "apps/web/src/app/globals.css"
+      },
+      {
+        "source": "apps/web/src/app/page.tsx",
+        "specifier": "@/features/studio/components/studio",
+        "resolved": "apps/web/src/features/studio/components/studio.tsx"
+      },
+      {
+        "source": "apps/web/src/features/assets/components/model-viewer.tsx",
+        "specifier": "@/lib/client/api",
+        "resolved": "apps/web/src/lib/client/api.ts"
+      },
+      {
+        "source": "apps/web/src/features/jobs/status.test.ts",
+        "specifier": "./status",
+        "resolved": "apps/web/src/features/jobs/status.ts"
+      },
+      {
+        "source": "apps/web/src/features/jobs/status.ts",
+        "specifier": "@/lib/contracts",
+        "resolved": "apps/web/src/lib/contracts.ts"
+      },
+      {
+        "source": "apps/web/src/features/studio/components/studio.tsx",
+        "specifier": "@/lib/client/api",
+        "resolved": "apps/web/src/lib/client/api.ts"
+      },
+      {
+        "source": "apps/web/src/features/studio/components/studio.tsx",
+        "specifier": "@/lib/contracts",
+        "resolved": "apps/web/src/lib/contracts.ts"
+      },
+      {
+        "source": "apps/web/src/features/studio/components/studio.tsx",
+        "specifier": "@/features/jobs/status",
+        "resolved": "apps/web/src/features/jobs/status.ts"
+      },
+      {
+        "source": "apps/web/src/features/studio/components/studio.tsx",
+        "specifier": "@/features/assets/components/model-viewer",
+        "resolved": "apps/web/src/features/assets/components/model-viewer.tsx"
+      },
+      {
+        "source": "apps/web/src/lib/client/api.test.ts",
+        "specifier": "./api",
+        "resolved": "apps/web/src/lib/client/api.ts"
+      },
+      {
+        "source": "apps/web/src/lib/client/api.ts",
+        "specifier": "@/lib/contracts",
+        "resolved": "apps/web/src/lib/contracts.ts"
+      },
+      {
+        "source": "apps/web/src/lib/server/request-body.test.ts",
+        "specifier": "./request-body",
+        "resolved": "apps/web/src/lib/server/request-body.ts"
+      }
+    ]
+  },
+  "workflow_paths": {
+    "checked": 42,
+    "missing": [],
+    "checks": [
+      {
+        "source": ".github/workflows/gateway-ci.yml",
+        "line": 20,
+        "target": "requirements.lock",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/gateway-ci.yml",
+        "line": 22,
+        "target": "requirements.lock",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/gateway-ci.yml",
+        "line": 22,
+        "target": "apps/gateway[test]",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/gateway-ci.yml",
+        "line": 24,
+        "target": "apps/gateway/src",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/gateway-ci.yml",
+        "line": 26,
+        "target": "apps/gateway/tests",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/product-api-ci.yml",
+        "line": 35,
+        "target": "requirements.lock",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/product-api-ci.yml",
+        "line": 37,
+        "target": "requirements.lock",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/product-api-ci.yml",
+        "line": 37,
+        "target": "apps/gateway[test]",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/product-api-ci.yml",
+        "line": 37,
+        "target": "apps/api[test]",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/product-api-ci.yml",
+        "line": 40,
+        "target": "apps/api/src",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/product-api-ci.yml",
+        "line": 40,
+        "target": "apps/gateway/src",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/product-api-ci.yml",
+        "line": 45,
+        "target": "apps/api/tests",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/product-api-ci.yml",
+        "line": 45,
+        "target": "apps/gateway/tests",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/product-api-ci.yml",
+        "line": 49,
+        "target": "apps/api/tests",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/product-api-ci.yml",
+        "line": 52,
+        "target": "apps/gateway",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/product-api-ci.yml",
+        "line": 52,
+        "target": "apps/api",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/product-api-ci.yml",
+        "line": 53,
+        "target": "scripts/packaging/check_api_wheel.py",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 7,
+        "target": "services/generation/triposr_candidate/**",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 8,
+        "target": ".github/workflows/triposr-qualification-ci.yml",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 9,
+        "target": "docs/operations/FIRST_REAL_GPU_RUNBOOK.md",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 10,
+        "target": "docs/continuity/IMPLEMENTATION_CHECKLIST.md",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 11,
+        "target": "docs/continuity/CODEX_HANDOFF.md",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 14,
+        "target": "services/generation/triposr_candidate/**",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 15,
+        "target": ".github/workflows/triposr-qualification-ci.yml",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 16,
+        "target": "docs/operations/FIRST_REAL_GPU_RUNBOOK.md",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 17,
+        "target": "docs/continuity/IMPLEMENTATION_CHECKLIST.md",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 18,
+        "target": "docs/continuity/CODEX_HANDOFF.md",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 33,
+        "target": "services/generation/triposr_candidate/test_prepare_runtime.py",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 40,
+        "target": "services/generation/triposr_candidate/prepare_runtime.py",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 50,
+        "target": "services/generation/triposr_candidate/test_audit_pip_report.py",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 56,
+        "target": "services/generation/triposr_candidate/requirements-build3d.txt",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 57,
+        "target": "services/generation/triposr_candidate/audit_pip_report.py",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 59,
+        "target": "services/generation/triposr_candidate/requirements-build3d.txt",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/triposr-qualification-ci.yml",
+        "line": 71,
+        "target": "services/generation/triposr_candidate/test_marching_cubes_contract.py",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/web-ci.yml",
+        "line": 7,
+        "target": "apps/web/**",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/web-ci.yml",
+        "line": 8,
+        "target": "docs/architecture/adr/**",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/web-ci.yml",
+        "line": 9,
+        "target": ".github/workflows/web-ci.yml",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/web-ci.yml",
+        "line": 12,
+        "target": "apps/web/**",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/web-ci.yml",
+        "line": 13,
+        "target": "docs/architecture/adr/**",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/web-ci.yml",
+        "line": 14,
+        "target": ".github/workflows/web-ci.yml",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/web-ci.yml",
+        "line": 23,
+        "target": "apps/web",
+        "exists": true
+      },
+      {
+        "source": ".github/workflows/web-ci.yml",
+        "line": 43,
+        "target": "apps/web",
+        "exists": true
+      }
+    ]
+  },
+  "compose_paths": [
+    {
+      "source": "infrastructure/compose/gateway.yml",
+      "context": ".",
+      "context_exists": true,
+      "dockerfile": "apps/gateway/Dockerfile",
+      "dockerfile_exists": true
+    },
+    {
+      "source": "infrastructure/compose/product.yml",
+      "context": ".",
+      "context_exists": true,
+      "dockerfile": "apps/api/Dockerfile",
+      "dockerfile_exists": true
+    },
+    {
+      "source": "infrastructure/compose/product.yml",
+      "context": ".",
+      "context_exists": true,
+      "dockerfile": "apps/api/Dockerfile",
+      "dockerfile_exists": true
+    }
+  ],
+  "docker_copy_paths": [
+    {
+      "source": "apps/gateway/Dockerfile",
+      "line": 4,
+      "target": "requirements.lock",
+      "exists": true
+    },
+    {
+      "source": "apps/gateway/Dockerfile",
+      "line": 5,
+      "target": "apps/gateway/",
+      "exists": true
+    },
+    {
+      "source": "apps/api/Dockerfile",
+      "line": 4,
+      "target": "requirements.lock",
+      "exists": true
+    },
+    {
+      "source": "apps/api/Dockerfile",
+      "line": 5,
+      "target": "apps/gateway/",
+      "exists": true
+    },
+    {
+      "source": "apps/api/Dockerfile",
+      "line": 6,
+      "target": "apps/api/",
+      "exists": true
+    },
+    {
+      "source": "services/generation/triposr_candidate/Dockerfile.candidate",
+      "line": 14,
+      "target": "requirements-build3d.txt",
+      "exists": true,
+      "context_limit": "Dockerfile is copied by prepare_runtime.py to a separately prepared upstream output tree containing run.py. Here only template-relative asset presence is checked; image build, prepared source and inference are not validated by this structural review."
+    },
+    {
+      "source": "services/generation/triposr_candidate/Dockerfile.candidate",
+      "line": 17,
+      "target": ".",
+      "exists": true,
+      "context_limit": "Dockerfile is copied by prepare_runtime.py to a separately prepared upstream output tree containing run.py. Here only template-relative asset presence is checked; image build, prepared source and inference are not validated by this structural review."
+    }
+  ],
+  "exclusions": {
+    "root_dockerignore_excludes_AnalyseFuture": true,
+    "root_dockerignore_excludes_node_modules": true,
+    "root_dockerignore_excludes_next_output": true,
+    "pytest_excludes_AnalyseFuture": true,
+    "pytest_first_party_testpaths": true,
+    "web_tsconfig_excludes_preservation": true,
+    "limits": "Exclusion policies are not a sandbox; explicit targeting of preserved code can still execute it."
+  },
+  "stale_documentation": [
+    {
+      "path": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+      "line": 33,
+      "issue": "Current recovery procedure includes removed ungrouped path; use docs/operations/FIRST_REAL_GPU_RUNBOOK.md",
+      "kind": "documentation-only stale guidance"
+    },
+    {
+      "path": "docs/continuity/PROJECT_MEMORY_MASTER.md",
+      "line": 51,
+      "issue": "Copyable continuation text includes removed ungrouped catalog path; use docs/research/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt",
+      "kind": "documentation-only stale guidance"
+    },
+    {
+      "path": "docs/project/FEATURE_MAP.md",
+      "line": 25,
+      "issue": "Feature map abbreviates the former component path; canonical path now src/features/assets/components/model-viewer.tsx",
+      "kind": "documentation-only stale guidance"
+    },
+    {
+      "path": "AnalyseFuture/COMPLETE_FILE_INVENTORY.txt",
+      "line": 28,
+      "issue": "Current final inventory gateway-CI purpose is stale; active gateway workflow uses requirements.lock",
+      "kind": "documentation-only stale guidance"
+    },
+    {
+      "path": "docs/continuity/CODEX_HANDOFF.md",
+      "line": 5,
+      "issue": "Latest-instruction paragraph still says all further tests deferred and no final-layout runtime validation; user has now lifted pause. Keep prior receipt/snapshot history but add a new dated validation update after real checks finish.",
+      "kind": "Superseded instruction after latest user steering"
+    },
+    {
+      "path": "AnalyseFuture/repository-inventory/FUNCTIONAL_PATH_MAPPING.json",
+      "line": 502,
+      "issue": "latest_instruction records earlier no-tests phase. This is a point-in-time historical receipt; do not interpret it as overriding current user test authorization.",
+      "kind": "Historical phase snapshot; no source/runtime defect"
+    }
+  ],
+  "safe_active_checks_not_executed_here": [
+    "Web unit/type/build/browser contracts (parent)",
+    "API/gateway SQLite/PostgreSQL regressions, packaging and candidate CPU tests (backend agent)",
+    "Actual Docker image build/runtime, if available: static path existence alone does not establish image readiness",
+    "Full hosted CI matrix Python3.11/3.12 andNode22 still requires actual CI runs",
+    "Real S3/provider identity/GPU inference/Blender workflows remain separate optional/external-gated checks; no paid resource or GPU started"
+  ],
+  "docker_copy_paths_summary": {
+    "checks": 7,
+    "missing_paths": [],
+    "candidate_limit": "The candidate template requires generated prepared upstream output, unlike root product Dockerfiles."
+  },
+  "supplemental_js_configuration_paths": [
+    {
+      "source": "scripts/cloud/playwright.config.cjs",
+      "specifier": "../../apps/web/playwright.config.ts",
+      "exists": true
+    }
+  ]
+}

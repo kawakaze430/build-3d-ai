@@ -52,4 +52,4 @@ When starting after chat truncation, read `docs/continuity/PROJECT_MEMORY_MASTER
 
 ## Functional collections and current validation boundary
 
-Use [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) and [the complete inventory](AnalyseFuture/COMPLETE_FILE_INVENTORY.txt) to locate every functional collection. The latest structural migration intentionally received no further test/build/startup execution because the owner deferred tests; do not present earlier passing results as verification of the final moved layout. Keep historical source bytes and uncertain material outside active code.
+Use [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) and [the complete inventory](AnalyseFuture/COMPLETE_FILE_INVENTORY.txt) to locate every functional collection. The owner subsequently authorized testing after the structural migration. The available final-layout checks passed after a Vitest alias correction; see [the current validation report](AnalyseFuture/validation/2026-11-17/REPORT.md). Keep fixture/local-runtime evidence distinct from real inference and production readiness. Keep historical source bytes and uncertain material outside active code.

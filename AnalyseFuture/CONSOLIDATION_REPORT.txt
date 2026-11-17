@@ -1,3 +1,10 @@
+POST-RESTRUCTURE VALIDATION UPDATE — 17 November 2026
+The owner reauthorized testing with "pls test all". All available local checks
+now passed after the Vitest alias correction. Earlier no-tests statements below
+record the prior migration phase and are superseded by this update.
+See validation/2026-11-17/REPORT.md and TEST_AND_VALIDATION_REPORT.txt for results,
+local-version scope, the initial failed suite and unavailable real-model checks.
+
 BUILD 3D AI — FUNCTIONAL CONSOLIDATION REPORT
 Date: 17 November 2026
 Starting main: 56f412f0722394300a522b7392b191702d3f2c48

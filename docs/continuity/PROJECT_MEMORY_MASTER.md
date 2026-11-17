@@ -1,8 +1,18 @@
 # BUILD 3D AI — Master Project Memory and Continuation Handbook
 
-## Current functional organization — 17 November 2026
+## Post-restructure validation authorized — 17 November 2026
 
-The owner's latest instruction explicitly defers all further tests. The complete
+The owner subsequently requested **“pls test all”**, lifting the earlier pause.
+All available local first-party suites now pass after correcting Vitest's missing
+`@/` alias. See the [current validation report](../../AnalyseFuture/validation/2026-11-17/REPORT.md)
+for counts, the initial regression, runtime checks and infrastructure limits.
+Earlier no-tests notes below are historical migration records, not a current ban.
+
+
+## Historical restructuring snapshot — 17 November 2026
+
+During this phase the owner deferred tests, before the later authorization above.
+The complete
 functional reorganization moves 45 files (42 starting tracked,3 newly authored) into
 project/architecture/development/operations/research/continuity documentation,
 Compose infrastructure, identity configuration, packaging helpers and web
@@ -14,8 +24,8 @@ Read [PROJECT_STRUCTURE.md](../../PROJECT_STRUCTURE.md), the
 [feature inventory](../../AnalyseFuture/FEATURE_INVENTORY.txt),
 [path mapping](../../AnalyseFuture/ORIGINAL_TO_NEW_PATH_MAPPING.txt) and
 [validation record](../../AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt).
-Earlier tests in this conversation preceded the final moves; no final-layout
-runtime validation is claimed. The delivery uses `[skip ci]` and ordinary main
+At that delivery, tests preceded the final moves and final-layout validation
+was deferred. That restructuring delivery used `[skip ci]` and an ordinary main
 push without force or history rewrite. Refer to the delivery receipt/Git refs
 for actual publication evidence rather than inferring success from a plan.
 
@@ -30,10 +40,10 @@ for actual publication evidence rather than inferring success from a plan.
 
 ## 0. Five-minute recovery procedure for future agents
 
-1. Inspect AGENTS.md and README.md. Read THIS document, then docs/continuity/CODEX_HANDOFF.md, docs/continuity/IMPLEMENTATION_CHECKLIST.md and docs/FIRST_REAL_GPU_RUNBOOK.md.
+1. Inspect AGENTS.md and README.md. Read THIS document, then docs/continuity/CODEX_HANDOFF.md, docs/continuity/IMPLEMENTATION_CHECKLIST.md and docs/operations/FIRST_REAL_GPU_RUNBOOK.md.
 2. Fetch the current main SHA, all open PRs, branch heads, GitHub Actions statuses and relevant source/tests. The PR table below is a dated snapshot, never an authorization to merge blindly.
 3. Review docs/research/LICENSE_MATRIX.md, docs/research/REUSE_AUDIT.md, docs/operations/MODEL_APPROVAL_GATE.md and docs/research/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt before selecting or deploying any AI engine.
-4. If PR #26 is still open, inspect and test it. Its research/implementation docs belong to its branch until Codex reviews/merges it.
+4. The useful offline auditor/test slice from historical PR #26 was recovered into main during repository consolidation. Compare any remaining branch changes explicitly; do not merge its entire older tree over the current product. Dated branch documents are preserved under AnalyseFuture/historical-implementations/triposr-provenance-research/.
 5. Reconcile source code and tests against any stale docs. Explicitly distinguish implemented, tested, partial, planned, blocked and deployed.
 6. Work on one small verifiable engineering slice. Do NOT start paid GPUs, training or costly services without fresh written owner/budget and legal clearance.
 7. Update this master memory and docs/continuity/CODEX_HANDOFF.md in the SAME PR/commit as any material decision, gate, link or milestone.
@@ -48,7 +58,7 @@ docs/research/LICENSE_MATRIX.md and docs/operations/FIRST_REAL_GPU_RUNBOOK.md, t
 the CURRENT main branch, open PRs, workflows and actual source/tests.
 Preserve verified first-party infrastructure; do not restart the project.
 The 112 open-source study repositories are in
-docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt. Exactly two primary study
+docs/research/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt. Exactly two primary study
 repos were selected in PR #26: 3DAIGC-API and TripoSR; reevaluate only
 with source-level and licensing evidence. No production AI checkpoint or
 paid GPU inference is approved. Distinguish real tests from fixtures.
@@ -357,12 +367,12 @@ The owner also has independent discussions/projects concerning a reusable 2D ani
 
 **Next recommended Codex action:**
 
-1. Recheck PR #26 HEAD and all three CI runs. Review code diff and index-provenance artifact; merge only if there are no outstanding review/security concerns.
+1. Use the current feature map and test report. The PR #26 auditor and tests are already recovered; investigate only genuinely unique remaining branch work, retaining the source-archive release gate and newer product behavior.
 2. For antlr4-python3-runtime==4.9.3, explicitly inspect its source distribution, build requirements and notices; produce a reproducible independently byte-hashed wheel, or safely substitute a license-appropriate package/runtime. Preserve strict wheel-only release gate.
 3. Produce an exact wheelhouse with independent SHA256 validation and a dependency/notice SBOM, including torch/CUDA/OS libraries from the pinned base image. No large hidden downloads or unbudgeted builds.
 4. After the dependency/license audit, under approved resource constraints, build/inspect candidate container, headlessly test xatlas/ModernGL and local checkpoint loading. Do not start live paid inference yet.
 5. Obtain written owner/legal model/data/SaaS decision and written capped GPU budget/provider/region/shutdown authorization. Only then execute the first real image-to-textured-GLB end-to-end acceptance slice.
-6. Update docs/CURRENT_STATE_AUDIT.md, docs/EXECUTION_PLAN.md, docs/continuity/CODEX_HANDOFF.md and THIS master memory with concrete commit SHAs, actual command results, remaining risks and a new recovery checkpoint.
+6. Update docs/project/FEATURE_MAP.md, AnalyseFuture/TECHNICAL_DEBT.txt, docs/continuity/CODEX_HANDOFF.md and THIS master memory with actual results and a recovery checkpoint. Historical branch-only audit/execution documents remain under AnalyseFuture/historical-implementations/triposr-provenance-research/docs/.
 
 **Before first GPU run, request from owner:** chosen provider/account + region + GPU type, available quota, estimated per-hour rate, allowed maximum total spend, shutdown/cleanup policy and explicit legal approval of exact model/weights/runtime/training-data chain. Credits discussed in old chats are not permission.
 

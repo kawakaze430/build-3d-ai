@@ -1,0 +1,148 @@
+{
+  "baseline_commit": "ddd7c595b968bca57671beed887ec41856f38ea6",
+  "started_at_utc": "2026-11-17T06:25:40Z",
+  "run_directory": "/tmp/build3d-validation-backend-ddd7c59-7b90b366",
+  "scope": "First-party backend, CPU qualification, installed dependency consistency and package distribution; isolated PostgreSQL only. No GPU, model weights, real S3 or paid infrastructure.",
+  "checks": [
+    {
+      "name": "dependency_consistency_product",
+      "command": "/workspace/build-3d-ai/.venv/bin/python -m pip check",
+      "working_directory": "/workspace/build-3d-ai",
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.37,
+      "counts": {},
+      "log_path": "/tmp/build3d-validation-backend-ddd7c59-7b90b366/dependency_consistency_product.log"
+    },
+    {
+      "name": "dependency_consistency_qualification",
+      "command": "/tmp/build3d-qualification-venv/bin/python -m pip check",
+      "working_directory": "/workspace/build-3d-ai",
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.271,
+      "counts": {},
+      "log_path": "/tmp/build3d-validation-backend-ddd7c59-7b90b366/dependency_consistency_qualification.log"
+    },
+    {
+      "name": "sqlite_api_gateway",
+      "command": "/workspace/build-3d-ai/.venv/bin/python -m pytest -q apps/api/tests apps/gateway/tests",
+      "working_directory": "/workspace/build-3d-ai",
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 7.204,
+      "counts": {
+        "passed": 136
+      },
+      "log_path": "/tmp/build3d-validation-backend-ddd7c59-7b90b366/sqlite_api_gateway.log"
+    },
+    {
+      "name": "qualification_preparation_and_pip_audit",
+      "command": "/workspace/build-3d-ai/.venv/bin/python -m pytest -q services/generation/triposr_candidate/test_prepare_runtime.py services/generation/triposr_candidate/test_audit_pip_report.py",
+      "working_directory": "/workspace/build-3d-ai",
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.265,
+      "counts": {
+        "passed": 12
+      },
+      "log_path": "/tmp/build3d-validation-backend-ddd7c59-7b90b366/qualification_preparation_and_pip_audit.log"
+    },
+    {
+      "name": "qualification_marching_cubes",
+      "command": "/tmp/build3d-qualification-venv/bin/python -m pytest -q services/generation/triposr_candidate/test_marching_cubes_contract.py",
+      "working_directory": "/workspace/build-3d-ai",
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.358,
+      "counts": {
+        "passed": 2
+      },
+      "log_path": "/tmp/build3d-validation-backend-ddd7c59-7b90b366/qualification_marching_cubes.log"
+    },
+    {
+      "name": "wheel_build",
+      "command": "/workspace/build-3d-ai/.venv/bin/python -m pip wheel --no-deps ./apps/gateway ./apps/api -w /tmp/build3d-validation-backend-ddd7c59-7b90b366/dist",
+      "working_directory": "/workspace/build-3d-ai",
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 3.394,
+      "counts": {},
+      "log_path": "/tmp/build3d-validation-backend-ddd7c59-7b90b366/wheel_build.log"
+    },
+    {
+      "name": "api_wheel_migration_contents",
+      "command": "/workspace/build-3d-ai/.venv/bin/python /workspace/build-3d-ai/scripts/packaging/check_api_wheel.py",
+      "working_directory": "/tmp/build3d-validation-backend-ddd7c59-7b90b366",
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.026,
+      "counts": {},
+      "log_path": "/tmp/build3d-validation-backend-ddd7c59-7b90b366/api_wheel_migration_contents.log"
+    },
+    {
+      "name": "postgresql_container_start",
+      "command": "docker run --detach --name build3d-validation-postgres-ddd7c59 --publish 127.0.0.1:55432:5432 --env-file /tmp/build3d-validation-backend-ddd7c59-7b90b366/postgres-test.env --mount type=tmpfs,destination=/var/lib/postgresql/data postgres:16",
+      "working_directory": "/workspace/build-3d-ai",
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 5.872,
+      "counts": {},
+      "log_path": "/tmp/build3d-validation-backend-ddd7c59-7b90b366/postgresql_container_start.log"
+    },
+    {
+      "name": "postgresql_api",
+      "command": "TEST_DATABASE_URL=<isolated temporary PostgreSQL test DSN> .venv/bin/python -m pytest -q apps/api/tests",
+      "working_directory": "/workspace/build-3d-ai",
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 10.734,
+      "counts": {
+        "passed": 83
+      },
+      "log_path": "/tmp/build3d-validation-backend-ddd7c59-7b90b366/postgresql_api.log"
+    },
+    {
+      "name": "postgresql_container_cleanup",
+      "command": "docker rm --force --volumes build3d-validation-postgres-ddd7c59",
+      "working_directory": "/workspace/build-3d-ai",
+      "exit_code": 0,
+      "status": "passed",
+      "elapsed_seconds": 0.449,
+      "counts": {},
+      "log_path": "/tmp/build3d-validation-backend-ddd7c59-7b90b366/postgresql_container_cleanup.log"
+    }
+  ],
+  "containers_started": [
+    "build3d-validation-postgres-ddd7c59"
+  ],
+  "containers_removed": [
+    "build3d-validation-postgres-ddd7c59"
+  ],
+  "built_wheels": [
+    {
+      "path": "/tmp/build3d-validation-backend-ddd7c59-7b90b366/dist/build3d_api-0.2.0-py3-none-any.whl",
+      "size_bytes": 35760,
+      "sha256": "33f2fbb610b015db1aa6c937c98cfdb28dba26dd2800b5d69ef4b7e3db5535cf"
+    },
+    {
+      "path": "/tmp/build3d-validation-backend-ddd7c59-7b90b366/dist/build3d_gateway-0.1.0-py3-none-any.whl",
+      "size_bytes": 19238,
+      "sha256": "e28a2326cf77edd134b8b52a5e5150ab75f70b29d32bc1ab79a9069a254d1def"
+    }
+  ],
+  "postgres_image_id": "sha256:6b7038c60456795649816e6ad91b015284a75af3bca7d236b7c6124b56a1d9a3",
+  "final_git_status": "",
+  "finished_at_utc": "2026-11-17T06:26:10Z",
+  "not_run": [
+    "Raw AnalyseFuture source/test suites",
+    "GPU or model-checkpoint execution",
+    "Paid compute or training",
+    "Real S3 provider operations",
+    "Actual Blender import",
+    "Production deployment"
+  ],
+  "all_executed_checks_passed": true,
+  "credentials_retained": false,
+  "cleanup_verified": "Container absent and temporary credential file removed."
+}

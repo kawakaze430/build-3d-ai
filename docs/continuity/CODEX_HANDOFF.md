@@ -1,8 +1,18 @@
 # Developer handoff — 15 November 2026
 
-## Current functional organization — 17 November 2026
+## Post-restructure validation authorized — 17 November 2026
 
-The owner's latest instruction explicitly defers all further tests. The complete
+The owner subsequently requested **“pls test all”**, lifting the earlier pause.
+All available local first-party suites now pass after correcting Vitest's missing
+`@/` alias. See the [current validation report](../../AnalyseFuture/validation/2026-11-17/REPORT.md)
+for counts, the initial regression, runtime checks and infrastructure limits.
+Earlier no-tests notes below are historical migration records, not a current ban.
+
+
+## Historical restructuring snapshot — 17 November 2026
+
+During this phase the owner deferred tests, before the later authorization above.
+The complete
 functional reorganization moves 45 files (42 starting tracked,3 newly authored) into
 project/architecture/development/operations/research/continuity documentation,
 Compose infrastructure, identity configuration, packaging helpers and web
@@ -14,8 +24,8 @@ Read [PROJECT_STRUCTURE.md](../../PROJECT_STRUCTURE.md), the
 [feature inventory](../../AnalyseFuture/FEATURE_INVENTORY.txt),
 [path mapping](../../AnalyseFuture/ORIGINAL_TO_NEW_PATH_MAPPING.txt) and
 [validation record](../../AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt).
-Earlier tests in this conversation preceded the final moves; no final-layout
-runtime validation is claimed. The delivery uses `[skip ci]` and ordinary main
+At that delivery, tests preceded the final moves and final-layout validation
+was deferred. That restructuring delivery used `[skip ci]` and an ordinary main
 push without force or history rewrite. Refer to the delivery receipt/Git refs
 for actual publication evidence rather than inferring success from a plan.
 

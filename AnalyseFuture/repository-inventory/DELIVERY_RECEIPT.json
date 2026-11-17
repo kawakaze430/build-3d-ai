@@ -14,5 +14,14 @@
   "tests_after_latest_instruction": "not run; [skip ci] directive used; no liveActionsstatus claim",
   "force_push": false,
   "history_rewritten": false,
-  "note": "This receipt is recorded by a following documentation-only commit. Its containing HEAD is discoverable through Git; the verified implementation commit remains its parent."
+  "note": "This receipt is recorded by a following documentation-only commit. Its containing HEAD is discoverable through Git; the verified implementation commit remains its parent.",
+  "receipt_scope": "Historical restructuring delivery; counts and testing pause above describe that delivered snapshot.",
+  "subsequent_validation": {
+    "date": "2026-11-17",
+    "target": "ddd7c595b968bca57671beed887ec41856f38ea6 plus the Vitest alias correction",
+    "authorization": "Owner requested pls test all after the restructuring delivery.",
+    "test_executions_passed": 253,
+    "report": "AnalyseFuture/validation/2026-11-17/REPORT.md",
+    "commit_policy": "Ordinary direct-main commit/push; no skip-CI directive, branch, PR, force push or history rewrite. Its containing commit is discoverable through Git."
+  }
 }

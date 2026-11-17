@@ -93,8 +93,8 @@ The [recovery audit](AnalyseFuture/REPOSITORY_AUDIT.txt),
 [future roadmap TXT](AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt)
 describe current ownership and preserved work. No source or reference asset was
 removed. Research sources retain their licenses and restrictions, and no hack
-is inferred solely from unfamiliar files. No further tests are run after the
-owner's latest no-tests instruction; final runtime validation is deferred.
+is inferred solely from unfamiliar files. The owner subsequently authorized testing; available final-layout checks now
+pass after a Vitest alias correction. See the [validation report](AnalyseFuture/validation/2026-11-17/REPORT.md).
 
 ## Session preservation — 17 November 2026
 

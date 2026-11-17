@@ -1,66 +1,91 @@
-BUILD 3D AI — EXECUTION AND STATIC-REVIEW RECORD
-Date: 17 November 2026
-Starting main: 56f412f0722394300a522b7392b191702d3f2c48
-Repository: https://github.com/kawakaze430/build-3d-ai
+BUILD 3D AI — POST-RESTRUCTURE TEST AND VALIDATION REPORT
+Date:17 November2026
+Target:ddd7c595b968bca57671beed887ec41856f38ea6, plus the Vitest alias correction.
 
-LATEST INSTRUCTION: DO NOT RUN TESTS FOR NOW
+CURRENT AUTHORIZATION
+The owner requested "pls test all", superseding the earlier testing pause.
+The final functional layout has now received the available local validation.
+The old no-tests report is retained under history/validation-before-authorization.
 
-After that instruction, no unit, integration or browser suite, build, type
-check, application startup, container build or database migration was run.
-The final 45 functional moves have NOT been runtime validated. The commit uses
-[skip ci] to avoid initiating GitHub test workflows for this delivery. Server
-permissions and branch protection remain enforced; no force-push is used.
+REGRESSION FOUND AND FIXED
+The first Vitest run could not load the client API suite: @/lib/contracts was
+understood by TypeScript/Next.js but not by Vitest. Twelve tests passed while
+one suite failed to load. The test configuration now maps @ to the same src root
+as tsconfig. The original configuration is preserved under
+historical-implementations/validation-fixes/apps/web/vitest.config.ts.
+No assertions were disabled and no dependency was added to bypass the failure.
 
-EARLIER RESULTS, BEFORE THE LATEST INSTRUCTION AND FINAL MOVES
+FINAL PASSING SUITES
+- API/gateway with SQLite:136tests.
+- API with an isolated PostgreSQL16 instance:83tests.
+- Preparation and offline pip metadata audit:12tests, with14reportedsubtests.
+- CPU marching-cubes contracts:2tests.
+- Web unit tests after the alias fix:14tests.
+- Playwright browser contracts:6tests.
+Total:253test executions across suites/providers. This is not a count of distinct
+product features; the API suite is exercised against more than one database.
 
-- 136 API/gateway tests passed using SQLite.
-- 83 API tests passed against a temporary PostgreSQL 16 instance; tests used
-  isolated random schemas rather than existing application data.
-- 12 qualification preparation/metadata-audit tests passed (3 plus 9), with
-  14 reported subtests. Two CPU marching-cubes contract tests also passed.
-- 14 web unit tests passed, including ten new request-stream boundary/error
-  cases. TypeScript checks and the production web build passed.
-- Six browser contracts passed using a synthetic backend and triangle GLB.
-- Python dependency consistency, wheel packaging and inclusion of all four
-  migrations passed. CLI help and earlier Compose configuration checks passed.
-- Two CPU images built with the managed CA supplied as a BuildKit secret.
-  Both started as the non-root app user, returned health 200 and rejected
-  unauthenticated private-route requests. The CA secret was absent at runtime.
-- Real product API project persistence, storage/model requests and studio login
-  and proxy flows passed. Actual chunked login/product overflow requests
-  returned 413. Temporary test credentials were held in memory, not published.
+OTHER PASSING CHECKS
+- Product/qualification dependency consistency, fresh wheel builds, all four
+  versioned migrations in the API wheel, and both relocated Compose configs.
+- TypeScript check, production web build/startup, root200 and private-session401
+  using the reorganized source paths; all four installed CLI --help checks.
+- Both CPU Docker images built using a supported temporary managed CA mount;
+  TLS verification remained enabled and the CA was absent from running images.
+- Both images started as nonroot UID10001; health returned200 and private
+  unauthenticated requests returned401. API migration ran twice successfully.
+- Real product API project persistence and owner isolation; studio login and
+  session/projects/models/storage requests; default approved-model list empty.
+- Real chunked login/product requests exceeded8KiB/12MiB and returned413.
+- Fresh exact upstream TripoSR checkout, guarded preparation and compilation
+  succeeded without importing/loading a model or downloading weights.
+- Preservation and static references:801original-version records,240archive
+  source/asset contents,45functional mappings and active imports/config paths.
 
-These are historical results for the preceding layout. They do not prove the
-final moved imports, deployment paths or browser feature locations still run.
+SCOPE AND REMAINING LIMITS
+Tests ran locally on Python3.12.14 and Node24.22.1. The qualification CPU venv
+also uses Python3.12; the complete hosted Python3.10/3.11 andNode22 matrix was
+not run locally, and hosted Actions status was not available through the API.
+The current commit no longer uses a skip-CI directive because testing is now
+explicitly authorized. Hosted run outcomes are not inferred from local passes.
 
-INITIAL FAILURES AND SUPPORTED CORRECTION
+Raw inactive upstream suites were not executed: their GPU/weight/dependency,
+security and licensing gates remain. No real inference, checkpoint load, GPU
+candidate image, real S3/billing/public deployment, Blender or game-engine import
+was validated. Synthetic HTTP/storage/GLB fixtures do not prove those behaviors
+or model quality. The existing UI history cap and slow-poll cancellation debt
+remain; passing the available suite is not a claim that every possible bug is gone.
 
-Normal CPU image builds failed because base-image trust did not include the
-managed network CA (CERTIFICATE_VERIFY_FAILED). Session-specific recipes mounted
-the host combined CA bundle as a BuildKit secret and set PIP_CERT only during
-installation. TLS verification was never disabled; no CA bytes were committed
-or baked into an image. Both adapted builds then succeeded. The recipes remain
-under AnalyseFuture/recovery-notes/managed-build as diagnostic alternatives.
+Detailed sanitized evidence: validation/2026-11-17/RESULTS.json,
+BACKEND_RESULTS.json and STRUCTURE_RESULTS.json. Temporary test credentials
+were not committed; only test-owned services/data are cleaned up.
 
-FINAL CHECKS ARE STATIC ONLY
+REPRODUCIBLE COMMAND RECORD
+From the repository root, using the prepared environments:
+  .venv/bin/python -m pip check
+  .venv/bin/python -m pytest -q apps/api/tests apps/gateway/tests
+  .venv/bin/python -m pytest -q services/generation/triposr_candidate/test_prepare_runtime.py services/generation/triposr_candidate/test_audit_pip_report.py
+  /tmp/build3d-qualification-venv/bin/python -m pip check
+  /tmp/build3d-qualification-venv/bin/python -m pytest -q services/generation/triposr_candidate/test_marching_cubes_contract.py
+  python scripts/cloud/run_web.py npm run typecheck
+  python scripts/cloud/run_web.py npm test
+  python scripts/cloud/run_web.py npm run build
+  python scripts/cloud/run_web.py npm run test:e2e -- --config ../../scripts/cloud/playwright.config.cjs
 
-The final review enumerates files, records hashes, resolves local imports and
-Markdown targets, inspects configuration paths and reviews Git diff scope.
-These are source/structure inspections, not application tests. Original bytes
-are checked against Git objects and the pre-move working snapshot.
+The PostgreSQL API suite used TEST_DATABASE_URL for an isolated temporary
+PostgreSQL16 database, then the container and temporary credentials were removed.
+Backend JSON evidence records exact commands, working directories, exit codes,
+counts and built-wheel hashes. The temporary qualification venv is local setup
+state, not a committed runtime or an approved model environment.
 
-NOT EXECUTED OR NOT ESTABLISHED
+Compose configuration checks used .env.example as placeholder input, with no
+interpolation/environment-file resolution or deployment:
+  docker compose --env-file .env.example -f infrastructure/compose/gateway.yml config --no-env-resolution --no-interpolate --quiet
+  docker compose --env-file .env.example -f infrastructure/compose/product.yml config --no-env-resolution --no-interpolate --quiet
 
-- Final-layout tests, build, type checks, application startup and migrations:
-  deliberately deferred by the owner.
-- Live GitHub Actions results and protection metadata: API access was denied by
-  the managed proxy; native Git works. No protection bypass is attempted.
-- Real model inference, checkpoint load, GPU candidate image, headless texture
-  bake, real S3, Blender/game-engine import, billing or public deployment: not
-  executed and not established by fixtures or CPU containers.
-- Full native binary analysis, penetration testing or security certification:
-  not performed. Binary metadata and automated credential screening have limits.
-- Arbitrary new linters/formatters/security dependencies: not introduced.
-
-Tests and CI definitions are preserved, with moved-file references repaired.
-A later authorized task should resume validation from NEXT_DEVELOPER_INSTRUCTIONS.
+Both image builds used the corresponding preserved managed-build Dockerfile
+and --secret id=proxy_ca,src=/etc/ssl/certs/ca-certificates.crt. The recipes differ
+from active Dockerfiles only by a temporary CA mount and PIP_CERT for pip.
+No permanent trust-store change or verification bypass was introduced.
+All test-owned containers and temporary Next servers are absent after cleanup;
+Next-generated tracked configuration was restored by the cloud command wrapper.
