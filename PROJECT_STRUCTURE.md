@@ -76,7 +76,8 @@ build-3d-ai/
   CONTRIBUTING.md               Contribution entry point
   README.md                     Product entry point and essential navigation
   PROJECT_STRUCTURE.md          This authoritative structure/ownership guide
-  PROJECT_STATUS_AND_TASKS.md   Current feature status, detailed PR tasks and full file guide
+  PROJECT_STATUS_AND_TASKS.md   Current goal/status, implementation tasks and full file guide
+  research.md                   Future model fine-tuning research and experiment plan
 ```
 
 ## Why these boundaries remain

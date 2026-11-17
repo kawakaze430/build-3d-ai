@@ -1,8 +1,14 @@
 # Build 3D AI — Project Status, File Guide and Implementation Tasks
 
-**Owner handoff · 17 November 2026 · source baseline: `8d09e3b6268d01bf7b3d2aa468ac537a7d80ae35`.** This is the practical starting point for the next implementation tool and its reviewers. It consolidates current source, existing project plans and the latest local validation; it does not restart the project or turn research into shipped features. Re-fetch `main`, inspect open PRs and check the actual source before choosing a task. The containing documentation commit can be identified through Git history.
+**Owner handoff, expanded creation/research scope · 17 November 2026 · tested source baseline: `8d09e3b6268d01bf7b3d2aa468ac537a7d80ae35`.** This is the practical starting point for the next implementation tool and reviewers. It consolidates current source, existing project plans and the latest local validation; it does not restart the project or turn research into shipped features. Re-fetch `main`, inspect open PRs and check the actual source before choosing a task. The containing documentation commit can be identified through Git history.
 
-The [adopted main project goal](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt) remains the product direction. This file explains what exists, what remains, how to continue and what each repository file/folder does. The [structure guide](PROJECT_STRUCTURE.md), [feature ownership map](docs/project/FEATURE_MAP.md), [56 responsibility cards](AnalyseFuture/repository-inventory/FEATURE_REGISTRY.json) and [continuity handbook](docs/continuity/PROJECT_MEMORY_MASTER.md) supply supporting detail. The 56 cards are workstreams, not 56 shipped features.
+The [adopted main project goal](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt) remains the product direction. [research.md](research.md) is the future fine-tuning and model-research notebook. This file explains what exists, what remains, how to continue and what each repository file/folder does. The [structure guide](PROJECT_STRUCTURE.md), [feature ownership map](docs/project/FEATURE_MAP.md), [56 responsibility cards](AnalyseFuture/repository-inventory/FEATURE_REGISTRY.json) and [continuity handbook](docs/continuity/PROJECT_MEMORY_MASTER.md) supply supporting detail. The 56 cards are workstreams, not 56 shipped features.
+
+## Current delivery rule and checkpoint record
+
+**Latest owner instruction: safe, completed, verified work is committed and pushed directly to `origin/main` after each meaningful milestone.** This supersedes earlier branch/PR-delivery wording in this handoff. GitHub `main` is the durable source of truth; do not leave verified work only in a cloud workspace. Fetch and record remote main before work and before every push, retain newer work, never force-push/rewrite shared history/bypass protections, and verify the expected remote SHA afterward.
+
+**Fetched starting main for this expansion:** `7992107b613c680dee2a750045b6b7e1ff42e581`. Earlier recovery/inventory, source preservation, functional restructuring and test-fix checkpoints are already published in its history. The current milestone saves the expanded goal and `research.md`; capability/structure/testing details are the next documentation checkpoint. No new 3D/agent/fine-tuning implementation or runtime result is claimed by these documentation checkpoints. The containing commit is available from Git refs; a following checkpoint records its verified SHA to avoid an impossible self-referential commit hash.
 
 ## Contents
 
@@ -16,7 +22,7 @@ The [adopted main project goal](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt) remai
 8. [Platform, release and review tasks](#platform-release-and-review-tasks)
 9. [Later product capabilities](#later-product-capabilities)
 10. [Validation and safe development commands](#validation-and-safe-development-commands)
-11. [Pull request workflow and monitoring](#pull-request-workflow-and-monitoring)
+11. [Direct-main delivery, review and monitoring](#direct-main-delivery-review-and-monitoring)
 12. [Copyable assignment for the next tool](#copyable-assignment-for-the-next-tool)
 13. [Every-folder guide](#every-folder-guide)
 14. [Every-file guide](#every-file-guide)
@@ -30,6 +36,69 @@ Keep the existing API, durable worker, identity foundation, storage, approval po
 **The next product milestone is one genuine, narrowly supported image → textured GLB → private product download → browser viewer → Blender import workflow.** Record the exact model/runtime/weights, supported inputs, failures, hardware, latency, VRAM, quality from several views and total cost. A working form, synthetic triangle GLB, static image or model-serving interface does not complete this milestone. Text generation is a separate acceptance path; if implemented as text → image → 3D, label it that way.
 
 The immediate milestone may remain private. Public signup, payments, service reliability and account/data lifecycle are separate release requirements. No production model is currently approved; the default approved-model list is intentionally empty. This handoff authorizes no paid compute, training, large weight download or public deployment.
+
+### 0. Preserve and prioritize the work already completed
+
+This is an expansion of the existing project, not a new empty project. Keep the working private API, SQL projects/jobs, fenced worker, identity mapping/JWT boundary, quota/storage/migration tools, model-approval policy, GLB validation/packaging, original studio/viewer, CI, qualification tools and preserved research. The implemented-feature table below gives their exact source owners and evidence. First close their concrete correctness/security gaps and prove real output, then extend them. Do not replace them with an imported application's authentication, queue or file store.
+
+### 1. Detailed project idea: one creation studio for assets, worlds and animation
+
+Build **Build 3D AI**, an independently controlled AI 3D creation platform where a creator starts with a prompt, one image, several consistent views or an existing asset, and produces reusable assets or environments. The product combines generation, inspection, editing, materials, animation preparation, scene assembly, exports and an AI workflow agent. A model research program develops our own specialized fine-tunes where the base/data rights permit it. One product can use several qualified models; a single architecture is not assumed capable of geometry, worlds, texture and motion equally well.
+
+The system serves game/3D artists, animation teams, independent Blender creators, environment designers and developer/API users. Its differentiator is **editable, repeatable production work**: useful geometry and materials from all relevant views, stable asset identity/version history, actual rig deformation, private ownership, predictable cost and importable deliverables. Impressive screenshots alone are insufficient. The adult-character animation direction remains a specialization inside the wider model/environment platform.
+
+The owner wants the breadth of useful workflows associated with **World Labs/Marble World, Tripo 3D, Meshy and Adobe Mixamo**, plus our own integrated AI agent and fine-tuned models. These names identify comparison targets, not ownership of those services, access to their proprietary model weights or an exhaustive verified list of their current features. Implement independently or through rights-cleared components/integrations. `CAP-01` maintains a dated feature-by-feature comparison registry, including plan/API/region/format limits and evidence. At this update official product pages were blocked by the managed proxy; detailed parity claims remain unverified and must not be inferred from this roadmap.
+
+### 2. Complete input/output scope
+
+| Input mode | Model/asset target | Environment/world target | Acceptance distinction |
+|---|---|---|---|
+| Single image | Props, objects and supported characters with geometry, UV/materials and editable/exportable output | A bounded scene/world hypothesis inferred from an image, with navigation and representation limits | Hidden surfaces/layout are inferred, not known exactly. Define the supported image/alpha/camera envelope. |
+| Text prompt | Native text→3D or clearly labeled text→image→3D with prompt/intermediate lineage | Text→layout/scene/world, controllable style, objects, spatial relationships and supported representation | Prompt entry/admission already exists; the actual generation pathway and outputs still need proof. |
+| Multiple images/views | Genuine conditioning on multiple references with view consistency and input-conflict handling | Multiple views/panoramas/posed references for scene reconstruction or controlled world generation | Do not silently choose one image and call it multi-image support. View/camera requirements and contradictory inputs need tests. |
+| Existing 3D asset/scene | Inspect, repair, remesh/retopologize, texture/retexture, segment/edit, rig/animate and version | Compose, extend or edit scenes using separately owned objects and materials | Importing an untrusted asset is a separate validated boundary; edits must preserve earlier versions. |
+| Conversational instruction | Agent explains, plans and operates supported asset tools within project/resource scope | Agent proposes layouts, selects scene objects and coordinates supported world/edit/export steps | A chat answer is not a completed geometry/world edit; tool results require artifacts, validation and user-visible status. |
+
+Supported output modes are explicit: **polygon mesh assets** (GLB first, other formats individually qualified), **editable object-based scenes**, **rigged/animated characters**, and a separately labeled **neural/Gaussian-splat world mode** where selected. Preserve output units, axes, materials, representation, provenance and version history. A splat, collision proxy, panorama and textured editable mesh are different deliverables; conversion between them is not guaranteed.
+
+### 3. End-to-end creator journey
+
+1. Sign in through the supported identity mode and open a private project. Upload permitted inputs or enter a prompt; select asset/world mode, reference views and supported quality/model controls.
+2. The system checks ownership, input validity, supported capability, exact model approval and resource/cost envelope. Show expected outputs/limitations; an agent may explain or prepare a plan within the user's scope.
+3. Create a durable job using the existing admission/idempotency/worker foundation. Report queue/progress/errors truthfully, preserve uncertain remote outcomes and retain reproducible model/input parameters.
+4. Generate real supported output, validate technical/resource integrity, store it privately and create an immutable asset/scene version. Inspect shape/materials from several views; world mode exposes representation and edit/navigation limits.
+5. Refine with supported local geometry/material edits, remesh/UV tools, semantic parts or scene composition. Compare versions; reversible actions retain undo/lineage. The agent can coordinate reviewed typed tools without bypassing owners, formats or budgets.
+6. For supported characters, qualify body rigs, weights, motion clips/retargeting and later facial performance. Verify the result in the actual downstream editor rather than assuming a skeleton means good deformation.
+7. Export a validated asset/animation/scene, reopen it later, or integrate through a versioned API/plugin. Charging, public account lifecycle and hosted service operations must pass their own acceptance gates before public paid release.
+
+### 4. Product capability families to implement
+
+| Family | Complete target scope | Existing foundation to extend |
+|---|---|---|
+| Generation | Image/text/multi-image models; input preprocessing; quality/speed/style controls; reproducible variants; model versions; supported batch jobs | Text/image admission, approval snapshots, durable worker, private projects; real inference unverified |
+| Geometry and materials | Validation, repair, simplification, polygon budgets, deformation-aware retopology, semantic parts/local edits, UVs, bake/retexture/PBR maps and inspection | Shared GLB verifier, OBJ+PNG packager and viewer; professional editing not integrated |
+| Environments and worlds | Image/text/multi-view worlds, explicit representation, navigation, layout/scene graph, object placement, extension/local edits, collisions and qualified exports | Projects/storage/single-asset viewport; world generation and scene editing not implemented |
+| Character animation | Supported humanoid auto-rig, skin weights, skeleton controls, motion library, retarget/blend/trim/root-motion options, facial expressions/visemes/lip-sync | Preserved references and project goals; no active rigging/motion product |
+| AI agent | Project/asset explanations, retrieval of trusted capability docs, structured plans, scoped tool orchestration, failure recovery, version comparisons and undo, bounded costs | Existing APIs/jobs/artifacts and user ownership; no active agent implementation |
+| Product platform | Complete history, asset/scene versions, library/search, accounts, teams, quotas, ledger/payments, API/webhooks/plugins, security and operations | Strong private foundation exists; public/commercial lifecycle and scale remain incomplete |
+| Our model program | Select a suitable licensed base, curate training rights/data, create a measured fine-tune, compare held-out quality/cost and version/roll back releases | Qualification/provenance tools and research plans; no fine-tuning run or quality gain established |
+
+### 5. Model fine-tuning and future research are first-class workstreams
+
+Use [research.md](research.md) as the dedicated future research and fine-tuning notebook, with `RES-*` tasks, hypotheses, candidate/data/experiment records and decision templates. The first experiment selects **one measurable task and one suitable base** after a verified no-training baseline. Evaluate adapters/LoRA only if supported by that exact 3D architecture; generic image-model commands are not a 3D training recipe. Record base/code/data rights separately, asset/identity-disjoint held-out evaluation, data/config/checkpoint hashes, measured quality gains/regressions and full cost.
+
+TripoSR remains the existing inference qualification candidate; it is not automatically the selected fine-tuning architecture or a complete solution for text, multi-view, animation and worlds. Research can conclude that a candidate is unsuitable. Training from scratch, scaling to many GPUs and uploading/releasing a checkpoint are separate decisions with explicit resources and release criteria. No training, weight download or paid run is performed by writing this plan.
+
+### 6. Milestones, priorities and technical limits
+
+- **Keep and harden the foundation now:** preserve existing code/evidence, fix the narrow CPU-ready gaps, close source/resource boundaries and build meaningful tests. The structure/testing backlog below identifies concrete work rather than calling conventional package folders broken.
+- **Prove the first real asset path:** exact reviewed image generation, textured GLB, private storage/download, browser and Blender acceptance. Start a small permitted quality/cost baseline; do not infer broad reliability from one success.
+- **Expand creation workflows:** separately qualify text and multi-image, geometry/material tools and asset versions; build an explicit environment representation/scene foundation and a useful read-only agent in parallel where CPU work permits.
+- **Develop animation/worlds and our specialization:** after relevant baselines, qualify real rig/motion/world adapters and a bounded fine-tune, then add local editing, richer agent actions, facial performance and scene reuse as evidence allows.
+- **Release and scale deliberately:** public accounts, customer-data lifecycle, payments, real storage/restore, operational monitoring and GPU spending controls need their own tests and policy decisions. Roadmap horizons of one year, two years and longer are conditional on team, rights, data, resources and research; they are not promised feature dates.
+
+No system can reconstruct certain hidden geometry/layout from insufficient evidence, guarantee identity/deformation for arbitrary topology, make every splat a clean editable mesh, or promise every future feature of several evolving services at once. Mark experimental limits clearly, retain supported input/output envelopes and commission ML, graphics, technical-art/rigging, frontend/backend, QA, data/rights and platform work according to the task. Public product scope can be ambitious while acceptance remains measured feature by feature.
+
 
 ## Implemented features and their limits
 
@@ -99,7 +168,7 @@ The product API owns tenant state and transactions. The gateway package owns reu
 
 ## Task dispatch and dependencies
 
-All new cards start **open**, unless explicitly marked blocked. Existing code is credited above. Pick one bounded card per PR and identify it in the title/description. A card may need several PRs; close it only when its acceptance evidence is recorded.
+All new cards start **open**, unless explicitly marked blocked. Existing code is credited above. Pick one bounded card per verified milestone and identify it in the title/description. A card may need several milestones; close it only when its acceptance evidence is recorded.
 
 Priority meanings: **P0** blocks its dependent release milestone; **P1** closes a concrete correctness/security/release gap; **P2** improves a supported product workflow; **P3** is conditional product research. Priority is not permission to spend or expose a service. “Ready on CPU” means implementation/fixture work can start without model execution. “Gated” means a named external decision/resource is needed before the dependent step.
 
@@ -118,7 +187,7 @@ These are proposed task IDs, not GitHub issue/PR numbers. None is marked accepte
 
 | Task | Current state | First bounded outcome | Dependency / limit |
 |---|---|---|---|
-| [WEB-01](#web-01) | Open · CPU ready | Polling abort and stale-state correctness | First recommended PR |
+| [WEB-01](#web-01) | Open · CPU ready | Polling abort and stale-state correctness | First recommended milestone |
 | [WEB-02](#web-02) | Open · coordinate Studio edits | Complete project/job pagination | WEB-01 lifecycle guards |
 | [BE-01](#be-01) | Open · CPU ready | Closed reviewed source-copy context | No GPU needed |
 | [BE-05](#be-05) | Open · CPU ready | Gateway preparse byte limits | Keep gateway private |
@@ -347,7 +416,7 @@ structural/checksum preflight, not a comprehensive renderer-security certificate
 
 **Work:** Specify accepted required/optional glTF extensions, external/embedded
 resource policy, accessor/buffer-view/index bounds and practical decoded
-geometry/texture budgets. Keep the first PR to an explicit useful subset; do
+geometry/texture budgets. Keep the first milestone to an explicit useful subset; do
 not implement an entire renderer, topology engine or universal format importer.
 
 **Acceptance:** Supported real and synthetic outputs retain compatibility;
@@ -462,7 +531,7 @@ identity/job lifecycle decisions. Existing storage/job quotas are not a ledger.
 `store.py`/`worker.py` integration points and focused tests;
 `docs/operations/PRODUCT_BACKBONE.md` plus a new scoped design note. The module
 and ledger do **not** exist today. Do not bundle public checkout, subscriptions,
-all payment providers and fiscal compliance into this first PR.
+all payment providers and fiscal compliance into this first milestone.
 
 **Acceptance:** Define immutable/idempotent usage identity, reservation,
 settlement, release/refund and uncertain-provider-outcome states. A retry cannot
@@ -689,9 +758,31 @@ The current fast browser suite is deliberately synthetic. These cards improve ac
 - **Tests/evidence:** CPU/synthetic tests for cap races, exhausted budgets, lost submit responses, stale leases, provider outage and operator drain; later a separately approved bounded provider drill with actual cost/termination evidence. Do not promise a perfect dollar ceiling if provider metering/shutdown latency cannot guarantee it.
 - **Rollback:** Stop new admissions, reconcile existing reservations/jobs, retain immutable usage evidence and release resources using the approved provider procedure.
 
+## Model research and fine-tuning task register
+
+All 15 research cards are open. The detailed question, owner, deliverable, acceptance/tests and resource dependencies are in [research.md](research.md). CPU charter/data/schema work can start now; real baseline, training and release remain gated at the stated steps. No fine-tuning run has occurred.
+
+| Research task | Required outcome / detailed card |
+|---|---|
+| [RES-01](research.md#res-01) | Choose one research question and supported user outcome |
+| [RES-02](research.md#res-02) | Audit base models and real training recipes |
+| [RES-03](research.md#res-03) | Clear the exact source, weights, data and derivative-use chain |
+| [RES-04](research.md#res-04) | Implement a versioned dataset rights/provenance manifest |
+| [RES-05](research.md#res-05) | Build deterministic, bounded model-specific preprocessing |
+| [RES-06](research.md#res-06) | Lock asset/identity-disjoint splits and leakage checks |
+| [RES-07](research.md#res-07) | Record the untouched real baseline and evaluation protocol |
+| [RES-08](research.md#res-08) | Select adaptation targets and measure the resource envelope |
+| [RES-09](research.md#res-09) | Implement the reproducible training-run and resume contract |
+| [RES-10](research.md#res-10) | Run one small explicitly approved adaptation experiment |
+| [RES-11](research.md#res-11) | Evaluate controlled ablations and one locked held-out comparison |
+| [RES-12](research.md#res-12) | Validate the real downstream asset and supported domain |
+| [RES-13](research.md#res-13) | Review model/data privacy, loading safety and release rights |
+| [RES-14](research.md#res-14) | Register the qualified adaptation and prove rollback |
+| [RES-15](research.md#res-15) | Maintain the research log, re-evaluation and next-study decision |
+
 ## Later product capabilities
 
-These are open workstreams, not existing GitHub issue IDs or promised dates. Scope each into small design/implementation PRs after its prerequisite. “One year,” “two years” and longer horizons in the [main goal](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt) are conditional planning from November 2026, not a forecast that another company or researcher will deliver a feature for us.
+These are open workstreams, not existing GitHub issue IDs or promised dates. Scope each into small design/implementation milestones after its prerequisite. “One year,” “two years” and longer horizons in the [main goal](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt) are conditional planning from November 2026, not a forecast that another company or researcher will deliver a feature for us.
 
 | ID / intended owner | Required work and prerequisite | Acceptance before calling it implemented |
 |---|---|---|
@@ -714,7 +805,7 @@ These are open workstreams, not existing GitHub issue IDs or promised dates. Sco
 
 The latest full local software validation applies to the `8d09e3b` code state, including the Vitest alias correction. It recorded **253 test executions**: 136 API/gateway on SQLite, 83 API on PostgreSQL, 12 preparation/auditor, two CPU marching-cubes, 14 web units and six browser contracts. The PostgreSQL/API overlap is intentional; these are not 253 distinct product features. TypeScript, production build/startup, packaging/migrations, dependency checks, Compose, nonroot CPU images, actual API/studio HTTP flows and fresh pinned source preparation also passed.
 
-Read the [full record and commands](AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt) and [dated evidence](AnalyseFuture/validation/2026-11-17/REPORT.md). A docs-only handoff does not rerun those suites or establish a new model result. Future implementation PRs run the checks relevant to their real behavior. Hosted CI/check status must be read for the exact PR head; it remains unknown when the API/status interface is unavailable.
+Read the [full record and commands](AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt) and [dated evidence](AnalyseFuture/validation/2026-11-17/REPORT.md). A docs-only handoff does not rerun those suites or establish a new model result. Future implementation milestones run the checks relevant to their real behavior. Hosted CI/check status must be read for the exact PR head; it remains unknown when the API/status interface is unavailable.
 
 From the repository root, using the documented CPU environment:
 
@@ -733,57 +824,37 @@ The marching-cubes suite needs its separate documented CPU numpy/scikit-image en
 
 Do not run raw `AnalyseFuture` installers/tests, the GPU worker, model/checkpoint loader, full candidate build, Blender automation, training or paid services as a generic “run everything” step. They have separate reviewed tasks/inputs/resource gates. No private credentials, fixture keys, live databases, model weights, dependency caches or generated assets belong in public Git.
 
-## Pull request workflow and monitoring
+## Direct-main delivery, review and monitoring
 
-The owner's next implementation tool is to **use a focused branch and pull request**. The prior direct-main recovery/testing deliveries do not instruct that tool to bypass this new PR workflow. This handoff documentation itself follows the owner's existing direct-main publishing instruction. Preserve Git history, do not force-push and do not overwrite another tool's work.
+The current owner instruction supersedes the earlier PR/branch workflow. Use this cycle for each coherent task: **fetch → inspect/preserve → implement → relevant tests/static checks → commit → fetch/check concurrency → ordinary push to `origin/main` → verify remote → continue**. Keep commits small and independently recoverable. Do not publish a partial structural migration, failed test as passing, secrets/private data, suspicious executable additions or unreviewed dependencies. Record blockers when a safety check or required branch protection prevents delivery; do not bypass it.
 
-1. **Before starting:** Read `AGENTS.md`, this file, the adopted goal and the relevant source/tests. Fetch current `main`, inspect existing PRs/issues and confirm that no one is already implementing the card. Record the base SHA, task ID, scope and prerequisites. If PR metadata is unavailable, label that unknown and obtain it through an authorized interface instead of assuming there are no PRs.
-2. **Implementation tool:** Pick one card, define the acceptance test, change the existing owner modules, preserve historical/reference material, run relevant checks and update this file's status plus canonical docs. State any blocked step. Use a scoped branch such as `implementation/web-01-polling`; open a PR into `main` and share its URL, head SHA and evidence with the owner.
-3. **Codex review:** When the owner supplies the PR URL/number or an authorized automation invokes review, inspect the current diff, base/head, source relationships, tests and actual CI status. Compare against the card and preserved later fixes; check tenant/resource/trust boundaries, rights, cost impact and rollback. Review each added revision before treating earlier approval as current. A local review report can be delivered in this conversation; publishing a GitHub review/comment uses an authorized posting path.
-4. **Decision:** Report blocking findings separately from follow-up suggestions. Passing CI alone does not clear model rights or spend approval. No blanket automatic approval or merge is granted by this document. Merge/publish/deploy only under the owner's applicable authorization and repository rules; preserve the real result and any remaining blockers.
-5. **After acceptance:** Record the merged PR/commit, tests actually run, fixture-vs-real distinction and acceptance evidence. Update relevant feature cards, continuity notes and path/inventory documents when files or responsibilities change. Keep dated validation/preservation reports historical rather than rewriting them as though they covered the new implementation.
+1. Fetch latest main and record its SHA; inspect working changes and current task ownership before editing. Preserve any newer contributor work. Inventory/history reports are dated evidence, not proof that the account is secure or a new check passed.
+2. Select one bounded card and relevant acceptance checks. Reuse existing owner/queue/worker/storage/policy contracts. Update this file, `research.md` and continuity notes for material changes; update structure/inventories when paths change. No paid resources or model approval is inferred from a task.
+3. Commit verified results descriptively on main. Before pushing, fetch main again; if it advanced, integrate without discarding either side and rerun checks affected by the integration. Never force-push, rewrite shared history, disable required protection or treat a failed push as delivery.
+4. Push normally and compare `HEAD` with the remote main SHA. Record the last independently verified published commit and the milestone's actual tests/limits in the next checkpoint; the containing commit is identified through Git. Preserve failed outcomes honestly and keep private evidence private.
+5. If another tool supplies an existing PR, Codex can review its current diff/head/checks in an active session. A continuous watcher is not installed. Optional OPS-05 visibility/review automation must follow the current direct-main policy and does not grant automatic approval, merge or external messaging authority.
 
-**Monitoring boundary:** No continuous background watcher or notification delivery is installed by this file. Codex can review PRs when they are shared in an active session; persistent monitoring requires the separately implemented and verified `OPS-05` automation. No current open-PR count, branch-rule state or hosted CI success is inferred from native Git access. At this handoff the GitHub API queries were unavailable, while `main` was verified through native Git.
-
-### Required PR description and reviewer checklist
-
-```text
-Task ID / title:
-Base SHA / tested head SHA:
-Problem and before/after user behavior:
-Existing implementation reused / touched paths:
-Prerequisites and blockers:
-Acceptance criteria (each with evidence):
-Actual test commands, environments and results:
-Fixtures vs real provider/model/artifact evidence:
-Security, tenant/resource boundaries and rights/notices:
-Dependency, compute and cost impact (authorization if required):
-Rollback / migration compatibility:
-Docs and task statuses updated:
-Remaining limitations / follow-up tasks:
-```
-
-A reviewer should require meaningful delayed/out-of-order tests for polling, >100-record cases for pagination, adversarial boundary tests for limits/GLB, both database paths for transaction changes, packaged migration checks for schema/distribution changes and real downstream artifacts for claims about AI/artist output. Do not add tests that merely restate implementation or replace meaningful failures with skipped assertions.
+Required milestone record: task IDs; starting/tested/published commit; changed files and user-visible behavior; actual tests/environments/outcomes; remaining problems; rights/security/resource impact; next task; rollback/recovery. Before ending run `git status`, `git fetch origin main`, `git rev-parse HEAD`, `git rev-parse origin/main` and `git log -5 --oneline`; explain any difference or unpublished intended work.
 
 ## Copyable assignment for the next tool
 
 ```text
-Continue kawakaze430/build-3d-ai from current main. Read AGENTS.md and
-PROJECT_STATUS_AND_TASKS.md, then inspect the exact current source, tests,
-open PRs and task dependencies. Preserve existing product work and all
-inactive/reference/history files. Do not redesign the repository from scratch.
+Continue kawakaze430/build-3d-ai. Fetch latest main and record its SHA, then
+read AGENTS.md, PROJECT_STATUS_AND_TASKS.md and research.md and inspect the
+current source/tests. Preserve existing work and inactive/reference/history
+material. Build on the verified private foundation; do not restart the project.
 
-Start with WEB-01 unless an existing PR already owns it. Fix polling abort
-classification and stale project/session completions with focused meaningful
-delayed/out-of-order tests. Keep the uncertain-submission/owner/quota/download
-contracts unchanged. Run relevant web checks, record exact commands/results
-and the base/tested-head SHAs, and update the task/handoff documentation.
+Start with WEB-01 unless another current change already owns it. Use meaningful
+delayed/out-of-order tests and preserve owner/quota/uncertain-submit/download
+contracts. CPU research charter/recipe review can proceed separately under
+RES-01/02; no model/training result is implied by documentation or fixtures.
 
-Use a focused branch and open a pull request into main for review. Do not
-merge or force-push. Return the PR URL/head SHA and any blockers to the owner.
-No paid GPU, training, large weight downloads, public identity/deployment,
-new external service or automatic model approval is authorized by this task.
-Do not describe fixtures or a skeleton as real AI generation.
+After each coherent verified milestone: update task/research/continuity notes,
+commit descriptively on main, fetch again, integrate newer work without loss,
+push normally to origin/main and verify the remote SHA. Do not create a branch
+or PR by default, force-push or bypass required protection. If delivery is
+blocked, preserve work and report the concrete blocker. No paid GPU, training,
+large weights, public deployment or model approval is authorized by this task.
 ```
 
 ## Every-folder guide
@@ -968,12 +1039,12 @@ Each tracked file has one row below, including this document itself. Purpose com
 
 The inherited machine-readable inventory and [complete inventory](AnalyseFuture/COMPLETE_FILE_INVENTORY.txt) retain their dated review context. New files or moves require this map to be updated from actual Git paths; do not recursively inventory installed dependencies or self-hash generated reports.
 
-**Coverage: 509 tracked/authored files in this handoff delivery: 508 existing files plus this new root document.** The 167 folder paths are unchanged. Maintenance roles are in the folder map and task cards. Paths below are relative to the named group; their links point to the actual complete paths.
+**Coverage: 510 tracked/authored files: the 509-file prior handoff plus research.md.** The 167 folder paths are unchanged. Maintenance roles are in the folder map and task cards. Paths below are relative to the named group; their links point to the actual complete paths.
 
 Reference/history rows all inherit the inactive, rights and execution limits stated above; those limits are not repeated in every row. The [machine-readable classification](AnalyseFuture/repository-inventory/FINAL_FILE_CLASSIFICATION.json) retains per-file ownership/dependency context. A test row describes the test’s purpose, not a claim that an archived test was run.
 
 <details>
-<summary>Repository root — 10 files</summary>
+<summary>Repository root — 11 files</summary>
 
 | File within this collection | Purpose and relationship | State |
 |---|---|---|
@@ -987,6 +1058,7 @@ Reference/history rows all inherit the inactive, rights and execution limits sta
 | [README.md](README.md) | GitHub homepage linking this execution handoff, the adopted goal, existing private product, setup and documentation navigation. | documentation |
 | [pytest.ini](pytest.ini) | Default first-party testpaths; excludes preserved upstream material from traversal. | Configuration |
 | [requirements.lock](requirements.lock) | Release-version constraints for first-party API/gateway test installation; not independent artifact-hash lock. | Configuration |
+| [research.md](research.md) | Future model research and fine-tuning program: hypotheses, candidate/data rights,15 RES tasks,held-out evaluation,bounded experiments,release/rollback and living research log. No training executed. | Documentation / proposed research |
 
 </details>
 

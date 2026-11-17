@@ -53,3 +53,15 @@ When starting after chat truncation, read `docs/continuity/PROJECT_MEMORY_MASTER
 ## Functional collections and current validation boundary
 
 Use [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) and [the complete inventory](AnalyseFuture/COMPLETE_FILE_INVENTORY.txt) to locate every functional collection. The owner subsequently authorized testing after the structural migration. The available final-layout checks passed after a Vitest alias correction; see [the current validation report](AnalyseFuture/validation/2026-11-17/REPORT.md). Keep fixture/local-runtime evidence distinct from real inference and production readiness. Keep historical source bytes and uncertain material outside active code.
+
+## Current owner delivery policy — 17 November 2026
+
+The owner superseded earlier branch/PR delivery instructions: safe verified milestones
+must be committed and pushed directly to `origin/main`. Fetch/record the latest main
+before work and before each push, preserve/integrate newer work, verify the remote SHA,
+and never force-push, rewrite shared history or bypass required protections. Keep
+milestones coherent and recoverable; do not leave completed work only in the workspace.
+Update PROJECT_STATUS_AND_TASKS.md, research.md and continuity notes after material
+milestones, and structure/inventories when paths change. Historical PR templates remain
+reference material; they do not require creating a branch or PR for current delivery.
+Model/rights/resource gates and the rule against publishing secrets remain in force.

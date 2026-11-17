@@ -1,5 +1,22 @@
 # Developer handoff — 15 November 2026
 
+## Current direct-main expansion checkpoint — 17 November 2026
+
+The owner now requires small verified milestones pushed directly to origin/main,
+superseding prior PR/branch instructions. Starting fetched main for this update:
+`7992107b613c680dee2a750045b6b7e1ff42e581` (the verified prior handoff delivery).
+The expanded goal covers image/text/multi-image assets AND environments, geometry,
+materials,rigs/motion,AI agents and future fine-tuning. Read the updated root
+[task handoff](../../PROJECT_STATUS_AND_TASKS.md) and new [research.md](../../research.md).
+This milestone adds the core vision and15research cards; detailed capability,
+structure/testing expansion follows as the next documentation checkpoint. No new
+runtime tests,inference or training ran. Existing253test executions remain dated.
+Update goal/research/README/navigation/inventories and preservation hashes together;
+the actual containing SHA is discoverable via Git,then recorded in the following
+verified checkpoint. Existing28software tasks remain open;WEB-01 or RES-01/02 CPU
+charter/recipe research are useful next work. No continuous watcher is configured.
+
+
 ## Current execution handoff — 17 November 2026
 
 Start with [PROJECT_STATUS_AND_TASKS.md](../../PROJECT_STATUS_AND_TASKS.md) for

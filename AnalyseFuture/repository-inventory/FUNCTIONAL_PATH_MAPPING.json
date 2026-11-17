@@ -10,7 +10,7 @@
       "size_bytes": 53561,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "659611ef5a65b18dd20a1319576a2dd411a19fb19418ba20dd11d0530959da15",
-      "final_sha256": "3667bb4d4e0433b9fd2565f4d2c57aaa1508e61814d14207997515c9161e2fc7",
+      "final_sha256": "4dacc1a2070a7191aa452fdecb4f2bfe7d82dd4f68e6a49f480f494c75f225af",
       "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/BUILD_3D_AI_PROJECT_IDEA.txt",
       "restructure_snapshot_sha256": "dcde97509537577fa91cfc6e3653031ed907bfe586381de23e371d6aa8580a92"
     },
@@ -298,7 +298,7 @@
       "size_bytes": 41309,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "09928573fb3bca0e69d565a53b09ed81c0fc8dc93909b88bfd44ac007df6d32c",
-      "final_sha256": "1c8347afd9de23bdffb544b13d5e4f3ba0c6856c36fc5d152a1994f5b2d04b3d",
+      "final_sha256": "4590e58273fd387e096f023e129b1faaad939d8f043b8e57394e9caa73a4f5c5",
       "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/PROJECT_MEMORY_MASTER.md",
       "restructure_snapshot_sha256": "c97dba69d47b6ebc3aec2efb5e824933d0a50b0f3a85cd409c6625da2d950000"
     },
@@ -310,7 +310,7 @@
       "size_bytes": 14966,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "7061bb3c5a69fa88410dc69484004baec3a9d6145e0bbb63847d67ca3398bd42",
-      "final_sha256": "6f870eab69cafc63536d208a670a571fc640c57e96f10c5965c6c183dfde69fd",
+      "final_sha256": "227a9a6e5343c465dcc5707bfe91b7b26f8ff5c8b83e71901ecd4bf15fdc3fc8",
       "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/CODEX_HANDOFF.md",
       "restructure_snapshot_sha256": "8fee88589885a3e76e2341a6caf2c6bb284379080deed8115a6ccaf0f8b75013"
     },

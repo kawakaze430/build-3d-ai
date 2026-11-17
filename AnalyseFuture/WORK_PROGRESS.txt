@@ -1,3 +1,11 @@
+CURRENT EXPANDED-GOAL/RESEARCH CHECKPOINT —17November2026
+Fetched starting main:7992107b613c680dee2a750045b6b7e1ff42e581.
+Owner requires verified direct-main milestones; previous PR/branch defaults are superseded.
+Addedresearch.md with15future fine-tuning cards and expanded the core model/world/AIagent goal.
+Updated navigation,delivery rules,continuity and510path inventory;167directoriesunchanged.
+This checkpoint contains no runtime feature/test/training result; detailed capability/structure/QA task expansion follows next.
+Containing commit is identified through Git refs and verified after push; next checkpoint records its SHA.
+
 BUILD 3D AI — WORK PROGRESS AND HANDOFF
 Date: 17 November2026
 CURRENT EXECUTION HANDOFF ADDITION

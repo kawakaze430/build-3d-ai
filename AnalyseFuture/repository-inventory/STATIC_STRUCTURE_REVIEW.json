@@ -1,7 +1,7 @@
 {
   "method": "This check performs static source/path inspection only; it does not execute tests, builds, type checks or runtime commands. Authorized software validation is separately recorded at AnalyseFuture/validation/2026-11-17/REPORT.md.",
-  "markdown_links_inspected": 987,
-  "markdown_files_inspected": 35,
+  "markdown_links_inspected": 1036,
+  "markdown_files_inspected": 36,
   "missing_markdown_targets": [],
   "local_web_imports_inspected": 16,
   "unresolved_local_web_imports": [],

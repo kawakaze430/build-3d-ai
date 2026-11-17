@@ -46,6 +46,7 @@ CONTENTS
 26. Repository structure review and preservation for future work
 27. Functional collections and the restructure-phase testing pause
 28. Post-restructure software validation — 17 November 2026
+29. Expanded creation, worlds, AI agent and model fine-tuning scope
 
 
 01. THE CENTRAL PROJECT IDEA
@@ -1147,5 +1148,48 @@ unverified. The detailed product idea, licensing requirements, benchmark goals
 and future research horizons above remain conditional rather than delivered
 capabilities. The original test configuration and prior pause report are retained
 for recovery and provenance.
+
+29. EXPANDED CREATION, WORLDS, AI AGENT AND MODEL FINE-TUNING SCOPE
+
+Owner clarification,17November2026: Prioritize and extend the substantial work
+already present. Build one independently controlled3Dcreation platform supporting
+image,text and genuinely multi-image inputs for3Dmodels/assets AND environments.
+Target the breadth of useful workflows associated with WorldLabs/MarbleWorld,
+Tripo3D,Meshy and AdobeMixamo,plus our own integratedAIworkflow agent and a future
+specialized model fine-tuning program. Existing API/worker/identity/storage/quota,
+model approval,GLB packaging/viewer,CI and qualification work remain the base.
+
+The scope includes generation controls and variants,geometry/material editing,
+UV/bake/remesh/retopology,semantic parts,body rigging/weights,motion retargeting,
+facial performance,asset/scene versions,editable environments,explicit neural or
+Gaussian-splat representation modes,qualified exports,developer integrations,
+commercial operations and an agent that uses scoped,validated product tools.
+A splat,panorama,collision proxy and editable textured polygon scene are distinct
+outputs. Hidden geometry,arbitrary topology and broad automatic animation still
+have the limits described earlier; no exact reconstruction or parity guarantee
+is implied by this expanded ambition.
+
+The owner also explicitly requests research and future fine-tuning of a model.
+Root research.md defines the research questions,candidate/data/rights decisions,
+architecture-specific training feasibility,asset/identity-disjoint evaluation,
+compute proposal,small experiment ladder,release evidence and rollback. Select
+one measurable task and a suitable cleared base after a no-training baseline.
+TripoSR is an inference qualification candidate,not automatically the selected
+training architecture. No fine-tuning run,large weight download or paid compute
+is started by adopting this research plan.
+
+PROJECT_STATUS_AND_TASKS.md is the single execution handoff: detailed idea,
+implemented/partial/future status,all existing28software PR cards,expanded
+capability/structure/testing tasks and links to every fine-tuning research task.
+Its comparison registry must verify changing vendor features from dated official
+sources when access is available. Attempts to fetch official product pages at
+this update were blocked by the managed proxy;complete current brand parity is
+unverified. Build independent,rights-cleared functionality rather than presume
+access to proprietary models,animation libraries or service assets.
+
+Continue through small verified commits pushed directly to main,with meaningful acceptance tests;
+keep documentation/source preservation and legal/resource gates. The narrow
+first real asset proof still leads into text,multi-image,world/agent workflows,
+then measured specialization and broader production release as dependencies pass.
 
 END OF PROJECT IDEA

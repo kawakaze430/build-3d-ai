@@ -1,6 +1,6 @@
 {
   "starting_count": 369,
-  "final_project_file_count": 509,
+  "final_project_file_count": 510,
   "feature_card_count": 56,
   "physical_move_count": 45,
   "files": [
@@ -5939,7 +5939,7 @@
     {
       "path": "PROJECT_STATUS_AND_TASKS.md",
       "reviewed_starting_path": null,
-      "purpose": "Homepage-linked source-reconciled feature status,28 detailed PR cards,14 later workstreams,review/acceptance workflow and complete509-file/167-directory guide.",
+      "purpose": "Homepage-linked expanded3Dplatform idea,current features,existing28software cards,15research links,task/evidence delivery workflow and complete510-file/167-directory guide; capability/structure/testing expansion follows next checkpoint.",
       "functional_owner": "Project maintainer and assigned task owners",
       "dependencies": [
         "AGENTS.md",
@@ -7810,6 +7810,25 @@
       "hash_policy": "Baseline hashes and full source-copy hashes are in immutable starting/preservation inventories; generated reports are not recursively self-hashed."
     },
     {
+      "path": "research.md",
+      "reviewed_starting_path": null,
+      "purpose": "Future fine-tuning research plan:15 RES tasks,base/data/rights decisions,held-out evaluation,architecture-specific training feasibility,bounded experiments and release/rollback; no training executed.",
+      "functional_owner": "ML/data/release reviewers and project owner",
+      "dependencies": [
+        "PROJECT_STATUS_AND_TASKS.md",
+        "docs/research/AI_MODELS_AND_DATA.md",
+        "docs/research/LICENSE_MATRIX.md",
+        "docs/project/BENCHMARKS.md"
+      ],
+      "feature_cards": [
+        "F055",
+        "F056"
+      ],
+      "role": "current documentation/research plan; no trained model",
+      "inspection": "Source-linked plan reviewed; links/task anchors and path coverage checked statically; no runtime/model/training execution.",
+      "hash_policy": "No recursive self-hashing; source/history preserved in Git and original-version manifests."
+    },
+    {
       "path": "scripts/cloud/install.sh",
       "reviewed_starting_path": "scripts/cloud/install.sh",
       "purpose": "Repo-relative venv installation with constraints, lockfile-free npm install, SQLite migration and pip check.",
@@ -8041,5 +8060,6 @@
   "current_validation_report": "AnalyseFuture/validation/2026-11-17/REPORT.md",
   "current_validation_passed_case_executions": 253,
   "count_scope": "All current tracked and nonignored authored project paths, including the new root handoff; excludes installed dependencies, private runtime state and generated caches. Dated validation covers its stated code snapshot; documentation does not create a new runtime result.",
-  "current_handoff": "PROJECT_STATUS_AND_TASKS.md"
+  "current_handoff": "PROJECT_STATUS_AND_TASKS.md",
+  "current_research_plan": "research.md"
 }
