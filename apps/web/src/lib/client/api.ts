@@ -81,18 +81,24 @@ async function requestJson(path: string, init: RequestInit = {}): Promise<unknow
   try {
     response = await fetch(path, { ...init, cache: "no-store" });
   } catch {
+    init.signal?.throwIfAborted();
     throw new ApiClientError(503, "Web gateway is unavailable");
   }
   if (!response.ok) {
+    const detail = await detailFor(response);
+    init.signal?.throwIfAborted();
     throw new ApiClientError(
       response.status,
-      await detailFor(response),
+      detail,
       response.headers.get("retry-after") ?? undefined,
     );
   }
   try {
-    return await response.json();
+    const value: unknown = await response.json();
+    init.signal?.throwIfAborted();
+    return value;
   } catch {
+    init.signal?.throwIfAborted();
     throw new ApiClientError(502, "Backend returned malformed JSON");
   }
 }
@@ -110,19 +116,20 @@ export function apiErrorMessage(error: unknown): string {
   return error.message;
 }
 
-export async function getSession(): Promise<SessionInfo> {
-  const value = await requestJson("/api/session");
+export async function getSession(signal?: AbortSignal): Promise<SessionInfo> {
+  const value = await requestJson("/api/session", { signal });
   if (!isRecord(value) || value.authenticated !== true || typeof value.userId !== "string") {
     throw new ApiClientError(502, "Malformed session response");
   }
   return { authenticated: true, userId: value.userId };
 }
 
-export async function login(apiKey: string): Promise<SessionInfo> {
+export async function login(apiKey: string, signal?: AbortSignal): Promise<SessionInfo> {
   const value = await requestJson("/api/session", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ apiKey }),
+    signal,
   });
   if (!isRecord(value) || value.authenticated !== true || typeof value.userId !== "string") {
     throw new ApiClientError(502, "Malformed session response");
@@ -137,8 +144,8 @@ export async function logout(): Promise<void> {
   }
 }
 
-export async function listModels(): Promise<string[]> {
-  const value = await requestJson("/api/product/v1/models");
+export async function listModels(signal?: AbortSignal): Promise<string[]> {
+  const value = await requestJson("/api/product/v1/models", { signal });
   if (!isRecord(value) || !Array.isArray(value.approved_model_ids) || !value.approved_model_ids.every((x) => typeof x === "string")) {
     throw new ApiClientError(502, "Backend returned malformed model data");
   }
@@ -174,8 +181,8 @@ export async function getStorageUsage(signal?: AbortSignal): Promise<StorageUsag
   };
 }
 
-export async function listProjects(): Promise<Project[]> {
-  const value = await requestJson("/api/product/v1/projects?limit=100&offset=0");
+export async function listProjects(signal?: AbortSignal): Promise<Project[]> {
+  const value = await requestJson("/api/product/v1/projects?limit=100&offset=0", { signal });
   if (!isRecord(value) || !Array.isArray(value.items)) {
     throw new ApiClientError(502, "Backend returned malformed project list");
   }

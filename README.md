@@ -47,7 +47,7 @@ The owner controls the product, brand, website, infrastructure, source repositor
 
 Merged implementation milestones: PR #1, consolidation PR #14, browser-studio PR #15 and object-storage PR #16. PRs #11–#13 were superseded by #14 after their reviewed final tree was transplanted cleanly onto `main`.
 
-**Project state:** generation is intentionally unavailable unless an exact model is placed in the reviewed approval policy. No real model inference has been executed or benchmarked by this project. The UI currently fetches only the first 100 projects/jobs and has a known slow-polling response race; complete paginated history and polling cancellation remain technical debt. The shared BFF body reader now bounds streamed bytes at 12 MiB for product requests and 8 KiB for login, and the studio uses its existing download-URL helper.
+**Project state:** generation is intentionally unavailable unless an exact model is placed in the reviewed approval policy. No real model inference has been executed or benchmarked by this project. The studio cancels superseded history requests and ignores late responses after switching projects or signing out. Project and job lists still show the first 100 entries. The shared BFF body reader caps streamed requests at 12 MiB for product routes and 8 KiB for login.
 
 ### Run the private product backend and studio locally
 

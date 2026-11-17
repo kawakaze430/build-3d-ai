@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   ApiClientError,
@@ -28,6 +28,7 @@ import { ModelViewer } from "@/features/assets/components/model-viewer";
 
 type AuthState = "checking" | "anonymous" | "authenticated";
 type GenerationMode = "text" | "image";
+type ProjectScope = { id: string; refresh: AbortController | null };
 
 function shortId(value: string): string {
   return value.length > 14 ? `${value.slice(0, 7)}…${value.slice(-5)}` : value;
@@ -71,18 +72,32 @@ export function Studio() {
   const [projectName, setProjectName] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const workspaceSignal = useRef<AbortSignal | null>(null);
+  const activeProject = useRef<ProjectScope | null>(null);
 
   const report = useCallback((cause: unknown) => {
     setError(apiErrorMessage(cause));
   }, []);
 
+  const chooseProject = useCallback((projectId: string | null) => {
+    if (projectId !== (activeProject.current?.id ?? null)) {
+      activeProject.current?.refresh?.abort();
+      activeProject.current = projectId ? { id: projectId, refresh: null } : null;
+      setSelectedProjectId(projectId);
+      setJobs([]);
+      setSelectedJobId(null);
+    }
+    router.replace(projectId ? `/?project=${encodeURIComponent(projectId)}` : "/");
+  }, [router]);
+
   const loadWorkspace = useCallback(
-    async (preferredProject?: string | null) => {
+    async (preferredProject: string | null, signal: AbortSignal) => {
       const [availableModels, availableProjects, usage] = await Promise.all([
-        listModels(),
-        listProjects(),
-        getStorageUsage(),
+        listModels(signal),
+        listProjects(signal),
+        getStorageUsage(signal),
       ]);
+      signal.throwIfAborted();
       setModels(availableModels);
       setModelId((current) =>
         availableModels.includes(current) ? current : (availableModels[0] ?? ""),
@@ -90,32 +105,28 @@ export function Studio() {
       setProjects(availableProjects);
       setStorage(usage);
 
-      const preferred = preferredProject ?? selectedProjectId;
       const nextProject =
-        (preferred && availableProjects.some((item) => item.id === preferred)
-          ? preferred
+        (preferredProject && availableProjects.some((item) => item.id === preferredProject)
+          ? preferredProject
           : availableProjects[0]?.id) ?? null;
-      setSelectedProjectId(nextProject);
-      if (nextProject) {
-        router.replace(`/?project=${encodeURIComponent(nextProject)}`);
-      } else {
-        router.replace("/");
-      }
+      chooseProject(nextProject);
     },
-    [router, selectedProjectId],
+    [chooseProject],
   );
 
   useEffect(() => {
-    let active = true;
+    const controller = new AbortController();
+    const { signal } = controller;
+    workspaceSignal.current = signal;
     (async () => {
       try {
-        const session = await getSession();
-        if (!active) return;
+        const session = await getSession(signal);
+        await loadWorkspace(projectFromUrl, signal);
+        if (signal.aborted) return;
         setUserId(session.userId);
         setAuth("authenticated");
-        await loadWorkspace(projectFromUrl);
       } catch (cause) {
-        if (!active) return;
+        if (signal.aborted) return;
         if (cause instanceof ApiClientError && cause.status === 401) {
           setAuth("anonymous");
         } else {
@@ -125,54 +136,52 @@ export function Studio() {
       }
     })();
     return () => {
-      active = false;
+      controller.abort();
+      activeProject.current?.refresh?.abort();
+      activeProject.current = null;
     };
     // Initial session check intentionally runs once; projectFromUrl is used as the initial preference.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const refreshJobs = useCallback(
-    async (projectId: string, signal?: AbortSignal) => {
-      const [latest, usage] = await Promise.all([
-        listJobs(projectId, signal),
-        getStorageUsage(signal),
-      ]);
-      setJobs(latest);
-      setStorage(usage);
-      setSelectedJobId((current) =>
-        current && latest.some((job) => job.id === current)
-          ? current
-          : (latest[0]?.id ?? null),
-      );
+    async (project: ProjectScope) => {
+      if (activeProject.current !== project) return;
+      project.refresh?.abort();
+      const controller = new AbortController();
+      const { signal } = controller;
+      project.refresh = controller;
+      try {
+        const [latest, usage] = await Promise.all([
+          listJobs(project.id, signal),
+          getStorageUsage(signal),
+        ]);
+        if (signal.aborted || activeProject.current !== project) return;
+        setJobs(latest);
+        setStorage(usage);
+        setSelectedJobId((current) =>
+          current && latest.some((job) => job.id === current)
+            ? current
+            : (latest[0]?.id ?? null),
+        );
+      } catch (cause) {
+        if (!signal.aborted && activeProject.current === project) report(cause);
+      }
     },
-    [],
+    [report],
   );
 
   useEffect(() => {
-    if (auth !== "authenticated" || !selectedProjectId) {
-      setJobs([]);
-      setSelectedJobId(null);
-      return;
-    }
-    let controller = new AbortController();
-    const run = async () => {
-      try {
-        await refreshJobs(selectedProjectId, controller.signal);
-      } catch (cause) {
-        if (!controller.signal.aborted) report(cause);
-      }
-    };
+    const project = activeProject.current;
+    if (auth !== "authenticated" || !project || project.id !== selectedProjectId) return;
+    const run = () => void refreshJobs(project);
     void run();
-    const timer = window.setInterval(() => {
-      controller.abort();
-      controller = new AbortController();
-      void run();
-    }, 5000);
+    const timer = window.setInterval(run, 5000);
     return () => {
       window.clearInterval(timer);
-      controller.abort();
+      project.refresh?.abort();
     };
-  }, [auth, refreshJobs, report, selectedProjectId]);
+  }, [auth, refreshJobs, selectedProjectId]);
 
   const selectedProject = useMemo(
     () => projects.find((item) => item.id === selectedProjectId) ?? null,
@@ -185,99 +194,106 @@ export function Studio() {
 
   async function handleLogin(event: FormEvent) {
     event.preventDefault();
+    const signal = workspaceSignal.current;
+    if (!signal || signal.aborted) return;
     setBusy(true);
     setError("");
     try {
-      const session = await login(apiKey);
+      const session = await login(apiKey, signal);
+      await loadWorkspace(projectFromUrl, signal);
+      if (signal.aborted) return;
       setApiKey("");
       setUserId(session.userId);
       setAuth("authenticated");
-      await loadWorkspace(projectFromUrl);
     } catch (cause) {
-      report(cause);
+      if (!signal.aborted) report(cause);
     } finally {
-      setBusy(false);
+      if (!signal.aborted) setBusy(false);
     }
   }
 
   async function handleLogout() {
+    const signal = workspaceSignal.current;
+    if (!signal || signal.aborted) return;
     setBusy(true);
     try {
       await logout();
     } catch {
       // Session is cleared locally even if the backend is unavailable.
     }
+    if (signal.aborted) return;
+    chooseProject(null);
     setAuth("anonymous");
     setUserId("");
     setProjects([]);
     setModels([]);
     setStorage(null);
-    setJobs([]);
-    setSelectedProjectId(null);
-    setSelectedJobId(null);
-    router.replace("/");
+    setError("");
     setBusy(false);
   }
 
   async function handleCreateProject(event: FormEvent) {
     event.preventDefault();
-    if (!projectName.trim()) return;
+    const signal = workspaceSignal.current;
+    const project = activeProject.current;
+    if (!signal || signal.aborted || !projectName.trim()) return;
     setBusy(true);
     setError("");
     try {
       const created = await createProject(projectName.trim());
+      if (signal.aborted) return;
       setProjectName("");
       setProjects((current) => [created, ...current.filter((item) => item.id !== created.id)]);
-      setSelectedProjectId(created.id);
-      setSelectedJobId(null);
-      router.replace(`/?project=${encodeURIComponent(created.id)}`);
+      if (activeProject.current === project) chooseProject(created.id);
     } catch (cause) {
-      report(cause);
+      if (!signal.aborted) report(cause);
     } finally {
-      setBusy(false);
+      if (!signal.aborted) setBusy(false);
     }
   }
 
   async function handleTextGeneration(event: FormEvent) {
     event.preventDefault();
-    if (!selectedProjectId || !modelId || !prompt.trim()) return;
+    const project = activeProject.current;
+    const signal = workspaceSignal.current;
+    if (!signal || signal.aborted || !project || !modelId || !prompt.trim()) return;
     setBusy(true);
     setError("");
     try {
-      const job = await submitTextJob(selectedProjectId, prompt.trim(), modelId);
+      const job = await submitTextJob(project.id, prompt.trim(), modelId);
+      if (activeProject.current !== project) return;
       setPrompt("");
+      setJobs((current) => [job, ...current.filter((item) => item.id !== job.id)]);
       setSelectedJobId(job.id);
-      await refreshJobs(selectedProjectId);
+      void refreshJobs(project);
     } catch (cause) {
-      report(cause);
+      if (activeProject.current === project) report(cause);
     } finally {
-      setBusy(false);
+      if (!signal.aborted) setBusy(false);
     }
   }
 
   async function handleImageGeneration(event: FormEvent) {
     event.preventDefault();
-    if (!selectedProjectId || !modelId || !image) return;
+    const project = activeProject.current;
+    const signal = workspaceSignal.current;
+    if (!signal || signal.aborted || !project || !modelId || !image) return;
     setBusy(true);
     setError("");
     try {
-      const job = await submitImageJob(selectedProjectId, image, modelId);
+      const job = await submitImageJob(project.id, image, modelId);
+      if (activeProject.current !== project) return;
       setImage(null);
-      setSelectedJobId(job.id);
-      await refreshJobs(selectedProjectId);
       const input = document.getElementById("reference-image") as HTMLInputElement | null;
       if (input) input.value = "";
+      setJobs((current) => [job, ...current.filter((item) => item.id !== job.id)]);
+      setSelectedJobId(job.id);
+      void refreshJobs(project);
     } catch (cause) {
-      report(cause);
+      if (activeProject.current === project) report(cause);
     } finally {
-      setBusy(false);
+      if (!signal.aborted) setBusy(false);
     }
-  }
-
-  function chooseProject(projectId: string) {
-    setSelectedProjectId(projectId);
-    setSelectedJobId(null);
-    router.replace(`/?project=${encodeURIComponent(projectId)}`);
   }
 
   const storagePercent = storage
