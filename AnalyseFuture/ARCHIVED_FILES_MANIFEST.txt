@@ -1,0 +1,457 @@
+ARCHIVED FILES AND ORIGINAL-VERSION MANIFEST — BUILD 3D AI
+Starting commit:56f412f0722394300a522b7392b191702d3f2c48
+Current historical-implementation paths:80.
+Additional exact original copies created by the final preservation step:49.
+All369 starting file contents and all432 pre-functional working file contents have retained byte-identical copies. Some records intentionally share identical retained bytes; no destructive deduplication was performed.
+
+CURRENT HISTORICAL PATHS
+
+[1] AnalyseFuture/historical-implementations/before-functional-restructure/.github/workflows/product-api-ci.yml
+SHA256: 458c3cf4c3ebd13628e575ac187273310449f8ad136ac17d54ff80b63f3139f2
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: .github/workflows/product-api-ci.yml
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: .github/workflows/product-api-ci.yml
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[2] AnalyseFuture/historical-implementations/before-functional-restructure/.github/workflows/triposr-qualification-ci.yml
+SHA256: 2ac33bf90c17ca9bc8f5856b2532c6d61af9c952232433a8dca5ca922f2c6e70
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: .github/workflows/triposr-qualification-ci.yml
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[3] AnalyseFuture/historical-implementations/before-functional-restructure/.github/workflows/web-ci.yml
+SHA256: a759ff1ffcf1c1aa39b536534aac7a98789e8ee72662500d9a5eea8fb6987a90
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: .github/workflows/web-ci.yml
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[4] AnalyseFuture/historical-implementations/before-functional-restructure/AGENTS.md
+SHA256: 18a1e89faeaf17bc8228dc545ed64dd837ebc136f3bde3cd3541e353c1a7cde0
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: AGENTS.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AGENTS.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[5] AnalyseFuture/historical-implementations/before-functional-restructure/AnalyseFuture/ARCHIVED_FILES_MANIFEST.txt
+SHA256: 7bba85e83f73b57e91d80bff76cbd8c3695912e3f8ccf7e9aee91856822a79d4
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/ARCHIVED_FILES_MANIFEST.txt
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[6] AnalyseFuture/historical-implementations/before-functional-restructure/AnalyseFuture/DUPLICATE_ANALYSIS.txt
+SHA256: b140fbb8f51f992ec87c98d5c5f0b99492c4ace4c6ecb17d1c1562d8a74bef82
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/DUPLICATE_ANALYSIS.txt
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[7] AnalyseFuture/historical-implementations/before-functional-restructure/AnalyseFuture/FEATURE_INVENTORY.txt
+SHA256: 55a821bd3c4cb94d4cfe9c09768fdef2a3a3ce636900c0a0f703afb2769aedb9
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/FEATURE_INVENTORY.txt
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[8] AnalyseFuture/historical-implementations/before-functional-restructure/AnalyseFuture/ORIGINAL_TO_NEW_PATH_MAPPING.txt
+SHA256: 95ab0dc2e3545891e6f6318eab2d082d03a03286137ab122e3467326beb1699d
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/ORIGINAL_TO_NEW_PATH_MAPPING.txt
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[9] AnalyseFuture/historical-implementations/before-functional-restructure/AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt
+SHA256: 2c5017c7bbdc58664759e6b81e9a3287b716a59c9cc85fd4e4aaa588f6121d99
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[10] AnalyseFuture/historical-implementations/before-functional-restructure/AnalyseFuture/README.md
+SHA256: 54b36766621d439efaa202c09814cf1082363bc46d2e04c110c25ced2b3061ba
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: AnalyseFuture/README.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/README.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[11] AnalyseFuture/historical-implementations/before-functional-restructure/AnalyseFuture/SECURITY_AUDIT.txt
+SHA256: 0cd6e8f00cd6f1468850cba608e7b9bd9630ffa067865d45d11220257529065e
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/SECURITY_AUDIT.txt
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[12] AnalyseFuture/historical-implementations/before-functional-restructure/AnalyseFuture/TECHNICAL_DEBT.txt
+SHA256: f46010cf42c394b3719568ec596c346250a103ca3a61b84377fe99835663c751
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/TECHNICAL_DEBT.txt
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[13] AnalyseFuture/historical-implementations/before-functional-restructure/AnalyseFuture/WORK_PROGRESS.txt
+SHA256: c07e7f679d8af9defab61b31582a38956d87ce0879659890ee37096b06a4d576
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/WORK_PROGRESS.txt
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[14] AnalyseFuture/historical-implementations/before-functional-restructure/AnalyseFuture/assets/reference/README.md
+SHA256: 987629b2e72aea5150499493151e1a3e7e110bec83d0393a93ec95b070a38f3b
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: AnalyseFuture/assets/reference/README.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/assets/reference/README.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[15] AnalyseFuture/historical-implementations/before-functional-restructure/AnalyseFuture/repository-inventory/FEATURE_REGISTRY.json
+SHA256: 175ffed672a3beb34229b21ec58e48e5353636535da898f642d88a7c4f3332f2
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/repository-inventory/FEATURE_REGISTRY.json
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[16] AnalyseFuture/historical-implementations/before-functional-restructure/AnalyseFuture/third_party/README.md
+SHA256: a12c80f1fa2b8db3a0f3efb97d9d1ac69d3c49006e2265fee6391488528a9da5
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: AnalyseFuture/third_party/README.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/third_party/README.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[17] AnalyseFuture/historical-implementations/before-functional-restructure/CONTRIBUTING.md
+SHA256: faef0eb75a33ea2f33a0a8be8353d121bd1a0d5995cf948d9fd05686e6d44ad6
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: CONTRIBUTING.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: CONTRIBUTING.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[18] AnalyseFuture/historical-implementations/before-functional-restructure/README.md
+SHA256: 2a7646a9c631f93522771e51cbc764fe770c5af2e8fec16fb765a6ad83870c02
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: README.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[19] AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/app/api/product/[...segments]/route.ts
+SHA256: 7daa68bf8bf40d26911b38d75a791e02de00e249d4f519aff3f775894e92492a
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: apps/web/src/app/api/product/[...segments]/route.ts
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[20] AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/app/api/session/route.ts
+SHA256: 7a47007458df42e6388875b2d2d0d2eb228ef1b4f1aded78d7a5d8df2df76020
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: apps/web/src/app/api/session/route.ts
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[21] AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/app/page.tsx
+SHA256: 2a09cbea38c8bd5e69d056882037eca382739c7b0eb6d3c031b7cea5351ca628
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: apps/web/src/app/page.tsx
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: apps/web/src/app/page.tsx
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[22] AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/components/model-viewer.tsx
+SHA256: 5535dde5078e9489f7028a3a0629d045ac42e6c0b904527ab9b653ad2a704d84
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: apps/web/src/components/model-viewer.tsx
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: apps/web/src/components/model-viewer.tsx
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[23] AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/components/studio.tsx
+SHA256: 94cd997aeaf5e334e008f46c368ff431e3562a61d046a9846ed5762759b37dba
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: apps/web/src/components/studio.tsx
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[24] AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/lib/api.ts
+SHA256: d12e3289a732ca79a01d8e10edf68b4f1edaacb386e0a68e7af0df734861c93b
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: apps/web/src/lib/api.ts
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: apps/web/src/lib/api.ts
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[25] AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/lib/status.ts
+SHA256: 0e8addb205875c6fd6f111b9f5060ddba6d7f1ca78a7ad8587c1b74794decd87
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: apps/web/src/lib/status.ts
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: apps/web/src/lib/status.ts
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[26] AnalyseFuture/historical-implementations/before-functional-restructure/compose.gateway.yml
+SHA256: 739a2c9f10441c552a5ea8a811ef089ece9ee7e386cf3e8451bf63f5754cba8e
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: compose.gateway.yml
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[27] AnalyseFuture/historical-implementations/before-functional-restructure/compose.product.yml
+SHA256: 309959ca8b376dd596c20dc151c883e13ed693f69eab881e9cd369c6cffb089b
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: compose.product.yml
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: compose.product.yml
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[28] AnalyseFuture/historical-implementations/before-functional-restructure/docs/AI_MODELS_AND_DATA.md
+SHA256: eb8d9fc88dea3add678d2f3bce0c8f5604654f9c7da2783b04848b88ff4439ad
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/AI_MODELS_AND_DATA.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/AI_MODELS_AND_DATA.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[29] AnalyseFuture/historical-implementations/before-functional-restructure/docs/ARCHITECTURE.md
+SHA256: 06547b1852e0684cb76f3bc17c643a520f1ea3c31ec08c8f9dacbac538b1159f
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/ARCHITECTURE.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[30] AnalyseFuture/historical-implementations/before-functional-restructure/docs/BACKLOG.md
+SHA256: 6fefa85c593d6449a9f8dcb0adcc77c8fb08bc803ac7672bb26dfcade62fb896
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/BACKLOG.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[31] AnalyseFuture/historical-implementations/before-functional-restructure/docs/BUILD_3D_AI_PROJECT_IDEA.txt
+SHA256: bfda89c3edefa81b3aad4d48bd77830aba168695b9c86df932fde5e4dc9c4866
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/BUILD_3D_AI_PROJECT_IDEA.txt
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/BUILD_3D_AI_PROJECT_IDEA.txt
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[32] AnalyseFuture/historical-implementations/before-functional-restructure/docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md
+SHA256: 120785412c803b39f04be58958dabd0506217d587691320f60e072de202780f0
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[33] AnalyseFuture/historical-implementations/before-functional-restructure/docs/CODEX_HANDOFF.md
+SHA256: 43d0df8c9bc9d87c24404e4fcedb5d5da38cc296e71e171dd8004fde51e0ccb3
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/CODEX_HANDOFF.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/CODEX_HANDOFF.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[34] AnalyseFuture/historical-implementations/before-functional-restructure/docs/DECISIONS.md
+SHA256: 04395bcf72478d6d5e41b250e7e83953f229afd3b0eacb5a15997bfd41b1f648
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/DECISIONS.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[35] AnalyseFuture/historical-implementations/before-functional-restructure/docs/FEATURE_MAP.md
+SHA256: f126a06abeeda8d57b2723f0f755384442630ac4d6ee770b31e77878f46773e1
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/FEATURE_MAP.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[36] AnalyseFuture/historical-implementations/before-functional-restructure/docs/FEATURE_MATRIX.md
+SHA256: 0440df309cfd9dae5fa7f3daa0e6f4560b77a3fd7520f8010c7a61a9fa3f63ec
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/FEATURE_MATRIX.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[37] AnalyseFuture/historical-implementations/before-functional-restructure/docs/FIRST_REAL_GPU_RUNBOOK.md
+SHA256: b8c9b313a85018bafbe0d959a9adcc1d782eb2d6d7f38eee25536612565f14c0
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/FIRST_REAL_GPU_RUNBOOK.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[38] AnalyseFuture/historical-implementations/before-functional-restructure/docs/GPU_SMOKE_AND_ARTIFACTS.md
+SHA256: d062b4a841b9404e9b6334c3d0628f8fcee3d0c517ae85ef3cd83a362b19609f
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/GPU_SMOKE_AND_ARTIFACTS.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[39] AnalyseFuture/historical-implementations/before-functional-restructure/docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md
+SHA256: fc44bed40607434d4218efd0f58290e9277deb0832f303977fbae77ea1fd8226
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[40] AnalyseFuture/historical-implementations/before-functional-restructure/docs/IMPLEMENTATION_CHECKLIST.md
+SHA256: 57c932045d9c57bcb875ff83db4c4ed505c571a7881cabb4e364ae7e7883dcd6
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/IMPLEMENTATION_CHECKLIST.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[41] AnalyseFuture/historical-implementations/before-functional-restructure/docs/LICENSE_MATRIX.md
+SHA256: 297f0856bcaa20801a09b380108cd86268df6d5256660170320eb427a1209275
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/LICENSE_MATRIX.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/LICENSE_MATRIX.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[42] AnalyseFuture/historical-implementations/before-functional-restructure/docs/MODEL_APPROVAL_GATE.md
+SHA256: d7dee5809dc6452a5b652a04c7c8fc6c07d6b377d881d201c13598fa0cdea5cf
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/MODEL_APPROVAL_GATE.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/MODEL_APPROVAL_GATE.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[43] AnalyseFuture/historical-implementations/before-functional-restructure/docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt
+SHA256: 12a15d06c5c71c3438dec2b676cf9d17d3a8d122c04a2cb6adebe9be8112776b
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[44] AnalyseFuture/historical-implementations/before-functional-restructure/docs/OPEN_SOURCE_STRATEGY.md
+SHA256: 8eef8620860b43bdc673d8d74625740337bd3d6b12c3255eee23e3b1e19cbc3e
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/OPEN_SOURCE_STRATEGY.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/OPEN_SOURCE_STRATEGY.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[45] AnalyseFuture/historical-implementations/before-functional-restructure/docs/PHASE0_GATEWAY.md
+SHA256: 3ed2625fda5e7be7564be44b13270fb848bbe5f0f17824ef8d6f279116af6bda
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/PHASE0_GATEWAY.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[46] AnalyseFuture/historical-implementations/before-functional-restructure/docs/PRODUCT_BACKBONE.md
+SHA256: a757e02673b6f89f4affc5e9b9bc36b407f42c2d06a99af9f6922830a78b4215
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/PRODUCT_BACKBONE.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[47] AnalyseFuture/historical-implementations/before-functional-restructure/docs/PROJECT_MEMORY_MASTER.md
+SHA256: 633217b52ad436dff330fc0c3c4ce4292327cfb495aa613ee017826ad664a909
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/PROJECT_MEMORY_MASTER.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/PROJECT_MEMORY_MASTER.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[48] AnalyseFuture/historical-implementations/before-functional-restructure/docs/REUSE_AUDIT.md
+SHA256: 895cea1216eecd96fa64fbfec65130243da6d2a941043121dd2193b61ee4eeee
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/REUSE_AUDIT.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[49] AnalyseFuture/historical-implementations/before-functional-restructure/services/generation/triposr_candidate/README.md
+SHA256: d38d3f37275257bcd44d18a545f6aed3dac43fad6bae153e89061fad5f237407
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: services/generation/triposr_candidate/README.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[50] AnalyseFuture/historical-implementations/configuration-before-universal/.dockerignore
+SHA256: 04073af84a9917491c1248f18aab1faa081e9170e9182116fec543b2c19c4ac7
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: .dockerignore
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/configuration-before-universal/.dockerignore
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[51] AnalyseFuture/historical-implementations/configuration-before-universal/.github/workflows/gateway-ci.yml
+SHA256: 3613f5b80febb815f863c198b29c147c1cc5d434d6e0b17cb30424449bc9e598
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: .github/workflows/gateway-ci.yml
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/configuration-before-universal/.github/workflows/gateway-ci.yml
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[52] AnalyseFuture/historical-implementations/configuration-before-universal/.github/workflows/triposr-qualification-ci.yml
+SHA256: 79f41e56e115630385dc6dae1447a8537566f5aa0a029582741c6d8703958063
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: .github/workflows/triposr-qualification-ci.yml
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/configuration-before-universal/.github/workflows/triposr-qualification-ci.yml
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[53] AnalyseFuture/historical-implementations/configuration-before-universal/.github/workflows/web-ci.yml
+SHA256: 6242717c624ea93c59a0248f74d20731af59d2397ec61a1b67ba202827bc2ab7
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: .github/workflows/web-ci.yml
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/configuration-before-universal/.github/workflows/web-ci.yml
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[54] AnalyseFuture/historical-implementations/configuration-before-universal/apps/web/playwright.config.ts
+SHA256: 6791d571a733bb287da7316c05305003074d14957b21c7ed87890c78460fe364
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: apps/web/playwright.config.ts
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/configuration-before-universal/apps/web/playwright.config.ts
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[55] AnalyseFuture/historical-implementations/configuration-before-universal/scripts/cloud/playwright.config.cjs
+SHA256: 65d33f44744aa265748bc410578de4c09353393d95804d717cb5981f8928021c
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: scripts/cloud/playwright.config.cjs
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/configuration-before-universal/scripts/cloud/playwright.config.cjs
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[56] AnalyseFuture/historical-implementations/documentation-before-universal/README.md
+SHA256: 5b1c87dfc8c190e7f129c3facb41133f5d03d1b709192b83b6279b77e1bf4b9c
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: README.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/documentation-before-universal/README.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[57] AnalyseFuture/historical-implementations/documentation-before-universal/docs/ARCHITECTURE.md
+SHA256: aff043888edc5f7a61b6e549a9d5b7e37e32e108ebff9306773ee8eb5c652523
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/ARCHITECTURE.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/documentation-before-universal/docs/ARCHITECTURE.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[58] AnalyseFuture/historical-implementations/documentation-before-universal/docs/BACKLOG.md
+SHA256: 456500d3ac97b76a42a03dc7a7f396c6408856e2d62a6361123e90e3cb1f0233
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/BACKLOG.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/documentation-before-universal/docs/BACKLOG.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[59] AnalyseFuture/historical-implementations/documentation-before-universal/docs/DECISIONS.md
+SHA256: 676c7a96052fe2464af64164b82e68de53dbcf36420243d815619ad115feb6e6
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/DECISIONS.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/documentation-before-universal/docs/DECISIONS.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[60] AnalyseFuture/historical-implementations/documentation-before-universal/docs/FEATURE_MATRIX.md
+SHA256: 205fe1e70a6be82e8acdd86eb8c33fc63547d983b27da3506e29392f1dc0f80e
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/FEATURE_MATRIX.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/documentation-before-universal/docs/FEATURE_MATRIX.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[61] AnalyseFuture/historical-implementations/documentation-before-universal/docs/FIRST_REAL_GPU_RUNBOOK.md
+SHA256: 5039dcbf0e360dddb64d32e48f0aa271c8fea199d3c16f59aef05024c7955ad3
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/FIRST_REAL_GPU_RUNBOOK.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/documentation-before-universal/docs/FIRST_REAL_GPU_RUNBOOK.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[62] AnalyseFuture/historical-implementations/documentation-before-universal/docs/GPU_SMOKE_AND_ARTIFACTS.md
+SHA256: a6906fb813f6db36aab7ff164d6d9dbbd896aee97c19b521b07ff91a1ff2ab7b
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/GPU_SMOKE_AND_ARTIFACTS.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/documentation-before-universal/docs/GPU_SMOKE_AND_ARTIFACTS.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[63] AnalyseFuture/historical-implementations/documentation-before-universal/docs/IMPLEMENTATION_CHECKLIST.md
+SHA256: 3c62f1f02932c8dce439effe3f9db2d3ea7c532722933d4049da249ab8167cdf
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/IMPLEMENTATION_CHECKLIST.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/documentation-before-universal/docs/IMPLEMENTATION_CHECKLIST.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[64] AnalyseFuture/historical-implementations/documentation-before-universal/docs/PHASE0_GATEWAY.md
+SHA256: 09c0ec8c3e82c5ccb4250f13079041b9532358d6879062f00cb98f88748f78b4
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/PHASE0_GATEWAY.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/documentation-before-universal/docs/PHASE0_GATEWAY.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[65] AnalyseFuture/historical-implementations/documentation-before-universal/docs/PRODUCT_BACKBONE.md
+SHA256: 2baa421ae168611975da1012b813eb46f6079994e4387a310fe44b205d43b555
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/PRODUCT_BACKBONE.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/documentation-before-universal/docs/PRODUCT_BACKBONE.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[66] AnalyseFuture/historical-implementations/documentation-before-universal/docs/REUSE_AUDIT.md
+SHA256: fcfa2693f29f0468ac8c9065a3c7e02bdf554a028ac164e297b6d93533eb41f1
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/REUSE_AUDIT.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/documentation-before-universal/docs/REUSE_AUDIT.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[67] AnalyseFuture/historical-implementations/gateway-packaging/PRESERVATION.json
+SHA256: 8ec45ee8806d89125f6e92c39062deea361b0161767929171e7b3635e1debd6d
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/gateway-packaging/PRESERVATION.json
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[68] AnalyseFuture/historical-implementations/gateway-packaging/README.md
+SHA256: e9e7b0201ad720868e5e461c0eb34141e555c84971973527396e6e07a8e2a737
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/gateway-packaging/README.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[69] AnalyseFuture/historical-implementations/gateway-packaging/apps/gateway/Dockerfile
+SHA256: ba65a791d2723c1023a3843119457fb1f87777f4089b81c594a5dfaacfac412d
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: apps/gateway/Dockerfile
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/gateway-packaging/apps/gateway/Dockerfile
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[70] AnalyseFuture/historical-implementations/gateway-packaging/compose.gateway.yml
+SHA256: b6c13c30b0d7085af46166be01782f0f50e956c59c01982cb0593532f1d05029
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: compose.gateway.yml
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/gateway-packaging/compose.gateway.yml
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[71] AnalyseFuture/historical-implementations/qualification-before-universal/services/generation/triposr_candidate/README.md
+SHA256: aa7d2a9d33df8969488ab0c85dc6d14b5e08da10d959302a8989c9ef2864f21a
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: services/generation/triposr_candidate/README.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/qualification-before-universal/services/generation/triposr_candidate/README.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[72] AnalyseFuture/historical-implementations/structure-before-functional/REPOSITORY_STRUCTURE.md
+SHA256: 80043773a0a542c16d34d2b6e53201efca6b18b38aaf8508477e19ae7f2d6c68
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: docs/REPOSITORY_STRUCTURE.md
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: docs/REPOSITORY_STRUCTURE.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[73] AnalyseFuture/historical-implementations/triposr-provenance-research/docs/CURRENT_STATE_AUDIT.md
+SHA256: 2291d5ce3f8ee2aa26d9fd54c2fc17b6ab4f04cce9db459ffa4404c954af95b1
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/triposr-provenance-research/docs/CURRENT_STATE_AUDIT.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[74] AnalyseFuture/historical-implementations/triposr-provenance-research/docs/EXECUTION_PLAN.md
+SHA256: ff1dbe4f99a51b320c4619b0a08b7250c93a844736d5068e20cfeec9e9af3b85
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/triposr-provenance-research/docs/EXECUTION_PLAN.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[75] AnalyseFuture/historical-implementations/triposr-provenance-research/docs/INTEGRATION_DECISIONS.md
+SHA256: e0b1b2d01d8445493283f53de0bfeb63888368fc912fe411abe6cec313181464
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/triposr-provenance-research/docs/INTEGRATION_DECISIONS.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[76] AnalyseFuture/historical-implementations/triposr-provenance-research/docs/TWO_PRIMARY_REPOSITORIES_DECISION.md
+SHA256: c516d78f4c43543aafdba3eca4b3675912ac7c657beccf012ab029aa34ef4560
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/triposr-provenance-research/docs/TWO_PRIMARY_REPOSITORIES_DECISION.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[77] AnalyseFuture/historical-implementations/web-request-bodies/README.md
+SHA256: cb1136f51090803688522139c29eb102a93bc3da94fe97b3482247ddd39e3447
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/web-request-bodies/README.md
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[78] AnalyseFuture/historical-implementations/web-request-bodies/apps/web/src/app/api/product/[...segments]/route.ts
+SHA256: a29f2aebfbb7bfc7354c2729ffb0e05111ce8f343a86bfc0b0212081dfaa61e8
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: apps/web/src/app/api/product/[...segments]/route.ts
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/web-request-bodies/apps/web/src/app/api/product/[...segments]/route.ts
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[79] AnalyseFuture/historical-implementations/web-request-bodies/apps/web/src/app/api/session/route.ts
+SHA256: 8d41d81b873bce31dd93971318208adfaa648fc632d97fe3b31629e20fbc4519
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: apps/web/src/app/api/session/route.ts
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/web-request-bodies/apps/web/src/app/api/session/route.ts
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+[80] AnalyseFuture/historical-implementations/web-request-bodies/apps/web/src/components/studio.tsx
+SHA256: a5159cad6cc4f5c11f44e9693170b1bfb839afd3307a158c616f86a82a4d7b82
+Source: 56f412f0722394300a522b7392b191702d3f2c48 | original: apps/web/src/components/studio.tsx
+Source: working-snapshot:2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25 | original: AnalyseFuture/historical-implementations/web-request-bodies/apps/web/src/components/studio.tsx
+Reason: retain useful earlier work outside active execution; original context is historical, not current operating instructions.
+
+REFERENCE SOURCE / ASSET PRESERVATION
+The existing242 source/asset/note relocation records remain intact in FILE_INDEX.json. All240 original archive source/asset content hashes stay unchanged. Original source-note versions remain under history/.
+Generated/uncertain Next.js artifacts are additionally retained under experiments/generated-nextjs/ as text. No private keys, credentials, live database, package cache or environment certificate bundle is archived publicly.
+Managed-build Docker recipes use an externally supplied CA secret and contain no certificate bytes. The raw upstream/native binaries remain unexecuted in this final structure-only pass.

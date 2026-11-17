@@ -1,56 +1,47 @@
-# Preserved material for future review
+# Preserved research, recovery records and future work
 
-This directory keeps upstream source snapshots and sample assets separate from
-active first-party applications. The owner requested this preservation area
-while reporting unwanted files and structure disruption on 17 November 2026.
-The inspected local and remote `main` matched previously verified commit
-`e4b05f4`; no post-baseline additions were found on that branch. Placement here
-means **RESEARCH_ONLY**, not confirmed maliciousness or commercial approval.
+`AnalyseFuture/` is organized by purpose. It contains inactive reference code,
+retained earlier versions, provenance, recovery evidence and future planning.
+It is not a dumping ground, an execution sandbox, a malware verdict or a grant
+of commercial permission.
 
-```text
-AnalyseFuture/
-  README.md                       Classification and review rules
-  FILE_INDEX.json                 Original/current paths and SHA256 inventory
-  third_party/
-    README.md                     Source provenance and license notes
-    3daigc-api/                    Unchanged supplied upstream snapshot
-    triposr/                      Unchanged supplied upstream snapshot
-  assets/reference/
-    README.md                     Sample asset provenance and limitations
-    autorig/                      Models, skeletons, demos, prompts and diagrams
-  history/
-    third_party/README.md         Original source notes, byte-for-byte
-    assets/reference/README.md    Original sample notes, byte-for-byte
-```
+| Collection | What belongs here |
+|---|---|
+| `third_party/` | Supplied upstream source snapshots with original internal paths/licenses |
+| `assets/reference/` | Supplied sample models, skeletons, diagrams and demos |
+| `historical-implementations/` | Byte-preserved earlier source, configuration, documents and authored working versions |
+| `history/` | Original notes from the earlier reference-folder relocation |
+| `experiments/generated-nextjs/` | Generated configuration/instruction artifacts retained as inactive text |
+| `recovery-notes/` | Owner requests, earlier audit context and managed-build diagnostic recipes |
+| `repository-inventory/` | Starting/current classifications, branch/history reviews, hashes, mappings and delivery evidence |
+| Root `*.txt` reports | Current recovery, feature, security, consolidation and continuation records |
 
-All 242 previously tracked reference files are retained. The 240 supplied
-source/asset files keep their exact bytes. Two explanatory README files have
-updated navigation and additional byte-identical copies under `history/`.
-Historical note links reflect the former layout; use the current README files
-for navigation. Ignored local `.DS_Store` metadata, if present, was retained
-with its directory but is not published.
+Start with the [repository audit](REPOSITORY_AUDIT.txt),
+[complete file inventory](COMPLETE_FILE_INVENTORY.txt),
+[feature inventory](FEATURE_INVENTORY.txt),
+[path mapping](ORIGINAL_TO_NEW_PATH_MAPPING.txt), and
+[preservation manifest](ARCHIVED_FILES_MANIFEST.txt).
+The [future roadmap](PROJECT_VISION_AND_FUTURE_ROADMAP.txt) is a detailed dated
+companion to the [adopted main goal](../docs/project/BUILD_3D_AI_PROJECT_IDEA.txt).
+[PROJECT_STRUCTURE.md](../PROJECT_STRUCTURE.md) is the current directory guide.
 
-The [file index](FILE_INDEX.json) records every original and current tracked
-path, size, SHA256, classification and reason. The
-[archive manifest](../docs/ARCHIVE_IMPORTS.json) retains extraction provenance
-and records the relocation without changing original archive/file hashes.
+All 369 starting tracked file contents and all 432 files in the pre-functional
+working snapshot have a byte-identical retained copy. The earlier 242 reference
+relocation records remain historical evidence in [FILE_INDEX.json](FILE_INDEX.json).
+The [archive import record](repository-inventory/ARCHIVE_IMPORTS.json) retains
+original archive hashes and source/asset locations. The separate functional
+mapping records the final additional moves; historical records are not silently
+rewritten as though earlier reviews used the current layout.
 
-This area is excluded from root Docker build context and default first-party
-pytest discovery. No model, wheel, upstream script or 3D asset was executed
-as part of the move. It is still normal repository storage, **not an execution
-sandbox**. Do not run supplied commands or load arbitrary models merely to
-inspect these files.
+Raw upstream code, wheels and 3D assets remain inactive. Existing noncommercial
+restrictions, missing source submodules and absent sample-asset license evidence
+still apply. Review exact source/weights/data/dependencies, safety, compatibility,
+resources and acceptance before adoption. Do not execute preserved commands or
+install binaries merely because they are present. Source copies and generated
+notes here are excluded from the active root Docker context and default test
+discovery; explicitly targeting them can still execute code.
 
-Before adopting anything here, review source and weight/data rights, bundled
-libraries, security, exact revisions, runtime compatibility, supported outputs,
-resource costs and meaningful acceptance checks. The bundled noncommercial
-wheels, missing 3DAIGC submodules, and unlicensed sample-asset bundle retain
-their existing restrictions and unknowns. Preserve licenses and useful context;
-move newly identified questionable material here with a reason and provenance
-instead of deleting it. Credentials and private customer content require a
-private evidence location and must not be published here.
-
-The [active structure](../docs/REPOSITORY_STRUCTURE.md),
-[dated audit](../docs/REPOSITORY_AUDIT_2026-11-17.md), and
-[main project goal](../docs/BUILD_3D_AI_PROJECT_IDEA.txt) explain current
-boundaries and the separate future implementation plan.
+Private credentials, live databases and installed dependency caches do not
+belong in this public evidence area. They remain local or need a private backup.
+The latest owner instruction defers tests: final path changes receive static
+source/path/hash review only, with no final-layout runtime guarantee.

@@ -1,0 +1,13 @@
+{
+  "method": "Static source/path inspection only; no tests, builds, type checks or runtime execution.",
+  "markdown_links_inspected": 233,
+  "markdown_files_inspected": 33,
+  "missing_markdown_targets": [],
+  "local_web_imports_inspected": 16,
+  "unresolved_local_web_imports": [],
+  "compose_files_inspected": [
+    "infrastructure/compose/gateway.yml",
+    "infrastructure/compose/product.yml"
+  ],
+  "historical_scope": "Immutable historical/upstream snapshots intentionally keep their original context; their old links are not current operating instructions."
+}

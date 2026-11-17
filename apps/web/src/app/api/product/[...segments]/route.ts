@@ -1,4 +1,5 @@
-import { clearSessionKey, productFetch, readSessionKey } from "@/lib/server-product-api";
+import { clearSessionKey, productFetch, readSessionKey } from "@/lib/server/product-api";
+import { readBoundedBody, RequestBodyTooLargeError } from "@/lib/server/request-body";
 
 type RouteContext = { params: Promise<{ segments: string[] }> };
 
@@ -95,13 +96,13 @@ async function proxy(request: Request, context: RouteContext) {
 
   let body: ArrayBuffer | undefined;
   if (request.method === "POST") {
-    const declared = Number(request.headers.get("content-length") ?? "0");
-    if (Number.isFinite(declared) && declared > MAX_PROXY_BODY) {
-      return Response.json({ detail: "Request exceeds web gateway limit" }, { status: 413 });
-    }
-    body = await request.arrayBuffer();
-    if (body.byteLength > MAX_PROXY_BODY) {
-      return Response.json({ detail: "Request exceeds web gateway limit" }, { status: 413 });
+    try {
+      body = await readBoundedBody(request, MAX_PROXY_BODY);
+    } catch (error) {
+      if (error instanceof RequestBodyTooLargeError) {
+        return Response.json({ detail: "Request exceeds web gateway limit" }, { status: 413 });
+      }
+      throw error;
     }
   }
 

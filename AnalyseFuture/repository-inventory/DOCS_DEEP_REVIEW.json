@@ -1,0 +1,1767 @@
+{
+  "scope": "All tracked root README/AGENTS/CONTRIBUTING, docs Markdown including adr, goal TXT and archived original assignment; other agents review source and imported references.",
+  "starting_commit": "56f412f (root-provided audit baseline; do not treat older audit baselines as current)",
+  "records": [
+    {
+      "path": "README.md",
+      "purpose": "Product entry point, adopted goal, implemented private slices and navigation",
+      "features": [
+        "product-direction",
+        "identity",
+        "studio",
+        "storage",
+        "generation-gates"
+      ],
+      "dependencies": [
+        "docs/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+        "apps/api",
+        "apps/web",
+        "apps/gateway"
+      ],
+      "classification": "live_reference",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "5b1c87dfc8c190e7f129c3facb41133f5d03d1b709192b83b6279b77e1bf4b9c",
+      "finding_ids": [
+        "D01",
+        "D11"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "AGENTS.md",
+      "purpose": "Repository working rules, rights/spend controls and continuation order",
+      "features": [
+        "governance",
+        "continuity",
+        "licensing",
+        "cost-controls"
+      ],
+      "dependencies": [
+        "docs/PROJECT_MEMORY_MASTER.md",
+        "docs/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "docs/REPOSITORY_STRUCTURE.md"
+      ],
+      "classification": "policy",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "18a1e89faeaf17bc8228dc545ed64dd837ebc136f3bde3cd3541e353c1a7cde0",
+      "finding_ids": [
+        "D05"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "purpose": "Contributor process and rights/verification expectations",
+      "features": [
+        "governance",
+        "licensing",
+        "validation"
+      ],
+      "dependencies": [
+        "AGENTS.md",
+        "docs/BACKLOG.md",
+        "docs/FEATURE_MATRIX.md"
+      ],
+      "classification": "policy",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "faef0eb75a33ea2f33a0a8be8353d121bd1a0d5995cf948d9fd05686e6d44ad6",
+      "finding_ids": [
+        "D05"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/AI_MODELS_AND_DATA.md",
+      "purpose": "Inference-first model strategy, asset-disjoint data evaluation and model-specific adaptation",
+      "features": [
+        "model-qualification",
+        "data-provenance",
+        "fine-tuning",
+        "character-research"
+      ],
+      "dependencies": [
+        "docs/FIRST_REAL_GPU_RUNBOOK.md",
+        "docs/LICENSE_MATRIX.md"
+      ],
+      "classification": "strategy",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "eb8d9fc88dea3add678d2f3bce0c8f5604654f9c7da2783b04848b88ff4439ad",
+      "finding_ids": [],
+      "recommendation": "Retain as model/data authority. Link current qualified-model decision rather than name rejected model as default training path."
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "purpose": "Historical target architecture and component/data responsibilities",
+      "features": [
+        "architecture",
+        "jobs",
+        "storage",
+        "identity",
+        "future-services"
+      ],
+      "dependencies": [
+        "apps/api",
+        "apps/gateway",
+        "apps/web",
+        "docs/PRODUCT_BACKBONE.md"
+      ],
+      "classification": "mixed_current_and_target",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "aff043888edc5f7a61b6e549a9d5b7e37e32e108ebff9306773ee8eb5c652523",
+      "finding_ids": [
+        "D03",
+        "D14"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/BACKLOG.md",
+      "purpose": "Initial ordered engineering tasks and acceptance template",
+      "features": [
+        "planning",
+        "validation",
+        "model-qualification",
+        "identity",
+        "commercialization"
+      ],
+      "dependencies": [
+        "docs/IMPLEMENTATION_CHECKLIST.md",
+        "docs/CODEX_HANDOFF.md"
+      ],
+      "classification": "initial_plan",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "456500d3ac97b76a42a03dc7a7f396c6408856e2d62a6361123e90e3cb1f0233",
+      "finding_ids": [
+        "D05"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+      "purpose": "Recreation of tested managed CPU/API/studio/browser workflow and evidence limits",
+      "features": [
+        "development-environment",
+        "validation",
+        "private-auth"
+      ],
+      "dependencies": [
+        "scripts/cloud/install.sh",
+        "scripts/cloud/run_web.py",
+        "scripts/cloud/playwright.config.cjs",
+        "requirements.lock",
+        "apps/web/package.json"
+      ],
+      "classification": "live_reference",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "120785412c803b39f04be58958dabd0506217d587691320f60e072de202780f0",
+      "finding_ids": [
+        "D11"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/CODEX_HANDOFF.md",
+      "purpose": "Current developer continuation mixed with dated milestones and preservation history",
+      "features": [
+        "continuity",
+        "all-private-product-slices",
+        "model-qualification",
+        "repository-preservation"
+      ],
+      "dependencies": [
+        "docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+        "docs/OBJECT_STORAGE.md",
+        "docs/FIRST_REAL_GPU_RUNBOOK.md",
+        "docs/REPOSITORY_AUDIT_2026-11-17.md"
+      ],
+      "classification": "mixed_current_and_history",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "43d0df8c9bc9d87c24404e4fcedb5d5da38cc296e71e171dd8004fde51e0ccb3",
+      "finding_ids": [
+        "D01",
+        "D11"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/DECISIONS.md",
+      "purpose": "Decision table, unresolved product questions and ADR policy",
+      "features": [
+        "architecture-decisions",
+        "model-selection",
+        "identity",
+        "commercial-scope"
+      ],
+      "dependencies": [
+        "docs/adr/0001-web-studio-foundation.md",
+        "docs/LICENSE_MATRIX.md",
+        "docs/REUSE_AUDIT.md"
+      ],
+      "classification": "live_reference",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "676c7a96052fe2464af64164b82e68de53dbcf36420243d815619ad115feb6e6",
+      "finding_ids": [
+        "D04"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/FIRST_REAL_GPU_RUNBOOK.md",
+      "purpose": "Exact candidate artifacts, qualification steps, spend proposal and stop conditions",
+      "features": [
+        "model-qualification",
+        "glb-packaging",
+        "runtime-provenance",
+        "budget-gates"
+      ],
+      "dependencies": [
+        "services/generation/triposr_candidate",
+        "apps/gateway/src/build3d_gateway/textured_glb.py",
+        "docs/LICENSE_MATRIX.md"
+      ],
+      "classification": "live_reference",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "5039dcbf0e360dddb64d32e48f0aa271c8fea199d3c16f59aef05024c7955ad3",
+      "finding_ids": [
+        "D08"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/GPU_SMOKE_AND_ARTIFACTS.md",
+      "purpose": "Operator smoke CLI and structural artifact proof, historical PR prerequisites",
+      "features": [
+        "operator-gateway",
+        "smoke-tool",
+        "glb-integrity",
+        "gpu-gates"
+      ],
+      "dependencies": [
+        "apps/gateway/src/build3d_gateway/smoke.py",
+        "apps/gateway/src/build3d_gateway/glb_validation.py",
+        "docs/MODEL_APPROVAL_GATE.md"
+      ],
+      "classification": "live_reference",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "a6906fb813f6db36aab7ff164d6d9dbbd896aee97c19b521b07ff91a1ff2ab7b",
+      "finding_ids": [
+        "D06",
+        "D11"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+      "purpose": "Provider comparison, implemented immutable mapping/JWT boundary and pending browser lifecycle",
+      "features": [
+        "identity-api-key",
+        "identity-external-jwt",
+        "identity-public-planned",
+        "abuse-controls"
+      ],
+      "dependencies": [
+        "apps/api/src/build3d_api/trusted_identity.py",
+        "apps/api/src/build3d_api/main.py",
+        "config/identity-providers.example.json",
+        "apps/api/src/build3d_api/migrations"
+      ],
+      "classification": "live_reference",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "fc44bed40607434d4218efd0f58290e9277deb0832f303977fbae77ea1fd8226",
+      "finding_ids": [
+        "D10"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/IMPLEMENTATION_CHECKLIST.md",
+      "purpose": "Comprehensive task IDs with completed private slices and broad open requirements",
+      "features": [
+        "all-product-features",
+        "release-gates",
+        "model-qualification",
+        "character",
+        "scene",
+        "billing"
+      ],
+      "dependencies": [
+        "docs/FEATURE_MATRIX.md",
+        "docs/CODEX_HANDOFF.md",
+        "docs/LICENSE_MATRIX.md",
+        "docs/OBJECT_STORAGE.md"
+      ],
+      "classification": "execution-checklist",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "3c62f1f02932c8dce439effe3f9db2d3ea7c532722933d4049da249ab8167cdf",
+      "finding_ids": [
+        "D05",
+        "D09"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/LICENSE_MATRIX.md",
+      "purpose": "Dated exact-source/package/model risk inventory and release gates",
+      "features": [
+        "licensing",
+        "model-qualification",
+        "dependency-provenance"
+      ],
+      "dependencies": [
+        "docs/CPU_DEPENDENCY_INVENTORY.json",
+        "requirements.lock",
+        "docs/MODEL_APPROVAL_GATE.md"
+      ],
+      "classification": "dated-evidence-and-policy",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "297f0856bcaa20801a09b380108cd86268df6d5256660170320eb427a1209275",
+      "finding_ids": [
+        "D13"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/MODEL_APPROVAL_GATE.md",
+      "purpose": "Fail-closed policy shape, attestation limits and approval process",
+      "features": [
+        "model-policy",
+        "operator-gateway",
+        "licensing"
+      ],
+      "dependencies": [
+        "apps/gateway/src/build3d_gateway/model_policy.py",
+        "apps/gateway/src/build3d_gateway/model-approvals.json",
+        "docs/LICENSE_MATRIX.md"
+      ],
+      "classification": "policy",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "d7dee5809dc6452a5b652a04c7c8fc6c07d6b377d881d201c13598fa0cdea5cf",
+      "finding_ids": [],
+      "recommendation": "Retain operational-policy authority. Separate policy attestations from actual checkpoint/runtime attestation; keep zero approved models."
+    },
+    {
+      "path": "docs/OBJECT_STORAGE.md",
+      "purpose": "Implemented filesystem/S3 contracts, quotas, scanner, copy-only migration and retained open work",
+      "features": [
+        "artifact-storage",
+        "artifact-download",
+        "byte-quotas",
+        "inventory-scanner",
+        "storage-migration"
+      ],
+      "dependencies": [
+        "apps/api/src/build3d_api/storage.py",
+        "apps/api/src/build3d_api/maintenance.py",
+        "apps/api/src/build3d_api/migration.py",
+        "apps/api/src/build3d_api/cli.py"
+      ],
+      "classification": "live_reference",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "3810c284719c609155f5bbe849f4376ae0ea067bff9f73e716c880cdc31ab9e7",
+      "finding_ids": [],
+      "recommendation": "Use as canonical storage lifecycle reference; remove stale duplicate storage claims elsewhere. Do not infer real bucket validation from synthetic-client tests."
+    },
+    {
+      "path": "docs/OPEN_SOURCE_STRATEGY.md",
+      "purpose": "Reuse governance and historical technology candidate catalog",
+      "features": [
+        "licensing",
+        "reuse",
+        "model-selection",
+        "utility-selection"
+      ],
+      "dependencies": [
+        "docs/LICENSE_MATRIX.md",
+        "docs/REUSE_AUDIT.md",
+        "docs/adr/0001-web-studio-foundation.md"
+      ],
+      "classification": "policy-and-historical-candidates",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "8eef8620860b43bdc673d8d74625740337bd3d6b12c3255eee23e3b1e19cbc3e",
+      "finding_ids": [
+        "D04"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/OPERATIONS_SECURITY.md",
+      "purpose": "Desired security/privacy/payment/GPU-operation requirements",
+      "features": [
+        "security",
+        "privacy",
+        "cost-controls",
+        "billing",
+        "reliability"
+      ],
+      "dependencies": [
+        "docs/PRODUCT_BACKBONE.md",
+        "docs/OBJECT_STORAGE.md",
+        "docs/MODEL_APPROVAL_GATE.md"
+      ],
+      "classification": "policy-and-target",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "78273fd359e980219e28dab5b5e50bdcb5f7574323ec8bb01d2f404c5bc74a5a",
+      "finding_ids": [
+        "D14"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/PHASE0_GATEWAY.md",
+      "purpose": "Administrative upstream gateway contracts and generic development setup",
+      "features": [
+        "operator-gateway",
+        "generation-adapter",
+        "upstream-auth",
+        "artifact-proxy"
+      ],
+      "dependencies": [
+        "apps/gateway/src/build3d_gateway/main.py",
+        "apps/gateway/src/build3d_gateway/upstream.py",
+        "compose.gateway.yml",
+        ".env.example"
+      ],
+      "classification": "live_reference",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "09c0ec8c3e82c5ccb4250f13079041b9532358d6879062f00cb98f88748f78b4",
+      "finding_ids": [
+        "D07",
+        "D11"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/PRODUCT_BACKBONE.md",
+      "purpose": "Private API/worker operator runbook, routes, state recovery and packaging",
+      "features": [
+        "identity",
+        "ownership",
+        "jobs",
+        "uploads",
+        "worker-recovery",
+        "storage",
+        "migrations"
+      ],
+      "dependencies": [
+        "apps/api",
+        "apps/gateway",
+        "compose.product.yml",
+        "docs/OBJECT_STORAGE.md",
+        "docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md"
+      ],
+      "classification": "live_reference",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "2baa421ae168611975da1012b813eb46f6079994e4387a310fe44b205d43b555",
+      "finding_ids": [
+        "D01",
+        "D02"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/REPOSITORY_AUDIT_2026-11-17.md",
+      "purpose": "Dated structure-review evidence, scope boundaries, preserved files and recorded validation",
+      "features": [
+        "repository-preservation",
+        "security-boundary",
+        "historical-validation"
+      ],
+      "dependencies": [
+        "AnalyseFuture/FILE_INDEX.json",
+        "docs/ARCHIVE_IMPORTS.json",
+        "docs/REPOSITORY_STRUCTURE.md"
+      ],
+      "classification": "historical-audit",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "ffb2eeb236093a111da73aa9668bd212da5b1308ae87b538e8aa9fb0fe2a24a6",
+      "finding_ids": [
+        "D12"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/REPOSITORY_STRUCTURE.md",
+      "purpose": "Active component responsibilities and inactive preserved reference paths",
+      "features": [
+        "architecture",
+        "repository-preservation",
+        "workflow-compatibility"
+      ],
+      "dependencies": [
+        "README.md",
+        "AnalyseFuture/README.md",
+        "AnalyseFuture/FILE_INDEX.json",
+        "docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md"
+      ],
+      "classification": "live_reference",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "80043773a0a542c16d34d2b6e53201efca6b18b38aaf8508477e19ae7f2d6c68",
+      "finding_ids": [
+        "D12"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/REUSE_AUDIT.md",
+      "purpose": "Dated source-level reuse findings and implemented first-party reuse decisions",
+      "features": [
+        "reuse",
+        "licensing",
+        "model-qualification",
+        "frontend-choice",
+        "persistence",
+        "jwt"
+      ],
+      "dependencies": [
+        "docs/LICENSE_MATRIX.md",
+        "docs/adr/0001-web-studio-foundation.md",
+        "docs/FIRST_REAL_GPU_RUNBOOK.md"
+      ],
+      "classification": "dated-evidence-and-decisions",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "fcfa2693f29f0468ac8c9065a3c7e02bdf554a028ac164e297b6d93533eb41f1",
+      "finding_ids": [
+        "D04",
+        "D13"
+      ],
+      "recommendation": "Retain as the topical reference; update current facts while preserving dated evidence."
+    },
+    {
+      "path": "docs/adr/0001-web-studio-foundation.md",
+      "purpose": "Accepted first-party browser foundation decision and credential boundary",
+      "features": [
+        "studio",
+        "viewer",
+        "bff-session",
+        "reuse-decision"
+      ],
+      "dependencies": [
+        "apps/web/package.json",
+        "apps/web/src/lib/server-product-api.ts",
+        "apps/web/src/app/api/session/route.ts"
+      ],
+      "classification": "accepted-adr",
+      "reviewer": "/root/structure_docs",
+      "review_method": "Full text read, with follow-up slices for truncated output",
+      "sha256": "a1cf9dadcf2ba5681377b5e1f3a98267102138a714164bb0e34e1d1a196c4ca3",
+      "finding_ids": [],
+      "recommendation": "Preserve accepted ADR and historical pins; future changes get a superseding ADR, not silent replacement with upstream UI."
+    },
+    {
+      "path": "docs/PROJECT_MEMORY_MASTER.md",
+      "purpose": "Dated historical context and evidence index; owner goals, source research, prior PR/results and session continuation events.",
+      "features": [
+        "all_product_direction",
+        "continuity",
+        "source_qualification",
+        "licensing",
+        "benchmarking",
+        "repository_recovery"
+      ],
+      "dependencies": [
+        "See subset findings and referenced live source"
+      ],
+      "classification": "history_index",
+      "reviewer": "/root/structure_docs/continuity_docs",
+      "review_method": "entire textual file reviewed, including recovered output slices where initial display was truncated",
+      "sha256": "633217b52ad436dff330fc0c3c4ce4292327cfb495aa613ee017826ad664a909",
+      "findings": [
+        {
+          "severity": "medium",
+          "lines": "12-40, 338-347",
+          "issue": "The prominent recovery procedure and next precise developer assignment still center the 16-Nov PR #26 snapshot and absent-from-HEAD CURRENT_STATE_AUDIT/EXECUTION_PLAN documents; newer adopted goal and structure decisions appear only in appended sections. Dated caveats make historical claims legitimate, but a fresh agent can follow the old branch workflow and miss the owner-adopted priority.",
+          "evidence": "Current HEAD 56f412f has no tracked docs/CURRENT_STATE_AUDIT.md, docs/EXECUTION_PLAN.md or audit_pip_report.py; this audit did not determine live PR/API state. Later sections 15-16 adopt the detailed goal and record structure review.",
+          "correction": "Add a current recovery preface referencing live feature inventory, active architecture, main goal, current validation and exact branch authority. Label section 11 historical assignment rather than silently replacing historical PR details."
+        },
+        {
+          "severity": "low",
+          "lines": "376, 382-396",
+          "issue": "Historical proposal wording is superseded by the explicit goal-adoption section, but readers entering at section 14 can misread present goal authority.",
+          "correction": "Retain dated wording; add a concise cross-reference from historical proposal section to adopted-goal section."
+        }
+      ],
+      "recommendation": "Keep as a history/index, not the canonical live capability database. Preserve its historical body and link new machine-readable inventory and current continuation guide near the top."
+    },
+    {
+      "path": "docs/BUILD_3D_AI_PROJECT_IDEA.txt",
+      "purpose": "Owner-adopted primary product direction including implemented foundation, narrow first release, expansive character/scene ambition, conditional roadmap and roles.",
+      "features": [
+        "asset_creation",
+        "asset_quality",
+        "character_identity",
+        "body_rigging",
+        "facial_animation",
+        "scene_editing",
+        "model_adaptation",
+        "operations",
+        "business"
+      ],
+      "dependencies": [
+        "See subset findings and referenced live source"
+      ],
+      "classification": "planning_or_requirements",
+      "reviewer": "/root/structure_docs/continuity_docs",
+      "review_method": "entire textual file reviewed, including recovered output slices where initial display was truncated",
+      "sha256": "bfda89c3edefa81b3aad4d48bd77830aba168695b9c86df932fde5e4dc9c4866",
+      "findings": [
+        {
+          "severity": "low",
+          "lines": "183-200, 1020-1040",
+          "issue": "Specific previous session validation counts are correctly attributed, but are a historical baseline rather than validation of the current universal audit.",
+          "correction": "Keep the old counts/history. Link the new audit TEST_AND_VALIDATION_REPORT for current-run evidence instead of overwriting historical results."
+        },
+        {
+          "severity": "low",
+          "lines": "731-746",
+          "issue": "Existing long horizon is three-years-and-beyond rather than an explicit three-to-five-year investigation window requested in the new master assignment.",
+          "correction": "Provide an explicit 2029-2031 conditional research window in AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt, linking this adopted goal and avoiding a competing product charter."
+        }
+      ],
+      "recommendation": "Retain as primary direction. New required future-roadmap TXT should be an evidence-based implementation/research supplement, not an independent replacement or proof that proposed capabilities exist."
+    },
+    {
+      "path": "docs/archives/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt",
+      "purpose": "Verbatim historical owner assignment preserving 112-repository evaluation, exactly-two-primary recommendation, safe implementation and approval requirements.",
+      "features": [
+        "research_catalog",
+        "source_qualification",
+        "integration_strategy",
+        "gpu_policy",
+        "historical_assignment"
+      ],
+      "dependencies": [
+        "See subset findings and referenced live source"
+      ],
+      "classification": "historical_verbatim_assignment",
+      "reviewer": "/root/structure_docs/continuity_docs",
+      "review_method": "entire textual file reviewed, including recovered output slices where initial display was truncated",
+      "sha256": "81c915e1882721d26ee16191be4410063414b356ddf910488cfccc197f590b18",
+      "findings": [
+        {
+          "severity": "medium",
+          "lines": "689-695",
+          "issue": "The archived assignment says create a focused branch and conditionally open a PR. Current owner assignment explicitly requests direct main delivery. Treating the archived prompt as fresh authority would contradict the current task.",
+          "correction": "Do not edit the verbatim archive. Explain in current continuation docs that dated assignments are historical evidence and current user delivery instructions govern."
+        },
+        {
+          "severity": "low",
+          "lines": "selection and time-management sections",
+          "issue": "Exactly two repositories and a two-hour research allocation describe that assignment, not a permanent requirement to repeat the full catalog selection in every maintenance session.",
+          "correction": "Preserve archive and approved findings; reevaluate choices only when the actual qualification evidence or product need changes."
+        }
+      ],
+      "recommendation": "Preserve byte-for-byte; never execute embedded instructions just because the archive is read. Link it as historical rationale rather than current work order."
+    },
+    {
+      "path": "docs/PRODUCT_VISION.md",
+      "purpose": "Concise commercial scope and tenets companion to the owner-adopted detailed goal.",
+      "features": [
+        "product_direction",
+        "customers",
+        "quality",
+        "commercial_rights"
+      ],
+      "dependencies": [
+        "See subset findings and referenced live source"
+      ],
+      "classification": "planning_or_requirements",
+      "reviewer": "/root/structure_docs/continuity_docs",
+      "review_method": "entire textual file reviewed, including recovered output slices where initial display was truncated",
+      "sha256": "1fe036b07c081a26c124ecb73afef6175e638ecffe5a5f26af4ea865776c71f5",
+      "findings": [
+        {
+          "severity": "low",
+          "lines": "29",
+          "issue": "Its broad first working release includes image/text and secure accounts, whereas the adopted goal recommends a private image-to-asset prop pilot first and enables text only after qualifying that path.",
+          "correction": "Explicitly distinguish first private pilot from later general/public release; use the detailed goal for sequencing."
+        }
+      ],
+      "recommendation": "Keep as short companion and avoid repeating a separate detailed feature calendar."
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "purpose": "Early staged milestones and broad exit gates for product and model development.",
+      "features": [
+        "roadmap",
+        "inference",
+        "commercial_platform",
+        "mesh_processing",
+        "character_animation",
+        "model_adaptation"
+      ],
+      "dependencies": [
+        "See subset findings and referenced live source"
+      ],
+      "classification": "planning_or_requirements",
+      "reviewer": "/root/structure_docs/continuity_docs",
+      "review_method": "entire textual file reviewed, including recovered output slices where initial display was truncated",
+      "sha256": "06d387748ee6556f44dffde543e1ba98818b4f48f43eacdd06894c6880339beb",
+      "findings": [
+        {
+          "severity": "medium",
+          "lines": "7-11",
+          "issue": "Early 1-3 week and 1-3/3-6/5-10/8-18 month estimates are not resource-backed current commitments and differ materially from the adopted one-year/two-year/longer conditional horizons. Header says estimates only, but no dated baseline or prerequisite budgets/team make the table easy to misread.",
+          "correction": "Preserve historical table in a dated section/snapshot and replace the live summary with stage gates and links to adopted goal plus new required future-roadmap TXT."
+        },
+        {
+          "severity": "medium",
+          "lines": "24",
+          "issue": "Phase-1 phrase retried predictably can imply generation POST retries; current conservative worker quarantines uncertain dispatch and retries bounded reads/polling instead.",
+          "correction": "State recoverable polling/reconciliation and no blind resubmission of uncertain generation. Add metering/backups as acceptance work, not present capability."
+        }
+      ],
+      "recommendation": "Consolidate roadmap sequencing into one current gated roadmap; retain original estimates with explicit historical context."
+    },
+    {
+      "path": "docs/BENCHMARKS.md",
+      "purpose": "Permitted benchmark input design, quality/cost metrics and proposed release gates.",
+      "features": [
+        "evaluation",
+        "data_provenance",
+        "geometry_quality",
+        "facial_quality",
+        "latency",
+        "cost"
+      ],
+      "dependencies": [
+        "See subset findings and referenced live source"
+      ],
+      "classification": "planning_or_requirements",
+      "reviewer": "/root/structure_docs/continuity_docs",
+      "review_method": "entire textual file reviewed, including recovered output slices where initial display was truncated",
+      "sha256": "7303f7360321e14e0e8e4d95e3848991aaa06b712a31d9c09b926feb28b81573",
+      "findings": [
+        {
+          "severity": "low",
+          "lines": "9-28",
+          "issue": "100-item four-category study and 95% valid-job target are appropriately labeled proposals. For a first release supporting only stylized props, a broad character/organic/hard-surface score must not imply those categories are supported.",
+          "correction": "Keep broad research set and define a frozen declared supported subset with separate denominators, acceptance rates and artist-fixup costs."
+        }
+      ],
+      "recommendation": "Keep as canonical evaluation protocol; add run-schema/outcome taxonomy and per-profile pass thresholds when real qualification begins, with no synthetic/model-quality conflation."
+    },
+    {
+      "path": "docs/FEATURE_MATRIX.md",
+      "purpose": "Product-goal taxonomy GEN/GEO/MAT/RIG/ENV/EXP/APP/OPS/ML and acceptance requirements.",
+      "features": [
+        "complete_product_feature_taxonomy"
+      ],
+      "dependencies": [
+        "See subset findings and referenced live source"
+      ],
+      "classification": "planning_or_requirements",
+      "reviewer": "/root/structure_docs/continuity_docs",
+      "review_method": "entire textual file reviewed, including recovered output slices where initial display was truncated",
+      "sha256": "205fe1e70a6be82e8acdd86eb8c33fc63547d983b27da3506e29392f1dc0f80e",
+      "findings": [
+        {
+          "severity": "medium",
+          "lines": "5",
+          "issue": "The current-looking summary lists retention/byte quotas as open, but persistent per-user artifact-byte quotas, usage reporting and quota CLI exist in active code. Retention/deletion remains incomplete; the combined wording incorrectly discounts existing implementation.",
+          "evidence": "apps/api/src/build3d_api/config.py default_storage_limit_bytes; store.py set_storage_quota/storage_usage and completion enforcement; migrations/versions/0003_storage_quota.py; cli.py set-storage-quota/storage-usage.",
+          "correction": "Separate implemented persistent quotas from incomplete retention and deletion."
+        },
+        {
+          "severity": "medium",
+          "lines": "3,9-39",
+          "issue": "Blanket PLANNED rows combine multiple responsibilities and hide implemented subfeatures: private identity/projects, durable jobs/recovery, GLB validation/viewer and deployment packaging. Whole commercial targets remain incomplete, but each composite row needs code-level partial status.",
+          "correction": "Retain feature IDs and broad acceptance. Link a granular live feature inventory listing implemented, partial, blocked, untested, planned and current evidence per subfeature."
+        }
+      ],
+      "recommendation": "Use matrix for requirements and stage priorities; use generated/current FEATURE_INVENTORY as live status authority to avoid duplicating incompatible status narratives."
+    }
+  ],
+  "findings": [
+    {
+      "id": "D01",
+      "priority": "high",
+      "paths": [
+        "README.md",
+        "docs/CODEX_HANDOFF.md",
+        "docs/PRODUCT_BACKBONE.md"
+      ],
+      "description": "Live descriptions incorrectly say immutable identity mapping and trusted assertions are missing, or that the API only accepts product keys. Public browser lifecycle is missing; API assertion validation is implemented and off by default.",
+      "evidence": [
+        "README Current implementation / Identity direction",
+        "CODEX_HANDOFF apps/api and Current architecture decisions",
+        "PRODUCT_BACKBONE HTTP contract and final Still open",
+        "apps/api/src/build3d_api/main.py: identity() branches b3d_ credentials vs configured jwt_authenticator",
+        "apps/api/src/build3d_api/config.py: EXTERNAL_JWT_AUTH_ENABLED default false",
+        "apps/api/src/build3d_api/cli.py: link/list/unlink-identity commands",
+        "docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md describes migrations 0002/0004 and implemented validator"
+      ],
+      "recommended_repair": "Say product keys by default; static-provider JWT/JWKS optionally accepted and mapped to existing owner. Better Auth/BFF assertion issuance, public signup/reset/deletion and rollout remain open."
+    },
+    {
+      "id": "D02",
+      "priority": "high",
+      "paths": [
+        "docs/PRODUCT_BACKBONE.md"
+      ],
+      "description": "Storage paragraph and final Still open list completed migration/byte-quota features as unfinished.",
+      "evidence": [
+        "PRODUCT_BACKBONE Image bytes paragraph says migration tooling remains open",
+        "PRODUCT_BACKBONE final paragraph says storage migration/retention/byte quotas open",
+        "Same file Storage backups section already describes copy-only migration",
+        "apps/api/src/build3d_api/cli.py: migrate-filesystem-to-s3, storage-usage, set-storage-quota, scan-artifacts",
+        "docs/OBJECT_STORAGE.md documents these implemented controls"
+      ],
+      "recommended_repair": "Remove completed migration/byte quotas from remaining-work list; retain real S3 deployment/restore, deletion, retention, billing-tier policy and audited cleanup as open."
+    },
+    {
+      "id": "D03",
+      "priority": "high",
+      "paths": [
+        "docs/ARCHITECTURE.md"
+      ],
+      "description": "Architecture presents its obsolete 14 Nov snapshot as the only implemented view: studio/S3 are listed absent, diagram centers SQS and signed downloads, frontend still undecided.",
+      "evidence": [
+        "ARCHITECTURE Implemented subset, target diagram, Decisions pending proof",
+        "ADR0001 accepted first-party Next studio",
+        "apps/web source exists; apps/api storage abstraction exists",
+        "PRODUCT_BACKBONE documents database queue and revalidated download path without presigned redirects"
+      ],
+      "recommended_repair": "Add explicit current architecture (web BFF -> tenant API -> SQLAlchemy DB jobs -> worker -> upstream adapter; filesystem/optional S3). Preserve older target diagram as historical/future; no automatic SQS/signed URL implementation."
+    },
+    {
+      "id": "D04",
+      "priority": "medium",
+      "paths": [
+        "docs/DECISIONS.md",
+        "docs/OPEN_SOURCE_STRATEGY.md",
+        "docs/REUSE_AUDIT.md"
+      ],
+      "description": "Old decisions conflict with accepted frontend, qualification engine and rejected stock Step1X runtime.",
+      "evidence": [
+        "DECISIONS repository/coding Proposed, backend 3DAIGC candidate and Step1X Evaluation required",
+        "OPEN_SOURCE_STRATEGY Step1X initial fine-tune candidate and Open3DStudio foundation candidate",
+        "REUSE_AUDIT Why not vendor all: Neither choice has been signed off",
+        "Same REUSE_AUDIT header and ADR0001 say first-party frontend selected",
+        "LICENSE_MATRIX rejects standard Step1X runtime"
+      ],
+      "recommended_repair": "Dated current decision table: monorepo and first-party product accepted; 3DAIGC contract integration exists but upstream not deployed; TripoSR qualification only; Step1X default runtime rejected unless exact replacements cleared. Keep original research table labeled historical."
+    },
+    {
+      "id": "D05",
+      "priority": "medium",
+      "paths": [
+        "AGENTS.md",
+        "docs/BACKLOG.md",
+        "docs/IMPLEMENTATION_CHECKLIST.md",
+        "CONTRIBUTING.md"
+      ],
+      "description": "Execution guidance repeats already-completed foundation/audit tasks and can restart work unnecessarily; generic PR instruction conflicts with user-authorized direct-main workflow if read as absolute.",
+      "evidence": [
+        "AGENTS First developer/Codex assignment says create existing license matrix/audit/CI",
+        "BACKLOG Immediate Codex instruction starts tasks0-5",
+        "IMPLEMENTATION_CHECKLIST final How to hand says begin00.07 though checked completed",
+        "IMPLEMENTATION_CHECKLIST B04 treats UI foundation undecided",
+        "CONTRIBUTING tells every task to open PR"
+      ],
+      "recommended_repair": "Retain historical assignment, add current critical path and completed-slice references. State normal review workflow subject to explicit session delivery instructions. Split broad checklist items into completed private contracts versus unbuilt public/paid capabilities."
+    },
+    {
+      "id": "D06",
+      "priority": "high",
+      "paths": [
+        "docs/GPU_SMOKE_AND_ARTIFACTS.md"
+      ],
+      "description": "Smoke runbook orders merging superseded PR#11 and uses escaped Markdown fences/backticks, making commands hard to copy.",
+      "evidence": [
+        "GPU_SMOKE prerequisites item1 mandates merge PR1 then11 then containing PR",
+        "CODEX_HANDOFF records11/12/13 superseded by14",
+        "GPU_SMOKE source contains literal backslash-backtick sequences around code fences"
+      ],
+      "recommended_repair": "Replace obsolete merge prerequisites with verify current main/required checks. Repair formatting; keep historical PR provenance separately. Preserve explicit spend/model gates."
+    },
+    {
+      "id": "D07",
+      "priority": "medium",
+      "paths": [
+        "docs/PHASE0_GATEWAY.md"
+      ],
+      "description": "Gateway limitations incorrectly claim downloads are GLB by convention without verification.",
+      "evidence": [
+        "PHASE0 final limitations: Download proxy currently treats output as GLB by convention",
+        "apps/gateway/src/build3d_gateway/main.py invokes fetch_verified_glb; download.py imports inspect_glb and calls it before response",
+        "apps/gateway/src/build3d_gateway/glb_validation.py",
+        "docs/GPU_SMOKE_AND_ARTIFACTS.md describes preflight and checksum"
+      ],
+      "recommended_repair": "Document implemented structural GLB preflight/checksum bounds, while retaining topology/material/deformation/Blender validation as unverified."
+    },
+    {
+      "id": "D08",
+      "priority": "medium",
+      "paths": [
+        "docs/FIRST_REAL_GPU_RUNBOOK.md"
+      ],
+      "description": "Final gate summary ambiguously labels deterministic runtime fork blocked/open despite implemented source patch, and retrieval command lacks a compatible pinned tool.",
+      "evidence": [
+        "FIRST_REAL_GPU current summary versus Deterministic source patchset now implemented",
+        "FIRST_REAL_GPU uses hf download hf://...",
+        "services/generation/triposr_candidate/requirements-build3d.txt pins huggingface-hub==0.17.3, no modern hf CLI in CPU setup",
+        "services/generation/triposr_candidate/prepare_runtime.py accepts exact Git source and local checkpoint"
+      ],
+      "recommended_repair": "Distinguish implemented guarded patch from unbuilt/unqualified full runtime. Before eventual approved download, pin and verify retrieval tooling/CLI syntax; do not execute downloads to fix prose or silently upgrade candidate dependencies."
+    },
+    {
+      "id": "D09",
+      "priority": "medium",
+      "paths": [
+        "docs/IMPLEMENTATION_CHECKLIST.md"
+      ],
+      "description": "Task04.04 still names Step1X LoRA as the normal fine-tune experiment despite rejected stock runtime.",
+      "evidence": [
+        "IMPLEMENTATION_CHECKLIST04.04",
+        "LICENSE_MATRIX Step1X rejection",
+        "AI_MODELS_AND_DATA supports model-specific training only after permitted runtime benchmark"
+      ],
+      "recommended_repair": "Make fine-tune model-neutral with exact cleared training recipe; retain Step1X as historical candidate and reject generic image-LoRA substitution."
+    },
+    {
+      "id": "D10",
+      "priority": "low",
+      "paths": [
+        "docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md"
+      ],
+      "description": "Feature flag paragraph says mapping/assertion tests must exist before enablement even though surrounding sections state they are implemented/tested.",
+      "evidence": [
+        "Feature flag/rollout paragraph",
+        "Same document implemented rollout steps1-2",
+        "apps/api/tests/test_trusted_identity.py exists"
+      ],
+      "recommended_repair": "Say remain off until public BFF/session integration and rollout/security checks pass, not until already-existing API tests are written. Date third-party release claims as research snapshot."
+    },
+    {
+      "id": "D11",
+      "priority": "medium",
+      "paths": [
+        "README.md",
+        "docs/CODEX_HANDOFF.md",
+        "docs/PHASE0_GATEWAY.md",
+        "docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md"
+      ],
+      "description": "Several setup copies omit CPU constraints, workspace cache override or Next generated-file preservation. Web package declarations have no lockfile, so installation refresh is not fully reproducible.",
+      "evidence": [
+        "PHASE0/GPU_SMOKE install gateway without -c requirements.lock",
+        "README and older handoff call raw npm dev/build",
+        "CLOUD guide and scripts/cloud handle caches and generated-file restoration",
+        "apps/web/package.json contains caret dev dependencies and there is no checked npm lockfile"
+      ],
+      "recommended_repair": "Make CLOUD_DEVELOPMENT_ENVIRONMENT the current managed-workspace setup authority, leave generic local runbook with clear scope, use supported helper links. Treat npm lockfile/transitive provenance as release debt, not as completed frozen install."
+    },
+    {
+      "id": "D12",
+      "priority": "low",
+      "paths": [
+        "docs/REPOSITORY_AUDIT_2026-11-17.md",
+        "docs/REPOSITORY_STRUCTURE.md"
+      ],
+      "description": "Prior audit file counts/baselines are correct as dated snapshots, but will become misleading if copied into a new universal audit as current.",
+      "evidence": [
+        "Prior audit starts e4b05f4 with362tracked",
+        "Current universal audit starts56f412f and369tracked per root",
+        "Prior audited tests are historical results until rerun"
+      ],
+      "recommended_repair": "Preserve dated audit unchanged or append an explicit supersession note; new report records its own starting/final snapshot and actual checks without relabeling old evidence."
+    },
+    {
+      "id": "D13",
+      "priority": "low",
+      "paths": [
+        "docs/LICENSE_MATRIX.md",
+        "docs/REUSE_AUDIT.md"
+      ],
+      "description": "Some wording no source vendored refers to a dated code change, while raw imported snapshots now exist under AnalyseFuture. Generic APPROVED labels are limited candidate-source decisions, not model approval.",
+      "evidence": [
+        "LICENSE_MATRIX CPU inventory says no source vendored by this change",
+        "REUSE_AUDIT reuse scope dated14Nov",
+        "Current AnalyseFuture imported source/wheels remain research-only"
+      ],
+      "recommended_repair": "Keep historical clauses scoped to their change; add current snapshot distinction if needed. Never turn candidate license approval into deployability/weights approval."
+    },
+    {
+      "id": "D14",
+      "priority": "low",
+      "paths": [
+        "docs/OPERATIONS_SECURITY.md",
+        "docs/ARCHITECTURE.md"
+      ],
+      "description": "Signed URLs and dead-letter cancellation are policy/target requirements, whereas current downloads deliberately revalidate and worker cannot cancel remote jobs.",
+      "evidence": [
+        "OPERATIONS_SECURITY signed URLs / dead-letter / cancellation",
+        "OBJECT_STORAGE download integrity boundary",
+        "PRODUCT_BACKBONE recovery rules"
+      ],
+      "recommended_repair": "Label required future controls as goals; do not imply existing presigned URLs or exactly-once cancellation. Design equivalent integrity/authorization before substituting raw signed downloads."
+    }
+  ],
+  "validation": {
+    "performed": [
+      "Read-only document inspection",
+      "Targeted current source/config/CLI cross-checks",
+      "Markdown relative-link target check across requested documents: no missing local targets found"
+    ],
+    "not_performed": [
+      "No tests rerun for this documentation review",
+      "No third-party release/live market verification",
+      "No inference, build, network credentials or account-security investigation by this subagent"
+    ]
+  },
+  "reviewed_code_paths": [
+    ".dockerignore",
+    ".env.example",
+    ".github/workflows/triposr-qualification-ci.yml",
+    "apps/api/src/build3d_api/cli.py",
+    "apps/api/src/build3d_api/config.py",
+    "apps/api/src/build3d_api/main.py",
+    "apps/api/src/build3d_api/migrations/versions/0003_storage_quota.py",
+    "apps/api/src/build3d_api/migrations/versions/0004_external_identity_rate_limit.py",
+    "apps/api/src/build3d_api/store.py",
+    "apps/api/src/build3d_api/trusted_identity.py",
+    "apps/gateway/src/build3d_gateway/download.py",
+    "apps/gateway/src/build3d_gateway/main.py",
+    "apps/web/README.md",
+    "apps/web/package.json",
+    "pytest.ini",
+    "scripts/cloud/install.sh",
+    "scripts/cloud/playwright.config.cjs",
+    "scripts/cloud/run_web.py",
+    "services/generation/triposr_candidate/Dockerfile.candidate",
+    "services/generation/triposr_candidate/prepare_runtime.py",
+    "services/generation/triposr_candidate/requirements-build3d.txt"
+  ],
+  "continuity_subset": {
+    "scope": "Read-only deep continuity/product-planning subset audit for universal repository review",
+    "baseline_commit": "56f412f",
+    "no_repo_mutations": true,
+    "reviewed_paths": [
+      "docs/PROJECT_MEMORY_MASTER.md",
+      "docs/BUILD_3D_AI_PROJECT_IDEA.txt",
+      "docs/archives/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt",
+      "docs/PRODUCT_VISION.md",
+      "docs/ROADMAP.md",
+      "docs/BENCHMARKS.md",
+      "docs/FEATURE_MATRIX.md"
+    ],
+    "supporting_code_inspection": {
+      "mode": "Targeted source read/search for grounding, not full backend audit or test execution",
+      "paths": [
+        "apps/api/src/build3d_api/config.py",
+        "apps/api/src/build3d_api/main.py",
+        "apps/api/src/build3d_api/cli.py",
+        "apps/api/src/build3d_api/store.py",
+        "apps/api/src/build3d_api/migrations/versions/0003_storage_quota.py",
+        "apps/api/src/build3d_api/migrations/versions/0004_external_identity_rate_limit.py",
+        "pytest.ini",
+        ".dockerignore"
+      ]
+    },
+    "files": [
+      {
+        "path": "docs/PROJECT_MEMORY_MASTER.md",
+        "purpose": "Dated historical context and evidence index; owner goals, source research, prior PR/results and session continuation events.",
+        "features": [
+          "all_product_direction",
+          "continuity",
+          "source_qualification",
+          "licensing",
+          "benchmarking",
+          "repository_recovery"
+        ],
+        "findings": [
+          {
+            "severity": "medium",
+            "lines": "12-40, 338-347",
+            "issue": "The prominent recovery procedure and next precise developer assignment still center the 16-Nov PR #26 snapshot and absent-from-HEAD CURRENT_STATE_AUDIT/EXECUTION_PLAN documents; newer adopted goal and structure decisions appear only in appended sections. Dated caveats make historical claims legitimate, but a fresh agent can follow the old branch workflow and miss the owner-adopted priority.",
+            "evidence": "Current HEAD 56f412f has no tracked docs/CURRENT_STATE_AUDIT.md, docs/EXECUTION_PLAN.md or audit_pip_report.py; this audit did not determine live PR/API state. Later sections 15-16 adopt the detailed goal and record structure review.",
+            "correction": "Add a current recovery preface referencing live feature inventory, active architecture, main goal, current validation and exact branch authority. Label section 11 historical assignment rather than silently replacing historical PR details."
+          },
+          {
+            "severity": "low",
+            "lines": "376, 382-396",
+            "issue": "Historical proposal wording is superseded by the explicit goal-adoption section, but readers entering at section 14 can misread present goal authority.",
+            "correction": "Retain dated wording; add a concise cross-reference from historical proposal section to adopted-goal section."
+          }
+        ],
+        "recommendation": "Keep as a history/index, not the canonical live capability database. Preserve its historical body and link new machine-readable inventory and current continuation guide near the top.",
+        "sha256": "633217b52ad436dff330fc0c3c4ce4292327cfb495aa613ee017826ad664a909",
+        "word_count": 4975,
+        "review_mode": "entire textual file reviewed, including recovered output slices where initial display was truncated"
+      },
+      {
+        "path": "docs/BUILD_3D_AI_PROJECT_IDEA.txt",
+        "purpose": "Owner-adopted primary product direction including implemented foundation, narrow first release, expansive character/scene ambition, conditional roadmap and roles.",
+        "features": [
+          "asset_creation",
+          "asset_quality",
+          "character_identity",
+          "body_rigging",
+          "facial_animation",
+          "scene_editing",
+          "model_adaptation",
+          "operations",
+          "business"
+        ],
+        "findings": [
+          {
+            "severity": "low",
+            "lines": "183-200, 1020-1040",
+            "issue": "Specific previous session validation counts are correctly attributed, but are a historical baseline rather than validation of the current universal audit.",
+            "correction": "Keep the old counts/history. Link the new audit TEST_AND_VALIDATION_REPORT for current-run evidence instead of overwriting historical results."
+          },
+          {
+            "severity": "low",
+            "lines": "731-746",
+            "issue": "Existing long horizon is three-years-and-beyond rather than an explicit three-to-five-year investigation window requested in the new master assignment.",
+            "correction": "Provide an explicit 2029-2031 conditional research window in AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt, linking this adopted goal and avoiding a competing product charter."
+          }
+        ],
+        "recommendation": "Retain as primary direction. New required future-roadmap TXT should be an evidence-based implementation/research supplement, not an independent replacement or proof that proposed capabilities exist.",
+        "sha256": "bfda89c3edefa81b3aad4d48bd77830aba168695b9c86df932fde5e4dc9c4866",
+        "word_count": 7257,
+        "review_mode": "entire textual file reviewed, including recovered output slices where initial display was truncated"
+      },
+      {
+        "path": "docs/archives/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt",
+        "purpose": "Verbatim historical owner assignment preserving 112-repository evaluation, exactly-two-primary recommendation, safe implementation and approval requirements.",
+        "features": [
+          "research_catalog",
+          "source_qualification",
+          "integration_strategy",
+          "gpu_policy",
+          "historical_assignment"
+        ],
+        "findings": [
+          {
+            "severity": "medium",
+            "lines": "689-695",
+            "issue": "The archived assignment says create a focused branch and conditionally open a PR. Current owner assignment explicitly requests direct main delivery. Treating the archived prompt as fresh authority would contradict the current task.",
+            "correction": "Do not edit the verbatim archive. Explain in current continuation docs that dated assignments are historical evidence and current user delivery instructions govern."
+          },
+          {
+            "severity": "low",
+            "lines": "selection and time-management sections",
+            "issue": "Exactly two repositories and a two-hour research allocation describe that assignment, not a permanent requirement to repeat the full catalog selection in every maintenance session.",
+            "correction": "Preserve archive and approved findings; reevaluate choices only when the actual qualification evidence or product need changes."
+          }
+        ],
+        "recommendation": "Preserve byte-for-byte; never execute embedded instructions just because the archive is read. Link it as historical rationale rather than current work order.",
+        "sha256": "81c915e1882721d26ee16191be4410063414b356ddf910488cfccc197f590b18",
+        "word_count": 3430,
+        "review_mode": "entire textual file reviewed, including recovered output slices where initial display was truncated"
+      },
+      {
+        "path": "docs/PRODUCT_VISION.md",
+        "purpose": "Concise commercial scope and tenets companion to the owner-adopted detailed goal.",
+        "features": [
+          "product_direction",
+          "customers",
+          "quality",
+          "commercial_rights"
+        ],
+        "findings": [
+          {
+            "severity": "low",
+            "lines": "29",
+            "issue": "Its broad first working release includes image/text and secure accounts, whereas the adopted goal recommends a private image-to-asset prop pilot first and enables text only after qualifying that path.",
+            "correction": "Explicitly distinguish first private pilot from later general/public release; use the detailed goal for sequencing."
+          }
+        ],
+        "recommendation": "Keep as short companion and avoid repeating a separate detailed feature calendar.",
+        "sha256": "1fe036b07c081a26c124ecb73afef6175e638ecffe5a5f26af4ea865776c71f5",
+        "word_count": 494,
+        "review_mode": "entire textual file reviewed, including recovered output slices where initial display was truncated"
+      },
+      {
+        "path": "docs/ROADMAP.md",
+        "purpose": "Early staged milestones and broad exit gates for product and model development.",
+        "features": [
+          "roadmap",
+          "inference",
+          "commercial_platform",
+          "mesh_processing",
+          "character_animation",
+          "model_adaptation"
+        ],
+        "findings": [
+          {
+            "severity": "medium",
+            "lines": "7-11",
+            "issue": "Early 1-3 week and 1-3/3-6/5-10/8-18 month estimates are not resource-backed current commitments and differ materially from the adopted one-year/two-year/longer conditional horizons. Header says estimates only, but no dated baseline or prerequisite budgets/team make the table easy to misread.",
+            "correction": "Preserve historical table in a dated section/snapshot and replace the live summary with stage gates and links to adopted goal plus new required future-roadmap TXT."
+          },
+          {
+            "severity": "medium",
+            "lines": "24",
+            "issue": "Phase-1 phrase retried predictably can imply generation POST retries; current conservative worker quarantines uncertain dispatch and retries bounded reads/polling instead.",
+            "correction": "State recoverable polling/reconciliation and no blind resubmission of uncertain generation. Add metering/backups as acceptance work, not present capability."
+          }
+        ],
+        "recommendation": "Consolidate roadmap sequencing into one current gated roadmap; retain original estimates with explicit historical context.",
+        "sha256": "06d387748ee6556f44dffde543e1ba98818b4f48f43eacdd06894c6880339beb",
+        "word_count": 388,
+        "review_mode": "entire textual file reviewed, including recovered output slices where initial display was truncated"
+      },
+      {
+        "path": "docs/BENCHMARKS.md",
+        "purpose": "Permitted benchmark input design, quality/cost metrics and proposed release gates.",
+        "features": [
+          "evaluation",
+          "data_provenance",
+          "geometry_quality",
+          "facial_quality",
+          "latency",
+          "cost"
+        ],
+        "findings": [
+          {
+            "severity": "low",
+            "lines": "9-28",
+            "issue": "100-item four-category study and 95% valid-job target are appropriately labeled proposals. For a first release supporting only stylized props, a broad character/organic/hard-surface score must not imply those categories are supported.",
+            "correction": "Keep broad research set and define a frozen declared supported subset with separate denominators, acceptance rates and artist-fixup costs."
+          }
+        ],
+        "recommendation": "Keep as canonical evaluation protocol; add run-schema/outcome taxonomy and per-profile pass thresholds when real qualification begins, with no synthetic/model-quality conflation.",
+        "sha256": "7303f7360321e14e0e8e4d95e3848991aaa06b712a31d9c09b926feb28b81573",
+        "word_count": 247,
+        "review_mode": "entire textual file reviewed, including recovered output slices where initial display was truncated"
+      },
+      {
+        "path": "docs/FEATURE_MATRIX.md",
+        "purpose": "Product-goal taxonomy GEN/GEO/MAT/RIG/ENV/EXP/APP/OPS/ML and acceptance requirements.",
+        "features": [
+          "complete_product_feature_taxonomy"
+        ],
+        "findings": [
+          {
+            "severity": "medium",
+            "lines": "5",
+            "issue": "The current-looking summary lists retention/byte quotas as open, but persistent per-user artifact-byte quotas, usage reporting and quota CLI exist in active code. Retention/deletion remains incomplete; the combined wording incorrectly discounts existing implementation.",
+            "evidence": "apps/api/src/build3d_api/config.py default_storage_limit_bytes; store.py set_storage_quota/storage_usage and completion enforcement; migrations/versions/0003_storage_quota.py; cli.py set-storage-quota/storage-usage.",
+            "correction": "Separate implemented persistent quotas from incomplete retention and deletion."
+          },
+          {
+            "severity": "medium",
+            "lines": "3,9-39",
+            "issue": "Blanket PLANNED rows combine multiple responsibilities and hide implemented subfeatures: private identity/projects, durable jobs/recovery, GLB validation/viewer and deployment packaging. Whole commercial targets remain incomplete, but each composite row needs code-level partial status.",
+            "correction": "Retain feature IDs and broad acceptance. Link a granular live feature inventory listing implemented, partial, blocked, untested, planned and current evidence per subfeature."
+          }
+        ],
+        "recommendation": "Use matrix for requirements and stage priorities; use generated/current FEATURE_INVENTORY as live status authority to avoid duplicating incompatible status narratives.",
+        "sha256": "205fe1e70a6be82e8acdd86eb8c33fc63547d983b27da3506e29392f1dc0f80e",
+        "word_count": 706,
+        "review_mode": "entire textual file reviewed, including recovered output slices where initial display was truncated"
+      }
+    ],
+    "feature_taxonomy": [
+      {
+        "group": "identity_and_tenancy",
+        "present": "private API-key auth, immutable external mapping, opt-in trusted JWT foundation",
+        "future": "complete public lifecycle, deletion/sharing policy",
+        "ids": [
+          "APP01"
+        ]
+      },
+      {
+        "group": "projects_and_asset_lineage",
+        "present": "private projects and persisted job history",
+        "future": "immutable asset variants, edit lineage, team review",
+        "ids": [
+          "APP01"
+        ]
+      },
+      {
+        "group": "durable_execution",
+        "present": "admission/idempotency, rate/concurrency limits, fenced recovery, bounded polling",
+        "future": "cost reservation and remote cancellation only with explicit backend contract",
+        "ids": [
+          "APP02",
+          "OPS02"
+        ]
+      },
+      {
+        "group": "model_policy_and_inference",
+        "present": "fail-closed gateway, candidate preparation, zero approved default models",
+        "future": "one exact qualified inference path and then category-specific routing",
+        "ids": [
+          "GEN01",
+          "GEN02",
+          "GEN04",
+          "GEN05"
+        ]
+      },
+      {
+        "group": "artifacts_and_storage",
+        "present": "verified private GLB downloads, FS/optional S3 backend, persistent quotas, inventory/copy migration",
+        "future": "real service qualification, retention/deletion/backup restore",
+        "ids": [
+          "APP01",
+          "APP02",
+          "EXP01"
+        ]
+      },
+      {
+        "group": "geometry_and_materials",
+        "present": "structural GLB validation and synthetic OBJ+PNG packaging",
+        "future": "actual geometry diagnostics/repair, UV/material/LOD profiles",
+        "ids": [
+          "GEO01",
+          "GEO02",
+          "GEO03",
+          "GEO04",
+          "MAT01",
+          "MAT02"
+        ]
+      },
+      {
+        "group": "inspection_and_export",
+        "present": "browser GLB orbit/wireframe/statistics path",
+        "future": "genuine asset Blender import and supported versioned exports",
+        "ids": [
+          "EXP01",
+          "EXP02"
+        ]
+      },
+      {
+        "group": "characters_and_performance",
+        "present": "creative requirements and research snapshots only",
+        "future": "template identity, body deformation, face construction and speech performance as separate gates",
+        "ids": [
+          "GEN06",
+          "RIG01",
+          "RIG02",
+          "RIG03",
+          "RIG04"
+        ]
+      },
+      {
+        "group": "editable_scenes",
+        "present": "product direction only",
+        "future": "persistent scene graph, modular assets, interaction checks; splats separate representation",
+        "ids": [
+          "ENV01",
+          "ENV02"
+        ]
+      },
+      {
+        "group": "evaluation_and_learning",
+        "present": "CPU contracts and benchmark protocol",
+        "future": "real held-out asset acceptance and lawful correction datasets before adaptation",
+        "ids": [
+          "ML01",
+          "ML02",
+          "ML03"
+        ]
+      },
+      {
+        "group": "commercial_operations",
+        "present": "private packaging and local development helpers",
+        "future": "public identity, billing integrity, deployment/monitoring/incident handling and measured margins",
+        "ids": [
+          "APP03",
+          "APP04",
+          "OPS01",
+          "OPS02"
+        ]
+      },
+      {
+        "group": "recovery_and_evidence",
+        "present": "reference inventories, license evidence, preservation records",
+        "future": "single authoritative live capability report with dated validation",
+        "ids": []
+      }
+    ],
+    "roadmap_supplement": {
+      "near_term": "Recover/compare existing branches before recreating missing PR research. Consolidate conflicting live status docs. Qualify one exact candidate runtime, then one approved real asset through product/browser/Blender. Define a declared supported input profile before broad research benchmark claims.",
+      "one_year_2027": "Conditional narrow creator pilot: repeatable supported assets, measured fixup-time advantage, explicit cost/retention controls, genuine downstream compatibility and full identity/billing only before public charging. Template-based adult character lane can proceed separately with artist-authored topology.",
+      "two_year_2028": "Conditional reusable cast/location workspace: variant lineage, constrained outfit/material edits, supported rig retargeting, facial controls for declared templates, richer scene assembly. Separate evidence for each motion, expression and local edit.",
+      "three_to_five_years_2029_2031": [
+        {
+          "research": "Persistent character representations and rig-aware local geometry editing",
+          "prerequisites": "lawful multi-view/identity-grouped data, artist-corrected topology, measurable identity/deformation drift tests",
+          "value": "fewer manual revisions and consistent recurring cast",
+          "stop_rule": "do not ship unrestricted regeneration as identity-preserving without held-out evidence"
+        },
+        {
+          "research": "Composable scene graph with contact/scale/interaction constraints and bounded language tools",
+          "prerequisites": "stable asset IDs/version compatibility, isolated processing, constraint checks and human shot review",
+          "value": "reuse edited sets across shots instead of generating unrelated appearances",
+          "stop_rule": "keep splat visualization separate; no implied polygon editability or physical truth"
+        },
+        {
+          "research": "Specialized correction models from artist revision histories",
+          "prerequisites": "separate opt-in rights/retention policy, asset/identity-level splits, sufficient examples and baseline economics",
+          "value": "learn actual expensive failure classes instead of training a general foundation model",
+          "stop_rule": "stop if cleanup time, privacy exposure or support cost rises despite visual benchmark gains"
+        },
+        {
+          "research": "Cross-tool round-trip scene/character compatibility and durable asset formats",
+          "prerequisites": "versioned contract tests, supported Blender pipeline, material/rig compatibility manifests",
+          "value": "long-lived customer asset library survives upgrades",
+          "stop_rule": "do not add every engine/format before one maintained path works"
+        }
+      ],
+      "not_pursue": [
+        {
+          "feature": "New first-party general foundation model from scratch now",
+          "reason": "No demonstrated inference baseline, lawful scaled dataset, research team or resource budget; adapt only after a measured specific error justifies it"
+        },
+        {
+          "feature": "Browser replacement for Blender",
+          "reason": "Existing viewer and Blender handoff can solve the immediate workflow; DCC reimplementation would dilute inference/quality/retention work"
+        },
+        {
+          "feature": "Universal one-click talking film-ready humans",
+          "reason": "Geometry, part topology, body/face rigs, acting and language transitions require distinct evidence; no reliable arbitrary-input acceptance envelope established"
+        },
+        {
+          "feature": "Automatic full episodes as initial acceptance",
+          "reason": "Long sequence production multiplies identity, interaction, render and editorial problems; prove short shots with reusable assets first"
+        },
+        {
+          "feature": "Unsafe mass integration of research snapshots or blocked wheels",
+          "reason": "Presence is not license/runtime clearance; source/weight/data/binary restrictions remain independent"
+        },
+        {
+          "feature": "Generic features/ tree or dozens of microservices by appearance",
+          "reason": "Python packages, Next framework, migrations and worker interfaces already define useful runtime boundaries; consolidate status/dependencies and real duplicates, not filenames"
+        },
+        {
+          "feature": "Unbounded generation retries, unlimited GPU promises or automatic training on customer uploads",
+          "reason": "Uncertain non-idempotent work can double spend; compute is finite and rights/consent are separate from private processing"
+        }
+      ],
+      "ownership": "Owner chooses supported customer/budget; product/frontend engineers integrate; ML engineer qualifies models; technical artist/animator defines asset acceptance; security/ops qualifies isolation and runtime; legal reviewer resolves actual rights. AI coding tools assist bounded work but cannot supply account permission, legal clearance or artistic acceptance."
+    },
+    "limitations": [
+      "No live competitive survey, API/PR state verification, legal conclusion or new model benchmark performed.",
+      "No imported source/binary executed; no tests run as part of this read-only subset task.",
+      "Source hashes describe files read at this task baseline and may change during concurrent parent edits."
+    ]
+  },
+  "actual_reviewed_document_paths": [
+    "AGENTS.md",
+    "CONTRIBUTING.md",
+    "README.md",
+    "docs/AI_MODELS_AND_DATA.md",
+    "docs/ARCHITECTURE.md",
+    "docs/BACKLOG.md",
+    "docs/BENCHMARKS.md",
+    "docs/BUILD_3D_AI_PROJECT_IDEA.txt",
+    "docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+    "docs/CODEX_HANDOFF.md",
+    "docs/DECISIONS.md",
+    "docs/FEATURE_MATRIX.md",
+    "docs/FIRST_REAL_GPU_RUNBOOK.md",
+    "docs/GPU_SMOKE_AND_ARTIFACTS.md",
+    "docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+    "docs/IMPLEMENTATION_CHECKLIST.md",
+    "docs/LICENSE_MATRIX.md",
+    "docs/MODEL_APPROVAL_GATE.md",
+    "docs/OBJECT_STORAGE.md",
+    "docs/OPEN_SOURCE_STRATEGY.md",
+    "docs/OPERATIONS_SECURITY.md",
+    "docs/PHASE0_GATEWAY.md",
+    "docs/PRODUCT_BACKBONE.md",
+    "docs/PRODUCT_VISION.md",
+    "docs/PROJECT_MEMORY_MASTER.md",
+    "docs/REPOSITORY_AUDIT_2026-11-17.md",
+    "docs/REPOSITORY_STRUCTURE.md",
+    "docs/REUSE_AUDIT.md",
+    "docs/ROADMAP.md",
+    "docs/adr/0001-web-studio-foundation.md",
+    "docs/archives/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt"
+  ],
+  "coverage": {
+    "requested_document_count": 31,
+    "reviewed_document_count": 31,
+    "unreviewed_requested_paths": [],
+    "duplicate_records": 0
+  },
+  "consolidation_plan": [
+    {
+      "responsibility": "Current code-level capability status",
+      "canonical_target": "AnalyseFuture/FEATURE_INVENTORY.txt",
+      "supporting_documents": [
+        "docs/FEATURE_MATRIX.md",
+        "docs/IMPLEMENTATION_CHECKLIST.md"
+      ],
+      "action": "Add granular current inventory keyed by feature IDs and explicit statuses. Retain matrix as requirements and checklist as execution state; link rather than duplicate contradictory summaries."
+    },
+    {
+      "responsibility": "Actual architecture / dependency ownership",
+      "canonical_target": "docs/ARCHITECTURE.md",
+      "supporting_documents": [
+        "docs/REPOSITORY_STRUCTURE.md",
+        "docs/PRODUCT_BACKBONE.md"
+      ],
+      "action": "Use current runtime diagram and code-based ownership. Keep future target and original planned skeleton explicitly historical. Maintain apps/services runtime boundaries; do not force heterogeneous Python/Next code into a generic features tree."
+    },
+    {
+      "responsibility": "Identity",
+      "canonical_target": "docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+      "supporting_documents": [
+        "README.md",
+        "docs/CODEX_HANDOFF.md",
+        "docs/PRODUCT_BACKBONE.md"
+      ],
+      "action": "One topical status authority; repair shorter copies to reflect implemented mapping/assertion and missing public browser lifecycle."
+    },
+    {
+      "responsibility": "Artifact lifecycle",
+      "canonical_target": "docs/OBJECT_STORAGE.md",
+      "supporting_documents": [
+        "docs/PRODUCT_BACKBONE.md",
+        "docs/FEATURE_MATRIX.md",
+        "docs/DECISIONS.md"
+      ],
+      "action": "Link implemented quota/scanner/copy migration and separately list missing deletion/retention/cloud validation. Do not rewrite working storage modules merely to merge documentation."
+    },
+    {
+      "responsibility": "Development commands",
+      "canonical_target": "docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+      "supporting_documents": [
+        "README.md",
+        "docs/CODEX_HANDOFF.md",
+        "docs/PHASE0_GATEWAY.md",
+        "docs/GPU_SMOKE_AND_ARTIFACTS.md"
+      ],
+      "action": "Current managed setup uses existing scripts/cloud helpers and constraints. Keep platform-specific optional routes separate. Repair escaped code fences and obsolete stacked-PR instructions."
+    },
+    {
+      "responsibility": "Model legality and preparation",
+      "canonical_target": "docs/LICENSE_MATRIX.md + docs/FIRST_REAL_GPU_RUNBOOK.md",
+      "supporting_documents": [
+        "docs/REUSE_AUDIT.md",
+        "docs/MODEL_APPROVAL_GATE.md",
+        "docs/AI_MODELS_AND_DATA.md"
+      ],
+      "action": "Separate current rights decisions, historical exact-source evidence, implemented candidate source patch and unverified image/inference. No mass reuse of preserved upstream code or wheel installation."
+    },
+    {
+      "responsibility": "Product direction and research timing",
+      "canonical_target": "docs/BUILD_3D_AI_PROJECT_IDEA.txt",
+      "supporting_documents": [
+        "docs/PRODUCT_VISION.md",
+        "docs/ROADMAP.md",
+        "AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt"
+      ],
+      "action": "Retain adopted goal. New required roadmap supplements implementation/research prioritization including2029-2031 and not-pursue choices; does not silently become a competing charter."
+    },
+    {
+      "responsibility": "Continuity and historical preservation",
+      "canonical_target": "docs/CODEX_HANDOFF.md current preface + AnalyseFuture/NEXT_DEVELOPER_INSTRUCTIONS.txt",
+      "supporting_documents": [
+        "docs/PROJECT_MEMORY_MASTER.md",
+        "docs/archives/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt",
+        "docs/REPOSITORY_AUDIT_2026-11-17.md"
+      ],
+      "action": "Current entry section tells agents baseline, files checked, active next task and current workflow. Preserve dated history/verbatim assignment. Archive baseline bytes or rely on clearly recorded existing Git blobs before live edits; retain mapping for any moved document."
+    }
+  ],
+  "future_roadmap_recommendations": {
+    "near_term": "Recover/compare existing branches before recreating missing PR research. Consolidate conflicting live status docs. Qualify one exact candidate runtime, then one approved real asset through product/browser/Blender. Define a declared supported input profile before broad research benchmark claims.",
+    "one_year_2027": "Conditional narrow creator pilot: repeatable supported assets, measured fixup-time advantage, explicit cost/retention controls, genuine downstream compatibility and full identity/billing only before public charging. Template-based adult character lane can proceed separately with artist-authored topology.",
+    "two_year_2028": "Conditional reusable cast/location workspace: variant lineage, constrained outfit/material edits, supported rig retargeting, facial controls for declared templates, richer scene assembly. Separate evidence for each motion, expression and local edit.",
+    "three_to_five_years_2029_2031": [
+      {
+        "research": "Persistent character representations and rig-aware local geometry editing",
+        "prerequisites": "lawful multi-view/identity-grouped data, artist-corrected topology, measurable identity/deformation drift tests",
+        "value": "fewer manual revisions and consistent recurring cast",
+        "stop_rule": "do not ship unrestricted regeneration as identity-preserving without held-out evidence"
+      },
+      {
+        "research": "Composable scene graph with contact/scale/interaction constraints and bounded language tools",
+        "prerequisites": "stable asset IDs/version compatibility, isolated processing, constraint checks and human shot review",
+        "value": "reuse edited sets across shots instead of generating unrelated appearances",
+        "stop_rule": "keep splat visualization separate; no implied polygon editability or physical truth"
+      },
+      {
+        "research": "Specialized correction models from artist revision histories",
+        "prerequisites": "separate opt-in rights/retention policy, asset/identity-level splits, sufficient examples and baseline economics",
+        "value": "learn actual expensive failure classes instead of training a general foundation model",
+        "stop_rule": "stop if cleanup time, privacy exposure or support cost rises despite visual benchmark gains"
+      },
+      {
+        "research": "Cross-tool round-trip scene/character compatibility and durable asset formats",
+        "prerequisites": "versioned contract tests, supported Blender pipeline, material/rig compatibility manifests",
+        "value": "long-lived customer asset library survives upgrades",
+        "stop_rule": "do not add every engine/format before one maintained path works"
+      }
+    ],
+    "not_pursue": [
+      {
+        "feature": "New first-party general foundation model from scratch now",
+        "reason": "No demonstrated inference baseline, lawful scaled dataset, research team or resource budget; adapt only after a measured specific error justifies it"
+      },
+      {
+        "feature": "Browser replacement for Blender",
+        "reason": "Existing viewer and Blender handoff can solve the immediate workflow; DCC reimplementation would dilute inference/quality/retention work"
+      },
+      {
+        "feature": "Universal one-click talking film-ready humans",
+        "reason": "Geometry, part topology, body/face rigs, acting and language transitions require distinct evidence; no reliable arbitrary-input acceptance envelope established"
+      },
+      {
+        "feature": "Automatic full episodes as initial acceptance",
+        "reason": "Long sequence production multiplies identity, interaction, render and editorial problems; prove short shots with reusable assets first"
+      },
+      {
+        "feature": "Unsafe mass integration of research snapshots or blocked wheels",
+        "reason": "Presence is not license/runtime clearance; source/weight/data/binary restrictions remain independent"
+      },
+      {
+        "feature": "Generic features/ tree or dozens of microservices by appearance",
+        "reason": "Python packages, Next framework, migrations and worker interfaces already define useful runtime boundaries; consolidate status/dependencies and real duplicates, not filenames"
+      },
+      {
+        "feature": "Unbounded generation retries, unlimited GPU promises or automatic training on customer uploads",
+        "reason": "Uncertain non-idempotent work can double spend; compute is finite and rights/consent are separate from private processing"
+      }
+    ],
+    "ownership": "Owner chooses supported customer/budget; product/frontend engineers integrate; ML engineer qualifies models; technical artist/animator defines asset acceptance; security/ops qualifies isolation and runtime; legal reviewer resolves actual rights. AI coding tools assist bounded work but cannot supply account permission, legal clearance or artistic acceptance."
+  },
+  "feature_taxonomy": [
+    {
+      "group": "identity_and_tenancy",
+      "present": "private API-key auth, immutable external mapping, opt-in trusted JWT foundation",
+      "future": "complete public lifecycle, deletion/sharing policy",
+      "ids": [
+        "APP01"
+      ]
+    },
+    {
+      "group": "projects_and_asset_lineage",
+      "present": "private projects and persisted job history",
+      "future": "immutable asset variants, edit lineage, team review",
+      "ids": [
+        "APP01"
+      ]
+    },
+    {
+      "group": "durable_execution",
+      "present": "admission/idempotency, rate/concurrency limits, fenced recovery, bounded polling",
+      "future": "cost reservation and remote cancellation only with explicit backend contract",
+      "ids": [
+        "APP02",
+        "OPS02"
+      ]
+    },
+    {
+      "group": "model_policy_and_inference",
+      "present": "fail-closed gateway, candidate preparation, zero approved default models",
+      "future": "one exact qualified inference path and then category-specific routing",
+      "ids": [
+        "GEN01",
+        "GEN02",
+        "GEN04",
+        "GEN05"
+      ]
+    },
+    {
+      "group": "artifacts_and_storage",
+      "present": "verified private GLB downloads, FS/optional S3 backend, persistent quotas, inventory/copy migration",
+      "future": "real service qualification, retention/deletion/backup restore",
+      "ids": [
+        "APP01",
+        "APP02",
+        "EXP01"
+      ]
+    },
+    {
+      "group": "geometry_and_materials",
+      "present": "structural GLB validation and synthetic OBJ+PNG packaging",
+      "future": "actual geometry diagnostics/repair, UV/material/LOD profiles",
+      "ids": [
+        "GEO01",
+        "GEO02",
+        "GEO03",
+        "GEO04",
+        "MAT01",
+        "MAT02"
+      ]
+    },
+    {
+      "group": "inspection_and_export",
+      "present": "browser GLB orbit/wireframe/statistics path",
+      "future": "genuine asset Blender import and supported versioned exports",
+      "ids": [
+        "EXP01",
+        "EXP02"
+      ]
+    },
+    {
+      "group": "characters_and_performance",
+      "present": "creative requirements and research snapshots only",
+      "future": "template identity, body deformation, face construction and speech performance as separate gates",
+      "ids": [
+        "GEN06",
+        "RIG01",
+        "RIG02",
+        "RIG03",
+        "RIG04"
+      ]
+    },
+    {
+      "group": "editable_scenes",
+      "present": "product direction only",
+      "future": "persistent scene graph, modular assets, interaction checks; splats separate representation",
+      "ids": [
+        "ENV01",
+        "ENV02"
+      ]
+    },
+    {
+      "group": "evaluation_and_learning",
+      "present": "CPU contracts and benchmark protocol",
+      "future": "real held-out asset acceptance and lawful correction datasets before adaptation",
+      "ids": [
+        "ML01",
+        "ML02",
+        "ML03"
+      ]
+    },
+    {
+      "group": "commercial_operations",
+      "present": "private packaging and local development helpers",
+      "future": "public identity, billing integrity, deployment/monitoring/incident handling and measured margins",
+      "ids": [
+        "APP03",
+        "APP04",
+        "OPS01",
+        "OPS02"
+      ]
+    },
+    {
+      "group": "recovery_and_evidence",
+      "present": "reference inventories, license evidence, preservation records",
+      "future": "single authoritative live capability report with dated validation",
+      "ids": []
+    }
+  ]
+}

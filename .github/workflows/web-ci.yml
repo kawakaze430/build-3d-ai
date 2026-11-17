@@ -5,14 +5,16 @@ on:
     branches: [main, "implementation/**", "integration/**"]
     paths:
       - "apps/web/**"
-      - "docs/adr/**"
+      - "docs/architecture/adr/**"
       - ".github/workflows/web-ci.yml"
   pull_request:
     paths:
       - "apps/web/**"
-      - "docs/adr/**"
+      - "docs/architecture/adr/**"
       - ".github/workflows/web-ci.yml"
 
+permissions:
+  contents: read
 jobs:
   unit-build:
     runs-on: ubuntu-latest

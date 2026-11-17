@@ -1,0 +1,69 @@
+{
+  "records": [
+    {
+      "path": "AnalyseFuture/FILE_INDEX.json",
+      "purpose": "Original-to-current preservation record for242referencepaths, unchangedbytehashes and originalnote copies",
+      "feature_ownership": "review/provenance",
+      "review_method": "Full JSONparse; all242referencedpaths/hashes checked; recordsremainhistorical",
+      "sha256": "c8cdc4edf4cf2a36df9d91750b98b3a27410c52de077b88c519228e2cbb49e2c",
+      "size_bytes": 111087,
+      "status": "preserved or live documentation; not executable evidence"
+    },
+    {
+      "path": "AnalyseFuture/README.md",
+      "purpose": "Review-area execution/licensing boundaries and links; not a sandbox guarantee",
+      "feature_ownership": "review/navigation",
+      "review_method": "Fulltextread; build/test exclusions crosschecked",
+      "sha256": "54b36766621d439efaa202c09814cf1082363bc46d2e04c110c25ced2b3061ba",
+      "size_bytes": 3111,
+      "status": "preserved or live documentation; not executable evidence"
+    },
+    {
+      "path": "AnalyseFuture/history/assets/reference/README.md",
+      "purpose": "Byte-exact original assetprovenance notes frombeforeearliermove",
+      "feature_ownership": "historical/provenance",
+      "review_method": "Fulltextread; byteidentitytobaselineprovenancechecked; oldlinksintentional",
+      "sha256": "ee66e3c5ac73abcd95bb0ac455fc21f94029dd4bd3388cb822b246fed4c2c50e",
+      "size_bytes": 1333,
+      "status": "preserved or live documentation; not executable evidence"
+    },
+    {
+      "path": "AnalyseFuture/history/third_party/README.md",
+      "purpose": "Byte-exact original upstreamsource provenance/license notes",
+      "feature_ownership": "historical/provenance",
+      "review_method": "Fulltextread; byteidentitychecked; oldlinksintentional",
+      "sha256": "54dcd1ae748dbe3dc494c59943726597c29079f2db1f99a519540b666fa89c31",
+      "size_bytes": 2861,
+      "status": "preserved or live documentation; not executable evidence"
+    },
+    {
+      "path": "docs/ARCHIVE_IMPORTS.json",
+      "purpose": "ThreeZIP imports,240publishedcontentfiles+ignoredmetadata, hashes andrelocations",
+      "feature_ownership": "review/provenance",
+      "review_method": "FullJSONparse; everytrackedfilehashchecked; 3archives verified inprior task",
+      "sha256": "93105e891e1d700439f4e557143964dbe9f6fe91d5ce82f56070d7560c1f28cf",
+      "size_bytes": 118793,
+      "status": "preserved or live documentation; not executable evidence"
+    },
+    {
+      "path": "docs/CPU_DEPENDENCY_INVENTORY.json",
+      "purpose": "CPUdistributionversions,declaredlicenses and installednoticehashinventory",
+      "feature_ownership": "dependency evidence",
+      "review_method": "FullJSONparse; package metadataevidence only, not verifiedwheelartifactprovenance",
+      "sha256": "742e0ab9c12b3ae94050bfc051ca12c934875adc336f9af4105164aa642c4862",
+      "size_bytes": 20852,
+      "status": "preserved or live documentation; not executable evidence"
+    },
+    {
+      "path": "docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt",
+      "purpose": "112-entrycatalogof upstreamresearch projects,roles,preliminaryrightsmetadata",
+      "feature_ownership": "research/catalog",
+      "review_method": "Fulltextread; allentriesparsedasmetadata; external112repos not recursivelyaudited",
+      "sha256": "12a15d06c5c71c3438dec2b676cf9d17d3a8d122c04a2cb6adebe9be8112776b",
+      "size_bytes": 31245,
+      "status": "preserved or live documentation; not executable evidence"
+    }
+  ],
+  "inspected_count": 7,
+  "uninspected_paths": []
+}

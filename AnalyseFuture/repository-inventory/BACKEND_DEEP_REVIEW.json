@@ -1,0 +1,2127 @@
+{
+  "reviewer": "backend_audit",
+  "baseline_commit": "56f412f0722394300a522b7392b191702d3f2c48",
+  "scope_count": 50,
+  "files": [
+    {
+      "path": "apps/api/Dockerfile",
+      "purpose": "Nonroot productAPI CPU image installing gateway+API with commonrequirements.lock constraints",
+      "feature_ids": [
+        "BE19"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [],
+      "defined_symbols": [],
+      "test_functions": [],
+      "role": "container_definition"
+    },
+    {
+      "path": "apps/api/pyproject.toml",
+      "purpose": "Package dependencies, entrypoints, source discovery and migration/policy data inclusion",
+      "feature_ids": [
+        "BE19"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [],
+      "defined_symbols": [],
+      "test_functions": [],
+      "role": "package_manifest"
+    },
+    {
+      "path": "apps/api/src/build3d_api/__init__.py",
+      "purpose": "Package namespace/version marker",
+      "feature_ids": [
+        "BE19"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [],
+      "defined_symbols": [],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Durable product API. No model weights or fake generation are bundled."
+    },
+    {
+      "path": "apps/api/src/build3d_api/body_limit.py",
+      "purpose": "ASGI preparse/chunked request byte budget",
+      "feature_ids": [
+        "BE04"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        ".images",
+        "starlette.exceptions",
+        "starlette.responses"
+      ],
+      "defined_symbols": [
+        "BodyLimitMiddleware",
+        "__init__",
+        "__call__",
+        "bounded_receive"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Bound request bodies before multipart spooling, including chunked uploads."
+    },
+    {
+      "path": "apps/api/src/build3d_api/cli.py",
+      "purpose": "Operator-only migration/user/key/identity/quota/storage/reconciliation commands",
+      "feature_ids": [
+        "BE01",
+        "BE12",
+        "BE13",
+        "BE14"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        ".config",
+        ".db",
+        ".maintenance",
+        ".migration",
+        ".storage",
+        ".store",
+        "__future__",
+        "argparse",
+        "json",
+        "pathlib",
+        "sqlalchemy.exc",
+        "sys"
+      ],
+      "defined_symbols": [
+        "main"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Operator commands. Never expose these over the tenant HTTP API."
+    },
+    {
+      "path": "apps/api/src/build3d_api/config.py",
+      "purpose": "Validated runtime settings and environment-variable parsing",
+      "feature_ids": [
+        "BE11",
+        "BE15"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "__future__",
+        "dataclasses",
+        "os",
+        "pathlib",
+        "urllib.parse"
+      ],
+      "defined_symbols": [
+        "_env_bool",
+        "Settings",
+        "__post_init__",
+        "from_env"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": null
+    },
+    {
+      "path": "apps/api/src/build3d_api/db.py",
+      "purpose": "SQLAlchemy schema and explicit Alembic database setup",
+      "feature_ids": [
+        "BE01",
+        "BE02",
+        "BE06"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "__future__",
+        "alembic",
+        "alembic.config",
+        "pathlib",
+        "sqlalchemy",
+        "sqlalchemy.engine"
+      ],
+      "defined_symbols": [
+        "create_database",
+        "migrate",
+        "check_schema",
+        "configure_sqlite"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "SQLAlchemy Core schema and explicit Alembic migrations (PostgreSQL/SQLite)."
+    },
+    {
+      "path": "apps/api/src/build3d_api/images.py",
+      "purpose": "Pillow bounded image normalization and private metadata removal",
+      "feature_ids": [
+        "BE04"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "PIL",
+        "__future__",
+        "io",
+        "warnings"
+      ],
+      "defined_symbols": [
+        "normalize_image"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Decode bounded uploads and remove metadata before storing model input."
+    },
+    {
+      "path": "apps/api/src/build3d_api/main.py",
+      "purpose": "FastAPI composition and protected route handlers",
+      "feature_ids": [
+        "BE01",
+        "BE02",
+        "BE03",
+        "BE07",
+        "BE09",
+        "BE15"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        ".body_limit",
+        ".config",
+        ".db",
+        ".images",
+        ".storage",
+        ".store",
+        ".trusted_identity",
+        "__future__",
+        "build3d_gateway.glb_validation",
+        "build3d_gateway.model_policy",
+        "contextlib",
+        "fastapi",
+        "fastapi.responses",
+        "fastapi.security",
+        "hashlib",
+        "pydantic",
+        "sqlalchemy.exc",
+        "starlette.background"
+      ],
+      "defined_symbols": [
+        "ProjectRequest",
+        "TextRequest",
+        "approval_for",
+        "create_app",
+        "nonblank_name",
+        "nonblank_prompt",
+        "lifespan",
+        "identity",
+        "private_responses",
+        "store_error",
+        "database_error",
+        "health",
+        "me",
+        "models",
+        "storage_usage",
+        "create_project",
+        "list_projects",
+        "get_project",
+        "submit_text",
+        "submit_image",
+        "list_jobs",
+        "get_job",
+        "cancel_job",
+        "get_artifact",
+        "download"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Private tenant API: persistent work is queued; HTTP handlers never run a GPU."
+    },
+    {
+      "path": "apps/api/src/build3d_api/maintenance.py",
+      "purpose": "Bounded non-destructive DB/storage consistency classification",
+      "feature_ids": [
+        "BE12"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        ".storage",
+        ".store",
+        "__future__",
+        "dataclasses"
+      ],
+      "defined_symbols": [
+        "ArtifactInventoryLimit",
+        "scan_artifact_storage"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Bounded, non-destructive artifact storage maintenance helpers."
+    },
+    {
+      "path": "apps/api/src/build3d_api/migration.py",
+      "purpose": "Dry-run/verified copy-only filesystem-to-S3 migration",
+      "feature_ids": [
+        "BE13"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        ".maintenance",
+        ".storage",
+        ".store",
+        "__future__",
+        "build3d_gateway.glb_validation",
+        "dataclasses"
+      ],
+      "defined_symbols": [
+        "ArtifactMigrationError",
+        "MigrationItem",
+        "_verify_materialized",
+        "migrate_filesystem_to_s3"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Non-destructive migration of DB-referenced artifacts from filesystem to S3-compatible storage."
+    },
+    {
+      "path": "apps/api/src/build3d_api/migrations/env.py",
+      "purpose": "Alembic migration context using supplied connection/currentmetadata",
+      "feature_ids": [
+        "BE06"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "alembic",
+        "build3d_api.db"
+      ],
+      "defined_symbols": [],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": null
+    },
+    {
+      "path": "apps/api/src/build3d_api/migrations/versions/0001_projects_jobs.py",
+      "purpose": "Frozen initial users/APIkeys/projects/jobs/artifacts schema migration",
+      "feature_ids": [
+        "BE06"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "alembic",
+        "sqlalchemy"
+      ],
+      "defined_symbols": [
+        "upgrade",
+        "downgrade"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Initial private product schema. Frozen; do not import current model metadata."
+    },
+    {
+      "path": "apps/api/src/build3d_api/migrations/versions/0002_external_identities.py",
+      "purpose": "Frozen issuer/subject-to-owner uniqueness mapping migration",
+      "feature_ids": [
+        "BE06",
+        "BE14"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "alembic",
+        "sqlalchemy"
+      ],
+      "defined_symbols": [
+        "upgrade",
+        "downgrade"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Add immutable external identity mappings for future browser identity.\n\nThis table links one issuer-local external subject to exactly one product user.\nIt intentionally stores no email address, password, reset token, or session."
+    },
+    {
+      "path": "apps/api/src/build3d_api/migrations/versions/0003_storage_quota.py",
+      "purpose": "Frozen persistent artifact-byte quota migration",
+      "feature_ids": [
+        "BE06",
+        "BE11"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "alembic",
+        "sqlalchemy"
+      ],
+      "defined_symbols": [
+        "upgrade",
+        "downgrade"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Persist per-user artifact byte limits.\n\nRevision ID: 0003\nRevises: 0002"
+    },
+    {
+      "path": "apps/api/src/build3d_api/migrations/versions/0004_external_identity_rate_limit.py",
+      "purpose": "Frozen external-identity credential rate-window migration",
+      "feature_ids": [
+        "BE06",
+        "BE15"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "alembic",
+        "sqlalchemy"
+      ],
+      "defined_symbols": [
+        "upgrade",
+        "downgrade"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Add durable rate-limit windows to external identity credentials.\n\nRevision ID: 0004\nRevises: 0003"
+    },
+    {
+      "path": "apps/api/src/build3d_api/storage.py",
+      "purpose": "Storage protocol, filesystem implementation, optionalS3 implementation and inventory metadata",
+      "feature_ids": [
+        "BE10",
+        "BE12"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        ".config",
+        "__future__",
+        "boto3",
+        "build3d_gateway.glb_validation",
+        "dataclasses",
+        "os",
+        "pathlib",
+        "re",
+        "shutil",
+        "tempfile",
+        "typing",
+        "urllib.parse"
+      ],
+      "defined_symbols": [
+        "ArtifactStorageError",
+        "MaterializedArtifact",
+        "StoredArtifactObject",
+        "StorageInventory",
+        "ArtifactStorage",
+        "_safe_id",
+        "artifact_object_key",
+        "_inventory_limit",
+        "_parse_current_key",
+        "FileSystemArtifactStorage",
+        "S3ArtifactStorage",
+        "_boto_client",
+        "create_artifact_storage",
+        "prepare",
+        "publish",
+        "materialize",
+        "delete",
+        "inventory",
+        "__init__",
+        "prepare",
+        "_path",
+        "_legacy_path",
+        "publish",
+        "materialize",
+        "delete",
+        "inventory",
+        "__init__",
+        "prepare",
+        "_key",
+        "publish",
+        "materialize",
+        "delete",
+        "inventory"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Private artifact storage backends.\n\nGenerated assets are untrusted until the gateway has structurally validated them,\nand downloads are revalidated against the database checksum before being served.\nStorage implementations never create public URLs."
+    },
+    {
+      "path": "apps/api/src/build3d_api/store.py",
+      "purpose": "Atomic tenant ownership/admission/authentication/lease/quota persistence",
+      "feature_ids": [
+        "BE01",
+        "BE02",
+        "BE03",
+        "BE05",
+        "BE11",
+        "BE14"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        ".config",
+        ".db",
+        "__future__",
+        "hashlib",
+        "json",
+        "re",
+        "secrets",
+        "sqlalchemy",
+        "sqlalchemy.exc",
+        "time",
+        "urllib.parse",
+        "uuid"
+      ],
+      "defined_symbols": [
+        "StoreError",
+        "new_id",
+        "public_job",
+        "fingerprint",
+        "normalize_external_issuer",
+        "normalize_external_subject",
+        "Store",
+        "__init__",
+        "__init__",
+        "create_user",
+        "issue_key",
+        "set_storage_quota",
+        "storage_usage",
+        "artifact_records",
+        "revoke_key",
+        "link_external_identity",
+        "unlink_external_identity",
+        "list_external_identities",
+        "resolve_external_identity",
+        "authenticate_external_identity",
+        "authenticate",
+        "create_project",
+        "list_projects",
+        "project",
+        "_existing",
+        "submit",
+        "job",
+        "list_jobs",
+        "cancel",
+        "claim",
+        "transition",
+        "artifact",
+        "reconcile"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Atomic job admission, ownership, leases, and persistence.\n\nNon-idempotent upstream POSTs are never retried automatically. A lost response\ncannot prove that no GPU work was accepted. Those jobs retain their quota slot\nuntil an operator reconciles them with the actual upstream service."
+    },
+    {
+      "path": "apps/api/src/build3d_api/trusted_identity.py",
+      "purpose": "Static-provider bounded JWT/JWKS trust verifier",
+      "feature_ids": [
+        "BE15"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        ".store",
+        "__future__",
+        "dataclasses",
+        "httpx",
+        "json",
+        "jwt",
+        "jwt.exceptions",
+        "pathlib",
+        "threading",
+        "time",
+        "typing",
+        "urllib.parse"
+      ],
+      "defined_symbols": [
+        "TrustedIdentityError",
+        "Provider",
+        "_CacheEntry",
+        "_clean_https_url",
+        "_bounded_int",
+        "_parse_provider",
+        "load_providers",
+        "fetch_jwks",
+        "ExternalJWTAuthenticator",
+        "__init__",
+        "from_file",
+        "_fetch",
+        "_match_key",
+        "_key_for",
+        "authenticate"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Fail-closed external JWT/JWKS validation for mapped product identities.\n\nThis module trusts only operators' static provider configuration. It performs no\nOIDC discovery, follows no redirects, accepts no symmetric JWT algorithms and\nnever uses email/name claims for ownership."
+    },
+    {
+      "path": "apps/api/src/build3d_api/worker.py",
+      "purpose": "Finite explicit-spend job dispatcher, safe polling and artifact completion",
+      "feature_ids": [
+        "BE05",
+        "BE07"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        ".config",
+        ".db",
+        ".storage",
+        ".store",
+        "__future__",
+        "argparse",
+        "asyncio",
+        "build3d_gateway.download",
+        "build3d_gateway.model_policy",
+        "build3d_gateway.upstream",
+        "fastapi",
+        "os",
+        "pathlib",
+        "sys",
+        "time"
+      ],
+      "defined_symbols": [
+        "Worker",
+        "main",
+        "__init__",
+        "transition",
+        "step",
+        "submit",
+        "poll",
+        "save_artifact",
+        "run"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Lease-based polling worker; GPU submissions require explicit operator consent."
+    },
+    {
+      "path": "apps/api/tests/conftest.py",
+      "purpose": "Temporary SQLite/random PostgreSQL schema with real migrations; syntheticpolicy/users/image/GLBfixtures",
+      "feature_ids": [
+        "BE03",
+        "BE09"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "PIL",
+        "build3d_api.config",
+        "build3d_api.db",
+        "build3d_api.main",
+        "build3d_api.store",
+        "fastapi.testclient",
+        "io",
+        "json",
+        "os",
+        "pytest",
+        "sqlalchemy",
+        "sqlalchemy.engine",
+        "struct",
+        "types",
+        "uuid"
+      ],
+      "defined_symbols": [
+        "env",
+        "project",
+        "queued",
+        "png",
+        "triangle"
+      ],
+      "test_functions": [],
+      "role": "test_fixture",
+      "module_docstring": "Real database tests; upstream HTTP and mesh are explicitly synthetic fixtures."
+    },
+    {
+      "path": "apps/api/tests/test_durable_worker.py",
+      "purpose": "Existing regression/contract coverage: durable worker",
+      "feature_ids": [
+        "BE03",
+        "BE05",
+        "BE09",
+        "BE11"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "asyncio",
+        "build3d_api.db",
+        "build3d_api.store",
+        "build3d_api.worker",
+        "build3d_gateway.upstream",
+        "concurrent.futures",
+        "dataclasses",
+        "hashlib",
+        "httpx",
+        "json",
+        "pytest",
+        "sqlalchemy",
+        "time"
+      ],
+      "defined_symbols": [
+        "make_worker",
+        "advance",
+        "row",
+        "slots",
+        "test_text_flow_restart_validated_download_and_tenant_privacy",
+        "test_image_flow_uses_persisted_validated_input",
+        "test_no_spend_acknowledgement_does_not_claim_or_contact_upstream",
+        "test_uncertain_submission_is_never_retried_and_keeps_quota",
+        "test_crash_after_claim_does_not_blindly_resubmit",
+        "test_two_workers_cannot_claim_same_submission",
+        "test_queued_cancel_and_worker_claim_race_cannot_dispatch_canceled_job",
+        "test_revoked_or_changed_policy_blocks_pending_gpu_job",
+        "test_known_upstream_failure_releases_quota_and_does_not_download",
+        "test_read_failures_backoff_then_pause_without_resubmission",
+        "test_invalid_glb_never_becomes_completed_or_downloadable",
+        "test_tampered_or_missing_stored_glb_is_rejected",
+        "test_disk_failure_never_publishes_complete_job",
+        "test_lost_poll_lease_is_reclaimable_and_stale_worker_cannot_finish",
+        "test_lost_commit_acknowledgement_does_not_delete_persisted_artifact",
+        "test_timeout_keeps_quota_and_does_not_claim_gpu_was_canceled",
+        "test_reconcile_attaches_existing_job_and_never_repeats_inference",
+        "test_reconcile_releases_uncertain_slot_only_with_operator_acknowledgement",
+        "test_storage_quota_rejects_published_artifact_and_releases_active_slot",
+        "test_concurrent_artifact_completion_cannot_overrun_persistent_byte_quota",
+        "handler",
+        "cancel",
+        "fail",
+        "commit_then_disconnect",
+        "finish"
+      ],
+      "test_functions": [
+        "test_text_flow_restart_validated_download_and_tenant_privacy",
+        "test_image_flow_uses_persisted_validated_input",
+        "test_no_spend_acknowledgement_does_not_claim_or_contact_upstream",
+        "test_uncertain_submission_is_never_retried_and_keeps_quota",
+        "test_crash_after_claim_does_not_blindly_resubmit",
+        "test_two_workers_cannot_claim_same_submission",
+        "test_queued_cancel_and_worker_claim_race_cannot_dispatch_canceled_job",
+        "test_revoked_or_changed_policy_blocks_pending_gpu_job",
+        "test_known_upstream_failure_releases_quota_and_does_not_download",
+        "test_read_failures_backoff_then_pause_without_resubmission",
+        "test_invalid_glb_never_becomes_completed_or_downloadable",
+        "test_tampered_or_missing_stored_glb_is_rejected",
+        "test_disk_failure_never_publishes_complete_job",
+        "test_lost_poll_lease_is_reclaimable_and_stale_worker_cannot_finish",
+        "test_lost_commit_acknowledgement_does_not_delete_persisted_artifact",
+        "test_timeout_keeps_quota_and_does_not_claim_gpu_was_canceled",
+        "test_reconcile_attaches_existing_job_and_never_repeats_inference",
+        "test_reconcile_releases_uncertain_slot_only_with_operator_acknowledgement",
+        "test_storage_quota_rejects_published_artifact_and_releases_active_slot",
+        "test_concurrent_artifact_completion_cannot_overrun_persistent_byte_quota"
+      ],
+      "role": "test",
+      "module_docstring": "Failure/restart tests use real DB transactions and synthetic HTTP responses."
+    },
+    {
+      "path": "apps/api/tests/test_product_api.py",
+      "purpose": "Existing regression/contract coverage: product api",
+      "feature_ids": [
+        "BE01",
+        "BE02",
+        "BE03",
+        "BE04",
+        "BE06",
+        "BE11",
+        "BE14"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "PIL",
+        "alembic.autogenerate",
+        "alembic.migration",
+        "build3d_api.db",
+        "build3d_api.images",
+        "build3d_api.main",
+        "build3d_api.store",
+        "concurrent.futures",
+        "dataclasses",
+        "fastapi.testclient",
+        "hashlib",
+        "io",
+        "json",
+        "pytest",
+        "sqlalchemy"
+      ],
+      "defined_symbols": [
+        "submit",
+        "test_health_does_not_claim_inference",
+        "test_authentication_is_per_user_and_no_plaintext_keys_stored",
+        "test_disabled_user_is_rejected",
+        "test_external_identity_mapping_is_immutable_and_not_email_based",
+        "test_external_identity_rejects_ambiguous_or_insecure_issuers",
+        "test_external_identity_allows_local_http_for_development",
+        "test_cross_user_jobs_are_invisible",
+        "test_cross_user_projects_cannot_be_listed_read_or_used",
+        "test_idempotency_replays_same_job_and_rejects_changed_request",
+        "test_concurrent_identical_submissions_create_one_job_and_one_slot",
+        "test_concurrent_different_requests_enforce_admission_quota",
+        "test_quota_and_cancel_release_exactly_one_slot",
+        "test_missing_policy_cannot_enqueue",
+        "test_history_survives_new_engine_and_application",
+        "test_rate_limit_is_atomic_and_resets_across_store_instances",
+        "test_upload_is_decoded_persisted_and_keeps_original_hash",
+        "test_fake_image_signature_is_not_enough",
+        "test_image_metadata_removed",
+        "test_malformed_exif_returns_validation_error_instead_of_crashing",
+        "test_pixel_budget_enforced_before_full_decode",
+        "test_request_size_limit_applies_before_parsing_and_to_chunked_body",
+        "test_invalid_prompts_rejected",
+        "test_migrations_roundtrip_and_repeat_upgrade",
+        "test_database_enforces_project_ownership_even_without_http",
+        "test_cache_headers_and_pagination_bounds",
+        "test_storage_usage_is_owner_scoped_and_quota_is_persistent",
+        "call",
+        "call"
+      ],
+      "test_functions": [
+        "test_health_does_not_claim_inference",
+        "test_authentication_is_per_user_and_no_plaintext_keys_stored",
+        "test_disabled_user_is_rejected",
+        "test_external_identity_mapping_is_immutable_and_not_email_based",
+        "test_external_identity_rejects_ambiguous_or_insecure_issuers",
+        "test_external_identity_allows_local_http_for_development",
+        "test_cross_user_jobs_are_invisible",
+        "test_cross_user_projects_cannot_be_listed_read_or_used",
+        "test_idempotency_replays_same_job_and_rejects_changed_request",
+        "test_concurrent_identical_submissions_create_one_job_and_one_slot",
+        "test_concurrent_different_requests_enforce_admission_quota",
+        "test_quota_and_cancel_release_exactly_one_slot",
+        "test_missing_policy_cannot_enqueue",
+        "test_history_survives_new_engine_and_application",
+        "test_rate_limit_is_atomic_and_resets_across_store_instances",
+        "test_upload_is_decoded_persisted_and_keeps_original_hash",
+        "test_fake_image_signature_is_not_enough",
+        "test_image_metadata_removed",
+        "test_malformed_exif_returns_validation_error_instead_of_crashing",
+        "test_pixel_budget_enforced_before_full_decode",
+        "test_request_size_limit_applies_before_parsing_and_to_chunked_body",
+        "test_invalid_prompts_rejected",
+        "test_migrations_roundtrip_and_repeat_upgrade",
+        "test_database_enforces_project_ownership_even_without_http",
+        "test_cache_headers_and_pagination_bounds",
+        "test_storage_usage_is_owner_scoped_and_quota_is_persistent"
+      ],
+      "role": "test",
+      "module_docstring": null
+    },
+    {
+      "path": "apps/api/tests/test_storage.py",
+      "purpose": "Existing regression/contract coverage: storage",
+      "feature_ids": [
+        "BE10",
+        "BE12",
+        "BE13"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "asyncio",
+        "build3d_api.config",
+        "build3d_api.db",
+        "build3d_api.main",
+        "build3d_api.maintenance",
+        "build3d_api.migration",
+        "build3d_api.storage",
+        "build3d_api.store",
+        "build3d_api.worker",
+        "build3d_gateway.upstream",
+        "dataclasses",
+        "fastapi.testclient",
+        "hashlib",
+        "httpx",
+        "io",
+        "pytest",
+        "time"
+      ],
+      "defined_symbols": [
+        "FakeS3",
+        "StaticArtifactRows",
+        "test_filesystem_storage_uses_owner_scoped_key_and_legacy_read_fallback",
+        "test_s3_storage_round_trip_is_private_bounded_and_metadata_verified",
+        "test_settings_gate_s3_and_factory_uses_injected_client",
+        "test_s3_worker_to_api_download_keeps_glb_validation_and_tenant_boundary",
+        "test_filesystem_inventory_and_scanner_are_bounded_and_non_destructive",
+        "test_s3_inventory_paginates_and_respects_hard_scan_limit",
+        "test_filesystem_to_s3_migration_is_dry_run_by_default_and_copy_only",
+        "test_filesystem_to_s3_migration_fails_closed_on_corrupt_source_or_target",
+        "__init__",
+        "put_object",
+        "head_object",
+        "get_object",
+        "delete_object",
+        "list_objects_v2",
+        "__init__",
+        "artifact_records",
+        "handler"
+      ],
+      "test_functions": [
+        "test_filesystem_storage_uses_owner_scoped_key_and_legacy_read_fallback",
+        "test_s3_storage_round_trip_is_private_bounded_and_metadata_verified",
+        "test_settings_gate_s3_and_factory_uses_injected_client",
+        "test_s3_worker_to_api_download_keeps_glb_validation_and_tenant_boundary",
+        "test_filesystem_inventory_and_scanner_are_bounded_and_non_destructive",
+        "test_s3_inventory_paginates_and_respects_hard_scan_limit",
+        "test_filesystem_to_s3_migration_is_dry_run_by_default_and_copy_only",
+        "test_filesystem_to_s3_migration_fails_closed_on_corrupt_source_or_target"
+      ],
+      "role": "test",
+      "module_docstring": null
+    },
+    {
+      "path": "apps/api/tests/test_trusted_identity.py",
+      "purpose": "Existing regression/contract coverage: trusted identity",
+      "feature_ids": [
+        "BE14",
+        "BE15"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "build3d_api.main",
+        "build3d_api.store",
+        "build3d_api.trusted_identity",
+        "cryptography.hazmat.primitives.asymmetric",
+        "dataclasses",
+        "fastapi.testclient",
+        "json",
+        "jwt",
+        "jwt.algorithms",
+        "pytest",
+        "sqlalchemy",
+        "time"
+      ],
+      "defined_symbols": [
+        "StaticFetcher",
+        "signing_material",
+        "provider_file",
+        "token",
+        "jwt_app",
+        "test_valid_external_jwt_maps_only_issuer_subject_and_keeps_api_keys",
+        "test_untrusted_issuer_and_disallowed_algorithm_never_fetch_jwks",
+        "test_invalid_or_unmapped_assertions_fail_closed",
+        "test_unknown_kid_does_not_force_unbounded_jwks_refresh",
+        "test_external_identity_rate_limit_is_database_backed",
+        "test_disabled_product_user_cannot_use_valid_external_assertion",
+        "test_feature_flag_disabled_rejects_external_jwt_without_fetch",
+        "test_external_identity_store_rate_limit_is_atomic",
+        "test_provider_configuration_rejects_unsafe_values",
+        "__init__",
+        "__call__"
+      ],
+      "test_functions": [
+        "test_valid_external_jwt_maps_only_issuer_subject_and_keeps_api_keys",
+        "test_untrusted_issuer_and_disallowed_algorithm_never_fetch_jwks",
+        "test_invalid_or_unmapped_assertions_fail_closed",
+        "test_unknown_kid_does_not_force_unbounded_jwks_refresh",
+        "test_external_identity_rate_limit_is_database_backed",
+        "test_disabled_product_user_cannot_use_valid_external_assertion",
+        "test_feature_flag_disabled_rejects_external_jwt_without_fetch",
+        "test_external_identity_store_rate_limit_is_atomic",
+        "test_provider_configuration_rejects_unsafe_values"
+      ],
+      "role": "test",
+      "module_docstring": null
+    },
+    {
+      "path": "apps/gateway/Dockerfile",
+      "purpose": "Nonroot ownergateway CPU image; updated to commonrequirements.lock with rootbuildcontext",
+      "feature_ids": [
+        "BE19"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [],
+      "defined_symbols": [],
+      "test_functions": [],
+      "role": "container_definition"
+    },
+    {
+      "path": "apps/gateway/pyproject.toml",
+      "purpose": "Package dependencies, entrypoints, source discovery and migration/policy data inclusion",
+      "feature_ids": [
+        "BE19"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [],
+      "defined_symbols": [],
+      "test_functions": [],
+      "role": "package_manifest"
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/__init__.py",
+      "purpose": "Package namespace/version marker",
+      "feature_ids": [
+        "BE19"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [],
+      "defined_symbols": [],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Build3D authenticated upstream gateway. No bundled model weights."
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/download.py",
+      "purpose": "Bounded temporary download followed by shared GLB verification",
+      "feature_ids": [
+        "BE09"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        ".glb_validation",
+        ".upstream",
+        "__future__",
+        "httpx",
+        "os",
+        "tempfile"
+      ],
+      "defined_symbols": [
+        "ArtifactTooLarge",
+        "fetch_verified_glb"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Bounded download of genuine GLB output from a private GPU backend."
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/glb_validation.py",
+      "purpose": "Shared bounded structural GLB parser and SHA256inspection",
+      "feature_ids": [
+        "BE09"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "__future__",
+        "dataclasses",
+        "hashlib",
+        "json",
+        "struct",
+        "typing"
+      ],
+      "defined_symbols": [
+        "GLBValidationError",
+        "GLBInspection",
+        "_array",
+        "inspect_glb"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Structural validation of self-contained GLB 2.0 outputs.\n\nThis is an integrity/portability preflight, NOT a geometry topology analysis or\na renderer security guarantee. Blender/3D-engine import validation is still\nrequired for production acceptance."
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/main.py",
+      "purpose": "Owner-only authenticated operator gateway HTTP routes; not public tenantAPI",
+      "feature_ids": [
+        "BE08"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        ".download",
+        ".model_policy",
+        ".upstream",
+        "__future__",
+        "fastapi",
+        "fastapi.responses",
+        "hmac",
+        "os",
+        "pydantic",
+        "re",
+        "starlette.background"
+      ],
+      "defined_symbols": [
+        "TextGenerationRequest",
+        "require_control_key",
+        "get_gateway",
+        "clean_job_id",
+        "clean_model_id",
+        "validate_image",
+        "upstream_error_handler",
+        "health",
+        "upstream_status",
+        "list_models",
+        "approved_models",
+        "text_to_3d",
+        "image_to_3d",
+        "job_status",
+        "download"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Owner-controlled admin gateway for a *real* 3DAIGC-API GPU installation.\n\nSECURITY SCOPE: one trusted operator only. This is NOT a multi-tenant SaaS\nauthentication system. Put behind a private network; never expose upstream\nanonymous mode to the internet. See docs/PHASE0_GATEWAY.md."
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/model-approvals.json",
+      "purpose": "Packaged deny-by-default production model approvals",
+      "feature_ids": [
+        "BE07"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [],
+      "defined_symbols": [],
+      "test_functions": [],
+      "role": "configuration_or_dependency_declaration"
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/model_policy.py",
+      "purpose": "Fail-closed explicit source/checkpoint review configuration",
+      "feature_ids": [
+        "BE07"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "__future__",
+        "datetime",
+        "fastapi",
+        "json",
+        "os",
+        "pathlib",
+        "re"
+      ],
+      "defined_symbols": [
+        "approved_model_records",
+        "approved_model_ids",
+        "require_model_approval"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Fail-closed model approvals for owner-controlled 3D inference.\n\nThis file enforces operator-reviewed configuration. It does not perform legal\nreview of source code, trained weights, training data or GPU dependencies."
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/smoke.py",
+      "purpose": "Explicit-consent upstream GPU protocol smoke CLI",
+      "feature_ids": [
+        "BE17"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        ".glb_validation",
+        "__future__",
+        "argparse",
+        "datetime",
+        "httpx",
+        "json",
+        "os",
+        "pathlib",
+        "re",
+        "sys",
+        "time",
+        "typing",
+        "urllib.parse"
+      ],
+      "defined_symbols": [
+        "SmokeError",
+        "run_smoke",
+        "main"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Run a real, owner-approved GPU smoke test through the private gateway.\n\nThis command NEVER creates a GPU VM. It submits an actual generation job to an\nexisting backend and WILL consume that backend's resources if run with consent."
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/textured_glb.py",
+      "purpose": "Strict isolated OBJ+PNG texturedGLB packaging CLI",
+      "feature_ids": [
+        "BE16"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        ".glb_validation",
+        "__future__",
+        "argparse",
+        "dataclasses",
+        "io",
+        "json",
+        "math",
+        "os",
+        "pathlib",
+        "struct",
+        "tempfile",
+        "typing"
+      ],
+      "defined_symbols": [
+        "TexturedGLBError",
+        "SimpleOBJ",
+        "_finite",
+        "_parse_positive_index",
+        "parse_xatlas_obj_bytes",
+        "load_xatlas_obj",
+        "validate_png",
+        "_pack_float_vectors",
+        "_append_view",
+        "build_textured_glb",
+        "package_files",
+        "main",
+        "add_view"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Strict OBJ + PNG to self-contained textured GLB 2.0 packaging.\n\nThis utility exists for isolated model adapters such as the TripoSR candidate.\nIt intentionally accepts only the simple, single-mesh OBJ shape emitted by\nxatlas-python's export helper: one position/UV (and optional normal) index per\nvertex and triangular positive-index faces. It does not load MTL files or any\nexternal resource referenced by the OBJ."
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/upstream.py",
+      "purpose": "Shared asyncHTTP client for private3DAIGC model/status/upload/generation/download contracts",
+      "feature_ids": [
+        "BE08"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "__future__",
+        "httpx"
+      ],
+      "defined_symbols": [
+        "UpstreamError",
+        "UpstreamGateway",
+        "__init__",
+        "_client",
+        "request_json",
+        "list_models",
+        "status",
+        "text_to_3d",
+        "image_to_3d",
+        "job",
+        "open_download"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "API client for self-hosted FishWoWater/3DAIGC-API.\n\nAll model generation is performed by the real upstream GPU service.\nNo fake meshes, model fallbacks or hidden public AI APIs."
+    },
+    {
+      "path": "apps/gateway/tests/conftest.py",
+      "purpose": "Local syntheticHTTP/GLB/image fixtures and temporary DB test lifecycle",
+      "feature_ids": [
+        "BE03",
+        "BE09"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "json",
+        "pytest",
+        "struct"
+      ],
+      "defined_symbols": [
+        "build_triangle_glb",
+        "glb_bytes",
+        "glb_factory"
+      ],
+      "test_functions": [],
+      "role": "test_fixture",
+      "module_docstring": "Small, structurally valid in-memory glTF 2.0 triangle fixture.\n\nNo inference or pretrained weights are used by these unit tests."
+    },
+    {
+      "path": "apps/gateway/tests/test_gateway.py",
+      "purpose": "Existing regression/contract coverage: gateway",
+      "feature_ids": [
+        "BE07",
+        "BE08",
+        "BE09"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "build3d_gateway.main",
+        "build3d_gateway.upstream",
+        "fastapi.testclient",
+        "hashlib",
+        "httpx",
+        "json",
+        "pytest"
+      ],
+      "defined_symbols": [
+        "configured_gateway",
+        "mock_upstream",
+        "test_process_health_is_not_claimed_as_gpu_health",
+        "test_gateway_fails_closed_without_secret",
+        "test_gateway_requires_owner_key",
+        "test_text_submission_uses_real_upstream_contract",
+        "test_image_upload_then_generation_uses_file_id",
+        "test_invalid_image_is_rejected_before_upstream_call",
+        "test_model_job_and_download_proxy",
+        "test_upstream_failure_is_not_misrepresented_as_success",
+        "test_no_path_traversal_or_arbitrary_model_names",
+        "test_generation_denies_missing_and_unapproved_model",
+        "test_generation_disabled_when_approvals_empty",
+        "test_malformed_approval_denied",
+        "test_absent_policy_denied",
+        "test_owner_can_list_explicit_approved_models",
+        "test_unapproved_image_never_uploads_to_upstream",
+        "test_packaged_policy_starts_with_no_approved_models",
+        "test_invalid_glb_from_upstream_returns_502",
+        "test_oversized_glb_from_upstream_returns_413",
+        "test_bad_content_length_cannot_bypass_stream_size_limit",
+        "test_upstream_download_failure_returns_502",
+        "handler",
+        "handler",
+        "handler",
+        "handler",
+        "handler"
+      ],
+      "test_functions": [
+        "test_process_health_is_not_claimed_as_gpu_health",
+        "test_gateway_fails_closed_without_secret",
+        "test_gateway_requires_owner_key",
+        "test_text_submission_uses_real_upstream_contract",
+        "test_image_upload_then_generation_uses_file_id",
+        "test_invalid_image_is_rejected_before_upstream_call",
+        "test_model_job_and_download_proxy",
+        "test_upstream_failure_is_not_misrepresented_as_success",
+        "test_no_path_traversal_or_arbitrary_model_names",
+        "test_generation_denies_missing_and_unapproved_model",
+        "test_generation_disabled_when_approvals_empty",
+        "test_malformed_approval_denied",
+        "test_absent_policy_denied",
+        "test_owner_can_list_explicit_approved_models",
+        "test_unapproved_image_never_uploads_to_upstream",
+        "test_packaged_policy_starts_with_no_approved_models",
+        "test_invalid_glb_from_upstream_returns_502",
+        "test_oversized_glb_from_upstream_returns_413",
+        "test_bad_content_length_cannot_bypass_stream_size_limit",
+        "test_upstream_download_failure_returns_502"
+      ],
+      "role": "test",
+      "module_docstring": "Tests use HTTPX in-memory transport only; they do NOT claim GPU inference success."
+    },
+    {
+      "path": "apps/gateway/tests/test_glb_validation.py",
+      "purpose": "Existing regression/contract coverage: glb validation",
+      "feature_ids": [
+        "BE09"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "__future__",
+        "build3d_gateway.glb_validation",
+        "hashlib",
+        "io",
+        "pytest",
+        "struct"
+      ],
+      "defined_symbols": [
+        "check",
+        "test_valid_triangle_has_real_mesh_structure",
+        "test_truncated_or_invalid_header_is_rejected",
+        "test_declared_size_must_match_bytes",
+        "test_only_binary_version_two_is_accepted",
+        "test_json_chunk_cannot_overrun_file",
+        "test_no_mesh_is_not_a_valid_generated_asset",
+        "test_missing_bin_chunk_is_rejected",
+        "test_invalid_gltf_asset_version_is_rejected",
+        "test_rejects_external_image_resources",
+        "test_rejects_relative_image_file_references",
+        "test_byte_cap_is_enforced",
+        "test_duplicate_chunk_rejected"
+      ],
+      "test_functions": [
+        "test_valid_triangle_has_real_mesh_structure",
+        "test_truncated_or_invalid_header_is_rejected",
+        "test_declared_size_must_match_bytes",
+        "test_only_binary_version_two_is_accepted",
+        "test_json_chunk_cannot_overrun_file",
+        "test_no_mesh_is_not_a_valid_generated_asset",
+        "test_missing_bin_chunk_is_rejected",
+        "test_invalid_gltf_asset_version_is_rejected",
+        "test_rejects_external_image_resources",
+        "test_rejects_relative_image_file_references",
+        "test_byte_cap_is_enforced",
+        "test_duplicate_chunk_rejected"
+      ],
+      "role": "test",
+      "module_docstring": "Artifact integrity tests. These only use synthetic triangle GLBs, not AI inference."
+    },
+    {
+      "path": "apps/gateway/tests/test_gpu_smoke.py",
+      "purpose": "Existing regression/contract coverage: gpu smoke",
+      "feature_ids": [
+        "BE17"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "__future__",
+        "build3d_gateway.glb_validation",
+        "build3d_gateway.smoke",
+        "hashlib",
+        "httpx",
+        "pytest"
+      ],
+      "defined_symbols": [
+        "kwargs",
+        "test_real_job_flow_protocol_and_glb_integrity",
+        "test_gpu_spend_must_be_explicit",
+        "test_unapproved_models_cannot_create_jobs",
+        "test_completed_job_cannot_hide_invalid_glb",
+        "test_failed_job_is_reported_and_not_downloaded",
+        "test_nonlocal_cleartext_gateway_refused_before_secret_sent",
+        "test_disguised_or_credentialed_gateway_urls_are_rejected",
+        "handler",
+        "handler",
+        "handler",
+        "handler"
+      ],
+      "test_functions": [
+        "test_real_job_flow_protocol_and_glb_integrity",
+        "test_gpu_spend_must_be_explicit",
+        "test_unapproved_models_cannot_create_jobs",
+        "test_completed_job_cannot_hide_invalid_glb",
+        "test_failed_job_is_reported_and_not_downloaded",
+        "test_nonlocal_cleartext_gateway_refused_before_secret_sent",
+        "test_disguised_or_credentialed_gateway_urls_are_rejected"
+      ],
+      "role": "test",
+      "module_docstring": "Smoke-runner tests use a fake local HTTP transport, NOT a GPU."
+    },
+    {
+      "path": "apps/gateway/tests/test_textured_glb.py",
+      "purpose": "Existing regression/contract coverage: textured glb",
+      "feature_ids": [
+        "BE16"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "base64",
+        "build3d_gateway.glb_validation",
+        "build3d_gateway.textured_glb",
+        "io",
+        "json",
+        "pytest",
+        "struct"
+      ],
+      "defined_symbols": [
+        "glb_document",
+        "test_xatlas_obj_and_png_package_as_self_contained_textured_glb",
+        "test_packager_supports_mesh_without_normals",
+        "test_xatlas_obj_rejects_external_material_directives_and_index_aliases",
+        "test_xatlas_obj_rejects_non_candidate_face_shapes",
+        "test_package_files_writes_atomically_and_reports_product_integrity",
+        "test_flip_v_is_explicit_not_implicit"
+      ],
+      "test_functions": [
+        "test_xatlas_obj_and_png_package_as_self_contained_textured_glb",
+        "test_packager_supports_mesh_without_normals",
+        "test_xatlas_obj_rejects_external_material_directives_and_index_aliases",
+        "test_xatlas_obj_rejects_non_candidate_face_shapes",
+        "test_package_files_writes_atomically_and_reports_product_integrity",
+        "test_flip_v_is_explicit_not_implicit"
+      ],
+      "role": "test",
+      "module_docstring": null
+    },
+    {
+      "path": "services/generation/triposr_candidate/Dockerfile.candidate",
+      "purpose": "Offline-flag digest-pinned candidate container definition for prepared source context",
+      "feature_ids": [
+        "BE18"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [],
+      "defined_symbols": [],
+      "test_functions": [],
+      "role": "container_definition"
+    },
+    {
+      "path": "services/generation/triposr_candidate/README.md",
+      "purpose": "Qualification operation/evidence/remaining-gate documentation",
+      "feature_ids": [
+        "BE18"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [],
+      "defined_symbols": [],
+      "test_functions": [],
+      "role": "documentation"
+    },
+    {
+      "path": "services/generation/triposr_candidate/dino_config.json",
+      "purpose": "Pinned local DINO/ViT architecture configuration",
+      "feature_ids": [
+        "BE18"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [],
+      "defined_symbols": [],
+      "test_functions": [],
+      "role": "configuration_or_dependency_declaration"
+    },
+    {
+      "path": "services/generation/triposr_candidate/model_config.yaml",
+      "purpose": "Pinned local TripoSR architecture composition configuration",
+      "feature_ids": [
+        "BE18"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [],
+      "defined_symbols": [],
+      "test_functions": [],
+      "role": "configuration_or_dependency_declaration"
+    },
+    {
+      "path": "services/generation/triposr_candidate/prepare_runtime.py",
+      "purpose": "Exactsourceblob checked qualification patch generator",
+      "feature_ids": [
+        "BE18"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "__future__",
+        "argparse",
+        "hashlib",
+        "json",
+        "pathlib",
+        "shutil",
+        "subprocess",
+        "sys"
+      ],
+      "defined_symbols": [
+        "git_blob_id",
+        "checked_replace",
+        "source_head",
+        "assert_clean_source",
+        "verify_upstream",
+        "patch_isosurface",
+        "patch_utils",
+        "patch_run",
+        "patch_image_tokenizer",
+        "patch_system",
+        "write_runtime_assets",
+        "verify_prepared",
+        "prepare",
+        "main"
+      ],
+      "test_functions": [],
+      "role": "source",
+      "module_docstring": "Prepare the exact TripoSR qualification tree without model/GPU execution.\n\nThis script deliberately does not download weights, contact Hugging Face, build\ncontainers, or run inference. It accepts only the reviewed TripoSR source\nrevision, verifies the exact upstream blobs we patch, copies the source tree,\nthen applies a small deterministic qualification-only patchset."
+    },
+    {
+      "path": "services/generation/triposr_candidate/requirements-build3d.txt",
+      "purpose": "Qualification direct pins; incomplete transitive artifact lock",
+      "feature_ids": [
+        "BE18"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [],
+      "defined_symbols": [],
+      "test_functions": [],
+      "role": "configuration_or_dependency_declaration"
+    },
+    {
+      "path": "services/generation/triposr_candidate/runtime_manifest.json",
+      "purpose": "Pinned source/model/checkpoint/image provenance and unapproved status",
+      "feature_ids": [
+        "BE18"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [],
+      "defined_symbols": [],
+      "test_functions": [],
+      "role": "configuration_or_dependency_declaration"
+    },
+    {
+      "path": "services/generation/triposr_candidate/test_marching_cubes_contract.py",
+      "purpose": "Existing regression/contract coverage: marching cubes contract",
+      "feature_ids": [
+        "BE18"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "__future__",
+        "numpy",
+        "skimage"
+      ],
+      "defined_symbols": [
+        "adapted_marching_cubes",
+        "test_axis_order_and_normalization_are_stable",
+        "test_face_winding_is_explicitly_reversed_from_scikit_output"
+      ],
+      "test_functions": [
+        "test_axis_order_and_normalization_are_stable",
+        "test_face_winding_is_explicitly_reversed_from_scikit_output"
+      ],
+      "role": "test",
+      "module_docstring": "CPU-only contract checks for the scikit-image marching-cubes replacement."
+    },
+    {
+      "path": "services/generation/triposr_candidate/test_prepare_runtime.py",
+      "purpose": "Existing regression/contract coverage: prepare runtime",
+      "feature_ids": [
+        "BE18"
+      ],
+      "active": true,
+      "review_status": "deep_read_source_or_configuration_no_repository_code_execution",
+      "dependencies": [
+        "__future__",
+        "importlib.util",
+        "pathlib"
+      ],
+      "defined_symbols": [
+        "test_git_blob_id_matches_git_format",
+        "test_checked_replace_is_fail_closed",
+        "test_reviewed_blob_inventory_contains_all_patched_upstream_files"
+      ],
+      "test_functions": [
+        "test_git_blob_id_matches_git_format",
+        "test_checked_replace_is_fail_closed",
+        "test_reviewed_blob_inventory_contains_all_patched_upstream_files"
+      ],
+      "role": "test",
+      "module_docstring": null
+    }
+  ],
+  "features": [
+    {
+      "id": "BE01",
+      "name": "Operator-managed product users, revocable API keys and rate windows",
+      "purpose": "Private tenant authentication without plaintext key storage",
+      "files": [
+        "apps/api/src/build3d_api/store.py",
+        "apps/api/src/build3d_api/main.py",
+        "apps/api/src/build3d_api/cli.py",
+        "apps/api/src/build3d_api/db.py"
+      ],
+      "dependencies": [
+        "SQLAlchemy",
+        "hashlib",
+        "secrets"
+      ],
+      "tests": [
+        "apps/api/tests/test_product_api.py"
+      ],
+      "status": "implemented_with_existing_tests",
+      "missing": "Public signup, verification, recovery, deletion and session lifecycle; not publicly deployed",
+      "location": "apps/api/src/build3d_api/"
+    },
+    {
+      "id": "BE02",
+      "name": "Owner-scoped projects and paginated project/job history",
+      "purpose": "Private persistent asset-work organization",
+      "files": [
+        "apps/api/src/build3d_api/main.py",
+        "apps/api/src/build3d_api/store.py",
+        "apps/api/src/build3d_api/db.py"
+      ],
+      "dependencies": [
+        "BE01",
+        "SQLAlchemy"
+      ],
+      "tests": [
+        "apps/api/tests/test_product_api.py"
+      ],
+      "status": "implemented_with_existing_tests",
+      "missing": "Team sharing, asset version library and lifecycle APIs",
+      "location": "apps/api/src/build3d_api/"
+    },
+    {
+      "id": "BE03",
+      "name": "Durable text/image job admission and idempotency",
+      "purpose": "Accept normalized inputs once per owner/idempotency key and enforce active-job limits",
+      "files": [
+        "apps/api/src/build3d_api/main.py",
+        "apps/api/src/build3d_api/store.py"
+      ],
+      "dependencies": [
+        "BE01",
+        "BE02",
+        "BE04",
+        "BE07",
+        "database row locking/SQLite write locks"
+      ],
+      "tests": [
+        "apps/api/tests/test_product_api.py",
+        "apps/api/tests/test_durable_worker.py"
+      ],
+      "status": "implemented_with_existing_tests",
+      "missing": "Real inference qualification; queue limits are not spend budgets",
+      "location": "apps/api/src/build3d_api/"
+    },
+    {
+      "id": "BE04",
+      "name": "Bounded image ingestion and metadata removal",
+      "purpose": "Preparse body limits and image decode/normalization before persistence",
+      "files": [
+        "apps/api/src/build3d_api/body_limit.py",
+        "apps/api/src/build3d_api/images.py"
+      ],
+      "dependencies": [
+        "Pillow",
+        "Starlette"
+      ],
+      "tests": [
+        "apps/api/tests/test_product_api.py"
+      ],
+      "status": "implemented_with_existing_tests",
+      "missing": "Process-level image sandboxing/production perimeter controls",
+      "location": "apps/api/src/build3d_api/"
+    },
+    {
+      "id": "BE05",
+      "name": "Fenced worker claims and conservative recovery",
+      "purpose": "Preserve uncertain non-idempotent upstream submission state; resume safe polling",
+      "files": [
+        "apps/api/src/build3d_api/worker.py",
+        "apps/api/src/build3d_api/store.py"
+      ],
+      "dependencies": [
+        "BE03",
+        "BE07",
+        "BE08",
+        "BE09",
+        "BE10"
+      ],
+      "tests": [
+        "apps/api/tests/test_durable_worker.py"
+      ],
+      "status": "implemented_with_synthetic_upstream_tests",
+      "missing": "No proven remote cancellation, global GPU scheduler, cost metering or real model run; worker requires explicit spend flag",
+      "location": "apps/api/src/build3d_api/"
+    },
+    {
+      "id": "BE06",
+      "name": "Versioned SQL schema and SQLite/PostgreSQL adapter",
+      "purpose": "Explicit Alembic schema version0004, relational ownership constraints and migrations",
+      "files": [
+        "apps/api/src/build3d_api/db.py",
+        "apps/api/src/build3d_api/migrations/env.py",
+        "apps/api/src/build3d_api/migrations/versions/0001_projects_jobs.py",
+        "apps/api/src/build3d_api/migrations/versions/0002_external_identities.py",
+        "apps/api/src/build3d_api/migrations/versions/0003_storage_quota.py",
+        "apps/api/src/build3d_api/migrations/versions/0004_external_identity_rate_limit.py"
+      ],
+      "dependencies": [
+        "SQLAlchemy",
+        "Alembic",
+        "psycopg for PostgreSQL"
+      ],
+      "tests": [
+        "apps/api/tests/test_product_api.py",
+        "apps/api/tests/conftest.py"
+      ],
+      "status": "implemented; local execution delegated to root; PostgreSQL suite needs TEST_DATABASE_URL",
+      "missing": "Production backups/restore drills, production migrations and load validation",
+      "location": "apps/api/src/build3d_api/migrations/"
+    },
+    {
+      "id": "BE07",
+      "name": "Fail-closed exact model-approval policy",
+      "purpose": "Require explicit reviewed model ID/source and checkpoint hashes; reject runtime policy drift",
+      "files": [
+        "apps/gateway/src/build3d_gateway/model_policy.py",
+        "apps/gateway/src/build3d_gateway/model-approvals.json",
+        "apps/api/src/build3d_api/main.py",
+        "apps/api/src/build3d_api/worker.py"
+      ],
+      "dependencies": [
+        "FastAPI",
+        "JSON operator policy"
+      ],
+      "tests": [
+        "apps/gateway/tests/test_gateway.py",
+        "apps/api/tests/test_durable_worker.py"
+      ],
+      "status": "implemented; default approved_models is empty",
+      "missing": "Actual model/source/weights/data/runtime commercial clearance and remote runtime attestation",
+      "location": "apps/gateway/src/build3d_gateway/model_policy.py"
+    },
+    {
+      "id": "BE08",
+      "name": "Owner-controlled gateway and upstream3DAIGC contract",
+      "purpose": "Private operator HTTP routes plus common JSON/upload/poll/download client",
+      "files": [
+        "apps/gateway/src/build3d_gateway/main.py",
+        "apps/gateway/src/build3d_gateway/upstream.py"
+      ],
+      "dependencies": [
+        "FastAPI",
+        "HTTPX",
+        "BE07"
+      ],
+      "tests": [
+        "apps/gateway/tests/test_gateway.py"
+      ],
+      "status": "implemented_with_in_memory_HTTP_tests",
+      "missing": "Real upstream runtime qualification; owner gateway is not a multi-tenant public interface",
+      "location": "apps/gateway/src/build3d_gateway/"
+    },
+    {
+      "id": "BE09",
+      "name": "Bounded GLB download and structural/checksum validation",
+      "purpose": "Fetch bounded bytes, reject broken/external-resource GLB structure, revalidate private downloads",
+      "files": [
+        "apps/gateway/src/build3d_gateway/download.py",
+        "apps/gateway/src/build3d_gateway/glb_validation.py",
+        "apps/api/src/build3d_api/main.py"
+      ],
+      "dependencies": [
+        "HTTPX",
+        "stdlibJSON/struct/hashlib"
+      ],
+      "tests": [
+        "apps/gateway/tests/test_glb_validation.py",
+        "apps/gateway/tests/test_gateway.py",
+        "apps/api/tests/test_durable_worker.py"
+      ],
+      "status": "implemented_with_synthetic_GLB_tests",
+      "missing": "Comprehensive glTF extension/accessor/decoded-resource validation, topology/material quality, renderer security and Blender acceptance",
+      "location": "apps/gateway/src/build3d_gateway/glb_validation.py"
+    },
+    {
+      "id": "BE10",
+      "name": "Private filesystem and optional S3-compatible artifact storage",
+      "purpose": "Atomic owner-scoped publish, materialization, bounded retrieval and cleanup",
+      "files": [
+        "apps/api/src/build3d_api/storage.py"
+      ],
+      "dependencies": [
+        "BE09",
+        "boto3 optional extra for real S3"
+      ],
+      "tests": [
+        "apps/api/tests/test_storage.py",
+        "apps/api/tests/test_durable_worker.py"
+      ],
+      "status": "implemented; filesystem and fakeS3 test coverage; real S3 not proven",
+      "missing": "Real bucket/storage acceptance, full lifetime policy, full binary-integrity verification occurs in callers rather than metadata alone",
+      "location": "apps/api/src/build3d_api/storage.py"
+    },
+    {
+      "id": "BE11",
+      "name": "Persistent artifact-byte quotas",
+      "purpose": "Serialize per-owner completion against stored byte usage and configured limit",
+      "files": [
+        "apps/api/src/build3d_api/store.py",
+        "apps/api/src/build3d_api/migrations/versions/0003_storage_quota.py",
+        "apps/api/src/build3d_api/config.py"
+      ],
+      "dependencies": [
+        "BE06",
+        "BE10"
+      ],
+      "tests": [
+        "apps/api/tests/test_product_api.py",
+        "apps/api/tests/test_durable_worker.py"
+      ],
+      "status": "implemented_with_concurrency_tests",
+      "missing": "Global spend accounting, retention/deletion decisions and billing credits",
+      "location": "apps/api/src/build3d_api/store.py"
+    },
+    {
+      "id": "BE12",
+      "name": "Read-only artifact consistency inventory",
+      "purpose": "Classify missing/orphan/duplicate/owner-or-size mismatch/unrecognized storage objects without deletion",
+      "files": [
+        "apps/api/src/build3d_api/maintenance.py",
+        "apps/api/src/build3d_api/storage.py",
+        "apps/api/src/build3d_api/cli.py"
+      ],
+      "dependencies": [
+        "BE06",
+        "BE10"
+      ],
+      "tests": [
+        "apps/api/tests/test_storage.py"
+      ],
+      "status": "implemented_with_synthetic_storage_tests",
+      "missing": "Content-hash scan is not performed by inventory; filesystem candidate list allocation can precede object limit; no destructive orphan lifecycle",
+      "location": "apps/api/src/build3d_api/maintenance.py"
+    },
+    {
+      "id": "BE13",
+      "name": "Verified copy-only filesystem-to-S3 migration",
+      "purpose": "Default dry-run; verify source and existing target before copying; preserve source/database/configuration",
+      "files": [
+        "apps/api/src/build3d_api/migration.py",
+        "apps/api/src/build3d_api/cli.py"
+      ],
+      "dependencies": [
+        "BE09",
+        "BE10",
+        "BE12"
+      ],
+      "tests": [
+        "apps/api/tests/test_storage.py"
+      ],
+      "status": "implemented_with_fakeS3_tests",
+      "missing": "Real provider exercise, controlled production cutover/rollback/restore",
+      "location": "apps/api/src/build3d_api/migration.py"
+    },
+    {
+      "id": "BE14",
+      "name": "Immutable external identity mapping",
+      "purpose": "Associate exact provider issuer/opaque subject with active product owner via operator CLI",
+      "files": [
+        "apps/api/src/build3d_api/store.py",
+        "apps/api/src/build3d_api/migrations/versions/0002_external_identities.py",
+        "apps/api/src/build3d_api/cli.py"
+      ],
+      "dependencies": [
+        "BE01",
+        "BE06"
+      ],
+      "tests": [
+        "apps/api/tests/test_product_api.py"
+      ],
+      "status": "implemented_with_existing_tests",
+      "missing": "Public browser identity onboarding, linking UX and lifecycle",
+      "location": "apps/api/src/build3d_api/store.py"
+    },
+    {
+      "id": "BE15",
+      "name": "Optional trusted external JWT/JWKS authentication",
+      "purpose": "Static issuer/audience/asymmetric-algorithm allowlist, bounded no-redirect JWKS, exact signed identity and DB rate window",
+      "files": [
+        "apps/api/src/build3d_api/trusted_identity.py",
+        "apps/api/src/build3d_api/main.py",
+        "apps/api/src/build3d_api/config.py",
+        "apps/api/src/build3d_api/migrations/versions/0004_external_identity_rate_limit.py"
+      ],
+      "dependencies": [
+        "PyJWT[crypto]",
+        "HTTPX",
+        "BE14"
+      ],
+      "tests": [
+        "apps/api/tests/test_trusted_identity.py"
+      ],
+      "status": "implemented_with_existing_tests; disabled by default",
+      "missing": "Fully reviewed trusted BFF/user lifecycle and production issuer operation",
+      "location": "apps/api/src/build3d_api/trusted_identity.py"
+    },
+    {
+      "id": "BE16",
+      "name": "Strict xatlas-style OBJ+bakedPNG-to-embeddedGLB packaging",
+      "purpose": "Package narrow positive-index triangular single mesh and UV/basecolor data without external material references",
+      "files": [
+        "apps/gateway/src/build3d_gateway/textured_glb.py"
+      ],
+      "dependencies": [
+        "BE09",
+        "stdlib only"
+      ],
+      "tests": [
+        "apps/gateway/tests/test_textured_glb.py"
+      ],
+      "status": "implemented_with_synthetic_tests",
+      "missing": "Real texture bake/visual correctness, comprehensive PBR maps, actual Blender import; PNG validation is header/dimension preflight rather than full image decode",
+      "location": "apps/gateway/src/build3d_gateway/textured_glb.py"
+    },
+    {
+      "id": "BE17",
+      "name": "Explicit-spend real GPU smoke runner interface",
+      "purpose": "On approved existing runtime submit/poll/download/revalidate/report, refusing accidental invocation",
+      "files": [
+        "apps/gateway/src/build3d_gateway/smoke.py"
+      ],
+      "dependencies": [
+        "HTTPX",
+        "BE07",
+        "BE09"
+      ],
+      "tests": [
+        "apps/gateway/tests/test_gpu_smoke.py"
+      ],
+      "status": "interface implemented and synthetic protocol-tested; real smoke unrun",
+      "missing": "Approved real model/runtime, VRAM/hardware/cost/Blender proof; does not provision or enforce cloud dollar caps",
+      "location": "apps/gateway/src/build3d_gateway/smoke.py"
+    },
+    {
+      "id": "BE18",
+      "name": "Deterministic TripoSR source qualification preparation",
+      "purpose": "ExactGit/sourceblob guarded narrow patch; offline localconfig, reviewed checkpointsize/hash, weights_only loading, no hiddenrembg/Hubdownloads",
+      "files": [
+        "services/generation/triposr_candidate/Dockerfile.candidate",
+        "services/generation/triposr_candidate/README.md",
+        "services/generation/triposr_candidate/dino_config.json",
+        "services/generation/triposr_candidate/model_config.yaml",
+        "services/generation/triposr_candidate/prepare_runtime.py",
+        "services/generation/triposr_candidate/requirements-build3d.txt",
+        "services/generation/triposr_candidate/runtime_manifest.json"
+      ],
+      "dependencies": [
+        "reviewed TripoSR Git commit",
+        "scikit-image replacement",
+        "candidate direct pins/base-image digest"
+      ],
+      "tests": [
+        "services/generation/triposr_candidate/test_prepare_runtime.py",
+        "services/generation/triposr_candidate/test_marching_cubes_contract.py"
+      ],
+      "status": "source/CPU qualification implemented; not production approved",
+      "missing": "Complete transitive artifact hashes/licenses, actual built container, checkpointload/headlessbake, GPU/Blender proof and budget approval",
+      "location": "services/generation/triposr_candidate/"
+    },
+    {
+      "id": "BE19",
+      "name": "CPU backend distributable packaging",
+      "purpose": "Setuptools entrypoints/data inclusion and nonroot container definitions; bothCPUimages now consume commonrootrequirements.lockconstraints",
+      "files": [
+        "apps/api/Dockerfile",
+        "apps/api/pyproject.toml",
+        "apps/gateway/Dockerfile",
+        "apps/gateway/pyproject.toml"
+      ],
+      "dependencies": [
+        "Python3.11+",
+        "setuptools",
+        "requirements.lock CPUconstraints"
+      ],
+      "tests": [
+        "scripts/check_api_wheel.py (outside this subtask)"
+      ],
+      "status": "packaging definitions present; root to validate available build checks",
+      "missing": "Actualcontainerdeployment notproven; mutable pythonbase/buildbackendminimum still not completeartifacthashlock",
+      "location": "apps/api and apps/gateway package roots"
+    }
+  ],
+  "security_findings": [
+    {
+      "id": "BES01",
+      "category": "no_confirmed_compromise_indicator",
+      "finding": "Reviewed first-party source has no newly introduced arbitrary installer hook, obfuscated execution or credential-exfiltration destination relative to known56f412f source; operator-selected upstream/JWKS/S3 endpoints are explicit boundaries. This is not proof of account security or vulnerability absence.",
+      "evidence": [
+        "apps/api/src/build3d_api/trusted_identity.py",
+        "apps/api/src/build3d_api/main.py",
+        "apps/gateway/src/build3d_gateway/upstream.py"
+      ]
+    },
+    {
+      "id": "BES02",
+      "category": "hardening_gap",
+      "finding": "GLB verification is intentionally structural; no full accessor/extension/decodedrenderer-resource policy or topology/visual validation. Third-party renderer safety is not guaranteed.",
+      "evidence": [
+        "apps/gateway/src/build3d_gateway/glb_validation.py"
+      ],
+      "recommendation": "Define supportedglTFextensions and decoded-resource budgets before broad untrustedasset acceptance; validate real downstream imports."
+    },
+    {
+      "id": "BES03",
+      "category": "deployment_limit",
+      "finding": "Owner gateway validates upload signature and size after multipart spooling, unlike tenantAPI preparse BodyLimitMiddleware and full image normalization. It must remain privateoperator-only.",
+      "evidence": [
+        "apps/gateway/src/build3d_gateway/main.py",
+        "apps/api/src/build3d_api/body_limit.py",
+        "apps/api/src/build3d_api/images.py"
+      ],
+      "recommendation": "Retain perimeter/private boundary; extend preparse limits if usage scope expands."
+    },
+    {
+      "id": "BES04",
+      "category": "baseline_supply_chain_gap_remediated_with_remaining_debt",
+      "finding": "At56f412f gatewayDocker installed without CPUconstraints usedbyAPI. This task changes gatewayDocker/Compose to rootcontext and commonrequirements.lock, preservingoriginals. Mutable pythonbase/setuptoolsminimum/directcandidatepins still do not form artifactintegritylock.",
+      "evidence": [
+        "apps/gateway/Dockerfile",
+        "apps/api/Dockerfile",
+        "apps/gateway/pyproject.toml",
+        "services/generation/triposr_candidate/requirements-build3d.txt"
+      ],
+      "recommendation": "ValidatebuiltCPUimage; retain separateGPUruntime and complete artifacthashreview before productionqualification."
+    },
+    {
+      "id": "BES05",
+      "category": "bounded_scan_debt",
+      "finding": "Filesystem inventory gathers candidates using list+rglob before enforcing returned objectlimit. Reporting fails closed on truncation, but discovery memory is not strictly bounded by max_objects. Scanner compares owner/size metadata, not everyobject contenthash.",
+      "evidence": [
+        "apps/api/src/build3d_api/storage.py",
+        "apps/api/src/build3d_api/maintenance.py"
+      ],
+      "recommendation": "Consider streaming deterministic traversal and separate opt-in contentverification at higher scale; do not describe currentinventory as comprehensive byteaudit."
+    },
+    {
+      "id": "BES06",
+      "category": "qualification_limit",
+      "finding": "Preparation verifies exactGitcommit and sixmodifiedsourceblobs, but full transitive artifacts and actual checkpoint/headlessbake/container compatibility remain open; source copy can include ignored local files because clean Gitstatus doesnot enumerate ignoredcontent.",
+      "evidence": [
+        "services/generation/triposr_candidate/prepare_runtime.py",
+        "services/generation/triposr_candidate/runtime_manifest.json"
+      ],
+      "recommendation": "Use fresh exact upstreamcheckout, inspect fullpreparedcontext, and add ignoredcontent boundary before productionqualification; no inferenceauthorized."
+    }
+  ],
+  "duplicate_and_consolidation_analysis": [
+    {
+      "name": "Common upstreamclient and GLBvalidator",
+      "decision": "Already consolidated in build3d_gateway and reused by APIworker/downloads, smokeCLI and packager. Keep currentsharedboundary; do not create duplicatefeaturepackage.",
+      "files": [
+        "apps/gateway/src/build3d_gateway/upstream.py",
+        "apps/gateway/src/build3d_gateway/glb_validation.py",
+        "apps/api/src/build3d_api/worker.py",
+        "apps/api/src/build3d_api/main.py"
+      ]
+    },
+    {
+      "name": "ProductAPI versus operatorgateway",
+      "decision": "Overlapping generation/status/download routes have different ownership/lifecycle trustcontracts. Keep separate and share underlyingclient/validator; replacingproductAPI with upstreamsnapshot losesdurability/tenancy."
+    },
+    {
+      "name": "ExactJWTissuer versus identitymappingcanonicalization",
+      "decision": "Intentional distinct responsibilities, documented inline; do not deduplicate by substituting canonical issuer into signed exactissuerverification.",
+      "files": [
+        "apps/api/src/build3d_api/trusted_identity.py",
+        "apps/api/src/build3d_api/store.py"
+      ]
+    },
+    {
+      "name": "Trianglefixtures in API/gateway tests",
+      "decision": "Similar synthetic data but local factories offer differenttestcontrols; minor duplication, no currentproductvalue from newsharedruntime dependency. Keep localunless broaderfixturelibrary justified.",
+      "files": [
+        "apps/api/tests/conftest.py",
+        "apps/gateway/tests/conftest.py"
+      ]
+    },
+    {
+      "name": "Storemodule size",
+      "decision": "545line transactionowner includes related identity,job,quota persistence; split byresponsibility only in a separatetested refactor if changevolume warrants. No forcedfeature-folderrewrite needed."
+    },
+    {
+      "name": "TripoSRsource snapshot versus firstpartyqualification",
+      "decision": "Source snapshot is archivedupstream; reviewedpreparation adapter is active firstparty. Do notmergeenvironments or enabledirectsnapshotruntime."
+    }
+  ],
+  "execution": "Read-only source/config/test inspection; Python AST parsing used, no repository code/test/inference executed by this agent. Root will execute selectedvalidation.",
+  "uninspected_scope": "No binary files occur in assignedtrackedpaths; realdependencies/modelweights/containerbytes notinspected ordownloaded. Otherprojectareas assigned to siblingreviews.",
+  "implementation_changes": [
+    {
+      "name": "Unify CPUgateway dependency constraints with productAPI packaging",
+      "active_files": [
+        "apps/gateway/Dockerfile",
+        "compose.gateway.yml"
+      ],
+      "preserved_originals": [
+        "AnalyseFuture/historical-implementations/gateway-packaging/apps/gateway/Dockerfile",
+        "AnalyseFuture/historical-implementations/gateway-packaging/compose.gateway.yml"
+      ],
+      "provenance": "AnalyseFuture/historical-implementations/gateway-packaging/PRESERVATION.json",
+      "result": "GatewayDockerfile now copies rootrequirements.lock and apps/gateway from rootcontext, installs with -c requirements.lock. Compose now selects rootcontext plus explicitDockerfile. Nonrootuser/listener/API unchanged.",
+      "validation": [
+        "docker compose --env-file .env.example -f compose.gateway.yml config --no-env-resolution --no-interpolate --quiet: passed",
+        "git diff --check onchangedpackaging: passed",
+        "COPY source paths exist inrootcontext: checked"
+      ],
+      "not_run": [
+        "Actual Dockerimage build delegated to root"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+BUILD 3D AI — COMPLETE REPOSITORY RECOVERY AND STRUCTURE AUDIT
+Date: 17 November 2026
+Repository: https://github.com/kawakaze430/build-3d-ai
+Default and requested delivery branch: main
+Starting commit: 56f412f0722394300a522b7392b191702d3f2c48
+
+SCOPE AND REVIEW COVERAGE
+
+All 369 starting tracked files were inventoried: 309 UTF-8 text files and
+60 binaries. The coordinated deep review covered first-party backend/gateway/
+qualification code, web source, scripts, workflows, configuration, project
+plans, research notes and preserved upstream source. All 182 reference text
+files were read statically; the 60 reference binaries received appropriate
+format/metadata inspection. Seven remaining catalog/provenance/metadata files
+were parsed and reconciled by the primary agent. No starting path is omitted.
+
+Binary inspection does not mean native-code disassembly, visual asset review,
+full geometry/texture validation or proof of safety. The catalog of 112 external
+repositories was reviewed as research metadata, not as 112 independently audited
+external codebases. Private local credentials and runtime databases were not
+read or published as repository evidence.
+
+HISTORY AND SECURITY EVIDENCE
+
+All 18 accessible remote heads were fetched. The review accounted for
+96 reachable commits, 620 historical paths and 529 unique historical Git blobs.
+Sixteen nonresearch development heads are incorporated or superseded by main's
+squash history. Unique useful work from research commit 7129208 was recovered:
+two offline dependency-audit files, related CI wiring, and four preserved dated
+research documents. No full branch was blindly merged over newer product code.
+
+No tags, root Git submodules/gitlinks, LFS pointers or symlink modes were found.
+The raw upstream .gitmodules names 11 dependencies absent from its source ZIP.
+Those dependencies were not initialized or approved. Credential screening of
+historical blobs and original ZIP/wheel members found no high-confidence live
+credential or private-key material; generic bearer examples were confirmed as
+synthetic transport fixtures. That is a bounded screening result, not a full
+security certification.
+
+Initial local and remote main matched the previously verified starting commit.
+No new malicious first-party insertion was identified. This does not confirm
+or rule out the owner's reported account compromise. GitHub account settings,
+audit logs, external infrastructure and deleted/unavailable history are outside
+this source-tree review. api.github.com metadata/protection requests were denied
+by the managed proxy, while authenticated native Git established main and read
+access. Ordinary push still enforces remote permissions and protection.
+
+RECOVERABLE STARTING STATE
+
+An all-ref Git bundle was created and verified before changes:
+/workspace/backups/build-3d-ai-before-universal-recovery-56f412f.bundle
+SHA256: 26374cd7232a84828cf1e7f4e72f346cb29fa3b915f1217ad3f87d7432088fba
+It records complete history and 20 refs, including local main, HEAD and the
+18 remote heads. The bundle is workspace-local; published history also retains
+the starting commit. It is not represented as an offsite published backup.
+
+Before the final functional moves, 432 tracked/authored working files were
+saved, retaining earlier uncommitted recovery improvements:
+/workspace/backups/build-3d-ai-working-before-functional-restructure.tar
+SHA256: 2caae44d9cec1ef8bdf88caf937965a34659e1570da77e9d8a4cae3f03eebe25
+Original content needed after edits is additionally retained in the repository's
+historical collection, with provenance and hashes. No force-push or published
+history rewrite is used.
+
+WHAT WAS IMPLEMENTED
+
+Forty-five files were moved into functional homes: 42 starting tracked files
+and three recovery files authored earlier in this session. Product plans,
+architecture, development, operations, research and continuity docs are now
+separate collections. Deployment composition, identity examples, packaging
+helpers and browser studio/assets/jobs/client/server modules have clear homes.
+Framework routes, cohesive Python package APIs, shared root constraints and
+provider-required configuration locations stay intact for justified reasons.
+
+Earlier recovery improvements remain: shared bounded request reads, reuse of
+the artifact URL helper, common gateway/API dependency constraints, one browser
+configuration, explicit workflow permissions, and the recovered offline auditor.
+They do not enable a production model or change public HTTP/schema contracts.
+
+Every moved file retains its old/new mapping. All original reference bytes,
+licenses, assets and useful earlier versions are preserved. Exact duplicate
+upstream assets/documents remain where snapshot references require them rather
+than being removed to make a duplicate count look better. Uncertain code,
+generated notes and superseded implementations belong in AnalyseFuture.
+This directory is excluded from root build context and default test discovery;
+it is a classification boundary, not an execution sandbox or license grant.
+
+LATEST VALIDATION AND DELIVERY POLICY
+
+The owner explicitly instructed: do not run tests for now. From that point,
+no further test, build, type-check, startup or migration command is executed.
+Earlier successful checks apply to the preceding layout and are reported as
+history only. Final inspection is limited to inventories, hashes, local path
+and import references, configuration location analysis and Git diff review.
+The commit uses [skip ci] to avoid initiating test workflows. No branch
+protection bypass, force-push, branch/tag deletion or reset is performed.
+
+WHERE TO FIND THE DETAILS
+
+PROJECT_STRUCTURE.md is the canonical directory guide. The complete file
+inventory covers all final project files; the feature report has 56 distinct
+responsibility cards, not 56 shipped features. The path mapping and archived
+manifest record movement and preservation. Security findings separate fixed
+source gaps, unsafe inactive references and unresolved external risks.
+The detailed future TXT covers current work, limits, roles, one-year/two-year
+and three-to-five-year directions. The owner-adopted main goal remains at
+docs/project/BUILD_3D_AI_PROJECT_IDEA.txt.
+
+Final runtime validation remains pending an authorized later task. Exact
+model/runtime/data/license review and bounded GPU authorization still precede
+any real generation. Folder reorganization cannot revoke compromised GitHub
+access; account/session/token/key/app/collaborator review is a separate action.

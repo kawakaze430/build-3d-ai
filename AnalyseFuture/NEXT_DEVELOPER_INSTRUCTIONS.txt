@@ -1,0 +1,41 @@
+BUILD 3D AI — NEXT DEVELOPER CONTINUATION
+Date: 17 November 2026
+Starting main: 56f412f0722394300a522b7392b191702d3f2c48
+Repository: https://github.com/kawakaze430/build-3d-ai
+
+1. Inspect the current main and working changes before editing. Read root
+   PROJECT_STRUCTURE.md, docs/continuity/PROJECT_MEMORY_MASTER.md and the adopted
+   goal in docs/project/BUILD_3D_AI_PROJECT_IDEA.txt.
+2. Use COMPLETE_FILE_INVENTORY, FEATURE_INVENTORY, FUNCTIONAL_PATH_MAPPING and
+   CONSOLIDATION_REPORT to locate responsibilities. Preserve the existing
+   product API, worker, storage, studio and GLB validator rather than rebuild.
+3. The latest owner instruction deferred tests. The final functional moves have
+   not been runtime validated. Do not present old passing results as evidence
+   for final paths. Resume execution only when a later task authorizes it;
+   keep all test and CI definitions intact.
+4. When authorized, start with web imports/build/browser contracts, Compose
+   paths, package distribution and API/gateway SQLite/PostgreSQL checks. Then
+   run the preparation, pip metadata and CPU marching-cubes contracts.
+5. Identity examples live at config/identity/providers.example.json. Credentials,
+   private databases and caches stay out of Git. Recreate development state using
+   docs/development/CLOUD_DEVELOPMENT_ENVIRONMENT.md.
+6. F034 was recovered from research commit 7129208: offline pip report auditor,
+   nine tests and CI evidence wiring. It is metadata evidence, not a verified
+   wheelhouse, commercial clearance or production model approval.
+7. Shared request reading lives in apps/web/src/lib/server/: 8 KiB login and
+   12 MiB product POST limits. UI history still needs pagination beyond the first
+   100 records; slow polling has a source-identified AbortController race.
+   See TECHNICAL_DEBT for scoped acceptance criteria.
+8. The authoritative browser configuration is apps/web/playwright.config.ts.
+   The cloud entry selects managed Chromium. Gateway and API share CPU
+   constraints; managed Docker HTTPS may need the preserved CA-secret recipe.
+   Never disable TLS or artifact verification to make an installation pass.
+9. Raw upstream source, legacy auth/uploads, binaries and historical scripts in
+   AnalyseFuture are inactive. Review rights, dependencies, safety and outputs
+   before adoption. A directory boundary is not an execution sandbox.
+10. The next product goal remains one qualified real image-to-textured-GLB,
+    private API, browser and Blender proof with actual quality/cost measurements.
+    It needs separate exact model/runtime/data review and capped GPU approval.
+11. Direct main delivery was authorized for this recovery. Do not infer permission
+    for force-pushes, branch deletion, paid compute or unrelated publication.
+    Account recovery is separate from source-folder reorganization.

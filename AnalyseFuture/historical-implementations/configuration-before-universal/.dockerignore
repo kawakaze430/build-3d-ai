@@ -1,0 +1,16 @@
+.git
+.venv
+.env
+.env.*
+data
+dist
+build
+**/__pycache__
+**/*.egg-info
+**/.pytest_cache
+**/*.db
+**/*.glb
+**/*.part
+
+# Preserved inactive upstream snapshots and reference assets
+AnalyseFuture/

@@ -14,3 +14,7 @@ build
 
 # Preserved inactive upstream snapshots and reference assets
 AnalyseFuture/
+
+# Generated frontend dependencies and build output are not container sources
+**/node_modules
+**/.next

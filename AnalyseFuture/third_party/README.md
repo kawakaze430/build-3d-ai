@@ -15,7 +15,7 @@ Neither source snapshot is installed or enabled by this import.
 Upstream projects: [FishWoWater/3DAIGC-API](https://github.com/FishWoWater/3DAIGC-API)
 and [VAST-AI-Research/TripoSR](https://github.com/VAST-AI-Research/TripoSR).
 ZIP comments are provenance clues, not independent commit verification.
-The [import inventory](../../docs/ARCHIVE_IMPORTS.json) records the supplied ZIP
+The [import inventory](../repository-inventory/ARCHIVE_IMPORTS.json) records the supplied ZIP
 hashes, original paths, destination paths, sizes and SHA256 of every file.
 
 Only the archives' outer `*-main/` wrappers were removed. Source files, internal
@@ -27,8 +27,8 @@ retains the original archives. Git does not retain empty directories.
 
 All imported content is **RESEARCH_ONLY**. The top-level source licenses do not
 clear models, datasets, bundled binaries or sample assets for commercial use.
-The existing [license matrix](../../docs/LICENSE_MATRIX.md) and
-[approval gate](../../docs/MODEL_APPROVAL_GATE.md) still govern product integration.
+The existing [license matrix](../../docs/research/LICENSE_MATRIX.md) and
+[approval gate](../../docs/operations/MODEL_APPROVAL_GATE.md) still govern product integration.
 
 The 3DAIGC snapshot's `.gitmodules` declares 11 dependencies whose source is
 absent from the ZIP. This copy is not a complete submodule checkout; no

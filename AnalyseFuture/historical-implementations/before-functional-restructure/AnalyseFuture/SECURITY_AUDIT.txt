@@ -1,0 +1,291 @@
+BUILD 3D AI — SECURITY AND EXECUTION-BOUNDARY AUDIT
+Review date: 17 November 2026
+Starting main: 56f412f0722394300a522b7392b191702d3f2c48
+Repository: https://github.com/kawakaze430/build-3d-ai
+
+PURPOSE AND CONCLUSION
+
+The owner reported compromised access and requested repository recovery. The
+connected main branch began at the last verified commit above, with a clean
+tracked tree. This review found source-level hardening gaps and unsafe inactive
+reference implementations. It did not identify a confirmed account takeover,
+credential exfiltration, or newly inserted malicious execution path in the
+reviewed first-party history. Absence of a finding is not proof of account
+security, absence of every vulnerability, or safety of every preserved binary.
+
+A file's unfamiliar name, age, duplication, or placement in AnalyseFuture does
+not establish malicious intent. Findings below distinguish implemented fixes,
+remaining active gaps, inactive-source hazards, and unavailable external proof.
+
+EVIDENCE AND COVERAGE
+
+The coordinated review inspected active backend/gateway/candidate source and
+tests; frontend/server routes/tests; CI, Docker/Compose/configuration; project
+documentation; and all 242 preserved reference paths. Reference coverage was
+182 UTF-8 text files and 60 binary files with limited metadata inspection.
+The native binaries and 3D/media assets were not disassembled or executed.
+
+Accessible Git analysis covered all 18 fetched remote heads, 96 reachable
+commits, 620 historical paths and 529 distinct historical blobs. The historical
+scanner processed 354,724,760 bytes: 466 UTF-8 blobs and 63 non-UTF-8 blobs.
+Historical ZIP and wheel member contents were also inspected without execution;
+some wheel content appears both directly and inside its original source ZIP.
+The scanner produced zero high-confidence credential-pattern matches.
+
+Five lower-confidence bearer-token assignments in historical versions of
+apps/gateway/tests/test_gateway.py were manually resolved as synthetic
+httpx.MockTransport fixtures. Credential values are intentionally not reproduced.
+These are five historical blob findings, not five exposed production secrets.
+Regex matching cannot find every possible secret or prove that no secret was
+previously used externally. Ignored credential stores, local private SQLite
+state, account sessions and provider secrets were not dumped into this audit.
+
+No tracked LFS pointer, real Git submodule gitlink, symlink, or unexpected mode
+finding was identified in the scanned historical map. The preserved 3DAIGC
+.gitmodules declares 11 upstream projects whose source is absent. This is not
+an initialized production submodule graph. Expected executable modes include
+the first-party CPU install helper and preserved upstream Windows batch files;
+the mode alone does not establish authorization or runtime safety.
+
+CONFIRMED SOURCE GAPS FIXED IN THIS CONSOLIDATION
+
+S-01. Bound web request bodies while reading, not after full allocation.
+
+Baseline evidence:
+  apps/web/src/app/api/product/[...segments]/route.ts read the complete
+  request.arrayBuffer() before applying the observed 12 MiB bound. Its early
+  Content-Length check could not cap an unknown or understated body. The login
+  route called request.json() without an explicit body-byte bound.
+
+Implemented change:
+  apps/web/src/lib/request-body.ts is the shared streaming reader. The product
+  POST route retains its 12 MiB limit; login JSON is capped at 8 KiB. Actual
+  bytes are authoritative. Missing, understated, or malformed length hints
+  cannot disable that bound. Overflow cancels the source; cancellation errors
+  do not replace the intended size rejection. Product size errors retain 413;
+  oversized login now receives an explicit 413. Other login validation, bearer
+  forwarding, cookies and route/query allowlists remain separate controls.
+
+Evidence:
+  Ten new focused streaming-reader tests cover bounded chunked content,
+  missing/understated/malformed lengths, declared oversize, cancellation and
+  read-failure behavior. Combined with four existing web unit tests, 14 Vitest
+  tests passed, and the TypeScript check passed. Route-level and container
+  checks performed by the primary workflow are recorded separately in
+  TEST_AND_VALIDATION_REPORT.txt; these unit tests alone do not prove them.
+
+Preservation:
+  Three original route/studio files remain byte-identical to starting main
+  under historical-implementations/web-request-bodies/. This is a hardening
+  fix, not evidence that somebody exploited the original allocation behavior.
+
+S-02. Use one CPU dependency constraint set for API and gateway packaging.
+
+Baseline evidence:
+  Product API packaging used requirements.lock, but the standalone gateway
+  Dockerfile and gateway CI installation did not use those constraints.
+
+Implemented change:
+  Gateway packaging now uses the root build context, explicit gateway
+  Dockerfile and the existing common requirements.lock. Gateway CI installs
+  with the same constraints and keys its package cache from that file.
+  First-party gateway listeners, control-key boundary and non-root execution
+  are retained. The original gateway Dockerfile and Compose configuration are
+  preserved under historical-implementations/gateway-packaging/.
+
+Limit:
+  Release-version constraints are not independent wheel-byte verification,
+  immutable build-tool pins, a complete SBOM, or a GPU runtime clearance.
+
+S-03. Declare least-privilege repository contents permissions in all CI files.
+
+Baseline evidence:
+  Product API CI explicitly used contents: read; the gateway, web and candidate
+  workflows relied on inherited repository/organization defaults.
+
+Implemented change:
+  All four root workflows now explicitly declare contents: read. This removes
+  ambiguity about their requested repository-content permission. The earlier
+  omission did not itself prove those jobs had write access or were exploited.
+  Action release tags and other supply-chain integrity questions remain below.
+
+TRUSTED BUILD ENVIRONMENT FINDING
+
+The two initial standard CPU image builds failed because their isolated build
+runtime lacked the managed environment's trusted CA chain. This was diagnosed
+as a certificate-trust prerequisite rather than a reason to disable TLS.
+Corrected build invocations mounted the host's trusted CA bundle as a BuildKit
+secret. Both CPU images then built. The certificate bundle was not baked into
+the image, and TLS verification was never disabled.
+
+This establishes a successful corrected build, not universal runtime trust.
+Deployments that use managed HTTPS inspection or private CAs must separately
+provide an approved runtime trust configuration for upstream, JWKS or S3
+connections. A CA secret mount used during build does not persist a runtime CA
+installation. Image startup and functional observations belong in the separate
+validation report; do not infer them merely from a successful image build.
+
+REMAINING ACTIVE SECURITY AND RESOURCE GAPS
+
+A-01. GLB validation is deliberately structural, not renderer safety proof.
+  Evidence: apps/gateway/src/build3d_gateway/glb_validation.py and
+  apps/web/src/components/model-viewer.tsx. Header/chunk/embedded-resource and
+  checksum checks do not completely validate accessor ranges, glTF extensions,
+  decoded geometry/texture complexity, decoder behavior or GPU memory demand.
+  Owner: graphics/security engineer. Before arbitrary public assets: define
+  supported extensions and decoded-resource budgets, adversarial parser tests,
+  and a sandboxed downstream import/render acceptance path. Preserve the
+  current bounded validator as the shared preflight rather than duplicating it.
+
+A-02. Private operator gateway upload checks occur after multipart spooling.
+  Evidence: apps/gateway/src/build3d_gateway/main.py. Tenant API separately uses
+  BodyLimitMiddleware and Pillow normalization; these are not the same upload
+  trust boundary. Gateway signature/post-spool size checks do not establish a
+  preparse transport limit. Owner: backend/security engineer. Keep it private
+  and operator-authenticated; add a preparse/perimeter bound and relevant
+  chunked/oversize tests before expanding exposure.
+
+A-03. Filesystem inventory discovery allocates before the result count bound.
+  Evidence: apps/api/src/build3d_api/storage.py and maintenance.py. Candidate
+  collection uses list/rglob before enforcing the object report limit. The
+  scanner fails closed on truncation but does not have strictly bounded
+  discovery memory. It compares inventory metadata, not every object's byte
+  hash. Owner: storage engineer. Use streaming deterministic discovery and an
+  explicit optional content-verification contract when scale requires it.
+
+A-04. Candidate source preparation can include ignored local files.
+  Evidence: services/generation/triposr_candidate/prepare_runtime.py verifies
+  an exact commit and selected source blobs, but a clean Git status does not
+  enumerate ignored files later copied into a preparation directory.
+  Owner: ML/runtime security engineer. Use a fresh exact checkout and review
+  prepared context now; require an allowlisted tracked-file export or reject
+  unexpected ignored content before production qualification. Test a planted
+  ignored extra file without executing it.
+
+A-05. Full artifact and action integrity locks remain incomplete.
+  Evidence: requirements.lock, package declarations without a committed npm
+  lock, mutable base-image tags, action release tags, and candidate dependency
+  requirements. The recovered pip report auditor checks index metadata and
+  records source-archive blockers; it is not verification of downloaded wheel
+  bytes. Owner: build/release and ML engineers. Establish reviewed immutable
+  artifacts, notices and independent hashes before production rollout. Do not
+  disable TLS/signature/checksum checks or relabel source archives as wheels.
+
+A-06. Public identity and operating controls are unfinished.
+  Private API keys, immutable identity mapping, optional disabled JWT/JWKS,
+  quotas and recovery-aware workers exist. Complete public signup/recovery/
+  deletion, secure session lifecycle, retention, restore exercises, metering,
+  spend controls and deployment review are still separate requirements.
+  Owner: product/backend/security leads. Existing concurrency/storage quotas
+  are not a dollar budget or full account lifecycle. Server fetch timeouts and
+  browser cache/resource retention merit explicit public-deployment review.
+
+INACTIVE REFERENCE HAZARDS — DO NOT PROMOTE WITHOUT REVIEW
+
+These nine findings are grounded in preserved source under third_party/.
+They are hazards if those paths are activated, not claims of active product
+vulnerabilities, confirmed malware or proven exploitation.
+
+R-01. Legacy key/optional-user checks lack a safe tenant boundary.
+  3daigc-api/api/dependencies.py accepts nonempty bearer tokens in one verifier;
+  its rate-limit stub returns true. Some system result/download/delete handlers
+  enforce ownership only when an optional user exists. Default auth is disabled.
+  Keep first-party owner/auth/rate-limit logic canonical; never replace it with
+  these references as a recovery shortcut.
+
+R-02. Upload metadata and arbitrary local path input are insufficiently scoped.
+  3daigc-api/api/routers/file_upload.py and mesh routes lack an equivalent
+  tenant-scoped input boundary; process_file_input accepts existing local paths
+  without an approved-root check. Full upload/base64 allocation can precede or
+  lack equivalent size checks. Native mesh parsers add another trust boundary.
+
+R-03. Unqualified checkpoint loading and hidden remote resources.
+  UniRig utility explicitly uses weights_only=False; other helpers use
+  torch.load without the first-party candidate's complete hash/local-loading
+  contract. Models/configs/background-removal dependencies can download
+  implicitly. Some loaders do use weights_only=True, so do not generalize the
+  same defect to every adapter. Preserve isolated reviewed runtime selection.
+
+R-04. Unsafe public deployment and mutable installation defaults.
+  Upstream configuration includes auth-disabled defaults, wildcard CORS,
+  all-interface service/Redis exposure, broad GPU selection and mutable
+  Git/package/model retrieval. Download verification labels use size/count/
+  existence checks rather than independent cryptographic integrity.
+
+R-05. Legacy password storage is not suitable for public account recovery.
+  core/auth/service.py uses one SHA256 pass with salt and a six-character
+  minimum. Do not merge it as a replacement for a reviewed adaptive password
+  hashing/provider lifecycle implementation.
+
+R-06. Blender conversion interpolates raw paths into Python source.
+  core/utils/format_utils.py constructs Blender Python source using input/
+  output path strings. Special characters may alter generated code. No exploit
+  or converter execution was performed. A future isolated worker should pass
+  data through safe arguments/serialization and enforce file/resource limits.
+
+R-07. Placeholder/incomplete model contracts cannot substantiate features.
+  Some base model methods return success-shaped dictionaries or fabricated
+  output names without producing artifacts. Concrete adapters provide further
+  implementation, but 11 absent submodule trees and missing weights block a
+  self-contained runtime. At least test_basic_endpoints imports absent api.main.
+  Count these as research/partial or broken-reference contracts, not working
+  product generation proven by this task.
+
+R-08. Redis result expiration targets a different key.
+  core/scheduler/redis_job_queue.py writes a result to a shared hash and expires
+  a different job-suffixed key. Static evidence indicates the intended TTL may
+  not apply. This was not executed against Redis; do not replace the current
+  durable store/worker with the reference queue without independent tests.
+
+R-09. Source labels do not clear bundled libraries, weights or sample assets.
+  diso carries CC BY-NC 4.0, Kaolin includes NVIDIA noncommercial terms in
+  addition to Apache metadata, and TripoSR transformer files preserve mixed
+  Apache/MIT notices. The supplied sample bundle has no license evidence.
+  Rights clearance remains separate from software safety and model quality.
+
+PRESERVATION AND EXECUTION ISOLATION
+
+AnalyseFuture is excluded from the root Docker context and default pytest
+traversal. Active Dockerfiles copy explicit application paths; Next/TypeScript
+inputs are scoped to active web source/tests. Preserved .gitmodules, installers,
+Dockerfiles, model files and upstream tests are not hooked into active CI or
+package installation merely by being tracked. The archived source was not
+installed or executed in this audit.
+
+A directory name is not a sandbox. Explicitly targeting a preserved script,
+loading a native wheel/model, or copying a legacy workflow into root .github
+can still execute it. Future reuse needs a separately reviewed, isolated task.
+Do not preserve live credentials/customer content in this public archive.
+
+GITHUB ACCESS AND DELIVERY LIMITS
+
+The repository identity/default main branch and native Git read access were
+verified through the platform route. Attempts to obtain GitHub account/rule/
+permission metadata from api.github.com returned proxy 403 policy denial.
+That is unavailable API evidence, not proof of missing Git authentication,
+branch protection absence, or a reason to extract tokens or bypass the proxy.
+
+Protection and account-level permissions remain unknown through this review.
+Direct delivery must use the already authorized normal main push, with no
+force push, history rewrite, deletion of existing branches/tags, or protection
+bypass. The primary workflow verifies the actual remote result separately.
+
+If unauthorized account access occurred, the owner should review account and
+organization sessions, tokens, SSH/deploy keys, installed apps, collaborators
+and Actions access, and rotate credentials that were exposed. These are
+necessary external account-recovery actions when applicable; a folder change
+or this source review cannot perform or prove them. No secret values or private
+incident logs should be put in the public recovery reports.
+
+NEXT SECURITY ACCEPTANCE
+
+1. Preserve and deliver the reviewed fixes only after current route, packaging
+   and regression checks recorded in TEST_AND_VALIDATION_REPORT.txt.
+2. Obtain account/rule metadata through an authorized owner path and resolve
+   any confirmed unauthorized access outside the source-tree claim.
+3. Before public exposure, close upload/renderer/identity/operational boundaries
+   and add targeted adversarial acceptance checks.
+4. Before any real model execution, complete exact source/weight/data/runtime
+   review and separately obtain the bounded GPU budget approval.
+
+END OF SECURITY AUDIT

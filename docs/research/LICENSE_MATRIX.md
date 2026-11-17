@@ -1,0 +1,68 @@
+# Commercial License and Deployment Gate — Partial Review (updated 2026-11-15)
+
+## CPU product-backend dependency inventory — 14 Nov 2026
+
+The new backend uses SQLAlchemy `2.0.57` (MIT), Alembic `1.20.1` (MIT), psycopg and psycopg-binary `3.3.9` (declared LGPL-3.0-only), Pillow `12.3.0` (MIT-CMU), and their pinned dependencies. Installed distribution metadata and license files were inspected. [CPU_DEPENDENCY_INVENTORY.json](CPU_DEPENDENCY_INVENTORY.json) records exact installed versions and license-file hashes; [requirements.lock](../../requirements.lock) pins CPU/test package releases.
+
+**Status: development/test inventory, not complete commercial release clearance.** Preserve dependency notices. Psycopg binary, Pillow codecs and other compiled wheels may bundle libraries with additional obligations; package-level labels do not audit every bundled binary. No third-party source is vendored or relicensed by this change. Container/base-image, binary-bundle, distribution and deployment review remain required. This does not approve any AI checkpoint, training dataset or GPU runtime. All real model approvals remain empty by default.
+
+**Status: NO MODEL APPROVED FOR PRODUCTION.** This is an evidence-based source/license inventory, not legal advice or completion of issue #2. A permissive app-repository license never clears upstream model weights, forked components, training assets, or transitive rendering dependencies.
+
+| Component | Pinned upstream commit | Repository-level license checked | Commercial-release decision |
+|---|---|---|---|
+| [Open3DStudio](https://github.com/FishWoWater/Open3DStudio) | `f2e403eb11a2c33077e9f353fa240974edb06981` | Apache-2.0 ([LICENSE](https://github.com/FishWoWater/Open3DStudio/blob/main/LICENSE)) | Research-only until frontend dependencies, assets and build tested |
+| [3DAIGC-API](https://github.com/FishWoWater/3DAIGC-API) | `9c5643f99cbfd8d47b81922790f0d0a36be57e81` | Apache-2.0 ([LICENSE](https://github.com/FishWoWater/3DAIGC-API/blob/main/LICENSE)) | Research-only: its `.gitmodules` includes separately licensed AI systems |
+| [Step1X-3D](https://github.com/stepfun-ai/Step1X-3D) | `cb5ac944709c6c913109070c7b90c3447f57f3d4` | Apache-2.0 source/model card, but published runtime requirements include nvdiffrast | **REJECTED standard runtime path** for commercial deployment because nvdiffrast is non-commercial; a renderer-replaced fork requires a new exact-tree audit |
+| [TRELLIS.2](https://github.com/microsoft/TRELLIS.2) | `75fbf0183001ed9876c8dbb35de6b68552ee08bd` | MIT ([LICENSE](https://github.com/microsoft/TRELLIS.2/blob/main/LICENSE)) | **Do not use standard NVIDIA renderer path commercially** without permission or permitted replacement |
+| [UniRig](https://github.com/VAST-AI-Research/UniRig) | `6793c6640ff01c8fb389f3993434124bb43d2933` | MIT (LICENSE) | Research-only pending pretrained weights, dependencies, functional test |
+| [SkinTokens](https://github.com/VAST-AI-Research/SkinTokens) | `273b691d35989d71cd17ff2895fdc735097b92d1` | MIT (LICENSE) | Research-only pending weights and dependencies |
+| [xatlas](https://github.com/jpcy/xatlas) | `f700c7790aaa030e794b52ba7791a05c085faf0c` | MIT (LICENSE) | **APPROVED** as a source-license candidate; adapter/build/quality tests and any selected binding license remain required |
+| [AssetFurnace](https://github.com/Bingeljell/image-to-3dlab) | `52b8cf560d3f4629342113b7a8b13312f4b05073` | Apache-2.0 app code + NOTICE declaring separately licensed model/encoder backends | **RESEARCH_ONLY** as an integrated pipeline; selective Apache-licensed reuse may be reviewed file-by-file |
+| [TripoSG](https://github.com/VAST-AI-Research/TripoSG) | `fc5c40990181e2a756c4e0b1c2f4d6b5202faf8c` | MIT source/main weights, but NOTICE lists FlashVDM/Hunyuan-derived code; stock CLI downloads BRIA RMBG-1.4 | **REJECTED default worldwide runtime path**: RMBG-1.4 is non-commercial by default and FlashVDM's community license excludes EU/UK/South Korea |
+| [TripoSR](https://github.com/VAST-AI-Research/TripoSR) | source `107cefdc244c39106fa830359024f6a2f1c78871`; model repo `2ba2f5591f8eb0821784764ab9ab99a12e1abb08`; checkpoint SHA256 `429e2c6b22a0923967459de24d67f05962b235f79cde6b032aa7ed2ffcd970ee` | MIT source/model card; model card states curated Objaverse subset under CC-BY; DINO config candidate Apache-2.0 | **RESEARCH_ONLY / qualification candidate**. A guarded source patch now removes the stock torchmcubes/hidden-config-download path, but complete transitive wheel/system-library audit, candidate-image execution and owner/legal data-model verdict remain open. |
+| [TripoSR-scikit](https://github.com/vltmedia/TripoSR-scikit) | `fa39422b81217687f16efe7bb3afc136feb87ba7` | MIT | **SELECTIVE_REUSE_ONLY**: use as evidence for the small scikit marching-cubes change; fork is 17 commits behind current TripoSR |
+| [scikit-image](https://pypi.org/project/scikit-image/) | qualification pin `0.25.2` | BSD-3-Clause; PyPI requires Python >=3.10 | **APPROVED source/package-license candidate** for marching cubes; Build3D CI tests axis/normalization/face-winding behavior, while exact torchmcubes numerical/visual equivalence remains a qualification question. |
+| [xatlas-python](https://github.com/mworchel/xatlas-python) | v0.0.9 `ff6541ec7ed1b5131dd7bf5447da6174e6c82621` | MIT | **APPROVED for the narrow inspected binding/output contract**; its `export()` writes OBJ, so the project does not treat it as a GLB exporter |
+| [glTF Transform](https://github.com/donmccurdy/glTF-Transform) | `8e2a94a2616d293c4b503d0fb6a4b42e6ec7c62f` | MIT (repository/package metadata) | **APPROVED** as a utility-library candidate; exact project version/integration test still required before shipping |
+| [Three.js](https://github.com/mrdoob/three.js) | `b529cbbda2ba956a8444545a5634f6db22b68385`; `apps/web` pins 0.187.0 | MIT | **APPROVED** for the imported browser-rendering package; web CI passed |
+| [NVIDIA PartField](https://github.com/nv-tlabs/PartField) | `373025dbd283bb44cc4a6dc78c99994dbc91de32` | NVIDIA-specific, §3.3 non-commercial research/education use | **BLOCKED** for commercial deployment without other permission |
+| [Hunyuan3D-2.1](https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1) | `82920d643c0dc2f7bfd7255f45f62d386edfe60c` | Tencent Hunyuan 3D 2.1 Community License | **BLOCKED for worldwide service**: EU, UK, South Korea excluded; further hosted-service obligations |
+
+## Explicit high-risk dependency evidence
+
+1. [TRELLIS.2 README](https://github.com/microsoft/TRELLIS.2/blob/main/README.md) setup explicitly includes **nvdiffrast** and **nvdiffrec**.
+2. [nvdiffrast LICENSE §3.3](https://github.com/NVlabs/nvdiffrast/blob/main/LICENSE.txt) limits use of the Work/derivatives to non-commercial research/evaluation.
+3. [nvdiffrec LICENSE §3.3](https://github.com/NVlabs/nvdiffrec/blob/main/LICENSE.txt) similarly limits use to non-commercial research/evaluation.
+4. [PartField LICENSE §3.3](https://github.com/nv-tlabs/PartField/blob/main/LICENSE) limits use to non-commercial research and education.
+5. [Hunyuan3D-2.1 LICENSE](https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1/blob/main/LICENSE) expressly excludes the EU, UK and South Korea from its defined territory; it also has hosted-service and other conditions.
+6. [3DAIGC-API .gitmodules](https://github.com/FishWoWater/3DAIGC-API/blob/main/.gitmodules) lists external/forked TRELLIS, PartField, PartPacker, Hunyuan3D, UniRig, FastMesh, PartUV, TRELLIS.2, Hunyuan3D-Part, UltraShape and VoxHammer; neither source license nor weight license follows automatically from the parent repo.
+7. TripoSG's stock CLI pulls BRIA RMBG-1.4, while BRIA's current model card states the freely available model is for non-commercial use and commercial deployment requires a separate agreement. Its preprocessing code can technically bypass RMBG for an already-valid RGBA alpha input, but that does not clear the source tree.
+8. TripoSG's NOTICE records derived HunyuanDiT and FlashVDM code. The current FlashVDM Community License defines territory as worldwide excluding the EU, UK and South Korea and imposes hosted-service/use obligations. This conflicts with the intended worldwide product, so the inspected default runtime is rejected unless restricted derived components are removed and the resulting fork is re-audited.
+9. Step1X-3D's published runtime requirements include `git+https://github.com/NVlabs/nvdiffrast.git`; nvdiffrast is already recorded above as non-commercial. The top-level Apache-2.0 license therefore does not clear the standard runtime.
+10. AssetFurnace's Apache-2.0 repository NOTICE explicitly separates its application license from model-weight/backend licenses; it is useful evidence for a provenance-first architecture, not an approval of its selectable model stack.
+11. TripoSR's top-level source/model licensing is promising, but the stock requirements include an unpinned torchmcubes Git dependency. The inspected historical snapshot around the original release did not contain a repository license file. Do not treat a current torchmcubes license as retroactive evidence for that historical commit.
+12. TripoSR's published `model.ckpt` is a PyTorch pickle-style checkpoint. Even with an approved license, only the exact reviewed SHA256 may be loaded in an isolated model runtime; user-supplied checkpoints must never be passed to `torch.load`.
+13. xatlas-python v0.0.9's inspected `export()` implementation writes OBJ text. A `.glb` filename does not change that format. Build 3D AI uses its own tested, self-contained PBR GLB packager for this candidate path.
+
+## Runtime integration policy
+
+- The gateway defaults to **zero** approved runtime model IDs; any valid generation attempt returns HTTP 503 until an exact reviewed model entry is configured.
+- A selected upstream model ID must match a reviewed entry and include the true upstream revision and weight checksum. Unknown models return HTTP 403.
+- A model's claimed VRAM, supported features or output format in a README does not prove it works on our servers.
+- **Operator attestation is required:** the approval file records review metadata but does not itself verify legal rights. Human/license review must cover dependencies, data, hosted use, geographic reach, and attribution.
+- Production and customer-data access require separate authentication, tenant security, rate limits and credit accounting. This gateway is still private and single-operator.
+
+## Needed before closing Issue #2
+
+Audit license files of each **exact cloned submodule revision**, pretrained checkpoints and weights distribution pages, transitive runtime containers, npm packages, texture pipelines and datasets. Run verified clean-room build/tests of frontend and backend, document fork deltas, and select one commercially permitted baseline **end-to-end** GPU stack. That work is still open.
+
+## Trusted identity dependency decision — 15 Nov 2026
+
+| Component | Pin | License / evidence | Decision |
+|---|---|---|---|
+| PyJWT | `2.15.1` | MIT; PyPI release published 28 Sep 2026 with provenance; Python >=3.9 | **APPROVED dependency candidate** for JWT parsing/signature/claim validation; algorithms are statically restricted by Build3D |
+| cryptography | `50.0.2` | Apache-2.0 OR BSD-3-Clause; PyPI release published 30 Sep 2026 with provenance | **APPROVED dependency candidate** for asymmetric JWT verification; bundled wheel/OpenSSL distribution obligations remain part of release review |
+| cffi | `2.1.1` | MIT | Transitive cryptography dependency; release inventory required |
+| pycparser | `3.12` | BSD-3-Clause | Transitive cffi dependency; release inventory required |
+
+The identity feature is disabled by default. Adding these packages does not approve any external identity provider, social-login provider, email service or Better Auth deployment.

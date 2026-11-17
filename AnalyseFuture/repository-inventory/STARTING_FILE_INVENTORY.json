@@ -1,0 +1,6127 @@
+{
+  "starting_commit": "56f412f0722394300a522b7392b191702d3f2c48",
+  "tracked_count": 369,
+  "files": [
+    {
+      "path": ".dockerignore",
+      "mode": "100644",
+      "git_blob": "3b3331567983ad7dd80f745bbd6891a0f005fb97",
+      "size_bytes": 189,
+      "sha256": "04073af84a9917491c1248f18aab1faa081e9170e9182116fec543b2c19c4ac7",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 16
+    },
+    {
+      "path": ".env.example",
+      "mode": "100644",
+      "git_blob": "766a429cf43d1512e684a9a2b0b014ee5ad40d30",
+      "size_bytes": 1690,
+      "sha256": "cc1d063b218de647221c7db261c7b0b2dc5d032defb7e0ee9c0af1ad855f74c9",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 33
+    },
+    {
+      "path": ".github/workflows/gateway-ci.yml",
+      "mode": "100644",
+      "git_blob": "2c45b50d733579e5eb2677ab26f6a05e940d17ff",
+      "size_bytes": 758,
+      "sha256": "3613f5b80febb815f863c198b29c147c1cc5d434d6e0b17cb30424449bc9e598",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 24
+    },
+    {
+      "path": ".github/workflows/product-api-ci.yml",
+      "mode": "100644",
+      "git_blob": "da9ee9a9a94d28796be45e1df8a3a17893c35ca2",
+      "size_bytes": 1882,
+      "sha256": "458c3cf4c3ebd13628e575ac187273310449f8ad136ac17d54ff80b63f3139f2",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 53
+    },
+    {
+      "path": ".github/workflows/triposr-qualification-ci.yml",
+      "mode": "100644",
+      "git_blob": "737a971613763897c935eb3affbb82ea735cb8d6",
+      "size_bytes": 2633,
+      "sha256": "79f41e56e115630385dc6dae1447a8537566f5aa0a029582741c6d8703958063",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 54
+    },
+    {
+      "path": ".github/workflows/web-ci.yml",
+      "mode": "100644",
+      "git_blob": "91c56ac8eb559d54720519dba0fb3aa590049439",
+      "size_bytes": 1275,
+      "sha256": "6242717c624ea93c59a0248f74d20731af59d2397ec61a1b67ba202827bc2ab7",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 52
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "git_blob": "386a79c6d3ea9e9d01477eab1dfbe3a77e40cc2d",
+      "size_bytes": 473,
+      "sha256": "d6b09a8554c2f53083b97dec217ab5cddc5ec2f1487fe70f1af166a80ab915ee",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 40
+    },
+    {
+      "path": "AGENTS.md",
+      "mode": "100644",
+      "git_blob": "96ec7f32b4ee3c30509a7a77a7a0b1fb0a9677f3",
+      "size_bytes": 5341,
+      "sha256": "18a1e89faeaf17bc8228dc545ed64dd837ebc136f3bde3cd3541e353c1a7cde0",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 51
+    },
+    {
+      "path": "AnalyseFuture/FILE_INDEX.json",
+      "mode": "100644",
+      "git_blob": "77d2c1896959048f2fd29a603c51f3397b42a891",
+      "size_bytes": 111087,
+      "sha256": "c8cdc4edf4cf2a36df9d91750b98b3a27410c52de077b88c519228e2cbb49e2c",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 1953
+    },
+    {
+      "path": "AnalyseFuture/README.md",
+      "mode": "100644",
+      "git_blob": "3d7a2fed54c46ec6ba8bde85e1886e869efff051",
+      "size_bytes": 3111,
+      "sha256": "54b36766621d439efaa202c09814cf1082363bc46d2e04c110c25ced2b3061ba",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 56
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/README.md",
+      "mode": "100644",
+      "git_blob": "0fede5e48e0b6a011c2169fae8cb2e45cd064bef",
+      "size_bytes": 1504,
+      "sha256": "987629b2e72aea5150499493151e1a3e7e110bec83d0393a93ec95b070a38f3b",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 32
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/bird.glb",
+      "mode": "100644",
+      "git_blob": "c61247852a85b815fc39e2d356d67296b35f3738",
+      "size_bytes": 8032388,
+      "sha256": "bb59726f598ab4a4e4c431b9789317f5b2f4252a6fb57364d929f5e1ddd7b5bb",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/giraffe.glb",
+      "mode": "100644",
+      "git_blob": "24d5a8cebe36ce780c494ff37d380b352d5d7e0c",
+      "size_bytes": 6310044,
+      "sha256": "9a947cae00b169345802c08885c1e54313c6ce93c885bacf8e37e8a1f18f9e3b",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/bird.fbx",
+      "mode": "100644",
+      "git_blob": "88404658817a7c0251a949ed6a2519447f027e0c",
+      "size_bytes": 401084,
+      "sha256": "885d432850506ab673d509ae2481067cc623452d5910090e1e15f323b9f83fa2",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/giraffe.fbx",
+      "mode": "100644",
+      "git_blob": "acf9bd4aaf831df359e7f32815345dc765ca1870",
+      "size_bytes": 759180,
+      "sha256": "73673a15c8103fbf9a6b39762768ae48e7c9404eab4850a60e4863ee400336fd",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/tira.fbx",
+      "mode": "100644",
+      "git_blob": "64cd4fc05c8bc6036f2beca3cdcaaa977a08c2d3",
+      "size_bytes": 1694668,
+      "sha256": "57ed6969266d642da2d8a579059462c7cd4a36c9bd7a8415236dcbea36607fee",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/tripo_carrot.fbx",
+      "mode": "100644",
+      "git_blob": "cb2432d99eb77c55b0e5206f80e48a9f8b6fa3c2",
+      "size_bytes": 1879420,
+      "sha256": "50e08d70c7bdfa96eb842aed18564d8486a4622a474dbc0e0ef9304af1d4c6d3",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/tira.glb",
+      "mode": "100644",
+      "git_blob": "6061575015fa6108c40d30ed591b422b7075989d",
+      "size_bytes": 32346060,
+      "sha256": "8e5a282d0a99c61a8d2439496057b15b0c6ea02643c16da2dcbec85571157799",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/example_autorig/tripo_carrot.glb",
+      "mode": "100644",
+      "git_blob": "04ee567681cfcb4e8d4e833465dc3cf5bba6ed86",
+      "size_bytes": 9511824,
+      "sha256": "3c00b7e6ff1e71a019a02128a5b37e8d2db259a402313ad9b4eaab4f183ae40b",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/example_prompts.txt",
+      "mode": "100644",
+      "git_blob": "51550223aa081074d221a086ff76ff8ce2245c40",
+      "size_bytes": 311,
+      "sha256": "1810eac4f9136d0bbac1c00f45b6ffd56194185468f5cd026f7e25df28c97ed2",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 5
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/open3dstudio_demo.jpg",
+      "mode": "100644",
+      "git_blob": "d9652e8cfe9eb25ebd654953a2ccd02811d06854",
+      "size_bytes": 399899,
+      "sha256": "fd07a67645ad6140d4db4f492f600f29524fa9d0c523247c65fe05d0676a164a",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/open3dstudio_v1.0_demo_41m.gif",
+      "mode": "100644",
+      "git_blob": "1758e63418d3c34afb10adee56a4ce3f6af26947",
+      "size_bytes": 41126867,
+      "sha256": "98983599935e1d3a6d23550152b47147b3dc82bddd4ae5f948376974c7f87f34",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/runpod_demo1.png",
+      "mode": "100644",
+      "git_blob": "cc07d8565d993cb96cc74078dd888d0c9cfaa53f",
+      "size_bytes": 122872,
+      "sha256": "f007649e1518031c4a9474430ff6c17a40ce6b2f3a053611ad20a6df83bb36db",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/runpod_demo2.png",
+      "mode": "100644",
+      "git_blob": "eeb02cd6396fbd54e65541b56e33f075e942ba19",
+      "size_bytes": 210921,
+      "sha256": "7d7b7d68a4fdb55d69a2bb072495db2eff8b8f69e077dcea045c47a70658412d",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/system_arch.drawio",
+      "mode": "100644",
+      "git_blob": "70b319094224ce52b177580ee54b745d662a412d",
+      "size_bytes": 14340,
+      "sha256": "8e8cb08a3fd253031f2a0efbce48fce34be46c3726d1c427e4db9e8a6c6158bc",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 156
+    },
+    {
+      "path": "AnalyseFuture/assets/reference/autorig/system_arch.png",
+      "mode": "100644",
+      "git_blob": "5791b4c8ef615194b0248d4b38352c17d74183d6",
+      "size_bytes": 168298,
+      "sha256": "693428c2be6a92cdb237d863ef62d826a32471afa8658cf12975bb7b2063356b",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/history/assets/reference/README.md",
+      "mode": "100644",
+      "git_blob": "23bb4c32b69b3f2ea170c468cd5ecb365f3afb09",
+      "size_bytes": 1333,
+      "sha256": "ee66e3c5ac73abcd95bb0ac455fc21f94029dd4bd3388cb822b246fed4c2c50e",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 30
+    },
+    {
+      "path": "AnalyseFuture/history/third_party/README.md",
+      "mode": "100644",
+      "git_blob": "8f0a1c49697a5491552a70052bb71062e2279642",
+      "size_bytes": 2861,
+      "sha256": "54dcd1ae748dbe3dc494c59943726597c29079f2db1f99a519540b666fa89c31",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 49
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/.dockerignore",
+      "mode": "100644",
+      "git_blob": "a3c625e1ca04a14b7b394eb7477843cc83d73c23",
+      "size_bytes": 1066,
+      "sha256": "ab3e55700c3b2c50c837ecd2537f8b6c28d8d4a5b412b1cfde1796216c6ba681",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 91
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/.gitignore",
+      "mode": "100644",
+      "git_blob": "1eef4e8d41a85ac8a15dd788ac43460cb983732e",
+      "size_bytes": 7483,
+      "sha256": "d2983ef3d3d5e513982cc1b0d88d2cc06484f8807722f2c782f0aa061be9bd1a",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 440
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/.gitmodules",
+      "mode": "100644",
+      "git_blob": "4b7b93967f8d598bb91897e94241592cd8a6a43f",
+      "size_bytes": 1234,
+      "sha256": "3fb6ae96e0267a2424f14707a17ca1652d33da3a4e34939fbbd452f12b11dc40",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 33
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/Dockerfile",
+      "mode": "100644",
+      "git_blob": "6ad5e7e16d8af53fad308502111ef1a8ae696687",
+      "size_bytes": 5409,
+      "sha256": "14e25bfda139ed8ab3b27239cf1f2ddbb4c90dfbf466ea71adfe091785753afc",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 163
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/Dockerfile.runpod",
+      "mode": "100644",
+      "git_blob": "14730d9f9960aadc6877cd36e68b204c78622cf4",
+      "size_bytes": 5265,
+      "sha256": "3828e35ee28d26946bc61f0dfb895f9ccf25b5a9eea3c6435ad725c6fad4a948",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 159
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/LICENSE",
+      "mode": "100644",
+      "git_blob": "f49a4e16e68b128803cc2dcea614603632b04eac",
+      "size_bytes": 11356,
+      "sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 201
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/README.md",
+      "mode": "100644",
+      "git_blob": "f810b59916906d9b4e95df4073891782625789ae",
+      "size_bytes": 23970,
+      "sha256": "1fa79b7c1b0835c5186df25c83c8d2596950f661446124e42e50882f4147ca5b",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 654
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/__init__.py",
+      "mode": "100644",
+      "git_blob": "24e67a1fe98aa58eaf843bf304e56f1a7d6d6258",
+      "size_bytes": 1301,
+      "sha256": "91c6246c54bebd6b6ea59012161dad70f6b3d0fcdd36663c4054e3a8c1a20dba",
+      "kind": "text",
+      "python_imports": [
+        "hunyuan3d_adapter_v21",
+        "partfield_adapter",
+        "partpacker_adapter",
+        "trellis2_adapter",
+        "trellis_adapter",
+        "unirig_adapter"
+      ],
+      "symbols": [],
+      "line_count": 41
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/fastmesh_adapter.py",
+      "mode": "100644",
+      "git_blob": "61c7b3c0303c2f0554465afbefb8d76b333e9d99",
+      "size_bytes": 9607,
+      "sha256": "c9526452bcd98472daf71a804d434749452abe821358be842e6f7aca926ebe61",
+      "kind": "text",
+      "python_imports": [
+        "core.models.base",
+        "core.models.retopo_models",
+        "core.utils.file_utils",
+        "core.utils.mesh_utils",
+        "logging",
+        "pathlib",
+        "sys",
+        "torch",
+        "typing",
+        "utils.fastmesh_utils"
+      ],
+      "symbols": [
+        "FastMeshRetopologyAdapter"
+      ],
+      "line_count": 259
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/hunyuan3d_adapter_v21.py",
+      "mode": "100644",
+      "git_blob": "9b17b7bf61792cb90527038af338e3514bb4f527",
+      "size_bytes": 23206,
+      "sha256": "7f9d19b473e2a8d68ce8c6ac84ec88c6c2dcfe33de440260b9df0fa8e5f06301",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "core.models.base",
+        "core.models.mesh_models",
+        "core.utils.file_utils",
+        "core.utils.mesh_utils",
+        "hy3dpaint.textureGenPipeline",
+        "hy3dshape.pipelines",
+        "hy3dshape.rembg",
+        "logging",
+        "os",
+        "pathlib",
+        "shutil",
+        "sys",
+        "tempfile",
+        "torch",
+        "traceback",
+        "typing",
+        "utils.torchvision_fix"
+      ],
+      "symbols": [
+        "Hunyuan3DV21ImageToMeshAdapterCommon",
+        "Hunyuan3DV21ImageToRawMeshAdapter",
+        "Hunyuan3DV21ImageToTexturedMeshAdapter",
+        "Hunyuan3DV21ImageMeshPaintingAdapter"
+      ],
+      "line_count": 609
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/p3sam_adapter.py",
+      "mode": "100644",
+      "git_blob": "d147423b2ed16fe588459f812a433f4a91060fe0",
+      "size_bytes": 13041,
+      "sha256": "3996140f93c096ed1ea0d9a129c38e2024bc2e0fe19253fc29a9845fed11f584",
+      "kind": "text",
+      "python_imports": [
+        "core.models.base",
+        "core.models.segment_models",
+        "core.utils.file_utils",
+        "core.utils.mesh_utils",
+        "logging",
+        "numpy",
+        "pathlib",
+        "shutil",
+        "sys",
+        "time",
+        "torch",
+        "traceback",
+        "typing",
+        "utils.p3sam_utils"
+      ],
+      "symbols": [
+        "P3SAMSegmentationAdapter"
+      ],
+      "line_count": 344
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/partfield_adapter.py",
+      "mode": "100644",
+      "git_blob": "796854410f3787b3ef6ece57d4cfdf023761da89",
+      "size_bytes": 14829,
+      "sha256": "f53e4ec9391711feb12ed7c987b6645367ff449dd48b5c7d6f2efc8491ee5730",
+      "kind": "text",
+      "python_imports": [
+        "core.models.base",
+        "core.models.segment_models",
+        "core.utils.file_utils",
+        "core.utils.mesh_utils",
+        "logging",
+        "numpy",
+        "os",
+        "pathlib",
+        "shutil",
+        "sys",
+        "time",
+        "torch",
+        "traceback",
+        "trimesh",
+        "typing",
+        "utils.partfield_utils"
+      ],
+      "symbols": [
+        "PartFieldSegmentationAdapter"
+      ],
+      "line_count": 392
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/partpacker_adapter.py",
+      "mode": "100644",
+      "git_blob": "2df0152b9a8509490a13bc4d7eaa1c4d73a3ffa4",
+      "size_bytes": 12736,
+      "sha256": "903a033aa17729c9388fbbb9693e2a9e5ede02138fd5054c7ece12a494c36c88",
+      "kind": "text",
+      "python_imports": [
+        "core.models.base",
+        "core.models.mesh_models",
+        "core.utils.file_utils",
+        "core.utils.mesh_utils",
+        "logging",
+        "os",
+        "pathlib",
+        "sys",
+        "torch",
+        "typing",
+        "utils.partpacker_utils"
+      ],
+      "symbols": [
+        "PartPackerImageToRawMeshAdapter"
+      ],
+      "line_count": 326
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/partuv_adapter.py",
+      "mode": "100644",
+      "git_blob": "fdf0817933a88b1164243cc51a0279e0c68a7c78",
+      "size_bytes": 11154,
+      "sha256": "d9ea662e09149258bc9b8a43a15606ac53079d79212220fffb57c37baa0a3fcc",
+      "kind": "text",
+      "python_imports": [
+        "core.models.base",
+        "core.models.uv_models",
+        "core.utils.file_utils",
+        "core.utils.mesh_utils",
+        "logging",
+        "pathlib",
+        "sys",
+        "torch",
+        "typing",
+        "utils.partuv_utils"
+      ],
+      "symbols": [
+        "PartUVUnwrappingAdapter"
+      ],
+      "line_count": 283
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/trellis2_adapter.py",
+      "mode": "100644",
+      "git_blob": "e6556066d6de0138f01f53a08f00adea105afd5e",
+      "size_bytes": 18514,
+      "sha256": "13c97b8b2e831ea1436e4a15c40ca2b012a3602ef2f6fe80807143fc6901904e",
+      "kind": "text",
+      "python_imports": [
+        "core.models.base",
+        "core.models.mesh_models",
+        "core.utils.mesh_utils",
+        "core.utils.thumbnail_utils",
+        "logging",
+        "os",
+        "pathlib",
+        "time",
+        "torch",
+        "traceback",
+        "typing",
+        "utils.trellis2_utils"
+      ],
+      "symbols": [
+        "Trellis2ImageToTexturedMeshAdapter",
+        "Trellis2ImageMeshPaintingAdapter"
+      ],
+      "line_count": 486
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/trellis_adapter.py",
+      "mode": "100644",
+      "git_blob": "628f003759f8bb657f7c02edca30107a4a0a4f5e",
+      "size_bytes": 26786,
+      "sha256": "d85a5a4be625fe8c1a8f918243f07ac5e536046c7b6286af70eeb58e09c9c5f4",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "core.models.base",
+        "core.models.mesh_models",
+        "core.utils.mesh_utils",
+        "core.utils.thumbnail_utils",
+        "logging",
+        "numpy",
+        "os",
+        "pathlib",
+        "sys",
+        "time",
+        "torch",
+        "traceback",
+        "trellis.pipelines",
+        "trellis.utils",
+        "trimesh",
+        "typing"
+      ],
+      "symbols": [
+        "TrellisTextToMeshAdapterCommon",
+        "TrellisImageToMeshAdapterCommon",
+        "TrellisTextToTexturedMeshAdapter",
+        "TrellisTextMeshPaintingAdapter",
+        "TrellisImageToTexturedMeshAdapter",
+        "TrellisImageMeshPaintingAdapter"
+      ],
+      "line_count": 715
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/ultrashape_adapter.py",
+      "mode": "100644",
+      "git_blob": "e88c13f2bae8b9b3b1c7c1403a4d635860f687c0",
+      "size_bytes": 14269,
+      "sha256": "f5b47f2c989acbcf06d0ea2fae5fa386da7d83373d70030bb4a42d510533d5d2",
+      "kind": "text",
+      "python_imports": [
+        "core.models.base",
+        "core.models.mesh_models",
+        "core.utils.file_utils",
+        "core.utils.mesh_utils",
+        "hy3dshape.pipelines",
+        "hy3dshape.rembg",
+        "logging",
+        "os",
+        "pathlib",
+        "shutil",
+        "sys",
+        "torch",
+        "traceback",
+        "typing",
+        "utils.torchvision_fix",
+        "utils.ultrashape_pipeline_helper"
+      ],
+      "symbols": [
+        "UltraShapeImageToRawMeshAdapter"
+      ],
+      "line_count": 351
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/unirig_adapter.py",
+      "mode": "100644",
+      "git_blob": "4d8332878362cd69a2ff36b657069ca634cadff1",
+      "size_bytes": 13658,
+      "sha256": "6b732ec0a319d8fa3b6252d752d207b4ba8fd1c569eac80da9f91966b9b52025",
+      "kind": "text",
+      "python_imports": [
+        "core.models.base",
+        "core.models.rig_models",
+        "core.utils.file_utils",
+        "core.utils.format_utils",
+        "core.utils.mesh_utils",
+        "logging",
+        "os",
+        "pathlib",
+        "sys",
+        "torch",
+        "traceback",
+        "typing",
+        "utils.unirig_utils"
+      ],
+      "symbols": [
+        "UniRigAdapter"
+      ],
+      "line_count": 363
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/adapters/voxhammer_adapter.py",
+      "mode": "100644",
+      "git_blob": "984cf14f0a943dbbd7e5476f4f89d6f3c34bf0ef",
+      "size_bytes": 23132,
+      "sha256": "4d7366496b93beb08a4ad7d970abbf492e1d9b0298d2fc5254f879e25ffd3daf",
+      "kind": "text",
+      "python_imports": [
+        "core.models.base",
+        "core.models.mesh_editing_models",
+        "core.utils.file_utils",
+        "core.utils.mask_generator",
+        "core.utils.mesh_utils",
+        "logging",
+        "os",
+        "pathlib",
+        "shutil",
+        "sys",
+        "torch",
+        "traceback",
+        "trellis.pipelines",
+        "typing",
+        "utils.voxhammer_pipeline_helper"
+      ],
+      "symbols": [
+        "VoxHammerTextMeshEditingAdapter",
+        "VoxHammerImageMeshEditingAdapter"
+      ],
+      "line_count": 582
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/api/__init__.py",
+      "mode": "100644",
+      "git_blob": "c7854d2a2839ef626df729fe979d2db7442684a1",
+      "size_bytes": 66,
+      "sha256": "c05c0dfaa02c51fdba55986a2bae0b75c0debd394c3dbccc9aee177a9ee9e49b",
+      "kind": "text",
+      "python_imports": [
+        "main_multiworker"
+      ],
+      "symbols": [],
+      "line_count": 4
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/api/dependencies.py",
+      "mode": "100644",
+      "git_blob": "d48987632fe242310891744d8dce6bcc05d02eb0",
+      "size_bytes": 17050,
+      "sha256": "12aea2315a8f33aecdf077c8c0b2f84b3bf1cc8d64f74a776c0787b1b5f7f121",
+      "kind": "text",
+      "python_imports": [
+        "core.auth.models",
+        "core.config",
+        "core.scheduler.job_queue",
+        "core.scheduler.model_factory",
+        "fastapi",
+        "logging",
+        "typing"
+      ],
+      "symbols": [
+        "SchedulerAdapter",
+        "get_current_settings",
+        "get_scheduler",
+        "get_job_queue",
+        "get_scheduler_or_queue",
+        "verify_api_key",
+        "check_rate_limit",
+        "get_file_store",
+        "CommonQueryParams",
+        "get_auth_service",
+        "get_current_user",
+        "get_current_user_optional",
+        "require_admin",
+        "get_current_user_or_none"
+      ],
+      "line_count": 496
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/api/main_multiworker.py",
+      "mode": "100644",
+      "git_blob": "520dba21ac3d8b06a2564a2590b472bab41e84cc",
+      "size_bytes": 10214,
+      "sha256": "94e285e4a4e17193f853cc79c02c604adfe57a51e49945b71ce165863843581d",
+      "kind": "text",
+      "python_imports": [
+        "contextlib",
+        "core.auth",
+        "core.config",
+        "core.file_store",
+        "core.scheduler.redis_job_queue",
+        "core.utils.exceptions",
+        "fastapi",
+        "fastapi.middleware.cors",
+        "fastapi.middleware.trustedhost",
+        "fastapi.responses",
+        "logging",
+        "redis.asyncio",
+        "routers",
+        "time"
+      ],
+      "symbols": [
+        "configure_cors",
+        "configure_security",
+        "lifespan",
+        "add_process_time_header",
+        "log_requests",
+        "base_api_exception_handler",
+        "value_error_handler",
+        "not_found_handler",
+        "internal_error_handler",
+        "health_check",
+        "root"
+      ],
+      "line_count": 325
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/api/main_singleworker.py",
+      "mode": "100644",
+      "git_blob": "949fe4d474f7f702aca18a7f36ac0dc9b3e305e9",
+      "size_bytes": 7916,
+      "sha256": "d8a72ae13aa082859588fa57a0d5d1ae28710f51b817286ee6e3fbc3f1ebe0b1",
+      "kind": "text",
+      "python_imports": [
+        "contextlib",
+        "core.config",
+        "core.scheduler",
+        "core.scheduler.scheduler_factory",
+        "core.utils.exceptions",
+        "fastapi",
+        "fastapi.middleware.cors",
+        "fastapi.middleware.trustedhost",
+        "fastapi.responses",
+        "logging",
+        "routers",
+        "time"
+      ],
+      "symbols": [
+        "configure_cors",
+        "configure_security",
+        "lifespan",
+        "add_process_time_header",
+        "log_requests",
+        "base_api_exception_handler",
+        "value_error_handler",
+        "not_found_handler",
+        "internal_error_handler",
+        "health_check",
+        "root"
+      ],
+      "line_count": 274
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/__init__.py",
+      "mode": "100644",
+      "git_blob": "57cc1a43bc32db055bd5fd6c62643e62c6f0095c",
+      "size_bytes": 393,
+      "sha256": "32bd9a19e0790477e23b8759340d1e7778bd7aff347300a70ae2e015978fa179",
+      "kind": "text",
+      "python_imports": [
+        ""
+      ],
+      "symbols": [],
+      "line_count": 23
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/auto_rigging.py",
+      "mode": "100644",
+      "git_blob": "a0c9569bb7c09e34ba7574164fbe4e1b09aba9bb",
+      "size_bytes": 6479,
+      "sha256": "e42a25b63740ddd8210b17ec52e3b1b7fbe80456322fdc3537af235b96d4ae1f",
+      "kind": "text",
+      "python_imports": [
+        "api.dependencies",
+        "api.routers.file_upload",
+        "core.file_store",
+        "core.scheduler.job_queue",
+        "core.scheduler.multiprocess_scheduler",
+        "fastapi",
+        "logging",
+        "pydantic",
+        "typing"
+      ],
+      "symbols": [
+        "validate_model_preference",
+        "AutoRigRequest",
+        "AutoRigResponse",
+        "generate_rig",
+        "get_supported_formats"
+      ],
+      "line_count": 193
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/file_upload.py",
+      "mode": "100644",
+      "git_blob": "6af89424ba8b21c9c088b143f6376babc288c590",
+      "size_bytes": 15490,
+      "sha256": "6928b45c2922bbb6064d221644f946f4c8a15650802081b1d754f80218d5603c",
+      "kind": "text",
+      "python_imports": [
+        "api.dependencies",
+        "core.file_store",
+        "core.utils.file_utils",
+        "datetime",
+        "fastapi",
+        "logging",
+        "os",
+        "pathlib",
+        "pydantic",
+        "typing",
+        "uuid"
+      ],
+      "symbols": [
+        "FileUploadResponse",
+        "FileMetadataResponse",
+        "validate_file_type",
+        "generate_file_id",
+        "store_file_metadata_impl",
+        "get_file_metadata_impl",
+        "delete_file_metadata_impl",
+        "list_file_metadata_impl",
+        "count_files_impl",
+        "get_file_path_impl",
+        "upload_file_with_validation",
+        "upload_image",
+        "upload_mesh",
+        "get_file_metadata_endpoint",
+        "delete_file",
+        "list_uploaded_files",
+        "get_supported_formats",
+        "resolve_file_id_async",
+        "resolve_file_id"
+      ],
+      "line_count": 483
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/mesh_editing.py",
+      "mode": "100644",
+      "git_blob": "248f2550f88e491c5c015343f3999dd320d4838d",
+      "size_bytes": 17412,
+      "sha256": "ebf9f42e1501e047a5dec2b88e935efaf8997091181cb1690b303991364def3c",
+      "kind": "text",
+      "python_imports": [
+        "api.dependencies",
+        "api.routers.file_upload",
+        "api.routers.mesh_generation",
+        "core.file_store",
+        "core.scheduler.job_queue",
+        "core.scheduler.multiprocess_scheduler",
+        "core.utils.mask_generator",
+        "fastapi",
+        "logging",
+        "pathlib",
+        "pydantic",
+        "tempfile",
+        "typing"
+      ],
+      "symbols": [
+        "MaskBoundingBox",
+        "MaskEllipsoid",
+        "TextMeshEditingRequest",
+        "ImageMeshEditingRequest",
+        "MeshEditingResponse",
+        "process_file_input",
+        "text_mesh_editing",
+        "image_mesh_editing",
+        "get_supported_masks"
+      ],
+      "line_count": 431
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/mesh_generation.py",
+      "mode": "100644",
+      "git_blob": "db7ed68f7dcccc40497ea96aaede6c1eca4b2494",
+      "size_bytes": 29635,
+      "sha256": "0ab7c61e9442d60f9f7bca963c46e1f06c32407b138c0a1834c3a74b11a7a344",
+      "kind": "text",
+      "python_imports": [
+        "api.dependencies",
+        "api.routers.file_upload",
+        "core.file_store",
+        "core.scheduler.job_queue",
+        "core.scheduler.multiprocess_scheduler",
+        "core.utils.file_utils",
+        "fastapi",
+        "logging",
+        "pathlib",
+        "pydantic",
+        "tempfile",
+        "traceback",
+        "typing"
+      ],
+      "symbols": [
+        "validate_model_preference",
+        "TextToRawMeshRequest",
+        "TextToTexturedMeshRequest",
+        "TextMeshPaintingRequest",
+        "ImageToRawMeshRequest",
+        "ImageToTexturedMeshRequest",
+        "ImageMeshPaintingRequest",
+        "MeshGenerationResponse",
+        "process_file_input",
+        "text_to_raw_mesh",
+        "text_to_textured_mesh",
+        "text_mesh_painting",
+        "image_to_raw_mesh",
+        "image_to_textured_mesh",
+        "image_mesh_painting",
+        "get_supported_formats"
+      ],
+      "line_count": 825
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/mesh_retopology.py",
+      "mode": "100644",
+      "git_blob": "667e122612b4ba46fbb9141f5ff745ab65df6d99",
+      "size_bytes": 8994,
+      "sha256": "aead2474ca12a1664950ec8576f62f656b8b107b4e51d2cc6650193885ad4740",
+      "kind": "text",
+      "python_imports": [
+        "api.dependencies",
+        "api.routers.file_upload",
+        "core.file_store",
+        "core.scheduler.job_queue",
+        "core.scheduler.multiprocess_scheduler",
+        "fastapi",
+        "logging",
+        "pathlib",
+        "pydantic",
+        "typing"
+      ],
+      "symbols": [
+        "validate_model_preference",
+        "MeshRetopologyRequest",
+        "MeshRetopologyResponse",
+        "retopologize_mesh",
+        "get_supported_formats",
+        "get_available_models"
+      ],
+      "line_count": 266
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/mesh_segmentation.py",
+      "mode": "100644",
+      "git_blob": "99958023c803cf9ac7392fd23a96c8c7a9e83b05",
+      "size_bytes": 7933,
+      "sha256": "076594c8cf36e259e33f77ff10f6840d3931b5f3b43eaa8427fea7895ab2d854",
+      "kind": "text",
+      "python_imports": [
+        "api.dependencies",
+        "api.routers.file_upload",
+        "base64",
+        "core.file_store",
+        "core.scheduler.job_queue",
+        "core.scheduler.multiprocess_scheduler",
+        "fastapi",
+        "logging",
+        "os",
+        "pathlib",
+        "pydantic",
+        "tempfile",
+        "typing"
+      ],
+      "symbols": [
+        "validate_model_preference",
+        "MeshSegmentationRequest",
+        "MeshSegmentationResponse",
+        "segment_mesh",
+        "get_supported_formats"
+      ],
+      "line_count": 225
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/mesh_uv_unwrapping.py",
+      "mode": "100644",
+      "git_blob": "bdc68a4e8493f053c670ee68a2965e0ffaadb030",
+      "size_bytes": 9615,
+      "sha256": "d14c2369b69fbb4f606ed86fc0062abbeceba424f965d44ac64634f6dd87a795",
+      "kind": "text",
+      "python_imports": [
+        "api.dependencies",
+        "api.routers.file_upload",
+        "core.file_store",
+        "core.scheduler.job_queue",
+        "core.scheduler.multiprocess_scheduler",
+        "fastapi",
+        "logging",
+        "pathlib",
+        "pydantic",
+        "typing"
+      ],
+      "symbols": [
+        "validate_model_preference",
+        "MeshUVUnwrappingRequest",
+        "MeshUVUnwrappingResponse",
+        "unwrap_mesh",
+        "get_supported_formats",
+        "get_pack_methods",
+        "get_available_models"
+      ],
+      "line_count": 290
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/system.py",
+      "mode": "100644",
+      "git_blob": "5efecc4ef9f124ed053cd58bdfe0b2f299994010",
+      "size_bytes": 64028,
+      "sha256": "d4975317a789a1bdd513ecf2e4a10355627df4ca9ec7f6f411d5948ae2c23acc",
+      "kind": "text",
+      "python_imports": [
+        "GPUtil",
+        "api.dependencies",
+        "core.auth.models",
+        "core.scheduler.job_queue",
+        "core.scheduler.model_factory",
+        "core.scheduler.multiprocess_scheduler",
+        "core.utils.file_utils",
+        "datetime",
+        "fastapi",
+        "fastapi.responses",
+        "logging",
+        "mimetypes",
+        "os",
+        "pathlib",
+        "platform",
+        "psutil",
+        "signal",
+        "time",
+        "traceback",
+        "typing"
+      ],
+      "symbols": [
+        "health_check",
+        "get_auth_status",
+        "system_info",
+        "system_status",
+        "get_model_parameters",
+        "list_models",
+        "list_features",
+        "shutdown_server",
+        "get_logs",
+        "_parse_log_line",
+        "list_log_files",
+        "get_log_file",
+        "delete_log_file",
+        "get_scheduler_status",
+        "get_queue_stats",
+        "get_jobs_history",
+        "get_job_status",
+        "list_adapters",
+        "get_content_type_for_file",
+        "download_job_result",
+        "download_job_thumbnail",
+        "download_job_input",
+        "get_job_result_info",
+        "delete_job_result",
+        "delete_job",
+        "get_supported_formats",
+        "list_available_adapters",
+        "get_logging_config",
+        "generate_test_logs",
+        "update_logging_level"
+      ],
+      "line_count": 1783
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/api/routers/users.py",
+      "mode": "100644",
+      "git_blob": "6f0297920810869afd3d0ac371bba72e478d3791",
+      "size_bytes": 11498,
+      "sha256": "06611c013d700f179d7a0ff19c6f89987a1bce3247ff47c661b687ddb38ccf8f",
+      "kind": "text",
+      "python_imports": [
+        "api.dependencies",
+        "core.auth.models",
+        "core.auth.service",
+        "fastapi",
+        "logging",
+        "pydantic",
+        "typing"
+      ],
+      "symbols": [
+        "RegisterRequest",
+        "LoginRequest",
+        "LoginResponse",
+        "RegisterResponse",
+        "CreateTokenRequest",
+        "ChangePasswordRequest",
+        "register",
+        "login",
+        "get_profile",
+        "change_password",
+        "create_token",
+        "list_tokens",
+        "revoke_token",
+        "list_users",
+        "get_user",
+        "delete_user"
+      ],
+      "line_count": 375
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/073.png",
+      "mode": "100644",
+      "git_blob": "0390125b59df2d8cdca99709ce57012d9b6888d9",
+      "size_bytes": 107735,
+      "sha256": "afc0a4ee17882291aacedb6b2a6b1ca0e24912a3dc566efdb4d4c3400bc002e2",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/075.png",
+      "mode": "100644",
+      "git_blob": "1381f759beccc3a151d8981eb6894f9777da975a",
+      "size_bytes": 261670,
+      "sha256": "58b926e26c0026df16378e214fb046e63dd0edceacb0f8db8005d9ed3f86949a",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/1687.png",
+      "mode": "100644",
+      "git_blob": "90d406c9c2065689e1d9792ad826effdec889742",
+      "size_bytes": 157743,
+      "sha256": "74804ae8dee62928cd82d62a1a8bbbbaddeb91bc10a0315ec12c4a5d4aafb9c2",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/203.png",
+      "mode": "100644",
+      "git_blob": "a45b38e485ce1df454e39bece9ce4320f81424fd",
+      "size_bytes": 143678,
+      "sha256": "50c1bf6fb350031480031ecbf15a212eb119e9589f7a66d8dc0d09910c4d8060",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_building_space_station.png",
+      "mode": "100644",
+      "git_blob": "e37a5806d403dccc098d82492d687d71afa36850",
+      "size_bytes": 619626,
+      "sha256": "212c7b4c27ba1e01a7908dbc7f245e7115850eadbc9974aa726327cf35062846",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_creature_robot_crab.png",
+      "mode": "100644",
+      "git_blob": "8b4e10b353e0e9b60634ea272ff8fd9135fdd640",
+      "size_bytes": 594232,
+      "sha256": "d7e716abe8f8895080f562d1dc26b14fa0e20a05aa5beb2770c6fb3b87b3476a",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_creature_robot_dinosour.png",
+      "mode": "100644",
+      "git_blob": "7f8f51728fe1fecb0532673756b1601ef46edc2c",
+      "size_bytes": 632292,
+      "sha256": "d0986f29557a6fddf9b52b5251a6b6103728c61e201b1cfad1e709b090b72f56",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_humanoid_mech.png",
+      "mode": "100644",
+      "git_blob": "f0fbbdf6cda5636f517b6e2fa3f20e15e56e3777",
+      "size_bytes": 849947,
+      "sha256": "a244ec54b7984e646e54d433de6897657081dd5b9cd5ccd3d865328d813beb49",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/material.mtl",
+      "mode": "100644",
+      "git_blob": "ba334b30cd3da8baff46e918bec3b8a4b7bd38e8",
+      "size_bytes": 176,
+      "sha256": "3f9a761bfe339db161f396c85e828a22fd5bf5d95563fd05b483314a6760d2ce",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 7
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_dragon.obj",
+      "mode": "100644",
+      "git_blob": "a81e05382f2ae762b03fa53a100e16644eb15b1e",
+      "size_bytes": 1174697,
+      "sha256": "16bbd5361207aae0888eddb982182533f59b7137a8962ac2963d575f19844520",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 37610
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_dragon/typical_creature_dragon.obj",
+      "mode": "100644",
+      "git_blob": "a81e05382f2ae762b03fa53a100e16644eb15b1e",
+      "size_bytes": 1174697,
+      "sha256": "16bbd5361207aae0888eddb982182533f59b7137a8962ac2963d575f19844520",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 37610
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_elephant.obj",
+      "mode": "100644",
+      "git_blob": "cbab48b395be89637ce59e90cf5250171e4aea2b",
+      "size_bytes": 1282788,
+      "sha256": "7314f1b9c52e98d75f3d81edee9a88347a01b9d97030da560c75561fbfdb3d7f",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 40766
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_elephant/typical_creature_elephant.obj",
+      "mode": "100644",
+      "git_blob": "cbab48b395be89637ce59e90cf5250171e4aea2b",
+      "size_bytes": 1282788,
+      "sha256": "7314f1b9c52e98d75f3d81edee9a88347a01b9d97030da560c75561fbfdb3d7f",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 40766
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_furry.obj",
+      "mode": "100644",
+      "git_blob": "797e256612c977284242b329d85f1df94492d0b4",
+      "size_bytes": 1006147,
+      "sha256": "e05609c1da42ad6deec27bd2d863271149bef514a47c31a85e6cdbd0b2c861f9",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 32477
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_quadruped.obj",
+      "mode": "100644",
+      "git_blob": "3b547f1ca7370214a3714477bcd86123dfa70fb4",
+      "size_bytes": 2521738,
+      "sha256": "834ea74adccc9ad6f6d90ea989e18459d518799cdba431106fdb45b612ffa971",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 77621
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_robot_crab.obj",
+      "mode": "100644",
+      "git_blob": "02f35bb77038a427932dc2c5386622786632e412",
+      "size_bytes": 2176488,
+      "sha256": "144b1b9fadccb0b0625bda4a090f52f6e9594e89f4f37894fd4e007eb3cd8143",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 67374
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_robot_dinosour.obj",
+      "mode": "100644",
+      "git_blob": "1f9205cdcb6d4d8aff02c8a3efded21a9b428e09",
+      "size_bytes": 811578,
+      "sha256": "ef31ba872415b52a93151a223b0c3644479742d8c48d3c33f872272553f7fcc7",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 26204
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster.obj",
+      "mode": "100644",
+      "git_blob": "7891579bf972aff37dacfc557d78e40820dc85e7",
+      "size_bytes": 1927794,
+      "sha256": "4d9aeeba7eb61ff01d2c6c9371d4734953974ae8f46770ef07c5f4d1da29f994",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 60040
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster/typical_creature_rock_monster.obj",
+      "mode": "100644",
+      "git_blob": "7891579bf972aff37dacfc557d78e40820dc85e7",
+      "size_bytes": 1927794,
+      "sha256": "4d9aeeba7eb61ff01d2c6c9371d4734953974ae8f46770ef07c5f4d1da29f994",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 60040
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_block_robot.obj",
+      "mode": "100644",
+      "git_blob": "bfe08e36b0b003da857212043f75046238e2c98c",
+      "size_bytes": 1666855,
+      "sha256": "f25a5a3c731166ae92012cdba228a80bda40e202a10453329dfdad962bffc4cc",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 52316
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn.obj",
+      "mode": "100644",
+      "git_blob": "d37a0121273fc533602003317f7b14710cdc0c5c",
+      "size_bytes": 1278413,
+      "sha256": "1cd3b8073269bad948a18ab99e2ad4d752444123a928f94ea09a9a3f5863b23b",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 40586
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn/typical_humanoid_dragonborn.obj",
+      "mode": "100644",
+      "git_blob": "d37a0121273fc533602003317f7b14710cdc0c5c",
+      "size_bytes": 1278413,
+      "sha256": "1cd3b8073269bad948a18ab99e2ad4d752444123a928f94ea09a9a3f5863b23b",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 40586
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dwarf.obj",
+      "mode": "100644",
+      "git_blob": "fb3ae40fd7622aaa7075577a01aa18a25f7bc625",
+      "size_bytes": 2747176,
+      "sha256": "1808ba3dc30401a6be175635267c17a9bf8b216ae3d7804dd946bdfa946c863a",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 84297
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_goblin.obj",
+      "mode": "100644",
+      "git_blob": "88de5eebe306365d838dcd0b2b16e2b18e7078b0",
+      "size_bytes": 1316751,
+      "sha256": "1893f6058dcddb36bf13f7f49d5366301a6fe8f40cb16d50eaff07c99213671d",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 41758
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_mech.obj",
+      "mode": "100644",
+      "git_blob": "b7d29ae660f53b0fe5aebd494e18a1995b784a5b",
+      "size_bytes": 1927919,
+      "sha256": "89134d8ad12ca614e8c3922f4f183620a93807e175f2972077071f92aa44ba93",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 60009
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_edit.png",
+      "mode": "100644",
+      "git_blob": "15db440285f75cda2232e8efd58ce8b36339d225",
+      "size_bytes": 345113,
+      "sha256": "a4c81a27476dea19c9db3199289393c1a730efe8ae7b2be19856a6c24310b7b3",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_mask.png",
+      "mode": "100644",
+      "git_blob": "9386b471e6240aad0827659dbeb45e4ccdf7c6fb",
+      "size_bytes": 3510,
+      "sha256": "310af8a49ac431fbb3df26b9001e769dc28e4804525f68f2d8b58ba10bfb03f7",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_render.png",
+      "mode": "100644",
+      "git_blob": "c95ff569d4b13353188272919de51a7d2b709499",
+      "size_bytes": 696876,
+      "sha256": "db7f9528c55ee9c539ebb464458ff7d974827e3ff43028a6228c62563c2796f3",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/mask.glb",
+      "mode": "100644",
+      "git_blob": "1e20b26c578a25b8a68b6e3c95a049f853c057dd",
+      "size_bytes": 70364,
+      "sha256": "952d2f7e048f22bde44e02ebabb5b667c835b59e77e791abef50f775640c1eec",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/model.glb",
+      "mode": "100644",
+      "git_blob": "96240c9c98e2ffd94526cb618936234e1ca2e6c9",
+      "size_bytes": 1431284,
+      "sha256": "ab019e91b349bac96f2057dc6b88fb5bb44842c7a37ce9a8268c8277b0e41ff8",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/00200996b8f34f55a2dd2f44d316d107.glb",
+      "mode": "100644",
+      "git_blob": "17589ec605fc330fd866f50eda7a0066b23e4c76",
+      "size_bytes": 4934932,
+      "sha256": "61cab7888c100531426880556cc22833423c338cf87d77f208ba30214e83a12b",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/002e462c8bfa4267a9c9f038c7966f3b.glb",
+      "mode": "100644",
+      "git_blob": "18f4ea3a4c533a1cb3484417af6c61b830f5c0ab",
+      "size_bytes": 1261560,
+      "sha256": "22bbd8040395b07dcdf223d342d38b7cd38bb6c554606256e3f8b5cdd9404bc3",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/0c3ca2b32545416f8f1e6f0e87def1a6.glb",
+      "mode": "100644",
+      "git_blob": "634e8d37a3c5d9c60d4880c86dfbf9c90b7327cb",
+      "size_bytes": 544336,
+      "sha256": "3935f44575093960a0ba422134087f70602a2ef7bc6a54c15ed21b70ec334af3",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/65c6ffa083c6496eb84a0aa3c48d63ad.glb",
+      "mode": "100644",
+      "git_blob": "76b53b84ee4763dbd412e6042aa115a69f40e6b1",
+      "size_bytes": 620864,
+      "sha256": "139201966d7eef3da1d1c80e8ba868b6785d0d0ce945d35add0bbf06c5cd101e",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/barrel.png",
+      "mode": "100644",
+      "git_blob": "5913b2942999d5939e7de5e8c3016e8b3cfbe8c9",
+      "size_bytes": 313619,
+      "sha256": "6efc5d01a6460ffe2aaf3f644f26d278ba7d4801476d17e98a212c588079c978",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/cactus.png",
+      "mode": "100644",
+      "git_blob": "d6e18c207500d043680723315c6680f302f91fda",
+      "size_bytes": 186382,
+      "sha256": "b63b5a14ec5df6cf05ce537d8ba7eec8e67a9260d0f521e9b68417f86f7942ad",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/cyan_car.png",
+      "mode": "100644",
+      "git_blob": "a3332b80687dda05fdb368b8ab74bef6596e62ba",
+      "size_bytes": 69607,
+      "sha256": "61dc2c1b2e940a9d2ecded4d7c60fe0249c8ca905a55029293e0f062b559f795",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/pickup.png",
+      "mode": "100644",
+      "git_blob": "dfff502590177dd856a4b6b05a5c7ae37cd8b7ec",
+      "size_bytes": 113580,
+      "sha256": "9f89940c0bf2dbaf6a48346b8b9861f56a1b002ad5452c14e0019149132873bd",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/rabbit.png",
+      "mode": "100644",
+      "git_blob": "e76806fd3cf5e44a967dd54fbc4b1d7df9dcab90",
+      "size_bytes": 209239,
+      "sha256": "7c06b1e3364b3417dd4e92eaa6a5978d01a9ab9b1d9b99d7b15b2393d7952fbd",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/robot.png",
+      "mode": "100644",
+      "git_blob": "45d43904cf12c271d070e1f1a1254c12d6d049a4",
+      "size_bytes": 206759,
+      "sha256": "0ebaf8657cdb7d233ee2661926cff32656b54809bfc20fb7ac4d5ed7aa71fb15",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/swivelchair.png",
+      "mode": "100644",
+      "git_blob": "75615c13392b45872039ff72bae6235d26edccc1",
+      "size_bytes": 119477,
+      "sha256": "af28e5c01b48ca27bb8baf68d7522eaa109f8998588f02152f935c9e3e5e2b57",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/teapot.png",
+      "mode": "100644",
+      "git_blob": "127d1672e6c228e45c5b764075cbf0597af40f93",
+      "size_bytes": 204094,
+      "sha256": "967ec369e4bb45e835f7ac057d9406a46178ba6f2d6a5958788f805deb2fd5ec",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/warhammer.png",
+      "mode": "100644",
+      "git_blob": "a27e1a036b2d97a492731d1d6fabe3c36d62a715",
+      "size_bytes": 162854,
+      "sha256": "bc63bda34774288092d069808b7cb28c9544dd253cfbcfb33a98b22c9ec19537",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_retopo/001.obj",
+      "mode": "100644",
+      "git_blob": "dcbd89f5c5f915a76726b292c615483564dd4d34",
+      "size_bytes": 161466,
+      "sha256": "38679e56cd499a9dc0d4b22a77f2d0bad06cdfce2b4de00ebc775b55da7b5f6f",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 7155
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_retopo/002.obj",
+      "mode": "100644",
+      "git_blob": "bb15558f7f128a7b18a2038e868ccbc1012e2359",
+      "size_bytes": 181348,
+      "sha256": "7738d64df0745e7da1b9efe6e8003fa9ab8665faf147d202f1ed4cf345f0528e",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 7912
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_retopo/003.obj",
+      "mode": "100644",
+      "git_blob": "dfbd083bed5821cfc64ccdfc07d44c4e6f4f885e",
+      "size_bytes": 188903,
+      "sha256": "741f621f4d54f3a94f0ea6e7baa763f14726a3b6b8ec220cf466cf1460740092",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 8360
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_retopo/004.obj",
+      "mode": "100644",
+      "git_blob": "336824326edc5368a2d57202d93fe5f4fbcce039",
+      "size_bytes": 200165,
+      "sha256": "8cd162448ddaa47d801fd0a99fb44900f5e52dd01e1c09155ba166afd489a4be",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 8788
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_retopo/005.obj",
+      "mode": "100644",
+      "git_blob": "4556db1fb740c1c650b52d11cd9b03b872317b35",
+      "size_bytes": 1555102,
+      "sha256": "30d8f498e33d404dcfffd82ff8a1d9bdbd7b19bbccb1fa8153ffae0887b94283",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 46582
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_uv/igea.obj",
+      "mode": "100644",
+      "git_blob": "09c8be66e2ae1083a4f23a346c9c19cf73bba389",
+      "size_bytes": 9587621,
+      "sha256": "33d196c91f20f483164af03e001e054f9124691f7e5694d0cf8e90d5857ed7ea",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 402819
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/example_uv/max-planck.obj",
+      "mode": "100644",
+      "git_blob": "e77f3780e4afef860159663ab44d18c1d69dee72",
+      "size_bytes": 3606642,
+      "sha256": "a2b9e2b5299dc1a1002bc3a3e51f50db29b8e22bde2c158bf8e681bfd3ec9932",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 150072
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/wheels/diso-0.1.4-cp310-cp310-linux_x86_64.whl",
+      "mode": "100644",
+      "git_blob": "5b050d27503de73d310195ddd9aff5a255a6efcb",
+      "size_bytes": 246844,
+      "sha256": "4d8fbcc529a2b2ad4aaed38444af9d8c19f294e074a865952eadec1df48c85b0",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/wheels/kaolin-0.17.0-cp310-cp310-linux_x86_64.whl",
+      "mode": "100644",
+      "git_blob": "2a4b37a6d143b9afcac574e7f348c5732c563e92",
+      "size_bytes": 5435349,
+      "sha256": "c93a0177e357114933c45607f89175b7168fcc39effee7c28525fcdc5498e190",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/assets/wheels/utils3d-0.0.2-py3-none-any.whl",
+      "mode": "100644",
+      "git_blob": "cad12f3199b244dac2b758ddd40ff95b873236a6",
+      "size_bytes": 88960,
+      "sha256": "0c3d18e00a8c9ea58a63a1b1df83821a98c625e0a3145ee8d31d3aa93f8ae5af",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/config/logging.yaml",
+      "mode": "100644",
+      "git_blob": "2f9c0d658f95cd9c0a0271c929cd2b3dcfd524dd",
+      "size_bytes": 2199,
+      "sha256": "a910d2e75e5c4a32e07e1426913ec0e57bf0cd895525bc0b2164de5be40ca4d8",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 102
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/config/models.yaml",
+      "mode": "100644",
+      "git_blob": "582c32a72bc9c3c436db6b03d39a1d489beec75f",
+      "size_bytes": 4975,
+      "sha256": "ff51afb84f806d27c2fc7a7ed917f3829f1833a2a04e8149a993f6305e6f03ab",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 175
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/config/system.yaml",
+      "mode": "100644",
+      "git_blob": "8cf7114ad5fd45363de6ac80e936c609b06db0ac",
+      "size_bytes": 449,
+      "sha256": "2b7f4f7a07ac483fe890691447471b82c154a839af6a93a5b50c95e154f8c54f",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 19
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/__init__.py",
+      "mode": "100644",
+      "git_blob": "f83dc7b8fa7c64aef99261c00ad3bde46438631e",
+      "size_bytes": 70,
+      "sha256": "ad9ddd3a2f63ff9f34ac0a0369b0b0d94742308990cd3ecb478b2c213d57c67d",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 3
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/auth/__init__.py",
+      "mode": "100644",
+      "git_blob": "8f38491d6ca46a46fee93b4245dc687da7850bb9",
+      "size_bytes": 235,
+      "sha256": "1cefcfaab6ab0610b561a54a4c1a8161da0777d010701e7ba309f9c9eda077de",
+      "kind": "text",
+      "python_imports": [
+        "models",
+        "service",
+        "storage"
+      ],
+      "symbols": [],
+      "line_count": 8
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/auth/models.py",
+      "mode": "100644",
+      "git_blob": "a5549d0434446b5b781eb75888fa73c236428c16",
+      "size_bytes": 3878,
+      "sha256": "5641fad40ccbc44b9a2ad542bb08459477765a2e82ec265e04934bd640664f36",
+      "kind": "text",
+      "python_imports": [
+        "dataclasses",
+        "datetime",
+        "enum",
+        "typing"
+      ],
+      "symbols": [
+        "UserRole",
+        "User",
+        "APIToken"
+      ],
+      "line_count": 119
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/auth/service.py",
+      "mode": "100644",
+      "git_blob": "8175337d276e9fb2462f5e2f10a6afa081661741",
+      "size_bytes": 8420,
+      "sha256": "9950e2ea173a8248908764bffb0e4a6ace8930727639379573216a8cc924c044",
+      "kind": "text",
+      "python_imports": [
+        "datetime",
+        "hashlib",
+        "logging",
+        "models",
+        "secrets",
+        "storage",
+        "typing"
+      ],
+      "symbols": [
+        "AuthService"
+      ],
+      "line_count": 246
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/auth/storage.py",
+      "mode": "100644",
+      "git_blob": "68757828e7e8ec8a308fc6f79b53a483aed2a8ae",
+      "size_bytes": 9954,
+      "sha256": "9d52ee48b4c8d4abb52d983d72cca889d8eef8d1f3a832a26f58c9fb79c39c0c",
+      "kind": "text",
+      "python_imports": [
+        "json",
+        "logging",
+        "models",
+        "redis.asyncio",
+        "typing"
+      ],
+      "symbols": [
+        "UserStorage"
+      ],
+      "line_count": 279
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/config.py",
+      "mode": "100644",
+      "git_blob": "b0f3c808defde093ff3cb690eb1412eb737ff173",
+      "size_bytes": 10133,
+      "sha256": "929e3434875b30e67d6370ba4a95e5a0b7149350561c693c9d766a5047a9b721",
+      "kind": "text",
+      "python_imports": [
+        "logging",
+        "logging.config",
+        "pathlib",
+        "pydantic",
+        "pydantic_settings",
+        "typing",
+        "yaml"
+      ],
+      "symbols": [
+        "LoggingConfig",
+        "SecurityConfig",
+        "ModelConfig",
+        "Settings",
+        "load_config_from_file",
+        "load_models_config",
+        "load_logging_dict_config",
+        "get_settings",
+        "setup_logging"
+      ],
+      "line_count": 299
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/file_store.py",
+      "mode": "100644",
+      "git_blob": "5ca27b53027eb2bceb0cda6e9d58084af4dcceb6",
+      "size_bytes": 5584,
+      "sha256": "4504f1f0abcc7ed7c814b3357d49d90051001de8b8378588d007f71bd594ec0c",
+      "kind": "text",
+      "python_imports": [
+        "json",
+        "logging",
+        "redis.asyncio",
+        "time",
+        "typing"
+      ],
+      "symbols": [
+        "FileStore"
+      ],
+      "line_count": 167
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/__init__.py",
+      "mode": "100644",
+      "git_blob": "74ffea887ad86c33fb6098770b01e4433fdd8dcb",
+      "size_bytes": 490,
+      "sha256": "302b7166af5a173c00cf06a66dd94fa4e40b406a4a1781baa6d7ca2943444081",
+      "kind": "text",
+      "python_imports": [
+        "base",
+        "mesh_models",
+        "retopo_models",
+        "rig_models",
+        "segment_models",
+        "uv_models"
+      ],
+      "symbols": [],
+      "line_count": 18
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/base.py",
+      "mode": "100644",
+      "git_blob": "ba0188167875403ccd729e93facb878e9f03a42c",
+      "size_bytes": 5079,
+      "sha256": "e066cf4eb3534a31a150982698d20b3b273983312d2bc90e0d85590eb2e09f2b",
+      "kind": "text",
+      "python_imports": [
+        "abc",
+        "enum",
+        "logging",
+        "pathlib",
+        "torch",
+        "typing"
+      ],
+      "symbols": [
+        "ModelStatus",
+        "BaseModel"
+      ],
+      "line_count": 163
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/mesh_editing_models.py",
+      "mode": "100644",
+      "git_blob": "9319e153f7ef5dac2839d0ed00e2d72c7d03fb3b",
+      "size_bytes": 9571,
+      "sha256": "dcc02eba596ee5261cdd15dc35dee849c6718856f5a9c20f630939a0fc4e10ae",
+      "kind": "text",
+      "python_imports": [
+        "base",
+        "logging",
+        "typing"
+      ],
+      "symbols": [
+        "MeshEditingModel",
+        "TextMeshEditingModel",
+        "ImageMeshEditingModel"
+      ],
+      "line_count": 255
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/mesh_models.py",
+      "mode": "100644",
+      "git_blob": "999838e76964ce3473fa3831c0e8c5735051bd41",
+      "size_bytes": 8968,
+      "sha256": "b8bf2b6f0a4cba5d156538145235a44095358f2b2fe3eb3941a75ed24f042ed1",
+      "kind": "text",
+      "python_imports": [
+        "base",
+        "logging",
+        "pathlib",
+        "typing"
+      ],
+      "symbols": [
+        "BaseMeshGenerationModel",
+        "TextToMeshModel",
+        "ImageToMeshModel"
+      ],
+      "line_count": 266
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/retopo_models.py",
+      "mode": "100644",
+      "git_blob": "e61c02207279ca70d8ea816c8ece8d6866f62594",
+      "size_bytes": 4772,
+      "sha256": "4cefbaf439099a3cac8c024164cefa942f433ea5be4a865cde32c9f2e9e01afe",
+      "kind": "text",
+      "python_imports": [
+        "base",
+        "logging",
+        "pathlib",
+        "typing"
+      ],
+      "symbols": [
+        "MeshRetopologyModel"
+      ],
+      "line_count": 140
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/rig_models.py",
+      "mode": "100644",
+      "git_blob": "ecab89b64f94bd171cea193b277b68b727eeaf4a",
+      "size_bytes": 4560,
+      "sha256": "edabffcb1cc6b7f149e98db887c44230188bf0dfe42567afbb6672f8b8dca5ea",
+      "kind": "text",
+      "python_imports": [
+        "base",
+        "logging",
+        "pathlib",
+        "typing"
+      ],
+      "symbols": [
+        "AutoRigModel"
+      ],
+      "line_count": 130
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/segment_models.py",
+      "mode": "100644",
+      "git_blob": "828e23169ee77e4b995044f9f6348d53375b9a59",
+      "size_bytes": 4461,
+      "sha256": "01b84504d99e44d276f7acbedef84ba76de655bb885746a373c99b9cb1326015",
+      "kind": "text",
+      "python_imports": [
+        "base",
+        "logging",
+        "pathlib",
+        "typing"
+      ],
+      "symbols": [
+        "MeshSegmentationModel"
+      ],
+      "line_count": 124
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/models/uv_models.py",
+      "mode": "100644",
+      "git_blob": "fb327e239158adb843ba22f2614a88be2fec70b2",
+      "size_bytes": 4871,
+      "sha256": "c7e825efc242fea3e28206939c5fc031a998cda145b9afcbf95c418cef703e6c",
+      "kind": "text",
+      "python_imports": [
+        "base",
+        "logging",
+        "pathlib",
+        "typing"
+      ],
+      "symbols": [
+        "UVUnwrappingModel"
+      ],
+      "line_count": 137
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/__init__.py",
+      "mode": "100644",
+      "git_blob": "5531323592025c1560cb92c0d4e869012e163f72",
+      "size_bytes": 303,
+      "sha256": "24a75a36538141bb504e9cc56186fc37b46c119a3cf01b2e3e9c0a5dcd8de5d7",
+      "kind": "text",
+      "python_imports": [
+        "gpu_monitor",
+        "job_queue",
+        "multiprocess_scheduler"
+      ],
+      "symbols": [],
+      "line_count": 9
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/database_manager.py",
+      "mode": "100644",
+      "git_blob": "59a47886948d3ec8a2465f84657aeaebb87cd8cc",
+      "size_bytes": 17151,
+      "sha256": "1dcf546c0939a1d5d2c24e733cb8f0b31a4c2b3a508b89bfdbe9f76ae594af9e",
+      "kind": "text",
+      "python_imports": [
+        "contextlib",
+        "database_models",
+        "datetime",
+        "logging",
+        "os",
+        "sqlalchemy",
+        "sqlalchemy.exc",
+        "sqlalchemy.orm",
+        "sqlalchemy.pool",
+        "typing"
+      ],
+      "symbols": [
+        "DatabaseManager"
+      ],
+      "line_count": 497
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/database_models.py",
+      "mode": "100644",
+      "git_blob": "fec663ec0d2ff8fe2a78e20eef3c8e252156196e",
+      "size_bytes": 6162,
+      "sha256": "b71db25cb057dacd257e3e0a9ab4bd64d30100a735378eeb9bb792bdfcfb3adf",
+      "kind": "text",
+      "python_imports": [
+        "datetime",
+        "enum",
+        "json",
+        "sqlalchemy",
+        "sqlalchemy.ext.declarative",
+        "sqlalchemy.types",
+        "typing"
+      ],
+      "symbols": [
+        "JobStatus",
+        "JSONType",
+        "JobModel"
+      ],
+      "line_count": 173
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/gpu_monitor.py",
+      "mode": "100644",
+      "git_blob": "8e42cab41084cfb932e32a479040fffad6433ddc",
+      "size_bytes": 12183,
+      "sha256": "5c12704fce9317cef3c7189085cbe93356a1e2daa455357aee2c91d4b6c6877f",
+      "kind": "text",
+      "python_imports": [
+        "GPUtil",
+        "asyncio",
+        "logging",
+        "torch",
+        "typing"
+      ],
+      "symbols": [
+        "GPUMonitor"
+      ],
+      "line_count": 335
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/job_queue.py",
+      "mode": "100644",
+      "git_blob": "0cb0429ca68ba54b8a313897c17540bc35f422dd",
+      "size_bytes": 24369,
+      "sha256": "2a89302c3967825b722d19c100f81c155d7bebe69f12106af0f063b076019b50",
+      "kind": "text",
+      "python_imports": [
+        "asyncio",
+        "collections",
+        "database_manager",
+        "database_models",
+        "datetime",
+        "enum",
+        "logging",
+        "typing",
+        "uuid"
+      ],
+      "symbols": [
+        "JobStatus",
+        "JobRequest",
+        "JobQueue"
+      ],
+      "line_count": 638
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/model_factory.py",
+      "mode": "100644",
+      "git_blob": "c32543f5e7641d9ca076b2d92cdcf3eead8b6511",
+      "size_bytes": 17932,
+      "sha256": "f10fad5a71f19854d9b26fe3a1e8a25fa60660038d5111249c6ca750767765a0",
+      "kind": "text",
+      "python_imports": [
+        "importlib",
+        "logging",
+        "models.base",
+        "typing"
+      ],
+      "symbols": [
+        "ModelFactory",
+        "create_model_from_config",
+        "get_model_configs_from_settings",
+        "get_default_model_configs"
+      ],
+      "line_count": 498
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/multiprocess_scheduler.py",
+      "mode": "100644",
+      "git_blob": "a27cc68001344af0f94164921613fd03c453d6d6",
+      "size_bytes": 59101,
+      "sha256": "08e0402c02c27c1de76dd75c83fb4bfb299a5e597678a0c933218502fea8abc5",
+      "kind": "text",
+      "python_imports": [
+        "asyncio",
+        "concurrent.futures",
+        "datetime",
+        "gpu_monitor",
+        "huggingface_hub",
+        "job_queue",
+        "logging",
+        "model_factory",
+        "models.base",
+        "multiprocessing",
+        "os",
+        "queue",
+        "threading",
+        "time",
+        "torch",
+        "typing",
+        "uuid"
+      ],
+      "symbols": [
+        "WorkerConfig",
+        "WorkerMessage",
+        "WorkerResponse",
+        "model_worker_process",
+        "_handle_control_message",
+        "_process_job_in_worker",
+        "_create_model_from_config",
+        "MultiprocessModelScheduler"
+      ],
+      "line_count": 1480
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/redis_job_queue.py",
+      "mode": "100644",
+      "git_blob": "71a4e8c1a4b947c9786d407d6993f9ddacdab434",
+      "size_bytes": 15238,
+      "sha256": "93fb9629a3fbac4b0b364a60015aef5973799b2e102bfc85a2d50a94481236d9",
+      "kind": "text",
+      "python_imports": [
+        "asyncio",
+        "datetime",
+        "job_queue",
+        "json",
+        "logging",
+        "redis.asyncio",
+        "typing"
+      ],
+      "symbols": [
+        "_status_to_str",
+        "RedisJobQueue"
+      ],
+      "line_count": 386
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/scheduler/scheduler_factory.py",
+      "mode": "100644",
+      "git_blob": "86bc03e391f1d4d0faaa67a2510af31e4674792a",
+      "size_bytes": 5484,
+      "sha256": "d8a6e0f4e6777b3e98397bfcecd1ab98d69d634be4477d68c252a1f572ab4a9f",
+      "kind": "text",
+      "python_imports": [
+        "gpu_monitor",
+        "job_queue",
+        "logging",
+        "model_factory",
+        "multiprocess_scheduler",
+        "multiprocessing",
+        "typing"
+      ],
+      "symbols": [
+        "SchedulerFactory",
+        "create_production_scheduler",
+        "create_development_scheduler"
+      ],
+      "line_count": 166
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/__init__.py",
+      "mode": "100644",
+      "git_blob": "67713772aaf1124f2fdf4364b6ceeaae48a336b2",
+      "size_bytes": 468,
+      "sha256": "6015b0077b8ce9316ee0c0749b25317ab19144536cfd7c25b419ceec5f907ca6",
+      "kind": "text",
+      "python_imports": [
+        "exceptions",
+        "file_utils",
+        "validation"
+      ],
+      "symbols": [],
+      "line_count": 10
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/exceptions.py",
+      "mode": "100644",
+      "git_blob": "ae827c61d015c2b56fef2685f7beb07aa5cdd5b7",
+      "size_bytes": 2884,
+      "sha256": "0e26ff231e2aad297a86f2be7ba0999cb56e09d261e4ec8c0842af6e0d9738af",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [
+        "BaseAPIException",
+        "ModelNotFoundError",
+        "InsufficientVRAMError",
+        "JobTimeoutError",
+        "ValidationError",
+        "ModelLoadError",
+        "ProcessingError",
+        "FileUploadError",
+        "ConfigurationError"
+      ],
+      "line_count": 96
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/file_utils.py",
+      "mode": "100644",
+      "git_blob": "1ece6fcc2df8599df27d16da6f37c42f2b431b40",
+      "size_bytes": 22259,
+      "sha256": "fa9fea576c45e80a454eeccb4f34868a3802ab51d12d3aa00d26b5a9f6b05e24",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "aiofiles",
+        "base64",
+        "datetime",
+        "exceptions",
+        "fastapi",
+        "imghdr",
+        "logging",
+        "mimetypes",
+        "os",
+        "pathlib",
+        "re",
+        "shutil",
+        "tempfile",
+        "time",
+        "trimesh",
+        "typing",
+        "uuid"
+      ],
+      "symbols": [
+        "generate_filename",
+        "get_file_size_mb",
+        "detect_file_type_from_content",
+        "validate_image_file",
+        "validate_mesh_file",
+        "validate_base64_data",
+        "save_upload_file",
+        "save_base64_file",
+        "process_mixed_input",
+        "encode_file_to_base64",
+        "cleanup_temp_files",
+        "cleanup_old_files",
+        "ensure_directory",
+        "get_safe_filename",
+        "copy_file",
+        "move_file",
+        "create_temp_directory",
+        "validate_file_extension",
+        "get_file_type_from_extension",
+        "OutputPathGenerator"
+      ],
+      "line_count": 633
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/format_utils.py",
+      "mode": "100644",
+      "git_blob": "1957e6373b9253f253b2ac1bf038b5747718ef4d",
+      "size_bytes": 6770,
+      "sha256": "7d8cf03b2990b906d43c86412205a8d562e3fd5a12191459a84e085af9f5c56f",
+      "kind": "text",
+      "python_imports": [
+        "bpy",
+        "logging",
+        "os",
+        "pathlib",
+        "subprocess",
+        "tempfile",
+        "typing"
+      ],
+      "symbols": [
+        "fbx_to_glb",
+        "fbx_to_glb_headless"
+      ],
+      "line_count": 223
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/mask_generator.py",
+      "mode": "100644",
+      "git_blob": "1363a05c541b42425805bd9b023040fb194119d6",
+      "size_bytes": 9268,
+      "sha256": "4bd5838f366a39a069eb9e43cd087e904cda1008389aea5e893815b70ba55d1a",
+      "kind": "text",
+      "python_imports": [
+        "logging",
+        "matplotlib.pyplot",
+        "mpl_toolkits.mplot3d",
+        "mpl_toolkits.mplot3d.art3d",
+        "numpy",
+        "os",
+        "pathlib",
+        "trimesh",
+        "typing"
+      ],
+      "symbols": [
+        "MaskGenerator",
+        "create_bbox_mask",
+        "create_ellipsoid_mask"
+      ],
+      "line_count": 296
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/mesh_utils.py",
+      "mode": "100644",
+      "git_blob": "8bf00e5cd375048503953f20d23724707006d185",
+      "size_bytes": 7584,
+      "sha256": "a98b1cf82e22e0004da459f250444573478bd8c3e794bca5cf7d9f4b5eda13dd",
+      "kind": "text",
+      "python_imports": [
+        "colorsys",
+        "json",
+        "logging",
+        "meshiki",
+        "pathlib",
+        "trimesh",
+        "typing"
+      ],
+      "symbols": [
+        "MeshProcessor"
+      ],
+      "line_count": 238
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/thumbnail_utils.py",
+      "mode": "100644",
+      "git_blob": "236d4b28546e556bc9d01d9677465b1b528dcfa1",
+      "size_bytes": 10839,
+      "sha256": "c215e31027878553997ad6b89c5c64db78da18517cb5513b315447dc942f3ce3",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "logging",
+        "numpy",
+        "os",
+        "pathlib",
+        "pyrender",
+        "trimesh",
+        "typing"
+      ],
+      "symbols": [
+        "MeshThumbnailGenerator",
+        "generate_mesh_thumbnail"
+      ],
+      "line_count": 326
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/core/utils/validation.py",
+      "mode": "100644",
+      "git_blob": "02371355284d2642dd3954d1f05b2973a2f47a01",
+      "size_bytes": 5024,
+      "sha256": "8f592ed95c0ea7cd9a7601fc4629250a4628930d4e3b0f2e536b00e0b0e80098",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "base64",
+        "exceptions",
+        "io",
+        "re",
+        "typing"
+      ],
+      "symbols": [
+        "validate_text",
+        "validate_image",
+        "validate_file_size",
+        "validate_model_preference",
+        "validate_output_format",
+        "validate_quality_setting",
+        "validate_seed",
+        "validate_texture_resolution",
+        "validate_job_id"
+      ],
+      "line_count": 125
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docker-compose.yml",
+      "mode": "100644",
+      "git_blob": "e2088f227f8cb01d367716a50b20107dd75e7894",
+      "size_bytes": 4258,
+      "sha256": "fc9a7bbdcdb0846fbafbaf4a9b756569ff4a3976c548d38195fab72330ee19f0",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 147
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/api_documentation.md",
+      "mode": "100644",
+      "git_blob": "8339fb8aafc0958f61d1a259042ea30e774ddfef",
+      "size_bytes": 48311,
+      "sha256": "4e1c8758c2b40287887eea70b7ef4efe6beac3116614aa66c8c8791a730dc61b",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 1716
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/codebase_analysis.md",
+      "mode": "100644",
+      "git_blob": "833ed913ff299e227da4636354d1bd813caeea56",
+      "size_bytes": 9272,
+      "sha256": "0050bca07299fa738349970aaef77a89d08bd4e7f1a5b64f314d4a83f1b598be",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 93
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/IMPLEMENTATION_SUMMARY.md",
+      "mode": "100644",
+      "git_blob": "63e16aa4fab0c0b7aedf5adda6c875732aed424e",
+      "size_bytes": 6143,
+      "sha256": "dd4c50daf1e004224a9ef58a72a8d2b7f3c061d331fe2aa62d2d371e7bae57be",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 179
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/codebase_analysis.md",
+      "mode": "100644",
+      "git_blob": "833ed913ff299e227da4636354d1bd813caeea56",
+      "size_bytes": 9272,
+      "sha256": "0050bca07299fa738349970aaef77a89d08bd4e7f1a5b64f314d4a83f1b598be",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 93
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_modes.md",
+      "mode": "100644",
+      "git_blob": "ad399ba1f53fce682262aa91dc0dc98c94c01907",
+      "size_bytes": 7136,
+      "sha256": "6e381ea3a04f37ba5a649f986e810b5d5a8f052297d225d50f98582c9fc964c1",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 260
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_strategy.md",
+      "mode": "100644",
+      "git_blob": "d0f9262a21ee0c0352ee5e30e2fd92c94ae6f26f",
+      "size_bytes": 12264,
+      "sha256": "8425f2afe4264c233a52570df123f6458b93a979155e7013c72001e3c118733a",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 387
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/docker_readme.md",
+      "mode": "100644",
+      "git_blob": "e046f5e36219cc4ece5132a94435ef9e5467b628",
+      "size_bytes": 7604,
+      "sha256": "6cc2a75fe98e8b030d79d72c184e6218eb1263a3f1d39476b1625e7c1226e21d",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 331
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/fastmesh_partuv_integration_summary.md",
+      "mode": "100644",
+      "git_blob": "fcf8f7abcdc12e5c89350f7636fe6382c7798fec",
+      "size_bytes": 9272,
+      "sha256": "f833a73a63d46ba249ab67ea9dffb5805d2109a7cdfc3cca116c275e3d1a3e94",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 278
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/integration_summary.md",
+      "mode": "100644",
+      "git_blob": "fcf8f7abcdc12e5c89350f7636fe6382c7798fec",
+      "size_bytes": 9272,
+      "sha256": "f833a73a63d46ba249ab67ea9dffb5805d2109a7cdfc3cca116c275e3d1a3e94",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 278
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/system_architecture.drawio",
+      "mode": "100644",
+      "git_blob": "0a0ba76fbbcf86483df6ac0a333b1344c63c9cf5",
+      "size_bytes": 33620,
+      "sha256": "cbbdc0e17c5c4fa70eb53416fde3667e582694e42d2ef55b18057c8f8696d05b",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 319
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/system_design.md",
+      "mode": "100644",
+      "git_blob": "e105c9cab50f07df8f8e028f3462d77484711d73",
+      "size_bytes": 18739,
+      "sha256": "8f282ca60c585cc5bdb2c32e4d4ef7f521d539bfb6fade9b47f465e932dc54da",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 614
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/trellis2_p3sam_integration_summary.md",
+      "mode": "100644",
+      "git_blob": "424ceac719b349faeccc31be4edc8c9763c82b40",
+      "size_bytes": 8595,
+      "sha256": "ed5a6b876667ead9364422b8b50f974b3003f4121bea6574b8bc64168a609ef2",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 309
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/ultrashape_voxhammer_integration.md",
+      "mode": "100644",
+      "git_blob": "2de4576cee9b1db60df8ccaaae03137955d09595",
+      "size_bytes": 10898,
+      "sha256": "139c2e65b3f0ea730167b51a841746aa8cca7391a4f9dfc7856ca220ce89b998",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 321
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management.md",
+      "mode": "100644",
+      "git_blob": "7956c8c2a1fc205202153f11e1847d6753f2059b",
+      "size_bytes": 9642,
+      "sha256": "7552af658813dba134a00b19b2b8034772d324efbe95a0220e116c89420b1535",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 384
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management_quickstart.md",
+      "mode": "100644",
+      "git_blob": "3c29555e749dd81f981c691b95058dbaf76eb69d",
+      "size_bytes": 5108,
+      "sha256": "f4c310f1e819cc30767674ba7a4357a623be8b99b946cf5e9ea520b84a60f27a",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 195
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/template_for_integration.md",
+      "mode": "100644",
+      "git_blob": "870515765a472f85ebf2b92c450ef46d09f804f5",
+      "size_bytes": 885,
+      "sha256": "e7b14b0e4b768f72200c2bb1ca7642f05e5723de4a23627d615bdc6824f35262",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 8
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/01.md",
+      "mode": "100644",
+      "git_blob": "fb6ed4f8aeca7e0126e54e35896440ec46ff597b",
+      "size_bytes": 13860,
+      "sha256": "6be96e51e553ad3c91ba09fd71521e2c7fc01863c53dec24874b66dabf34b8de",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 72
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/02_fastmesh_partuv_prompt.md",
+      "mode": "100644",
+      "git_blob": "8cbac9f70a451f7def04787a2b5ae3cdbd13f74c",
+      "size_bytes": 1204,
+      "sha256": "b162e6e08cefe27c1fcb58d0c8a8913231f5b5b986eb9b6c78eec695f40035c4",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 15
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/03_separate_router_from_scheduler.md",
+      "mode": "100644",
+      "git_blob": "39f213c41f879b6561b5ff2a59ac2a2c42dc4c39",
+      "size_bytes": 854,
+      "sha256": "2f9c41bc8c8a5d2eed3f581998b5444435f1767ec0ad7b00fc85d95417794525",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 6
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/04_add_user_system.md",
+      "mode": "100644",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 0
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/05_add_input_image_url.md",
+      "mode": "100644",
+      "git_blob": "baa976862a1ae4f63b91af2733fdb209e9d5c37f",
+      "size_bytes": 2794,
+      "sha256": "68de3684ed29e3b3a007470639e464efe93e310b853eeaa2388da85b82e60795",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 59
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/06_remove_trainer_dep_partfield.md",
+      "mode": "100644",
+      "git_blob": "3ab14beb042db6ff177f262645b8d17e3024dd2a",
+      "size_bytes": 366,
+      "sha256": "2d1ac87b752677c72799550a5a43152f73cdd33f8f85b6669e6357250cb187cc",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 1
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/01_trellis2_p3sam.md",
+      "mode": "100644",
+      "git_blob": "20dbdd6fd916f3eb97a1371efcd857a808979985",
+      "size_bytes": 2153,
+      "sha256": "e720816ae00ac29903d36112943e547cd4f9e80e4605f053b47fb9618a037641",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 21
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/02_voxhammer_ultrashape.md",
+      "mode": "100644",
+      "git_blob": "c3fcbadb54661a28028b9dadcccf6244749b2a17",
+      "size_bytes": 2613,
+      "sha256": "e9993222157fefb8bffb598597b1b22366fbf30fc774874406464d1df52d5106",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 20
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/requirements-test.txt",
+      "mode": "100644",
+      "git_blob": "c7b5a46f3be29998619329b6fb5c9800eeecc9ce",
+      "size_bytes": 663,
+      "sha256": "066a481dde83693ab4fe68266a0846fc21ef46359b50a1aa4e8d588bf2f6541f",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 34
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/requirements.txt",
+      "mode": "100644",
+      "git_blob": "f7131f082014b4e677f41fc9d848a93030272539",
+      "size_bytes": 1015,
+      "sha256": "d34af02e5c8f5b1f0c881b7cc85cfce6117849dcaac4c54f39effd6e0984a7b5",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 61
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/build_docker.sh",
+      "mode": "100644",
+      "git_blob": "15ae8b391d01de123b68460a7e27ca9bb410c4ff",
+      "size_bytes": 3708,
+      "sha256": "09258b4288f0ecb07b4be17ab373e704afdf9a2f4928ee3bf75ee7f5a9d707ef",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 144
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/create_admin_user.py",
+      "mode": "100644",
+      "git_blob": "95fa79aae41675d7b95dfaf058894b561856580e",
+      "size_bytes": 4847,
+      "sha256": "ec8a0f1143931329b743e924075c48445a0122941c5658ed17ff07038223a8a0",
+      "kind": "text",
+      "python_imports": [
+        "argparse",
+        "asyncio",
+        "core.auth",
+        "core.auth.models",
+        "core.config",
+        "getpass",
+        "pathlib",
+        "redis.asyncio",
+        "sys",
+        "traceback"
+      ],
+      "symbols": [
+        "create_admin_user",
+        "main"
+      ],
+      "line_count": 161
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/download_models.bat",
+      "mode": "100755",
+      "git_blob": "810b9abf5012bb356e7c9cd2043f99666237d606",
+      "size_bytes": 21592,
+      "sha256": "1dc598f57b34cbc56e2938d313461cdb80a931bed3da519fd91b1cc04faa2bf0",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 675
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/download_models.sh",
+      "mode": "100644",
+      "git_blob": "9bd4ccfb5ff1c41fb8e14d27cc52887222cb83e2",
+      "size_bytes": 22869,
+      "sha256": "34fe0d409e63cee96a4acd81843872a6066e2e32c5dfe49f99538e25be00691a",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 674
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/install.bat",
+      "mode": "100755",
+      "git_blob": "4f2da38ea72d95dd746baf248fcdbcb0b52e3347",
+      "size_bytes": 9958,
+      "sha256": "fdf5ed9f7ca92b323a0a613fd62eb44293e3b9ed3911ba305317fccbcc48b526",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 290
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/install.sh",
+      "mode": "100644",
+      "git_blob": "e2f5ef81125f1baa52b7a9c3c97ff3dd681b25e0",
+      "size_bytes": 9998,
+      "sha256": "998f3509dc3f0ddf97ebf7d9fd7dddfee6deb8543c652322314acbc7ff2b8349",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 301
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/install_trellis.bat",
+      "mode": "100755",
+      "git_blob": "c9df6b3af08db07b2ee024a73e3b04b01265e96a",
+      "size_bytes": 1403,
+      "sha256": "b527053b7eb14b5410ec3c4f260824f4554de5ef344e11975fafeadd82376dab",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 25
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/run_server.bat",
+      "mode": "100755",
+      "git_blob": "a37d35820e346d6e0ce2bb2caed503432f9f703d",
+      "size_bytes": 1165,
+      "sha256": "9bbc7f29168a9f9ffe70ae548eef72d654eb5ea5d43b14f1c2b1035a166a769b",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 39
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/run_server.sh",
+      "mode": "100644",
+      "git_blob": "fb67a417f1f2a7a6419eef7833a390e31d5f7965",
+      "size_bytes": 8187,
+      "sha256": "d4eff28a3093df58a57c152d69211b47473c7bb82464aeebb2ea735c067cae47",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 258
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/scheduler_service.py",
+      "mode": "100644",
+      "git_blob": "67cfa9ab8b953b11890e845ac98f9a8d98582896",
+      "size_bytes": 6537,
+      "sha256": "2487a98c34dfbef8cedb156020c59b71d9fb23c92ee949e04f4a485022c9a986",
+      "kind": "text",
+      "python_imports": [
+        "argparse",
+        "asyncio",
+        "core.config",
+        "core.scheduler",
+        "core.scheduler.model_factory",
+        "core.scheduler.multiprocess_scheduler",
+        "core.scheduler.redis_job_queue",
+        "logging",
+        "signal",
+        "sys"
+      ],
+      "symbols": [
+        "run_scheduler_service",
+        "signal_handler",
+        "main"
+      ],
+      "line_count": 197
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/supervisord.conf",
+      "mode": "100644",
+      "git_blob": "d7088c2f8c758c012d01c0fc208a87e5ed45a122",
+      "size_bytes": 1216,
+      "sha256": "ecaba36babd95d8f9fbff28e00ab150608fb898451a05932eb6b4ebc81eb8147",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 42
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/conftest.py",
+      "mode": "100644",
+      "git_blob": "44463eae4a306ec6180d1de78e293c0e10a210c3",
+      "size_bytes": 7386,
+      "sha256": "63eb297823bda2a4dc65838055faa2eef8aa89b817e3b65719c8a82ca4124496",
+      "kind": "text",
+      "python_imports": [
+        "adapters.trellis_adapter",
+        "api.dependencies",
+        "api.main_multiworker",
+        "core.models.base",
+        "core.scheduler.job_queue",
+        "fastapi.testclient",
+        "os",
+        "pytest",
+        "shutil",
+        "tempfile",
+        "unittest.mock"
+      ],
+      "symbols": [
+        "mock_scheduler",
+        "auto_mock_scheduler",
+        "test_client",
+        "temp_dir",
+        "mock_trellis_adapter",
+        "sample_job_request",
+        "TestDataGenerator",
+        "pytest_configure",
+        "assert_valid_mesh_result",
+        "assert_valid_job_status",
+        "assert_valid_api_response"
+      ],
+      "line_count": 237
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/curl/test_fastmesh_retopo.sh",
+      "mode": "100644",
+      "git_blob": "e01c829fc2c457161d974c103d77886a791f243b",
+      "size_bytes": 5515,
+      "sha256": "74cfac7158ff99b7e13ab67b0ddd0b2832332bca8e2bacf2d00e93aab7c52749",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 181
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/curl/test_partuv_unwarp.sh",
+      "mode": "100644",
+      "git_blob": "f1dcd9670b9602efd7b5cd02f00406f1fc88acbb",
+      "size_bytes": 7926,
+      "sha256": "440a3d955ffb3f8594c3083b87d8409cf1105b1f0ac31c3722af8bc4d5f6cc84",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 243
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/run_adapter_tests.py",
+      "mode": "100644",
+      "git_blob": "5f97227ecaf05420351e488a9260521750a6a669",
+      "size_bytes": 5033,
+      "sha256": "b89a46f6eb32ef9b7f987b6dfc6655ec379450e1e2445ab5fe80a242b4cb07e1",
+      "kind": "text",
+      "python_imports": [
+        "argparse",
+        "logging",
+        "subprocess",
+        "sys"
+      ],
+      "symbols": [
+        "run_pytest_tests",
+        "print_summary",
+        "main"
+      ],
+      "line_count": 171
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/run_test_client.py",
+      "mode": "100644",
+      "git_blob": "a7a3058b1067fd89daecddee87d3dca6ae7dda6b",
+      "size_bytes": 42267,
+      "sha256": "4852107741948de414954e0305d9af94331c8a1e643fafc43238e6f5b43f1891",
+      "kind": "text",
+      "python_imports": [
+        "argparse",
+        "json",
+        "logging",
+        "pathlib",
+        "requests",
+        "time",
+        "typing"
+      ],
+      "symbols": [
+        "ComprehensiveModelTester",
+        "main"
+      ],
+      "line_count": 1066
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/gpu_memory_tracker.py",
+      "mode": "100644",
+      "git_blob": "2d9f36727f223966eea84b5a35c3c37a61033a7a",
+      "size_bytes": 3887,
+      "sha256": "74259763c11fc6ce7c1d92febf208a87d7013f8dc4155fa0ea273a5c5333b112",
+      "kind": "text",
+      "python_imports": [
+        "functools",
+        "inspect",
+        "torch",
+        "typing"
+      ],
+      "symbols": [
+        "track_gpu_memory"
+      ],
+      "line_count": 117
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_fastmesh_adapter.py",
+      "mode": "100644",
+      "git_blob": "4bae9b2707316aebbe7e07f21782c1a0f567233b",
+      "size_bytes": 5272,
+      "sha256": "bca11f137dba84ab5316034aacb06464365898acf724f4f54c86b1588ec377db",
+      "kind": "text",
+      "python_imports": [
+        "adapters.fastmesh_adapter",
+        "os",
+        "pathlib",
+        "pytest",
+        "tempfile"
+      ],
+      "symbols": [
+        "fastmesh_adapter",
+        "sample_mesh_path",
+        "TestFastMeshAdapter",
+        "TestFastMeshVariants"
+      ],
+      "line_count": 166
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_hunyuan3d_adapter_v21.py",
+      "mode": "100644",
+      "git_blob": "6dfb8e1ee89b290c672b2b1540d8f536f075e9ed",
+      "size_bytes": 10240,
+      "sha256": "e4aab153f08b2867b1a47e643e78ea54c534d236831bac6388eee66f8c24a7ee",
+      "kind": "text",
+      "python_imports": [
+        "adapters.hunyuan3d_adapter_v21",
+        "pathlib",
+        "pytest",
+        "tests.test_adapters.gpu_memory_tracker",
+        "torch"
+      ],
+      "symbols": [
+        "TestHunyuan3DRawMeshAdapter",
+        "TestHunyuan3DTexturedMeshAdapter",
+        "TestHunyuan3DMeshPaintingAdapter",
+        "TestHunyuan3DErrorHandling",
+        "TestHunyuan3DMemoryManagement"
+      ],
+      "line_count": 324
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_p3sam_adapter.py",
+      "mode": "100644",
+      "git_blob": "228ad24c9d3bdeaa22d9696cf1814ac53ed85d87",
+      "size_bytes": 11335,
+      "sha256": "27bf6ae975f05a9a983297ec3c782583df69310a22b10caec66d00af1c6871bc",
+      "kind": "text",
+      "python_imports": [
+        "adapters.p3sam_adapter",
+        "adapters.partfield_adapter",
+        "numpy",
+        "pathlib",
+        "pytest",
+        "tests.test_adapters.gpu_memory_tracker",
+        "torch"
+      ],
+      "symbols": [
+        "TestP3SAMAdapterRealInference",
+        "TestP3SAMAdapterIntegration"
+      ],
+      "line_count": 333
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partfield_adapter.py",
+      "mode": "100644",
+      "git_blob": "8be455be7576e08aefd8c331fe0ca70300b51d77",
+      "size_bytes": 6892,
+      "sha256": "cd7479174005798e34d5f957192e110e997a512cab66cc212ac5dcbce9a22de8",
+      "kind": "text",
+      "python_imports": [
+        "adapters.partfield_adapter",
+        "pathlib",
+        "pytest",
+        "tempfile",
+        "tests.test_adapters.gpu_memory_tracker",
+        "torch"
+      ],
+      "symbols": [
+        "TestPartFieldAdapterRealInference",
+        "TestPartFieldAdapterWithExampleAssets"
+      ],
+      "line_count": 212
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partpacker_adapter.py",
+      "mode": "100644",
+      "git_blob": "2cea5cc6b846c56a122bacea78867f59b6ccef94",
+      "size_bytes": 5642,
+      "sha256": "2adbdfff0d2d58aa6fbd70c1a5facfc0d2846ee9f7c369771e01498a0d4afb4a",
+      "kind": "text",
+      "python_imports": [
+        "adapters.partpacker_adapter",
+        "pathlib",
+        "pytest",
+        "tests.test_adapters.gpu_memory_tracker",
+        "torch"
+      ],
+      "symbols": [
+        "TestPartPackerAdapter",
+        "TestPartPackerErrorHandling",
+        "TestPartPackerMemoryManagement"
+      ],
+      "line_count": 189
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partuv_adapter.py",
+      "mode": "100644",
+      "git_blob": "1c4e4c97c11728f847574a26342f3366d8069bea",
+      "size_bytes": 4606,
+      "sha256": "4f33dd8023fc2e2c1d0425b949c44cb71a75f86ceec2487af6c12130d240a832",
+      "kind": "text",
+      "python_imports": [
+        "adapters.partuv_adapter",
+        "os",
+        "pathlib",
+        "pytest",
+        "tempfile"
+      ],
+      "symbols": [
+        "partuv_adapter",
+        "sample_mesh_path",
+        "TestPartUVAdapter"
+      ],
+      "line_count": 144
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_trellis2_adapter.py",
+      "mode": "100644",
+      "git_blob": "a9f61933505e978976bd6fa519418f247d3abb7c",
+      "size_bytes": 9036,
+      "sha256": "169587c85c719506f8b2133101a9055fd743addef5be8716b5038354b7d86c6b",
+      "kind": "text",
+      "python_imports": [
+        "adapters.trellis2_adapter",
+        "pathlib",
+        "pytest",
+        "tests.test_adapters.gpu_memory_tracker",
+        "torch"
+      ],
+      "symbols": [
+        "TestTrellis2ImageToMeshAdapter",
+        "TestTrellis2MeshPaintingAdapter",
+        "TestTrellis2AdapterIntegration"
+      ],
+      "line_count": 264
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_trellis_adapter.py",
+      "mode": "100644",
+      "git_blob": "d21c67ed5f46cdc0a817d1ff9fe9bf1cba3da7f7",
+      "size_bytes": 11488,
+      "sha256": "69046f6ad16459733354a669125935dbf2229fa56865d4a074894d7a7b7c6675",
+      "kind": "text",
+      "python_imports": [
+        "adapters.trellis_adapter",
+        "pathlib",
+        "pytest",
+        "tests.test_adapters.gpu_memory_tracker",
+        "torch"
+      ],
+      "symbols": [
+        "TestTrellisAdapterRealInference",
+        "TestTrellisAdapterWithExampleAssets"
+      ],
+      "line_count": 350
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_ultrashape_adapter.py",
+      "mode": "100644",
+      "git_blob": "e6e05e6ecbeea9ad68f3d58f97192271a2c64176",
+      "size_bytes": 6492,
+      "sha256": "217637044370795302e0d582921367e1b3367275cd8e55b14079940ecde923ad",
+      "kind": "text",
+      "python_imports": [
+        "adapters.ultrashape_adapter",
+        "pathlib",
+        "pytest",
+        "tests.test_adapters.gpu_memory_tracker",
+        "torch"
+      ],
+      "symbols": [
+        "TestUltraShapeAdapter",
+        "TestUltraShapeErrorHandling",
+        "TestUltraShapeMemoryManagement"
+      ],
+      "line_count": 208
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_unirig_adapter.py",
+      "mode": "100644",
+      "git_blob": "e552134e6119913976eb2d072b829838b570bcff",
+      "size_bytes": 15034,
+      "sha256": "35d61717c257505c9a70d040092c5ee9252fbc7668ab7cac5a29563abd6554ca",
+      "kind": "text",
+      "python_imports": [
+        "adapters.unirig_adapter",
+        "logging",
+        "pathlib",
+        "pytest",
+        "tests.test_adapters.gpu_memory_tracker",
+        "time",
+        "torch"
+      ],
+      "symbols": [
+        "TestUniRigAdapter",
+        "run_all_tests"
+      ],
+      "line_count": 440
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_voxhammer_adapter.py",
+      "mode": "100644",
+      "git_blob": "4fe6a2a12930472335371335abae02627794824f",
+      "size_bytes": 8974,
+      "sha256": "5358de39da5dbf57b8b4be6690b7409f53b70951dddbffdf693c0a31b798d8d3",
+      "kind": "text",
+      "python_imports": [
+        "adapters.voxhammer_adapter",
+        "pathlib",
+        "pytest",
+        "tests.test_adapters.gpu_memory_tracker",
+        "torch"
+      ],
+      "symbols": [
+        "TestVoxHammerTextEditingAdapter",
+        "TestVoxHammerImageEditingAdapter",
+        "TestVoxHammerErrorHandling",
+        "TestVoxHammerMemoryManagement"
+      ],
+      "line_count": 273
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_basic_endpoints.py",
+      "mode": "100644",
+      "git_blob": "2b21310c2efbf92691926dfdb55b8e091673dd07",
+      "size_bytes": 7123,
+      "sha256": "5f02abab930fe1e50693abe86825b59bdbe12327e547f832b8e60df736734c56",
+      "kind": "text",
+      "python_imports": [
+        "api.main",
+        "fastapi.testclient",
+        "pytest",
+        "unittest.mock"
+      ],
+      "symbols": [
+        "TestBasicEndpoints",
+        "TestErrorHandling",
+        "TestSystemEndpoints"
+      ],
+      "line_count": 196
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_model_parameters.py",
+      "mode": "100644",
+      "git_blob": "e8fb08e6c97240b0b2808761464418893ebd0873",
+      "size_bytes": 9375,
+      "sha256": "ffae38852b069042df18d54b86b15d73a2811e8ed45cac2185c2ec981d365d37",
+      "kind": "text",
+      "python_imports": [
+        "adapters.p3sam_adapter",
+        "adapters.trellis2_adapter",
+        "core.scheduler.model_factory",
+        "pytest",
+        "requests",
+        "typing"
+      ],
+      "symbols": [
+        "TestModelParameterSchemas",
+        "TestParameterAPIEndpoint",
+        "TestSchemaValidation"
+      ],
+      "line_count": 260
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/tests/test_on_demand_scheduler.py",
+      "mode": "100644",
+      "git_blob": "94837e0a45147580b2202f5ee2c996ea1667e398",
+      "size_bytes": 4888,
+      "sha256": "23842766dc9becf51fa2002a09b7e508aa2f7ac7ccba3b088b6241cf4c2c6a41",
+      "kind": "text",
+      "python_imports": [
+        "asyncio",
+        "core.scheduler.gpu_monitor",
+        "core.scheduler.job_queue",
+        "core.scheduler.multiprocess_scheduler",
+        "logging",
+        "os",
+        "sys"
+      ],
+      "symbols": [
+        "test_on_demand_workers"
+      ],
+      "line_count": 137
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/__init__.py",
+      "mode": "100644",
+      "git_blob": "efff71d08a9a10bb070cd9815acd95e72ab7964b",
+      "size_bytes": 158,
+      "sha256": "62b3897894aeea7d69b6e2ef3595c020e6b24c6dc6867389e60b9668cd1be58e",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 7
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/fastmesh_utils.py",
+      "mode": "100644",
+      "git_blob": "8205c75e48f4bd77aab5b13851b3d5446e70ee50",
+      "size_bytes": 14461,
+      "sha256": "62f4ec67e09449e0d86278506ff43cbbd504f843c7d49ffb787a9832ff45456e",
+      "kind": "text",
+      "python_imports": [
+        "accelerate",
+        "accelerate.utils",
+        "logging",
+        "numpy",
+        "os",
+        "pathlib",
+        "sys",
+        "thirdparty.FastMesh.models",
+        "torch",
+        "trimesh",
+        "typing",
+        "warnings"
+      ],
+      "symbols": [
+        "FastMeshError",
+        "FastMeshRunner"
+      ],
+      "line_count": 419
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/p3sam_utils.py",
+      "mode": "100644",
+      "git_blob": "9ddfde0ad164a1107ec96f2260c090b977b96ad9",
+      "size_bytes": 11008,
+      "sha256": "cc2abe78035a0d3b779c5789ea84fbd0758ef9f394162c67dc1a6648e28c3db5",
+      "kind": "text",
+      "python_imports": [
+        "logging",
+        "numpy",
+        "os",
+        "pathlib",
+        "sys",
+        "tempfile",
+        "thirdparty.Hunyuan3DPart.P3SAM.demo.auto_mask",
+        "torch",
+        "trimesh",
+        "typing"
+      ],
+      "symbols": [
+        "P3SAMRunner",
+        "create_colored_segmented_mesh",
+        "create_aabb_scene",
+        "create_segmented_parts_scene"
+      ],
+      "line_count": 340
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/partfield_utils.py",
+      "mode": "100644",
+      "git_blob": "ff3816db24983341a2e6d1464d9c5e9e8340aab2",
+      "size_bytes": 32348,
+      "sha256": "9bc2d45dc37761c5a8bcd9e4e9c772f8c9bb16d08cf5e376cdf5a78611ee0b67",
+      "kind": "text",
+      "python_imports": [
+        "collections",
+        "easydict",
+        "lightning.pytorch",
+        "logging",
+        "matplotlib.pyplot",
+        "networkx",
+        "numpy",
+        "os",
+        "partfield.config",
+        "partfield.dataloader",
+        "partfield.model_trainer_pvcnn_only_demo",
+        "partfield.utils",
+        "plyfile",
+        "random",
+        "scipy.sparse",
+        "scipy.sparse.csgraph",
+        "shutil",
+        "sklearn.cluster",
+        "sklearn.neighbors",
+        "sys",
+        "torch",
+        "torch.utils.data",
+        "trimesh",
+        "yacs.config"
+      ],
+      "symbols": [
+        "UnionFind",
+        "construct_face_adjacency_matrix_ccmst",
+        "construct_face_adjacency_matrix_facemst",
+        "construct_face_adjacency_matrix_naive",
+        "hierarchical_clustering_labels",
+        "load_ply_to_numpy",
+        "export_colored_mesh_ply",
+        "PartFieldRunner"
+      ],
+      "line_count": 842
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/partpacker_utils.py",
+      "mode": "100644",
+      "git_blob": "d1f9a8636f88c1d35326d3147e765cd0c5935394",
+      "size_bytes": 15160,
+      "sha256": "8641bb3f1dac3ad1f68769d2c5b4030a18f38f8fcd7b433b491f8144a7a1348d",
+      "kind": "text",
+      "python_imports": [
+        "cv2",
+        "flow.model",
+        "flow.utils",
+        "importlib",
+        "kiui",
+        "logging",
+        "numpy",
+        "os",
+        "pathlib",
+        "rembg",
+        "sys",
+        "torch",
+        "trimesh",
+        "typing",
+        "vae.utils",
+        "warnings"
+      ],
+      "symbols": [
+        "PartPackerError",
+        "PartPackerRunner"
+      ],
+      "line_count": 418
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/partuv_utils.py",
+      "mode": "100644",
+      "git_blob": "f3335e85dbddc876d7986f49dbe2a5c80a5d5b9b",
+      "size_bytes": 12503,
+      "sha256": "89e82c07f4763e22d04f4cf3a0aba6256351dbf381bae4b1cda7bcb9c7475c90",
+      "kind": "text",
+      "python_imports": [
+        "logging",
+        "numpy",
+        "os",
+        "partuv",
+        "partuv.preprocess",
+        "pathlib",
+        "sys",
+        "thirdparty.PartUV.pack.pack",
+        "thirdparty.PartUV.preprocess_utils.partfield_official.run_PF",
+        "torch",
+        "traceback",
+        "trimesh",
+        "typing",
+        "warnings"
+      ],
+      "symbols": [
+        "PartUVError",
+        "PartUVRunner"
+      ],
+      "line_count": 344
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/torchvision_fix.py",
+      "mode": "100644",
+      "git_blob": "b54539769eb90f06d68bc53148866898cc4ec54a",
+      "size_bytes": 5020,
+      "sha256": "76b93c7db4b8b155f6e7f43a91326bc48f196d88ee22c1afa53dcf1bd2a96e33",
+      "kind": "text",
+      "python_imports": [
+        "sys",
+        "torch",
+        "torch.nn.functional",
+        "torchvision",
+        "torchvision.transforms.functional",
+        "torchvision.transforms.functional_tensor",
+        "torchvision.transforms.v2.functional"
+      ],
+      "symbols": [
+        "fix_torchvision_functional_tensor",
+        "apply_fix"
+      ],
+      "line_count": 130
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/trellis2_utils.py",
+      "mode": "100644",
+      "git_blob": "f3d09b76d92fc38096ffd37a4596b579601a96f2",
+      "size_bytes": 10138,
+      "sha256": "ec604871fea6ecbaed4e473e03dbb5be288a09aa22a27ec88b5e433abff005dd",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "cv2",
+        "logging",
+        "o_voxel",
+        "os",
+        "pathlib",
+        "sys",
+        "tempfile",
+        "torch",
+        "trellis2.pipelines",
+        "trellis2.renderers",
+        "trimesh",
+        "typing"
+      ],
+      "symbols": [
+        "Trellis2Runner"
+      ],
+      "line_count": 296
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/ultrashape_pipeline_helper.py",
+      "mode": "100644",
+      "git_blob": "7902ccf28001b17df032d04e948fe9fc81478fa1",
+      "size_bytes": 12819,
+      "sha256": "52852e613044fc821f329624b57bb086905a52996a125640c739a9d6f50d9a69",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "logging",
+        "omegaconf",
+        "os",
+        "pathlib",
+        "sys",
+        "tempfile",
+        "torch",
+        "trimesh",
+        "typing",
+        "ultrashape.pipelines",
+        "ultrashape.rembg",
+        "ultrashape.surface_loaders",
+        "ultrashape.utils",
+        "ultrashape.utils.misc"
+      ],
+      "symbols": [
+        "UltraShapeInferenceHelper",
+        "create_ultrashape_helper"
+      ],
+      "line_count": 356
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/unirig_utils.py",
+      "mode": "100644",
+      "git_blob": "465e94b46751bb97d11c978d74bef8778f3cf05e",
+      "size_bytes": 24578,
+      "sha256": "fec53d233c4b6efb445cf7a2bf358e79d2567d2d1e25153d45333cd7e559dfb7",
+      "kind": "text",
+      "python_imports": [
+        "box",
+        "contextlib",
+        "dataclasses",
+        "logging",
+        "numpy",
+        "os",
+        "shutil",
+        "thirdparty.UniRig.src.data.datapath",
+        "thirdparty.UniRig.src.data.dataset",
+        "thirdparty.UniRig.src.data.extract",
+        "thirdparty.UniRig.src.data.transform",
+        "thirdparty.UniRig.src.inference.download",
+        "thirdparty.UniRig.src.model.parse",
+        "thirdparty.UniRig.src.system.parse",
+        "thirdparty.UniRig.src.tokenizer.parse",
+        "thirdparty.UniRig.src.tokenizer.spec",
+        "torch",
+        "typing",
+        "yaml"
+      ],
+      "symbols": [
+        "InferenceConfig",
+        "LoadedSystem",
+        "ModelCache",
+        "UniRigInferenceEngine",
+        "create_inference_engine"
+      ],
+      "line_count": 665
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/utils/voxhammer_pipeline_helper.py",
+      "mode": "100644",
+      "git_blob": "20201478ab060ebf387d769c9348729316aa0be9",
+      "size_bytes": 14852,
+      "sha256": "f71c91b642b2aab6d74e108a0d581352eb604c0131feb0e55b922742a2ae8ff9",
+      "kind": "text",
+      "python_imports": [
+        "diffusers",
+        "glob",
+        "logging",
+        "os",
+        "pathlib",
+        "shutil",
+        "sys",
+        "tempfile",
+        "thirdparty.VoxHammer.inference",
+        "thirdparty.VoxHammer.utils.inpaint",
+        "thirdparty.VoxHammer.utils.render_rgb_and_mask",
+        "torch",
+        "typing"
+      ],
+      "symbols": [
+        "VoxHammerInferenceHelper",
+        "create_voxhammer_helper"
+      ],
+      "line_count": 412
+    },
+    {
+      "path": "AnalyseFuture/third_party/README.md",
+      "mode": "100644",
+      "git_blob": "25183d203c0760b51d8d39df6e82a4cdeef5ddf1",
+      "size_bytes": 3079,
+      "sha256": "a12c80f1fa2b8db3a0f3efb97d9d1ac69d3c49006e2265fee6391488528a9da5",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 51
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/.gitignore",
+      "mode": "100644",
+      "git_blob": "17facc5c5ab5d876cdc6467190c5ca8e82fc2c5e",
+      "size_bytes": 3123,
+      "sha256": "0d1298d99b9fc0bb1b2590e90bce9c6b90b3879ed531b8d8685f506099b62d96",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 164
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/LICENSE",
+      "mode": "100644",
+      "git_blob": "6c440ca1ef32cedcc2257b99953add129199ed26",
+      "size_bytes": 1080,
+      "sha256": "ade0a66629bdd7e01e46b3296b3851cff0fd27989bca53da470ad6e96ed620fb",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 21
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/README.md",
+      "mode": "100644",
+      "git_blob": "b52bfb251b850f13a8b8565b52914f2bc9ede2e3",
+      "size_bytes": 5419,
+      "sha256": "ed40f078c5e451c58eae716187e0128f0ce8575e467aab2440b4ed9c75e490b9",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 79
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/examples/captured.jpeg",
+      "mode": "100644",
+      "git_blob": "6ecfbecbd92efbf3b9be82c64c5af4549dcc0d8f",
+      "size_bytes": 5944816,
+      "sha256": "c6eb2768703a0e3d6034daa7fd5e0b286450b1077a90f36da8110749bb1cb8a8",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/examples/chair.png",
+      "mode": "100644",
+      "git_blob": "fee2a21d1c9bbdf707631060f110539401265a1d",
+      "size_bytes": 114705,
+      "sha256": "2503c12a74419d91a4c6c9f1affc48fee6e2b8b9091956ca6211e91ada57b5bf",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/examples/flamingo.png",
+      "mode": "100644",
+      "git_blob": "c01ce3d539ad6037a4fc9bfbabdc50122e6c4681",
+      "size_bytes": 93420,
+      "sha256": "962d39dc6f1673e1c1d5a747e01325682ecf3df45f31fc3e5191f18bc5aa1274",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/examples/hamburger.png",
+      "mode": "100644",
+      "git_blob": "166ef035eb8226416f18595edb58304e852f4293",
+      "size_bytes": 125172,
+      "sha256": "2f16cb1f2bb932ae643cd4acc09bb6ecb51c84eca32dd5a7c71ea4980b40b51a",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/examples/horse.png",
+      "mode": "100644",
+      "git_blob": "97facd4afea9851c233636c238b2991caa5cb199",
+      "size_bytes": 257687,
+      "sha256": "629a0cc78a18e16f359afb22e2d8b9594f435ae09326560c86b0b095650d54e0",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/examples/iso_house.png",
+      "mode": "100644",
+      "git_blob": "717170f7a4c7611b44a4c66982bb75d884c745cf",
+      "size_bytes": 1260444,
+      "sha256": "b6063cbbc55b9aa4a4785ddbfcd13ca86fb07eca5a4ea7f9dda5eebcf7c17765",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/examples/marble.png",
+      "mode": "100644",
+      "git_blob": "0d7267468a4a3fb1f05354ad38aaa9f7ae46689d",
+      "size_bytes": 797408,
+      "sha256": "7b4e443fd2ac729891e8374749b0f9dc677039778e63b2ef7af160af03530a13",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/examples/police_woman.png",
+      "mode": "100644",
+      "git_blob": "adda32a7174c8dacd2fea07980f3b233205fb621",
+      "size_bytes": 240269,
+      "sha256": "0f9e688ec2ff8fdd5ded7011fcc48b7b86f2e3445ae24c1253c4b895b4e95d7b",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/examples/poly_fox.png",
+      "mode": "100644",
+      "git_blob": "3a137fc0a4b0ffcb47246b5001ebf78a955fe3b0",
+      "size_bytes": 633575,
+      "sha256": "255b3fe96ec357d8744343849f8d7cb39156988520c7ca0264edc6689d6e31ca",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/examples/robot.png",
+      "mode": "100644",
+      "git_blob": "31ce9687b54dddf2907a39f25b09d62bcbf2a8b0",
+      "size_bytes": 151541,
+      "sha256": "092ee61f1729ac9ed516c8d031d071f44dfa6e79f6ece04f32c988721b2b657a",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/examples/stripes.png",
+      "mode": "100644",
+      "git_blob": "125cac664517269d30aca8ebd36ee38cee7ca8b6",
+      "size_bytes": 359613,
+      "sha256": "5ca1c5401cc25fcf03bb5110133fcc11bf21939ae929aa9283bb215222dddd90",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/examples/teapot.png",
+      "mode": "100644",
+      "git_blob": "864694fb8af90b6c1405d6c531606bd106d6724d",
+      "size_bytes": 275764,
+      "sha256": "66b0b8f7dd759e97d20665999885e0548f96c95dadee6bf9762ccd877c596b8c",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/examples/tiger_girl.png",
+      "mode": "100644",
+      "git_blob": "4288fc7a3f83c1b802c0902d2b10dbe9ccc807d4",
+      "size_bytes": 485849,
+      "sha256": "af24c8064d8149f578adb9b3f69e46dfced704d11a0a149935a7f0399c7e7963",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/examples/unicorn.png",
+      "mode": "100644",
+      "git_blob": "d3be7f68739b87f672911886cd53767bc964b495",
+      "size_bytes": 530994,
+      "sha256": "35368caaf39cc5841a024d35cd4309f20aadae31fce58b6c63eb6d4b1bb9e129",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/figures/comparison800.gif",
+      "mode": "100644",
+      "git_blob": "ef5ccb9ac296e266e145b8f7e9c1003558adfe6b",
+      "size_bytes": 8871325,
+      "sha256": "887e69297e4446f122801ff2cc39962eda0933906d7ed7be7abf659e721914be",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/figures/scatter-comparison.png",
+      "mode": "100644",
+      "git_blob": "8bd45d32a4a8cb964c104b5eabb1964f57ec29b4",
+      "size_bytes": 326230,
+      "sha256": "531397494c63b414658ccc867203c39f201249d582d7c5a2e9320a384c23cfe1",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/figures/teaser800.gif",
+      "mode": "100644",
+      "git_blob": "f04acfe67aed12ae45d15cdfd222961697793525",
+      "size_bytes": 3842644,
+      "sha256": "52ecc6ff24e008b0d28236425a1b59718931841f6fb9f5e6f8471829fc9bc292",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/figures/visual_comparisons.jpg",
+      "mode": "100644",
+      "git_blob": "08be153f7a0946e75a1b02ad2bb4d2ee59096f44",
+      "size_bytes": 10322597,
+      "sha256": "019235d716d8832aaa659acd31cf17267af94df6b5a9beca2a7002b41d59c8db",
+      "kind": "binary",
+      "python_imports": [],
+      "symbols": []
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/gradio_app.py",
+      "mode": "100644",
+      "git_blob": "22092da32381673811cf8965547898c5b1a86951",
+      "size_bytes": 7147,
+      "sha256": "966639162b0e54b8d02748968e77c90aec38bbc123aa5db2d1d81eb92fda9f80",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "argparse",
+        "functools",
+        "gradio",
+        "logging",
+        "numpy",
+        "os",
+        "rembg",
+        "tempfile",
+        "time",
+        "torch",
+        "tsr.system",
+        "tsr.utils"
+      ],
+      "symbols": [
+        "check_input_image",
+        "preprocess",
+        "generate",
+        "run_example"
+      ],
+      "line_count": 187
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/requirements.txt",
+      "mode": "100644",
+      "git_blob": "c905bdb3540890d0af5382f984f48ef74d9a270c",
+      "size_bytes": 203,
+      "sha256": "741408247598c63e9f08cdb5f6fc753d78ac9185bb961cbe7ba8c5c0132aae48",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 12
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/run.py",
+      "mode": "100644",
+      "git_blob": "1150529c1b9525c88e87dba44fa649129b1d2d95",
+      "size_bytes": 6292,
+      "sha256": "bc1c124b3439f8ceb00ebd441848487ae7650af71053a80b266ae5db15784282",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "argparse",
+        "logging",
+        "numpy",
+        "os",
+        "rembg",
+        "time",
+        "torch",
+        "tsr.bake_texture",
+        "tsr.system",
+        "tsr.utils",
+        "xatlas"
+      ],
+      "symbols": [
+        "Timer"
+      ],
+      "line_count": 191
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/tsr/bake_texture.py",
+      "mode": "100644",
+      "git_blob": "642a4242e7952999e3a329d9a3fc7995dd3f86b0",
+      "size_bytes": 5374,
+      "sha256": "931d066c25d5943dc7b71469b63c308df3f37b8e7f6df558ee5e348d7936d5b7",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "moderngl",
+        "numpy",
+        "torch",
+        "trimesh",
+        "xatlas"
+      ],
+      "symbols": [
+        "make_atlas",
+        "rasterize_position_atlas",
+        "positions_to_colors",
+        "bake_texture"
+      ],
+      "line_count": 170
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/isosurface.py",
+      "mode": "100644",
+      "git_blob": "076321b81f573ab95a6c7d5328f6366e0f33c38e",
+      "size_bytes": 1926,
+      "sha256": "94c9a2ec27f8fe3c2fb57558ef28be253eb77074d2c171d49a41cf73d95d6f5e",
+      "kind": "text",
+      "python_imports": [
+        "numpy",
+        "torch",
+        "torch.nn",
+        "torchmcubes",
+        "typing"
+      ],
+      "symbols": [
+        "IsosurfaceHelper",
+        "MarchingCubeHelper"
+      ],
+      "line_count": 52
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/nerf_renderer.py",
+      "mode": "100644",
+      "git_blob": "0cf3ab6e31f79c3af8e75384f48c0e874621c2b8",
+      "size_bytes": 5673,
+      "sha256": "afe8c12c964078b2c6bb3922d2e30969aa59f7edbacb8cb73d2c3df839dc785f",
+      "kind": "text",
+      "python_imports": [
+        "dataclasses",
+        "einops",
+        "torch",
+        "torch.nn.functional",
+        "typing",
+        "utils"
+      ],
+      "symbols": [
+        "TriplaneNeRFRenderer"
+      ],
+      "line_count": 180
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/network_utils.py",
+      "mode": "100644",
+      "git_blob": "470c92b9a99901e93dee2b98e80eea53cfdf3f9d",
+      "size_bytes": 3473,
+      "sha256": "b3d48e86be9ca3f3abc1bfd774f640fd350e4365843d804e2a3145e7692e1419",
+      "kind": "text",
+      "python_imports": [
+        "dataclasses",
+        "einops",
+        "torch",
+        "torch.nn",
+        "typing",
+        "utils"
+      ],
+      "symbols": [
+        "TriplaneUpsampleNetwork",
+        "NeRFMLP"
+      ],
+      "line_count": 124
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/tokenizers/image.py",
+      "mode": "100644",
+      "git_blob": "d4034b25a7b2e8f38630fd69a0bae75ed2a5edb0",
+      "size_bytes": 2116,
+      "sha256": "f6da23124dfabe6a1f8d0d27693d0cece6574de68be15487a77781b6a9d73195",
+      "kind": "text",
+      "python_imports": [
+        "dataclasses",
+        "einops",
+        "huggingface_hub",
+        "torch",
+        "torch.nn",
+        "transformers.models.vit.modeling_vit",
+        "utils"
+      ],
+      "symbols": [
+        "DINOSingleImageTokenizer"
+      ],
+      "line_count": 66
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/tokenizers/triplane.py",
+      "mode": "100644",
+      "git_blob": "ecdd7fd2201c974bb70b18a90a633287b814886f",
+      "size_bytes": 1237,
+      "sha256": "44811fbd53013d6f49e229ecfd0717f89dd8ebeb71608aeb1f8e5ed1d5e8e378",
+      "kind": "text",
+      "python_imports": [
+        "dataclasses",
+        "einops",
+        "math",
+        "torch",
+        "torch.nn",
+        "utils"
+      ],
+      "symbols": [
+        "Triplane1DTokenizer"
+      ],
+      "line_count": 45
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/transformer/attention.py",
+      "mode": "100644",
+      "git_blob": "34bd99778ce168cb68192c183814f098a3d08e67",
+      "size_bytes": 26341,
+      "sha256": "347c1a707257cb4eb664ebe9ecd16db7b6006131e74925c049245d2c0101ba7e",
+      "kind": "text",
+      "python_imports": [
+        "torch",
+        "torch.nn.functional",
+        "typing"
+      ],
+      "symbols": [
+        "Attention",
+        "AttnProcessor",
+        "AttnProcessor2_0"
+      ],
+      "line_count": 653
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/transformer/basic_transformer_block.py",
+      "mode": "100644",
+      "git_blob": "1ea41b0192b6fbb368fe3a587b7c04b0253d23b3",
+      "size_bytes": 13202,
+      "sha256": "ced8ce4c5c5bbc13368130bc15dee1717cc6bc7f35699f64d03aeec185b1198e",
+      "kind": "text",
+      "python_imports": [
+        "attention",
+        "torch",
+        "torch.nn.functional",
+        "typing"
+      ],
+      "symbols": [
+        "BasicTransformerBlock",
+        "FeedForward",
+        "GELU",
+        "GEGLU",
+        "ApproximateGELU"
+      ],
+      "line_count": 334
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/tsr/models/transformer/transformer_1d.py",
+      "mode": "100644",
+      "git_blob": "a98d0fb98136ea873aef708717a809e434e7ca14",
+      "size_bytes": 9325,
+      "sha256": "fd83a71d59d04ef0a45dbadcc63f9d56d354ebc011a40f5589eb1786a1dd15f4",
+      "kind": "text",
+      "python_imports": [
+        "basic_transformer_block",
+        "dataclasses",
+        "torch",
+        "torch.nn.functional",
+        "typing",
+        "utils"
+      ],
+      "symbols": [
+        "Transformer1D"
+      ],
+      "line_count": 219
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/tsr/system.py",
+      "mode": "100644",
+      "git_blob": "bcdb69b2e5c85b3c0ffebd7ff82fc4fe7b3d543e",
+      "size_bytes": 6608,
+      "sha256": "7aec93e421394ad7c746b6d63a0189532b57b26af9a199fc75ac3bb7c993c94f",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "PIL.Image",
+        "dataclasses",
+        "einops",
+        "huggingface_hub",
+        "math",
+        "models.isosurface",
+        "numpy",
+        "omegaconf",
+        "os",
+        "torch",
+        "torch.nn.functional",
+        "trimesh",
+        "typing",
+        "utils"
+      ],
+      "symbols": [
+        "TSR"
+      ],
+      "line_count": 205
+    },
+    {
+      "path": "AnalyseFuture/third_party/triposr/tsr/utils.py",
+      "mode": "100644",
+      "git_blob": "9758f2e44cd4091f2124929edc89b59e98fff667",
+      "size_bytes": 15172,
+      "sha256": "d9d1a645fef7ea489615bff3471fd01a4941a2c0e138c5dff5daae619563279b",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "PIL.Image",
+        "collections",
+        "dataclasses",
+        "imageio",
+        "importlib",
+        "math",
+        "numpy",
+        "omegaconf",
+        "rembg",
+        "torch",
+        "torch.nn",
+        "torch.nn.functional",
+        "trimesh",
+        "typing"
+      ],
+      "symbols": [
+        "parse_structured",
+        "find_class",
+        "get_intrinsic_from_fov",
+        "BaseModule",
+        "ImagePreprocessor",
+        "rays_intersect_bbox",
+        "chunk_batch",
+        "scale_tensor",
+        "get_activation",
+        "get_ray_directions",
+        "get_rays",
+        "get_spherical_cameras",
+        "remove_background",
+        "resize_foreground",
+        "save_video",
+        "to_gradio_3d_orientation"
+      ],
+      "line_count": 474
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "mode": "100644",
+      "git_blob": "54aeaddb8aa6de41e48ecf254381e191a83973c2",
+      "size_bytes": 1283,
+      "sha256": "faef0eb75a33ea2f33a0a8be8353d121bd1a0d5995cf948d9fd05686e6d44ad6",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 14
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "git_blob": "dd1edce54e95098f89510c49db5c15e04933aa1b",
+      "size_bytes": 14023,
+      "sha256": "5b1c87dfc8c190e7f129c3facb41133f5d03d1b709192b83b6279b77e1bf4b9c",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 154
+    },
+    {
+      "path": "apps/api/Dockerfile",
+      "mode": "100644",
+      "git_blob": "bf4fe3981727a36222ed57297e4c0867a334a023",
+      "size_bytes": 560,
+      "sha256": "eaf2b227a958773e79a0005f56527eef2dcac7ade512b6b51873b8bcf61ae30a",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 14
+    },
+    {
+      "path": "apps/api/pyproject.toml",
+      "mode": "100644",
+      "git_blob": "7230e2407570cdc4907ba42ef4e7c1a305445304",
+      "size_bytes": 775,
+      "sha256": "57f3caaadff1e741ca65b1502e75c907f72b833a5e909bbb6f2a353e93b0c40b",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 32
+    },
+    {
+      "path": "apps/api/src/build3d_api/__init__.py",
+      "mode": "100644",
+      "git_blob": "a102803220e0086f30182f27edc796270b91df99",
+      "size_bytes": 76,
+      "sha256": "bf1e3892a0f47554d5b47fc350027230a489e49817b39e35836681f47e4b5f2d",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 1
+    },
+    {
+      "path": "apps/api/src/build3d_api/body_limit.py",
+      "mode": "100644",
+      "git_blob": "fabd82eeab2107f36d3bfcae88c6119ccbb1ecb2",
+      "size_bytes": 1495,
+      "sha256": "b22940580aafa72ef556fd418fb4034ab2c2ad13cee16799cbf8d599da68b94c",
+      "kind": "text",
+      "python_imports": [
+        "images",
+        "starlette.exceptions",
+        "starlette.responses"
+      ],
+      "symbols": [
+        "BodyLimitMiddleware"
+      ],
+      "line_count": 37
+    },
+    {
+      "path": "apps/api/src/build3d_api/cli.py",
+      "mode": "100644",
+      "git_blob": "91d755b32178e8e7681f5c4a07a535de496c0c5e",
+      "size_bytes": 6769,
+      "sha256": "d5e8cd885d2fdb1668c87d29aad457d1da67bd8736c322540d92ec2ec9a75fb9",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "argparse",
+        "config",
+        "db",
+        "json",
+        "maintenance",
+        "migration",
+        "pathlib",
+        "sqlalchemy.exc",
+        "storage",
+        "store",
+        "sys"
+      ],
+      "symbols": [
+        "main"
+      ],
+      "line_count": 155
+    },
+    {
+      "path": "apps/api/src/build3d_api/config.py",
+      "mode": "100644",
+      "git_blob": "b4be633aeb58af5cec6dfb7d53a5a95054257a1f",
+      "size_bytes": 3996,
+      "sha256": "895d1ade86c8a75672ff68509ab3ce66a29c0a711ef71fec7e74cad8233ef7c8",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "dataclasses",
+        "os",
+        "pathlib",
+        "urllib.parse"
+      ],
+      "symbols": [
+        "_env_bool",
+        "Settings"
+      ],
+      "line_count": 86
+    },
+    {
+      "path": "apps/api/src/build3d_api/db.py",
+      "mode": "100644",
+      "git_blob": "a1a075c08e7d7fc68267752071cf3c342724f5f6",
+      "size_bytes": 6333,
+      "sha256": "c532b2167f529230e895cc0c73eff82ac3ca0543409c3d389c37c5ca52834092",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "alembic",
+        "alembic.config",
+        "pathlib",
+        "sqlalchemy",
+        "sqlalchemy.engine"
+      ],
+      "symbols": [
+        "create_database",
+        "migrate",
+        "check_schema"
+      ],
+      "line_count": 137
+    },
+    {
+      "path": "apps/api/src/build3d_api/images.py",
+      "mode": "100644",
+      "git_blob": "5a583ac78b53655ccf33ccc5596f3e807f2cac73",
+      "size_bytes": 1754,
+      "sha256": "f9be7067e2eecb0de69c5e51f427184609acb50773347c4c3089911f0554dabd",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "__future__",
+        "io",
+        "warnings"
+      ],
+      "symbols": [
+        "normalize_image"
+      ],
+      "line_count": 38
+    },
+    {
+      "path": "apps/api/src/build3d_api/main.py",
+      "mode": "100644",
+      "git_blob": "d83b326f4ef98c4a60ff73315b8c2b311349984d",
+      "size_bytes": 10099,
+      "sha256": "2ccf802f463c011e38832389386d9f2b27867f6224d1bd92c79b62f5314b035d",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "body_limit",
+        "build3d_gateway.glb_validation",
+        "build3d_gateway.model_policy",
+        "config",
+        "contextlib",
+        "db",
+        "fastapi",
+        "fastapi.responses",
+        "fastapi.security",
+        "hashlib",
+        "images",
+        "pydantic",
+        "sqlalchemy.exc",
+        "starlette.background",
+        "storage",
+        "store",
+        "trusted_identity"
+      ],
+      "symbols": [
+        "ProjectRequest",
+        "TextRequest",
+        "approval_for",
+        "create_app"
+      ],
+      "line_count": 236
+    },
+    {
+      "path": "apps/api/src/build3d_api/maintenance.py",
+      "mode": "100644",
+      "git_blob": "3cd427427a065b9f0d75dc114422333cf5d55955",
+      "size_bytes": 3209,
+      "sha256": "c27406d109af1cbed99c82b41e7c0cb45abcda4fee30c21f703e25be3ecea6c7",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "dataclasses",
+        "storage",
+        "store"
+      ],
+      "symbols": [
+        "ArtifactInventoryLimit",
+        "scan_artifact_storage"
+      ],
+      "line_count": 96
+    },
+    {
+      "path": "apps/api/src/build3d_api/migration.py",
+      "mode": "100644",
+      "git_blob": "fcf760c6fcfd674a6f61de79b49f1db0dffe0953",
+      "size_bytes": 6867,
+      "sha256": "ab234bdc64270b44e6920678819f9011df9557e1f41714c76c8e6d0968d66636",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "build3d_gateway.glb_validation",
+        "dataclasses",
+        "maintenance",
+        "storage",
+        "store"
+      ],
+      "symbols": [
+        "ArtifactMigrationError",
+        "MigrationItem",
+        "_verify_materialized",
+        "migrate_filesystem_to_s3"
+      ],
+      "line_count": 196
+    },
+    {
+      "path": "apps/api/src/build3d_api/migrations/env.py",
+      "mode": "100644",
+      "git_blob": "e7af96f60ed01e1e2f627a640bbfb83658bed128",
+      "size_bytes": 268,
+      "sha256": "d3ae5b7ec8361ab025f899b67a289f4ac8cdcc34d9d3bb0563159ab69450f046",
+      "kind": "text",
+      "python_imports": [
+        "alembic",
+        "build3d_api.db"
+      ],
+      "symbols": [],
+      "line_count": 8
+    },
+    {
+      "path": "apps/api/src/build3d_api/migrations/versions/0001_projects_jobs.py",
+      "mode": "100644",
+      "git_blob": "47da3079e97920be1e48a25ffb3be0cdba9f94fe",
+      "size_bytes": 5024,
+      "sha256": "58f4ddf1d98f42b1cac503c73cb11c69f037137b992ac06b56aecccd6a5668dd",
+      "kind": "text",
+      "python_imports": [
+        "alembic",
+        "sqlalchemy"
+      ],
+      "symbols": [
+        "upgrade",
+        "downgrade"
+      ],
+      "line_count": 97
+    },
+    {
+      "path": "apps/api/src/build3d_api/migrations/versions/0002_external_identities.py",
+      "mode": "100644",
+      "git_blob": "d96e1496e4b6cfb6248242324254b60eed6a0591",
+      "size_bytes": 1352,
+      "sha256": "de792b8e3e27622aac21fbef69d5d5337ef5aebe8f2fc332a7cba545d35771d3",
+      "kind": "text",
+      "python_imports": [
+        "alembic",
+        "sqlalchemy"
+      ],
+      "symbols": [
+        "upgrade",
+        "downgrade"
+      ],
+      "line_count": 38
+    },
+    {
+      "path": "apps/api/src/build3d_api/migrations/versions/0003_storage_quota.py",
+      "mode": "100644",
+      "git_blob": "8b007177b646dbefc6a234cc99fa856745d1f194",
+      "size_bytes": 582,
+      "sha256": "5fb18018dc64fa60b5937e16c40ff3fa9e3208859c35480d040aef9544a879a3",
+      "kind": "text",
+      "python_imports": [
+        "alembic",
+        "sqlalchemy"
+      ],
+      "symbols": [
+        "upgrade",
+        "downgrade"
+      ],
+      "line_count": 30
+    },
+    {
+      "path": "apps/api/src/build3d_api/migrations/versions/0004_external_identity_rate_limit.py",
+      "mode": "100644",
+      "git_blob": "cfad474b8d2834914ab7b89c9a0edffe244c8075",
+      "size_bytes": 685,
+      "sha256": "6157bb2050c327b6649df5bdc4bdfef149e3d39257d7e61aa177c11cc610482c",
+      "kind": "text",
+      "python_imports": [
+        "alembic",
+        "sqlalchemy"
+      ],
+      "symbols": [
+        "upgrade",
+        "downgrade"
+      ],
+      "line_count": 28
+    },
+    {
+      "path": "apps/api/src/build3d_api/storage.py",
+      "mode": "100644",
+      "git_blob": "c69b588d19979d43d3bb8cf9aecdea76dff8da7a",
+      "size_bytes": 17971,
+      "sha256": "69663fd0b5ea3e6faec3d6f68c7c84f62fbb05c4c0ebdafae8f98276c711b6b8",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "boto3",
+        "build3d_gateway.glb_validation",
+        "config",
+        "dataclasses",
+        "os",
+        "pathlib",
+        "re",
+        "shutil",
+        "tempfile",
+        "typing",
+        "urllib.parse"
+      ],
+      "symbols": [
+        "ArtifactStorageError",
+        "MaterializedArtifact",
+        "StoredArtifactObject",
+        "StorageInventory",
+        "ArtifactStorage",
+        "_safe_id",
+        "artifact_object_key",
+        "_inventory_limit",
+        "_parse_current_key",
+        "FileSystemArtifactStorage",
+        "S3ArtifactStorage",
+        "_boto_client",
+        "create_artifact_storage"
+      ],
+      "line_count": 444
+    },
+    {
+      "path": "apps/api/src/build3d_api/store.py",
+      "mode": "100644",
+      "git_blob": "c1d182b2f927fdf35147d828443981896b0768ee",
+      "size_bytes": 26875,
+      "sha256": "e9b0c535852ca0472f9623cebe16fc0a492f8cf3f83ba03ef5897c3cef804172",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "config",
+        "db",
+        "hashlib",
+        "json",
+        "re",
+        "secrets",
+        "sqlalchemy",
+        "sqlalchemy.exc",
+        "time",
+        "urllib.parse",
+        "uuid"
+      ],
+      "symbols": [
+        "StoreError",
+        "new_id",
+        "public_job",
+        "fingerprint",
+        "normalize_external_issuer",
+        "normalize_external_subject",
+        "Store"
+      ],
+      "line_count": 545
+    },
+    {
+      "path": "apps/api/src/build3d_api/trusted_identity.py",
+      "mode": "100644",
+      "git_blob": "781701006fa2cef738a4c020dd4900961de95b0d",
+      "size_bytes": 14341,
+      "sha256": "bc77f54acea0feec03198a27034e375ff2715bd05f1e24284da917cb392bffb1",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "dataclasses",
+        "httpx",
+        "json",
+        "jwt",
+        "jwt.exceptions",
+        "pathlib",
+        "store",
+        "threading",
+        "time",
+        "typing",
+        "urllib.parse"
+      ],
+      "symbols": [
+        "TrustedIdentityError",
+        "Provider",
+        "_CacheEntry",
+        "_clean_https_url",
+        "_bounded_int",
+        "_parse_provider",
+        "load_providers",
+        "fetch_jwks",
+        "ExternalJWTAuthenticator"
+      ],
+      "line_count": 375
+    },
+    {
+      "path": "apps/api/src/build3d_api/worker.py",
+      "mode": "100644",
+      "git_blob": "1d1fe6fe8f646b50f769400798be1fc33fb4f3ab",
+      "size_bytes": 7419,
+      "sha256": "6ac632f282462c9e4cbdb03038543a2e20921d032f510d9cfcd9deccd3b51f6f",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "argparse",
+        "asyncio",
+        "build3d_gateway.download",
+        "build3d_gateway.model_policy",
+        "build3d_gateway.upstream",
+        "config",
+        "db",
+        "fastapi",
+        "os",
+        "pathlib",
+        "storage",
+        "store",
+        "sys",
+        "time"
+      ],
+      "symbols": [
+        "Worker",
+        "main"
+      ],
+      "line_count": 165
+    },
+    {
+      "path": "apps/api/tests/conftest.py",
+      "mode": "100644",
+      "git_blob": "862ebc813aaca9e6e85fa126525f01b3d1383953",
+      "size_bytes": 3967,
+      "sha256": "8cc0743411f4117aaa4f2cb471ca6566eff0cdb4e136df4cd84ed0eee70ab529",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "build3d_api.config",
+        "build3d_api.db",
+        "build3d_api.main",
+        "build3d_api.store",
+        "fastapi.testclient",
+        "io",
+        "json",
+        "os",
+        "pytest",
+        "sqlalchemy",
+        "sqlalchemy.engine",
+        "struct",
+        "types",
+        "uuid"
+      ],
+      "symbols": [
+        "env",
+        "project",
+        "queued",
+        "png",
+        "triangle"
+      ],
+      "line_count": 102
+    },
+    {
+      "path": "apps/api/tests/test_durable_worker.py",
+      "mode": "100644",
+      "git_blob": "253f34a93086dd77cdee530e04bd8edd85f5be19",
+      "size_bytes": 15506,
+      "sha256": "ea869de8765f335f17b4fe4c2a5bf4e69584ddb6358efa2d3a78ca195725c762",
+      "kind": "text",
+      "python_imports": [
+        "asyncio",
+        "build3d_api.db",
+        "build3d_api.store",
+        "build3d_api.worker",
+        "build3d_gateway.upstream",
+        "concurrent.futures",
+        "dataclasses",
+        "hashlib",
+        "httpx",
+        "json",
+        "pytest",
+        "sqlalchemy",
+        "time"
+      ],
+      "symbols": [
+        "make_worker",
+        "advance",
+        "row",
+        "slots",
+        "test_text_flow_restart_validated_download_and_tenant_privacy",
+        "test_image_flow_uses_persisted_validated_input",
+        "test_no_spend_acknowledgement_does_not_claim_or_contact_upstream",
+        "test_uncertain_submission_is_never_retried_and_keeps_quota",
+        "test_crash_after_claim_does_not_blindly_resubmit",
+        "test_two_workers_cannot_claim_same_submission",
+        "test_queued_cancel_and_worker_claim_race_cannot_dispatch_canceled_job",
+        "test_revoked_or_changed_policy_blocks_pending_gpu_job",
+        "test_known_upstream_failure_releases_quota_and_does_not_download",
+        "test_read_failures_backoff_then_pause_without_resubmission",
+        "test_invalid_glb_never_becomes_completed_or_downloadable",
+        "test_tampered_or_missing_stored_glb_is_rejected",
+        "test_disk_failure_never_publishes_complete_job",
+        "test_lost_poll_lease_is_reclaimable_and_stale_worker_cannot_finish",
+        "test_lost_commit_acknowledgement_does_not_delete_persisted_artifact",
+        "test_timeout_keeps_quota_and_does_not_claim_gpu_was_canceled",
+        "test_reconcile_attaches_existing_job_and_never_repeats_inference",
+        "test_reconcile_releases_uncertain_slot_only_with_operator_acknowledgement",
+        "test_storage_quota_rejects_published_artifact_and_releases_active_slot",
+        "test_concurrent_artifact_completion_cannot_overrun_persistent_byte_quota"
+      ],
+      "line_count": 353
+    },
+    {
+      "path": "apps/api/tests/test_product_api.py",
+      "mode": "100644",
+      "git_blob": "f454f9243d9ea620b34ed8f03b0f3c575479c2d3",
+      "size_bytes": 13819,
+      "sha256": "556f1eb732c22fed7ecee0ac341aeb2163c5537ede6ca26f81fab64c5dc1215a",
+      "kind": "text",
+      "python_imports": [
+        "PIL",
+        "alembic.autogenerate",
+        "alembic.migration",
+        "build3d_api.db",
+        "build3d_api.images",
+        "build3d_api.main",
+        "build3d_api.store",
+        "concurrent.futures",
+        "dataclasses",
+        "fastapi.testclient",
+        "hashlib",
+        "io",
+        "json",
+        "pytest",
+        "sqlalchemy"
+      ],
+      "symbols": [
+        "submit",
+        "test_health_does_not_claim_inference",
+        "test_authentication_is_per_user_and_no_plaintext_keys_stored",
+        "test_disabled_user_is_rejected",
+        "test_external_identity_mapping_is_immutable_and_not_email_based",
+        "test_external_identity_rejects_ambiguous_or_insecure_issuers",
+        "test_external_identity_allows_local_http_for_development",
+        "test_cross_user_jobs_are_invisible",
+        "test_cross_user_projects_cannot_be_listed_read_or_used",
+        "test_idempotency_replays_same_job_and_rejects_changed_request",
+        "test_concurrent_identical_submissions_create_one_job_and_one_slot",
+        "test_concurrent_different_requests_enforce_admission_quota",
+        "test_quota_and_cancel_release_exactly_one_slot",
+        "test_missing_policy_cannot_enqueue",
+        "test_history_survives_new_engine_and_application",
+        "test_rate_limit_is_atomic_and_resets_across_store_instances",
+        "test_upload_is_decoded_persisted_and_keeps_original_hash",
+        "test_fake_image_signature_is_not_enough",
+        "test_image_metadata_removed",
+        "test_malformed_exif_returns_validation_error_instead_of_crashing",
+        "test_pixel_budget_enforced_before_full_decode",
+        "test_request_size_limit_applies_before_parsing_and_to_chunked_body",
+        "test_invalid_prompts_rejected",
+        "test_migrations_roundtrip_and_repeat_upgrade",
+        "test_database_enforces_project_ownership_even_without_http",
+        "test_cache_headers_and_pagination_bounds",
+        "test_storage_usage_is_owner_scoped_and_quota_is_persistent"
+      ],
+      "line_count": 302
+    },
+    {
+      "path": "apps/api/tests/test_storage.py",
+      "mode": "100644",
+      "git_blob": "33b807be1f2997ea9a0df9d689bfb18645b8c8b6",
+      "size_bytes": 14399,
+      "sha256": "71ccb14a16230863aacb9943f17126786cf83efc5451759216a9581fea3ab4d4",
+      "kind": "text",
+      "python_imports": [
+        "asyncio",
+        "build3d_api.config",
+        "build3d_api.db",
+        "build3d_api.main",
+        "build3d_api.maintenance",
+        "build3d_api.migration",
+        "build3d_api.storage",
+        "build3d_api.store",
+        "build3d_api.worker",
+        "build3d_gateway.upstream",
+        "dataclasses",
+        "fastapi.testclient",
+        "hashlib",
+        "httpx",
+        "io",
+        "pytest",
+        "time"
+      ],
+      "symbols": [
+        "FakeS3",
+        "StaticArtifactRows",
+        "test_filesystem_storage_uses_owner_scoped_key_and_legacy_read_fallback",
+        "test_s3_storage_round_trip_is_private_bounded_and_metadata_verified",
+        "test_settings_gate_s3_and_factory_uses_injected_client",
+        "test_s3_worker_to_api_download_keeps_glb_validation_and_tenant_boundary",
+        "test_filesystem_inventory_and_scanner_are_bounded_and_non_destructive",
+        "test_s3_inventory_paginates_and_respects_hard_scan_limit",
+        "test_filesystem_to_s3_migration_is_dry_run_by_default_and_copy_only",
+        "test_filesystem_to_s3_migration_fails_closed_on_corrupt_source_or_target"
+      ],
+      "line_count": 405
+    },
+    {
+      "path": "apps/api/tests/test_trusted_identity.py",
+      "mode": "100644",
+      "git_blob": "6184a8a7ce6bce8a0b986a5a4ad20b22a302beb8",
+      "size_bytes": 9171,
+      "sha256": "4b2fe922148ba378733c572db7e3d9995891c588cbd2c657a9f49408b9e0a9f5",
+      "kind": "text",
+      "python_imports": [
+        "build3d_api.main",
+        "build3d_api.store",
+        "build3d_api.trusted_identity",
+        "cryptography.hazmat.primitives.asymmetric",
+        "dataclasses",
+        "fastapi.testclient",
+        "json",
+        "jwt",
+        "jwt.algorithms",
+        "pytest",
+        "sqlalchemy",
+        "time"
+      ],
+      "symbols": [
+        "StaticFetcher",
+        "signing_material",
+        "provider_file",
+        "token",
+        "jwt_app",
+        "test_valid_external_jwt_maps_only_issuer_subject_and_keeps_api_keys",
+        "test_untrusted_issuer_and_disallowed_algorithm_never_fetch_jwks",
+        "test_invalid_or_unmapped_assertions_fail_closed",
+        "test_unknown_kid_does_not_force_unbounded_jwks_refresh",
+        "test_external_identity_rate_limit_is_database_backed",
+        "test_disabled_product_user_cannot_use_valid_external_assertion",
+        "test_feature_flag_disabled_rejects_external_jwt_without_fetch",
+        "test_external_identity_store_rate_limit_is_atomic",
+        "test_provider_configuration_rejects_unsafe_values"
+      ],
+      "line_count": 251
+    },
+    {
+      "path": "apps/gateway/Dockerfile",
+      "mode": "100644",
+      "git_blob": "afec6bb2c13f0c1ba5e79c2d1b735a654216e654",
+      "size_bytes": 310,
+      "sha256": "ba65a791d2723c1023a3843119457fb1f87777f4089b81c594a5dfaacfac412d",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 9
+    },
+    {
+      "path": "apps/gateway/pyproject.toml",
+      "mode": "100644",
+      "git_blob": "ea0e4570da820572b5b16208a8a9cf44f7c6bebf",
+      "size_bytes": 737,
+      "sha256": "19d207e66432b5166906bd872e63a4b708c66355ead96039606d3d4b8a8d86c4",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 31
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/__init__.py",
+      "mode": "100644",
+      "git_blob": "8df1deba5a06bb53d0082825539bdfaf20167567",
+      "size_bytes": 72,
+      "sha256": "29eaf8eb6f3a0722170edc235e86e50fdedd229b9a0b54e80ab40703847afa74",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 1
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/download.py",
+      "mode": "100644",
+      "git_blob": "0abddd20349de5709f575e1b4706bcd915b677b6",
+      "size_bytes": 2231,
+      "sha256": "912ce12a572e332a42410d360a2edf0ddca1d570dde91951e02ca63a0807d1e9",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "glb_validation",
+        "httpx",
+        "os",
+        "tempfile",
+        "upstream"
+      ],
+      "symbols": [
+        "ArtifactTooLarge",
+        "fetch_verified_glb"
+      ],
+      "line_count": 61
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/glb_validation.py",
+      "mode": "100644",
+      "git_blob": "e7a76e713a7dce9682979deb065de4da039d77df",
+      "size_bytes": 5601,
+      "sha256": "fb0b7a72d89f8f8d5b31bf9babbe6a4b2eb05aa3dcf515fb48db0c6b887a53e7",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "dataclasses",
+        "hashlib",
+        "json",
+        "struct",
+        "typing"
+      ],
+      "symbols": [
+        "GLBValidationError",
+        "GLBInspection",
+        "_array",
+        "inspect_glb"
+      ],
+      "line_count": 149
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/main.py",
+      "mode": "100644",
+      "git_blob": "88c8352c368e7a81fe756a220660b5d07ebc476a",
+      "size_bytes": 6002,
+      "sha256": "fc5efbdb33837ce3239728dbd1b8ca4c31adc05b90e9b95aa5a2651e6facf3c7",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "download",
+        "fastapi",
+        "fastapi.responses",
+        "hmac",
+        "model_policy",
+        "os",
+        "pydantic",
+        "re",
+        "starlette.background",
+        "upstream"
+      ],
+      "symbols": [
+        "TextGenerationRequest",
+        "require_control_key",
+        "get_gateway",
+        "clean_job_id",
+        "clean_model_id",
+        "validate_image",
+        "upstream_error_handler",
+        "health",
+        "upstream_status",
+        "list_models",
+        "approved_models",
+        "text_to_3d",
+        "image_to_3d",
+        "job_status",
+        "download"
+      ],
+      "line_count": 166
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/model-approvals.json",
+      "mode": "100644",
+      "git_blob": "5b5b7da0cdd45702f77777b362646debb1a850f4",
+      "size_bytes": 187,
+      "sha256": "02bb5b5d2664f48d3da34cafcb249bbcb7698c6ab12a4cde092f7311a4d01628",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 5
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/model_policy.py",
+      "mode": "100644",
+      "git_blob": "acdc3914b462072d505956499c26971edf5d04a9",
+      "size_bytes": 3875,
+      "sha256": "ddc4f8ab6f5ddbfac13593c8acdf895c41f3e30a09cc519d23b92fd0b889f4f9",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "datetime",
+        "fastapi",
+        "json",
+        "os",
+        "pathlib",
+        "re"
+      ],
+      "symbols": [
+        "approved_model_records",
+        "approved_model_ids",
+        "require_model_approval"
+      ],
+      "line_count": 91
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/smoke.py",
+      "mode": "100644",
+      "git_blob": "40701454202db7fdee38d4640674418fcbc81270",
+      "size_bytes": 9259,
+      "sha256": "b9693253343178eb7091fdb8339cbc879a304f0943e821e15728c6c1647435c8",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "argparse",
+        "datetime",
+        "glb_validation",
+        "httpx",
+        "json",
+        "os",
+        "pathlib",
+        "re",
+        "sys",
+        "time",
+        "typing",
+        "urllib.parse"
+      ],
+      "symbols": [
+        "SmokeError",
+        "run_smoke",
+        "main"
+      ],
+      "line_count": 221
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/textured_glb.py",
+      "mode": "100644",
+      "git_blob": "9b35e75f17264b30bde5e8cb01c1f6d2bf34f296",
+      "size_bytes": 16909,
+      "sha256": "1a379e045f80ccc7cb3d329e66feb953291cb71f135fbeba6c27c31361dda35a",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "argparse",
+        "dataclasses",
+        "glb_validation",
+        "io",
+        "json",
+        "math",
+        "os",
+        "pathlib",
+        "struct",
+        "tempfile",
+        "typing"
+      ],
+      "symbols": [
+        "TexturedGLBError",
+        "SimpleOBJ",
+        "_finite",
+        "_parse_positive_index",
+        "parse_xatlas_obj_bytes",
+        "load_xatlas_obj",
+        "validate_png",
+        "_pack_float_vectors",
+        "_append_view",
+        "build_textured_glb",
+        "package_files",
+        "main"
+      ],
+      "line_count": 455
+    },
+    {
+      "path": "apps/gateway/src/build3d_gateway/upstream.py",
+      "mode": "100644",
+      "git_blob": "e574f59c8376ca64105c5a647e117842e2af9926",
+      "size_bytes": 4169,
+      "sha256": "f29022dd1f323454a67418ed5a7885a7ca9f2240ac40a02df87d4a021f7f934a",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "httpx"
+      ],
+      "symbols": [
+        "UpstreamError",
+        "UpstreamGateway"
+      ],
+      "line_count": 106
+    },
+    {
+      "path": "apps/gateway/tests/conftest.py",
+      "mode": "100644",
+      "git_blob": "5acc38118b81666a362f2e34a12f6b6f4cb5105c",
+      "size_bytes": 1475,
+      "sha256": "b17ab296c419955c8983a9c63d6078878e30357523cd7fd92713ce7372ceda2d",
+      "kind": "text",
+      "python_imports": [
+        "json",
+        "pytest",
+        "struct"
+      ],
+      "symbols": [
+        "build_triangle_glb",
+        "glb_bytes",
+        "glb_factory"
+      ],
+      "line_count": 45
+    },
+    {
+      "path": "apps/gateway/tests/test_gateway.py",
+      "mode": "100644",
+      "git_blob": "a49e1b3955091177a913621ed03568d8f5ea3137",
+      "size_bytes": 11806,
+      "sha256": "db42b67bd1d1702609d294b58b5a925fa3059bac1381c13a5430d9d206cd1adc",
+      "kind": "text",
+      "python_imports": [
+        "build3d_gateway.main",
+        "build3d_gateway.upstream",
+        "fastapi.testclient",
+        "hashlib",
+        "httpx",
+        "json",
+        "pytest"
+      ],
+      "symbols": [
+        "configured_gateway",
+        "mock_upstream",
+        "test_process_health_is_not_claimed_as_gpu_health",
+        "test_gateway_fails_closed_without_secret",
+        "test_gateway_requires_owner_key",
+        "test_text_submission_uses_real_upstream_contract",
+        "test_image_upload_then_generation_uses_file_id",
+        "test_invalid_image_is_rejected_before_upstream_call",
+        "test_model_job_and_download_proxy",
+        "test_upstream_failure_is_not_misrepresented_as_success",
+        "test_no_path_traversal_or_arbitrary_model_names",
+        "test_generation_denies_missing_and_unapproved_model",
+        "test_generation_disabled_when_approvals_empty",
+        "test_malformed_approval_denied",
+        "test_absent_policy_denied",
+        "test_owner_can_list_explicit_approved_models",
+        "test_unapproved_image_never_uploads_to_upstream",
+        "test_packaged_policy_starts_with_no_approved_models",
+        "test_invalid_glb_from_upstream_returns_502",
+        "test_oversized_glb_from_upstream_returns_413",
+        "test_bad_content_length_cannot_bypass_stream_size_limit",
+        "test_upstream_download_failure_returns_502"
+      ],
+      "line_count": 299
+    },
+    {
+      "path": "apps/gateway/tests/test_glb_validation.py",
+      "mode": "100644",
+      "git_blob": "748c3dacf5eb07e974b84f145e3ce34d676af8b3",
+      "size_bytes": 2979,
+      "sha256": "b10f8762c76f8d546f3f7649bed8661ce7272fb558d2f16737c471d0cc1835a2",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "build3d_gateway.glb_validation",
+        "hashlib",
+        "io",
+        "pytest",
+        "struct"
+      ],
+      "symbols": [
+        "check",
+        "test_valid_triangle_has_real_mesh_structure",
+        "test_truncated_or_invalid_header_is_rejected",
+        "test_declared_size_must_match_bytes",
+        "test_only_binary_version_two_is_accepted",
+        "test_json_chunk_cannot_overrun_file",
+        "test_no_mesh_is_not_a_valid_generated_asset",
+        "test_missing_bin_chunk_is_rejected",
+        "test_invalid_gltf_asset_version_is_rejected",
+        "test_rejects_external_image_resources",
+        "test_rejects_relative_image_file_references",
+        "test_byte_cap_is_enforced",
+        "test_duplicate_chunk_rejected"
+      ],
+      "line_count": 90
+    },
+    {
+      "path": "apps/gateway/tests/test_gpu_smoke.py",
+      "mode": "100644",
+      "git_blob": "fd3554e24e5c502cc29ed9e114e97fc3fd801ab5",
+      "size_bytes": 5003,
+      "sha256": "7568ad2c6cab0cafc92d327c9acf1cbbba1e6aca116fb1f0bb7de5bf92dbcc36",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "build3d_gateway.glb_validation",
+        "build3d_gateway.smoke",
+        "hashlib",
+        "httpx",
+        "pytest"
+      ],
+      "symbols": [
+        "kwargs",
+        "test_real_job_flow_protocol_and_glb_integrity",
+        "test_gpu_spend_must_be_explicit",
+        "test_unapproved_models_cannot_create_jobs",
+        "test_completed_job_cannot_hide_invalid_glb",
+        "test_failed_job_is_reported_and_not_downloaded",
+        "test_nonlocal_cleartext_gateway_refused_before_secret_sent",
+        "test_disguised_or_credentialed_gateway_urls_are_rejected"
+      ],
+      "line_count": 137
+    },
+    {
+      "path": "apps/gateway/tests/test_textured_glb.py",
+      "mode": "100644",
+      "git_blob": "305e02307c02650f55467cd09437562aa245a312",
+      "size_bytes": 3870,
+      "sha256": "e485114cdcbf344e7f29c8f92ab468b7411e2b629fd3ae345561c5ed2330c990",
+      "kind": "text",
+      "python_imports": [
+        "base64",
+        "build3d_gateway.glb_validation",
+        "build3d_gateway.textured_glb",
+        "io",
+        "json",
+        "pytest",
+        "struct"
+      ],
+      "symbols": [
+        "glb_document",
+        "test_xatlas_obj_and_png_package_as_self_contained_textured_glb",
+        "test_packager_supports_mesh_without_normals",
+        "test_xatlas_obj_rejects_external_material_directives_and_index_aliases",
+        "test_xatlas_obj_rejects_non_candidate_face_shapes",
+        "test_package_files_writes_atomically_and_reports_product_integrity",
+        "test_flip_v_is_explicit_not_implicit"
+      ],
+      "line_count": 129
+    },
+    {
+      "path": "apps/web/.env.example",
+      "mode": "100644",
+      "git_blob": "3ec87561414d4e19d504c95a662cc0287df9a717",
+      "size_bytes": 125,
+      "sha256": "ba4fcebcec8a3182c88f585f6cc383f0c2153f3c753c7972d2b7a153ac975e73",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 2
+    },
+    {
+      "path": "apps/web/README.md",
+      "mode": "100644",
+      "git_blob": "126e5aed66a3cac5d630b7505baf59867a901173",
+      "size_bytes": 2262,
+      "sha256": "68b4f74fccb91e70715fcd86fe542e8498229621b096e9934f1075621b7cd128",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 53
+    },
+    {
+      "path": "apps/web/next-env.d.ts",
+      "mode": "100644",
+      "git_blob": "b68ad4331bc07c1c4b3db580350ff6ff8d77c883",
+      "size_bytes": 143,
+      "sha256": "7348bb54fd55d0f224041369b683f34ab06e5a83e3f748fc6f24ee45a9e8db3d",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 4
+    },
+    {
+      "path": "apps/web/next.config.ts",
+      "mode": "100644",
+      "git_blob": "dcf478452042490bb80ab95e300ce09d99e7b965",
+      "size_bytes": 156,
+      "sha256": "13c14eaf596f16b598a3d8f6c7b061d2f1aeedf14b5afa6624844c83354b9b4c",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 8
+    },
+    {
+      "path": "apps/web/package.json",
+      "mode": "100644",
+      "git_blob": "d257867f624c8a58630989aa292a20f48b2aeb97",
+      "size_bytes": 690,
+      "sha256": "e41fc3864ca169dd4980267b68bba3c704b09cb3da2e495fa6bad87c4ec654bd",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 30
+    },
+    {
+      "path": "apps/web/playwright.config.ts",
+      "mode": "100644",
+      "git_blob": "5e4b04b591f88d459543ad131ce18b22384fcb03",
+      "size_bytes": 747,
+      "sha256": "6791d571a733bb287da7316c05305003074d14957b21c7ed87890c78460fe364",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 31
+    },
+    {
+      "path": "apps/web/src/app/api/product/[...segments]/route.ts",
+      "mode": "100644",
+      "git_blob": "b4d355331c60dd9710a06d92a40d49391c933d9e",
+      "size_bytes": 4460,
+      "sha256": "a29f2aebfbb7bfc7354c2729ffb0e05111ce8f343a86bfc0b0212081dfaa61e8",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 145
+    },
+    {
+      "path": "apps/web/src/app/api/session/route.ts",
+      "mode": "100644",
+      "git_blob": "e2877db30202f760c5e6bfc1fc2c545463c90bc6",
+      "size_bytes": 2644,
+      "sha256": "8d41d81b873bce31dd93971318208adfaa648fc632d97fe3b31629e20fbc4519",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 78
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "mode": "100644",
+      "git_blob": "0f1f3076b402ca9f647168bc35f37ce2f8a1b3a0",
+      "size_bytes": 9285,
+      "sha256": "c37f74d44e94cde03a44b634ce0fc0a5bf2a78a744230a5d250d0339ec7557c1",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 188
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "mode": "100644",
+      "git_blob": "b8189e5b54a97bdc2ed2ca8c9c6686d9056524e8",
+      "size_bytes": 409,
+      "sha256": "b67706a2641dd800de60f52a4049d54e519d23c229464772af787d3e6a757870",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 15
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "mode": "100644",
+      "git_blob": "b9663ce283ea19745f6014c69d28e04bc128e392",
+      "size_bytes": 286,
+      "sha256": "2a09cbea38c8bd5e69d056882037eca382739c7b0eb6d3c031b7cea5351ca628",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 12
+    },
+    {
+      "path": "apps/web/src/components/model-viewer.tsx",
+      "mode": "100644",
+      "git_blob": "e45732be657290208d1bcbf3648e66e6badefb76",
+      "size_bytes": 4999,
+      "sha256": "5535dde5078e9489f7028a3a0629d045ac42e6c0b904527ab9b653ad2a704d84",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 167
+    },
+    {
+      "path": "apps/web/src/components/studio.tsx",
+      "mode": "100644",
+      "git_blob": "58fe69d0668d40ac272e83397ab7dc0618a3cce0",
+      "size_bytes": 20465,
+      "sha256": "a5159cad6cc4f5c11f44e9693170b1bfb839afd3307a158c616f86a82a4d7b82",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 576
+    },
+    {
+      "path": "apps/web/src/lib/api.test.ts",
+      "mode": "100644",
+      "git_blob": "ec86e69efacb81adaeaf113784ccefeba19cd836",
+      "size_bytes": 849,
+      "sha256": "d1e58150997086d01b2f12b9ceca9833458a7557253bf9171b894149e0195218",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 15
+    },
+    {
+      "path": "apps/web/src/lib/api.ts",
+      "mode": "100644",
+      "git_blob": "5893b64ae2ca382ae641d15dc9c1ca83785d1adb",
+      "size_bytes": 8194,
+      "sha256": "d12e3289a732ca79a01d8e10edf68b4f1edaacb386e0a68e7af0df734861c93b",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 234
+    },
+    {
+      "path": "apps/web/src/lib/contracts.ts",
+      "mode": "100644",
+      "git_blob": "6bd956c4a91413eb6d8a08803a2529e4c786aa6b",
+      "size_bytes": 1005,
+      "sha256": "8ca61b3c89a8b296277b3896373b73f76dccfcc3025c2b1d502c2e0253346d94",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 55
+    },
+    {
+      "path": "apps/web/src/lib/server-product-api.ts",
+      "mode": "100644",
+      "git_blob": "95acf19dba065d667c06fe27c2f88bd154a568b4",
+      "size_bytes": 1757,
+      "sha256": "7df06bdd47468c1c1b7a545438a6e9c0f00394fb80126f04d80d45023bb3dc97",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 61
+    },
+    {
+      "path": "apps/web/src/lib/status.test.ts",
+      "mode": "100644",
+      "git_blob": "c68c1790d957ab2871c84333fd82be3ba3fd8a3c",
+      "size_bytes": 942,
+      "sha256": "3345f6b56598ee0afee4364413817ac7a5c69253178612ccb8f9851f4157e251",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 20
+    },
+    {
+      "path": "apps/web/src/lib/status.ts",
+      "mode": "100644",
+      "git_blob": "81e6feb864a347039221af180ce30c33dfaab267",
+      "size_bytes": 1876,
+      "sha256": "0e8addb205875c6fd6f111b9f5060ddba6d7f1ca78a7ad8587c1b74794decd87",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 46
+    },
+    {
+      "path": "apps/web/tests/e2e/studio.spec.ts",
+      "mode": "100644",
+      "git_blob": "a86dbe2341f26fa3d0f311180bc6f29794138779",
+      "size_bytes": 4999,
+      "sha256": "3f5a5754a2abfd87021bff418af99e4281e2f118cfe5be4ef33daf2080414611",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 116
+    },
+    {
+      "path": "apps/web/tests/mock-backend.mjs",
+      "mode": "100644",
+      "git_blob": "d0ad74a34fadc4b7356e816959031b41666cca3b",
+      "size_bytes": 10900,
+      "sha256": "0e1d0b1ad9661d1c59dd89059cb01bd3b7677251f299a6ef75e861131ba8be5a",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 307
+    },
+    {
+      "path": "apps/web/tsconfig.json",
+      "mode": "100644",
+      "git_blob": "bdf2cedb0a789c0dc808396dcdc293c97ed8cf7b",
+      "size_bytes": 612,
+      "sha256": "eff33e408db33d8aa2c64e83e97e7c7e18222534304141b60b48ecde76d1eaf6",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 27
+    },
+    {
+      "path": "apps/web/vitest.config.ts",
+      "mode": "100644",
+      "git_blob": "c1433e6ef3830880059578e1136bed71e765842b",
+      "size_bytes": 156,
+      "sha256": "4f49d01f0120eff8b5bac0c9abc9bf6263c8da9834d288ff884c1e397436209f",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 8
+    },
+    {
+      "path": "compose.gateway.yml",
+      "mode": "100644",
+      "git_blob": "ca276281617c476b0c4c046b74727d5bca1ce92f",
+      "size_bytes": 551,
+      "sha256": "b6c13c30b0d7085af46166be01782f0f50e956c59c01982cb0593532f1d05029",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 20
+    },
+    {
+      "path": "compose.product.yml",
+      "mode": "100644",
+      "git_blob": "2c0f69ec09817027188585c37561029492f1bad2",
+      "size_bytes": 1737,
+      "sha256": "309959ca8b376dd596c20dc151c883e13ed693f69eab881e9cd369c6cffb089b",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 58
+    },
+    {
+      "path": "config/identity-providers.example.json",
+      "mode": "100644",
+      "git_blob": "3a0865b0d22a90896bb5100506428d743a4f1fde",
+      "size_bytes": 403,
+      "sha256": "8d4338222e12a7c6b958a9e458aaeca72aa2da0249b9c51acc2dd087d2b5d91c",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 16
+    },
+    {
+      "path": "docs/AI_MODELS_AND_DATA.md",
+      "mode": "100644",
+      "git_blob": "9056d3b0fc3425615fe5e11b701bd02ddda89f44",
+      "size_bytes": 3729,
+      "sha256": "eb8d9fc88dea3add678d2f3bce0c8f5604654f9c7da2783b04848b88ff4439ad",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 35
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "mode": "100644",
+      "git_blob": "a0444c46b22c9ac93d888a1dbd799904682a7c4c",
+      "size_bytes": 4423,
+      "sha256": "aff043888edc5f7a61b6e549a9d5b7e37e32e108ebff9306773ee8eb5c652523",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 68
+    },
+    {
+      "path": "docs/ARCHIVE_IMPORTS.json",
+      "mode": "100644",
+      "git_blob": "a12588d50daa81a2b18fca7c3ce0a5c8b43e979f",
+      "size_bytes": 118793,
+      "sha256": "93105e891e1d700439f4e557143964dbe9f6fe91d5ce82f56070d7560c1f28cf",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 2373
+    },
+    {
+      "path": "docs/BACKLOG.md",
+      "mode": "100644",
+      "git_blob": "6314a0583f0d3dadaa1d1d22eae31a011c71103f",
+      "size_bytes": 2762,
+      "sha256": "456500d3ac97b76a42a03dc7a7f396c6408856e2d62a6361123e90e3cb1f0233",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 34
+    },
+    {
+      "path": "docs/BENCHMARKS.md",
+      "mode": "100644",
+      "git_blob": "b5ba7b0fac0578c50ddeded00918b690c7eaa8c2",
+      "size_bytes": 1866,
+      "sha256": "7303f7360321e14e0e8e4d95e3848991aaa06b712a31d9c09b926feb28b81573",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 28
+    },
+    {
+      "path": "docs/BUILD_3D_AI_PROJECT_IDEA.txt",
+      "mode": "100644",
+      "git_blob": "e23071293a13a86b0157ea5ef17e842957724551",
+      "size_bytes": 53561,
+      "sha256": "bfda89c3edefa81b3aad4d48bd77830aba168695b9c86df932fde5e4dc9c4866",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 1104
+    },
+    {
+      "path": "docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md",
+      "mode": "100644",
+      "git_blob": "b3c622a910fc65c9cecd8f63da24f2b52a19e0da",
+      "size_bytes": 5940,
+      "sha256": "120785412c803b39f04be58958dabd0506217d587691320f60e072de202780f0",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 120
+    },
+    {
+      "path": "docs/CODEX_HANDOFF.md",
+      "mode": "100644",
+      "git_blob": "6f6aca970b07ce33e970f953f65b3ee0d35f4812",
+      "size_bytes": 14966,
+      "sha256": "43d0df8c9bc9d87c24404e4fcedb5d5da38cc296e71e171dd8004fde51e0ccb3",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 165
+    },
+    {
+      "path": "docs/CPU_DEPENDENCY_INVENTORY.json",
+      "mode": "100644",
+      "git_blob": "04bd5f3f57a47900d43e0b953d3928e92685f4cb",
+      "size_bytes": 20852,
+      "sha256": "742e0ab9c12b3ae94050bfc051ca12c934875adc336f9af4105164aa642c4862",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 592
+    },
+    {
+      "path": "docs/DECISIONS.md",
+      "mode": "100644",
+      "git_blob": "48a0f1dbf74b8ff16da1949784b08b6d27055627",
+      "size_bytes": 2544,
+      "sha256": "676c7a96052fe2464af64164b82e68de53dbcf36420243d815619ad115feb6e6",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 36
+    },
+    {
+      "path": "docs/FEATURE_MATRIX.md",
+      "mode": "100644",
+      "git_blob": "d4b280f7ee11f6638c6ba0c98dac9ea44a18394e",
+      "size_bytes": 4476,
+      "sha256": "205fe1e70a6be82e8acdd86eb8c33fc63547d983b27da3506e29392f1dc0f80e",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 47
+    },
+    {
+      "path": "docs/FIRST_REAL_GPU_RUNBOOK.md",
+      "mode": "100644",
+      "git_blob": "d20e0f1531e69a9355b07a3f594f059500332bd5",
+      "size_bytes": 14128,
+      "sha256": "5039dcbf0e360dddb64d32e48f0aa271c8fea199d3c16f59aef05024c7955ad3",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 251
+    },
+    {
+      "path": "docs/GPU_SMOKE_AND_ARTIFACTS.md",
+      "mode": "100644",
+      "git_blob": "eecb912a184918a2ee3635ea30efce0962d6f498",
+      "size_bytes": 6177,
+      "sha256": "a6906fb813f6db36aab7ff164d6d9dbbd896aee97c19b521b07ff91a1ff2ab7b",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 91
+    },
+    {
+      "path": "docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md",
+      "mode": "100644",
+      "git_blob": "ce6f6b7651a4fa5a79bafe64e6f83df38df6460c",
+      "size_bytes": 8711,
+      "sha256": "fc44bed40607434d4218efd0f58290e9277deb0832f303977fbae77ea1fd8226",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 131
+    },
+    {
+      "path": "docs/IMPLEMENTATION_CHECKLIST.md",
+      "mode": "100644",
+      "git_blob": "542ae4e22892fbd1c600697397bd06bc9d377d48",
+      "size_bytes": 16744,
+      "sha256": "3c62f1f02932c8dce439effe3f9db2d3ea7c532722933d4049da249ab8167cdf",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 135
+    },
+    {
+      "path": "docs/LICENSE_MATRIX.md",
+      "mode": "100644",
+      "git_blob": "bb00e9b60825569c8fed99f300fdfd0800df2cb5",
+      "size_bytes": 11827,
+      "sha256": "297f0856bcaa20801a09b380108cd86268df6d5256660170320eb427a1209275",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 68
+    },
+    {
+      "path": "docs/MODEL_APPROVAL_GATE.md",
+      "mode": "100644",
+      "git_blob": "6892455ce8103e2d7c392f53a5bebb55bbf83b02",
+      "size_bytes": 3443,
+      "sha256": "d7dee5809dc6452a5b652a04c7c8fc6c07d6b377d881d201c13598fa0cdea5cf",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 54
+    },
+    {
+      "path": "docs/OBJECT_STORAGE.md",
+      "mode": "100644",
+      "git_blob": "a0fcae7daf497e56b8486e8c28eb3841ddc13682",
+      "size_bytes": 8921,
+      "sha256": "3810c284719c609155f5bbe849f4376ae0ea067bff9f73e716c880cdc31ab9e7",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 154
+    },
+    {
+      "path": "docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt",
+      "mode": "100644",
+      "git_blob": "0cd91d031c9649792fb47ace707e63347678227d",
+      "size_bytes": 31245,
+      "sha256": "12a15d06c5c71c3438dec2b676cf9d17d3a8d122c04a2cb6adebe9be8112776b",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 195
+    },
+    {
+      "path": "docs/OPEN_SOURCE_STRATEGY.md",
+      "mode": "100644",
+      "git_blob": "e71a9734ac49282eee727d6576a47963bacef223",
+      "size_bytes": 4236,
+      "sha256": "8eef8620860b43bdc673d8d74625740337bd3d6b12c3255eee23e3b1e19cbc3e",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 50
+    },
+    {
+      "path": "docs/OPERATIONS_SECURITY.md",
+      "mode": "100644",
+      "git_blob": "0b0ab4ab770ef4b8a0c4ac5be534e4422d219db7",
+      "size_bytes": 2441,
+      "sha256": "78273fd359e980219e28dab5b5e50bdcb5f7574323ec8bb01d2f404c5bc74a5a",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 29
+    },
+    {
+      "path": "docs/PHASE0_GATEWAY.md",
+      "mode": "100644",
+      "git_blob": "4eaeb12d003d184e980203e3d8428b84e1b5e9be",
+      "size_bytes": 5368,
+      "sha256": "09c0ec8c3e82c5ccb4250f13079041b9532358d6879062f00cb98f88748f78b4",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 85
+    },
+    {
+      "path": "docs/PRODUCT_BACKBONE.md",
+      "mode": "100644",
+      "git_blob": "e79521d7c70d020238233f8983051ab03fe6e5ad",
+      "size_bytes": 15317,
+      "sha256": "2baa421ae168611975da1012b813eb46f6079994e4387a310fe44b205d43b555",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 154
+    },
+    {
+      "path": "docs/PRODUCT_VISION.md",
+      "mode": "100644",
+      "git_blob": "cda9481bb4bc68491f08321042d5236b09bf2f3d",
+      "size_bytes": 3822,
+      "sha256": "1fe036b07c081a26c124ecb73afef6175e638ecffe5a5f26af4ea865776c71f5",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 40
+    },
+    {
+      "path": "docs/PROJECT_MEMORY_MASTER.md",
+      "mode": "100644",
+      "git_blob": "96402b2d7a5fe628df7a8c05f17216c8053b83a8",
+      "size_bytes": 41309,
+      "sha256": "633217b52ad436dff330fc0c3c4ce4292327cfb495aa613ee017826ad664a909",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 394
+    },
+    {
+      "path": "docs/REPOSITORY_AUDIT_2026-11-17.md",
+      "mode": "100644",
+      "git_blob": "2210a15ed024f5e6e3655f74017c999137b1d6b6",
+      "size_bytes": 8008,
+      "sha256": "ffb2eeb236093a111da73aa9668bd212da5b1308ae87b538e8aa9fb0fe2a24a6",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 145
+    },
+    {
+      "path": "docs/REPOSITORY_STRUCTURE.md",
+      "mode": "100644",
+      "git_blob": "9c00cecda21fa48346eb5b77aed47de650883c5d",
+      "size_bytes": 7370,
+      "sha256": "80043773a0a542c16d34d2b6e53201efca6b18b38aaf8508477e19ae7f2d6c68",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 82
+    },
+    {
+      "path": "docs/REUSE_AUDIT.md",
+      "mode": "100644",
+      "git_blob": "7f7d1934a73ee91e086591df56e1b26c74c39a48",
+      "size_bytes": 16717,
+      "sha256": "fcfa2693f29f0468ac8c9065a3c7e02bdf554a028ac164e297b6d93533eb41f1",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 117
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "mode": "100644",
+      "git_blob": "023a68c482c7f7a7fa9fec9aee8d4223402d7fd7",
+      "size_bytes": 2628,
+      "sha256": "06d387748ee6556f44dffde543e1ba98818b4f48f43eacdd06894c6880339beb",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 40
+    },
+    {
+      "path": "docs/adr/0001-web-studio-foundation.md",
+      "mode": "100644",
+      "git_blob": "09a66326eecb10efdfe8798bf494ddad70dd77fa",
+      "size_bytes": 3299,
+      "sha256": "a1cf9dadcf2ba5681377b5e1f3a98267102138a714164bb0e34e1d1a196c4ca3",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 51
+    },
+    {
+      "path": "docs/archives/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt",
+      "mode": "100644",
+      "git_blob": "151652b5c03e8222fbe5eef9c357f35384e0615a",
+      "size_bytes": 25211,
+      "sha256": "81c915e1882721d26ee16191be4410063414b356ddf910488cfccc197f590b18",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 955
+    },
+    {
+      "path": "pytest.ini",
+      "mode": "100644",
+      "git_blob": "bb7646e2a920612e81ad2404d8abbceffe55f9da",
+      "size_bytes": 239,
+      "sha256": "383e05ca0d3eeab3aab5beb4c186392ff910a884893f2170245dd900fed1af74",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 5
+    },
+    {
+      "path": "requirements.lock",
+      "mode": "100644",
+      "git_blob": "248a4e1d5b1babdd3b76a69aee60255e7cc3284c",
+      "size_bytes": 737,
+      "sha256": "ce0593ec9bb9bc3a775a9cb841aced9a4e402d361a96cb0efc4018bb051bfd2d",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 37
+    },
+    {
+      "path": "scripts/check_api_wheel.py",
+      "mode": "100644",
+      "git_blob": "73df3c77d4a7ea5739f2799af347f69c4fa17c63",
+      "size_bytes": 729,
+      "sha256": "60c5a38ec4bbc9dc6fb1f8ed9c9a4af7318bb03b6a484b6ca949d30c7779c781",
+      "kind": "text",
+      "python_imports": [
+        "pathlib",
+        "zipfile"
+      ],
+      "symbols": [],
+      "line_count": 16
+    },
+    {
+      "path": "scripts/cloud/install.sh",
+      "mode": "100755",
+      "git_blob": "31868036ddb85c9d059bda6afcc06effa5c203c6",
+      "size_bytes": 595,
+      "sha256": "4e2caf709f13d549c456e9741a98393d90faf755542cae162d48a5022ff51609",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 12
+    },
+    {
+      "path": "scripts/cloud/playwright.config.cjs",
+      "mode": "100644",
+      "git_blob": "0a132577a3e92a83aec48c5b55cf552c9fc3627c",
+      "size_bytes": 833,
+      "sha256": "65d33f44744aa265748bc410578de4c09353393d95804d717cb5981f8928021c",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 32
+    },
+    {
+      "path": "scripts/cloud/run_web.py",
+      "mode": "100644",
+      "git_blob": "6c3a40d8a209a71b49fda6bca64f8bcdaa520431",
+      "size_bytes": 648,
+      "sha256": "56901edcf327e539cc71c79e6fcff37a5152b671b8788f8a16404bf4f18a7716",
+      "kind": "text",
+      "python_imports": [
+        "pathlib",
+        "subprocess",
+        "sys"
+      ],
+      "symbols": [],
+      "line_count": 19
+    },
+    {
+      "path": "services/generation/triposr_candidate/Dockerfile.candidate",
+      "mode": "100644",
+      "git_blob": "a882cf0bd8869e03d430473bdc27d0f716dac8a0",
+      "size_bytes": 777,
+      "sha256": "81abfd1acb25bb2cdef3dc7c10e70ee88a4397a209e323a9beed718c9e65e830",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 21
+    },
+    {
+      "path": "services/generation/triposr_candidate/README.md",
+      "mode": "100644",
+      "git_blob": "a76c45814581fd003db0e26d5989e76aec16f972",
+      "size_bytes": 4441,
+      "sha256": "aa7d2a9d33df8969488ab0c85dc6d14b5e08da10d959302a8989c9ef2864f21a",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 90
+    },
+    {
+      "path": "services/generation/triposr_candidate/dino_config.json",
+      "mode": "100644",
+      "git_blob": "f8877a35c22bc7d28a55af9405bea00835391b4b",
+      "size_bytes": 446,
+      "sha256": "60e82f4a0adcde41186bc510a56b39f2e93aef6c33a6d0fa5482da9d54730efb",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 18
+    },
+    {
+      "path": "services/generation/triposr_candidate/model_config.yaml",
+      "mode": "100644",
+      "git_blob": "39f088360aa5b271bb983a8174d8d5bf4de04899",
+      "size_bytes": 1121,
+      "sha256": "e2f700c3134218557e2e1dbb253ae656a3adf3450ec04736a5c7e462cb0631fb",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 40
+    },
+    {
+      "path": "services/generation/triposr_candidate/prepare_runtime.py",
+      "mode": "100644",
+      "git_blob": "d6986485ba93497c655193194d9d51cf6c87023f",
+      "size_bytes": 14419,
+      "sha256": "6f0abf53ea152e279f5d6bcea6a9a308faeec31ce20a9535d6fef1f0772bb638",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "argparse",
+        "hashlib",
+        "json",
+        "pathlib",
+        "shutil",
+        "subprocess",
+        "sys"
+      ],
+      "symbols": [
+        "git_blob_id",
+        "checked_replace",
+        "source_head",
+        "assert_clean_source",
+        "verify_upstream",
+        "patch_isosurface",
+        "patch_utils",
+        "patch_run",
+        "patch_image_tokenizer",
+        "patch_system",
+        "write_runtime_assets",
+        "verify_prepared",
+        "prepare",
+        "main"
+      ],
+      "line_count": 379
+    },
+    {
+      "path": "services/generation/triposr_candidate/requirements-build3d.txt",
+      "mode": "100644",
+      "git_blob": "c865e2faa93f8e8f5c878c3aec0da9c96fe8be70",
+      "size_bytes": 422,
+      "sha256": "f89f574aeb11981a4c3c49ee771df704452abe6214f1bf8780942d215ce79e70",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 15
+    },
+    {
+      "path": "services/generation/triposr_candidate/runtime_manifest.json",
+      "mode": "100644",
+      "git_blob": "836c0d36fa4f85d7a88cb785150ab57804a2a11a",
+      "size_bytes": 1234,
+      "sha256": "b66475614dfc469bc43eddf3a3fd9df0dfc0a54932d1c96e1db70fa031ea1e50",
+      "kind": "text",
+      "python_imports": [],
+      "symbols": [],
+      "line_count": 27
+    },
+    {
+      "path": "services/generation/triposr_candidate/test_marching_cubes_contract.py",
+      "mode": "100644",
+      "git_blob": "59520e6103c72dee755ad0eb14393374e67788f2",
+      "size_bytes": 1700,
+      "sha256": "6c49a90d4772c18d3b115e83585dac51d08c1083ac9f6128e0cb62ddd31295a2",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "numpy",
+        "skimage"
+      ],
+      "symbols": [
+        "adapted_marching_cubes",
+        "test_axis_order_and_normalization_are_stable",
+        "test_face_winding_is_explicitly_reversed_from_scikit_output"
+      ],
+      "line_count": 39
+    },
+    {
+      "path": "services/generation/triposr_candidate/test_prepare_runtime.py",
+      "mode": "100644",
+      "git_blob": "e04601adcf8d6482364e332bdfaeaef85088be0d",
+      "size_bytes": 1240,
+      "sha256": "055c6a66ed3a31273b77d6c96f4edd792201016da879155a22acee2578b29c18",
+      "kind": "text",
+      "python_imports": [
+        "__future__",
+        "importlib.util",
+        "pathlib"
+      ],
+      "symbols": [
+        "test_git_blob_id_matches_git_format",
+        "test_checked_replace_is_fail_closed",
+        "test_reviewed_blob_inventory_contains_all_patched_upstream_files"
+      ],
+      "line_count": 38
+    }
+  ],
+  "exact_duplicate_groups": [
+    {
+      "sha256": "16bbd5361207aae0888eddb982182533f59b7137a8962ac2963d575f19844520",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_dragon.obj",
+        "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_dragon/typical_creature_dragon.obj"
+      ]
+    },
+    {
+      "sha256": "7314f1b9c52e98d75f3d81edee9a88347a01b9d97030da560c75561fbfdb3d7f",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_elephant.obj",
+        "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_elephant/typical_creature_elephant.obj"
+      ]
+    },
+    {
+      "sha256": "4d9aeeba7eb61ff01d2c6c9371d4734953974ae8f46770ef07c5f4d1da29f994",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster.obj",
+        "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster/typical_creature_rock_monster.obj"
+      ]
+    },
+    {
+      "sha256": "1cd3b8073269bad948a18ab99e2ad4d752444123a928f94ea09a9a3f5863b23b",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn.obj",
+        "AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn/typical_humanoid_dragonborn.obj"
+      ]
+    },
+    {
+      "sha256": "0050bca07299fa738349970aaef77a89d08bd4e7f1a5b64f314d4a83f1b598be",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/docs/codebase_analysis.md",
+        "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/codebase_analysis.md"
+      ]
+    },
+    {
+      "sha256": "f833a73a63d46ba249ab67ea9dffb5805d2109a7cdfc3cca116c275e3d1a3e94",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/fastmesh_partuv_integration_summary.md",
+        "AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/integration_summary.md"
+      ]
+    }
+  ]
+}

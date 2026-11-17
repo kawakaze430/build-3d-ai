@@ -50,4 +50,4 @@ jobs:
       - name: Build distributable wheels including migrations
         run: |
           python -m pip wheel --no-deps ./apps/gateway ./apps/api -w dist
-          python scripts/check_api_wheel.py
+          python scripts/packaging/check_api_wheel.py

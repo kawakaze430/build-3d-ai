@@ -1,0 +1,62 @@
+BUILD 3D AI — FUNCTIONAL CONSOLIDATION REPORT
+Date: 17 November 2026
+Starting main: 56f412f0722394300a522b7392b191702d3f2c48
+Repository: https://github.com/kawakaze430/build-3d-ai
+
+WHAT WAS ACTUALLY ORGANIZED
+
+Forty-five files were moved: 42 files tracked at the starting commit and three
+recovery files authored earlier in this session. Documentation now has project,
+architecture, development, operations, research and continuity collections.
+Compose deployment definitions are under infrastructure/compose; identity
+examples are under config/identity; distribution checks are under
+scripts/packaging. The web application has studio, assets and jobs features,
+plus explicit browser-client and server-only helper collections.
+
+The Python API/gateway package boundaries and Next.js routes stay intact.
+Related responsibilities are grouped without flattening distinct frameworks or
+changing public HTTP endpoints, database schema or package entry points.
+PROJECT_STRUCTURE.md explains every important nested collection.
+
+FOUR SHARED RESPONSIBILITIES / EIGHT EXISTING CONSUMERS
+
+1. Session POST and product POST use one bounded streaming request-body reader.
+   It enforces actual bytes, with 8 KiB for login and 12 MiB for product POST.
+2. The studio uses the existing artifactDownloadUrl helper rather than a second
+   implementation of the same download URL.
+3. Gateway Docker, Compose and CI use the root CPU constraints already used by
+   the API. This does not create an independently verified artifact hash lock.
+4. The normal and cloud browser configurations share one authoritative
+   Playwright definition. The cloud entry selects managed Chromium policy.
+
+These eight consumer files reuse four responsibilities. This is separate from
+file movement. Originals are retained in the historical preservation area.
+
+EXISTING BRANCH WORK RECOVERED
+
+The offline pip metadata auditor and its nine fixture tests were recovered from
+712920893d9c9ba139c935605af5a89d2cfccaf0 into the existing model-qualification
+service. CI evidence collection was wired to that auditor. It does not install
+packages, independently hash wheel bytes, approve models or run inference.
+Four dated research documents from that branch remain preserved as history.
+
+RELATED IMPLEMENTATIONS KEPT SEPARATE DELIBERATELY
+
+The legacy upstream scheduler, Redis queue, upload handling and optional users
+are not replacements for product-owned tenant isolation, durable worker fencing,
+quotas or checked private storage. Unique segmentation, UV, retopology, body-rig
+and local-edit capabilities remain inactive references with unresolved safety,
+license, dependency and quality gates. Stock TripoSR does not replace the
+hardened first-party preparation path.
+
+DOCUMENTATION AND COMPATIBILITY
+
+Stale claims about absent identity mapping, JWT support, quotas, migration,
+browser UI, S3 support and GLB checks were reconciled against code. Exact older
+documents are retained. The primary goal remains adopted product direction;
+the detailed future TXT is a dated companion, not a competing implementation.
+
+All final imports, relative paths, aliases, Compose roots, current documentation
+links and workflow helper locations are reviewed statically. The latest owner
+instruction prohibits further tests: no runtime verification of the final moved
+layout is claimed. Tests remain in their functional collections for later use.

@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server";
+import { readBoundedBody, RequestBodyTooLargeError } from "@/lib/server/request-body";
 import {
   clearSessionKey,
   productFetch,
   readSessionKey,
   storeSessionKey,
-} from "@/lib/server-product-api";
+} from "@/lib/server/product-api";
+
+const MAX_SESSION_BODY = 8 * 1024;
 
 async function safeDetail(response: Response): Promise<string> {
   try {
@@ -45,8 +48,12 @@ export async function GET() {
 export async function POST(request: Request) {
   let apiKey: unknown;
   try {
-    ({ apiKey } = (await request.json()) as { apiKey?: unknown });
-  } catch {
+    const body = await readBoundedBody(request, MAX_SESSION_BODY);
+    ({ apiKey } = JSON.parse(new TextDecoder().decode(body)) as { apiKey?: unknown });
+  } catch (error) {
+    if (error instanceof RequestBodyTooLargeError) {
+      return NextResponse.json({ detail: "Login request exceeds web gateway limit" }, { status: 413 });
+    }
     return NextResponse.json({ detail: "Expected JSON login body" }, { status: 400 });
   }
   if (typeof apiKey !== "string" || apiKey.length < 24 || apiKey.length > 512) {

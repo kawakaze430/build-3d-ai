@@ -1,0 +1,620 @@
+ARCHIVED FILES MANIFEST
+Starting baseline: 56f412f0722394300a522b7392b191702d3f2c48 (369 tracked files)
+Prepared: 17 November 2026
+
+
+CURRENT POINT-IN-TIME COUNTS
+Prior relocation records already in starting baseline: 242 (240 original archive content files plus two reference note files; originals of those notes also retained under history/).
+THIS pass moved/deleted baseline paths: 0. All starting baseline paths remain present.
+New byte-identical archived baseline copies: 23.
+New byte-identical recovered branch research documents: 4.
+New authored historical-preservation notes/metadata: 3.
+Unique branch utility files recovered to active candidate qualification: 2 (F034), not archived.
+Optional newly authored managed-build diagnostic recipes: 2.
+Counts reflect the current workspace when this file was generated. Regenerate after adding another historical copy. New reports/inventories are review deliverables, not claimed copies of source files.
+
+A. NEW BYTE-IDENTICAL BASELINE COPIES AND BRANCH RESEARCH DOCS
+Each record is verified against git show SOURCE_COMMIT:ORIGINAL_PATH; source Git blob ID and SHA256 are both recorded. Replacement describes responsibility, not a claim all old content was wrong or malicious.
+
+[1] Byte-identical archived baseline copy; active original remains
+Original: .dockerignore
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: 3b3331567983ad7dd80f745bbd6891a0f005fb97
+Preserved path: AnalyseFuture/historical-implementations/configuration-before-universal/.dockerignore
+SHA256: 04073af84a9917491c1248f18aab1faa081e9170e9182116fec543b2c19c4ac7
+Bytes: 189
+Reason: Prior configuration retained before consolidating/hardening active configuration
+Replacement/current responsibility: .dockerignore
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[2] Byte-identical archived baseline copy; active original remains
+Original: .github/workflows/gateway-ci.yml
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: 2c45b50d733579e5eb2677ab26f6a05e940d17ff
+Preserved path: AnalyseFuture/historical-implementations/configuration-before-universal/.github/workflows/gateway-ci.yml
+SHA256: 3613f5b80febb815f863c198b29c147c1cc5d434d6e0b17cb30424449bc9e598
+Bytes: 758
+Reason: Prior configuration retained before consolidating/hardening active configuration
+Replacement/current responsibility: .github/workflows/gateway-ci.yml
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[3] Byte-identical archived baseline copy; active original remains
+Original: .github/workflows/triposr-qualification-ci.yml
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: 737a971613763897c935eb3affbb82ea735cb8d6
+Preserved path: AnalyseFuture/historical-implementations/configuration-before-universal/.github/workflows/triposr-qualification-ci.yml
+SHA256: 79f41e56e115630385dc6dae1447a8537566f5aa0a029582741c6d8703958063
+Bytes: 2633
+Reason: Prior configuration retained before consolidating/hardening active configuration
+Replacement/current responsibility: .github/workflows/triposr-qualification-ci.yml
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[4] Byte-identical archived baseline copy; active original remains
+Original: .github/workflows/web-ci.yml
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: 91c56ac8eb559d54720519dba0fb3aa590049439
+Preserved path: AnalyseFuture/historical-implementations/configuration-before-universal/.github/workflows/web-ci.yml
+SHA256: 6242717c624ea93c59a0248f74d20731af59d2397ec61a1b67ba202827bc2ab7
+Bytes: 1275
+Reason: Prior configuration retained before consolidating/hardening active configuration
+Replacement/current responsibility: .github/workflows/web-ci.yml
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[5] Byte-identical archived baseline copy; active original remains
+Original: apps/web/playwright.config.ts
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: 5e4b04b591f88d459543ad131ce18b22384fcb03
+Preserved path: AnalyseFuture/historical-implementations/configuration-before-universal/apps/web/playwright.config.ts
+SHA256: 6791d571a733bb287da7316c05305003074d14957b21c7ed87890c78460fe364
+Bytes: 747
+Reason: Prior configuration retained before consolidating/hardening active configuration
+Replacement/current responsibility: apps/web/playwright.config.ts
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[6] Byte-identical archived baseline copy; active original remains
+Original: scripts/cloud/playwright.config.cjs
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: 0a132577a3e92a83aec48c5b55cf552c9fc3627c
+Preserved path: AnalyseFuture/historical-implementations/configuration-before-universal/scripts/cloud/playwright.config.cjs
+SHA256: 65d33f44744aa265748bc410578de4c09353393d95804d717cb5981f8928021c
+Bytes: 833
+Reason: Prior configuration retained before consolidating/hardening active configuration
+Replacement/current responsibility: scripts/cloud/playwright.config.cjs
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[7] Byte-identical archived baseline copy; active original remains
+Original: README.md
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: dd1edce54e95098f89510c49db5c15e04933aa1b
+Preserved path: AnalyseFuture/historical-implementations/documentation-before-universal/README.md
+SHA256: 5b1c87dfc8c190e7f129c3facb41133f5d03d1b709192b83b6279b77e1bf4b9c
+Bytes: 14023
+Reason: Dated prior documentation retained before reconciling status and workflow instructions
+Replacement/current responsibility: README.md
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[8] Byte-identical archived baseline copy; active original remains
+Original: docs/ARCHITECTURE.md
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: a0444c46b22c9ac93d888a1dbd799904682a7c4c
+Preserved path: AnalyseFuture/historical-implementations/documentation-before-universal/docs/ARCHITECTURE.md
+SHA256: aff043888edc5f7a61b6e549a9d5b7e37e32e108ebff9306773ee8eb5c652523
+Bytes: 4423
+Reason: Dated prior documentation retained before reconciling status and workflow instructions
+Replacement/current responsibility: docs/ARCHITECTURE.md
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[9] Byte-identical archived baseline copy; active original remains
+Original: docs/BACKLOG.md
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: 6314a0583f0d3dadaa1d1d22eae31a011c71103f
+Preserved path: AnalyseFuture/historical-implementations/documentation-before-universal/docs/BACKLOG.md
+SHA256: 456500d3ac97b76a42a03dc7a7f396c6408856e2d62a6361123e90e3cb1f0233
+Bytes: 2762
+Reason: Dated prior documentation retained before reconciling status and workflow instructions
+Replacement/current responsibility: docs/BACKLOG.md
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[10] Byte-identical archived baseline copy; active original remains
+Original: docs/DECISIONS.md
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: 48a0f1dbf74b8ff16da1949784b08b6d27055627
+Preserved path: AnalyseFuture/historical-implementations/documentation-before-universal/docs/DECISIONS.md
+SHA256: 676c7a96052fe2464af64164b82e68de53dbcf36420243d815619ad115feb6e6
+Bytes: 2544
+Reason: Dated prior documentation retained before reconciling status and workflow instructions
+Replacement/current responsibility: docs/DECISIONS.md
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[11] Byte-identical archived baseline copy; active original remains
+Original: docs/FEATURE_MATRIX.md
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: d4b280f7ee11f6638c6ba0c98dac9ea44a18394e
+Preserved path: AnalyseFuture/historical-implementations/documentation-before-universal/docs/FEATURE_MATRIX.md
+SHA256: 205fe1e70a6be82e8acdd86eb8c33fc63547d983b27da3506e29392f1dc0f80e
+Bytes: 4476
+Reason: Dated prior documentation retained before reconciling status and workflow instructions
+Replacement/current responsibility: docs/FEATURE_MATRIX.md
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[12] Byte-identical archived baseline copy; active original remains
+Original: docs/FIRST_REAL_GPU_RUNBOOK.md
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: d20e0f1531e69a9355b07a3f594f059500332bd5
+Preserved path: AnalyseFuture/historical-implementations/documentation-before-universal/docs/FIRST_REAL_GPU_RUNBOOK.md
+SHA256: 5039dcbf0e360dddb64d32e48f0aa271c8fea199d3c16f59aef05024c7955ad3
+Bytes: 14128
+Reason: Dated prior documentation retained before reconciling status and workflow instructions
+Replacement/current responsibility: docs/FIRST_REAL_GPU_RUNBOOK.md
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[13] Byte-identical archived baseline copy; active original remains
+Original: docs/GPU_SMOKE_AND_ARTIFACTS.md
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: eecb912a184918a2ee3635ea30efce0962d6f498
+Preserved path: AnalyseFuture/historical-implementations/documentation-before-universal/docs/GPU_SMOKE_AND_ARTIFACTS.md
+SHA256: a6906fb813f6db36aab7ff164d6d9dbbd896aee97c19b521b07ff91a1ff2ab7b
+Bytes: 6177
+Reason: Dated prior documentation retained before reconciling status and workflow instructions
+Replacement/current responsibility: docs/GPU_SMOKE_AND_ARTIFACTS.md
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[14] Byte-identical archived baseline copy; active original remains
+Original: docs/IMPLEMENTATION_CHECKLIST.md
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: 542ae4e22892fbd1c600697397bd06bc9d377d48
+Preserved path: AnalyseFuture/historical-implementations/documentation-before-universal/docs/IMPLEMENTATION_CHECKLIST.md
+SHA256: 3c62f1f02932c8dce439effe3f9db2d3ea7c532722933d4049da249ab8167cdf
+Bytes: 16744
+Reason: Dated prior documentation retained before reconciling status and workflow instructions
+Replacement/current responsibility: docs/IMPLEMENTATION_CHECKLIST.md
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[15] Byte-identical archived baseline copy; active original remains
+Original: docs/PHASE0_GATEWAY.md
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: 4eaeb12d003d184e980203e3d8428b84e1b5e9be
+Preserved path: AnalyseFuture/historical-implementations/documentation-before-universal/docs/PHASE0_GATEWAY.md
+SHA256: 09c0ec8c3e82c5ccb4250f13079041b9532358d6879062f00cb98f88748f78b4
+Bytes: 5368
+Reason: Dated prior documentation retained before reconciling status and workflow instructions
+Replacement/current responsibility: docs/PHASE0_GATEWAY.md
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[16] Byte-identical archived baseline copy; active original remains
+Original: docs/PRODUCT_BACKBONE.md
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: e79521d7c70d020238233f8983051ab03fe6e5ad
+Preserved path: AnalyseFuture/historical-implementations/documentation-before-universal/docs/PRODUCT_BACKBONE.md
+SHA256: 2baa421ae168611975da1012b813eb46f6079994e4387a310fe44b205d43b555
+Bytes: 15317
+Reason: Dated prior documentation retained before reconciling status and workflow instructions
+Replacement/current responsibility: docs/PRODUCT_BACKBONE.md
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[17] Byte-identical archived baseline copy; active original remains
+Original: docs/REUSE_AUDIT.md
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: 7f7d1934a73ee91e086591df56e1b26c74c39a48
+Preserved path: AnalyseFuture/historical-implementations/documentation-before-universal/docs/REUSE_AUDIT.md
+SHA256: fcfa2693f29f0468ac8c9065a3c7e02bdf554a028ac164e297b6d93533eb41f1
+Bytes: 16717
+Reason: Dated prior documentation retained before reconciling status and workflow instructions
+Replacement/current responsibility: docs/REUSE_AUDIT.md
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[18] Byte-identical archived baseline copy; active original remains
+Original: apps/gateway/Dockerfile
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: afec6bb2c13f0c1ba5e79c2d1b735a654216e654
+Preserved path: AnalyseFuture/historical-implementations/gateway-packaging/apps/gateway/Dockerfile
+SHA256: ba65a791d2723c1023a3843119457fb1f87777f4089b81c594a5dfaacfac412d
+Bytes: 310
+Reason: Prior gateway packaging retained before shared dependency constraints/root Docker build-context alignment
+Replacement/current responsibility: apps/gateway/Dockerfile
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[19] Byte-identical archived baseline copy; active original remains
+Original: compose.gateway.yml
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: ca276281617c476b0c4c046b74727d5bca1ce92f
+Preserved path: AnalyseFuture/historical-implementations/gateway-packaging/compose.gateway.yml
+SHA256: b6c13c30b0d7085af46166be01782f0f50e956c59c01982cb0593532f1d05029
+Bytes: 551
+Reason: Prior gateway packaging retained before shared dependency constraints/root Docker build-context alignment
+Replacement/current responsibility: compose.gateway.yml
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[20] Byte-identical archived baseline copy; active original remains
+Original: services/generation/triposr_candidate/README.md
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: a76c45814581fd003db0e26d5989e76aec16f972
+Preserved path: AnalyseFuture/historical-implementations/qualification-before-universal/services/generation/triposr_candidate/README.md
+SHA256: aa7d2a9d33df8969488ab0c85dc6d14b5e08da10d959302a8989c9ef2864f21a
+Bytes: 4441
+Reason: Prior candidate qualification README retained before recovering provenance-audit utility documentation
+Replacement/current responsibility: services/generation/triposr_candidate/README.md
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[21] Recovered dated branch research document
+Original: docs/CURRENT_STATE_AUDIT.md
+Source commit: 712920893d9c9ba139c935605af5a89d2cfccaf0
+Source Git blob: a7c1abe8190657276cf61bd3d2ca3d9c62f24b1a
+Preserved path: AnalyseFuture/historical-implementations/triposr-provenance-research/docs/CURRENT_STATE_AUDIT.md
+SHA256: 2291d5ce3f8ee2aa26d9fd54c2fc17b6ab4f04cce9db459ffa4404c954af95b1
+Bytes: 6918
+Reason: preserve dated branch research document; current docs reconciled separately
+Replacement/current responsibility: Current active docs/ and services/generation/triposr_candidate/ qualification evidence; historical document is not an active implementation
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[22] Recovered dated branch research document
+Original: docs/EXECUTION_PLAN.md
+Source commit: 712920893d9c9ba139c935605af5a89d2cfccaf0
+Source Git blob: c62aca0b16d0c32dcb0e66b81ac8daf771ee810a
+Preserved path: AnalyseFuture/historical-implementations/triposr-provenance-research/docs/EXECUTION_PLAN.md
+SHA256: ff1dbe4f99a51b320c4619b0a08b7250c93a844736d5068e20cfeec9e9af3b85
+Bytes: 11145
+Reason: preserve dated branch research document; current docs reconciled separately
+Replacement/current responsibility: Current active docs/ and services/generation/triposr_candidate/ qualification evidence; historical document is not an active implementation
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[23] Recovered dated branch research document
+Original: docs/INTEGRATION_DECISIONS.md
+Source commit: 712920893d9c9ba139c935605af5a89d2cfccaf0
+Source Git blob: 09e53f3bc0d52498a815dc1e97b9417b312757d5
+Preserved path: AnalyseFuture/historical-implementations/triposr-provenance-research/docs/INTEGRATION_DECISIONS.md
+SHA256: e0b1b2d01d8445493283f53de0bfeb63888368fc912fe411abe6cec313181464
+Bytes: 3812
+Reason: preserve dated branch research document; current docs reconciled separately
+Replacement/current responsibility: Current active docs/ and services/generation/triposr_candidate/ qualification evidence; historical document is not an active implementation
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[24] Recovered dated branch research document
+Original: docs/TWO_PRIMARY_REPOSITORIES_DECISION.md
+Source commit: 712920893d9c9ba139c935605af5a89d2cfccaf0
+Source Git blob: ff296a00606b01065800c605b3b7bdcf886f5b8f
+Preserved path: AnalyseFuture/historical-implementations/triposr-provenance-research/docs/TWO_PRIMARY_REPOSITORIES_DECISION.md
+SHA256: c516d78f4c43543aafdba3eca4b3675912ac7c657beccf012ab029aa34ef4560
+Bytes: 9344
+Reason: preserve dated branch research document; current docs reconciled separately
+Replacement/current responsibility: Current active docs/ and services/generation/triposr_candidate/ qualification evidence; historical document is not an active implementation
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[25] Byte-identical archived baseline copy; active original remains
+Original: apps/web/src/app/api/product/[...segments]/route.ts
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: b4d355331c60dd9710a06d92a40d49391c933d9e
+Preserved path: AnalyseFuture/historical-implementations/web-request-bodies/apps/web/src/app/api/product/[...segments]/route.ts
+SHA256: a29f2aebfbb7bfc7354c2729ffb0e05111ce8f343a86bfc0b0212081dfaa61e8
+Bytes: 4460
+Reason: Prior route/component retained before shared bounded request reads and canonical download URL helper
+Replacement/current responsibility: apps/web/src/app/api/product/[...segments]/route.ts
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[26] Byte-identical archived baseline copy; active original remains
+Original: apps/web/src/app/api/session/route.ts
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: e2877db30202f760c5e6bfc1fc2c545463c90bc6
+Preserved path: AnalyseFuture/historical-implementations/web-request-bodies/apps/web/src/app/api/session/route.ts
+SHA256: 8d41d81b873bce31dd93971318208adfaa648fc632d97fe3b31629e20fbc4519
+Bytes: 2644
+Reason: Prior route/component retained before shared bounded request reads and canonical download URL helper
+Replacement/current responsibility: apps/web/src/app/api/session/route.ts
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+[27] Byte-identical archived baseline copy; active original remains
+Original: apps/web/src/components/studio.tsx
+Source commit: 56f412f0722394300a522b7392b191702d3f2c48
+Source Git blob: 58fe69d0668d40ac272e83397ab7dc0618a3cce0
+Preserved path: AnalyseFuture/historical-implementations/web-request-bodies/apps/web/src/components/studio.tsx
+SHA256: a5159cad6cc4f5c11f44e9693170b1bfb839afd3307a158c616f86a82a4d7b82
+Bytes: 20465
+Reason: Prior route/component retained before shared bounded request reads and canonical download URL helper
+Replacement/current responsibility: apps/web/src/components/studio.tsx
+Verification: exact original bytes retained; original active path not moved by this copy.
+
+B. NEW AUTHORSHIP FOR PRESERVATION CONTEXT — NOT ORIGINAL SOURCE COPIES
+
+Path: AnalyseFuture/historical-implementations/gateway-packaging/PRESERVATION.json
+SHA256: 8ec45ee8806d89125f6e92c39062deea361b0161767929171e7b3635e1debd6d
+Bytes: 767
+Source SHA/original: not applicable; newly authored preservation documentation/metadata
+Reason: Documents exact preserved implementation scope and provenance
+Replacement: No executable replacement; keep as preservation context
+
+Path: AnalyseFuture/historical-implementations/gateway-packaging/README.md
+SHA256: e9e7b0201ad720868e5e461c0eb34141e555c84971973527396e6e07a8e2a737
+Bytes: 896
+Source SHA/original: not applicable; newly authored preservation documentation/metadata
+Reason: Documents exact preserved implementation scope and provenance
+Replacement: No executable replacement; keep as preservation context
+
+Path: AnalyseFuture/historical-implementations/web-request-bodies/README.md
+SHA256: cb1136f51090803688522139c29eb102a93bc3da94fe97b3482247ddd39e3447
+Bytes: 1056
+Source SHA/original: not applicable; newly authored preservation documentation/metadata
+Reason: Documents exact preserved implementation scope and provenance
+Replacement: No executable replacement; keep as preservation context
+
+C. TWO RECOVERED ACTIVE UTILITY FILES (F034)
+
+Original: services/generation/triposr_candidate/audit_pip_report.py
+Source commit: 712920893d9c9ba139c935605af5a89d2cfccaf0
+Source Git blob: e10b7b9d5bb8e7051038812da3e77d676d59c422
+Active path: services/generation/triposr_candidate/audit_pip_report.py
+SHA256: 40e299edcb3cb52309d00a8ed73a76cf3e41515d5d79f35316506ed4ef2fbb9e
+Reason: recover existing offline qualification utility
+Replacement: restores previously implemented offline qualification utility; not a duplicate active engine
+
+Original: services/generation/triposr_candidate/test_audit_pip_report.py
+Source commit: 712920893d9c9ba139c935605af5a89d2cfccaf0
+Source Git blob: 2e66dbb5cd5f3696eda1483db2d944fec15d8c64
+Active path: services/generation/triposr_candidate/test_audit_pip_report.py
+SHA256: 46c1f24a638311ad68965a3cc4d25e096c648c35cd98f24174ce516c97a340ca
+Reason: recover existing offline qualification utility
+Replacement: restores previously implemented offline qualification utility; not a duplicate active engine
+
+D. TWO NEW DIAGNOSTIC RECIPES — NOT COPIED SOURCE OR SECRET MATERIAL
+
+Path: AnalyseFuture/recovery-notes/managed-build/gateway.Dockerfile
+SHA256: 93539835458c04d68362d051b2868610b3cbdf60deeb0efe99e3321b9751b81a
+Bytes: 457
+Source SHA/original: not applicable; newly authored diagnostic recipe
+Reason: BuildKit secret-mounted managed-proxy CA trust for authenticated TLS during diagnostic image build; preserves dependency constraints and explicit app build context
+Replacement/current responsibility: Optional diagnostic alternative to active apps/gateway/Dockerfile or apps/api/Dockerfile, not production entrypoint
+
+Path: AnalyseFuture/recovery-notes/managed-build/api.Dockerfile
+SHA256: 8ec41e05ec75f8b0a88d58d78e2c394b57f7e70eb6ff81b4d5d5dbb0314d827d
+Bytes: 643
+Source SHA/original: not applicable; newly authored diagnostic recipe
+Reason: BuildKit secret-mounted managed-proxy CA trust for authenticated TLS during diagnostic image build; preserves dependency constraints and explicit app build context
+Replacement/current responsibility: Optional diagnostic alternative to active apps/gateway/Dockerfile or apps/api/Dockerfile, not production entrypoint
+
+E. ALL PRIOR 242 RELOCATION RECORDS (ALREADY IN STARTING BASELINE)
+Original source commit for this historical relocation:e4b05f4b3fd6d18ccbccd59d3bbc6927191c5348
+Columns: original path | current path | original SHA256 | byte-identical original preserved at. The two current explanatory README files have repaired navigation; their original bytes remain at the separate history paths shown.
+assets/reference/README.md | AnalyseFuture/assets/reference/README.md | ee66e3c5ac73abcd95bb0ac455fc21f94029dd4bd3388cb822b246fed4c2c50e | AnalyseFuture/history/assets/reference/README.md
+assets/reference/autorig/example_autorig/bird.glb | AnalyseFuture/assets/reference/autorig/example_autorig/bird.glb | bb59726f598ab4a4e4c431b9789317f5b2f4252a6fb57364d929f5e1ddd7b5bb | AnalyseFuture/assets/reference/autorig/example_autorig/bird.glb
+assets/reference/autorig/example_autorig/giraffe.glb | AnalyseFuture/assets/reference/autorig/example_autorig/giraffe.glb | 9a947cae00b169345802c08885c1e54313c6ce93c885bacf8e37e8a1f18f9e3b | AnalyseFuture/assets/reference/autorig/example_autorig/giraffe.glb
+assets/reference/autorig/example_autorig/skeleton/bird.fbx | AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/bird.fbx | 885d432850506ab673d509ae2481067cc623452d5910090e1e15f323b9f83fa2 | AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/bird.fbx
+assets/reference/autorig/example_autorig/skeleton/giraffe.fbx | AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/giraffe.fbx | 73673a15c8103fbf9a6b39762768ae48e7c9404eab4850a60e4863ee400336fd | AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/giraffe.fbx
+assets/reference/autorig/example_autorig/skeleton/tira.fbx | AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/tira.fbx | 57ed6969266d642da2d8a579059462c7cd4a36c9bd7a8415236dcbea36607fee | AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/tira.fbx
+assets/reference/autorig/example_autorig/skeleton/tripo_carrot.fbx | AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/tripo_carrot.fbx | 50e08d70c7bdfa96eb842aed18564d8486a4622a474dbc0e0ef9304af1d4c6d3 | AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/tripo_carrot.fbx
+assets/reference/autorig/example_autorig/tira.glb | AnalyseFuture/assets/reference/autorig/example_autorig/tira.glb | 8e5a282d0a99c61a8d2439496057b15b0c6ea02643c16da2dcbec85571157799 | AnalyseFuture/assets/reference/autorig/example_autorig/tira.glb
+assets/reference/autorig/example_autorig/tripo_carrot.glb | AnalyseFuture/assets/reference/autorig/example_autorig/tripo_carrot.glb | 3c00b7e6ff1e71a019a02128a5b37e8d2db259a402313ad9b4eaab4f183ae40b | AnalyseFuture/assets/reference/autorig/example_autorig/tripo_carrot.glb
+assets/reference/autorig/example_prompts.txt | AnalyseFuture/assets/reference/autorig/example_prompts.txt | 1810eac4f9136d0bbac1c00f45b6ffd56194185468f5cd026f7e25df28c97ed2 | AnalyseFuture/assets/reference/autorig/example_prompts.txt
+assets/reference/autorig/open3dstudio_demo.jpg | AnalyseFuture/assets/reference/autorig/open3dstudio_demo.jpg | fd07a67645ad6140d4db4f492f600f29524fa9d0c523247c65fe05d0676a164a | AnalyseFuture/assets/reference/autorig/open3dstudio_demo.jpg
+assets/reference/autorig/open3dstudio_v1.0_demo_41m.gif | AnalyseFuture/assets/reference/autorig/open3dstudio_v1.0_demo_41m.gif | 98983599935e1d3a6d23550152b47147b3dc82bddd4ae5f948376974c7f87f34 | AnalyseFuture/assets/reference/autorig/open3dstudio_v1.0_demo_41m.gif
+assets/reference/autorig/runpod_demo1.png | AnalyseFuture/assets/reference/autorig/runpod_demo1.png | f007649e1518031c4a9474430ff6c17a40ce6b2f3a053611ad20a6df83bb36db | AnalyseFuture/assets/reference/autorig/runpod_demo1.png
+assets/reference/autorig/runpod_demo2.png | AnalyseFuture/assets/reference/autorig/runpod_demo2.png | 7d7b7d68a4fdb55d69a2bb072495db2eff8b8f69e077dcea045c47a70658412d | AnalyseFuture/assets/reference/autorig/runpod_demo2.png
+assets/reference/autorig/system_arch.drawio | AnalyseFuture/assets/reference/autorig/system_arch.drawio | 8e8cb08a3fd253031f2a0efbce48fce34be46c3726d1c427e4db9e8a6c6158bc | AnalyseFuture/assets/reference/autorig/system_arch.drawio
+assets/reference/autorig/system_arch.png | AnalyseFuture/assets/reference/autorig/system_arch.png | 693428c2be6a92cdb237d863ef62d826a32471afa8658cf12975bb7b2063356b | AnalyseFuture/assets/reference/autorig/system_arch.png
+third_party/3daigc-api/.dockerignore | AnalyseFuture/third_party/3daigc-api/.dockerignore | ab3e55700c3b2c50c837ecd2537f8b6c28d8d4a5b412b1cfde1796216c6ba681 | AnalyseFuture/third_party/3daigc-api/.dockerignore
+third_party/3daigc-api/.gitignore | AnalyseFuture/third_party/3daigc-api/.gitignore | d2983ef3d3d5e513982cc1b0d88d2cc06484f8807722f2c782f0aa061be9bd1a | AnalyseFuture/third_party/3daigc-api/.gitignore
+third_party/3daigc-api/.gitmodules | AnalyseFuture/third_party/3daigc-api/.gitmodules | 3fb6ae96e0267a2424f14707a17ca1652d33da3a4e34939fbbd452f12b11dc40 | AnalyseFuture/third_party/3daigc-api/.gitmodules
+third_party/3daigc-api/Dockerfile | AnalyseFuture/third_party/3daigc-api/Dockerfile | 14e25bfda139ed8ab3b27239cf1f2ddbb4c90dfbf466ea71adfe091785753afc | AnalyseFuture/third_party/3daigc-api/Dockerfile
+third_party/3daigc-api/Dockerfile.runpod | AnalyseFuture/third_party/3daigc-api/Dockerfile.runpod | 3828e35ee28d26946bc61f0dfb895f9ccf25b5a9eea3c6435ad725c6fad4a948 | AnalyseFuture/third_party/3daigc-api/Dockerfile.runpod
+third_party/3daigc-api/LICENSE | AnalyseFuture/third_party/3daigc-api/LICENSE | 43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1 | AnalyseFuture/third_party/3daigc-api/LICENSE
+third_party/3daigc-api/README.md | AnalyseFuture/third_party/3daigc-api/README.md | 1fa79b7c1b0835c5186df25c83c8d2596950f661446124e42e50882f4147ca5b | AnalyseFuture/third_party/3daigc-api/README.md
+third_party/3daigc-api/adapters/__init__.py | AnalyseFuture/third_party/3daigc-api/adapters/__init__.py | 91c6246c54bebd6b6ea59012161dad70f6b3d0fcdd36663c4054e3a8c1a20dba | AnalyseFuture/third_party/3daigc-api/adapters/__init__.py
+third_party/3daigc-api/adapters/fastmesh_adapter.py | AnalyseFuture/third_party/3daigc-api/adapters/fastmesh_adapter.py | c9526452bcd98472daf71a804d434749452abe821358be842e6f7aca926ebe61 | AnalyseFuture/third_party/3daigc-api/adapters/fastmesh_adapter.py
+third_party/3daigc-api/adapters/hunyuan3d_adapter_v21.py | AnalyseFuture/third_party/3daigc-api/adapters/hunyuan3d_adapter_v21.py | 7f9d19b473e2a8d68ce8c6ac84ec88c6c2dcfe33de440260b9df0fa8e5f06301 | AnalyseFuture/third_party/3daigc-api/adapters/hunyuan3d_adapter_v21.py
+third_party/3daigc-api/adapters/p3sam_adapter.py | AnalyseFuture/third_party/3daigc-api/adapters/p3sam_adapter.py | 3996140f93c096ed1ea0d9a129c38e2024bc2e0fe19253fc29a9845fed11f584 | AnalyseFuture/third_party/3daigc-api/adapters/p3sam_adapter.py
+third_party/3daigc-api/adapters/partfield_adapter.py | AnalyseFuture/third_party/3daigc-api/adapters/partfield_adapter.py | f53e4ec9391711feb12ed7c987b6645367ff449dd48b5c7d6f2efc8491ee5730 | AnalyseFuture/third_party/3daigc-api/adapters/partfield_adapter.py
+third_party/3daigc-api/adapters/partpacker_adapter.py | AnalyseFuture/third_party/3daigc-api/adapters/partpacker_adapter.py | 903a033aa17729c9388fbbb9693e2a9e5ede02138fd5054c7ece12a494c36c88 | AnalyseFuture/third_party/3daigc-api/adapters/partpacker_adapter.py
+third_party/3daigc-api/adapters/partuv_adapter.py | AnalyseFuture/third_party/3daigc-api/adapters/partuv_adapter.py | d9ea662e09149258bc9b8a43a15606ac53079d79212220fffb57c37baa0a3fcc | AnalyseFuture/third_party/3daigc-api/adapters/partuv_adapter.py
+third_party/3daigc-api/adapters/trellis2_adapter.py | AnalyseFuture/third_party/3daigc-api/adapters/trellis2_adapter.py | 13c97b8b2e831ea1436e4a15c40ca2b012a3602ef2f6fe80807143fc6901904e | AnalyseFuture/third_party/3daigc-api/adapters/trellis2_adapter.py
+third_party/3daigc-api/adapters/trellis_adapter.py | AnalyseFuture/third_party/3daigc-api/adapters/trellis_adapter.py | d85a5a4be625fe8c1a8f918243f07ac5e536046c7b6286af70eeb58e09c9c5f4 | AnalyseFuture/third_party/3daigc-api/adapters/trellis_adapter.py
+third_party/3daigc-api/adapters/ultrashape_adapter.py | AnalyseFuture/third_party/3daigc-api/adapters/ultrashape_adapter.py | f5b47f2c989acbcf06d0ea2fae5fa386da7d83373d70030bb4a42d510533d5d2 | AnalyseFuture/third_party/3daigc-api/adapters/ultrashape_adapter.py
+third_party/3daigc-api/adapters/unirig_adapter.py | AnalyseFuture/third_party/3daigc-api/adapters/unirig_adapter.py | 6b732ec0a319d8fa3b6252d752d207b4ba8fd1c569eac80da9f91966b9b52025 | AnalyseFuture/third_party/3daigc-api/adapters/unirig_adapter.py
+third_party/3daigc-api/adapters/voxhammer_adapter.py | AnalyseFuture/third_party/3daigc-api/adapters/voxhammer_adapter.py | 4d7366496b93beb08a4ad7d970abbf492e1d9b0298d2fc5254f879e25ffd3daf | AnalyseFuture/third_party/3daigc-api/adapters/voxhammer_adapter.py
+third_party/3daigc-api/api/__init__.py | AnalyseFuture/third_party/3daigc-api/api/__init__.py | c05c0dfaa02c51fdba55986a2bae0b75c0debd394c3dbccc9aee177a9ee9e49b | AnalyseFuture/third_party/3daigc-api/api/__init__.py
+third_party/3daigc-api/api/dependencies.py | AnalyseFuture/third_party/3daigc-api/api/dependencies.py | 12aea2315a8f33aecdf077c8c0b2f84b3bf1cc8d64f74a776c0787b1b5f7f121 | AnalyseFuture/third_party/3daigc-api/api/dependencies.py
+third_party/3daigc-api/api/main_multiworker.py | AnalyseFuture/third_party/3daigc-api/api/main_multiworker.py | 94e285e4a4e17193f853cc79c02c604adfe57a51e49945b71ce165863843581d | AnalyseFuture/third_party/3daigc-api/api/main_multiworker.py
+third_party/3daigc-api/api/main_singleworker.py | AnalyseFuture/third_party/3daigc-api/api/main_singleworker.py | d8a72ae13aa082859588fa57a0d5d1ae28710f51b817286ee6e3fbc3f1ebe0b1 | AnalyseFuture/third_party/3daigc-api/api/main_singleworker.py
+third_party/3daigc-api/api/routers/__init__.py | AnalyseFuture/third_party/3daigc-api/api/routers/__init__.py | 32bd9a19e0790477e23b8759340d1e7778bd7aff347300a70ae2e015978fa179 | AnalyseFuture/third_party/3daigc-api/api/routers/__init__.py
+third_party/3daigc-api/api/routers/auto_rigging.py | AnalyseFuture/third_party/3daigc-api/api/routers/auto_rigging.py | e42a25b63740ddd8210b17ec52e3b1b7fbe80456322fdc3537af235b96d4ae1f | AnalyseFuture/third_party/3daigc-api/api/routers/auto_rigging.py
+third_party/3daigc-api/api/routers/file_upload.py | AnalyseFuture/third_party/3daigc-api/api/routers/file_upload.py | 6928b45c2922bbb6064d221644f946f4c8a15650802081b1d754f80218d5603c | AnalyseFuture/third_party/3daigc-api/api/routers/file_upload.py
+third_party/3daigc-api/api/routers/mesh_editing.py | AnalyseFuture/third_party/3daigc-api/api/routers/mesh_editing.py | ebf9f42e1501e047a5dec2b88e935efaf8997091181cb1690b303991364def3c | AnalyseFuture/third_party/3daigc-api/api/routers/mesh_editing.py
+third_party/3daigc-api/api/routers/mesh_generation.py | AnalyseFuture/third_party/3daigc-api/api/routers/mesh_generation.py | 0ab7c61e9442d60f9f7bca963c46e1f06c32407b138c0a1834c3a74b11a7a344 | AnalyseFuture/third_party/3daigc-api/api/routers/mesh_generation.py
+third_party/3daigc-api/api/routers/mesh_retopology.py | AnalyseFuture/third_party/3daigc-api/api/routers/mesh_retopology.py | aead2474ca12a1664950ec8576f62f656b8b107b4e51d2cc6650193885ad4740 | AnalyseFuture/third_party/3daigc-api/api/routers/mesh_retopology.py
+third_party/3daigc-api/api/routers/mesh_segmentation.py | AnalyseFuture/third_party/3daigc-api/api/routers/mesh_segmentation.py | 076594c8cf36e259e33f77ff10f6840d3931b5f3b43eaa8427fea7895ab2d854 | AnalyseFuture/third_party/3daigc-api/api/routers/mesh_segmentation.py
+third_party/3daigc-api/api/routers/mesh_uv_unwrapping.py | AnalyseFuture/third_party/3daigc-api/api/routers/mesh_uv_unwrapping.py | d14c2369b69fbb4f606ed86fc0062abbeceba424f965d44ac64634f6dd87a795 | AnalyseFuture/third_party/3daigc-api/api/routers/mesh_uv_unwrapping.py
+third_party/3daigc-api/api/routers/system.py | AnalyseFuture/third_party/3daigc-api/api/routers/system.py | d4975317a789a1bdd513ecf2e4a10355627df4ca9ec7f6f411d5948ae2c23acc | AnalyseFuture/third_party/3daigc-api/api/routers/system.py
+third_party/3daigc-api/api/routers/users.py | AnalyseFuture/third_party/3daigc-api/api/routers/users.py | 06611c013d700f179d7a0ff19c6f89987a1bce3247ff47c661b687ddb38ccf8f | AnalyseFuture/third_party/3daigc-api/api/routers/users.py
+third_party/3daigc-api/assets/example_image/073.png | AnalyseFuture/third_party/3daigc-api/assets/example_image/073.png | afc0a4ee17882291aacedb6b2a6b1ca0e24912a3dc566efdb4d4c3400bc002e2 | AnalyseFuture/third_party/3daigc-api/assets/example_image/073.png
+third_party/3daigc-api/assets/example_image/075.png | AnalyseFuture/third_party/3daigc-api/assets/example_image/075.png | 58b926e26c0026df16378e214fb046e63dd0edceacb0f8db8005d9ed3f86949a | AnalyseFuture/third_party/3daigc-api/assets/example_image/075.png
+third_party/3daigc-api/assets/example_image/1687.png | AnalyseFuture/third_party/3daigc-api/assets/example_image/1687.png | 74804ae8dee62928cd82d62a1a8bbbbaddeb91bc10a0315ec12c4a5d4aafb9c2 | AnalyseFuture/third_party/3daigc-api/assets/example_image/1687.png
+third_party/3daigc-api/assets/example_image/203.png | AnalyseFuture/third_party/3daigc-api/assets/example_image/203.png | 50c1bf6fb350031480031ecbf15a212eb119e9589f7a66d8dc0d09910c4d8060 | AnalyseFuture/third_party/3daigc-api/assets/example_image/203.png
+third_party/3daigc-api/assets/example_image/typical_building_space_station.png | AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_building_space_station.png | 212c7b4c27ba1e01a7908dbc7f245e7115850eadbc9974aa726327cf35062846 | AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_building_space_station.png
+third_party/3daigc-api/assets/example_image/typical_creature_robot_crab.png | AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_creature_robot_crab.png | d7e716abe8f8895080f562d1dc26b14fa0e20a05aa5beb2770c6fb3b87b3476a | AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_creature_robot_crab.png
+third_party/3daigc-api/assets/example_image/typical_creature_robot_dinosour.png | AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_creature_robot_dinosour.png | d0986f29557a6fddf9b52b5251a6b6103728c61e201b1cfad1e709b090b72f56 | AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_creature_robot_dinosour.png
+third_party/3daigc-api/assets/example_image/typical_humanoid_mech.png | AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_humanoid_mech.png | a244ec54b7984e646e54d433de6897657081dd5b9cd5ccd3d865328d813beb49 | AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_humanoid_mech.png
+third_party/3daigc-api/assets/example_mesh/material.mtl | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/material.mtl | 3f9a761bfe339db161f396c85e828a22fd5bf5d95563fd05b483314a6760d2ce | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/material.mtl
+third_party/3daigc-api/assets/example_mesh/typical_creature_dragon.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_dragon.obj | 16bbd5361207aae0888eddb982182533f59b7137a8962ac2963d575f19844520 | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_dragon.obj
+third_party/3daigc-api/assets/example_mesh/typical_creature_dragon/typical_creature_dragon.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_dragon/typical_creature_dragon.obj | 16bbd5361207aae0888eddb982182533f59b7137a8962ac2963d575f19844520 | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_dragon/typical_creature_dragon.obj
+third_party/3daigc-api/assets/example_mesh/typical_creature_elephant.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_elephant.obj | 7314f1b9c52e98d75f3d81edee9a88347a01b9d97030da560c75561fbfdb3d7f | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_elephant.obj
+third_party/3daigc-api/assets/example_mesh/typical_creature_elephant/typical_creature_elephant.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_elephant/typical_creature_elephant.obj | 7314f1b9c52e98d75f3d81edee9a88347a01b9d97030da560c75561fbfdb3d7f | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_elephant/typical_creature_elephant.obj
+third_party/3daigc-api/assets/example_mesh/typical_creature_furry.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_furry.obj | e05609c1da42ad6deec27bd2d863271149bef514a47c31a85e6cdbd0b2c861f9 | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_furry.obj
+third_party/3daigc-api/assets/example_mesh/typical_creature_quadruped.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_quadruped.obj | 834ea74adccc9ad6f6d90ea989e18459d518799cdba431106fdb45b612ffa971 | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_quadruped.obj
+third_party/3daigc-api/assets/example_mesh/typical_creature_robot_crab.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_robot_crab.obj | 144b1b9fadccb0b0625bda4a090f52f6e9594e89f4f37894fd4e007eb3cd8143 | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_robot_crab.obj
+third_party/3daigc-api/assets/example_mesh/typical_creature_robot_dinosour.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_robot_dinosour.obj | ef31ba872415b52a93151a223b0c3644479742d8c48d3c33f872272553f7fcc7 | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_robot_dinosour.obj
+third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster.obj | 4d9aeeba7eb61ff01d2c6c9371d4734953974ae8f46770ef07c5f4d1da29f994 | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster.obj
+third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster/typical_creature_rock_monster.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster/typical_creature_rock_monster.obj | 4d9aeeba7eb61ff01d2c6c9371d4734953974ae8f46770ef07c5f4d1da29f994 | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster/typical_creature_rock_monster.obj
+third_party/3daigc-api/assets/example_mesh/typical_humanoid_block_robot.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_block_robot.obj | f25a5a3c731166ae92012cdba228a80bda40e202a10453329dfdad962bffc4cc | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_block_robot.obj
+third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn.obj | 1cd3b8073269bad948a18ab99e2ad4d752444123a928f94ea09a9a3f5863b23b | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn.obj
+third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn/typical_humanoid_dragonborn.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn/typical_humanoid_dragonborn.obj | 1cd3b8073269bad948a18ab99e2ad4d752444123a928f94ea09a9a3f5863b23b | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn/typical_humanoid_dragonborn.obj
+third_party/3daigc-api/assets/example_mesh/typical_humanoid_dwarf.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dwarf.obj | 1808ba3dc30401a6be175635267c17a9bf8b216ae3d7804dd946bdfa946c863a | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dwarf.obj
+third_party/3daigc-api/assets/example_mesh/typical_humanoid_goblin.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_goblin.obj | 1893f6058dcddb36bf13f7f49d5366301a6fe8f40cb16d50eaff07c99213671d | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_goblin.obj
+third_party/3daigc-api/assets/example_mesh/typical_humanoid_mech.obj | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_mech.obj | 89134d8ad12ca614e8c3922f4f183620a93807e175f2972077071f92aa44ba93 | AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_mech.obj
+third_party/3daigc-api/assets/example_meshedit/images/2d_edit.png | AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_edit.png | a4c81a27476dea19c9db3199289393c1a730efe8ae7b2be19856a6c24310b7b3 | AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_edit.png
+third_party/3daigc-api/assets/example_meshedit/images/2d_mask.png | AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_mask.png | 310af8a49ac431fbb3df26b9001e769dc28e4804525f68f2d8b58ba10bfb03f7 | AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_mask.png
+third_party/3daigc-api/assets/example_meshedit/images/2d_render.png | AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_render.png | db7f9528c55ee9c539ebb464458ff7d974827e3ff43028a6228c62563c2796f3 | AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_render.png
+third_party/3daigc-api/assets/example_meshedit/mask.glb | AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/mask.glb | 952d2f7e048f22bde44e02ebabb5b667c835b59e77e791abef50f775640c1eec | AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/mask.glb
+third_party/3daigc-api/assets/example_meshedit/model.glb | AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/model.glb | ab019e91b349bac96f2057dc6b88fb5bb44842c7a37ce9a8268c8277b0e41ff8 | AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/model.glb
+third_party/3daigc-api/assets/example_meshseg/00200996b8f34f55a2dd2f44d316d107.glb | AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/00200996b8f34f55a2dd2f44d316d107.glb | 61cab7888c100531426880556cc22833423c338cf87d77f208ba30214e83a12b | AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/00200996b8f34f55a2dd2f44d316d107.glb
+third_party/3daigc-api/assets/example_meshseg/002e462c8bfa4267a9c9f038c7966f3b.glb | AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/002e462c8bfa4267a9c9f038c7966f3b.glb | 22bbd8040395b07dcdf223d342d38b7cd38bb6c554606256e3f8b5cdd9404bc3 | AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/002e462c8bfa4267a9c9f038c7966f3b.glb
+third_party/3daigc-api/assets/example_meshseg/0c3ca2b32545416f8f1e6f0e87def1a6.glb | AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/0c3ca2b32545416f8f1e6f0e87def1a6.glb | 3935f44575093960a0ba422134087f70602a2ef7bc6a54c15ed21b70ec334af3 | AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/0c3ca2b32545416f8f1e6f0e87def1a6.glb
+third_party/3daigc-api/assets/example_meshseg/65c6ffa083c6496eb84a0aa3c48d63ad.glb | AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/65c6ffa083c6496eb84a0aa3c48d63ad.glb | 139201966d7eef3da1d1c80e8ba868b6785d0d0ce945d35add0bbf06c5cd101e | AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/65c6ffa083c6496eb84a0aa3c48d63ad.glb
+third_party/3daigc-api/assets/example_partpacker/barrel.png | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/barrel.png | 6efc5d01a6460ffe2aaf3f644f26d278ba7d4801476d17e98a212c588079c978 | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/barrel.png
+third_party/3daigc-api/assets/example_partpacker/cactus.png | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/cactus.png | b63b5a14ec5df6cf05ce537d8ba7eec8e67a9260d0f521e9b68417f86f7942ad | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/cactus.png
+third_party/3daigc-api/assets/example_partpacker/cyan_car.png | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/cyan_car.png | 61dc2c1b2e940a9d2ecded4d7c60fe0249c8ca905a55029293e0f062b559f795 | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/cyan_car.png
+third_party/3daigc-api/assets/example_partpacker/pickup.png | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/pickup.png | 9f89940c0bf2dbaf6a48346b8b9861f56a1b002ad5452c14e0019149132873bd | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/pickup.png
+third_party/3daigc-api/assets/example_partpacker/rabbit.png | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/rabbit.png | 7c06b1e3364b3417dd4e92eaa6a5978d01a9ab9b1d9b99d7b15b2393d7952fbd | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/rabbit.png
+third_party/3daigc-api/assets/example_partpacker/robot.png | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/robot.png | 0ebaf8657cdb7d233ee2661926cff32656b54809bfc20fb7ac4d5ed7aa71fb15 | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/robot.png
+third_party/3daigc-api/assets/example_partpacker/swivelchair.png | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/swivelchair.png | af28e5c01b48ca27bb8baf68d7522eaa109f8998588f02152f935c9e3e5e2b57 | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/swivelchair.png
+third_party/3daigc-api/assets/example_partpacker/teapot.png | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/teapot.png | 967ec369e4bb45e835f7ac057d9406a46178ba6f2d6a5958788f805deb2fd5ec | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/teapot.png
+third_party/3daigc-api/assets/example_partpacker/warhammer.png | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/warhammer.png | bc63bda34774288092d069808b7cb28c9544dd253cfbcfb33a98b22c9ec19537 | AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/warhammer.png
+third_party/3daigc-api/assets/example_retopo/001.obj | AnalyseFuture/third_party/3daigc-api/assets/example_retopo/001.obj | 38679e56cd499a9dc0d4b22a77f2d0bad06cdfce2b4de00ebc775b55da7b5f6f | AnalyseFuture/third_party/3daigc-api/assets/example_retopo/001.obj
+third_party/3daigc-api/assets/example_retopo/002.obj | AnalyseFuture/third_party/3daigc-api/assets/example_retopo/002.obj | 7738d64df0745e7da1b9efe6e8003fa9ab8665faf147d202f1ed4cf345f0528e | AnalyseFuture/third_party/3daigc-api/assets/example_retopo/002.obj
+third_party/3daigc-api/assets/example_retopo/003.obj | AnalyseFuture/third_party/3daigc-api/assets/example_retopo/003.obj | 741f621f4d54f3a94f0ea6e7baa763f14726a3b6b8ec220cf466cf1460740092 | AnalyseFuture/third_party/3daigc-api/assets/example_retopo/003.obj
+third_party/3daigc-api/assets/example_retopo/004.obj | AnalyseFuture/third_party/3daigc-api/assets/example_retopo/004.obj | 8cd162448ddaa47d801fd0a99fb44900f5e52dd01e1c09155ba166afd489a4be | AnalyseFuture/third_party/3daigc-api/assets/example_retopo/004.obj
+third_party/3daigc-api/assets/example_retopo/005.obj | AnalyseFuture/third_party/3daigc-api/assets/example_retopo/005.obj | 30d8f498e33d404dcfffd82ff8a1d9bdbd7b19bbccb1fa8153ffae0887b94283 | AnalyseFuture/third_party/3daigc-api/assets/example_retopo/005.obj
+third_party/3daigc-api/assets/example_uv/igea.obj | AnalyseFuture/third_party/3daigc-api/assets/example_uv/igea.obj | 33d196c91f20f483164af03e001e054f9124691f7e5694d0cf8e90d5857ed7ea | AnalyseFuture/third_party/3daigc-api/assets/example_uv/igea.obj
+third_party/3daigc-api/assets/example_uv/max-planck.obj | AnalyseFuture/third_party/3daigc-api/assets/example_uv/max-planck.obj | a2b9e2b5299dc1a1002bc3a3e51f50db29b8e22bde2c158bf8e681bfd3ec9932 | AnalyseFuture/third_party/3daigc-api/assets/example_uv/max-planck.obj
+third_party/3daigc-api/assets/wheels/diso-0.1.4-cp310-cp310-linux_x86_64.whl | AnalyseFuture/third_party/3daigc-api/assets/wheels/diso-0.1.4-cp310-cp310-linux_x86_64.whl | 4d8fbcc529a2b2ad4aaed38444af9d8c19f294e074a865952eadec1df48c85b0 | AnalyseFuture/third_party/3daigc-api/assets/wheels/diso-0.1.4-cp310-cp310-linux_x86_64.whl
+third_party/3daigc-api/assets/wheels/kaolin-0.17.0-cp310-cp310-linux_x86_64.whl | AnalyseFuture/third_party/3daigc-api/assets/wheels/kaolin-0.17.0-cp310-cp310-linux_x86_64.whl | c93a0177e357114933c45607f89175b7168fcc39effee7c28525fcdc5498e190 | AnalyseFuture/third_party/3daigc-api/assets/wheels/kaolin-0.17.0-cp310-cp310-linux_x86_64.whl
+third_party/3daigc-api/assets/wheels/utils3d-0.0.2-py3-none-any.whl | AnalyseFuture/third_party/3daigc-api/assets/wheels/utils3d-0.0.2-py3-none-any.whl | 0c3d18e00a8c9ea58a63a1b1df83821a98c625e0a3145ee8d31d3aa93f8ae5af | AnalyseFuture/third_party/3daigc-api/assets/wheels/utils3d-0.0.2-py3-none-any.whl
+third_party/3daigc-api/config/logging.yaml | AnalyseFuture/third_party/3daigc-api/config/logging.yaml | a910d2e75e5c4a32e07e1426913ec0e57bf0cd895525bc0b2164de5be40ca4d8 | AnalyseFuture/third_party/3daigc-api/config/logging.yaml
+third_party/3daigc-api/config/models.yaml | AnalyseFuture/third_party/3daigc-api/config/models.yaml | ff51afb84f806d27c2fc7a7ed917f3829f1833a2a04e8149a993f6305e6f03ab | AnalyseFuture/third_party/3daigc-api/config/models.yaml
+third_party/3daigc-api/config/system.yaml | AnalyseFuture/third_party/3daigc-api/config/system.yaml | 2b7f4f7a07ac483fe890691447471b82c154a839af6a93a5b50c95e154f8c54f | AnalyseFuture/third_party/3daigc-api/config/system.yaml
+third_party/3daigc-api/core/__init__.py | AnalyseFuture/third_party/3daigc-api/core/__init__.py | ad9ddd3a2f63ff9f34ac0a0369b0b0d94742308990cd3ecb478b2c213d57c67d | AnalyseFuture/third_party/3daigc-api/core/__init__.py
+third_party/3daigc-api/core/auth/__init__.py | AnalyseFuture/third_party/3daigc-api/core/auth/__init__.py | 1cefcfaab6ab0610b561a54a4c1a8161da0777d010701e7ba309f9c9eda077de | AnalyseFuture/third_party/3daigc-api/core/auth/__init__.py
+third_party/3daigc-api/core/auth/models.py | AnalyseFuture/third_party/3daigc-api/core/auth/models.py | 5641fad40ccbc44b9a2ad542bb08459477765a2e82ec265e04934bd640664f36 | AnalyseFuture/third_party/3daigc-api/core/auth/models.py
+third_party/3daigc-api/core/auth/service.py | AnalyseFuture/third_party/3daigc-api/core/auth/service.py | 9950e2ea173a8248908764bffb0e4a6ace8930727639379573216a8cc924c044 | AnalyseFuture/third_party/3daigc-api/core/auth/service.py
+third_party/3daigc-api/core/auth/storage.py | AnalyseFuture/third_party/3daigc-api/core/auth/storage.py | 9d52ee48b4c8d4abb52d983d72cca889d8eef8d1f3a832a26f58c9fb79c39c0c | AnalyseFuture/third_party/3daigc-api/core/auth/storage.py
+third_party/3daigc-api/core/config.py | AnalyseFuture/third_party/3daigc-api/core/config.py | 929e3434875b30e67d6370ba4a95e5a0b7149350561c693c9d766a5047a9b721 | AnalyseFuture/third_party/3daigc-api/core/config.py
+third_party/3daigc-api/core/file_store.py | AnalyseFuture/third_party/3daigc-api/core/file_store.py | 4504f1f0abcc7ed7c814b3357d49d90051001de8b8378588d007f71bd594ec0c | AnalyseFuture/third_party/3daigc-api/core/file_store.py
+third_party/3daigc-api/core/models/__init__.py | AnalyseFuture/third_party/3daigc-api/core/models/__init__.py | 302b7166af5a173c00cf06a66dd94fa4e40b406a4a1781baa6d7ca2943444081 | AnalyseFuture/third_party/3daigc-api/core/models/__init__.py
+third_party/3daigc-api/core/models/base.py | AnalyseFuture/third_party/3daigc-api/core/models/base.py | e066cf4eb3534a31a150982698d20b3b273983312d2bc90e0d85590eb2e09f2b | AnalyseFuture/third_party/3daigc-api/core/models/base.py
+third_party/3daigc-api/core/models/mesh_editing_models.py | AnalyseFuture/third_party/3daigc-api/core/models/mesh_editing_models.py | dcc02eba596ee5261cdd15dc35dee849c6718856f5a9c20f630939a0fc4e10ae | AnalyseFuture/third_party/3daigc-api/core/models/mesh_editing_models.py
+third_party/3daigc-api/core/models/mesh_models.py | AnalyseFuture/third_party/3daigc-api/core/models/mesh_models.py | b8bf2b6f0a4cba5d156538145235a44095358f2b2fe3eb3941a75ed24f042ed1 | AnalyseFuture/third_party/3daigc-api/core/models/mesh_models.py
+third_party/3daigc-api/core/models/retopo_models.py | AnalyseFuture/third_party/3daigc-api/core/models/retopo_models.py | 4cefbaf439099a3cac8c024164cefa942f433ea5be4a865cde32c9f2e9e01afe | AnalyseFuture/third_party/3daigc-api/core/models/retopo_models.py
+third_party/3daigc-api/core/models/rig_models.py | AnalyseFuture/third_party/3daigc-api/core/models/rig_models.py | edabffcb1cc6b7f149e98db887c44230188bf0dfe42567afbb6672f8b8dca5ea | AnalyseFuture/third_party/3daigc-api/core/models/rig_models.py
+third_party/3daigc-api/core/models/segment_models.py | AnalyseFuture/third_party/3daigc-api/core/models/segment_models.py | 01b84504d99e44d276f7acbedef84ba76de655bb885746a373c99b9cb1326015 | AnalyseFuture/third_party/3daigc-api/core/models/segment_models.py
+third_party/3daigc-api/core/models/uv_models.py | AnalyseFuture/third_party/3daigc-api/core/models/uv_models.py | c7e825efc242fea3e28206939c5fc031a998cda145b9afcbf95c418cef703e6c | AnalyseFuture/third_party/3daigc-api/core/models/uv_models.py
+third_party/3daigc-api/core/scheduler/__init__.py | AnalyseFuture/third_party/3daigc-api/core/scheduler/__init__.py | 24a75a36538141bb504e9cc56186fc37b46c119a3cf01b2e3e9c0a5dcd8de5d7 | AnalyseFuture/third_party/3daigc-api/core/scheduler/__init__.py
+third_party/3daigc-api/core/scheduler/database_manager.py | AnalyseFuture/third_party/3daigc-api/core/scheduler/database_manager.py | 1dcf546c0939a1d5d2c24e733cb8f0b31a4c2b3a508b89bfdbe9f76ae594af9e | AnalyseFuture/third_party/3daigc-api/core/scheduler/database_manager.py
+third_party/3daigc-api/core/scheduler/database_models.py | AnalyseFuture/third_party/3daigc-api/core/scheduler/database_models.py | b71db25cb057dacd257e3e0a9ab4bd64d30100a735378eeb9bb792bdfcfb3adf | AnalyseFuture/third_party/3daigc-api/core/scheduler/database_models.py
+third_party/3daigc-api/core/scheduler/gpu_monitor.py | AnalyseFuture/third_party/3daigc-api/core/scheduler/gpu_monitor.py | 5c12704fce9317cef3c7189085cbe93356a1e2daa455357aee2c91d4b6c6877f | AnalyseFuture/third_party/3daigc-api/core/scheduler/gpu_monitor.py
+third_party/3daigc-api/core/scheduler/job_queue.py | AnalyseFuture/third_party/3daigc-api/core/scheduler/job_queue.py | 2a89302c3967825b722d19c100f81c155d7bebe69f12106af0f063b076019b50 | AnalyseFuture/third_party/3daigc-api/core/scheduler/job_queue.py
+third_party/3daigc-api/core/scheduler/model_factory.py | AnalyseFuture/third_party/3daigc-api/core/scheduler/model_factory.py | f10fad5a71f19854d9b26fe3a1e8a25fa60660038d5111249c6ca750767765a0 | AnalyseFuture/third_party/3daigc-api/core/scheduler/model_factory.py
+third_party/3daigc-api/core/scheduler/multiprocess_scheduler.py | AnalyseFuture/third_party/3daigc-api/core/scheduler/multiprocess_scheduler.py | 08e0402c02c27c1de76dd75c83fb4bfb299a5e597678a0c933218502fea8abc5 | AnalyseFuture/third_party/3daigc-api/core/scheduler/multiprocess_scheduler.py
+third_party/3daigc-api/core/scheduler/redis_job_queue.py | AnalyseFuture/third_party/3daigc-api/core/scheduler/redis_job_queue.py | 93fb9629a3fbac4b0b364a60015aef5973799b2e102bfc85a2d50a94481236d9 | AnalyseFuture/third_party/3daigc-api/core/scheduler/redis_job_queue.py
+third_party/3daigc-api/core/scheduler/scheduler_factory.py | AnalyseFuture/third_party/3daigc-api/core/scheduler/scheduler_factory.py | d8a6e0f4e6777b3e98397bfcecd1ab98d69d634be4477d68c252a1f572ab4a9f | AnalyseFuture/third_party/3daigc-api/core/scheduler/scheduler_factory.py
+third_party/3daigc-api/core/utils/__init__.py | AnalyseFuture/third_party/3daigc-api/core/utils/__init__.py | 6015b0077b8ce9316ee0c0749b25317ab19144536cfd7c25b419ceec5f907ca6 | AnalyseFuture/third_party/3daigc-api/core/utils/__init__.py
+third_party/3daigc-api/core/utils/exceptions.py | AnalyseFuture/third_party/3daigc-api/core/utils/exceptions.py | 0e26ff231e2aad297a86f2be7ba0999cb56e09d261e4ec8c0842af6e0d9738af | AnalyseFuture/third_party/3daigc-api/core/utils/exceptions.py
+third_party/3daigc-api/core/utils/file_utils.py | AnalyseFuture/third_party/3daigc-api/core/utils/file_utils.py | fa9fea576c45e80a454eeccb4f34868a3802ab51d12d3aa00d26b5a9f6b05e24 | AnalyseFuture/third_party/3daigc-api/core/utils/file_utils.py
+third_party/3daigc-api/core/utils/format_utils.py | AnalyseFuture/third_party/3daigc-api/core/utils/format_utils.py | 7d8cf03b2990b906d43c86412205a8d562e3fd5a12191459a84e085af9f5c56f | AnalyseFuture/third_party/3daigc-api/core/utils/format_utils.py
+third_party/3daigc-api/core/utils/mask_generator.py | AnalyseFuture/third_party/3daigc-api/core/utils/mask_generator.py | 4bd5838f366a39a069eb9e43cd087e904cda1008389aea5e893815b70ba55d1a | AnalyseFuture/third_party/3daigc-api/core/utils/mask_generator.py
+third_party/3daigc-api/core/utils/mesh_utils.py | AnalyseFuture/third_party/3daigc-api/core/utils/mesh_utils.py | a98b1cf82e22e0004da459f250444573478bd8c3e794bca5cf7d9f4b5eda13dd | AnalyseFuture/third_party/3daigc-api/core/utils/mesh_utils.py
+third_party/3daigc-api/core/utils/thumbnail_utils.py | AnalyseFuture/third_party/3daigc-api/core/utils/thumbnail_utils.py | c215e31027878553997ad6b89c5c64db78da18517cb5513b315447dc942f3ce3 | AnalyseFuture/third_party/3daigc-api/core/utils/thumbnail_utils.py
+third_party/3daigc-api/core/utils/validation.py | AnalyseFuture/third_party/3daigc-api/core/utils/validation.py | 8f592ed95c0ea7cd9a7601fc4629250a4628930d4e3b0f2e536b00e0b0e80098 | AnalyseFuture/third_party/3daigc-api/core/utils/validation.py
+third_party/3daigc-api/docker-compose.yml | AnalyseFuture/third_party/3daigc-api/docker-compose.yml | fc9a7bbdcdb0846fbafbaf4a9b756569ff4a3976c548d38195fab72330ee19f0 | AnalyseFuture/third_party/3daigc-api/docker-compose.yml
+third_party/3daigc-api/docs/api_documentation.md | AnalyseFuture/third_party/3daigc-api/docs/api_documentation.md | 4e1c8758c2b40287887eea70b7ef4efe6beac3116614aa66c8c8791a730dc61b | AnalyseFuture/third_party/3daigc-api/docs/api_documentation.md
+third_party/3daigc-api/docs/codebase_analysis.md | AnalyseFuture/third_party/3daigc-api/docs/codebase_analysis.md | 0050bca07299fa738349970aaef77a89d08bd4e7f1a5b64f314d4a83f1b598be | AnalyseFuture/third_party/3daigc-api/docs/codebase_analysis.md
+third_party/3daigc-api/docs/vibe_coding/cursor_created/IMPLEMENTATION_SUMMARY.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/IMPLEMENTATION_SUMMARY.md | dd4c50daf1e004224a9ef58a72a8d2b7f3c061d331fe2aa62d2d371e7bae57be | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/IMPLEMENTATION_SUMMARY.md
+third_party/3daigc-api/docs/vibe_coding/cursor_created/codebase_analysis.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/codebase_analysis.md | 0050bca07299fa738349970aaef77a89d08bd4e7f1a5b64f314d4a83f1b598be | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/codebase_analysis.md
+third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_modes.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_modes.md | 6e381ea3a04f37ba5a649f986e810b5d5a8f052297d225d50f98582c9fc964c1 | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_modes.md
+third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_strategy.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_strategy.md | 8425f2afe4264c233a52570df123f6458b93a979155e7013c72001e3c118733a | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_strategy.md
+third_party/3daigc-api/docs/vibe_coding/cursor_created/docker_readme.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/docker_readme.md | 6cc2a75fe98e8b030d79d72c184e6218eb1263a3f1d39476b1625e7c1226e21d | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/docker_readme.md
+third_party/3daigc-api/docs/vibe_coding/cursor_created/fastmesh_partuv_integration_summary.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/fastmesh_partuv_integration_summary.md | f833a73a63d46ba249ab67ea9dffb5805d2109a7cdfc3cca116c275e3d1a3e94 | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/fastmesh_partuv_integration_summary.md
+third_party/3daigc-api/docs/vibe_coding/cursor_created/integration_summary.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/integration_summary.md | f833a73a63d46ba249ab67ea9dffb5805d2109a7cdfc3cca116c275e3d1a3e94 | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/integration_summary.md
+third_party/3daigc-api/docs/vibe_coding/cursor_created/system_architecture.drawio | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/system_architecture.drawio | cbbdc0e17c5c4fa70eb53416fde3667e582694e42d2ef55b18057c8f8696d05b | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/system_architecture.drawio
+third_party/3daigc-api/docs/vibe_coding/cursor_created/system_design.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/system_design.md | 8f282ca60c585cc5bdb2c32e4d4ef7f521d539bfb6fade9b47f465e932dc54da | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/system_design.md
+third_party/3daigc-api/docs/vibe_coding/cursor_created/trellis2_p3sam_integration_summary.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/trellis2_p3sam_integration_summary.md | ed5a6b876667ead9364422b8b50f974b3003f4121bea6574b8bc64168a609ef2 | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/trellis2_p3sam_integration_summary.md
+third_party/3daigc-api/docs/vibe_coding/cursor_created/ultrashape_voxhammer_integration.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/ultrashape_voxhammer_integration.md | 139c2e65b3f0ea730167b51a841746aa8cca7391a4f9dfc7856ca220ce89b998 | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/ultrashape_voxhammer_integration.md
+third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management.md | 7552af658813dba134a00b19b2b8034772d324efbe95a0220e116c89420b1535 | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management.md
+third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management_quickstart.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management_quickstart.md | f4c310f1e819cc30767674ba7a4357a623be8b99b946cf5e9ea520b84a60f27a | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management_quickstart.md
+third_party/3daigc-api/docs/vibe_coding/prompts/template_for_integration.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/template_for_integration.md | e7b14b0e4b768f72200c2bb1ca7642f05e5723de4a23627d615bdc6824f35262 | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/template_for_integration.md
+third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/01.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/01.md | 6be96e51e553ad3c91ba09fd71521e2c7fc01863c53dec24874b66dabf34b8de | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/01.md
+third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/02_fastmesh_partuv_prompt.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/02_fastmesh_partuv_prompt.md | b162e6e08cefe27c1fcb58d0c8a8913231f5b5b986eb9b6c78eec695f40035c4 | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/02_fastmesh_partuv_prompt.md
+third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/03_separate_router_from_scheduler.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/03_separate_router_from_scheduler.md | 2f9c41bc8c8a5d2eed3f581998b5444435f1767ec0ad7b00fc85d95417794525 | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/03_separate_router_from_scheduler.md
+third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/04_add_user_system.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/04_add_user_system.md | e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/04_add_user_system.md
+third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/05_add_input_image_url.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/05_add_input_image_url.md | 68de3684ed29e3b3a007470639e464efe93e310b853eeaa2388da85b82e60795 | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/05_add_input_image_url.md
+third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/06_remove_trainer_dep_partfield.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/06_remove_trainer_dep_partfield.md | 2d1ac87b752677c72799550a5a43152f73cdd33f8f85b6669e6357250cb187cc | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/06_remove_trainer_dep_partfield.md
+third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/01_trellis2_p3sam.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/01_trellis2_p3sam.md | e720816ae00ac29903d36112943e547cd4f9e80e4605f053b47fb9618a037641 | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/01_trellis2_p3sam.md
+third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/02_voxhammer_ultrashape.md | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/02_voxhammer_ultrashape.md | e9993222157fefb8bffb598597b1b22366fbf30fc774874406464d1df52d5106 | AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/02_voxhammer_ultrashape.md
+third_party/3daigc-api/requirements-test.txt | AnalyseFuture/third_party/3daigc-api/requirements-test.txt | 066a481dde83693ab4fe68266a0846fc21ef46359b50a1aa4e8d588bf2f6541f | AnalyseFuture/third_party/3daigc-api/requirements-test.txt
+third_party/3daigc-api/requirements.txt | AnalyseFuture/third_party/3daigc-api/requirements.txt | d34af02e5c8f5b1f0c881b7cc85cfce6117849dcaac4c54f39effd6e0984a7b5 | AnalyseFuture/third_party/3daigc-api/requirements.txt
+third_party/3daigc-api/scripts/build_docker.sh | AnalyseFuture/third_party/3daigc-api/scripts/build_docker.sh | 09258b4288f0ecb07b4be17ab373e704afdf9a2f4928ee3bf75ee7f5a9d707ef | AnalyseFuture/third_party/3daigc-api/scripts/build_docker.sh
+third_party/3daigc-api/scripts/create_admin_user.py | AnalyseFuture/third_party/3daigc-api/scripts/create_admin_user.py | ec8a0f1143931329b743e924075c48445a0122941c5658ed17ff07038223a8a0 | AnalyseFuture/third_party/3daigc-api/scripts/create_admin_user.py
+third_party/3daigc-api/scripts/download_models.bat | AnalyseFuture/third_party/3daigc-api/scripts/download_models.bat | 1dc598f57b34cbc56e2938d313461cdb80a931bed3da519fd91b1cc04faa2bf0 | AnalyseFuture/third_party/3daigc-api/scripts/download_models.bat
+third_party/3daigc-api/scripts/download_models.sh | AnalyseFuture/third_party/3daigc-api/scripts/download_models.sh | 34fe0d409e63cee96a4acd81843872a6066e2e32c5dfe49f99538e25be00691a | AnalyseFuture/third_party/3daigc-api/scripts/download_models.sh
+third_party/3daigc-api/scripts/install.bat | AnalyseFuture/third_party/3daigc-api/scripts/install.bat | fdf5ed9f7ca92b323a0a613fd62eb44293e3b9ed3911ba305317fccbcc48b526 | AnalyseFuture/third_party/3daigc-api/scripts/install.bat
+third_party/3daigc-api/scripts/install.sh | AnalyseFuture/third_party/3daigc-api/scripts/install.sh | 998f3509dc3f0ddf97ebf7d9fd7dddfee6deb8543c652322314acbc7ff2b8349 | AnalyseFuture/third_party/3daigc-api/scripts/install.sh
+third_party/3daigc-api/scripts/install_trellis.bat | AnalyseFuture/third_party/3daigc-api/scripts/install_trellis.bat | b527053b7eb14b5410ec3c4f260824f4554de5ef344e11975fafeadd82376dab | AnalyseFuture/third_party/3daigc-api/scripts/install_trellis.bat
+third_party/3daigc-api/scripts/run_server.bat | AnalyseFuture/third_party/3daigc-api/scripts/run_server.bat | 9bbc7f29168a9f9ffe70ae548eef72d654eb5ea5d43b14f1c2b1035a166a769b | AnalyseFuture/third_party/3daigc-api/scripts/run_server.bat
+third_party/3daigc-api/scripts/run_server.sh | AnalyseFuture/third_party/3daigc-api/scripts/run_server.sh | d4eff28a3093df58a57c152d69211b47473c7bb82464aeebb2ea735c067cae47 | AnalyseFuture/third_party/3daigc-api/scripts/run_server.sh
+third_party/3daigc-api/scripts/scheduler_service.py | AnalyseFuture/third_party/3daigc-api/scripts/scheduler_service.py | 2487a98c34dfbef8cedb156020c59b71d9fb23c92ee949e04f4a485022c9a986 | AnalyseFuture/third_party/3daigc-api/scripts/scheduler_service.py
+third_party/3daigc-api/supervisord.conf | AnalyseFuture/third_party/3daigc-api/supervisord.conf | ecaba36babd95d8f9fbff28e00ab150608fb898451a05932eb6b4ebc81eb8147 | AnalyseFuture/third_party/3daigc-api/supervisord.conf
+third_party/3daigc-api/tests/conftest.py | AnalyseFuture/third_party/3daigc-api/tests/conftest.py | 63eb297823bda2a4dc65838055faa2eef8aa89b817e3b65719c8a82ca4124496 | AnalyseFuture/third_party/3daigc-api/tests/conftest.py
+third_party/3daigc-api/tests/curl/test_fastmesh_retopo.sh | AnalyseFuture/third_party/3daigc-api/tests/curl/test_fastmesh_retopo.sh | 74cfac7158ff99b7e13ab67b0ddd0b2832332bca8e2bacf2d00e93aab7c52749 | AnalyseFuture/third_party/3daigc-api/tests/curl/test_fastmesh_retopo.sh
+third_party/3daigc-api/tests/curl/test_partuv_unwarp.sh | AnalyseFuture/third_party/3daigc-api/tests/curl/test_partuv_unwarp.sh | 440a3d955ffb3f8594c3083b87d8409cf1105b1f0ac31c3722af8bc4d5f6cc84 | AnalyseFuture/third_party/3daigc-api/tests/curl/test_partuv_unwarp.sh
+third_party/3daigc-api/tests/run_adapter_tests.py | AnalyseFuture/third_party/3daigc-api/tests/run_adapter_tests.py | b89a46f6eb32ef9b7f987b6dfc6655ec379450e1e2445ab5fe80a242b4cb07e1 | AnalyseFuture/third_party/3daigc-api/tests/run_adapter_tests.py
+third_party/3daigc-api/tests/run_test_client.py | AnalyseFuture/third_party/3daigc-api/tests/run_test_client.py | 4852107741948de414954e0305d9af94331c8a1e643fafc43238e6f5b43f1891 | AnalyseFuture/third_party/3daigc-api/tests/run_test_client.py
+third_party/3daigc-api/tests/test_adapters/gpu_memory_tracker.py | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/gpu_memory_tracker.py | 74259763c11fc6ce7c1d92febf208a87d7013f8dc4155fa0ea273a5c5333b112 | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/gpu_memory_tracker.py
+third_party/3daigc-api/tests/test_adapters/test_fastmesh_adapter.py | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_fastmesh_adapter.py | bca11f137dba84ab5316034aacb06464365898acf724f4f54c86b1588ec377db | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_fastmesh_adapter.py
+third_party/3daigc-api/tests/test_adapters/test_hunyuan3d_adapter_v21.py | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_hunyuan3d_adapter_v21.py | e4aab153f08b2867b1a47e643e78ea54c534d236831bac6388eee66f8c24a7ee | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_hunyuan3d_adapter_v21.py
+third_party/3daigc-api/tests/test_adapters/test_p3sam_adapter.py | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_p3sam_adapter.py | 27bf6ae975f05a9a983297ec3c782583df69310a22b10caec66d00af1c6871bc | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_p3sam_adapter.py
+third_party/3daigc-api/tests/test_adapters/test_partfield_adapter.py | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partfield_adapter.py | cd7479174005798e34d5f957192e110e997a512cab66cc212ac5dcbce9a22de8 | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partfield_adapter.py
+third_party/3daigc-api/tests/test_adapters/test_partpacker_adapter.py | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partpacker_adapter.py | 2adbdfff0d2d58aa6fbd70c1a5facfc0d2846ee9f7c369771e01498a0d4afb4a | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partpacker_adapter.py
+third_party/3daigc-api/tests/test_adapters/test_partuv_adapter.py | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partuv_adapter.py | 4f33dd8023fc2e2c1d0425b949c44cb71a75f86ceec2487af6c12130d240a832 | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partuv_adapter.py
+third_party/3daigc-api/tests/test_adapters/test_trellis2_adapter.py | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_trellis2_adapter.py | 169587c85c719506f8b2133101a9055fd743addef5be8716b5038354b7d86c6b | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_trellis2_adapter.py
+third_party/3daigc-api/tests/test_adapters/test_trellis_adapter.py | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_trellis_adapter.py | 69046f6ad16459733354a669125935dbf2229fa56865d4a074894d7a7b7c6675 | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_trellis_adapter.py
+third_party/3daigc-api/tests/test_adapters/test_ultrashape_adapter.py | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_ultrashape_adapter.py | 217637044370795302e0d582921367e1b3367275cd8e55b14079940ecde923ad | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_ultrashape_adapter.py
+third_party/3daigc-api/tests/test_adapters/test_unirig_adapter.py | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_unirig_adapter.py | 35d61717c257505c9a70d040092c5ee9252fbc7668ab7cac5a29563abd6554ca | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_unirig_adapter.py
+third_party/3daigc-api/tests/test_adapters/test_voxhammer_adapter.py | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_voxhammer_adapter.py | 5358de39da5dbf57b8b4be6690b7409f53b70951dddbffdf693c0a31b798d8d3 | AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_voxhammer_adapter.py
+third_party/3daigc-api/tests/test_basic_endpoints.py | AnalyseFuture/third_party/3daigc-api/tests/test_basic_endpoints.py | 5f02abab930fe1e50693abe86825b59bdbe12327e547f832b8e60df736734c56 | AnalyseFuture/third_party/3daigc-api/tests/test_basic_endpoints.py
+third_party/3daigc-api/tests/test_model_parameters.py | AnalyseFuture/third_party/3daigc-api/tests/test_model_parameters.py | ffae38852b069042df18d54b86b15d73a2811e8ed45cac2185c2ec981d365d37 | AnalyseFuture/third_party/3daigc-api/tests/test_model_parameters.py
+third_party/3daigc-api/tests/test_on_demand_scheduler.py | AnalyseFuture/third_party/3daigc-api/tests/test_on_demand_scheduler.py | 23842766dc9becf51fa2002a09b7e508aa2f7ac7ccba3b088b6241cf4c2c6a41 | AnalyseFuture/third_party/3daigc-api/tests/test_on_demand_scheduler.py
+third_party/3daigc-api/utils/__init__.py | AnalyseFuture/third_party/3daigc-api/utils/__init__.py | 62b3897894aeea7d69b6e2ef3595c020e6b24c6dc6867389e60b9668cd1be58e | AnalyseFuture/third_party/3daigc-api/utils/__init__.py
+third_party/3daigc-api/utils/fastmesh_utils.py | AnalyseFuture/third_party/3daigc-api/utils/fastmesh_utils.py | 62f4ec67e09449e0d86278506ff43cbbd504f843c7d49ffb787a9832ff45456e | AnalyseFuture/third_party/3daigc-api/utils/fastmesh_utils.py
+third_party/3daigc-api/utils/p3sam_utils.py | AnalyseFuture/third_party/3daigc-api/utils/p3sam_utils.py | cc2abe78035a0d3b779c5789ea84fbd0758ef9f394162c67dc1a6648e28c3db5 | AnalyseFuture/third_party/3daigc-api/utils/p3sam_utils.py
+third_party/3daigc-api/utils/partfield_utils.py | AnalyseFuture/third_party/3daigc-api/utils/partfield_utils.py | 9bc2d45dc37761c5a8bcd9e4e9c772f8c9bb16d08cf5e376cdf5a78611ee0b67 | AnalyseFuture/third_party/3daigc-api/utils/partfield_utils.py
+third_party/3daigc-api/utils/partpacker_utils.py | AnalyseFuture/third_party/3daigc-api/utils/partpacker_utils.py | 8641bb3f1dac3ad1f68769d2c5b4030a18f38f8fcd7b433b491f8144a7a1348d | AnalyseFuture/third_party/3daigc-api/utils/partpacker_utils.py
+third_party/3daigc-api/utils/partuv_utils.py | AnalyseFuture/third_party/3daigc-api/utils/partuv_utils.py | 89e82c07f4763e22d04f4cf3a0aba6256351dbf381bae4b1cda7bcb9c7475c90 | AnalyseFuture/third_party/3daigc-api/utils/partuv_utils.py
+third_party/3daigc-api/utils/torchvision_fix.py | AnalyseFuture/third_party/3daigc-api/utils/torchvision_fix.py | 76b93c7db4b8b155f6e7f43a91326bc48f196d88ee22c1afa53dcf1bd2a96e33 | AnalyseFuture/third_party/3daigc-api/utils/torchvision_fix.py
+third_party/3daigc-api/utils/trellis2_utils.py | AnalyseFuture/third_party/3daigc-api/utils/trellis2_utils.py | ec604871fea6ecbaed4e473e03dbb5be288a09aa22a27ec88b5e433abff005dd | AnalyseFuture/third_party/3daigc-api/utils/trellis2_utils.py
+third_party/3daigc-api/utils/ultrashape_pipeline_helper.py | AnalyseFuture/third_party/3daigc-api/utils/ultrashape_pipeline_helper.py | 52852e613044fc821f329624b57bb086905a52996a125640c739a9d6f50d9a69 | AnalyseFuture/third_party/3daigc-api/utils/ultrashape_pipeline_helper.py
+third_party/3daigc-api/utils/unirig_utils.py | AnalyseFuture/third_party/3daigc-api/utils/unirig_utils.py | fec53d233c4b6efb445cf7a2bf358e79d2567d2d1e25153d45333cd7e559dfb7 | AnalyseFuture/third_party/3daigc-api/utils/unirig_utils.py
+third_party/3daigc-api/utils/voxhammer_pipeline_helper.py | AnalyseFuture/third_party/3daigc-api/utils/voxhammer_pipeline_helper.py | f71c91b642b2aab6d74e108a0d581352eb604c0131feb0e55b922742a2ae8ff9 | AnalyseFuture/third_party/3daigc-api/utils/voxhammer_pipeline_helper.py
+third_party/README.md | AnalyseFuture/third_party/README.md | 54dcd1ae748dbe3dc494c59943726597c29079f2db1f99a519540b666fa89c31 | AnalyseFuture/history/third_party/README.md
+third_party/triposr/.gitignore | AnalyseFuture/third_party/triposr/.gitignore | 0d1298d99b9fc0bb1b2590e90bce9c6b90b3879ed531b8d8685f506099b62d96 | AnalyseFuture/third_party/triposr/.gitignore
+third_party/triposr/LICENSE | AnalyseFuture/third_party/triposr/LICENSE | ade0a66629bdd7e01e46b3296b3851cff0fd27989bca53da470ad6e96ed620fb | AnalyseFuture/third_party/triposr/LICENSE
+third_party/triposr/README.md | AnalyseFuture/third_party/triposr/README.md | ed40f078c5e451c58eae716187e0128f0ce8575e467aab2440b4ed9c75e490b9 | AnalyseFuture/third_party/triposr/README.md
+third_party/triposr/examples/captured.jpeg | AnalyseFuture/third_party/triposr/examples/captured.jpeg | c6eb2768703a0e3d6034daa7fd5e0b286450b1077a90f36da8110749bb1cb8a8 | AnalyseFuture/third_party/triposr/examples/captured.jpeg
+third_party/triposr/examples/chair.png | AnalyseFuture/third_party/triposr/examples/chair.png | 2503c12a74419d91a4c6c9f1affc48fee6e2b8b9091956ca6211e91ada57b5bf | AnalyseFuture/third_party/triposr/examples/chair.png
+third_party/triposr/examples/flamingo.png | AnalyseFuture/third_party/triposr/examples/flamingo.png | 962d39dc6f1673e1c1d5a747e01325682ecf3df45f31fc3e5191f18bc5aa1274 | AnalyseFuture/third_party/triposr/examples/flamingo.png
+third_party/triposr/examples/hamburger.png | AnalyseFuture/third_party/triposr/examples/hamburger.png | 2f16cb1f2bb932ae643cd4acc09bb6ecb51c84eca32dd5a7c71ea4980b40b51a | AnalyseFuture/third_party/triposr/examples/hamburger.png
+third_party/triposr/examples/horse.png | AnalyseFuture/third_party/triposr/examples/horse.png | 629a0cc78a18e16f359afb22e2d8b9594f435ae09326560c86b0b095650d54e0 | AnalyseFuture/third_party/triposr/examples/horse.png
+third_party/triposr/examples/iso_house.png | AnalyseFuture/third_party/triposr/examples/iso_house.png | b6063cbbc55b9aa4a4785ddbfcd13ca86fb07eca5a4ea7f9dda5eebcf7c17765 | AnalyseFuture/third_party/triposr/examples/iso_house.png
+third_party/triposr/examples/marble.png | AnalyseFuture/third_party/triposr/examples/marble.png | 7b4e443fd2ac729891e8374749b0f9dc677039778e63b2ef7af160af03530a13 | AnalyseFuture/third_party/triposr/examples/marble.png
+third_party/triposr/examples/police_woman.png | AnalyseFuture/third_party/triposr/examples/police_woman.png | 0f9e688ec2ff8fdd5ded7011fcc48b7b86f2e3445ae24c1253c4b895b4e95d7b | AnalyseFuture/third_party/triposr/examples/police_woman.png
+third_party/triposr/examples/poly_fox.png | AnalyseFuture/third_party/triposr/examples/poly_fox.png | 255b3fe96ec357d8744343849f8d7cb39156988520c7ca0264edc6689d6e31ca | AnalyseFuture/third_party/triposr/examples/poly_fox.png
+third_party/triposr/examples/robot.png | AnalyseFuture/third_party/triposr/examples/robot.png | 092ee61f1729ac9ed516c8d031d071f44dfa6e79f6ece04f32c988721b2b657a | AnalyseFuture/third_party/triposr/examples/robot.png
+third_party/triposr/examples/stripes.png | AnalyseFuture/third_party/triposr/examples/stripes.png | 5ca1c5401cc25fcf03bb5110133fcc11bf21939ae929aa9283bb215222dddd90 | AnalyseFuture/third_party/triposr/examples/stripes.png
+third_party/triposr/examples/teapot.png | AnalyseFuture/third_party/triposr/examples/teapot.png | 66b0b8f7dd759e97d20665999885e0548f96c95dadee6bf9762ccd877c596b8c | AnalyseFuture/third_party/triposr/examples/teapot.png
+third_party/triposr/examples/tiger_girl.png | AnalyseFuture/third_party/triposr/examples/tiger_girl.png | af24c8064d8149f578adb9b3f69e46dfced704d11a0a149935a7f0399c7e7963 | AnalyseFuture/third_party/triposr/examples/tiger_girl.png
+third_party/triposr/examples/unicorn.png | AnalyseFuture/third_party/triposr/examples/unicorn.png | 35368caaf39cc5841a024d35cd4309f20aadae31fce58b6c63eb6d4b1bb9e129 | AnalyseFuture/third_party/triposr/examples/unicorn.png
+third_party/triposr/figures/comparison800.gif | AnalyseFuture/third_party/triposr/figures/comparison800.gif | 887e69297e4446f122801ff2cc39962eda0933906d7ed7be7abf659e721914be | AnalyseFuture/third_party/triposr/figures/comparison800.gif
+third_party/triposr/figures/scatter-comparison.png | AnalyseFuture/third_party/triposr/figures/scatter-comparison.png | 531397494c63b414658ccc867203c39f201249d582d7c5a2e9320a384c23cfe1 | AnalyseFuture/third_party/triposr/figures/scatter-comparison.png
+third_party/triposr/figures/teaser800.gif | AnalyseFuture/third_party/triposr/figures/teaser800.gif | 52ecc6ff24e008b0d28236425a1b59718931841f6fb9f5e6f8471829fc9bc292 | AnalyseFuture/third_party/triposr/figures/teaser800.gif
+third_party/triposr/figures/visual_comparisons.jpg | AnalyseFuture/third_party/triposr/figures/visual_comparisons.jpg | 019235d716d8832aaa659acd31cf17267af94df6b5a9beca2a7002b41d59c8db | AnalyseFuture/third_party/triposr/figures/visual_comparisons.jpg
+third_party/triposr/gradio_app.py | AnalyseFuture/third_party/triposr/gradio_app.py | 966639162b0e54b8d02748968e77c90aec38bbc123aa5db2d1d81eb92fda9f80 | AnalyseFuture/third_party/triposr/gradio_app.py
+third_party/triposr/requirements.txt | AnalyseFuture/third_party/triposr/requirements.txt | 741408247598c63e9f08cdb5f6fc753d78ac9185bb961cbe7ba8c5c0132aae48 | AnalyseFuture/third_party/triposr/requirements.txt
+third_party/triposr/run.py | AnalyseFuture/third_party/triposr/run.py | bc1c124b3439f8ceb00ebd441848487ae7650af71053a80b266ae5db15784282 | AnalyseFuture/third_party/triposr/run.py
+third_party/triposr/tsr/bake_texture.py | AnalyseFuture/third_party/triposr/tsr/bake_texture.py | 931d066c25d5943dc7b71469b63c308df3f37b8e7f6df558ee5e348d7936d5b7 | AnalyseFuture/third_party/triposr/tsr/bake_texture.py
+third_party/triposr/tsr/models/isosurface.py | AnalyseFuture/third_party/triposr/tsr/models/isosurface.py | 94c9a2ec27f8fe3c2fb57558ef28be253eb77074d2c171d49a41cf73d95d6f5e | AnalyseFuture/third_party/triposr/tsr/models/isosurface.py
+third_party/triposr/tsr/models/nerf_renderer.py | AnalyseFuture/third_party/triposr/tsr/models/nerf_renderer.py | afe8c12c964078b2c6bb3922d2e30969aa59f7edbacb8cb73d2c3df839dc785f | AnalyseFuture/third_party/triposr/tsr/models/nerf_renderer.py
+third_party/triposr/tsr/models/network_utils.py | AnalyseFuture/third_party/triposr/tsr/models/network_utils.py | b3d48e86be9ca3f3abc1bfd774f640fd350e4365843d804e2a3145e7692e1419 | AnalyseFuture/third_party/triposr/tsr/models/network_utils.py
+third_party/triposr/tsr/models/tokenizers/image.py | AnalyseFuture/third_party/triposr/tsr/models/tokenizers/image.py | f6da23124dfabe6a1f8d0d27693d0cece6574de68be15487a77781b6a9d73195 | AnalyseFuture/third_party/triposr/tsr/models/tokenizers/image.py
+third_party/triposr/tsr/models/tokenizers/triplane.py | AnalyseFuture/third_party/triposr/tsr/models/tokenizers/triplane.py | 44811fbd53013d6f49e229ecfd0717f89dd8ebeb71608aeb1f8e5ed1d5e8e378 | AnalyseFuture/third_party/triposr/tsr/models/tokenizers/triplane.py
+third_party/triposr/tsr/models/transformer/attention.py | AnalyseFuture/third_party/triposr/tsr/models/transformer/attention.py | 347c1a707257cb4eb664ebe9ecd16db7b6006131e74925c049245d2c0101ba7e | AnalyseFuture/third_party/triposr/tsr/models/transformer/attention.py
+third_party/triposr/tsr/models/transformer/basic_transformer_block.py | AnalyseFuture/third_party/triposr/tsr/models/transformer/basic_transformer_block.py | ced8ce4c5c5bbc13368130bc15dee1717cc6bc7f35699f64d03aeec185b1198e | AnalyseFuture/third_party/triposr/tsr/models/transformer/basic_transformer_block.py
+third_party/triposr/tsr/models/transformer/transformer_1d.py | AnalyseFuture/third_party/triposr/tsr/models/transformer/transformer_1d.py | fd83a71d59d04ef0a45dbadcc63f9d56d354ebc011a40f5589eb1786a1dd15f4 | AnalyseFuture/third_party/triposr/tsr/models/transformer/transformer_1d.py
+third_party/triposr/tsr/system.py | AnalyseFuture/third_party/triposr/tsr/system.py | 7aec93e421394ad7c746b6d63a0189532b57b26af9a199fc75ac3bb7c993c94f | AnalyseFuture/third_party/triposr/tsr/system.py
+third_party/triposr/tsr/utils.py | AnalyseFuture/third_party/triposr/tsr/utils.py | d9d1a645fef7ea489615bff3471fd01a4941a2c0e138c5dff5daae619563279b | AnalyseFuture/third_party/triposr/tsr/utils.py
+
+SAFETY AND SCOPE
+No private credential files, databases, CA certificate bytes or private customer assets are included as preservation evidence. Reference classification is RESEARCH_ONLY, not confirmed maliciousness or reuse approval. Root build/test exclusions do not constitute an execution sandbox.

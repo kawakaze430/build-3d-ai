@@ -4,11 +4,11 @@ Applies to every coding agent (including Codex/Astra), engineer and PR in this r
 
 ## Mission and source of truth
 
-Read `docs/PROJECT_MEMORY_MASTER.md` first when resuming from a new/compacted chat. Then read `docs/BUILD_3D_AI_PROJECT_IDEA.txt` (the owner-adopted main project goal), `README.md`, `docs/PRODUCT_VISION.md`, `docs/ARCHITECTURE.md`, `docs/FEATURE_MATRIX.md`, `docs/OPEN_SOURCE_STRATEGY.md` and `docs/ROADMAP.md` before implementation. The master memory links the 112-repo study catalog, original owner assignment, exact PR/source history, decisions, videos, architecture chart and next tasks; it is a dated context index, not a substitute for checking live code/CI. Objective: an independently controlled **commercial** 3D creation platform, competitive with leading systems through **measured** quality.
+Read `docs/continuity/PROJECT_MEMORY_MASTER.md` first when resuming from a new/compacted chat. Then read `docs/project/BUILD_3D_AI_PROJECT_IDEA.txt` (the owner-adopted main project goal), `README.md`, `docs/project/PRODUCT_VISION.md`, `docs/architecture/ARCHITECTURE.md`, `docs/project/FEATURE_MATRIX.md`, `docs/research/OPEN_SOURCE_STRATEGY.md` and `docs/project/ROADMAP.md` before implementation. The master memory links the 112-repo study catalog, original owner assignment, exact PR/source history, decisions, videos, architecture chart and next tasks; it is a dated context index, not a substitute for checking live code/CI. Objective: an independently controlled **commercial** 3D creation platform, competitive with leading systems through **measured** quality.
 
-The [main project goal](docs/BUILD_3D_AI_PROJECT_IDEA.txt) defines product direction and release priorities. Treat its future capabilities and horizons as conditional plans; current implementation evidence, acceptance checks, license review and explicit spending authorization still govern execution.
+The [main project goal](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt) defines product direction and release priorities. Treat its future capabilities and horizons as conditional plans; current implementation evidence, acceptance checks, license review and explicit spending authorization still govern execution.
 
-The [repository structure guide](docs/REPOSITORY_STRUCTURE.md) identifies active components. `AnalyseFuture/` preserves inactive research sources and reference assets; do not install, execute, or promote them into the product without a reviewed task. Its contents are not classified as malicious merely because they are deferred. Keep original material and provenance when reorganizing it.
+The [repository structure guide](PROJECT_STRUCTURE.md) identifies active components. `AnalyseFuture/` preserves inactive research sources and reference assets; do not install, execute, or promote them into the product without a reviewed task. Its contents are not classified as malicious merely because they are deferred. Keep original material and provenance when reorganizing it.
 
 ## Required working method
 
@@ -27,7 +27,7 @@ The [repository structure guide](docs/REPOSITORY_STRUCTURE.md) identifies active
 
 ## First developer/Codex assignment
 
-Create `docs/LICENSE_MATRIX.md` (per-source, model, weight and dependency), `docs/REUSE_AUDIT.md` (candidate code audits) and initial working CI. Then implement one genuine, license-cleared, image-to-3D GPU smoke test using a documented model adapter.
+Create `docs/research/LICENSE_MATRIX.md` (per-source, model, weight and dependency), `docs/research/REUSE_AUDIT.md` (candidate code audits) and initial working CI. Then implement one genuine, license-cleared, image-to-3D GPU smoke test using a documented model adapter.
 
 Deliver real command output, valid GLB proof, recorded VRAM/latency, and a summary of what remains unverified. **Do not initiate paid GPU resources without explicit approval.**
 
@@ -48,4 +48,8 @@ If a feature has no reliable acceptance test, write the test specification befor
 
 ## Long-conversation continuity
 
-When starting after chat truncation, read `docs/PROJECT_MEMORY_MASTER.md`, current `docs/CODEX_HANDOFF.md` and open PRs first. After material architecture, license, budget, test or milestone decisions, update the master memory and handoff docs without copying secrets or private uploads into this public repository. Preserve historical evidence with dates; re-check live GitHub status instead of trusting old PR counts.
+When starting after chat truncation, read `docs/continuity/PROJECT_MEMORY_MASTER.md`, current `docs/continuity/CODEX_HANDOFF.md` and open PRs first. After material architecture, license, budget, test or milestone decisions, update the master memory and handoff docs without copying secrets or private uploads into this public repository. Preserve historical evidence with dates; re-check live GitHub status instead of trusting old PR counts.
+
+## Functional collections and current validation boundary
+
+Use [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) and [the complete inventory](AnalyseFuture/COMPLETE_FILE_INVENTORY.txt) to locate every functional collection. The latest structural migration intentionally received no further test/build/startup execution because the owner deferred tests; do not present earlier passing results as verification of the final moved layout. Keep historical source bytes and uncertain material outside active code.

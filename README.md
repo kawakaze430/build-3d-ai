@@ -1,14 +1,16 @@
 # Build 3D AI — Independent AI 3D Creation Platform
 
-> **Main project goal:** [Read the complete Build 3D AI project goal (.txt)](docs/BUILD_3D_AI_PROJECT_IDEA.txt). Adopted by the owner on 17 November 2026 as the repository's primary product direction.
+Current implementation reconciliation: 17 November 2026. The [pre-review version](AnalyseFuture/historical-implementations/documentation-before-universal/README.md) preserves the exact document from baseline `56f412f`; historical results remain scoped to their recorded runs.
+
+> **Main project goal:** [Read the complete Build 3D AI project goal (.txt)](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt). Adopted by the owner on 17 November 2026 as the repository's primary product direction.
 
 Build an independent AI-assisted 3D creation studio for reusable, editable assets, with a long-term focus on consistent stylized adult characters and environments for Blender animation. Build on the existing product foundation, prove a focused real asset workflow first, and expand through measured quality and practical artist control.
 
-> **Implementation baseline (15 Nov 2026):** `main` now contains the authenticated gateway, durable private product API/worker, browser studio/GLB viewer, and filesystem + optional S3-compatible artifact storage. Follow the [complete ordered checklist](docs/IMPLEMENTATION_CHECKLIST.md), [current handoff](docs/CODEX_HANDOFF.md), and [product backend runbook](docs/PRODUCT_BACKBONE.md). **No real GPU inference or production SaaS is deployed yet.**
+> **Implementation baseline (15 Nov 2026):** `main` now contains the authenticated gateway, durable private product API/worker, browser studio/GLB viewer, and filesystem + optional S3-compatible artifact storage. Follow the [complete ordered checklist](docs/continuity/IMPLEMENTATION_CHECKLIST.md), [current handoff](docs/continuity/CODEX_HANDOFF.md), and [product backend runbook](docs/operations/PRODUCT_BACKBONE.md). **No real GPU inference or production SaaS is deployed yet.**
 
 > **Verification boundary:** GitHub CI covers Python 3.11/3.12 gateway/API tests, SQLite/PostgreSQL behavior, TypeScript/unit/build checks and Playwright browser-contract tests. Browser/storage GLB fixtures are synthetic; they do not prove model quality, GPU cost, Blender import, commercial model clearance or production deployment.
 
-> **Long-chat recovery / permanent project context:** Start with [Master Project Memory and Continuation Handbook](docs/PROJECT_MEMORY_MASTER.md). It preserves the available research, conversations, architecture chart, all study/reference links, exact decisions, PR/CI history, the original 954-line assignment and the next Codex task. Read the date and verify current GitHub state before acting.
+> **Long-chat recovery / permanent project context:** Start with [Master Project Memory and Continuation Handbook](docs/continuity/PROJECT_MEMORY_MASTER.md). It preserves the available research, conversations, architecture chart, all study/reference links, exact decisions, PR/CI history, the original 954-line assignment and the next Codex task. Read the date and verify current GitHub state before acting.
 
 ## Mission
 
@@ -35,58 +37,68 @@ The owner controls the product, brand, website, infrastructure, source repositor
 
 - **Gateway:** private 3DAIGC-API integration, fail-closed approved-model policy, bounded GLB verification and an explicit-spend GPU smoke runner.
 - **Product API/worker:** operator-provisioned API keys, projects, durable text/image jobs, idempotency, rate/active-job limits, fenced leases, uncertain-submission reconciliation and owner-scoped verified downloads.
-- **Browser studio:** original Next.js UI for projects, text/image submission, approved-model state, full persisted job history and a Three.js/R3F GLB viewport with orbit/zoom/reset/wireframe/statistics. Current login is a private API-key mechanism contained in an HttpOnly BFF cookie, not public signup.
+- **Browser studio:** original Next.js UI for projects, text/image submission, approved-model state, persisted job history and a Three.js/R3F GLB viewport with orbit/zoom/reset/wireframe/statistics. Current login is a private API-key mechanism contained in an HttpOnly BFF cookie, not public signup.
 - **Artifact storage:** owner-scoped atomic filesystem storage by default plus an optional private S3-compatible backend behind configuration. S3 tests use an in-process synthetic client; no bucket was provisioned.
-- **Identity direction:** Better Auth is the preferred public-browser identity candidate, but it remains disabled until an immutable external-identity mapping and trusted BFF→API assertion boundary are implemented.
+- **Identity:** Immutable external-identity mapping and optional static-provider JWT/JWKS validation are implemented in the API, with external authentication disabled by default. Better Auth remains an uninstalled browser-session candidate; public signup, recovery, deletion and trusted BFF integration remain open.
 
 Merged implementation milestones: PR #1, consolidation PR #14, browser-studio PR #15 and object-storage PR #16. PRs #11–#13 were superseded by #14 after their reviewed final tree was transplanted cleanly onto `main`.
 
-**Project state:** generation is intentionally unavailable unless an exact model is placed in the reviewed approval policy. No real model inference has been executed or benchmarked by this project.
+**Project state:** generation is intentionally unavailable unless an exact model is placed in the reviewed approval policy. No real model inference has been executed or benchmarked by this project. The UI currently fetches only the first 100 projects/jobs and has a known slow-polling response race; complete paginated history and polling cancellation remain technical debt. The shared BFF body reader now bounds streamed bytes at 12 MiB for product requests and 8 KiB for login, and the studio uses its existing download-URL helper.
 
 ### Run the private product backend and studio locally
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -c requirements.lock -e "./apps/gateway[test]" -e "./apps/api[test]"
-build3d-admin migrate
-build3d-admin create-user --name "Owner"
-uvicorn build3d_api.main:create_app --factory --host 127.0.0.1 --port 8081
+For the managed Linux development workflow, follow the [cloud development guide](docs/development/CLOUD_DEVELOPMENT_ENVIRONMENT.md). From the repository root:
 
-# separate terminal
-cd apps/web
-cp .env.example .env.local
-npm install --no-audit --no-fund
-npm run dev
+```bash
+bash scripts/cloud/install.sh
+.venv/bin/build3d-admin create-user --name "Owner"
+.venv/bin/uvicorn build3d_api.main:create_app --factory --host 127.0.0.1 --port 8081
+
+# separate terminal, also from the repository root
+BUILD3D_API_URL=http://127.0.0.1:8081 python scripts/cloud/run_web.py npm run dev -- --hostname 127.0.0.1 --port 3000
 ```
+
+The installer uses CPU constraints and writable caches; the web wrapper restores files Next.js generates or rewrites. Web installation currently has no npm lockfile, so full transitive reproducibility remains release work.
 
 Save the API key printed by `create-user` privately; it is displayed only once. Use it in the studio's private login. The Next.js server validates and retains it in an HttpOnly SameSite cookie; browser JavaScript does not persist it. The default approval policy disables generation, and starting the API/studio does not start a GPU or worker.
 
-See [browser studio details](apps/web/README.md), [artifact storage](docs/OBJECT_STORAGE.md) and [identity/account lifecycle decision](docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md).
+See [browser studio details](apps/web/README.md), [artifact storage](docs/operations/OBJECT_STORAGE.md) and [identity/account lifecycle decision](docs/architecture/IDENTITY_AND_ACCOUNT_LIFECYCLE.md).
 
 ## Repository layout
 
+See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) for the authoritative layout
+and [the complete file inventory](AnalyseFuture/COMPLETE_FILE_INVENTORY.txt)
+for every tracked and authored file's purpose and location.
+
 ```text
-apps/                                  First-party web studio, product API and gateway
-services/                              First-party model/service qualification work
-config/                                Reviewed configuration examples
-scripts/                               Development and cloud setup helpers
-docs/                                  Main goal, memory, audits and runbooks
-.github/                               Active first-party CI and repository templates
-AnalyseFuture/third_party/3daigc-api/    Preserved upstream source snapshot
-AnalyseFuture/third_party/triposr/       Preserved upstream source snapshot
-AnalyseFuture/assets/reference/autorig/ Preserved example models, demos and diagrams
+apps/                  Product API, gateway and framework-based web application
+services/generation/   Isolated model qualification and provenance tools
+infrastructure/compose/ Private CPU deployment composition
+config/identity/       Identity-provider example configuration
+scripts/cloud/         Managed development setup and startup helpers
+scripts/packaging/     Distribution verification
+docs/                  Project, architecture, development, operations, research,
+                        and continuity collections (see docs/README.md)
+AnalyseFuture/         Preserved research, prior implementations, inventories
+                        and recovery reports; excluded from active execution
 ```
 
-The [structure guide](docs/REPOSITORY_STRUCTURE.md) explains active components, compatibility paths and preserved research material. The [17 November repository audit](docs/REPOSITORY_AUDIT_2026-11-17.md) records the review prompted by the owner's reported disruption. The review began at the expected `e4b05f4` baseline; this does not independently confirm compromise or establish account security.
+Browser feature modules live under `apps/web/src/features/`, browser API calls
+under `src/lib/client/`, and server-only helpers under `src/lib/server/`.
+The cohesive Python package and Next.js route boundaries remain intact.
 
-Existing product applications, qualification services and runtime configuration stay in their working locations. The supplied source snapshots and asset bundle are preserved under [AnalyseFuture](AnalyseFuture/README.md) for review, with a [file index](AnalyseFuture/FILE_INDEX.json), [source snapshot notes](AnalyseFuture/third_party/README.md), [reference asset notes](AnalyseFuture/assets/reference/README.md) and [archive inventory](docs/ARCHIVE_IMPORTS.json).
-
-Imported source and assets remain **RESEARCH_ONLY**. The 3DAIGC-API ZIP omitted its declared submodule source, and the example asset bundle supplied no license. These references are separate from the product applications; relocating them does not approve a model or enable inference. `AnalyseFuture` identifies deferred reference material, not confirmed malware, and is not an execution sandbox.
+The [recovery audit](AnalyseFuture/REPOSITORY_AUDIT.txt),
+[path mapping](AnalyseFuture/ORIGINAL_TO_NEW_PATH_MAPPING.txt),
+[feature inventory](AnalyseFuture/FEATURE_INVENTORY.txt), and
+[future roadmap TXT](AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt)
+describe current ownership and preserved work. No source or reference asset was
+removed. Research sources retain their licenses and restrictions, and no hack
+is inferred solely from unfamiliar files. No further tests are run after the
+owner's latest no-tests instruction; final runtime validation is deferred.
 
 ## Session preservation — 17 November 2026
 
-The [main project goal](docs/BUILD_3D_AI_PROJECT_IDEA.txt) preserves the adopted product direction, existing foundation, proposed roadmap and technical limits. Its future features remain proposals, not evidence of implementation or approval to spend. The [cloud development guide](docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md) records reproducible setup and startup using the helpers in [`scripts/cloud/`](scripts/cloud/).
+The [main project goal](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt) preserves the adopted product direction, existing foundation, proposed roadmap and technical limits. Its future features remain proposals, not evidence of implementation or approval to spend. The [cloud development guide](docs/development/CLOUD_DEVELOPMENT_ENVIRONMENT.md) records reproducible setup and startup using the helpers in [`scripts/cloud/`](scripts/cloud).
 
 Archive organization was already pushed to `main` in commit `b32f88a`. Git preserves committed files; running processes, installed dependencies, caches and private smoke-test credentials require separate restoration or regeneration. Resume with the cloud guide, then qualify one real generation workflow under the existing model, license and budget gates.
 
@@ -123,21 +135,23 @@ Do **not** indiscriminately merge these projects. Pin versions, test actual func
 
 ## Read this documentation
 
+Start with the [feature ownership map](docs/project/FEATURE_MAP.md), [complete repository audit](AnalyseFuture/REPOSITORY_AUDIT.txt), [granular feature inventory](AnalyseFuture/FEATURE_INVENTORY.txt) and [implementation/research roadmap supplement](AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt). The detailed goal remains the adopted product direction; the supplement does not authorize future features or spending.
+
 | Document | Why it exists |
 |---|---|
-| [Main project goal (.txt)](docs/BUILD_3D_AI_PROJECT_IDEA.txt) | Owner-adopted product direction, future horizons and limits |
-| [Repository structure](docs/REPOSITORY_STRUCTURE.md) | Active code, compatible runtime paths and preserved references |
-| [Repository audit — 17 November 2026](docs/REPOSITORY_AUDIT_2026-11-17.md) | Observations, preservation work and remaining uncertainties |
-| [Vision and scope](docs/PRODUCT_VISION.md) | What we are trying to become and who it serves |
-| [Feature matrix](docs/FEATURE_MATRIX.md) | Complete goals, priorities and acceptance tests |
-| [Architecture](docs/ARCHITECTURE.md) | How independent components fit into one system |
-| [Public repository strategy](docs/OPEN_SOURCE_STRATEGY.md) | Reuse-first decisions, license gates and candidate URLs |
-| [Model and data plan](docs/AI_MODELS_AND_DATA.md) | Fine-tuning, provenance, benchmarks and deployment |
-| [Roadmap](docs/ROADMAP.md) | Milestones and release gates |
-| [Engineering backlog](docs/BACKLOG.md) | First tasks for developers and Codex |
-| [Benchmark plan](docs/BENCHMARKS.md) | How to prove competitiveness |
-| [Security and cost controls](docs/OPERATIONS_SECURITY.md) | Protect customers and GPU budget |
-| [Decision register](docs/DECISIONS.md) | What is decided vs still unverified |
+| [Main project goal (.txt)](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt) | Owner-adopted product direction, future horizons and limits |
+| [Repository structure](PROJECT_STRUCTURE.md) | Active code, compatible runtime paths and preserved references |
+| [Repository audit — 17 November 2026](AnalyseFuture/recovery-notes/REPOSITORY_AUDIT_2026-11-17.md) | Observations, preservation work and remaining uncertainties |
+| [Vision and scope](docs/project/PRODUCT_VISION.md) | What we are trying to become and who it serves |
+| [Feature matrix](docs/project/FEATURE_MATRIX.md) | Complete goals, priorities and acceptance tests |
+| [Architecture](docs/architecture/ARCHITECTURE.md) | How independent components fit into one system |
+| [Public repository strategy](docs/research/OPEN_SOURCE_STRATEGY.md) | Reuse-first decisions, license gates and candidate URLs |
+| [Model and data plan](docs/research/AI_MODELS_AND_DATA.md) | Fine-tuning, provenance, benchmarks and deployment |
+| [Roadmap](docs/project/ROADMAP.md) | Milestones and release gates |
+| [Engineering backlog](docs/project/BACKLOG.md) | First tasks for developers and Codex |
+| [Benchmark plan](docs/project/BENCHMARKS.md) | How to prove competitiveness |
+| [Security and cost controls](docs/operations/OPERATIONS_SECURITY.md) | Protect customers and GPU budget |
+| [Decision register](docs/architecture/DECISIONS.md) | What is decided vs still unverified |
 | [Codex agent instructions](AGENTS.md) | Non-negotiable coding-agent rules |
 | [Contribution guide](CONTRIBUTING.md) | How developers can join |
 

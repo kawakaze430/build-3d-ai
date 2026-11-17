@@ -1,0 +1,1431 @@
+FINAL FUNCTIONAL-RESTRUCTURE NOTE
+The latest owner instruction is DO NOT RUN TESTS. Source paths below have been
+repaired for the final collections. Any passing test/build/container result in
+this report was recorded BEFORE those final moves and is historical evidence,
+not verification of the final reorganized layout. No further test, build,
+type-check, application-startup or migration command is run after that instruction.
+Use PROJECT_STRUCTURE.md and FUNCTIONAL_PATH_MAPPING.json for current locations.
+
+BUILD 3D AI — COMPLETE FEATURE AND RESPONSIBILITY INVENTORY
+Reviewed: 17 November 2026
+Starting snapshot: 56f412f0722394300a522b7392b191702d3f2c48
+
+COUNT AND EVIDENCE RULES
+56 explicitly defined responsibility/workstream cards:19 backend/qualification +14 frontend/operations +1 recovered offline tool +11 inactive reference workstreams +11 future workstreams. These are NOT 56 shipped features, unique engines, or guarantees. Some shared capabilities are represented from backend and UI/operations layers and cross-referenced rather than implemented twice.
+Existing work has priority. Frontend and backend cards can describe different layers of one shared capability. Reference workstreams and future ideas are not newly enabled product features.
+Every listed source/test path exists. Recommended new locations are explicitly proposed, not descriptions of files already present.
+Static reference defects are distinguished from executed failures. No inactive upstream tests, GPU model, real S3 operation or Blender generated-asset import were run.
+
+CURRENT VALIDATION CONTEXT
+Passed: 136 SQLite/gateway tests; 83 isolated PostgreSQL API tests; 12 preparation/auditor cases; two CPU marching-cubes contracts; 14 web unit cases; six browser contracts; TypeScript check; production web build.
+Both CPU images built after supported managed-CA configuration through a build secret; the initial ordinary TLS failure remains documented. This is not a GPU candidate build or production deployment.
+Not verified: actual GPU model inference, candidate image/model operation, real S3, Blender acceptance of real generated output, public SaaS deployment and the new GitHub-hosted workflow result.
+
+CARD GROUPS
+F001-F019 | Existing first-party backend, qualification and packaging responsibilities | 19 cards
+F020-F033 | Existing frontend and operating-workflow responsibilities | 14 cards
+F034 | Recovered branch-only offline provenance tool | 1 cards
+F035-F045 | Inactive upstream reference workstreams | 11 cards
+F046-F056 | Future or partially scaffolded product workstreams | 11 cards
+
+DETAILED CARDS
+
+==============================================================================
+F001 — Operator-managed product users, revocable API keys and rate windows
+==============================================================================
+Source review identifiers: BE01
+Purpose: Private tenant authentication without plaintext key storage
+Status: existing and verified within software contracts
+Evidence: Current API/gateway suites passed with SQLite; the API suite also passed with isolated PostgreSQL. Fixtures do not prove real inference or external provider behavior.
+Related existing files:
+  - apps/api/src/build3d_api/store.py
+  - apps/api/src/build3d_api/main.py
+  - apps/api/src/build3d_api/cli.py
+  - apps/api/src/build3d_api/db.py
+Dependencies:
+  - SQLAlchemy
+  - hashlib
+  - secrets
+Existing test files:
+  - apps/api/tests/test_product_api.py
+Missing functionality / remaining limitations:
+  - Public signup, verification, recovery, deletion and session lifecycle; not publicly deployed
+Consolidation / reuse decision: Keep product-owned keys and owner mapping canonical; do not merge the unsafe upstream password/key system.
+Final ownership / current location: API/backend engineer; apps/api/src/build3d_api/
+
+==============================================================================
+F002 — Owner-scoped projects and paginated project/job history
+==============================================================================
+Source review identifiers: BE02
+Purpose: Private persistent asset-work organization
+Status: existing and verified within software contracts
+Evidence: Current API/gateway suites passed with SQLite; the API suite also passed with isolated PostgreSQL. Fixtures do not prove real inference or external provider behavior.
+Related existing files:
+  - apps/api/src/build3d_api/main.py
+  - apps/api/src/build3d_api/store.py
+  - apps/api/src/build3d_api/db.py
+Dependencies:
+  - BE01
+  - SQLAlchemy
+Existing test files:
+  - apps/api/tests/test_product_api.py
+Missing functionality / remaining limitations:
+  - Team sharing, asset version library and lifecycle APIs
+Consolidation / reuse decision: Keep project ownership in the product Store; browser views consume this one API rather than duplicate persistence.
+Final ownership / current location: API/backend engineer; apps/api/src/build3d_api/
+
+==============================================================================
+F003 — Durable text/image job admission and idempotency
+==============================================================================
+Source review identifiers: BE03
+Purpose: Accept normalized inputs once per owner/idempotency key and enforce active-job limits
+Status: existing and verified within software contracts
+Evidence: Current API/gateway suites passed with SQLite; the API suite also passed with isolated PostgreSQL. Fixtures do not prove real inference or external provider behavior.
+Related existing files:
+  - apps/api/src/build3d_api/main.py
+  - apps/api/src/build3d_api/store.py
+Dependencies:
+  - BE01
+  - BE02
+  - BE04
+  - BE07
+  - database row locking/SQLite write locks
+Existing test files:
+  - apps/api/tests/test_product_api.py
+  - apps/api/tests/test_durable_worker.py
+Missing functionality / remaining limitations:
+  - Real inference qualification; queue limits are not spend budgets
+Consolidation / reuse decision: Keep one transactional admission/idempotency implementation; frontend and gateway are transport layers, not competing job stores.
+Final ownership / current location: API/backend engineer; apps/api/src/build3d_api/
+
+==============================================================================
+F004 — Bounded image ingestion and metadata removal
+==============================================================================
+Source review identifiers: BE04
+Purpose: Preparse body limits and image decode/normalization before persistence
+Status: existing and verified within software contracts
+Evidence: Current API/gateway suites passed with SQLite; the API suite also passed with isolated PostgreSQL. Fixtures do not prove real inference or external provider behavior.
+Related existing files:
+  - apps/api/src/build3d_api/body_limit.py
+  - apps/api/src/build3d_api/images.py
+Dependencies:
+  - Pillow
+  - Starlette
+Existing test files:
+  - apps/api/tests/test_product_api.py
+Missing functionality / remaining limitations:
+  - Process-level image sandboxing/production perimeter controls
+Consolidation / reuse decision: Keep tenant decoding/normalization stronger than the private operator gateway signature check; share semantics only when trust contracts match.
+Final ownership / current location: API/backend engineer; apps/api/src/build3d_api/
+
+==============================================================================
+F005 — Fenced worker claims and conservative recovery
+==============================================================================
+Source review identifiers: BE05
+Purpose: Preserve uncertain non-idempotent upstream submission state; resume safe polling
+Status: existing partial real runtime or quality unverified
+Evidence: Current API/gateway suites passed with SQLite; the API suite also passed with isolated PostgreSQL. Fixtures do not prove real inference or external provider behavior.
+Related existing files:
+  - apps/api/src/build3d_api/worker.py
+  - apps/api/src/build3d_api/store.py
+Dependencies:
+  - BE03
+  - BE07
+  - BE08
+  - BE09
+  - BE10
+Existing test files:
+  - apps/api/tests/test_durable_worker.py
+Missing functionality / remaining limitations:
+  - No proven remote cancellation, global GPU scheduler, cost metering or real model run; worker requires explicit spend flag
+Consolidation / reuse decision: Retain the lost-COMMIT and uncertain-submission fixes from historical branches; do not replace this worker with the reference Redis scheduler.
+Final ownership / current location: API/backend engineer; apps/api/src/build3d_api/
+
+==============================================================================
+F006 — Versioned SQL schema and SQLite/PostgreSQL adapter
+==============================================================================
+Source review identifiers: BE06
+Purpose: Explicit Alembic schema version0004, relational ownership constraints and migrations
+Status: existing and verified within software contracts
+Evidence: Current API/gateway suites passed with SQLite; the API suite also passed with isolated PostgreSQL. Fixtures do not prove real inference or external provider behavior.
+Related existing files:
+  - apps/api/src/build3d_api/db.py
+  - apps/api/src/build3d_api/migrations/env.py
+  - apps/api/src/build3d_api/migrations/versions/0001_projects_jobs.py
+  - apps/api/src/build3d_api/migrations/versions/0002_external_identities.py
+  - apps/api/src/build3d_api/migrations/versions/0003_storage_quota.py
+  - apps/api/src/build3d_api/migrations/versions/0004_external_identity_rate_limit.py
+Dependencies:
+  - SQLAlchemy
+  - Alembic
+  - psycopg for PostgreSQL
+Existing test files:
+  - apps/api/tests/test_product_api.py
+  - apps/api/tests/conftest.py
+Missing functionality / remaining limitations:
+  - Production backups/restore drills, production migrations and load validation
+Consolidation / reuse decision: Preserve frozen migration history and existing package paths; do not rewrite schema merely to alter folders.
+Final ownership / current location: API/backend engineer; apps/api/src/build3d_api/migrations/
+
+==============================================================================
+F007 — Fail-closed exact model-approval policy
+==============================================================================
+Source review identifiers: BE07
+Purpose: Require explicit reviewed model ID/source and checkpoint hashes; reject runtime policy drift
+Status: existing and verified within software contracts
+Evidence: Fail-closed policy tests passed; the packaged approved_models list is empty.
+Related existing files:
+  - apps/gateway/src/build3d_gateway/model_policy.py
+  - apps/gateway/src/build3d_gateway/model-approvals.json
+  - apps/api/src/build3d_api/main.py
+  - apps/api/src/build3d_api/worker.py
+Dependencies:
+  - FastAPI
+  - JSON operator policy
+Existing test files:
+  - apps/gateway/tests/test_gateway.py
+  - apps/api/tests/test_durable_worker.py
+Missing functionality / remaining limitations:
+  - Actual model/source/weights/data/runtime commercial clearance and remote runtime attestation
+Consolidation / reuse decision: Already shared by gateway, API and worker. Keep full approval snapshots rather than restoring the older ID-only policy implementation.
+Final ownership / current location: Gateway/inference integration engineer; apps/gateway/src/build3d_gateway/model_policy.py
+
+==============================================================================
+F008 — Owner-controlled gateway and upstream 3DAIGC contract
+==============================================================================
+Source review identifiers: BE08
+Purpose: Private operator HTTP routes plus common JSON/upload/poll/download client
+Status: existing partial real runtime or quality unverified
+Evidence: Current API/gateway suites passed with SQLite; the API suite also passed with isolated PostgreSQL. Fixtures do not prove real inference or external provider behavior.
+Related existing files:
+  - apps/gateway/src/build3d_gateway/main.py
+  - apps/gateway/src/build3d_gateway/upstream.py
+Dependencies:
+  - FastAPI
+  - HTTPX
+  - BE07
+Existing test files:
+  - apps/gateway/tests/test_gateway.py
+Missing functionality / remaining limitations:
+  - Real upstream runtime qualification; owner gateway is not a multi-tenant public interface
+Consolidation / reuse decision: Reuse UpstreamGateway across HTTP routes and worker; retain operator and tenant trust boundaries as separate responsibilities.
+Final ownership / current location: Gateway/inference integration engineer; apps/gateway/src/build3d_gateway/
+
+==============================================================================
+F009 — Bounded GLB download and structural/checksum validation
+==============================================================================
+Source review identifiers: BE09
+Purpose: Fetch bounded bytes, reject broken/external-resource GLB structure, revalidate private downloads
+Status: existing partial real runtime or quality unverified
+Evidence: Current API/gateway suites passed with SQLite; the API suite also passed with isolated PostgreSQL. Fixtures do not prove real inference or external provider behavior.
+Related existing files:
+  - apps/gateway/src/build3d_gateway/download.py
+  - apps/gateway/src/build3d_gateway/glb_validation.py
+  - apps/api/src/build3d_api/main.py
+Dependencies:
+  - HTTPX
+  - stdlibJSON/struct/hashlib
+Existing test files:
+  - apps/gateway/tests/test_glb_validation.py
+  - apps/gateway/tests/test_gateway.py
+  - apps/api/tests/test_durable_worker.py
+Missing functionality / remaining limitations:
+  - Comprehensive glTF extension/accessor/decoded-resource validation, topology/material quality, renderer security and Blender acceptance
+Consolidation / reuse decision: Already shared by download, API, smoke runner and GLB packager. Strengthen this central policy rather than create another divergent validator.
+Final ownership / current location: Gateway/inference integration engineer; apps/gateway/src/build3d_gateway/glb_validation.py
+
+==============================================================================
+F010 — Private filesystem and optional S3-compatible artifact storage
+==============================================================================
+Source review identifiers: BE10
+Purpose: Atomic owner-scoped publish, materialization, bounded retrieval and cleanup
+Status: existing partial real runtime or quality unverified
+Evidence: Current API/gateway suites passed with SQLite; the API suite also passed with isolated PostgreSQL. Fixtures do not prove real inference or external provider behavior.
+Related existing files:
+  - apps/api/src/build3d_api/storage.py
+Dependencies:
+  - BE09
+  - boto3 optional extra for real S3
+Existing test files:
+  - apps/api/tests/test_storage.py
+  - apps/api/tests/test_durable_worker.py
+Missing functionality / remaining limitations:
+  - Real bucket/storage acceptance, full lifetime policy, full binary-integrity verification occurs in callers rather than metadata alone
+Consolidation / reuse decision: Keep the storage protocol and two backends together; exact owner/checksum verification in callers remains essential.
+Final ownership / current location: API/backend engineer; apps/api/src/build3d_api/storage.py
+
+==============================================================================
+F011 — Persistent artifact-byte quotas
+==============================================================================
+Source review identifiers: BE11
+Purpose: Serialize per-owner completion against stored byte usage and configured limit
+Status: existing and verified within software contracts
+Evidence: Current API/gateway suites passed with SQLite; the API suite also passed with isolated PostgreSQL. Fixtures do not prove real inference or external provider behavior.
+Related existing files:
+  - apps/api/src/build3d_api/store.py
+  - apps/api/src/build3d_api/migrations/versions/0003_storage_quota.py
+  - apps/api/src/build3d_api/config.py
+Dependencies:
+  - BE06
+  - BE10
+Existing test files:
+  - apps/api/tests/test_product_api.py
+  - apps/api/tests/test_durable_worker.py
+Missing functionality / remaining limitations:
+  - Global spend accounting, retention/deletion decisions and billing credits
+Consolidation / reuse decision: Keep one database-backed quota authority exposed to API and studio. Byte quotas are not billing credits or spending budgets.
+Final ownership / current location: API/backend engineer; apps/api/src/build3d_api/store.py
+
+==============================================================================
+F012 — Read-only artifact consistency inventory
+==============================================================================
+Source review identifiers: BE12
+Purpose: Classify missing/orphan/duplicate/owner-or-size mismatch/unrecognized storage objects without deletion
+Status: existing and verified within software contracts
+Evidence: Fake-storage inventory tests passed; owner/size/object consistency is checked, not a complete byte-hash scan of all stored artifacts.
+Related existing files:
+  - apps/api/src/build3d_api/maintenance.py
+  - apps/api/src/build3d_api/storage.py
+  - apps/api/src/build3d_api/cli.py
+Dependencies:
+  - BE06
+  - BE10
+Existing test files:
+  - apps/api/tests/test_storage.py
+Missing functionality / remaining limitations:
+  - Content-hash scan is not performed by inventory; filesystem candidate list allocation can precede object limit; no destructive orphan lifecycle
+Consolidation / reuse decision: Retain a separate read-only maintenance responsibility; automatic destructive cleanup requires its own design and tests.
+Final ownership / current location: API/backend engineer; apps/api/src/build3d_api/maintenance.py
+
+==============================================================================
+F013 — Verified copy-only filesystem-to-S3 migration
+==============================================================================
+Source review identifiers: BE13
+Purpose: Default dry-run; verify source and existing target before copying; preserve source/database/configuration
+Status: existing partial real runtime or quality unverified
+Evidence: Current API/gateway suites passed with SQLite; the API suite also passed with isolated PostgreSQL. Fixtures do not prove real inference or external provider behavior.
+Related existing files:
+  - apps/api/src/build3d_api/migration.py
+  - apps/api/src/build3d_api/cli.py
+Dependencies:
+  - BE09
+  - BE10
+  - BE12
+Existing test files:
+  - apps/api/tests/test_storage.py
+Missing functionality / remaining limitations:
+  - Real provider exercise, controlled production cutover/rollback/restore
+Consolidation / reuse decision: Retain verified copy-only migration and idempotent reruns; do not silently switch configuration or delete sources.
+Final ownership / current location: API/backend engineer; apps/api/src/build3d_api/migration.py
+
+==============================================================================
+F014 — Immutable external identity mapping
+==============================================================================
+Source review identifiers: BE14
+Purpose: Associate exact provider issuer/opaque subject with active product owner via operator CLI
+Status: existing and verified within software contracts
+Evidence: Current API/gateway suites passed with SQLite; the API suite also passed with isolated PostgreSQL. Fixtures do not prove real inference or external provider behavior.
+Related existing files:
+  - apps/api/src/build3d_api/store.py
+  - apps/api/src/build3d_api/migrations/versions/0002_external_identities.py
+  - apps/api/src/build3d_api/cli.py
+Dependencies:
+  - BE01
+  - BE06
+Existing test files:
+  - apps/api/tests/test_product_api.py
+Missing functionality / remaining limitations:
+  - Public browser identity onboarding, linking UX and lifecycle
+Consolidation / reuse decision: Use exact immutable provider-subject links; never substitute email/name matching or merge unsafe legacy auth.
+Final ownership / current location: API/backend engineer; apps/api/src/build3d_api/store.py
+
+==============================================================================
+F015 — Optional trusted external JWT/JWKS authentication
+==============================================================================
+Source review identifiers: BE15
+Purpose: Static issuer/audience/asymmetric-algorithm allowlist, bounded no-redirect JWKS, exact signed identity and DB rate window
+Status: existing verified optional disabled by default
+Evidence: JWT/JWKS and identity-rate-window tests passed; static provider configuration and asymmetric algorithms are required. Public accounts are not complete.
+Related existing files:
+  - apps/api/src/build3d_api/trusted_identity.py
+  - apps/api/src/build3d_api/main.py
+  - apps/api/src/build3d_api/config.py
+  - apps/api/src/build3d_api/migrations/versions/0004_external_identity_rate_limit.py
+Dependencies:
+  - PyJWT[crypto]
+  - HTTPX
+  - BE14
+Existing test files:
+  - apps/api/tests/test_trusted_identity.py
+Missing functionality / remaining limitations:
+  - Fully reviewed trusted BFF/user lifecycle and production issuer operation
+Consolidation / reuse decision: Preserve exact JWT issuer verification separately from mapping canonicalization. A common helper must not weaken that distinction.
+Final ownership / current location: API/backend engineer; apps/api/src/build3d_api/trusted_identity.py
+
+==============================================================================
+F016 — Strict xatlas-style OBJ+baked PNG-to-embeddedGLB packaging
+==============================================================================
+Source review identifiers: BE16
+Purpose: Package narrow positive-index triangular single mesh and UV/base color data without external material references
+Status: existing partial real runtime or quality unverified
+Evidence: Current API/gateway suites passed with SQLite; the API suite also passed with isolated PostgreSQL. Fixtures do not prove real inference or external provider behavior.
+Related existing files:
+  - apps/gateway/src/build3d_gateway/textured_glb.py
+Dependencies:
+  - BE09
+  - stdlib only
+Existing test files:
+  - apps/gateway/tests/test_textured_glb.py
+Missing functionality / remaining limitations:
+  - Real texture bake/visual correctness, comprehensive PBR maps, actual Blender import; PNG validation is header/dimension preflight rather than full image decode
+Consolidation / reuse decision: Reuse the narrow first-party packager for approved candidate output. Do not relabel it a general OBJ importer or complete PBR reconstruction.
+Final ownership / current location: Gateway/inference integration engineer; apps/gateway/src/build3d_gateway/textured_glb.py
+
+==============================================================================
+F017 — Explicit-spend real GPU smoke runner interface
+==============================================================================
+Source review identifiers: BE17
+Purpose: On approved existing runtime submit/poll/download/revalidate/report, refusing accidental invocation
+Status: existing protocol tool real gpu unexecuted
+Evidence: Synthetic protocol tests passed. The actual explicit-spend GPU smoke run has not been performed; the command does not create resources or enforce dollar caps.
+Related existing files:
+  - apps/gateway/src/build3d_gateway/smoke.py
+Dependencies:
+  - HTTPX
+  - BE07
+  - BE09
+Existing test files:
+  - apps/gateway/tests/test_gpu_smoke.py
+Missing functionality / remaining limitations:
+  - Approved real model/runtime, VRAM/hardware/cost/Blender proof; does not provision or enforce cloud dollar caps
+Consolidation / reuse decision: Keep real-compute consent explicit. Preserve parsed-host checks and preexisting partial-file protection from historical fixes.
+Final ownership / current location: Gateway/inference integration engineer; apps/gateway/src/build3d_gateway/smoke.py
+
+==============================================================================
+F018 — Deterministic TripoSR source qualification preparation
+==============================================================================
+Source review identifiers: BE18
+Purpose: ExactGit/source-blob guarded narrow patch; offline local configuration, reviewed checkpoint size/hash, weights_only loading, no hidden rembg/Hub downloads
+Status: existing qualification preparation gpu candidate unverified
+Evidence: Three preparation helper and two CPU marching-cubes contract cases passed. The recovered auditor is counted separately as F034. No model checkpoint or GPU container was executed.
+Related existing files:
+  - services/generation/triposr_candidate/Dockerfile.candidate
+  - services/generation/triposr_candidate/README.md
+  - services/generation/triposr_candidate/dino_config.json
+  - services/generation/triposr_candidate/model_config.yaml
+  - services/generation/triposr_candidate/prepare_runtime.py
+  - services/generation/triposr_candidate/requirements-build3d.txt
+  - services/generation/triposr_candidate/runtime_manifest.json
+Dependencies:
+  - reviewed TripoSR Git commit
+  - scikit-image replacement
+  - candidate direct pins/base-image digest
+Existing test files:
+  - services/generation/triposr_candidate/test_prepare_runtime.py
+  - services/generation/triposr_candidate/test_marching_cubes_contract.py
+Missing functionality / remaining limitations:
+  - Complete transitive artifact hashes/licenses, actual built container, checkpoint load/headless bake, GPU/Blender proof and budget approval
+Consolidation / reuse decision: Keep reviewed preparation active and stock TripoSR reference inactive. Apply only the pinned selective patch rather than merge GPU environments.
+Final ownership / current location: ML/inference qualification engineer; services/generation/triposr_candidate/
+
+==============================================================================
+F019 — CPU backend distributable packaging
+==============================================================================
+Source review identifiers: BE19
+Purpose: Setuptools entrypoints/data inclusion and nonroot container definitions; bothCPUimages now consume commonrootrequirements.lockconstraints
+Status: existing and verified within software contracts
+Evidence: Both CPU container images built in the current validation run; gateway now shares root CPU constraints. This is not production deployment or a complete artifact-hash lock.
+Related existing files:
+  - apps/api/Dockerfile
+  - apps/api/pyproject.toml
+  - apps/gateway/Dockerfile
+  - apps/gateway/pyproject.toml
+Dependencies:
+  - Python3.11+
+  - setuptools
+  - requirements.lock CPU constraints
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - Actualcontainerdeployment notproven; mutable pythonbase/build-backend minimum still not completeartifacthashlock
+Consolidation / reuse decision: Implemented consolidation: both CPU images consume requirements.lock; original gateway Docker/Compose files are preserved under AnalyseFuture/historical-implementations/gateway-packaging/.
+Final ownership / current location: Platform engineer; apps/api/Dockerfile, apps/gateway/Dockerfile and root Compose entry points
+
+==============================================================================
+F020 — Private browser user-key session
+==============================================================================
+Source review identifiers: WEB-SESSION
+Purpose: Maintain a private API-key session in an HttpOnly, SameSite cookie; validate it against the tenant API.
+Status: existing and verified within software contracts
+Evidence: Current TypeScript, 14 web unit and six synthetic browser contract cases passed; this does not validate real generation or production operation.
+Related existing files:
+  - apps/web/src/app/api/session/route.ts
+  - apps/web/src/lib/server/product-api.ts
+  - apps/web/src/lib/client/api.ts
+  - apps/web/src/features/studio/components/studio.tsx
+  - apps/web/src/lib/server/request-body.ts
+Dependencies:
+  - tenant GET /v1/me
+  - Next cookies
+  - HTTPS for production Secure cookie
+Existing test files:
+  - apps/web/tests/e2e/studio.spec.ts
+  - apps/web/src/lib/server/request-body.test.ts
+Missing functionality / remaining limitations:
+  - Public signup, verification, recovery, deletion and session lifecycle
+  - Review production session/origin controls and account lifecycle before public access
+Consolidation / reuse decision: Session route and product proxy now share the bounded body reader. Preserve the server-side API-key boundary; do not adopt legacy upstream password storage.
+Final ownership / current location: Frontend/3D engineer; apps/web/src/
+
+==============================================================================
+F021 — Project list/create/open and URL selection
+==============================================================================
+Source review identifiers: WEB-PROJECTS
+Purpose: Allow creators to create, choose and reopen private projects without reimplementing backend ownership.
+Status: existing and verified within software contracts
+Evidence: Current TypeScript, 14 web unit and six synthetic browser contract cases passed; this does not validate real generation or production operation.
+Related existing files:
+  - apps/web/src/features/studio/components/studio.tsx
+  - apps/web/src/lib/client/api.ts
+Dependencies:
+  - tenant /v1/projects
+Existing test files:
+  - apps/web/tests/e2e/studio.spec.ts
+Missing functionality / remaining limitations:
+  - pagination beyond first100 projects
+  - deep-link behavior for projects not loaded in first page
+Consolidation / reuse decision: Keep framework-conventional ownership in apps/web; share the existing tenant API/contract rather than move unrelated Python and React code into one runtime.
+Final ownership / current location: Frontend/3D engineer; apps/web/src/
+
+==============================================================================
+F022 — Text/image admission, persisted job history and polling
+==============================================================================
+Source review identifiers: WEB-JOBS
+Purpose: Submit supported text/image jobs, display persisted history and poll status while tracking selected project.
+Status: existing partial with known ui debt
+Evidence: Current TypeScript, 14 web unit and six synthetic browser contract cases passed; this does not validate real generation or production operation.
+Related existing files:
+  - apps/web/src/features/studio/components/studio.tsx
+  - apps/web/src/lib/client/api.ts
+  - apps/web/src/lib/contracts.ts
+Dependencies:
+  - tenant job APIs
+  - qualified model list
+  - Browser crypto/FormData
+Existing test files:
+  - apps/web/tests/e2e/studio.spec.ts
+Missing functionality / remaining limitations:
+  - Pagination beyond first 100 jobs
+  - Studio cancellation action, though the tenant API/BFF route already exists
+  - Capture AbortController per asynchronous poll to avoid stale-request/report races
+  - Use the existing isPollable helper to avoid unnecessarily polling terminal/attention states
+Consolidation / reuse decision: Keep framework-conventional ownership in apps/web; share the existing tenant API/contract rather than move unrelated Python and React code into one runtime.
+Final ownership / current location: Frontend/3D engineer; apps/web/src/
+
+==============================================================================
+F023 — Approved-model selector and intentional disabled generation
+==============================================================================
+Source review identifiers: WEB-MODEL-GATE
+Purpose: Expose approved model choices and deliberately disable generation when none are approved.
+Status: existing and verified within software contracts
+Evidence: Current TypeScript, 14 web unit and six synthetic browser contract cases passed; this does not validate real generation or production operation.
+Related existing files:
+  - apps/web/src/features/studio/components/studio.tsx
+  - apps/web/src/lib/client/api.ts
+Dependencies:
+  - tenant GET /v1/models
+Existing test files:
+  - apps/web/tests/e2e/studio.spec.ts
+Missing functionality / remaining limitations:
+  - actual qualified model integration outside UI responsibility
+Consolidation / reuse decision: Keep framework-conventional ownership in apps/web; share the existing tenant API/contract rather than move unrelated Python and React code into one runtime.
+Final ownership / current location: Frontend/3D engineer; apps/web/src/
+
+==============================================================================
+F024 — Persistent storage usage and near/over-limit guidance
+==============================================================================
+Source review identifiers: WEB-STORAGE
+Purpose: Display durable used/limit/remaining bytes with near-limit and over-quota guidance.
+Status: existing and verified within software contracts
+Evidence: Current TypeScript, 14 web unit and six synthetic browser contract cases passed; this does not validate real generation or production operation.
+Related existing files:
+  - apps/web/src/lib/client/api.ts
+  - apps/web/src/lib/contracts.ts
+  - apps/web/src/features/studio/components/studio.tsx
+Dependencies:
+  - tenant GET /v1/storage
+Existing test files:
+  - apps/web/tests/e2e/studio.spec.ts
+Missing functionality / remaining limitations:
+  - customer deletion/retention UI
+  - comprehensive parser unit tests
+Consolidation / reuse decision: Keep framework-conventional ownership in apps/web; share the existing tenant API/contract rather than move unrelated Python and React code into one runtime.
+Final ownership / current location: Frontend/3D engineer; apps/web/src/
+
+==============================================================================
+F025 — Distinct recovery and uncertain job-state presentation
+==============================================================================
+Source review identifiers: WEB-STATUS
+Purpose: Explain known failure, completion and uncertain-recovery states without implying remote work was canceled.
+Status: existing partial display verified polling classification not fully wired
+Evidence: Current TypeScript, 14 web unit and six synthetic browser contract cases passed; this does not validate real generation or production operation.
+Related existing files:
+  - apps/web/src/features/jobs/status.ts
+  - apps/web/src/lib/contracts.ts
+  - apps/web/src/features/studio/components/studio.tsx
+Dependencies:
+  - Python store status contract
+Existing test files:
+  - apps/web/src/features/jobs/status.test.ts
+Missing functionality / remaining limitations:
+  - Wire the current isPollable helper into the studio poll loop
+  - Validate shared status contracts against backend enum in a cross-layer check
+Consolidation / reuse decision: Keep framework-conventional ownership in apps/web; share the existing tenant API/contract rather than move unrelated Python and React code into one runtime.
+Final ownership / current location: Frontend/3D engineer; apps/web/src/
+
+==============================================================================
+F026 — Allowlisted tenant API proxy and integrity-header passthrough
+==============================================================================
+Source review identifiers: WEB-PROXY
+Purpose: Restrict methods, paths, queries and request bytes when proxying browser requests to the fixed tenant API origin.
+Status: existing and verified within software contracts
+Evidence: Current TypeScript, 14 web unit and six synthetic browser contract cases passed; this does not validate real generation or production operation.
+Related existing files:
+  - apps/web/src/app/api/product/[...segments]/route.ts
+  - apps/web/src/lib/server/product-api.ts
+  - apps/web/src/lib/server/request-body.ts
+Dependencies:
+  - tenant /v1 routes
+  - server-configured API origin
+Existing test files:
+  - apps/web/tests/e2e/studio.spec.ts
+  - apps/web/src/lib/server/request-body.test.ts
+Missing functionality / remaining limitations:
+  - Explicit upstream request timeouts
+  - Broader adversarial route/query/media-type coverage
+Consolidation / reuse decision: One new bounded streaming body reader replaces duplicated whole-buffer body allocation in session and proxy routes; route allowlists and integrity-header forwarding remain canonical.
+Final ownership / current location: Frontend/3D engineer; apps/web/src/
+
+==============================================================================
+F027 — Private GLB loading, viewer controls and artifact download
+==============================================================================
+Source review identifiers: WEB-VIEWER
+Purpose: Load private GLB downloads and provide orbit, zoom, reset, wireframe and geometry statistics.
+Status: existing partial real asset quality unverified
+Evidence: Current TypeScript, 14 web unit and six synthetic browser contract cases passed; this does not validate real generation or production operation.
+Related existing files:
+  - apps/web/src/features/assets/components/model-viewer.tsx
+  - apps/web/src/features/studio/components/studio.tsx
+  - apps/web/src/lib/client/api.ts
+Dependencies:
+  - Three.js / React Three Fiber / drei
+  - verified tenant download API
+Existing test files:
+  - apps/web/tests/e2e/studio.spec.ts
+Missing functionality / remaining limitations:
+  - render complexity/extension budget acceptance
+  - real generated artifact visual acceptance
+  - full Blender compatibility
+Consolidation / reuse decision: Keep framework-conventional ownership in apps/web; share the existing tenant API/contract rather than move unrelated Python and React code into one runtime.
+Final ownership / current location: Frontend/3D engineer; apps/web/src/
+
+==============================================================================
+F028 — Responsive private studio
+==============================================================================
+Source review identifiers: WEB-RESPONSIVE
+Purpose: Present the private studio with responsive layout and original first-party product styling.
+Status: existing partial device and accessibility coverage incomplete
+Evidence: Current TypeScript, 14 web unit and six synthetic browser contract cases passed; this does not validate real generation or production operation.
+Related existing files:
+  - apps/web/src/app/globals.css
+  - apps/web/src/app/layout.tsx
+  - apps/web/src/app/page.tsx
+Dependencies:
+  - Next/React
+Existing test files:
+  - apps/web/tests/e2e/studio.spec.ts
+Missing functionality / remaining limitations:
+  - dedicated accessibility and device matrix
+Consolidation / reuse decision: Keep framework-conventional ownership in apps/web; share the existing tenant API/contract rather than move unrelated Python and React code into one runtime.
+Final ownership / current location: Frontend/3D engineer; apps/web/src/
+
+==============================================================================
+F029 — Unit/build/browser software contracts
+==============================================================================
+Source review identifiers: VALIDATION-WEB
+Purpose: Exercise browser/API contracts, parsers, status helpers and bounded input handling without claiming real AI output.
+Status: existing and verified within software contracts
+Evidence: Current TypeScript, 14 web unit and six synthetic browser contract cases passed; this does not validate real generation or production operation.
+Related existing files:
+  - apps/web/vitest.config.ts
+  - apps/web/playwright.config.ts
+  - apps/web/tests/mock-backend.mjs
+  - apps/web/tests/e2e/studio.spec.ts
+  - apps/web/src/lib/server/request-body.test.ts
+Dependencies:
+  - Vitest
+  - Playwright
+  - Chromium
+Existing test files:
+  - apps/web/src/lib/client/api.test.ts
+  - apps/web/src/features/jobs/status.test.ts
+  - apps/web/src/lib/server/request-body.test.ts
+Missing functionality / remaining limitations:
+  - production backend browser acceptance suite
+  - some proxy/parser adversarial contracts
+Consolidation / reuse decision: The retained cloud CJS configuration now imports the canonical Playwright configuration, replacing a second competing browser-server definition. Preserve original configuration in historical-implementations.
+Final ownership / current location: Frontend/3D engineer; apps/web/src/
+
+==============================================================================
+F030 — Repeatable isolated CPU cloud development
+==============================================================================
+Source review identifiers: OPS-CLOUD
+Purpose: Recreate CPU development dependencies and run the studio while restoring framework-generated tracked files.
+Status: existing and verified within software contracts
+Evidence: Retained wrapper used successfully for typecheck/unit/build/browser checks; install commands and dependency validation are documented. Live processes and installed caches are not Git backup.
+Related existing files:
+  - scripts/cloud/install.sh
+  - scripts/cloud/run_web.py
+  - scripts/cloud/playwright.config.cjs
+Dependencies:
+  - Python>=3.11
+  - Node.js / npm
+  - system Chromium for retained config
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - A committed web dependency lockfile for stronger repeatability
+  - A supported browser installation/path on another machine
+  - Generated-file restoration requires normal helper exit
+Consolidation / reuse decision: Keep framework-conventional ownership in apps/web; share the existing tenant API/contract rather than move unrelated Python and React code into one runtime.
+Final ownership / current location: Developer/platform engineer; scripts/cloud/ and docs/development/CLOUD_DEVELOPMENT_ENVIRONMENT.md
+
+==============================================================================
+F031 — Root first-party CI workflows
+==============================================================================
+Source review identifiers: OPS-CI
+Purpose: Run established Python, PostgreSQL, web and candidate CPU qualification checks in root GitHub Actions workflows.
+Status: existing configured local targets validated remote new run unconfirmed
+Evidence: Root workflows statically reviewed with explicit contents:read. Their relevant local test/build targets passed; no claim is made that the pending GitHub run of the new commit has passed.
+Related existing files:
+  - .github/workflows/gateway-ci.yml
+  - .github/workflows/product-api-ci.yml
+  - .github/workflows/triposr-qualification-ci.yml
+  - .github/workflows/web-ci.yml
+Dependencies:
+  - GitHub Actions
+  - PostgreSQL 16
+  - package registries
+  - pinned upstream Git for CPU candidate
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - Full immutable GitHub Action and base-image/artifact pins
+  - Provider-side validation of new hosted workflow run
+  - Remaining branch protection/account permission uncertainty documented separately
+Consolidation / reuse decision: Recovered pip-auditor test/report/upload steps are wired into candidate CI. Gateway CI now shares CPU constraints; active workflows remain at root .github/workflows/.
+Final ownership / current location: Platform/CI engineer; .github/workflows/
+
+==============================================================================
+F032 — Private API/gateway/database packaging
+==============================================================================
+Source review identifiers: OPS-CONTAINERS
+Purpose: Package private CPU API/gateway/database processes and isolate operator-controlled runtime configuration.
+Status: existing cpu images built production deployment unverified
+Evidence: Both CPU API/gateway images built in the current run after managed CA trust was supplied through a build secret; initial ordinary TLS failure and successful supported correction are recorded. No verification was disabled.
+Related existing files:
+  - infrastructure/compose/gateway.yml
+  - infrastructure/compose/product.yml
+  - apps/api/Dockerfile
+  - apps/gateway/Dockerfile
+  - .dockerignore
+Dependencies:
+  - DockerCompose
+  - Postgres
+  - Python base image
+  - private credentials supplied outside Git
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - Immutable base-image pins and complete artifact-hash locks
+  - Production rollout, backup/restore, monitoring and operational acceptance
+Consolidation / reuse decision: Same packaging responsibility as F019 viewed from operational composition; not another engine. Gateway root-context installation now shares requirements.lock with API.
+Final ownership / current location: Platform engineer; root Compose files and apps/*/Dockerfile
+
+==============================================================================
+F033 — Non-secret environment and external identity examples
+==============================================================================
+Source review identifiers: OPS-CONFIG
+Purpose: Provide non-secret configuration examples, dependency constraints and default test/build exclusion boundaries.
+Status: existing and verified within software contracts
+Evidence: Current TypeScript, 14 web unit and six synthetic browser contract cases passed; this does not validate real generation or production operation.
+Related existing files:
+  - .env.example
+  - apps/web/.env.example
+  - config/identity/providers.example.json
+  - .gitignore
+  - requirements.lock
+  - pytest.ini
+Dependencies:
+  - API/gateway Settings
+  - SDK credential chain
+  - operator runtime configuration
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - raw package artifacthashlock
+  - provider-specific production identity rollout
+Consolidation / reuse decision: Keep framework-conventional ownership in apps/web; share the existing tenant API/contract rather than move unrelated Python and React code into one runtime.
+Final ownership / current location: Platform/backend engineer; .env.example, config/, requirements.lock, pytest.ini and .dockerignore
+
+==============================================================================
+F034 — Recovered offline pip-resolution provenance auditor
+==============================================================================
+Source review identifiers: HISTORY-PIP-AUDIT
+Purpose: Validate a bounded pip --dry-run --report document against exact direct pins, record deterministic index-provided hashes and expose source-archive blockers without downloading or installing packages.
+Status: recovered existing and fixture verified release provenance incomplete
+Evidence: Nine local auditor fixtures passed as part of 12 combined preparation/auditor tests. Report mode can succeed while its output explicitly reports BLOCKED_BY_SOURCE_ARCHIVES; --require-wheels is the strict release gate.
+Related existing files:
+  - services/generation/triposr_candidate/audit_pip_report.py
+  - services/generation/triposr_candidate/test_audit_pip_report.py
+  - .github/workflows/triposr-qualification-ci.yml
+  - services/generation/triposr_candidate/README.md
+Dependencies:
+  - Python standard library
+  - A separately generated pip report and requirements-build3d.txt
+  - Trusted PyPI artifact hosts; exact metadata contract
+Existing test files:
+  - services/generation/triposr_candidate/test_audit_pip_report.py
+Missing functionality / remaining limitations:
+  - Independent hashing and review of actual artifact bytes
+  - Complete preinstalled PyTorch/CUDA/system-library inventory
+  - Resolution of source-distribution build and license blockers
+  - Actual candidate container/model qualification
+Consolidation / reuse decision: Recovered the two files byte-for-byte from research/triposr-resolved-dependency-audit@7129208 and restored compatible CI/report wiring instead of rebuilding the auditor. The four unique research documents remain dated historical evidence.
+Final ownership / current location: ML/inference qualification engineer; services/generation/triposr_candidate/
+
+==============================================================================
+F035 — Eleven upstream generation/processing adapters as an inactive family
+==============================================================================
+Source review identifiers: REF-ADAPTER-FAMILY
+Purpose: Preserve concrete adapter integration work for FastMesh, Hunyuan3D2.1, P3SAM, PartField, PartPacker, PartUV, TRELLIS/TRELLIS2, UltraShape, UniRig and VoxHammer without presenting them as deployed product engines.
+Status: existing reference partial missing dependencies unexecuted
+Evidence: Concrete source and tests inspected; no upstream adapter test or model was run. Test-file presence is not an execution result.
+Related existing files:
+  - AnalyseFuture/third_party/3daigc-api/adapters/fastmesh_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/hunyuan3d_adapter_v21.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/p3sam_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/partfield_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/partpacker_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/partuv_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/trellis2_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/trellis_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/ultrashape_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/unirig_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/voxhammer_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/config/models.yaml
+  - AnalyseFuture/third_party/3daigc-api/.gitmodules
+Dependencies:
+  - Missing declared upstream submodule source
+  - Model weights, native/CUDA libraries and model-specific packages
+  - Exact source/weight/data/runtime rights review
+Existing test files:
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_fastmesh_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_hunyuan3d_adapter_v21.py
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_p3sam_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partfield_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partpacker_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partuv_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_trellis2_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_trellis_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_ultrashape_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_unirig_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_voxhammer_adapter.py
+Missing functionality / remaining limitations:
+  - Eleven declared submodules are absent from the supplied archive
+  - No model weights or complete compatible runtime are supplied
+  - Exact rights, resource and downstream acceptance for each adapter
+Consolidation / reuse decision: Use only as source-level reuse evidence; select a bounded adapter after review. Do not install the entire snapshot or mix its GPU environments with the first-party CPU packages.
+Final ownership / current location: Current: AnalyseFuture/third_party/3daigc-api/adapters/; any active integration would belong to a separately reviewed services/generation adapter
+
+==============================================================================
+F036 — Upstream multiprocess GPU scheduling and monitoring
+==============================================================================
+Source review identifiers: REF-GPU-SCHEDULER
+Purpose: Preserve worker-per-device orchestration, model selection, GPU monitoring and resource assignment as inactive scheduling research.
+Status: existing reference experimental unexecuted
+Evidence: Static source review; see recorded current validation boundaries.
+Related existing files:
+  - AnalyseFuture/third_party/3daigc-api/core/scheduler/multiprocess_scheduler.py
+  - AnalyseFuture/third_party/3daigc-api/core/scheduler/gpu_monitor.py
+  - AnalyseFuture/third_party/3daigc-api/core/scheduler/model_factory.py
+  - AnalyseFuture/third_party/3daigc-api/core/scheduler/scheduler_factory.py
+  - AnalyseFuture/third_party/3daigc-api/scripts/scheduler_service.py
+Dependencies:
+  - CUDA/PyTorch/model runtimes
+  - Multiprocessing
+  - Optional Redis and private scheduler services
+Existing test files:
+  - AnalyseFuture/third_party/3daigc-api/tests/test_on_demand_scheduler.py
+Missing functionality / remaining limitations:
+  - Approved complete runtime
+  - Verified atomic interruption and assignment behavior
+  - Measured resource limits, spend controls and operational monitoring
+Consolidation / reuse decision: Keep first-party durable admission/reconciliation canonical. Reuse scheduling ideas only behind a reviewed private runtime; do not replace the conservative product worker wholesale.
+Final ownership / current location: Current: AnalyseFuture/third_party/3daigc-api/core/scheduler/; future platform/inference engineers would own a qualified scheduler
+
+==============================================================================
+F037 — Upstream Redis job/result queue
+==============================================================================
+Source review identifiers: REF-08
+Purpose: Preserve Redis-backed queue/result storage and expiration logic as a reference implementation for later evaluation.
+Status: existing but statically broken reference unexecuted
+Evidence: Static mismatch in redis_job_queue.py identified independently. This is not an observed live Redis failure or evidence of maliciousness.
+Related existing files:
+  - AnalyseFuture/third_party/3daigc-api/core/scheduler/redis_job_queue.py
+  - AnalyseFuture/third_party/3daigc-api/core/scheduler/job_queue.py
+  - AnalyseFuture/third_party/3daigc-api/core/scheduler/database_manager.py
+  - AnalyseFuture/third_party/3daigc-api/core/scheduler/database_models.py
+Dependencies:
+  - Redis server/client
+  - Upstream scheduler/job contracts
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - complete_job writes the shared results hash but expires a different per-job key; intended result TTL is not established
+  - Atomic claims, retention and crash recovery need dedicated tests
+  - No live Redis test was performed
+Consolidation / reuse decision: Preserve the defect evidence rather than activate this queue. Existing product database leases and recovery remain canonical; any adoption requires an explicit retention/claim redesign.
+Final ownership / current location: AnalyseFuture/third_party/3daigc-api/core/scheduler/; no active replacement selected
+
+==============================================================================
+F038 — Legacy upstream authentication and upload/file store
+==============================================================================
+Source review identifiers: REF-01, REF-02, REF-05, REF-07
+Purpose: Preserve historical credential, optional-user and file-ID/path handling without importing its unsafe tenant assumptions into the product.
+Status: existing but unsafe and partially broken for public tenancy
+Evidence: Static source review; see recorded current validation boundaries.
+Related existing files:
+  - AnalyseFuture/third_party/3daigc-api/api/dependencies.py
+  - AnalyseFuture/third_party/3daigc-api/core/auth/service.py
+  - AnalyseFuture/third_party/3daigc-api/core/auth/storage.py
+  - AnalyseFuture/third_party/3daigc-api/core/auth/models.py
+  - AnalyseFuture/third_party/3daigc-api/core/file_store.py
+  - AnalyseFuture/third_party/3daigc-api/api/routers/users.py
+  - AnalyseFuture/third_party/3daigc-api/api/routers/file_upload.py
+  - AnalyseFuture/third_party/3daigc-api/api/routers/system.py
+Dependencies:
+  - Upstream filesystem/database state
+  - Legacy password/key implementation
+  - Private operator perimeter
+Existing test files:
+  - AnalyseFuture/third_party/3daigc-api/tests/test_basic_endpoints.py
+Missing functionality / remaining limitations:
+  - verify_api_key accepts any nonempty bearer and check_rate_limit returns True
+  - Several ownership checks are conditional on an optional user; upload metadata is not tenant-scoped
+  - Existing-path input and whole-buffer handling need redesign
+  - One test imports absent api.main; no legacy suite was executed
+Consolidation / reuse decision: Do not merge this auth or upload store. First-party API keys, immutable identity mapping, bounded normalized uploads and owner records are the stronger existing implementation.
+Final ownership / current location: Inactive: AnalyseFuture/third_party/3daigc-api/{api,core/auth,core/file_store.py}; active ownership stays with F001/F004/F014/F015
+
+==============================================================================
+F039 — Upstream mesh segmentation and part assembly
+==============================================================================
+Source review identifiers: REF-SEGMENTATION, REF-07
+Purpose: Preserve PartField/P3SAM/PartPacker routes and adapters for semantic part handling and assembly experiments.
+Status: existing reference partial unexecuted
+Evidence: Static source review; see recorded current validation boundaries.
+Related existing files:
+  - AnalyseFuture/third_party/3daigc-api/api/routers/mesh_segmentation.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/partfield_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/p3sam_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/partpacker_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/core/models/segment_models.py
+Dependencies:
+  - Missing model/submodule source and weights
+  - GPU geometry/rendering dependencies
+  - Per-component source/weight/data rights
+Existing test files:
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partfield_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_p3sam_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partpacker_adapter.py
+Missing functionality / remaining limitations:
+  - Real segmentation/assembly quality
+  - Valid produced artifacts rather than base-class success-shaped placeholders
+  - Bounded mesh parsing and downstream format acceptance
+Consolidation / reuse decision: Evaluate concrete adapters selectively. Base contracts fabricate names/response shapes and are not a working product feature.
+Final ownership / current location: Inactive reference ownership: geometry/ML research; future accepted processing adapter after separate review
+
+==============================================================================
+F040 — Upstream learned retopology
+==============================================================================
+Source review identifiers: REF-RETOPOLOGY
+Purpose: Preserve FastMesh-based retopology integration as research for geometry restructuring and target complexity.
+Status: existing reference partial unexecuted
+Evidence: Static source review; see recorded current validation boundaries.
+Related existing files:
+  - AnalyseFuture/third_party/3daigc-api/api/routers/mesh_retopology.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/fastmesh_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/utils/fastmesh_utils.py
+  - AnalyseFuture/third_party/3daigc-api/core/models/retopo_models.py
+Dependencies:
+  - FastMesh source/weights
+  - GPU/native geometry environment
+  - Input/output validation and rights
+Existing test files:
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_fastmesh_adapter.py
+Missing functionality / remaining limitations:
+  - Real visual/deformation evaluation
+  - Topology acceptance distinct from polygon reduction
+  - Supported input limits and repeatable resource/cost evidence
+Consolidation / reuse decision: Do not promise animation topology from decimation. Compare established utilities and this candidate on permitted supported meshes before integration.
+Final ownership / current location: Inactive reference: AnalyseFuture/third_party/3daigc-api/; any production mesh pipeline requires a reviewed processing service
+
+==============================================================================
+F041 — Upstream UV unwrapping
+==============================================================================
+Source review identifiers: REF-UV
+Purpose: Preserve PartUV model/route integration for later UV layout evaluation.
+Status: existing reference partial unexecuted
+Evidence: Static source review; see recorded current validation boundaries.
+Related existing files:
+  - AnalyseFuture/third_party/3daigc-api/api/routers/mesh_uv_unwrapping.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/partuv_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/utils/partuv_utils.py
+  - AnalyseFuture/third_party/3daigc-api/core/models/uv_models.py
+Dependencies:
+  - PartUV source/weights and runtime
+  - Mesh/UV libraries
+  - Rights and supported-format review
+Existing test files:
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partuv_adapter.py
+Missing functionality / remaining limitations:
+  - UV coverage, seams, overlap and material acceptance
+  - Actual produced output validation
+  - Model/dependency qualification
+Consolidation / reuse decision: Compare mature licensed UV tooling first; the existing narrow GLB packager consumes UV data but does not generate or validate a production UV layout.
+Final ownership / current location: Inactive geometry research under AnalyseFuture/third_party/3daigc-api/; active adopter undecided
+
+==============================================================================
+F042 — Upstream local mesh editing, painting and refinement
+==============================================================================
+Source review identifiers: REF-LOCAL-EDIT
+Purpose: Preserve text/image-guided VoxHammer local mesh-edit routes and supporting model code for targeted geometry/material research.
+Status: existing reference experimental unexecuted
+Evidence: Static source review; see recorded current validation boundaries.
+Related existing files:
+  - AnalyseFuture/third_party/3daigc-api/api/routers/mesh_editing.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/voxhammer_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/utils/voxhammer_pipeline_helper.py
+  - AnalyseFuture/third_party/3daigc-api/core/models/mesh_editing_models.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/hunyuan3d_adapter_v21.py
+Dependencies:
+  - VoxHammer/Hunyuan models and missing source
+  - Image/model dependencies including potentially remote pretrained resources
+  - Mask/mesh bounds and rights review
+Existing test files:
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_voxhammer_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_hunyuan3d_adapter_v21.py
+Missing functionality / remaining limitations:
+  - Proof that local edits preserve untouched geometry, identity, topology and rig
+  - Immutable artifacts and hidden-download removal
+  - Complete material/visual validation
+Consolidation / reuse decision: Keep the model-specific edit implementation as research; do not treat a route or preserved example as demonstrated identity-preserving product editing.
+Final ownership / current location: Inactive: AnalyseFuture/third_party/3daigc-api/; future processing/inference adapter only after evaluation
+
+==============================================================================
+F043 — Upstream UniRig body rigging and FBX workflow
+==============================================================================
+Source review identifiers: REF-BODY-RIG, REF-03
+Purpose: Preserve automatic skeletal rig/skinning and FBX output integration for later body-animation qualification.
+Status: existing reference partial unexecuted
+Evidence: Static source review; see recorded current validation boundaries.
+Related existing files:
+  - AnalyseFuture/third_party/3daigc-api/api/routers/auto_rigging.py
+  - AnalyseFuture/third_party/3daigc-api/adapters/unirig_adapter.py
+  - AnalyseFuture/third_party/3daigc-api/utils/unirig_utils.py
+  - AnalyseFuture/third_party/3daigc-api/core/models/rig_models.py
+Dependencies:
+  - UniRig submodule and weights
+  - GPU runtime
+  - Blender/FBX tooling
+  - Reviewed artifact load and resource isolation
+Existing test files:
+  - AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_unirig_adapter.py
+Missing functionality / remaining limitations:
+  - Safe checkpoint loading and exact weights provenance
+  - Representative body deformation and export checks
+  - No facial rig/eyes/mouth/viseme capability is established
+Consolidation / reuse decision: Qualify body rigging separately from facial animation. Supplied GLB/FBX examples are references with unverified rights, not artifacts generated by this project.
+Final ownership / current location: Inactive: AnalyseFuture/third_party/3daigc-api/ and AnalyseFuture/assets/reference/autorig/; future technical-artist/inference ownership
+
+==============================================================================
+F044 — Upstream thumbnail rendering and format conversion
+==============================================================================
+Source review identifiers: REF-CONVERSION, REF-06
+Purpose: Preserve Trimesh/pyrender thumbnails and Blender FBX-to-GLB conversion helpers as reviewable utilities.
+Status: existing reference partial with unsafe conversion path
+Evidence: Static conversion-script interpolation issue identified; no exploit, Blender process or conversion was executed.
+Related existing files:
+  - AnalyseFuture/third_party/3daigc-api/core/utils/thumbnail_utils.py
+  - AnalyseFuture/third_party/3daigc-api/core/utils/format_utils.py
+  - AnalyseFuture/third_party/3daigc-api/core/utils/mesh_utils.py
+Dependencies:
+  - Trimesh
+  - Optional pyrender/OpenGL
+  - Blender or bpy
+  - Isolated parsing/render runtime
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - fbx_to_glb_headless interpolates raw paths into generated Python source
+  - Headless renderer compatibility and resource limits
+  - Actual Blender import/conversion acceptance
+Consolidation / reuse decision: Reuse proven utilities only after safe argument serialization and sandbox review. The browser GLB viewer is a different responsibility and does not replace export conversion validation.
+Final ownership / current location: Inactive conversion reference in AnalyseFuture/third_party/3daigc-api/core/utils/; future isolated processing worker
+
+==============================================================================
+F045 — Stock TripoSR inference, texture baking and Gradio interface
+==============================================================================
+Source review identifiers: REF-TRIPOSR, REF-03, REF-09
+Purpose: Preserve the supplied original single-image reconstruction, mesh extraction, bake path and demonstration UI.
+Status: existing reference runtime not qualified or executed
+Evidence: Static source review; see recorded current validation boundaries.
+Related existing files:
+  - AnalyseFuture/third_party/triposr/run.py
+  - AnalyseFuture/third_party/triposr/tsr/system.py
+  - AnalyseFuture/third_party/triposr/tsr/bake_texture.py
+  - AnalyseFuture/third_party/triposr/gradio_app.py
+  - AnalyseFuture/third_party/triposr/requirements.txt
+Dependencies:
+  - PyTorch/CUDA
+  - TripoSR checkpoint
+  - Stock torchmcubes
+  - DINO/rembg and potential remote resource downloads
+  - xatlas/ModernGL and separate dependency chain
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - Actual built/cleared runtime and safe checkpoint path
+  - Transitive artifact/license review
+  - Real texture orientation, geometry, cost and Blender proof
+Consolidation / reuse decision: F018 is the canonical guarded preparation route. Preserve the stock snapshot and license notices but do not install or launch its UI as a shortcut to product inference.
+Final ownership / current location: Inactive stock snapshot: AnalyseFuture/third_party/triposr/; active qualification remains services/generation/triposr_candidate/
+
+==============================================================================
+F046 — Public account and browser identity lifecycle
+==============================================================================
+Source review identifiers: F014, F015, F020
+Purpose: Support signup, email verification, recovery, logout, account deletion and trusted session-to-product identity with clear ownership.
+Status: future feature not implemented foundations exist
+Evidence: Technically feasible with engineering and secure provider configuration; not currently a public service.
+Related existing files:
+  - docs/architecture/IDENTITY_AND_ACCOUNT_LIFECYCLE.md
+  - apps/api/src/build3d_api/trusted_identity.py
+  - apps/api/src/build3d_api/store.py
+  - apps/web/src/app/api/session/route.ts
+  - config/identity/providers.example.json
+Dependencies:
+  - Mature identity provider/library
+  - Immutable external mapping F014
+  - Trusted JWT/session boundary F015/F020
+  - CSRF/session/abuse and deletion design
+Existing test files:
+  - apps/api/tests/test_trusted_identity.py
+  - apps/api/tests/test_product_api.py
+Missing functionality / remaining limitations:
+  - Complete public identity lifecycle and UX
+  - Staging integration and account takeover/recovery/deletion acceptance
+  - Provider configuration and operational ownership
+Consolidation / reuse decision: Extend the mapped identity foundation and mature provider rather than revive legacy upstream password code. Existing foundation tests are not public account acceptance.
+Final ownership / current location: Product/backend/frontend identity owners; current foundations in apps/api and apps/web; public lifecycle implementation location to be designed
+Proposed future location (not implemented): No new path committed; proposed identity integration under existing apps/api and apps/web
+Conditional horizon: Focused private-to-public work when required; one-year target is conditional
+
+==============================================================================
+F047 — Credit ledger, metered billing and spending controls
+==============================================================================
+Source review identifiers: F003, F005, F011
+Purpose: Reserve and settle paid usage with idempotent payment events, refunds, resource budgets and understandable customer charges.
+Status: future feature not implemented
+Evidence: Feasible with additional engineering, contracts and measured unit economics; no price/revenue forecast established.
+Related existing files:
+  - docs/project/FEATURE_MATRIX.md
+  - docs/project/PRODUCT_VISION.md
+  - docs/project/BUILD_3D_AI_PROJECT_IDEA.txt
+  - apps/api/src/build3d_api/store.py
+Dependencies:
+  - Qualified cost measurements
+  - Payment provider
+  - Transactional ledger
+  - Provider reconciliation and explicit budget decisions
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - Credit/transaction schema and payment integration
+  - Idempotent webhook and refund behavior
+  - Hard resource controls distinct from concurrency/storage quotas
+Consolidation / reuse decision: Reuse mature payments and preserve conservative uncertain-submission behavior. Current byte/job quotas must not be labeled credits or dollar caps.
+Final ownership / current location: Product/backend billing owner and platform cost owner; no active billing module currently exists
+Proposed future location (not implemented): Proposed only: a billing responsibility within apps/api; no module exists yet
+Conditional horizon: Before paid access; conditional one-year product horizon
+
+==============================================================================
+F048 — Hosted production operations and recovery
+==============================================================================
+Source review identifiers: F005, F010, F019, F031, F032
+Purpose: Operate a deployed service with TLS, monitoring, resource isolation, backups/restoration, on-call response and controlled GPU scheduling.
+Status: future hosted feature not deployed local packaging exists
+Evidence: Feasible with resources and operating capability; no hosted production deployment or live infrastructure was created.
+Related existing files:
+  - infrastructure/compose/product.yml
+  - infrastructure/compose/gateway.yml
+  - apps/api/Dockerfile
+  - apps/gateway/Dockerfile
+  - docs/operations/OPERATIONS_SECURITY.md
+  - docs/operations/OBJECT_STORAGE.md
+Dependencies:
+  - Hosting account and explicit spending approval
+  - Production identity/secrets
+  - Persistent database/object storage
+  - Monitoring, backup and restore operations
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - Approved hosting and bounded infrastructure
+  - Real storage and backup/restore drills
+  - Production security/load/SLO acceptance and incident process
+Consolidation / reuse decision: Use the validated CPU packaging and existing durable worker as prerequisites. Local image builds and configuration checks do not prove a hosted SaaS.
+Final ownership / current location: Platform/security engineer; root deployment entry points remain current, hosted infrastructure path not yet implemented
+Proposed future location (not implemented): Proposed only: infrastructure/ if an approved provider deployment requires it
+Conditional horizon: Only after real vertical-slice and operational readiness gates
+
+==============================================================================
+F049 — Asset version library and team collaboration
+==============================================================================
+Source review identifiers: F002, F010, F021, F022
+Purpose: Maintain accepted meshes/materials/rigs, derived revisions, comments, sharing and role-based access for reusable production assets.
+Status: future feature not implemented project job history exists
+Evidence: Technically feasible now with additional design and tests; no team/version library is currently shipped.
+Related existing files:
+  - docs/project/BUILD_3D_AI_PROJECT_IDEA.txt
+  - docs/project/PRODUCT_VISION.md
+  - apps/api/src/build3d_api/db.py
+  - apps/web/src/features/studio/components/studio.tsx
+Dependencies:
+  - Asset/version data model
+  - Private storage
+  - Explicit team/role ownership rules
+  - Review and deletion semantics
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - Version/asset/team records and APIs
+  - Permission/sharing/deletion rules
+  - Compare/approve/revert UX and supported export lineage
+Consolidation / reuse decision: Build on private project/job history and owner-scoped storage; do not duplicate tenancy or confuse job records with immutable artist asset versions.
+Final ownership / current location: Product API/library and frontend collaboration owners; current primitives in apps/api and apps/web
+Proposed future location (not implemented): Proposed only: asset/version/team modules within existing apps; no new directories required yet
+Conditional horizon: Potential year-one foundation, richer teams in year two if demand is proven
+
+==============================================================================
+F050 — Multi-view conditioned 3D reconstruction
+==============================================================================
+Source review identifiers: F018, F035, F056
+Purpose: Use consistent multiple observations to reduce reconstruction ambiguity and improve supported shape/texture consistency.
+Status: future experimental not implemented
+Evidence: Possible in constrained systems, but this project has no demonstrated multi-view workflow.
+Related existing files:
+  - docs/project/FEATURE_MATRIX.md
+  - docs/research/AI_MODELS_AND_DATA.md
+  - docs/project/BUILD_3D_AI_PROJECT_IDEA.txt
+Dependencies:
+  - A licensed model that actually supports multiple views
+  - Camera/reference consistency
+  - New input contracts and fixed evaluation data
+  - Compute resources
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - Qualified multi-view model and pipeline
+  - Supported view count/alignment and user guidance
+  - Quality/cost comparison against single-image baseline
+Consolidation / reuse decision: Evaluate specialist models rather than submit unrelated images to a single-image adapter and label it multi-view. Additional views reduce but do not guarantee full truth.
+Final ownership / current location: ML/inference and geometry owners; no active multi-view adapter exists
+Proposed future location (not implemented): Proposed only: services/generation/<qualified_multiview_adapter>/
+Conditional horizon: Investigate in year two after qualified single-image work
+
+==============================================================================
+F051 — Identity-preserving local edits and recurring characters
+==============================================================================
+Source review identifiers: F042, F049, F056
+Purpose: Preserve accepted character geometry, proportions, rig and materials while making bounded changes and measuring drift.
+Status: future experimental not implemented
+Evidence: Template/reuse approaches are feasible with additional art/engineering; general unconstrained generative identity preservation remains experimental.
+Related existing files:
+  - docs/research/AI_MODELS_AND_DATA.md
+  - docs/project/BUILD_3D_AI_PROJECT_IDEA.txt
+  - AnalyseFuture/third_party/3daigc-api/api/routers/mesh_editing.py
+Dependencies:
+  - Accepted reusable master assets
+  - Versioning and constraints
+  - Suitable local editing models or conventional operations
+  - Identity/deformation benchmark
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - Persistent identity representation and controlled variants
+  - Measured preservation outside edited regions
+  - Artist correction and regression acceptance
+Consolidation / reuse decision: Exact reuse of an accepted mesh is available as a future workflow design; independent regenerations and seeds do not guarantee identity. Reference local-edit routes are not proof.
+Final ownership / current location: Technical artist, geometry/ML and asset-library owners; no active identity-preserving editing service exists
+Proposed future location (not implemented): Proposed only: reviewed character/asset-edit pipeline within services plus asset-version APIs
+Conditional horizon: Template lane sooner; measured generative preservation over one to three-plus years
+
+==============================================================================
+F052 — Facial rigging, expressions and speech performance
+==============================================================================
+Source review identifiers: F043, F051, F056
+Purpose: Provide independently usable gaze, blinking, brows, jaw, mouth interior, expression combinations and supported visemes/lip sync.
+Status: future experimental or unsupported for arbitrary inputs
+Evidence: Artist-prepared constrained rigs are feasible; automatic film-ready facial systems for every arbitrary generated head are not demonstrated or guaranteed.
+Related existing files:
+  - docs/project/FEATURE_MATRIX.md
+  - docs/research/AI_MODELS_AND_DATA.md
+  - docs/project/BUILD_3D_AI_PROJECT_IDEA.txt
+  - AnalyseFuture/third_party/3daigc-api/core/models/rig_models.py
+Dependencies:
+  - Suitable character topology and separated facial structures
+  - Facial rig/shape design
+  - Licensed speech/motion data where needed
+  - Technical artist and animator review
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - Actual facial geometry/rig generation and controls
+  - Deformation and identity tests across expressions
+  - Language/timing/acting acceptance
+Consolidation / reuse decision: Keep body rigging F043 separate. A skeleton, walk clip or lip timing alone does not implement eyes, eyelids, mouth anatomy or acting.
+Final ownership / current location: Character technical artist and animation/ML specialists; no active facial-performance pipeline exists
+Proposed future location (not implemented): Proposed only: services/rigging/ or a bounded Blender integration after qualification
+Conditional horizon: Constrained trials around year two; broader assistance is three-to-five-year research, not a promise
+
+==============================================================================
+F053 — Editable scene assembly and reusable environments
+==============================================================================
+Source review identifiers: F027, F049, F056
+Purpose: Persist independent objects, placements, units, cameras, lights and relationships so locations can be edited and reused across shots.
+Status: future feature not implemented single asset viewer exists
+Evidence: Conventional modular scenes are technically feasible with new implementation; general automatic coherent worlds remain research.
+Related existing files:
+  - docs/architecture/ARCHITECTURE.md
+  - docs/project/FEATURE_MATRIX.md
+  - docs/project/BUILD_3D_AI_PROJECT_IDEA.txt
+  - apps/web/src/features/assets/components/model-viewer.tsx
+Dependencies:
+  - Asset library/versions
+  - Scene graph representation
+  - Supported import/export and renderer integration
+  - Artist layout validation
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - Persistent scene graph and authoring controls
+  - OBJect interaction/scale/intersection acceptance
+  - Tested Blender scene handoff and repeated-shot continuity
+Consolidation / reuse decision: Extend the validated asset workflow and mature Blender tooling. Orbiting a single GLB and viewing a rendered scene do not create an editable production environment.
+Final ownership / current location: 3D/frontend, scene and technical-art owners; active single-asset viewer stays in apps/web
+Proposed future location (not implemented): Proposed only: a scene responsibility under services/scenes and product APIs if justified
+Conditional horizon: Modular scene trials in year two; broader world assembly over three to five years
+
+==============================================================================
+F054 — Neural or Gaussian-splat world representation
+==============================================================================
+Source review identifiers: F045, F053, F056
+Purpose: Explore view-dependent spatial representations as a separately labeled mode with an explicit editing/export contract.
+Status: future speculative or experimental not implemented
+Evidence: Research exists externally; this repository has no demonstrated world-generation or splat-editing feature.
+Related existing files:
+  - docs/project/FEATURE_MATRIX.md
+  - docs/research/OPEN_SOURCE_STRATEGY.md
+  - docs/project/BUILD_3D_AI_PROJECT_IDEA.txt
+Dependencies:
+  - Qualified world/splat research model
+  - Representation-specific viewer/storage
+  - Rights and compute review
+  - Navigation/editing/export evaluation
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - Model/runtime and data qualification
+  - Specific representation lifecycle and controls
+  - Honest conversion/editability and camera-coverage limits
+Consolidation / reuse decision: Do not label splats as clean editable polygon geometry. TripoSR internals using neural fields do not implement a persistent editable world mode.
+Final ownership / current location: Spatial ML/graphics research owner; no active world/splat application module exists
+Proposed future location (not implemented): Proposed only: isolated world-representation research; keep any prototype outside active product until accepted
+Conditional horizon: Investigate over three to five years if a concrete user need and resources justify it
+
+==============================================================================
+F055 — Licensed specialized 3D adaptation and training
+==============================================================================
+Source review identifiers: F018, F034, F056
+Purpose: Improve measured categories such as adult proportions, style or repair behavior using model-appropriate learning and rights-cleared data.
+Status: future resource dependent not implemented
+Evidence: Feasible with substantial additional resources for a suitable model; no custom training run or owned model result is established.
+Related existing files:
+  - docs/research/AI_MODELS_AND_DATA.md
+  - docs/project/BENCHMARKS.md
+  - docs/project/BUILD_3D_AI_PROJECT_IDEA.txt
+Dependencies:
+  - Qualified inference baseline
+  - Per-asset training rights/consent
+  - Model-specific supported recipe
+  - Held-out identity/asset splits
+  - Approved GPU budget
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - Curated lawful dataset and preprocessing
+  - Training/adaptation recipe and artifacts
+  - Held-out proof of benefit and regression/cost analysis
+Consolidation / reuse decision: Do not train a general foundation model from scratch first or apply generic image LoRA commands to an unrelated 3D architecture. Adapt only after baseline errors justify it.
+Final ownership / current location: ML engineer/researcher plus dataset/rights and technical-art reviewers; no active training package exists
+Proposed future location (not implemented): Proposed only: training/ after the experiment, rights and budget are defined
+Conditional horizon: Potential focused year-two experiment; larger model programs are later conditional research
+
+==============================================================================
+F056 — Scientific quality, cost and downstream benchmark pipeline
+==============================================================================
+Source review identifiers: F009, F017, F018
+Purpose: Evaluate permitted held-out inputs, retain failures and compare geometry, visual quality, identity, deformation, cleanup effort and full cost per accepted asset.
+Status: future pipeline not implemented plan and software test prerequisites exist
+Evidence: A narrow evaluation harness is feasible now once approved real outputs exist; general quality superiority and future research success cannot be guaranteed.
+Related existing files:
+  - docs/project/BENCHMARKS.md
+  - docs/research/AI_MODELS_AND_DATA.md
+  - docs/project/BUILD_3D_AI_PROJECT_IDEA.txt
+  - apps/gateway/src/build3d_gateway/smoke.py
+  - services/generation/triposr_candidate/runtime_manifest.json
+Dependencies:
+  - Permitted fixed dataset
+  - Qualified real generation and exported artifacts
+  - Technical artist review
+  - Hardware/cost instrumentation
+  - Versioned results
+Existing test files:
+  - None identified for this future/reference responsibility.
+Missing functionality / remaining limitations:
+  - Actual permitted benchmark corpus and executable evaluator
+  - Real output, Blender and deformation evidence
+  - Cost/latency/VRAM measurements and comparative scoring with uncertainty
+Consolidation / reuse decision: Reuse fixture/software tests as prerequisites but keep them distinct from scientific output evaluation. The proposed 100-item benchmark and 95% valid-job goal are not observed measurements.
+Final ownership / current location: QA/evaluation owner with ML/platform and artists; existing plan in docs/project/BENCHMARKS.md, future runner not implemented
+Proposed future location (not implemented): Proposed only: a benchmark/evaluation runner with versioned private inputs and redistributable reports
+Conditional horizon: Start with the first real vertical slice; deepen metrics through one-, two- and three-to-five-year reviews
+
+DEVELOPER USE
+Use FEATURE_REGISTRY.json for machine-readable indexing and cross-reference the complete file inventory, dependency map, duplicate analysis, security audit and validation report.
+Do not count an adapter name, test fixture, image, skeleton example or planning paragraph as a demonstrated product integration. Inspect exact ownership and acceptance evidence before consolidating or activating code.
+The first real generation-to-textured-GLB-to-product-viewer-to-Blender qualification remains gated by source/weight/data/runtime review and explicit bounded compute approval.
+
+END OF FEATURE INVENTORY

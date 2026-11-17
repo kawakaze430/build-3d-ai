@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Studio } from "@/components/studio";
+import { Studio } from "@/features/studio/components/studio";
 
 export default function HomePage() {
   return (

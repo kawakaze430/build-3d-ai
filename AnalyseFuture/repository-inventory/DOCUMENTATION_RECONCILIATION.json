@@ -1,0 +1,173 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "baseline_commit": "56f412f0722394300a522b7392b191702d3f2c48",
+      "preserved_at": "AnalyseFuture/historical-implementations/documentation-before-universal/README.md",
+      "baseline_sha256": "5b1c87dfc8c190e7f129c3facb41133f5d03d1b709192b83b6279b77e1bf4b9c",
+      "bytes": 14023,
+      "current_sha256": "2a7646a9c631f93522771e51cbc764fe770c5af2e8fec16fb765a6ad83870c02",
+      "current_bytes": 15473
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "baseline_commit": "56f412f0722394300a522b7392b191702d3f2c48",
+      "preserved_at": "AnalyseFuture/historical-implementations/documentation-before-universal/docs/ARCHITECTURE.md",
+      "baseline_sha256": "aff043888edc5f7a61b6e549a9d5b7e37e32e108ebff9306773ee8eb5c652523",
+      "bytes": 4423,
+      "current_sha256": "06547b1852e0684cb76f3bc17c643a520f1ea3c31ec08c8f9dacbac538b1159f",
+      "current_bytes": 6416
+    },
+    {
+      "path": "docs/PRODUCT_BACKBONE.md",
+      "baseline_commit": "56f412f0722394300a522b7392b191702d3f2c48",
+      "preserved_at": "AnalyseFuture/historical-implementations/documentation-before-universal/docs/PRODUCT_BACKBONE.md",
+      "baseline_sha256": "2baa421ae168611975da1012b813eb46f6079994e4387a310fe44b205d43b555",
+      "bytes": 15317,
+      "current_sha256": "a757e02673b6f89f4affc5e9b9bc36b407f42c2d06a99af9f6922830a78b4215",
+      "current_bytes": 16712
+    },
+    {
+      "path": "docs/FEATURE_MATRIX.md",
+      "baseline_commit": "56f412f0722394300a522b7392b191702d3f2c48",
+      "preserved_at": "AnalyseFuture/historical-implementations/documentation-before-universal/docs/FEATURE_MATRIX.md",
+      "baseline_sha256": "205fe1e70a6be82e8acdd86eb8c33fc63547d983b27da3506e29392f1dc0f80e",
+      "bytes": 4476,
+      "current_sha256": "0440df309cfd9dae5fa7f3daa0e6f4560b77a3fd7520f8010c7a61a9fa3f63ec",
+      "current_bytes": 6109
+    },
+    {
+      "path": "docs/BACKLOG.md",
+      "baseline_commit": "56f412f0722394300a522b7392b191702d3f2c48",
+      "preserved_at": "AnalyseFuture/historical-implementations/documentation-before-universal/docs/BACKLOG.md",
+      "baseline_sha256": "456500d3ac97b76a42a03dc7a7f396c6408856e2d62a6361123e90e3cb1f0233",
+      "bytes": 2762,
+      "current_sha256": "6fefa85c593d6449a9f8dcb0adcc77c8fb08bc803ac7672bb26dfcade62fb896",
+      "current_bytes": 4208
+    },
+    {
+      "path": "docs/DECISIONS.md",
+      "baseline_commit": "56f412f0722394300a522b7392b191702d3f2c48",
+      "preserved_at": "AnalyseFuture/historical-implementations/documentation-before-universal/docs/DECISIONS.md",
+      "baseline_sha256": "676c7a96052fe2464af64164b82e68de53dbcf36420243d815619ad115feb6e6",
+      "bytes": 2544,
+      "current_sha256": "04395bcf72478d6d5e41b250e7e83953f229afd3b0eacb5a15997bfd41b1f648",
+      "current_bytes": 3500
+    },
+    {
+      "path": "docs/PHASE0_GATEWAY.md",
+      "baseline_commit": "56f412f0722394300a522b7392b191702d3f2c48",
+      "preserved_at": "AnalyseFuture/historical-implementations/documentation-before-universal/docs/PHASE0_GATEWAY.md",
+      "baseline_sha256": "09c0ec8c3e82c5ccb4250f13079041b9532358d6879062f00cb98f88748f78b4",
+      "bytes": 5368,
+      "current_sha256": "3ed2625fda5e7be7564be44b13270fb848bbe5f0f17824ef8d6f279116af6bda",
+      "current_bytes": 6282
+    },
+    {
+      "path": "docs/GPU_SMOKE_AND_ARTIFACTS.md",
+      "baseline_commit": "56f412f0722394300a522b7392b191702d3f2c48",
+      "preserved_at": "AnalyseFuture/historical-implementations/documentation-before-universal/docs/GPU_SMOKE_AND_ARTIFACTS.md",
+      "baseline_sha256": "a6906fb813f6db36aab7ff164d6d9dbbd896aee97c19b521b07ff91a1ff2ab7b",
+      "bytes": 6177,
+      "current_sha256": "d062b4a841b9404e9b6334c3d0628f8fcee3d0c517ae85ef3cd83a362b19609f",
+      "current_bytes": 6483
+    },
+    {
+      "path": "docs/IMPLEMENTATION_CHECKLIST.md",
+      "baseline_commit": "56f412f0722394300a522b7392b191702d3f2c48",
+      "preserved_at": "AnalyseFuture/historical-implementations/documentation-before-universal/docs/IMPLEMENTATION_CHECKLIST.md",
+      "baseline_sha256": "3c62f1f02932c8dce439effe3f9db2d3ea7c532722933d4049da249ab8167cdf",
+      "bytes": 16744,
+      "current_sha256": "57c932045d9c57bcb875ff83db4c4ed505c571a7881cabb4e364ae7e7883dcd6",
+      "current_bytes": 18771
+    },
+    {
+      "path": "docs/REUSE_AUDIT.md",
+      "baseline_commit": "56f412f0722394300a522b7392b191702d3f2c48",
+      "preserved_at": "AnalyseFuture/historical-implementations/documentation-before-universal/docs/REUSE_AUDIT.md",
+      "baseline_sha256": "fcfa2693f29f0468ac8c9065a3c7e02bdf554a028ac164e297b6d93533eb41f1",
+      "bytes": 16717,
+      "current_sha256": "895cea1216eecd96fa64fbfec65130243da6d2a941043121dd2193b61ee4eeee",
+      "current_bytes": 18327
+    },
+    {
+      "path": "docs/FIRST_REAL_GPU_RUNBOOK.md",
+      "baseline_commit": "56f412f0722394300a522b7392b191702d3f2c48",
+      "preserved_at": "AnalyseFuture/historical-implementations/documentation-before-universal/docs/FIRST_REAL_GPU_RUNBOOK.md",
+      "baseline_sha256": "5039dcbf0e360dddb64d32e48f0aa271c8fea199d3c16f59aef05024c7955ad3",
+      "bytes": 14128,
+      "current_sha256": "b8c9b313a85018bafbe0d959a9adcc1d782eb2d6d7f38eee25536612565f14c0",
+      "current_bytes": 15729
+    }
+  ],
+  "preserved_original_count": 11,
+  "missing_link_targets_at_check": [
+    {
+      "file": "README.md",
+      "target": "docs/FEATURE_MAP.md"
+    },
+    {
+      "file": "README.md",
+      "target": "AnalyseFuture/REPOSITORY_AUDIT.txt"
+    },
+    {
+      "file": "README.md",
+      "target": "AnalyseFuture/FEATURE_INVENTORY.txt"
+    },
+    {
+      "file": "README.md",
+      "target": "AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt"
+    },
+    {
+      "file": "docs/ARCHITECTURE.md",
+      "target": "FEATURE_MAP.md"
+    },
+    {
+      "file": "docs/ARCHITECTURE.md",
+      "target": "../AnalyseFuture/PROJECT_VISION_AND_FUTURE_ROADMAP.txt"
+    },
+    {
+      "file": "docs/PRODUCT_BACKBONE.md",
+      "target": "../AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt"
+    },
+    {
+      "file": "docs/FEATURE_MATRIX.md",
+      "target": "../AnalyseFuture/FEATURE_INVENTORY.txt"
+    },
+    {
+      "file": "docs/FEATURE_MATRIX.md",
+      "target": "FEATURE_MAP.md"
+    },
+    {
+      "file": "docs/BACKLOG.md",
+      "target": "FEATURE_MAP.md"
+    },
+    {
+      "file": "docs/BACKLOG.md",
+      "target": "../AnalyseFuture/FEATURE_INVENTORY.txt"
+    },
+    {
+      "file": "docs/IMPLEMENTATION_CHECKLIST.md",
+      "target": "FEATURE_MAP.md"
+    },
+    {
+      "file": "docs/IMPLEMENTATION_CHECKLIST.md",
+      "target": "../AnalyseFuture/FEATURE_INVENTORY.txt"
+    },
+    {
+      "file": "docs/IMPLEMENTATION_CHECKLIST.md",
+      "target": "../AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt"
+    },
+    {
+      "file": "docs/REUSE_AUDIT.md",
+      "target": "../AnalyseFuture/TEST_AND_VALIDATION_REPORT.txt"
+    }
+  ],
+  "repo_source_mutations_by_this_agent": false,
+  "checks": [
+    "11 archived originals match starting56f412f Git blobs",
+    "Live-doc Markdown relative-target check",
+    "git diff --check limited to owned live docs"
+  ],
+  "tests_executed": false
+}

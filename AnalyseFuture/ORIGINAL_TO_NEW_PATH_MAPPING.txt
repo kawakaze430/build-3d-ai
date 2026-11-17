@@ -1,0 +1,604 @@
+ORIGINAL TO NEW PATH MAPPING — BUILD 3D AI
+Starting commit: 56f412f0722394300a522b7392b191702d3f2c48
+
+CURRENT FUNCTIONAL MOVES:45; starting tracked:42; earlier-authored:3. No original content is discarded.
+
+docs/BUILD_3D_AI_PROJECT_IDEA.txt -> docs/project/BUILD_3D_AI_PROJECT_IDEA.txt
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/BUILD_3D_AI_PROJECT_IDEA.txt
+  Before SHA256: bfda89c3edefa81b3aad4d48bd77830aba168695b9c86df932fde5e4dc9c4866
+  Final content SHA256: dcde97509537577fa91cfc6e3653031ed907bfe586381de23e371d6aa8580a92
+  Reason: Owner-adopted primary product direction including implemented foundation, narrow first release, expansive character/scene ambition, conditional roadmap and roles.
+docs/PRODUCT_VISION.md -> docs/project/PRODUCT_VISION.md
+  Original bytes retained at: docs/project/PRODUCT_VISION.md
+  Before SHA256: 1fe036b07c081a26c124ecb73afef6175e638ecffe5a5f26af4ea865776c71f5
+  Final content SHA256: 1fe036b07c081a26c124ecb73afef6175e638ecffe5a5f26af4ea865776c71f5
+  Reason: Concise commercial scope and tenets companion to the owner-adopted detailed goal.
+docs/FEATURE_MATRIX.md -> docs/project/FEATURE_MATRIX.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/FEATURE_MATRIX.md
+  Before SHA256: 0440df309cfd9dae5fa7f3daa0e6f4560b77a3fd7520f8010c7a61a9fa3f63ec
+  Final content SHA256: 66c02ffca47eeea0a6a008040dc82163c076c504d23e91e877969efbaf243880
+  Reason: Product-goal taxonomy GEN/GEO/MAT/RIG/ENV/EXP/APP/OPS/ML and acceptance requirements.
+docs/ROADMAP.md -> docs/project/ROADMAP.md
+  Original bytes retained at: docs/project/ROADMAP.md
+  Before SHA256: 06d387748ee6556f44dffde543e1ba98818b4f48f43eacdd06894c6880339beb
+  Final content SHA256: 06d387748ee6556f44dffde543e1ba98818b4f48f43eacdd06894c6880339beb
+  Reason: Early staged milestones and broad exit gates for product and model development.
+docs/BACKLOG.md -> docs/project/BACKLOG.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/BACKLOG.md
+  Before SHA256: 6fefa85c593d6449a9f8dcb0adcc77c8fb08bc803ac7672bb26dfcade62fb896
+  Final content SHA256: 7cc13aab5aa59627510e5c0c09db16786b58fee1d669523d35b8b799ffd29855
+  Reason: Initial ordered engineering tasks and acceptance template
+docs/BENCHMARKS.md -> docs/project/BENCHMARKS.md
+  Original bytes retained at: docs/project/BENCHMARKS.md
+  Before SHA256: 7303f7360321e14e0e8e4d95e3848991aaa06b712a31d9c09b926feb28b81573
+  Final content SHA256: 7303f7360321e14e0e8e4d95e3848991aaa06b712a31d9c09b926feb28b81573
+  Reason: Permitted benchmark input design, quality/cost metrics and proposed release gates.
+docs/FEATURE_MAP.md -> docs/project/FEATURE_MAP.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/FEATURE_MAP.md
+  Before SHA256: f126a06abeeda8d57b2723f0f755384442630ac4d6ee770b31e77878f46773e1
+  Final content SHA256: cd415cd14667d044210c0fd9f5e324f7886dae42b743e8d467f583ab78a842a4
+  Reason: Current authored recovery documentation or explicit preservation context; retained and classified in its functional collection.
+docs/ARCHITECTURE.md -> docs/architecture/ARCHITECTURE.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/ARCHITECTURE.md
+  Before SHA256: 06547b1852e0684cb76f3bc17c643a520f1ea3c31ec08c8f9dacbac538b1159f
+  Final content SHA256: 7c2304266818c31bdb527c3a75d38deb6e90635e1c4e5e01c5bd6fa323bc88f0
+  Reason: Historical target architecture and component/data responsibilities
+docs/DECISIONS.md -> docs/architecture/DECISIONS.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/DECISIONS.md
+  Before SHA256: 04395bcf72478d6d5e41b250e7e83953f229afd3b0eacb5a15997bfd41b1f648
+  Final content SHA256: 60d846d1b2bcfc0a93d7efe809f089c3dd2a65bc0a073261062ac5dbc48ff9b9
+  Reason: Decision table, unresolved product questions and ADR policy
+docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md -> docs/architecture/IDENTITY_AND_ACCOUNT_LIFECYCLE.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md
+  Before SHA256: fc44bed40607434d4218efd0f58290e9277deb0832f303977fbae77ea1fd8226
+  Final content SHA256: 22853acd5509c269f31791c9fac33de35c6d0f8bd0fca30dad1d13dcb31b8640
+  Reason: Provider comparison, implemented immutable mapping/JWT boundary and pending browser lifecycle
+docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md -> docs/development/CLOUD_DEVELOPMENT_ENVIRONMENT.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md
+  Before SHA256: 120785412c803b39f04be58958dabd0506217d587691320f60e072de202780f0
+  Final content SHA256: 4fa0698c5854b183100ee146ae6f3fc884349bea4eb488f76a7c743c38d66020
+  Reason: Recreation of tested managed CPU/API/studio/browser workflow and evidence limits
+docs/PHASE0_GATEWAY.md -> docs/development/PHASE0_GATEWAY.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/PHASE0_GATEWAY.md
+  Before SHA256: 3ed2625fda5e7be7564be44b13270fb848bbe5f0f17824ef8d6f279116af6bda
+  Final content SHA256: 44f03f257bfa1a618ec97c0604e727c1084eb027ef33f0fba79338e7eea3bdb7
+  Reason: Administrative upstream gateway contracts and generic development setup
+docs/PRODUCT_BACKBONE.md -> docs/operations/PRODUCT_BACKBONE.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/PRODUCT_BACKBONE.md
+  Before SHA256: a757e02673b6f89f4affc5e9b9bc36b407f42c2d06a99af9f6922830a78b4215
+  Final content SHA256: 7eb120d195a8b2af58a168d0eb3ce1cfe1292e37532d298bc571bd0406fbbf29
+  Reason: Private API/worker operator runbook, routes, state recovery and packaging
+docs/OBJECT_STORAGE.md -> docs/operations/OBJECT_STORAGE.md
+  Original bytes retained at: docs/operations/OBJECT_STORAGE.md
+  Before SHA256: 3810c284719c609155f5bbe849f4376ae0ea067bff9f73e716c880cdc31ab9e7
+  Final content SHA256: 3810c284719c609155f5bbe849f4376ae0ea067bff9f73e716c880cdc31ab9e7
+  Reason: Implemented filesystem/S3 contracts, quotas, scanner, copy-only migration and retained open work
+docs/FIRST_REAL_GPU_RUNBOOK.md -> docs/operations/FIRST_REAL_GPU_RUNBOOK.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/FIRST_REAL_GPU_RUNBOOK.md
+  Before SHA256: b8c9b313a85018bafbe0d959a9adcc1d782eb2d6d7f38eee25536612565f14c0
+  Final content SHA256: f8f32a53e5339e48728f858e4681b04b7ad28fd952b5a0cfbba35790cf82d1c8
+  Reason: Exact candidate artifacts, qualification steps, spend proposal and stop conditions
+docs/GPU_SMOKE_AND_ARTIFACTS.md -> docs/operations/GPU_SMOKE_AND_ARTIFACTS.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/GPU_SMOKE_AND_ARTIFACTS.md
+  Before SHA256: d062b4a841b9404e9b6334c3d0628f8fcee3d0c517ae85ef3cd83a362b19609f
+  Final content SHA256: 73bc60149a17ed34c0d048d1c27b4f57cf8887b3a116e8bfc29b05c141eea88b
+  Reason: Operator smoke CLI and structural artifact proof, historical PR prerequisites
+docs/MODEL_APPROVAL_GATE.md -> docs/operations/MODEL_APPROVAL_GATE.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/MODEL_APPROVAL_GATE.md
+  Before SHA256: d7dee5809dc6452a5b652a04c7c8fc6c07d6b377d881d201c13598fa0cdea5cf
+  Final content SHA256: c3531d3fe74dedf033a8c953799e443794c4bf81c0adefe372f69b5c806c80e0
+  Reason: Fail-closed policy shape, attestation limits and approval process
+docs/OPERATIONS_SECURITY.md -> docs/operations/OPERATIONS_SECURITY.md
+  Original bytes retained at: docs/operations/OPERATIONS_SECURITY.md
+  Before SHA256: 78273fd359e980219e28dab5b5e50bdcb5f7574323ec8bb01d2f404c5bc74a5a
+  Final content SHA256: 78273fd359e980219e28dab5b5e50bdcb5f7574323ec8bb01d2f404c5bc74a5a
+  Reason: Desired security/privacy/payment/GPU-operation requirements
+docs/AI_MODELS_AND_DATA.md -> docs/research/AI_MODELS_AND_DATA.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/AI_MODELS_AND_DATA.md
+  Before SHA256: eb8d9fc88dea3add678d2f3bce0c8f5604654f9c7da2783b04848b88ff4439ad
+  Final content SHA256: ba27a606d2e8b8d5c1525d37b01a0974215aad80d2b6a52365f99113b2e8c634
+  Reason: Inference-first model strategy, asset-disjoint data evaluation and model-specific adaptation
+docs/OPEN_SOURCE_STRATEGY.md -> docs/research/OPEN_SOURCE_STRATEGY.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/OPEN_SOURCE_STRATEGY.md
+  Before SHA256: 8eef8620860b43bdc673d8d74625740337bd3d6b12c3255eee23e3b1e19cbc3e
+  Final content SHA256: b5d619f24339e9810a5f43e0167efcd0ca11b7a5f9b9acea12fc60827f7b3252
+  Reason: Reuse governance and historical technology candidate catalog
+docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt -> docs/research/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt
+  Before SHA256: 12a15d06c5c71c3438dec2b676cf9d17d3a8d122c04a2cb6adebe9be8112776b
+  Final content SHA256: 991db1cb43abfbc3b3f49e0b6cdd5e77957d052b1ac2991657a762b906f000f0
+  Reason: 112-entrycatalogof upstreamresearch projects,roles,preliminaryrightsmetadata
+docs/LICENSE_MATRIX.md -> docs/research/LICENSE_MATRIX.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/LICENSE_MATRIX.md
+  Before SHA256: 297f0856bcaa20801a09b380108cd86268df6d5256660170320eb427a1209275
+  Final content SHA256: bfeab8fd25b3e07e7789b52987552abbe7fd4d3ef659207e4c965f1f093c659c
+  Reason: Dated exact-source/package/model risk inventory and release gates
+docs/REUSE_AUDIT.md -> docs/research/REUSE_AUDIT.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/REUSE_AUDIT.md
+  Before SHA256: 895cea1216eecd96fa64fbfec65130243da6d2a941043121dd2193b61ee4eeee
+  Final content SHA256: d53f3bf3c91463a7bc7b8a2eb8b1f4d825989336ca9f781a93ba2fcc063d5d80
+  Reason: Dated source-level reuse findings and implemented first-party reuse decisions
+docs/CPU_DEPENDENCY_INVENTORY.json -> docs/research/CPU_DEPENDENCY_INVENTORY.json
+  Original bytes retained at: docs/research/CPU_DEPENDENCY_INVENTORY.json
+  Before SHA256: 742e0ab9c12b3ae94050bfc051ca12c934875adc336f9af4105164aa642c4862
+  Final content SHA256: 742e0ab9c12b3ae94050bfc051ca12c934875adc336f9af4105164aa642c4862
+  Reason: CPUdistributionversions,declaredlicenses and installednoticehashinventory
+docs/PROJECT_MEMORY_MASTER.md -> docs/continuity/PROJECT_MEMORY_MASTER.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/PROJECT_MEMORY_MASTER.md
+  Before SHA256: 633217b52ad436dff330fc0c3c4ce4292327cfb495aa613ee017826ad664a909
+  Final content SHA256: c97dba69d47b6ebc3aec2efb5e824933d0a50b0f3a85cd409c6625da2d950000
+  Reason: Dated historical context and evidence index; owner goals, source research, prior PR/results and session continuation events.
+docs/CODEX_HANDOFF.md -> docs/continuity/CODEX_HANDOFF.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/CODEX_HANDOFF.md
+  Before SHA256: 43d0df8c9bc9d87c24404e4fcedb5d5da38cc296e71e171dd8004fde51e0ccb3
+  Final content SHA256: 8fee88589885a3e76e2341a6caf2c6bb284379080deed8115a6ccaf0f8b75013
+  Reason: Current developer continuation mixed with dated milestones and preservation history
+docs/IMPLEMENTATION_CHECKLIST.md -> docs/continuity/IMPLEMENTATION_CHECKLIST.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/docs/IMPLEMENTATION_CHECKLIST.md
+  Before SHA256: 57c932045d9c57bcb875ff83db4c4ed505c571a7881cabb4e364ae7e7883dcd6
+  Final content SHA256: d2309929c3563f20680c5ffbc34cf274ddbe257dbf146e523495966ecb6c55c0
+  Reason: Comprehensive task IDs with completed private slices and broad open requirements
+docs/adr/0001-web-studio-foundation.md -> docs/architecture/adr/0001-web-studio-foundation.md
+  Original bytes retained at: docs/architecture/adr/0001-web-studio-foundation.md
+  Before SHA256: a1cf9dadcf2ba5681377b5e1f3a98267102138a714164bb0e34e1d1a196c4ca3
+  Final content SHA256: a1cf9dadcf2ba5681377b5e1f3a98267102138a714164bb0e34e1d1a196c4ca3
+  Reason: Accepted first-party browser foundation decision and credential boundary
+docs/ARCHIVE_IMPORTS.json -> AnalyseFuture/repository-inventory/ARCHIVE_IMPORTS.json
+  Original bytes retained at: AnalyseFuture/repository-inventory/ARCHIVE_IMPORTS.json
+  Before SHA256: 93105e891e1d700439f4e557143964dbe9f6fe91d5ce82f56070d7560c1f28cf
+  Final content SHA256: 93105e891e1d700439f4e557143964dbe9f6fe91d5ce82f56070d7560c1f28cf
+  Reason: ThreeZIP imports,240publishedcontentfiles+ignoredmetadata, hashes andrelocations
+docs/REPOSITORY_STRUCTURE.md -> AnalyseFuture/historical-implementations/structure-before-functional/REPOSITORY_STRUCTURE.md
+  Original bytes retained at: AnalyseFuture/historical-implementations/structure-before-functional/REPOSITORY_STRUCTURE.md
+  Before SHA256: 80043773a0a542c16d34d2b6e53201efca6b18b38aaf8508477e19ae7f2d6c68
+  Final content SHA256: 80043773a0a542c16d34d2b6e53201efca6b18b38aaf8508477e19ae7f2d6c68
+  Reason: Active component responsibilities and inactive preserved reference paths
+docs/REPOSITORY_AUDIT_2026-11-17.md -> AnalyseFuture/recovery-notes/REPOSITORY_AUDIT_2026-11-17.md
+  Original bytes retained at: AnalyseFuture/recovery-notes/REPOSITORY_AUDIT_2026-11-17.md
+  Before SHA256: ffb2eeb236093a111da73aa9668bd212da5b1308ae87b538e8aa9fb0fe2a24a6
+  Final content SHA256: ffb2eeb236093a111da73aa9668bd212da5b1308ae87b538e8aa9fb0fe2a24a6
+  Reason: Dated structure-review evidence, scope boundaries, preserved files and recorded validation
+docs/archives/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt -> AnalyseFuture/recovery-notes/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt
+  Original bytes retained at: AnalyseFuture/recovery-notes/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt
+  Before SHA256: 81c915e1882721d26ee16191be4410063414b356ddf910488cfccc197f590b18
+  Final content SHA256: 81c915e1882721d26ee16191be4410063414b356ddf910488cfccc197f590b18
+  Reason: Verbatim historical owner assignment preserving 112-repository evaluation, exactly-two-primary recommendation, safe implementation and approval requirements.
+compose.gateway.yml -> infrastructure/compose/gateway.yml
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/compose.gateway.yml
+  Before SHA256: 739a2c9f10441c552a5ea8a811ef089ece9ee7e386cf3e8451bf63f5754cba8e
+  Final content SHA256: d7350fd7893c785a74674a72aee525e67f175448e8272c3109b671f85c47d7b4
+  Reason: Loopback private gateway Compose service with explicit upstream destination and read-only runtime.
+compose.product.yml -> infrastructure/compose/product.yml
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/compose.product.yml
+  Before SHA256: 309959ca8b376dd596c20dc151c883e13ed693f69eab881e9cd369c6cffb089b
+  Final content SHA256: 4a9b792e07c6c9251d3a02787c987ae3b3a52c5d982f2c61fe88723bf51dfece
+  Reason: PostgreSQL/API and separately selected GPU worker profile; default worker help command avoids automatic inference.
+config/identity-providers.example.json -> config/identity/providers.example.json
+  Original bytes retained at: config/identity/providers.example.json
+  Before SHA256: 8d4338222e12a7c6b958a9e458aaeca72aa2da0249b9c51acc2dd087d2b5d91c
+  Final content SHA256: 8d4338222e12a7c6b958a9e458aaeca72aa2da0249b9c51acc2dd087d2b5d91c
+  Reason: Example issuer/audience/JWKS asymmetric identity trust settings; placeholder destination, disabled until configured.
+scripts/check_api_wheel.py -> scripts/packaging/check_api_wheel.py
+  Original bytes retained at: scripts/packaging/check_api_wheel.py
+  Before SHA256: 60c5a38ec4bbc9dc6fb1f8ed9c9a4af7318bb03b6a484b6ca949d30c7779c781
+  Final content SHA256: 60c5a38ec4bbc9dc6fb1f8ed9c9a4af7318bb03b6a484b6ca949d30c7779c781
+  Reason: Checks built API wheel contains all four migration versions and Alembic environment.
+apps/web/src/components/studio.tsx -> apps/web/src/features/studio/components/studio.tsx
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/components/studio.tsx
+  Before SHA256: 94cd997aeaf5e334e008f46c368ff431e3562a61d046a9846ed5762759b37dba
+  Final content SHA256: 3daef1f4913b3301c244320ef7bc3f99f185754f2c2cfc286ea604b95be74ab8
+  Reason: Private login, project choice/create, text/image forms, model gate, job polling/history, quota display and viewer selection.
+apps/web/src/components/model-viewer.tsx -> apps/web/src/features/assets/components/model-viewer.tsx
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/components/model-viewer.tsx
+  Before SHA256: 5535dde5078e9489f7028a3a0629d045ac42e6c0b904527ab9b653ad2a704d84
+  Final content SHA256: aea38d908aa5cb89a60769037c721ab7f43fe0c79c4a930ed5a15627856376e8
+  Reason: Private artifact URL, Three/R3F loading, orbit/fit/reset, wireframe, mesh/triangle stats, parse failure UI.
+apps/web/src/lib/status.ts -> apps/web/src/features/jobs/status.ts
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/lib/status.ts
+  Before SHA256: 0e8addb205875c6fd6f111b9f5060ddba6d7f1ca78a7ad8587c1b74794decd87
+  Final content SHA256: 66ffdc9f9edab1dc861d463a48b7ed75e3aa9c7c4ecec2db668873e589ee93a0
+  Reason: Readable labels/descriptions, attention classifications and status tones; isPollable utility currently not used by studio polling effect.
+apps/web/src/lib/status.test.ts -> apps/web/src/features/jobs/status.test.ts
+  Original bytes retained at: apps/web/src/features/jobs/status.test.ts
+  Before SHA256: 3345f6b56598ee0afee4364413817ac7a5c69253178612ccb8f9851f4157e251
+  Final content SHA256: 3345f6b56598ee0afee4364413817ac7a5c69253178612ccb8f9851f4157e251
+  Reason: Two tests preserving pollable versus uncertain state semantics; not proof of actual polling loop gating.
+apps/web/src/lib/api.ts -> apps/web/src/lib/client/api.ts
+  Original bytes retained at: AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/lib/api.ts
+  Before SHA256: d12e3289a732ca79a01d8e10edf68b4f1edaacb386e0a68e7af0df734861c93b
+  Final content SHA256: a34eac22f2d8d9f7198be9eea686a2de8c9abff621e1ecc3a6d99c7504971adc
+  Reason: JSON/error parsing, project/job/model/storage calls, idempotency keys and artifact download URL helper.
+apps/web/src/lib/api.test.ts -> apps/web/src/lib/client/api.test.ts
+  Original bytes retained at: apps/web/src/lib/client/api.test.ts
+  Before SHA256: d1e58150997086d01b2f12b9ceca9833458a7557253bf9171b894149e0195218
+  Final content SHA256: d1e58150997086d01b2f12b9ceca9833458a7557253bf9171b894149e0195218
+  Reason: Two tests for status-specific safe user error text; does not test all response parsers.
+apps/web/src/lib/server-product-api.ts -> apps/web/src/lib/server/product-api.ts
+  Original bytes retained at: apps/web/src/lib/server/product-api.ts
+  Before SHA256: 7df06bdd47468c1c1b7a545438a6e9c0f00394fb80126f04d80d45023bb3dc97
+  Final content SHA256: 7df06bdd47468c1c1b7a545438a6e9c0f00394fb80126f04d80d45023bb3dc97
+  Reason: HttpOnly cookie helpers, configured backend origin, /v1 path guard and no-store/no-redirect bearer fetch.
+apps/web/src/lib/request-body.ts -> apps/web/src/lib/server/request-body.ts
+  Original bytes retained at: apps/web/src/lib/server/request-body.ts
+  Before SHA256: 2e0a7b0de34538ce890cea1ec5ad51239ab1919c46e728d6fb884c67aa71b4af
+  Final content SHA256: 2e0a7b0de34538ce890cea1ec5ad51239ab1919c46e728d6fb884c67aa71b4af
+  Reason: One shared bounded streaming reader for session/product POST request bodies.
+apps/web/src/lib/request-body.test.ts -> apps/web/src/lib/server/request-body.test.ts
+  Original bytes retained at: apps/web/src/lib/server/request-body.test.ts
+  Before SHA256: f7092a886d344dd684e3890ee89e622f1ac8042b65cbfa883a224373a98f0267
+  Final content SHA256: f7092a886d344dd684e3890ee89e622f1ac8042b65cbfa883a224373a98f0267
+  Reason: Retained ten boundary/error cases for the shared body reader; execution deferred after final moves.
+
+DISPOSITION OF ALL369 STARTING TRACKED PATHS
+.dockerignore -> .dockerignore [retained location; changes, if any, have preserved original bytes]
+.env.example -> .env.example [retained location; changes, if any, have preserved original bytes]
+.github/workflows/gateway-ci.yml -> .github/workflows/gateway-ci.yml [retained location; changes, if any, have preserved original bytes]
+.github/workflows/product-api-ci.yml -> .github/workflows/product-api-ci.yml [retained location; changes, if any, have preserved original bytes]
+.github/workflows/triposr-qualification-ci.yml -> .github/workflows/triposr-qualification-ci.yml [retained location; changes, if any, have preserved original bytes]
+.github/workflows/web-ci.yml -> .github/workflows/web-ci.yml [retained location; changes, if any, have preserved original bytes]
+.gitignore -> .gitignore [retained location; changes, if any, have preserved original bytes]
+AGENTS.md -> AGENTS.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/FILE_INDEX.json -> AnalyseFuture/FILE_INDEX.json [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/README.md -> AnalyseFuture/README.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/README.md -> AnalyseFuture/assets/reference/README.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/example_autorig/bird.glb -> AnalyseFuture/assets/reference/autorig/example_autorig/bird.glb [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/example_autorig/giraffe.glb -> AnalyseFuture/assets/reference/autorig/example_autorig/giraffe.glb [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/bird.fbx -> AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/bird.fbx [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/giraffe.fbx -> AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/giraffe.fbx [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/tira.fbx -> AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/tira.fbx [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/tripo_carrot.fbx -> AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/tripo_carrot.fbx [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/example_autorig/tira.glb -> AnalyseFuture/assets/reference/autorig/example_autorig/tira.glb [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/example_autorig/tripo_carrot.glb -> AnalyseFuture/assets/reference/autorig/example_autorig/tripo_carrot.glb [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/example_prompts.txt -> AnalyseFuture/assets/reference/autorig/example_prompts.txt [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/open3dstudio_demo.jpg -> AnalyseFuture/assets/reference/autorig/open3dstudio_demo.jpg [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/open3dstudio_v1.0_demo_41m.gif -> AnalyseFuture/assets/reference/autorig/open3dstudio_v1.0_demo_41m.gif [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/runpod_demo1.png -> AnalyseFuture/assets/reference/autorig/runpod_demo1.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/runpod_demo2.png -> AnalyseFuture/assets/reference/autorig/runpod_demo2.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/system_arch.drawio -> AnalyseFuture/assets/reference/autorig/system_arch.drawio [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/assets/reference/autorig/system_arch.png -> AnalyseFuture/assets/reference/autorig/system_arch.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/history/assets/reference/README.md -> AnalyseFuture/history/assets/reference/README.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/history/third_party/README.md -> AnalyseFuture/history/third_party/README.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/.dockerignore -> AnalyseFuture/third_party/3daigc-api/.dockerignore [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/.gitignore -> AnalyseFuture/third_party/3daigc-api/.gitignore [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/.gitmodules -> AnalyseFuture/third_party/3daigc-api/.gitmodules [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/Dockerfile -> AnalyseFuture/third_party/3daigc-api/Dockerfile [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/Dockerfile.runpod -> AnalyseFuture/third_party/3daigc-api/Dockerfile.runpod [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/LICENSE -> AnalyseFuture/third_party/3daigc-api/LICENSE [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/README.md -> AnalyseFuture/third_party/3daigc-api/README.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/adapters/__init__.py -> AnalyseFuture/third_party/3daigc-api/adapters/__init__.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/adapters/fastmesh_adapter.py -> AnalyseFuture/third_party/3daigc-api/adapters/fastmesh_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/adapters/hunyuan3d_adapter_v21.py -> AnalyseFuture/third_party/3daigc-api/adapters/hunyuan3d_adapter_v21.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/adapters/p3sam_adapter.py -> AnalyseFuture/third_party/3daigc-api/adapters/p3sam_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/adapters/partfield_adapter.py -> AnalyseFuture/third_party/3daigc-api/adapters/partfield_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/adapters/partpacker_adapter.py -> AnalyseFuture/third_party/3daigc-api/adapters/partpacker_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/adapters/partuv_adapter.py -> AnalyseFuture/third_party/3daigc-api/adapters/partuv_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/adapters/trellis2_adapter.py -> AnalyseFuture/third_party/3daigc-api/adapters/trellis2_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/adapters/trellis_adapter.py -> AnalyseFuture/third_party/3daigc-api/adapters/trellis_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/adapters/ultrashape_adapter.py -> AnalyseFuture/third_party/3daigc-api/adapters/ultrashape_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/adapters/unirig_adapter.py -> AnalyseFuture/third_party/3daigc-api/adapters/unirig_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/adapters/voxhammer_adapter.py -> AnalyseFuture/third_party/3daigc-api/adapters/voxhammer_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/api/__init__.py -> AnalyseFuture/third_party/3daigc-api/api/__init__.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/api/dependencies.py -> AnalyseFuture/third_party/3daigc-api/api/dependencies.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/api/main_multiworker.py -> AnalyseFuture/third_party/3daigc-api/api/main_multiworker.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/api/main_singleworker.py -> AnalyseFuture/third_party/3daigc-api/api/main_singleworker.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/api/routers/__init__.py -> AnalyseFuture/third_party/3daigc-api/api/routers/__init__.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/api/routers/auto_rigging.py -> AnalyseFuture/third_party/3daigc-api/api/routers/auto_rigging.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/api/routers/file_upload.py -> AnalyseFuture/third_party/3daigc-api/api/routers/file_upload.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/api/routers/mesh_editing.py -> AnalyseFuture/third_party/3daigc-api/api/routers/mesh_editing.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/api/routers/mesh_generation.py -> AnalyseFuture/third_party/3daigc-api/api/routers/mesh_generation.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/api/routers/mesh_retopology.py -> AnalyseFuture/third_party/3daigc-api/api/routers/mesh_retopology.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/api/routers/mesh_segmentation.py -> AnalyseFuture/third_party/3daigc-api/api/routers/mesh_segmentation.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/api/routers/mesh_uv_unwrapping.py -> AnalyseFuture/third_party/3daigc-api/api/routers/mesh_uv_unwrapping.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/api/routers/system.py -> AnalyseFuture/third_party/3daigc-api/api/routers/system.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/api/routers/users.py -> AnalyseFuture/third_party/3daigc-api/api/routers/users.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_image/073.png -> AnalyseFuture/third_party/3daigc-api/assets/example_image/073.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_image/075.png -> AnalyseFuture/third_party/3daigc-api/assets/example_image/075.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_image/1687.png -> AnalyseFuture/third_party/3daigc-api/assets/example_image/1687.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_image/203.png -> AnalyseFuture/third_party/3daigc-api/assets/example_image/203.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_building_space_station.png -> AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_building_space_station.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_creature_robot_crab.png -> AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_creature_robot_crab.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_creature_robot_dinosour.png -> AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_creature_robot_dinosour.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_humanoid_mech.png -> AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_humanoid_mech.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/material.mtl -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/material.mtl [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_dragon.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_dragon.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_dragon/typical_creature_dragon.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_dragon/typical_creature_dragon.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_elephant.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_elephant.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_elephant/typical_creature_elephant.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_elephant/typical_creature_elephant.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_furry.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_furry.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_quadruped.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_quadruped.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_robot_crab.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_robot_crab.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_robot_dinosour.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_robot_dinosour.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster/typical_creature_rock_monster.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_creature_rock_monster/typical_creature_rock_monster.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_block_robot.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_block_robot.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn/typical_humanoid_dragonborn.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dragonborn/typical_humanoid_dragonborn.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dwarf.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_dwarf.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_goblin.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_goblin.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_mech.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_mesh/typical_humanoid_mech.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_edit.png -> AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_edit.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_mask.png -> AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_mask.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_render.png -> AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_render.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/mask.glb -> AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/mask.glb [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/model.glb -> AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/model.glb [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/00200996b8f34f55a2dd2f44d316d107.glb -> AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/00200996b8f34f55a2dd2f44d316d107.glb [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/002e462c8bfa4267a9c9f038c7966f3b.glb -> AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/002e462c8bfa4267a9c9f038c7966f3b.glb [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/0c3ca2b32545416f8f1e6f0e87def1a6.glb -> AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/0c3ca2b32545416f8f1e6f0e87def1a6.glb [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/65c6ffa083c6496eb84a0aa3c48d63ad.glb -> AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/65c6ffa083c6496eb84a0aa3c48d63ad.glb [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/barrel.png -> AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/barrel.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/cactus.png -> AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/cactus.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/cyan_car.png -> AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/cyan_car.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/pickup.png -> AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/pickup.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/rabbit.png -> AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/rabbit.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/robot.png -> AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/robot.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/swivelchair.png -> AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/swivelchair.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/teapot.png -> AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/teapot.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/warhammer.png -> AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/warhammer.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_retopo/001.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_retopo/001.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_retopo/002.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_retopo/002.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_retopo/003.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_retopo/003.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_retopo/004.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_retopo/004.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_retopo/005.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_retopo/005.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_uv/igea.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_uv/igea.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/example_uv/max-planck.obj -> AnalyseFuture/third_party/3daigc-api/assets/example_uv/max-planck.obj [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/wheels/diso-0.1.4-cp310-cp310-linux_x86_64.whl -> AnalyseFuture/third_party/3daigc-api/assets/wheels/diso-0.1.4-cp310-cp310-linux_x86_64.whl [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/wheels/kaolin-0.17.0-cp310-cp310-linux_x86_64.whl -> AnalyseFuture/third_party/3daigc-api/assets/wheels/kaolin-0.17.0-cp310-cp310-linux_x86_64.whl [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/assets/wheels/utils3d-0.0.2-py3-none-any.whl -> AnalyseFuture/third_party/3daigc-api/assets/wheels/utils3d-0.0.2-py3-none-any.whl [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/config/logging.yaml -> AnalyseFuture/third_party/3daigc-api/config/logging.yaml [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/config/models.yaml -> AnalyseFuture/third_party/3daigc-api/config/models.yaml [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/config/system.yaml -> AnalyseFuture/third_party/3daigc-api/config/system.yaml [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/__init__.py -> AnalyseFuture/third_party/3daigc-api/core/__init__.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/auth/__init__.py -> AnalyseFuture/third_party/3daigc-api/core/auth/__init__.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/auth/models.py -> AnalyseFuture/third_party/3daigc-api/core/auth/models.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/auth/service.py -> AnalyseFuture/third_party/3daigc-api/core/auth/service.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/auth/storage.py -> AnalyseFuture/third_party/3daigc-api/core/auth/storage.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/config.py -> AnalyseFuture/third_party/3daigc-api/core/config.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/file_store.py -> AnalyseFuture/third_party/3daigc-api/core/file_store.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/models/__init__.py -> AnalyseFuture/third_party/3daigc-api/core/models/__init__.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/models/base.py -> AnalyseFuture/third_party/3daigc-api/core/models/base.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/models/mesh_editing_models.py -> AnalyseFuture/third_party/3daigc-api/core/models/mesh_editing_models.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/models/mesh_models.py -> AnalyseFuture/third_party/3daigc-api/core/models/mesh_models.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/models/retopo_models.py -> AnalyseFuture/third_party/3daigc-api/core/models/retopo_models.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/models/rig_models.py -> AnalyseFuture/third_party/3daigc-api/core/models/rig_models.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/models/segment_models.py -> AnalyseFuture/third_party/3daigc-api/core/models/segment_models.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/models/uv_models.py -> AnalyseFuture/third_party/3daigc-api/core/models/uv_models.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/scheduler/__init__.py -> AnalyseFuture/third_party/3daigc-api/core/scheduler/__init__.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/scheduler/database_manager.py -> AnalyseFuture/third_party/3daigc-api/core/scheduler/database_manager.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/scheduler/database_models.py -> AnalyseFuture/third_party/3daigc-api/core/scheduler/database_models.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/scheduler/gpu_monitor.py -> AnalyseFuture/third_party/3daigc-api/core/scheduler/gpu_monitor.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/scheduler/job_queue.py -> AnalyseFuture/third_party/3daigc-api/core/scheduler/job_queue.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/scheduler/model_factory.py -> AnalyseFuture/third_party/3daigc-api/core/scheduler/model_factory.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/scheduler/multiprocess_scheduler.py -> AnalyseFuture/third_party/3daigc-api/core/scheduler/multiprocess_scheduler.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/scheduler/redis_job_queue.py -> AnalyseFuture/third_party/3daigc-api/core/scheduler/redis_job_queue.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/scheduler/scheduler_factory.py -> AnalyseFuture/third_party/3daigc-api/core/scheduler/scheduler_factory.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/utils/__init__.py -> AnalyseFuture/third_party/3daigc-api/core/utils/__init__.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/utils/exceptions.py -> AnalyseFuture/third_party/3daigc-api/core/utils/exceptions.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/utils/file_utils.py -> AnalyseFuture/third_party/3daigc-api/core/utils/file_utils.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/utils/format_utils.py -> AnalyseFuture/third_party/3daigc-api/core/utils/format_utils.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/utils/mask_generator.py -> AnalyseFuture/third_party/3daigc-api/core/utils/mask_generator.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/utils/mesh_utils.py -> AnalyseFuture/third_party/3daigc-api/core/utils/mesh_utils.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/utils/thumbnail_utils.py -> AnalyseFuture/third_party/3daigc-api/core/utils/thumbnail_utils.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/core/utils/validation.py -> AnalyseFuture/third_party/3daigc-api/core/utils/validation.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docker-compose.yml -> AnalyseFuture/third_party/3daigc-api/docker-compose.yml [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/api_documentation.md -> AnalyseFuture/third_party/3daigc-api/docs/api_documentation.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/codebase_analysis.md -> AnalyseFuture/third_party/3daigc-api/docs/codebase_analysis.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/IMPLEMENTATION_SUMMARY.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/IMPLEMENTATION_SUMMARY.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/codebase_analysis.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/codebase_analysis.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_modes.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_modes.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_strategy.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/deploy_strategy.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/docker_readme.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/docker_readme.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/fastmesh_partuv_integration_summary.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/fastmesh_partuv_integration_summary.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/integration_summary.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/integration_summary.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/system_architecture.drawio -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/system_architecture.drawio [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/system_design.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/system_design.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/trellis2_p3sam_integration_summary.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/trellis2_p3sam_integration_summary.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/ultrashape_voxhammer_integration.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/ultrashape_voxhammer_integration.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management_quickstart.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/cursor_created/user_management_quickstart.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/template_for_integration.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/template_for_integration.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/01.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/01.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/02_fastmesh_partuv_prompt.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/02_fastmesh_partuv_prompt.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/03_separate_router_from_scheduler.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/03_separate_router_from_scheduler.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/04_add_user_system.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/04_add_user_system.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/05_add_input_image_url.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/05_add_input_image_url.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/06_remove_trainer_dep_partfield.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v1.0/06_remove_trainer_dep_partfield.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/01_trellis2_p3sam.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/01_trellis2_p3sam.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/02_voxhammer_ultrashape.md -> AnalyseFuture/third_party/3daigc-api/docs/vibe_coding/prompts/v2.0/02_voxhammer_ultrashape.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/requirements-test.txt -> AnalyseFuture/third_party/3daigc-api/requirements-test.txt [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/requirements.txt -> AnalyseFuture/third_party/3daigc-api/requirements.txt [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/scripts/build_docker.sh -> AnalyseFuture/third_party/3daigc-api/scripts/build_docker.sh [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/scripts/create_admin_user.py -> AnalyseFuture/third_party/3daigc-api/scripts/create_admin_user.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/scripts/download_models.bat -> AnalyseFuture/third_party/3daigc-api/scripts/download_models.bat [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/scripts/download_models.sh -> AnalyseFuture/third_party/3daigc-api/scripts/download_models.sh [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/scripts/install.bat -> AnalyseFuture/third_party/3daigc-api/scripts/install.bat [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/scripts/install.sh -> AnalyseFuture/third_party/3daigc-api/scripts/install.sh [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/scripts/install_trellis.bat -> AnalyseFuture/third_party/3daigc-api/scripts/install_trellis.bat [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/scripts/run_server.bat -> AnalyseFuture/third_party/3daigc-api/scripts/run_server.bat [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/scripts/run_server.sh -> AnalyseFuture/third_party/3daigc-api/scripts/run_server.sh [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/scripts/scheduler_service.py -> AnalyseFuture/third_party/3daigc-api/scripts/scheduler_service.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/supervisord.conf -> AnalyseFuture/third_party/3daigc-api/supervisord.conf [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/conftest.py -> AnalyseFuture/third_party/3daigc-api/tests/conftest.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/curl/test_fastmesh_retopo.sh -> AnalyseFuture/third_party/3daigc-api/tests/curl/test_fastmesh_retopo.sh [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/curl/test_partuv_unwarp.sh -> AnalyseFuture/third_party/3daigc-api/tests/curl/test_partuv_unwarp.sh [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/run_adapter_tests.py -> AnalyseFuture/third_party/3daigc-api/tests/run_adapter_tests.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/run_test_client.py -> AnalyseFuture/third_party/3daigc-api/tests/run_test_client.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_adapters/gpu_memory_tracker.py -> AnalyseFuture/third_party/3daigc-api/tests/test_adapters/gpu_memory_tracker.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_fastmesh_adapter.py -> AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_fastmesh_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_hunyuan3d_adapter_v21.py -> AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_hunyuan3d_adapter_v21.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_p3sam_adapter.py -> AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_p3sam_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partfield_adapter.py -> AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partfield_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partpacker_adapter.py -> AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partpacker_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partuv_adapter.py -> AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_partuv_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_trellis2_adapter.py -> AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_trellis2_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_trellis_adapter.py -> AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_trellis_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_ultrashape_adapter.py -> AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_ultrashape_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_unirig_adapter.py -> AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_unirig_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_voxhammer_adapter.py -> AnalyseFuture/third_party/3daigc-api/tests/test_adapters/test_voxhammer_adapter.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_basic_endpoints.py -> AnalyseFuture/third_party/3daigc-api/tests/test_basic_endpoints.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_model_parameters.py -> AnalyseFuture/third_party/3daigc-api/tests/test_model_parameters.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/tests/test_on_demand_scheduler.py -> AnalyseFuture/third_party/3daigc-api/tests/test_on_demand_scheduler.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/utils/__init__.py -> AnalyseFuture/third_party/3daigc-api/utils/__init__.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/utils/fastmesh_utils.py -> AnalyseFuture/third_party/3daigc-api/utils/fastmesh_utils.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/utils/p3sam_utils.py -> AnalyseFuture/third_party/3daigc-api/utils/p3sam_utils.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/utils/partfield_utils.py -> AnalyseFuture/third_party/3daigc-api/utils/partfield_utils.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/utils/partpacker_utils.py -> AnalyseFuture/third_party/3daigc-api/utils/partpacker_utils.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/utils/partuv_utils.py -> AnalyseFuture/third_party/3daigc-api/utils/partuv_utils.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/utils/torchvision_fix.py -> AnalyseFuture/third_party/3daigc-api/utils/torchvision_fix.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/utils/trellis2_utils.py -> AnalyseFuture/third_party/3daigc-api/utils/trellis2_utils.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/utils/ultrashape_pipeline_helper.py -> AnalyseFuture/third_party/3daigc-api/utils/ultrashape_pipeline_helper.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/utils/unirig_utils.py -> AnalyseFuture/third_party/3daigc-api/utils/unirig_utils.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/3daigc-api/utils/voxhammer_pipeline_helper.py -> AnalyseFuture/third_party/3daigc-api/utils/voxhammer_pipeline_helper.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/README.md -> AnalyseFuture/third_party/README.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/.gitignore -> AnalyseFuture/third_party/triposr/.gitignore [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/LICENSE -> AnalyseFuture/third_party/triposr/LICENSE [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/README.md -> AnalyseFuture/third_party/triposr/README.md [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/examples/captured.jpeg -> AnalyseFuture/third_party/triposr/examples/captured.jpeg [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/examples/chair.png -> AnalyseFuture/third_party/triposr/examples/chair.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/examples/flamingo.png -> AnalyseFuture/third_party/triposr/examples/flamingo.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/examples/hamburger.png -> AnalyseFuture/third_party/triposr/examples/hamburger.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/examples/horse.png -> AnalyseFuture/third_party/triposr/examples/horse.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/examples/iso_house.png -> AnalyseFuture/third_party/triposr/examples/iso_house.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/examples/marble.png -> AnalyseFuture/third_party/triposr/examples/marble.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/examples/police_woman.png -> AnalyseFuture/third_party/triposr/examples/police_woman.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/examples/poly_fox.png -> AnalyseFuture/third_party/triposr/examples/poly_fox.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/examples/robot.png -> AnalyseFuture/third_party/triposr/examples/robot.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/examples/stripes.png -> AnalyseFuture/third_party/triposr/examples/stripes.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/examples/teapot.png -> AnalyseFuture/third_party/triposr/examples/teapot.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/examples/tiger_girl.png -> AnalyseFuture/third_party/triposr/examples/tiger_girl.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/examples/unicorn.png -> AnalyseFuture/third_party/triposr/examples/unicorn.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/figures/comparison800.gif -> AnalyseFuture/third_party/triposr/figures/comparison800.gif [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/figures/scatter-comparison.png -> AnalyseFuture/third_party/triposr/figures/scatter-comparison.png [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/figures/teaser800.gif -> AnalyseFuture/third_party/triposr/figures/teaser800.gif [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/figures/visual_comparisons.jpg -> AnalyseFuture/third_party/triposr/figures/visual_comparisons.jpg [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/gradio_app.py -> AnalyseFuture/third_party/triposr/gradio_app.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/requirements.txt -> AnalyseFuture/third_party/triposr/requirements.txt [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/run.py -> AnalyseFuture/third_party/triposr/run.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/tsr/bake_texture.py -> AnalyseFuture/third_party/triposr/tsr/bake_texture.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/tsr/models/isosurface.py -> AnalyseFuture/third_party/triposr/tsr/models/isosurface.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/tsr/models/nerf_renderer.py -> AnalyseFuture/third_party/triposr/tsr/models/nerf_renderer.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/tsr/models/network_utils.py -> AnalyseFuture/third_party/triposr/tsr/models/network_utils.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/tsr/models/tokenizers/image.py -> AnalyseFuture/third_party/triposr/tsr/models/tokenizers/image.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/tsr/models/tokenizers/triplane.py -> AnalyseFuture/third_party/triposr/tsr/models/tokenizers/triplane.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/tsr/models/transformer/attention.py -> AnalyseFuture/third_party/triposr/tsr/models/transformer/attention.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/tsr/models/transformer/basic_transformer_block.py -> AnalyseFuture/third_party/triposr/tsr/models/transformer/basic_transformer_block.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/tsr/models/transformer/transformer_1d.py -> AnalyseFuture/third_party/triposr/tsr/models/transformer/transformer_1d.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/tsr/system.py -> AnalyseFuture/third_party/triposr/tsr/system.py [retained location; changes, if any, have preserved original bytes]
+AnalyseFuture/third_party/triposr/tsr/utils.py -> AnalyseFuture/third_party/triposr/tsr/utils.py [retained location; changes, if any, have preserved original bytes]
+CONTRIBUTING.md -> CONTRIBUTING.md [retained location; changes, if any, have preserved original bytes]
+README.md -> README.md [retained location; changes, if any, have preserved original bytes]
+apps/api/Dockerfile -> apps/api/Dockerfile [retained location; changes, if any, have preserved original bytes]
+apps/api/pyproject.toml -> apps/api/pyproject.toml [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/__init__.py -> apps/api/src/build3d_api/__init__.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/body_limit.py -> apps/api/src/build3d_api/body_limit.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/cli.py -> apps/api/src/build3d_api/cli.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/config.py -> apps/api/src/build3d_api/config.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/db.py -> apps/api/src/build3d_api/db.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/images.py -> apps/api/src/build3d_api/images.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/main.py -> apps/api/src/build3d_api/main.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/maintenance.py -> apps/api/src/build3d_api/maintenance.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/migration.py -> apps/api/src/build3d_api/migration.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/migrations/env.py -> apps/api/src/build3d_api/migrations/env.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/migrations/versions/0001_projects_jobs.py -> apps/api/src/build3d_api/migrations/versions/0001_projects_jobs.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/migrations/versions/0002_external_identities.py -> apps/api/src/build3d_api/migrations/versions/0002_external_identities.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/migrations/versions/0003_storage_quota.py -> apps/api/src/build3d_api/migrations/versions/0003_storage_quota.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/migrations/versions/0004_external_identity_rate_limit.py -> apps/api/src/build3d_api/migrations/versions/0004_external_identity_rate_limit.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/storage.py -> apps/api/src/build3d_api/storage.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/store.py -> apps/api/src/build3d_api/store.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/trusted_identity.py -> apps/api/src/build3d_api/trusted_identity.py [retained location; changes, if any, have preserved original bytes]
+apps/api/src/build3d_api/worker.py -> apps/api/src/build3d_api/worker.py [retained location; changes, if any, have preserved original bytes]
+apps/api/tests/conftest.py -> apps/api/tests/conftest.py [retained location; changes, if any, have preserved original bytes]
+apps/api/tests/test_durable_worker.py -> apps/api/tests/test_durable_worker.py [retained location; changes, if any, have preserved original bytes]
+apps/api/tests/test_product_api.py -> apps/api/tests/test_product_api.py [retained location; changes, if any, have preserved original bytes]
+apps/api/tests/test_storage.py -> apps/api/tests/test_storage.py [retained location; changes, if any, have preserved original bytes]
+apps/api/tests/test_trusted_identity.py -> apps/api/tests/test_trusted_identity.py [retained location; changes, if any, have preserved original bytes]
+apps/gateway/Dockerfile -> apps/gateway/Dockerfile [retained location; changes, if any, have preserved original bytes]
+apps/gateway/pyproject.toml -> apps/gateway/pyproject.toml [retained location; changes, if any, have preserved original bytes]
+apps/gateway/src/build3d_gateway/__init__.py -> apps/gateway/src/build3d_gateway/__init__.py [retained location; changes, if any, have preserved original bytes]
+apps/gateway/src/build3d_gateway/download.py -> apps/gateway/src/build3d_gateway/download.py [retained location; changes, if any, have preserved original bytes]
+apps/gateway/src/build3d_gateway/glb_validation.py -> apps/gateway/src/build3d_gateway/glb_validation.py [retained location; changes, if any, have preserved original bytes]
+apps/gateway/src/build3d_gateway/main.py -> apps/gateway/src/build3d_gateway/main.py [retained location; changes, if any, have preserved original bytes]
+apps/gateway/src/build3d_gateway/model-approvals.json -> apps/gateway/src/build3d_gateway/model-approvals.json [retained location; changes, if any, have preserved original bytes]
+apps/gateway/src/build3d_gateway/model_policy.py -> apps/gateway/src/build3d_gateway/model_policy.py [retained location; changes, if any, have preserved original bytes]
+apps/gateway/src/build3d_gateway/smoke.py -> apps/gateway/src/build3d_gateway/smoke.py [retained location; changes, if any, have preserved original bytes]
+apps/gateway/src/build3d_gateway/textured_glb.py -> apps/gateway/src/build3d_gateway/textured_glb.py [retained location; changes, if any, have preserved original bytes]
+apps/gateway/src/build3d_gateway/upstream.py -> apps/gateway/src/build3d_gateway/upstream.py [retained location; changes, if any, have preserved original bytes]
+apps/gateway/tests/conftest.py -> apps/gateway/tests/conftest.py [retained location; changes, if any, have preserved original bytes]
+apps/gateway/tests/test_gateway.py -> apps/gateway/tests/test_gateway.py [retained location; changes, if any, have preserved original bytes]
+apps/gateway/tests/test_glb_validation.py -> apps/gateway/tests/test_glb_validation.py [retained location; changes, if any, have preserved original bytes]
+apps/gateway/tests/test_gpu_smoke.py -> apps/gateway/tests/test_gpu_smoke.py [retained location; changes, if any, have preserved original bytes]
+apps/gateway/tests/test_textured_glb.py -> apps/gateway/tests/test_textured_glb.py [retained location; changes, if any, have preserved original bytes]
+apps/web/.env.example -> apps/web/.env.example [retained location; changes, if any, have preserved original bytes]
+apps/web/README.md -> apps/web/README.md [retained location; changes, if any, have preserved original bytes]
+apps/web/next-env.d.ts -> apps/web/next-env.d.ts [retained location; changes, if any, have preserved original bytes]
+apps/web/next.config.ts -> apps/web/next.config.ts [retained location; changes, if any, have preserved original bytes]
+apps/web/package.json -> apps/web/package.json [retained location; changes, if any, have preserved original bytes]
+apps/web/playwright.config.ts -> apps/web/playwright.config.ts [retained location; changes, if any, have preserved original bytes]
+apps/web/src/app/api/product/[...segments]/route.ts -> apps/web/src/app/api/product/[...segments]/route.ts [retained location; changes, if any, have preserved original bytes]
+apps/web/src/app/api/session/route.ts -> apps/web/src/app/api/session/route.ts [retained location; changes, if any, have preserved original bytes]
+apps/web/src/app/globals.css -> apps/web/src/app/globals.css [retained location; changes, if any, have preserved original bytes]
+apps/web/src/app/layout.tsx -> apps/web/src/app/layout.tsx [retained location; changes, if any, have preserved original bytes]
+apps/web/src/app/page.tsx -> apps/web/src/app/page.tsx [retained location; changes, if any, have preserved original bytes]
+apps/web/src/components/model-viewer.tsx -> apps/web/src/features/assets/components/model-viewer.tsx [moved]
+apps/web/src/components/studio.tsx -> apps/web/src/features/studio/components/studio.tsx [moved]
+apps/web/src/lib/api.test.ts -> apps/web/src/lib/client/api.test.ts [moved]
+apps/web/src/lib/api.ts -> apps/web/src/lib/client/api.ts [moved]
+apps/web/src/lib/contracts.ts -> apps/web/src/lib/contracts.ts [retained location; changes, if any, have preserved original bytes]
+apps/web/src/lib/server-product-api.ts -> apps/web/src/lib/server/product-api.ts [moved]
+apps/web/src/lib/status.test.ts -> apps/web/src/features/jobs/status.test.ts [moved]
+apps/web/src/lib/status.ts -> apps/web/src/features/jobs/status.ts [moved]
+apps/web/tests/e2e/studio.spec.ts -> apps/web/tests/e2e/studio.spec.ts [retained location; changes, if any, have preserved original bytes]
+apps/web/tests/mock-backend.mjs -> apps/web/tests/mock-backend.mjs [retained location; changes, if any, have preserved original bytes]
+apps/web/tsconfig.json -> apps/web/tsconfig.json [retained location; changes, if any, have preserved original bytes]
+apps/web/vitest.config.ts -> apps/web/vitest.config.ts [retained location; changes, if any, have preserved original bytes]
+compose.gateway.yml -> infrastructure/compose/gateway.yml [moved]
+compose.product.yml -> infrastructure/compose/product.yml [moved]
+config/identity-providers.example.json -> config/identity/providers.example.json [moved]
+docs/AI_MODELS_AND_DATA.md -> docs/research/AI_MODELS_AND_DATA.md [moved]
+docs/ARCHITECTURE.md -> docs/architecture/ARCHITECTURE.md [moved]
+docs/ARCHIVE_IMPORTS.json -> AnalyseFuture/repository-inventory/ARCHIVE_IMPORTS.json [moved]
+docs/BACKLOG.md -> docs/project/BACKLOG.md [moved]
+docs/BENCHMARKS.md -> docs/project/BENCHMARKS.md [moved]
+docs/BUILD_3D_AI_PROJECT_IDEA.txt -> docs/project/BUILD_3D_AI_PROJECT_IDEA.txt [moved]
+docs/CLOUD_DEVELOPMENT_ENVIRONMENT.md -> docs/development/CLOUD_DEVELOPMENT_ENVIRONMENT.md [moved]
+docs/CODEX_HANDOFF.md -> docs/continuity/CODEX_HANDOFF.md [moved]
+docs/CPU_DEPENDENCY_INVENTORY.json -> docs/research/CPU_DEPENDENCY_INVENTORY.json [moved]
+docs/DECISIONS.md -> docs/architecture/DECISIONS.md [moved]
+docs/FEATURE_MATRIX.md -> docs/project/FEATURE_MATRIX.md [moved]
+docs/FIRST_REAL_GPU_RUNBOOK.md -> docs/operations/FIRST_REAL_GPU_RUNBOOK.md [moved]
+docs/GPU_SMOKE_AND_ARTIFACTS.md -> docs/operations/GPU_SMOKE_AND_ARTIFACTS.md [moved]
+docs/IDENTITY_AND_ACCOUNT_LIFECYCLE.md -> docs/architecture/IDENTITY_AND_ACCOUNT_LIFECYCLE.md [moved]
+docs/IMPLEMENTATION_CHECKLIST.md -> docs/continuity/IMPLEMENTATION_CHECKLIST.md [moved]
+docs/LICENSE_MATRIX.md -> docs/research/LICENSE_MATRIX.md [moved]
+docs/MODEL_APPROVAL_GATE.md -> docs/operations/MODEL_APPROVAL_GATE.md [moved]
+docs/OBJECT_STORAGE.md -> docs/operations/OBJECT_STORAGE.md [moved]
+docs/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt -> docs/research/OPEN_SOURCE_REPOSITORIES_TO_STUDY.txt [moved]
+docs/OPEN_SOURCE_STRATEGY.md -> docs/research/OPEN_SOURCE_STRATEGY.md [moved]
+docs/OPERATIONS_SECURITY.md -> docs/operations/OPERATIONS_SECURITY.md [moved]
+docs/PHASE0_GATEWAY.md -> docs/development/PHASE0_GATEWAY.md [moved]
+docs/PRODUCT_BACKBONE.md -> docs/operations/PRODUCT_BACKBONE.md [moved]
+docs/PRODUCT_VISION.md -> docs/project/PRODUCT_VISION.md [moved]
+docs/PROJECT_MEMORY_MASTER.md -> docs/continuity/PROJECT_MEMORY_MASTER.md [moved]
+docs/REPOSITORY_AUDIT_2026-11-17.md -> AnalyseFuture/recovery-notes/REPOSITORY_AUDIT_2026-11-17.md [moved]
+docs/REPOSITORY_STRUCTURE.md -> AnalyseFuture/historical-implementations/structure-before-functional/REPOSITORY_STRUCTURE.md [moved]
+docs/REUSE_AUDIT.md -> docs/research/REUSE_AUDIT.md [moved]
+docs/ROADMAP.md -> docs/project/ROADMAP.md [moved]
+docs/adr/0001-web-studio-foundation.md -> docs/architecture/adr/0001-web-studio-foundation.md [moved]
+docs/archives/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt -> AnalyseFuture/recovery-notes/RESEARCH_IMPLEMENTATION_ASSIGNMENT_2026-11-15.txt [moved]
+pytest.ini -> pytest.ini [retained location; changes, if any, have preserved original bytes]
+requirements.lock -> requirements.lock [retained location; changes, if any, have preserved original bytes]
+scripts/check_api_wheel.py -> scripts/packaging/check_api_wheel.py [moved]
+scripts/cloud/install.sh -> scripts/cloud/install.sh [retained location; changes, if any, have preserved original bytes]
+scripts/cloud/playwright.config.cjs -> scripts/cloud/playwright.config.cjs [retained location; changes, if any, have preserved original bytes]
+scripts/cloud/run_web.py -> scripts/cloud/run_web.py [retained location; changes, if any, have preserved original bytes]
+services/generation/triposr_candidate/Dockerfile.candidate -> services/generation/triposr_candidate/Dockerfile.candidate [retained location; changes, if any, have preserved original bytes]
+services/generation/triposr_candidate/README.md -> services/generation/triposr_candidate/README.md [retained location; changes, if any, have preserved original bytes]
+services/generation/triposr_candidate/dino_config.json -> services/generation/triposr_candidate/dino_config.json [retained location; changes, if any, have preserved original bytes]
+services/generation/triposr_candidate/model_config.yaml -> services/generation/triposr_candidate/model_config.yaml [retained location; changes, if any, have preserved original bytes]
+services/generation/triposr_candidate/prepare_runtime.py -> services/generation/triposr_candidate/prepare_runtime.py [retained location; changes, if any, have preserved original bytes]
+services/generation/triposr_candidate/requirements-build3d.txt -> services/generation/triposr_candidate/requirements-build3d.txt [retained location; changes, if any, have preserved original bytes]
+services/generation/triposr_candidate/runtime_manifest.json -> services/generation/triposr_candidate/runtime_manifest.json [retained location; changes, if any, have preserved original bytes]
+services/generation/triposr_candidate/test_marching_cubes_contract.py -> services/generation/triposr_candidate/test_marching_cubes_contract.py [retained location; changes, if any, have preserved original bytes]
+services/generation/triposr_candidate/test_prepare_runtime.py -> services/generation/triposr_candidate/test_prepare_runtime.py [retained location; changes, if any, have preserved original bytes]
+
+Earlier242 reference relocations were already in the starting commit and remain recorded in FILE_INDEX.json. This pass does not re-count them as new moves.
+Every original source/working version has a byte-identical retained copy recorded in PRESERVATION_RECORDS.json. No test execution follows the latest no-test instruction.

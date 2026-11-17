@@ -1,0 +1,1000 @@
+{
+  "schema_version": 1,
+  "baseline_head": "56f412f0722394300a522b7392b191702d3f2c48",
+  "scope": {
+    "reachable_commits": 96,
+    "unique_historical_blobs": 529,
+    "historical_paths": 620,
+    "scan_counts": {
+      "blobs": 529,
+      "blob_bytes": 354724760,
+      "utf8_blobs": 466,
+      "non_utf8_blobs": 63
+    },
+    "source": "Locally fetched reachable refs/history only; no remote contact or credential files/private local DB read"
+  },
+  "high_confidence_credential_matches": [],
+  "lower_confidence_assignment_review": [
+    {
+      "blob": "a49e1b3955091177a913621ed03568d8f5ea3137",
+      "paths": [
+        "apps/gateway/tests/test_gateway.py"
+      ],
+      "archive_member": null,
+      "kind": "bearer_token",
+      "line": 38,
+      "value_length": 22,
+      "resolution": "resolved_synthetic_mock_transport_fixture",
+      "evidence": "Literal passed to UpstreamGateway by mock_upstream using httpx.MockTransport; no real-service credential assertion"
+    },
+    {
+      "blob": "5225e55cd327be02d5ced3821794f6b2af82c41f",
+      "paths": [
+        "apps/gateway/tests/test_gateway.py"
+      ],
+      "archive_member": null,
+      "kind": "bearer_token",
+      "line": 25,
+      "value_length": 22,
+      "resolution": "resolved_synthetic_mock_transport_fixture",
+      "evidence": "Literal passed to UpstreamGateway by mock_upstream using httpx.MockTransport; no real-service credential assertion"
+    },
+    {
+      "blob": "a3cdd68eca3111234a3ea8ce8fa287838ec4322e",
+      "paths": [
+        "apps/gateway/tests/test_gateway.py"
+      ],
+      "archive_member": null,
+      "kind": "bearer_token",
+      "line": 38,
+      "value_length": 22,
+      "resolution": "resolved_synthetic_mock_transport_fixture",
+      "evidence": "Literal passed to UpstreamGateway by mock_upstream using httpx.MockTransport; no real-service credential assertion"
+    },
+    {
+      "blob": "40651ca40062716e0b507629c9c71ae1c254775f",
+      "paths": [
+        "apps/gateway/tests/test_gateway.py"
+      ],
+      "archive_member": null,
+      "kind": "bearer_token",
+      "line": 38,
+      "value_length": 22,
+      "resolution": "resolved_synthetic_mock_transport_fixture",
+      "evidence": "Literal passed to UpstreamGateway by mock_upstream using httpx.MockTransport; no real-service credential assertion"
+    },
+    {
+      "blob": "ef4bc0b3a62d4dcdc042b53e0c3905697454c952",
+      "paths": [
+        "apps/gateway/tests/test_gateway.py"
+      ],
+      "archive_member": null,
+      "kind": "bearer_token",
+      "line": 25,
+      "value_length": 22,
+      "resolution": "resolved_synthetic_mock_transport_fixture",
+      "evidence": "Literal passed to UpstreamGateway by mock_upstream using httpx.MockTransport; no real-service credential assertion"
+    }
+  ],
+  "binary_blobs": [
+    {
+      "blob": "c61247852a85b815fc39e2d356d67296b35f3738",
+      "paths": [
+        "AnalyseFuture/assets/reference/autorig/example_autorig/bird.glb",
+        "assets/reference/autorig/example_autorig/bird.glb"
+      ],
+      "size_bytes": 8032388,
+      "signature": "GLB",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "24d5a8cebe36ce780c494ff37d380b352d5d7e0c",
+      "paths": [
+        "AnalyseFuture/assets/reference/autorig/example_autorig/giraffe.glb",
+        "assets/reference/autorig/example_autorig/giraffe.glb"
+      ],
+      "size_bytes": 6310044,
+      "signature": "GLB",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "88404658817a7c0251a949ed6a2519447f027e0c",
+      "paths": [
+        "AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/bird.fbx",
+        "assets/reference/autorig/example_autorig/skeleton/bird.fbx"
+      ],
+      "size_bytes": 401084,
+      "signature": "FBX",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "acf9bd4aaf831df359e7f32815345dc765ca1870",
+      "paths": [
+        "AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/giraffe.fbx",
+        "assets/reference/autorig/example_autorig/skeleton/giraffe.fbx"
+      ],
+      "size_bytes": 759180,
+      "signature": "FBX",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "64cd4fc05c8bc6036f2beca3cdcaaa977a08c2d3",
+      "paths": [
+        "AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/tira.fbx",
+        "assets/reference/autorig/example_autorig/skeleton/tira.fbx"
+      ],
+      "size_bytes": 1694668,
+      "signature": "FBX",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "cb2432d99eb77c55b0e5206f80e48a9f8b6fa3c2",
+      "paths": [
+        "AnalyseFuture/assets/reference/autorig/example_autorig/skeleton/tripo_carrot.fbx",
+        "assets/reference/autorig/example_autorig/skeleton/tripo_carrot.fbx"
+      ],
+      "size_bytes": 1879420,
+      "signature": "FBX",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "6061575015fa6108c40d30ed591b422b7075989d",
+      "paths": [
+        "AnalyseFuture/assets/reference/autorig/example_autorig/tira.glb",
+        "assets/reference/autorig/example_autorig/tira.glb"
+      ],
+      "size_bytes": 32346060,
+      "signature": "GLB",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "04ee567681cfcb4e8d4e833465dc3cf5bba6ed86",
+      "paths": [
+        "AnalyseFuture/assets/reference/autorig/example_autorig/tripo_carrot.glb",
+        "assets/reference/autorig/example_autorig/tripo_carrot.glb"
+      ],
+      "size_bytes": 9511824,
+      "signature": "GLB",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "d9652e8cfe9eb25ebd654953a2ccd02811d06854",
+      "paths": [
+        "AnalyseFuture/assets/reference/autorig/open3dstudio_demo.jpg",
+        "assets/reference/autorig/open3dstudio_demo.jpg"
+      ],
+      "size_bytes": 399899,
+      "signature": "JPEG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "1758e63418d3c34afb10adee56a4ce3f6af26947",
+      "paths": [
+        "AnalyseFuture/assets/reference/autorig/open3dstudio_v1.0_demo_41m.gif",
+        "assets/reference/autorig/open3dstudio_v1.0_demo_41m.gif"
+      ],
+      "size_bytes": 41126867,
+      "signature": "GIF",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "cc07d8565d993cb96cc74078dd888d0c9cfaa53f",
+      "paths": [
+        "AnalyseFuture/assets/reference/autorig/runpod_demo1.png",
+        "assets/reference/autorig/runpod_demo1.png"
+      ],
+      "size_bytes": 122872,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "eeb02cd6396fbd54e65541b56e33f075e942ba19",
+      "paths": [
+        "AnalyseFuture/assets/reference/autorig/runpod_demo2.png",
+        "assets/reference/autorig/runpod_demo2.png"
+      ],
+      "size_bytes": 210921,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "5791b4c8ef615194b0248d4b38352c17d74183d6",
+      "paths": [
+        "AnalyseFuture/assets/reference/autorig/system_arch.png",
+        "assets/reference/autorig/system_arch.png"
+      ],
+      "size_bytes": 168298,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "0390125b59df2d8cdca99709ce57012d9b6888d9",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_image/073.png",
+        "third_party/3daigc-api/assets/example_image/073.png"
+      ],
+      "size_bytes": 107735,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "1381f759beccc3a151d8981eb6894f9777da975a",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_image/075.png",
+        "third_party/3daigc-api/assets/example_image/075.png"
+      ],
+      "size_bytes": 261670,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "90d406c9c2065689e1d9792ad826effdec889742",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_image/1687.png",
+        "third_party/3daigc-api/assets/example_image/1687.png"
+      ],
+      "size_bytes": 157743,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "a45b38e485ce1df454e39bece9ce4320f81424fd",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_image/203.png",
+        "third_party/3daigc-api/assets/example_image/203.png"
+      ],
+      "size_bytes": 143678,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "e37a5806d403dccc098d82492d687d71afa36850",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_building_space_station.png",
+        "third_party/3daigc-api/assets/example_image/typical_building_space_station.png"
+      ],
+      "size_bytes": 619626,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "8b4e10b353e0e9b60634ea272ff8fd9135fdd640",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_creature_robot_crab.png",
+        "third_party/3daigc-api/assets/example_image/typical_creature_robot_crab.png"
+      ],
+      "size_bytes": 594232,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "7f8f51728fe1fecb0532673756b1601ef46edc2c",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_creature_robot_dinosour.png",
+        "third_party/3daigc-api/assets/example_image/typical_creature_robot_dinosour.png"
+      ],
+      "size_bytes": 632292,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "f0fbbdf6cda5636f517b6e2fa3f20e15e56e3777",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_image/typical_humanoid_mech.png",
+        "third_party/3daigc-api/assets/example_image/typical_humanoid_mech.png"
+      ],
+      "size_bytes": 849947,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "15db440285f75cda2232e8efd58ce8b36339d225",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_edit.png",
+        "third_party/3daigc-api/assets/example_meshedit/images/2d_edit.png"
+      ],
+      "size_bytes": 345113,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "9386b471e6240aad0827659dbeb45e4ccdf7c6fb",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_mask.png",
+        "third_party/3daigc-api/assets/example_meshedit/images/2d_mask.png"
+      ],
+      "size_bytes": 3510,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "c95ff569d4b13353188272919de51a7d2b709499",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/images/2d_render.png",
+        "third_party/3daigc-api/assets/example_meshedit/images/2d_render.png"
+      ],
+      "size_bytes": 696876,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "1e20b26c578a25b8a68b6e3c95a049f853c057dd",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/mask.glb",
+        "third_party/3daigc-api/assets/example_meshedit/mask.glb"
+      ],
+      "size_bytes": 70364,
+      "signature": "GLB",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "96240c9c98e2ffd94526cb618936234e1ca2e6c9",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_meshedit/model.glb",
+        "third_party/3daigc-api/assets/example_meshedit/model.glb"
+      ],
+      "size_bytes": 1431284,
+      "signature": "GLB",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "17589ec605fc330fd866f50eda7a0066b23e4c76",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/00200996b8f34f55a2dd2f44d316d107.glb",
+        "third_party/3daigc-api/assets/example_meshseg/00200996b8f34f55a2dd2f44d316d107.glb"
+      ],
+      "size_bytes": 4934932,
+      "signature": "GLB",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "18f4ea3a4c533a1cb3484417af6c61b830f5c0ab",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/002e462c8bfa4267a9c9f038c7966f3b.glb",
+        "third_party/3daigc-api/assets/example_meshseg/002e462c8bfa4267a9c9f038c7966f3b.glb"
+      ],
+      "size_bytes": 1261560,
+      "signature": "GLB",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "634e8d37a3c5d9c60d4880c86dfbf9c90b7327cb",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/0c3ca2b32545416f8f1e6f0e87def1a6.glb",
+        "third_party/3daigc-api/assets/example_meshseg/0c3ca2b32545416f8f1e6f0e87def1a6.glb"
+      ],
+      "size_bytes": 544336,
+      "signature": "GLB",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "76b53b84ee4763dbd412e6042aa115a69f40e6b1",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_meshseg/65c6ffa083c6496eb84a0aa3c48d63ad.glb",
+        "third_party/3daigc-api/assets/example_meshseg/65c6ffa083c6496eb84a0aa3c48d63ad.glb"
+      ],
+      "size_bytes": 620864,
+      "signature": "GLB",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "5913b2942999d5939e7de5e8c3016e8b3cfbe8c9",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/barrel.png",
+        "third_party/3daigc-api/assets/example_partpacker/barrel.png"
+      ],
+      "size_bytes": 313619,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "d6e18c207500d043680723315c6680f302f91fda",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/cactus.png",
+        "third_party/3daigc-api/assets/example_partpacker/cactus.png"
+      ],
+      "size_bytes": 186382,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "a3332b80687dda05fdb368b8ab74bef6596e62ba",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/cyan_car.png",
+        "third_party/3daigc-api/assets/example_partpacker/cyan_car.png"
+      ],
+      "size_bytes": 69607,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "dfff502590177dd856a4b6b05a5c7ae37cd8b7ec",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/pickup.png",
+        "third_party/3daigc-api/assets/example_partpacker/pickup.png"
+      ],
+      "size_bytes": 113580,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "e76806fd3cf5e44a967dd54fbc4b1d7df9dcab90",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/rabbit.png",
+        "third_party/3daigc-api/assets/example_partpacker/rabbit.png"
+      ],
+      "size_bytes": 209239,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "45d43904cf12c271d070e1f1a1254c12d6d049a4",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/robot.png",
+        "third_party/3daigc-api/assets/example_partpacker/robot.png"
+      ],
+      "size_bytes": 206759,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "75615c13392b45872039ff72bae6235d26edccc1",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/swivelchair.png",
+        "third_party/3daigc-api/assets/example_partpacker/swivelchair.png"
+      ],
+      "size_bytes": 119477,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "127d1672e6c228e45c5b764075cbf0597af40f93",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/teapot.png",
+        "third_party/3daigc-api/assets/example_partpacker/teapot.png"
+      ],
+      "size_bytes": 204094,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "a27e1a036b2d97a492731d1d6fabe3c36d62a715",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/example_partpacker/warhammer.png",
+        "third_party/3daigc-api/assets/example_partpacker/warhammer.png"
+      ],
+      "size_bytes": 162854,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "5b050d27503de73d310195ddd9aff5a255a6efcb",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/wheels/diso-0.1.4-cp310-cp310-linux_x86_64.whl",
+        "third_party/3daigc-api/assets/wheels/diso-0.1.4-cp310-cp310-linux_x86_64.whl"
+      ],
+      "size_bytes": 246844,
+      "signature": "ZIP/wheel",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "2a4b37a6d143b9afcac574e7f348c5732c563e92",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/wheels/kaolin-0.17.0-cp310-cp310-linux_x86_64.whl",
+        "third_party/3daigc-api/assets/wheels/kaolin-0.17.0-cp310-cp310-linux_x86_64.whl"
+      ],
+      "size_bytes": 5435349,
+      "signature": "ZIP/wheel",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "cad12f3199b244dac2b758ddd40ff95b873236a6",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/wheels/utils3d-0.0.2-py3-none-any.whl",
+        "third_party/3daigc-api/assets/wheels/utils3d-0.0.2-py3-none-any.whl"
+      ],
+      "size_bytes": 88960,
+      "signature": "ZIP/wheel",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "6ecfbecbd92efbf3b9be82c64c5af4549dcc0d8f",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/examples/captured.jpeg",
+        "third_party/triposr/examples/captured.jpeg"
+      ],
+      "size_bytes": 5944816,
+      "signature": "JPEG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "fee2a21d1c9bbdf707631060f110539401265a1d",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/examples/chair.png",
+        "third_party/triposr/examples/chair.png"
+      ],
+      "size_bytes": 114705,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "c01ce3d539ad6037a4fc9bfbabdc50122e6c4681",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/examples/flamingo.png",
+        "third_party/triposr/examples/flamingo.png"
+      ],
+      "size_bytes": 93420,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "166ef035eb8226416f18595edb58304e852f4293",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/examples/hamburger.png",
+        "third_party/triposr/examples/hamburger.png"
+      ],
+      "size_bytes": 125172,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "97facd4afea9851c233636c238b2991caa5cb199",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/examples/horse.png",
+        "third_party/triposr/examples/horse.png"
+      ],
+      "size_bytes": 257687,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "717170f7a4c7611b44a4c66982bb75d884c745cf",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/examples/iso_house.png",
+        "third_party/triposr/examples/iso_house.png"
+      ],
+      "size_bytes": 1260444,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "0d7267468a4a3fb1f05354ad38aaa9f7ae46689d",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/examples/marble.png",
+        "third_party/triposr/examples/marble.png"
+      ],
+      "size_bytes": 797408,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "adda32a7174c8dacd2fea07980f3b233205fb621",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/examples/police_woman.png",
+        "third_party/triposr/examples/police_woman.png"
+      ],
+      "size_bytes": 240269,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "3a137fc0a4b0ffcb47246b5001ebf78a955fe3b0",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/examples/poly_fox.png",
+        "third_party/triposr/examples/poly_fox.png"
+      ],
+      "size_bytes": 633575,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "31ce9687b54dddf2907a39f25b09d62bcbf2a8b0",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/examples/robot.png",
+        "third_party/triposr/examples/robot.png"
+      ],
+      "size_bytes": 151541,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "125cac664517269d30aca8ebd36ee38cee7ca8b6",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/examples/stripes.png",
+        "third_party/triposr/examples/stripes.png"
+      ],
+      "size_bytes": 359613,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "864694fb8af90b6c1405d6c531606bd106d6724d",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/examples/teapot.png",
+        "third_party/triposr/examples/teapot.png"
+      ],
+      "size_bytes": 275764,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "4288fc7a3f83c1b802c0902d2b10dbe9ccc807d4",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/examples/tiger_girl.png",
+        "third_party/triposr/examples/tiger_girl.png"
+      ],
+      "size_bytes": 485849,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "d3be7f68739b87f672911886cd53767bc964b495",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/examples/unicorn.png",
+        "third_party/triposr/examples/unicorn.png"
+      ],
+      "size_bytes": 530994,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "ef5ccb9ac296e266e145b8f7e9c1003558adfe6b",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/figures/comparison800.gif",
+        "third_party/triposr/figures/comparison800.gif"
+      ],
+      "size_bytes": 8871325,
+      "signature": "GIF",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "8bd45d32a4a8cb964c104b5eabb1964f57ec29b4",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/figures/scatter-comparison.png",
+        "third_party/triposr/figures/scatter-comparison.png"
+      ],
+      "size_bytes": 326230,
+      "signature": "PNG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "f04acfe67aed12ae45d15cdfd222961697793525",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/figures/teaser800.gif",
+        "third_party/triposr/figures/teaser800.gif"
+      ],
+      "size_bytes": 3842644,
+      "signature": "GIF",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "08be153f7a0946e75a1b02ad2bb4d2ee59096f44",
+      "paths": [
+        "AnalyseFuture/third_party/triposr/figures/visual_comparisons.jpg",
+        "third_party/triposr/figures/visual_comparisons.jpg"
+      ],
+      "size_bytes": 10322597,
+      "signature": "JPEG",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "e50cccfc358721710526056bb9bb5dea55774d82",
+      "paths": [
+        "3DAIGC-API-main (2).zip"
+      ],
+      "size_bytes": 31806250,
+      "signature": "ZIP/wheel",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "e285aa2612ea11e20a79cdc79befe452d287db73",
+      "paths": [
+        "TripoSR-main.zip"
+      ],
+      "size_bytes": 31279896,
+      "signature": "ZIP/wheel",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    },
+    {
+      "blob": "8c9cd0234c3955393f0e8f755ddc395b7c5479d5",
+      "paths": [
+        "example_autorig.zip"
+      ],
+      "size_bytes": 93945693,
+      "signature": "ZIP/wheel",
+      "inspection_limit": "raw-byte pattern/header inspection only; content is not executed, rendered or disassembled"
+    }
+  ],
+  "archive_member_inspections": [
+    {
+      "blob": "5b050d27503de73d310195ddd9aff5a255a6efcb",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/wheels/diso-0.1.4-cp310-cp310-linux_x86_64.whl",
+        "third_party/3daigc-api/assets/wheels/diso-0.1.4-cp310-cp310-linux_x86_64.whl"
+      ],
+      "archive_member": null,
+      "members": 7,
+      "expanded_bytes": 736517,
+      "inspected": true
+    },
+    {
+      "blob": "2a4b37a6d143b9afcac574e7f348c5732c563e92",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/wheels/kaolin-0.17.0-cp310-cp310-linux_x86_64.whl",
+        "third_party/3daigc-api/assets/wheels/kaolin-0.17.0-cp310-cp310-linux_x86_64.whl"
+      ],
+      "archive_member": null,
+      "members": 194,
+      "expanded_bytes": 21976825,
+      "inspected": true
+    },
+    {
+      "blob": "cad12f3199b244dac2b758ddd40ff95b873236a6",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/assets/wheels/utils3d-0.0.2-py3-none-any.whl",
+        "third_party/3daigc-api/assets/wheels/utils3d-0.0.2-py3-none-any.whl"
+      ],
+      "archive_member": null,
+      "members": 32,
+      "expanded_bytes": 423686,
+      "inspected": true
+    },
+    {
+      "blob": "e50cccfc358721710526056bb9bb5dea55774d82",
+      "paths": [
+        "3DAIGC-API-main (2).zip"
+      ],
+      "archive_member": null,
+      "members": 237,
+      "expanded_bytes": 63041161,
+      "inspected": true
+    },
+    {
+      "blob": "e50cccfc358721710526056bb9bb5dea55774d82",
+      "paths": [
+        "3DAIGC-API-main (2).zip"
+      ],
+      "archive_member": "3DAIGC-API-main/assets/wheels/diso-0.1.4-cp310-cp310-linux_x86_64.whl",
+      "members": 7,
+      "expanded_bytes": 736517,
+      "inspected": true
+    },
+    {
+      "blob": "e50cccfc358721710526056bb9bb5dea55774d82",
+      "paths": [
+        "3DAIGC-API-main (2).zip"
+      ],
+      "archive_member": "3DAIGC-API-main/assets/wheels/kaolin-0.17.0-cp310-cp310-linux_x86_64.whl",
+      "members": 194,
+      "expanded_bytes": 21976825,
+      "inspected": true
+    },
+    {
+      "blob": "e50cccfc358721710526056bb9bb5dea55774d82",
+      "paths": [
+        "3DAIGC-API-main (2).zip"
+      ],
+      "archive_member": "3DAIGC-API-main/assets/wheels/utils3d-0.0.2-py3-none-any.whl",
+      "members": 32,
+      "expanded_bytes": 423686,
+      "inspected": true
+    },
+    {
+      "blob": "e285aa2612ea11e20a79cdc79befe452d287db73",
+      "paths": [
+        "TripoSR-main.zip"
+      ],
+      "archive_member": null,
+      "members": 42,
+      "expanded_bytes": 34747764,
+      "inspected": true
+    },
+    {
+      "blob": "8c9cd0234c3955393f0e8f755ddc395b7c5479d5",
+      "paths": [
+        "example_autorig.zip"
+      ],
+      "archive_member": null,
+      "members": 18,
+      "expanded_bytes": 102986372,
+      "inspected": true
+    }
+  ],
+  "lfs_pointers": [],
+  "gitmodule_versions": [
+    {
+      "blob": "4b7b93967f8d598bb91897e94241592cd8a6a43f",
+      "paths": [
+        "AnalyseFuture/third_party/3daigc-api/.gitmodules",
+        "third_party/3daigc-api/.gitmodules"
+      ],
+      "declarations": [
+        {
+          "name": "thirdparty/TRELLIS",
+          "path": "thirdparty/TRELLIS",
+          "host": "github.com",
+          "repository_path": "/FishWoWater/TRELLIS",
+          "credential_userinfo_present": false
+        },
+        {
+          "name": "thirdparty/PartField",
+          "path": "thirdparty/PartField",
+          "host": "github.com",
+          "repository_path": "/nv-tlabs/PartField",
+          "credential_userinfo_present": false
+        },
+        {
+          "name": "thirdparty/PartPacker",
+          "path": "thirdparty/PartPacker",
+          "host": "github.com",
+          "repository_path": "/NVlabs/PartPacker",
+          "credential_userinfo_present": false
+        },
+        {
+          "name": "thirdparty/Hunyuan3D-2.1",
+          "path": "thirdparty/Hunyuan3D-2.1",
+          "host": "github.com",
+          "repository_path": "/FishWoWater/Hunyuan3D-2.1",
+          "credential_userinfo_present": false
+        },
+        {
+          "name": "thirdparty/UniRig",
+          "path": "thirdparty/UniRig",
+          "host": "github.com",
+          "repository_path": "/FishWoWater/UniRig",
+          "credential_userinfo_present": false
+        },
+        {
+          "name": "thirdparty/FastMesh",
+          "path": "thirdparty/FastMesh",
+          "host": "github.com",
+          "repository_path": "/FishWoWater/FastMesh",
+          "credential_userinfo_present": false
+        },
+        {
+          "name": "thirdparty/PartUV",
+          "path": "thirdparty/PartUV",
+          "host": "github.com",
+          "repository_path": "/FishWoWater/PartUV",
+          "credential_userinfo_present": false
+        },
+        {
+          "name": "thirdparty/TRELLIS.2",
+          "path": "thirdparty/TRELLIS.2",
+          "host": "github.com",
+          "repository_path": "/FishWoWater/TRELLIS.2",
+          "credential_userinfo_present": false
+        },
+        {
+          "name": "thirdparty/Hunyuan3DPart",
+          "path": "thirdparty/Hunyuan3DPart",
+          "host": "github.com",
+          "repository_path": "/FishWoWater/Hunyuan3D-Part",
+          "credential_userinfo_present": false
+        },
+        {
+          "name": "thirdparty/UltraShape",
+          "path": "thirdparty/UltraShape",
+          "host": "github.com",
+          "repository_path": "/PKU-YuanGroup/UltraShape-1.0",
+          "credential_userinfo_present": false
+        },
+        {
+          "name": "thirdparty/VoxHammer",
+          "path": "thirdparty/VoxHammer",
+          "host": "github.com",
+          "repository_path": "/FishWoWater/VoxHammer",
+          "credential_userinfo_present": false
+        }
+      ]
+    }
+  ],
+  "tags": [],
+  "gitlinks": [],
+  "symlinks": [],
+  "modes": {
+    "100644": {
+      "unique_paths": 611,
+      "paths": null
+    },
+    "100755": {
+      "unique_paths": 9,
+      "paths": null
+    }
+  },
+  "executable_paths": [
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/download_models.bat",
+      "blob_versions": [
+        "810b9abf5012bb356e7c9cd2043f99666237d606"
+      ],
+      "classification": "Preserved upstream batch file mode; relocated path has same historical blob bytes; inactive reference, no execution authorized/performed"
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/install.bat",
+      "blob_versions": [
+        "4f2da38ea72d95dd746baf248fcdbcb0b52e3347"
+      ],
+      "classification": "Preserved upstream batch file mode; relocated path has same historical blob bytes; inactive reference, no execution authorized/performed"
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/install_trellis.bat",
+      "blob_versions": [
+        "c9df6b3af08db07b2ee024a73e3b04b01265e96a"
+      ],
+      "classification": "Preserved upstream batch file mode; relocated path has same historical blob bytes; inactive reference, no execution authorized/performed"
+    },
+    {
+      "path": "AnalyseFuture/third_party/3daigc-api/scripts/run_server.bat",
+      "blob_versions": [
+        "a37d35820e346d6e0ce2bb2caed503432f9f703d"
+      ],
+      "classification": "Preserved upstream batch file mode; relocated path has same historical blob bytes; inactive reference, no execution authorized/performed"
+    },
+    {
+      "path": "scripts/cloud/install.sh",
+      "blob_versions": [
+        "31868036ddb85c9d059bda6afcc06effa5c203c6"
+      ],
+      "classification": "Expected first-party explicitly invoked CPU setup helper"
+    },
+    {
+      "path": "third_party/3daigc-api/scripts/download_models.bat",
+      "blob_versions": [
+        "810b9abf5012bb356e7c9cd2043f99666237d606"
+      ],
+      "classification": "Preserved upstream batch file mode; relocated path has same historical blob bytes; inactive reference, no execution authorized/performed"
+    },
+    {
+      "path": "third_party/3daigc-api/scripts/install.bat",
+      "blob_versions": [
+        "4f2da38ea72d95dd746baf248fcdbcb0b52e3347"
+      ],
+      "classification": "Preserved upstream batch file mode; relocated path has same historical blob bytes; inactive reference, no execution authorized/performed"
+    },
+    {
+      "path": "third_party/3daigc-api/scripts/install_trellis.bat",
+      "blob_versions": [
+        "c9df6b3af08db07b2ee024a73e3b04b01265e96a"
+      ],
+      "classification": "Preserved upstream batch file mode; relocated path has same historical blob bytes; inactive reference, no execution authorized/performed"
+    },
+    {
+      "path": "third_party/3daigc-api/scripts/run_server.bat",
+      "blob_versions": [
+        "a37d35820e346d6e0ce2bb2caed503432f9f703d"
+      ],
+      "classification": "Preserved upstream batch file mode; relocated path has same historical blob bytes; inactive reference, no execution authorized/performed"
+    }
+  ],
+  "current_exclusion_evidence": {
+    "dockerignore_AnalyseFuture_present": true,
+    "pytest_configuration": "[pytest]\n# Default to the established first-party CPU regression suites.\ntestpaths = apps/api/tests apps/gateway/tests\n# Imported reference suites require separately reviewed runtimes.\nnorecursedirs = AnalyseFuture .git .venv node_modules\n",
+    "active_preservation_references": [],
+    "current_root_workflows": [
+      ".github/workflows/gateway-ci.yml",
+      ".github/workflows/product-api-ci.yml",
+      ".github/workflows/triposr-qualification-ci.yml",
+      ".github/workflows/web-ci.yml"
+    ],
+    "notes": "Root Docker contexts exclude AnalyseFuture. Dockerfiles COPY explicit apps paths. Root pytest testpaths select first-party suites and norecursedirs excludes AnalyseFuture. Next.js src/ + TypeScript configured includes scope active source, preserved docs/scripts not package manifests/hooks. A directory alone is not an execution sandbox; explicit targeting can still execute reference code.",
+    "web_tsconfig_scope": "apps/web/tsconfig.json includes next-env, .next/types, src/**/*.ts(x), tests/**/*.ts; no AnalyseFuture include or workspace manifest",
+    "current_root_gitmodules": false
+  },
+  "limits": [
+    "Regex high-confidence patterns are incomplete and cannot prove absence of all secrets or historic exfiltration.",
+    "Only reachable local Git objects represented in529blob map and96commits; deleted/unreachable remote history, account sessions, audit logs, external infrastructure and installed apps are outside scope.",
+    "Native binaries and compressed model/asset payloads are not disassembled or behaviorally evaluated; archive member text/rawbytes scanned without executing.",
+    "Expected executable extension or historical mode does not establish author authorization, account security, or safe runtime behavior.",
+    "No imported scripts installed/executed; no remote URLs requested; no ignored credential stores/private databases inspected."
+  ],
+  "binary_signature_counts": {
+    "GLB": 10,
+    "FBX": 4,
+    "JPEG": 3,
+    "GIF": 3,
+    "PNG": 37,
+    "ZIP/wheel": 6
+  },
+  "unexpected_mode_findings": []
+}

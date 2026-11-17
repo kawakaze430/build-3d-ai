@@ -20,7 +20,7 @@ autorig/
 
 All 16 archive files were extracted and hash-verified. The 15 content files are
 tracked; the bundle's macOS `.DS_Store` metadata remains ignored locally.
-The [import inventory](../../../docs/ARCHIVE_IMPORTS.json) identifies each original
+The [import inventory](../../repository-inventory/ARCHIVE_IMPORTS.json) identifies each original
 path, size and SHA256, plus the original ZIP hash. The ZIP was deleted only
 after verification; its earlier version remains recoverable from Git history.
 

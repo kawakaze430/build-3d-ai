@@ -1,0 +1,32 @@
+BUILD 3D AI — WORK PROGRESS AND HANDOFF
+Date:17November2026
+Starting main:56f412f0722394300a522b7392b191702d3f2c48
+
+COMPLETED
+- Full369-file starting inventory, deep text/source reviews and binary metadata limits.
+- All18remoteheads/96commits/620historicalpaths/529blobs reviewed; no missing branch
+  implementation found beyond the recovered offline auditor and its nine tests.
+-56feature responsibility cards and all required audit/recovery/future reports.
+-45functional moves with imports, current links, configuration roots and references repaired.
+-All369 starting and432 pre-functional working contents retained byte-for-byte.
+-Current relevant file count:495; complete per-file purpose/owner/dependency inventory.
+-RootPROJECT_STRUCTURE.md, docs/README, scoped documentation collections and continuation notes.
+-Latest no-tests instruction honored. Earlier test/build outcomes are historical only.
+
+CURRENT TASK
+Final static inventory/link/import/hash/Git review, then ordinary direct-main
+commit/push using[skip ci], with remote verification and a delivery receipt.
+
+PENDING / DEFERRED
+-No final-layout runtime validation, tests, build, type check, startup or migration
+ execution after the owner's pause. Resume only under a later authorized task.
+-Real model/runtime/weight/data clearance, GPU/Blender/S3/public-service qualification
+ remain outside this restructure. Existing legal/resource/budget gates apply.
+-Account/protection metadata could not be fetched through the API; native Git
+ permissions/protection remain enforced. No force push or history rewrite.
+
+RECOVERABILITY
+The verified all-ref bundle and pre-move working TAR are recorded in
+REPOSITORY_AUDIT.txt. Immutable starting/reviewer inventories and full preservation
+records are under repository-inventory/. They describe their original snapshots;
+FUNCTIONAL_PATH_MAPPING gives current locations. Private state stays out of Git.

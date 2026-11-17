@@ -1,0 +1,8 @@
+{
+  "starting_commit": "56f412f0722394300a522b7392b191702d3f2c48",
+  "delivery_branch": "main",
+  "status": "prepared; ordinary push pending",
+  "tests_after_latest_instruction": "not run; commit uses [skip ci]",
+  "force_push": false,
+  "history_rewritten": false
+}
