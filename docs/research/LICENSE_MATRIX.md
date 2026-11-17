@@ -8,6 +8,8 @@ The new backend uses SQLAlchemy `2.0.57` (MIT), Alembic `1.20.1` (MIT), psycopg 
 
 **Status: NO MODEL APPROVED FOR PRODUCTION.** This is an evidence-based source/license inventory, not legal advice or completion of issue #2. A permissive app-repository license never clears upstream model weights, forked components, training assets, or transitive rendering dependencies.
 
+The [TripoSR qualification evidence](TRIPOSR_QUALIFICATION_EVIDENCE.md) records independently verified bytes and notice paths for the bounded wheel subset, a reproducible ANTLR build, verified base-image metadata, and the rights still open for this exact candidate.
+
 | Component | Pinned upstream commit | Repository-level license checked | Commercial-release decision |
 |---|---|---|---|
 | [Open3DStudio](https://github.com/FishWoWater/Open3DStudio) | `f2e403eb11a2c33077e9f353fa240974edb06981` | Apache-2.0 ([LICENSE](https://github.com/FishWoWater/Open3DStudio/blob/main/LICENSE)) | Research-only until frontend dependencies, assets and build tested |

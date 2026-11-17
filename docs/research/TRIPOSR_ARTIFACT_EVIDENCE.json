@@ -1,0 +1,542 @@
+{
+  "status": "EVIDENCE_ONLY_NOT_APPROVED_FOR_RELEASE",
+  "target": "CPython 3.10/Linux x86_64, glibc 2.35 compatibility",
+  "resolver": "uv 0.13.6",
+  "index": "https://pypi.org/simple",
+  "requirements_sha256": "f89f574aeb11981a4c3c49ee771df704452abe6214f1bf8780942d215ce79e70",
+  "artifacts": [
+    {
+      "pin": "antlr4-python3-runtime==4.9.3",
+      "filename": "antlr4_python3_runtime-4.9.3-py3-none-any.whl",
+      "bytes": 144591,
+      "sha256": "50f2b7f0ee7522778df794525fd812ade4079e96b101cf9f83145649738ea95d",
+      "origin": "local_reproducible_build",
+      "verified_bytes": true,
+      "license_metadata": "BSD",
+      "included_notice_candidates": []
+    },
+    {
+      "pin": "certifi==2026.10.23",
+      "filename": "certifi-2026.10.23-py3-none-any.whl",
+      "bytes": 135082,
+      "sha256": "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1",
+      "origin": "https://files.pythonhosted.org/packages/32/d1/a3652fe2c19134d0d15922177821d863cbd7e842d53a21bbe7e8e3a1b5ac/certifi-2026.10.23-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+      "included_notice_candidates": [
+        {
+          "path": "certifi-2026.10.23.dist-info/licenses/LICENSE",
+          "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7"
+        }
+      ]
+    },
+    {
+      "pin": "charset-normalizer==3.5.2",
+      "filename": "charset_normalizer-3.5.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 271105,
+      "sha256": "8a893cc101149f80a653f82062ebc95b34525a2614382e1da5458fe7c6997249",
+      "origin": "https://files.pythonhosted.org/packages/c4/9f/9f52d2886d52645987d603425482c63c5045a3005db1354a7097e5ed1ae9/charset_normalizer-3.5.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "verified_bytes": true,
+      "license_metadata": "MIT",
+      "included_notice_candidates": [
+        {
+          "path": "charset_normalizer-3.5.2.dist-info/licenses/LICENSE",
+          "sha256": "6d0d41bfe170ac6c7dc248c9a63e254d0fb45a60d50a8257d0af92c6e249b887"
+        }
+      ],
+      "native_entries": [
+        "charset_normalizer/cd.cpython-310-x86_64-linux-gnu.so",
+        "charset_normalizer/md.cpython-310-x86_64-linux-gnu.so"
+      ]
+    },
+    {
+      "pin": "einops==0.7.0",
+      "filename": "einops-0.7.0-py3-none-any.whl",
+      "bytes": 44599,
+      "sha256": "0f3096f26b914f465f6ff3c66f5478f9a5e380bb367ffc6493a68143fbbf1fd1",
+      "origin": "https://files.pythonhosted.org/packages/29/0b/2d1c0ebfd092e25935b86509a9a817159212d82aa43d7fb07eca4eeff2c2/einops-0.7.0-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "OSI Approved :: MIT License",
+      "included_notice_candidates": [
+        {
+          "path": "einops-0.7.0.dist-info/licenses/LICENSE",
+          "sha256": "30d984364296f51ffaecad4b01ee127e95250c5068918d4b66fc96206723e434"
+        }
+      ]
+    },
+    {
+      "pin": "filelock==4.1.0",
+      "filename": "filelock-4.1.0-py3-none-any.whl",
+      "bytes": 133003,
+      "sha256": "2ce9818e3e2d8f284c1a964414447ef148d42a5fd5e2a477a7118e574b293ec1",
+      "origin": "https://files.pythonhosted.org/packages/ee/86/032133892a5de43b5a98200b01aadcad68cc255e274a762f08b8a76d2912/filelock-4.1.0-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "MIT",
+      "included_notice_candidates": [
+        {
+          "path": "filelock-4.1.0.dist-info/licenses/LICENSE",
+          "sha256": "608c89d5060ae9921adccf3236695bc654a9946e12323ef6c021dfa04e294d48"
+        }
+      ]
+    },
+    {
+      "pin": "fsspec==2026.9.0",
+      "filename": "fsspec-2026.9.0-py3-none-any.whl",
+      "bytes": 221738,
+      "sha256": "8dd6e646e99ea382bd85f97a45e6b526a442d79423a7dc673f1e2756d05fcb5f",
+      "origin": "https://files.pythonhosted.org/packages/6c/c0/a98505f18594f1bce828bb159cec0fcf9860562f1a2c85913409fc8f3d9e/fsspec-2026.9.0-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "BSD-3-Clause",
+      "included_notice_candidates": [
+        {
+          "path": "fsspec-2026.9.0.dist-info/licenses/LICENSE",
+          "sha256": "2dc35496ce53a7307915c008a844aad53e772b49b34cdd00445067691407ec94"
+        }
+      ]
+    },
+    {
+      "pin": "glcontext==2.5.0",
+      "filename": "glcontext-2.5.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 51518,
+      "sha256": "5c056bfbc4af86337837fbea0899b1c439673b9e2bf9aaaf78862cb68ccaeb41",
+      "origin": "https://files.pythonhosted.org/packages/26/20/ad897cee9ecff2c0a71f08f07927620b946e362470c9316b92e7de628e63/glcontext-2.5.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "verified_bytes": true,
+      "license_metadata": "OSI Approved :: MIT License",
+      "included_notice_candidates": [
+        {
+          "path": "glcontext-2.5.0.dist-info/LICENSE",
+          "sha256": "5343a2b496db3237e032a11fcd5c6d183b4a8f2882fb3d96dab1fc1124f139c1"
+        }
+      ],
+      "native_entries": [
+        "glcontext/egl.cpython-310-x86_64-linux-gnu.so",
+        "glcontext/x11.cpython-310-x86_64-linux-gnu.so"
+      ]
+    },
+    {
+      "pin": "huggingface-hub==0.17.3",
+      "filename": "huggingface_hub-0.17.3-py3-none-any.whl",
+      "bytes": 295010,
+      "sha256": "545eb3665f6ac587add946e73984148f2ea5c7877eac2e845549730570c1933a",
+      "origin": "https://files.pythonhosted.org/packages/aa/f3/3fc97336a0e90516901befd4f500f08d691034d387406fdbde85bea827cc/huggingface_hub-0.17.3-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "OSI Approved :: Apache Software License",
+      "included_notice_candidates": [
+        {
+          "path": "huggingface_hub-0.17.3.dist-info/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ]
+    },
+    {
+      "pin": "idna==3.20",
+      "filename": "idna-3.20-py3-none-any.whl",
+      "bytes": 69583,
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "origin": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "BSD-3-Clause",
+      "included_notice_candidates": [
+        {
+          "path": "idna-3.20.dist-info/licenses/LICENSE.md",
+          "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04"
+        }
+      ]
+    },
+    {
+      "pin": "imageio-ffmpeg==0.4.9",
+      "filename": "imageio_ffmpeg-0.4.9-py3-none-manylinux2010_x86_64.whl",
+      "bytes": 26900041,
+      "sha256": "2996c64af3e5489227096580269317719ea1a8121d207f2e28d6c24ebc4a253e",
+      "origin": "https://files.pythonhosted.org/packages/1a/98/3df1d8dd8f2c121b6c588b1e0d604f36592d56df9c41fb155ed546c6a5ed/imageio_ffmpeg-0.4.9-py3-none-manylinux2010_x86_64.whl",
+      "verified_bytes": false,
+      "license_metadata": "OSI Approved :: BSD License"
+    },
+    {
+      "pin": "imageio==2.34.2",
+      "filename": "imageio-2.34.2-py3-none-any.whl",
+      "bytes": 313455,
+      "sha256": "a0bb27ec9d5bab36a9f4835e51b21d2cb099e1f78451441f94687ff3404b79f8",
+      "origin": "https://files.pythonhosted.org/packages/3d/84/f1647217231f6cc46883e5d26e870cc3e1520d458ecd52d6df750810d53c/imageio-2.34.2-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "OSI Approved :: BSD License",
+      "included_notice_candidates": [
+        {
+          "path": "imageio-2.34.2.dist-info/LICENSE",
+          "sha256": "ae599ea50a494efb725e420aab35d1f759200cfe4186b6c64a30ba49db3fd064"
+        }
+      ]
+    },
+    {
+      "pin": "lazy-loader==0.6",
+      "filename": "lazy_loader-0.6-py3-none-any.whl",
+      "bytes": 8791,
+      "sha256": "77253be3391b06124a0e16105bd663b6c54470af1a9ca8e1cf026f38d58ed056",
+      "origin": "https://files.pythonhosted.org/packages/23/93/4e45e37f26c820216704b36b8e67cc55c490a7abd287a78a26a2c0e21386/lazy_loader-0.6-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "BSD-3-Clause",
+      "included_notice_candidates": [
+        {
+          "path": "lazy_loader-0.6.dist-info/licenses/LICENSE.md",
+          "sha256": "797b6937a4f976836efbbbb3ae333d7866ddc3eb3cb152972b2be348d3529372"
+        }
+      ]
+    },
+    {
+      "pin": "moderngl==5.10.0",
+      "filename": "moderngl-5.10.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 267708,
+      "sha256": "046a85cc3cffbdac5a45ed53c8f10c601e4737a172e3c1307a05b3693733d6e0",
+      "origin": "https://files.pythonhosted.org/packages/a8/06/aa6c375d8ad111915149f447db4f8c8bb5f30d0607d91089ff0415717bd1/moderngl-5.10.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "verified_bytes": true,
+      "license_metadata": "OSI Approved, OSI Approved :: MIT License",
+      "included_notice_candidates": [
+        {
+          "path": "moderngl-5.10.0.dist-info/LICENSE",
+          "sha256": "20d168158102c3ceea1c76bd7c10a921216dd1ca4a68c8f212a2565bdab6e33e"
+        }
+      ],
+      "native_entries": [
+        "moderngl/mgl.cpython-310-x86_64-linux-gnu.so"
+      ]
+    },
+    {
+      "pin": "networkx==3.4.2",
+      "filename": "networkx-3.4.2-py3-none-any.whl",
+      "bytes": 1723263,
+      "sha256": "df5d4365b724cf81b8c6a7312509d0c22386097011ad1abe274afd5e9d3bbc5f",
+      "origin": "https://files.pythonhosted.org/packages/b9/54/dd730b32ea14ea797530a4479b2ed46a6fb250f682a9cfb997e968bf0261/networkx-3.4.2-py3-none-any.whl",
+      "verified_bytes": false,
+      "license_metadata": "OSI Approved :: BSD License"
+    },
+    {
+      "pin": "numpy==1.26.4",
+      "filename": "numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 18240889,
+      "sha256": "ffa75af20b44f8dba823498024771d5ac50620e6915abac414251bd971b4529f",
+      "origin": "https://files.pythonhosted.org/packages/4b/d7/ecf66c1cd12dc28b4040b15ab4d17b773b87fa9d29ca16125de01adb36cd/numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "verified_bytes": false,
+      "license_metadata": "OSI Approved :: BSD License"
+    },
+    {
+      "pin": "omegaconf==2.3.0",
+      "filename": "omegaconf-2.3.0-py3-none-any.whl",
+      "bytes": 79500,
+      "sha256": "7b4df175cdb08ba400f45cae3bdcae7ba8365db4d165fc65fd04b050ab63b46b",
+      "origin": "https://files.pythonhosted.org/packages/e3/94/1843518e420fa3ed6919835845df698c7e27e183cb997394e4a670973a65/omegaconf-2.3.0-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "OSI Approved :: BSD License",
+      "included_notice_candidates": [
+        {
+          "path": "omegaconf-2.3.0.dist-info/LICENSE",
+          "sha256": "b31375ed5d5cbe7ec2d0c4c14df8afa7a8e5501bbe25f70b6cbc461685f4b91a"
+        }
+      ]
+    },
+    {
+      "pin": "packaging==26.3",
+      "filename": "packaging-26.3-py3-none-any.whl",
+      "bytes": 129956,
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "origin": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "Apache-2.0 OR BSD-2-Clause",
+      "included_notice_candidates": [
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+        },
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        },
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+        }
+      ]
+    },
+    {
+      "pin": "pillow==10.1.0",
+      "filename": "Pillow-10.1.0-cp310-cp310-manylinux_2_28_x86_64.whl",
+      "bytes": 3621698,
+      "sha256": "b0eb01ca85b2361b09480784a7931fc648ed8b7836f01fb9241141b968feb1db",
+      "origin": "https://files.pythonhosted.org/packages/e5/b9/5c6ad3241f1ccca4b781dfeddbab2dac4480f95aedc351a0e60c9f4c8aa9/Pillow-10.1.0-cp310-cp310-manylinux_2_28_x86_64.whl",
+      "verified_bytes": false,
+      "license_metadata": "OSI Approved :: Historical Permission Notice and Disclaimer (HPND)"
+    },
+    {
+      "pin": "pyyaml==6.0.3",
+      "filename": "pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 770293,
+      "sha256": "9c7708761fccb9397fe64bbc0395abcae8c4bf7b0eac081e12b809bf47700d0b",
+      "origin": "https://files.pythonhosted.org/packages/7a/1e/7acc4f0e74c4b3d9531e24739e0ab832a5edf40e64fbae1a9c01941cabd7/pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "verified_bytes": true,
+      "license_metadata": "OSI Approved :: MIT License",
+      "included_notice_candidates": [
+        {
+          "path": "pyyaml-6.0.3.dist-info/licenses/LICENSE",
+          "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4"
+        }
+      ],
+      "native_entries": [
+        "yaml/_yaml.cpython-310-x86_64-linux-gnu.so"
+      ]
+    },
+    {
+      "pin": "regex==2026.9.29",
+      "filename": "regex-2026.9.29-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "bytes": 797643,
+      "sha256": "4fb41211d2333eb930a51e0546a65999761cf1f572a4da56ef9b8a62966c06f2",
+      "origin": "https://files.pythonhosted.org/packages/ec/99/eae371ca63f7ea1f1eac025021527adb57ce3a4b67ff608b896fd31ea447/regex-2026.9.29-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "verified_bytes": true,
+      "license_metadata": "Apache-2.0 AND CNRI-Python",
+      "included_notice_candidates": [
+        {
+          "path": "regex-2026.9.29.dist-info/licenses/LICENSE.txt",
+          "sha256": "bff55ef4cdcc8c14ce259f8e8ab60e264418440d6335f4dc138273fbd506144d"
+        }
+      ],
+      "native_entries": [
+        "regex/_regex.cpython-310-x86_64-linux-gnu.so"
+      ]
+    },
+    {
+      "pin": "requests==2.34.2",
+      "filename": "requests-2.34.2-py3-none-any.whl",
+      "bytes": 73075,
+      "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+      "origin": "https://files.pythonhosted.org/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "OSI Approved :: Apache Software License",
+      "included_notice_candidates": [
+        {
+          "path": "requests-2.34.2.dist-info/licenses/LICENSE",
+          "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b"
+        },
+        {
+          "path": "requests-2.34.2.dist-info/licenses/NOTICE",
+          "sha256": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc"
+        }
+      ]
+    },
+    {
+      "pin": "safetensors==0.8.0",
+      "filename": "safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 516040,
+      "sha256": "fd6f3f93c9a0a7cc2788ee63fb763353d4bd2e89b0751bc78fcf7dda00bea774",
+      "origin": "https://files.pythonhosted.org/packages/28/50/f203ff3a3ddfe19308efc83c5a3a29ed02bf786732ec35e68bf9162f3365/safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "verified_bytes": true,
+      "license_metadata": "OSI Approved :: Apache Software License",
+      "included_notice_candidates": [
+        {
+          "path": "safetensors-0.8.0.dist-info/licenses/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        }
+      ],
+      "native_entries": [
+        "safetensors/_safetensors_rust.abi3.so"
+      ]
+    },
+    {
+      "pin": "scikit-image==0.25.2",
+      "filename": "scikit_image-0.25.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 14767545,
+      "sha256": "a4c464b90e978d137330be433df4e76d92ad3c5f46a22f159520ce0fdbea8a09",
+      "origin": "https://files.pythonhosted.org/packages/96/08/916e7d9ee4721031b2f625db54b11d8379bd51707afaa3e5a29aecf10bc4/scikit_image-0.25.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "verified_bytes": false,
+      "license_metadata": "OSI Approved :: BSD License"
+    },
+    {
+      "pin": "scipy==1.15.3",
+      "filename": "scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 37662964,
+      "sha256": "9e2abc762b0811e09a0d3258abee2d98e0c703eee49464ce0069590846f31d40",
+      "origin": "https://files.pythonhosted.org/packages/8e/6d/41991e503e51fc1134502694c5fa7a1671501a17ffa12716a4a9151af3df/scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "verified_bytes": false,
+      "license_metadata": "OSI Approved :: BSD License"
+    },
+    {
+      "pin": "setuptools==84.2.1",
+      "filename": "setuptools-84.2.1-py3-none-any.whl",
+      "bytes": 876263,
+      "sha256": "ca140b45d5325a9478f880e351484f62fef15f336462e449ca0c03c873d589c2",
+      "origin": "https://files.pythonhosted.org/packages/ef/55/6dc6d6bb953bdfc52519a0059592c52b6e3b8ad51cf8256dffceb55b0610/setuptools-84.2.1-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "MIT",
+      "included_notice_candidates": [
+        {
+          "path": "setuptools-84.2.1.dist-info/licenses/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+          "sha256": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d"
+        },
+        {
+          "path": "setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE",
+          "sha256": "458502e12d97bbf64438606a20044aa85eb05fb0a8a807bb35dbec253fd1fc04"
+        },
+        {
+          "path": "setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE",
+          "sha256": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683"
+        },
+        {
+          "path": "setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE",
+          "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d"
+        },
+        {
+          "path": "setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE",
+          "sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46"
+        },
+        {
+          "path": "setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+        },
+        {
+          "path": "setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        },
+        {
+          "path": "setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+        },
+        {
+          "path": "setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE",
+          "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6"
+        },
+        {
+          "path": "setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE",
+          "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe"
+        },
+        {
+          "path": "setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt",
+          "sha256": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654"
+        },
+        {
+          "path": "setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE",
+          "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d"
+        }
+      ]
+    },
+    {
+      "pin": "tifffile==2025.5.10",
+      "filename": "tifffile-2025.5.10-py3-none-any.whl",
+      "bytes": 226533,
+      "sha256": "e37147123c0542d67bc37ba5cdd67e12ea6fbe6e86c52bee037a9eb6a064e5ad",
+      "origin": "https://files.pythonhosted.org/packages/5d/06/bd0a6097da704a7a7c34a94cfd771c3ea3c2f405dd214e790d22c93f6be1/tifffile-2025.5.10-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "BSD-3-Clause",
+      "included_notice_candidates": [
+        {
+          "path": "tifffile-2025.5.10.dist-info/licenses/LICENSE",
+          "sha256": "c309a8540535da0e25ae5f60097d939551c8fcad7465c584353f151ac6a954e3"
+        }
+      ]
+    },
+    {
+      "pin": "tokenizers==0.14.1",
+      "filename": "tokenizers-0.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 3802021,
+      "sha256": "60fec380778d75cbb492f14ca974f11f37b41d53c057b9c8ba213315b86e1f84",
+      "origin": "https://files.pythonhosted.org/packages/a7/7b/c1f643eb086b6c5c33eef0c3752e37624bd23e4cbc9f1332748f1c6252d1/tokenizers-0.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "verified_bytes": false,
+      "license_metadata": "OSI Approved :: Apache Software License"
+    },
+    {
+      "pin": "tqdm==4.70.1",
+      "filename": "tqdm-4.70.1-py3-none-any.whl",
+      "bytes": 80199,
+      "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73",
+      "origin": "https://files.pythonhosted.org/packages/a7/03/921a3d3c75785aca9ebfbfcabfbc3a1be12e2ab5265deb026d55a5a3f83e/tqdm-4.70.1-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "MPL-2.0 AND MIT",
+      "included_notice_candidates": [
+        {
+          "path": "tqdm-4.70.1.dist-info/licenses/LICENCE",
+          "sha256": "fcff87c3a47ce8028a8512aa182d4fcf0ad1c90544ee75cf9b343684cac194de"
+        }
+      ]
+    },
+    {
+      "pin": "transformers==4.35.0",
+      "filename": "transformers-4.35.0-py3-none-any.whl",
+      "bytes": 7920519,
+      "sha256": "45aa9370d7d9ba1c43e6bfa04d7f8b61238497d4b646e573fd95e597fe4040ff",
+      "origin": "https://files.pythonhosted.org/packages/9a/06/e4ec2a321e57c03b7e9345d709d554a52c33760e5015fdff0919d9459af0/transformers-4.35.0-py3-none-any.whl",
+      "verified_bytes": false,
+      "license_metadata": "OSI Approved :: Apache Software License"
+    },
+    {
+      "pin": "trimesh==4.0.5",
+      "filename": "trimesh-4.0.5-py3-none-any.whl",
+      "bytes": 688495,
+      "sha256": "d139a9108fc7d68a9cd3f5788528eadc20f25a10ae915922b4a2768e0b23d943",
+      "origin": "https://files.pythonhosted.org/packages/c4/28/f3c55fad13f908fdbedd763ed63bd07f409c32ef40bb0381d6107738fed3/trimesh-4.0.5-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "OSI Approved :: MIT License",
+      "included_notice_candidates": [
+        {
+          "path": "trimesh-4.0.5.dist-info/LICENSE.md",
+          "sha256": "fe27b5ef8710676cc85255da28a32f394e2ef3f4ce47075a1c732a9ea1d7bd03"
+        }
+      ]
+    },
+    {
+      "pin": "typing-extensions==4.16.0",
+      "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+      "bytes": 45571,
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "origin": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "PSF-2.0",
+      "included_notice_candidates": [
+        {
+          "path": "typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+        }
+      ]
+    },
+    {
+      "pin": "urllib3==2.8.0",
+      "filename": "urllib3-2.8.0-py3-none-any.whl",
+      "bytes": 135717,
+      "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+      "origin": "https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl",
+      "verified_bytes": true,
+      "license_metadata": "MIT",
+      "included_notice_candidates": [
+        {
+          "path": "urllib3-2.8.0.dist-info/licenses/LICENSE.txt",
+          "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686"
+        }
+      ]
+    },
+    {
+      "pin": "xatlas==0.0.9",
+      "filename": "xatlas-0.0.9-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "bytes": 230108,
+      "sha256": "7112a4c90c14a459dfffbffac1319ad3770a50bfb592f03562c8fe564e765ad7",
+      "origin": "https://files.pythonhosted.org/packages/29/ee/086c7cb4f067238e55fd645188232d67afe1ac6adacbea7a8cf2c6346cd8/xatlas-0.0.9-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "verified_bytes": true,
+      "license_metadata": null,
+      "included_notice_candidates": [
+        {
+          "path": "xatlas-0.0.9.dist-info/LICENSE",
+          "sha256": "095750fc0f9031d1a517cf734690d50cfd98c08a1d09473be006b86f488a4fc8"
+        }
+      ],
+      "native_entries": [
+        "xatlas.cpython-310-x86_64-linux-gnu.so"
+      ]
+    }
+  ]
+}

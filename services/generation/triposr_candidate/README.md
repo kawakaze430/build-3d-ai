@@ -105,3 +105,5 @@ Test locally without external dependencies:
     python -m unittest discover -s services/generation/triposr_candidate -p test_audit_pip_report.py -v
 
 Review the short-lived GitHub Actions artifact named triposr-candidate-index-provenance. Never treat its metadata alone as a production release lock.
+
+The [qualification evidence record](../../../docs/research/TRIPOSR_QUALIFICATION_EVIDENCE.md) documents a CPython 3.10 wheel selection, bytes and notices verified for a bounded subset, the reproducible ANTLR source build, and the base-image and rights checks. The CI source-archive gate continues to apply to PyPI resolution. The Dockerfile has not switched to an offline wheelhouse.
