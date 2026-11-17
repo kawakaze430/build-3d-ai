@@ -9,9 +9,9 @@ the useful commands and helpers if this workspace is lost.
 
 ## Reinstall dependencies
 
-The setup was validated with Python 3.12.14, Node.js 24.22.1 and npm 11.9.0.
-Python dependencies are constrained by `requirements.lock`. Web dependencies
-use the existing package declarations; no npm lockfile was introduced.
+The managed setup was validated with Python 3.12.14, Node.js 24.22.1 and npm
+11.9.0. Python dependencies are constrained by `requirements.lock`.
+The installer restores the frontend dependency graph from `apps/web/package-lock.json`.
 
 From the repository root:
 
@@ -19,10 +19,9 @@ From the repository root:
 bash scripts/cloud/install.sh
 ```
 
-This installs the API/gateway in `.venv`, installs web dependencies without
-creating a lockfile, migrates the default SQLite database, and checks Python
-dependency consistency. It does not provision cloud resources, start workers,
-download model weights, or create a user. The default caches are under
+This installs the API/gateway in `.venv`, runs `npm ci` for the web app,
+migrates the default SQLite database, and checks Python dependency consistency.
+The default caches are under
 `/workspace/.cache` because the onboarding user's home caches were unwritable.
 For another machine, set `BUILD3D_CACHE_DIR` to a writable cache directory.
 

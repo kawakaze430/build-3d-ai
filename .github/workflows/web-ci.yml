@@ -6,11 +6,13 @@ on:
     paths:
       - "apps/web/**"
       - "docs/architecture/adr/**"
+      - "scripts/cloud/install.sh"
       - ".github/workflows/web-ci.yml"
   pull_request:
     paths:
       - "apps/web/**"
       - "docs/architecture/adr/**"
+      - "scripts/cloud/install.sh"
       - ".github/workflows/web-ci.yml"
 
 permissions:
@@ -22,12 +24,12 @@ jobs:
       run:
         working-directory: apps/web
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: "22"
-      - name: Install pinned web dependencies
-        run: npm install --no-audit --no-fund
+      - name: Install locked web dependencies
+        run: npm ci --no-audit --no-fund
       - name: Typecheck
         run: npm run typecheck
       - name: Unit tests
@@ -42,12 +44,12 @@ jobs:
       run:
         working-directory: apps/web
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: "22"
-      - name: Install pinned web dependencies
-        run: npm install --no-audit --no-fund
+      - name: Install locked web dependencies
+        run: npm ci --no-audit --no-fund
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       - name: Browser contract tests

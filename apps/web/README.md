@@ -22,11 +22,14 @@ Start/migrate `apps/api`, provision a user key, then:
 ```bash
 cd apps/web
 cp .env.example .env.local
-npm install
+npm ci
 npm run dev
 ```
 
 The default backend is `http://127.0.0.1:8081`.
+
+Commit `package.json` and `package-lock.json` together when changing dependencies.
+Review the lockfile diff and run the validation commands after a clean `npm ci`.
 
 ## What works
 
