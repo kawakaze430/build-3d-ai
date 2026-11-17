@@ -6306,19 +6306,22 @@
     {
       "path": "apps/api/src/build3d_api/storage.py",
       "reviewed_starting_path": "apps/api/src/build3d_api/storage.py",
-      "purpose": "Storage protocol, filesystem implementation, optionalS3 implementation and inventory metadata",
+      "purpose": "Artifact storage protocol, bounded local inventory, and optional S3-compatible storage.",
       "functional_owner": "source",
       "dependencies": [
         ".config",
         "__future__",
         "boto3",
         "build3d_gateway.glb_validation",
+        "collections.abc",
         "config",
+        "contextlib",
         "dataclasses",
         "os",
         "pathlib",
         "re",
         "shutil",
+        "stat",
         "tempfile",
         "typing",
         "urllib.parse"
@@ -6528,7 +6531,7 @@
     {
       "path": "apps/api/tests/test_storage.py",
       "reviewed_starting_path": "apps/api/tests/test_storage.py",
-      "purpose": "Existing regression/contract coverage: storage",
+      "purpose": "Storage, quota, migration and bounded inventory regression contracts.",
       "functional_owner": "test",
       "dependencies": [
         "asyncio",
@@ -6546,6 +6549,7 @@
         "hashlib",
         "httpx",
         "io",
+        "os",
         "pytest",
         "time"
       ],
@@ -7104,13 +7108,13 @@
     {
       "path": "apps/web/src/features/studio/components/studio.tsx",
       "reviewed_starting_path": "apps/web/src/components/studio.tsx",
-      "purpose": "Private login, project choice/create, text/image forms, model gate, job polling/history, quota display and viewer selection.",
+      "purpose": "Private session lifecycle, project navigation, form handling, scoped job polling and viewer selection.",
       "functional_owner": "Studio workspace",
       "dependencies": [
-        "./model-viewer",
-        "@/lib/api",
+        "@/features/assets/components/model-viewer",
+        "@/features/jobs/status",
+        "@/lib/client/api",
         "@/lib/contracts",
-        "@/lib/status",
         "next/navigation",
         "react"
       ],
@@ -7147,10 +7151,10 @@
     {
       "path": "apps/web/src/lib/client/api.ts",
       "reviewed_starting_path": "apps/web/src/lib/api.ts",
-      "purpose": "JSON/error parsing, project/job/model/storage calls, idempotency keys and artifact download URL helper.",
+      "purpose": "Browser session and product requests, cancellation, response validation, idempotency and artifact download URLs.",
       "functional_owner": "Browser API client",
       "dependencies": [
-        "./contracts"
+        "@/lib/contracts"
       ],
       "feature_cards": [
         "F020",
@@ -7227,7 +7231,7 @@
     {
       "path": "apps/web/tests/e2e/studio.spec.ts",
       "reviewed_starting_path": "apps/web/tests/e2e/studio.spec.ts",
-      "purpose": "Six synthetic scenarios: login/project/text+image, storage limit, no approved models, GLB viewer, idempotency/ownership, rate limit.",
+      "purpose": "Chromium contracts over a synthetic backend covering private sessions, project polling, submissions, storage, ownership and the GLB viewer.",
       "functional_owner": "Browser contract acceptance",
       "dependencies": [
         "@playwright/test"
@@ -7956,7 +7960,7 @@
     {
       "path": "services/generation/triposr_candidate/prepare_runtime.py",
       "reviewed_starting_path": "services/generation/triposr_candidate/prepare_runtime.py",
-      "purpose": "Exactsourceblob checked qualification patch generator",
+      "purpose": "Export pinned source blobs and apply reviewed qualification-only patches before publishing the prepared context.",
       "functional_owner": "source",
       "dependencies": [
         "__future__",
@@ -7966,7 +7970,8 @@
         "pathlib",
         "shutil",
         "subprocess",
-        "sys"
+        "sys",
+        "tempfile"
       ],
       "feature_cards": [
         "F018"
@@ -8035,12 +8040,14 @@
     {
       "path": "services/generation/triposr_candidate/test_prepare_runtime.py",
       "reviewed_starting_path": "services/generation/triposr_candidate/test_prepare_runtime.py",
-      "purpose": "Existing regression/contract coverage: prepare runtime",
+      "purpose": "CPU regression contracts for source provenance, path and mode rules, and reviewed patch guards.",
       "functional_owner": "test",
       "dependencies": [
         "__future__",
         "importlib.util",
-        "pathlib"
+        "pathlib",
+        "pytest",
+        "subprocess"
       ],
       "feature_cards": [
         "F018"
@@ -8071,5 +8078,6 @@
     "current_direct_main_delivery": true,
     "last_verified_published_checkpoint": "e878e8ff4ef06f68b7a06648b8ad887ead882411",
     "runtime_feature_change": false
-  }
+  },
+  "latest_cpu_validation": "PROJECT_STATUS_AND_TASKS.md#cpu-recovery-correctness"
 }

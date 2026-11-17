@@ -1,5 +1,13 @@
 # Developer handoff — 15 November 2026
 
+<a id="cpu-recovery-correctness"></a>
+
+## CPU recovery and correctness checkpoint · 18 November 2026
+
+The current [checkpoint and validation record](../../PROJECT_STATUS_AND_TASKS.md#cpu-recovery-correctness) records the verified code changes and starting-main provenance. TripoSR preparation exports pinned regular files (BE-01), local storage inventory bounds discovery (BE-06), and the Studio scopes polling and late submissions to their project (WEB-01). The private session reacts to revocation and confirms sign-out before clearing the workspace (WEB-05). The earlier 45-file functional move is already in history. The 510 tracked paths and archive placement were preserved in this pass.
+
+Continue with BE-05 gateway upload limits, WEB-02 history pagination, or BE-02 candidate artifact and rights review. The synthetic GLB Blender import verified the packager's texture contract. Real inference and rendered model quality still require the approved candidate image, weights, rights and spending envelope.
+
 ## Completed expanded planning handoff —17November2026
 
 Last independently verified published checkpoint:

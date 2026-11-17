@@ -6,6 +6,10 @@ what they do, not by extension. The complete path-by-path inventory is in
 The [main goal](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt) defines product direction;
 research code and future plans do not establish implemented product features.
 
+The November 18 correctness pass kept the functional layout and its 510
+tracked paths. The earlier move records and archived originals remain
+available for recovery. [Current verification](PROJECT_STATUS_AND_TASKS.md#cpu-recovery-correctness)
+
 ## Repository map
 
 ```text

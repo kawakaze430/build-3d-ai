@@ -6,6 +6,8 @@
 
 Start with the [current project status and task handoff](PROJECT_STATUS_AND_TASKS.md), [adopted main goal](docs/project/BUILD_3D_AI_PROJECT_IDEA.txt), [existing model/data strategy](docs/research/AI_MODELS_AND_DATA.md), [license matrix](docs/research/LICENSE_MATRIX.md) and [benchmark protocol](docs/project/BENCHMARKS.md). Keep these documents consistent rather than replacing existing work. Implement research infrastructure through focused verified commits pushed directly to `origin/main`; preserve originals, notices, results and failed experiments.
 
+On 18 November 2026, BE-01 closed the TripoSR source-copy boundary. Two preparations from commit `107cefdc244c39106fa830359024f6a2f1c78871` yielded the same 40-file SHA-256 inventory. Local qualification tests and compilation passed. The product packager's synthetic textured GLB imported in Blender 4.3.2 with UVs and its embedded base-color texture. Candidate-image build, checkpoint load, real asset quality, rights and GPU cost remain unverified. The next qualification work is BE-02 artifact and rights evidence. [CPU checkpoint](PROJECT_STATUS_AND_TASKS.md#cpu-recovery-correctness)
+
 ## Research objective and first decision
 
 Build useful, independently controlled specializations on legally usable base models, with measurable gains in supported 3D workflows. A fine-tuned checkpoint should help users obtain accepted assets with less correction, adequate control and sustainable total cost. It should not merely produce a more attractive reference-facing render.

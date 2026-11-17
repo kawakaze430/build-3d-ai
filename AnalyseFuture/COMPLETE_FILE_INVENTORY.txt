@@ -7,7 +7,7 @@ CURRENT SCOPE AND VALIDATION
 All current tracked and nonignored authored paths are enumerated below; old phase inventories remain preserved as snapshots. The prior 495-path restructure inventory is historical. 253 passing case executions and other documented software/build/runtime/container checks now validate the final layout within their specific contracts. Evidence: AnalyseFuture/validation/2026-11-17/REPORT.md
 No real GPU inference, real S3 provider, Blender import or production/public-service acceptance is inferred. Reports do not recursively self-hash; original/snapshot bytes and 801 preservation records carry explicit hashes. Private local state and generated dependencies remain outside publication.
 
-Current execution handoff: PROJECT_STATUS_AND_TASKS.md; 28 scoped PR cards and 14 later workstreams. This documentation adds one path and no new runtime/test result.
+Current execution and validation: PROJECT_STATUS_AND_TASKS.md#cpu-recovery-correctness. The follow-up kept the same 510 paths and refreshed the touched responsibilities below.
 
 CURRENT PATH-BY-PATH CLASSIFICATION
 
@@ -3284,10 +3284,10 @@ Feature cards: F006, F015
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
 [410] apps/api/src/build3d_api/storage.py
-Purpose: Storage protocol, filesystem implementation, optionalS3 implementation and inventory metadata
+Purpose: Artifact storage protocol, bounded local inventory, and optional S3-compatible storage.
 Owner/role: source; active source/configuration or current documentation/evidence
 Starting source: apps/api/src/build3d_api/storage.py
-Dependencies: .config; __future__; boto3; build3d_gateway.glb_validation; config; dataclasses; os; pathlib; re; shutil; tempfile; typing; urllib.parse
+Dependencies: .config; __future__; boto3; build3d_gateway.glb_validation; collections.abc; config; contextlib; dataclasses; os; pathlib; re; shutil; stat; tempfile; typing; urllib.parse
 Feature cards: F010, F012
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
@@ -3340,10 +3340,10 @@ Feature cards: F001, F002, F003, F004, F006, F011, F014, F046
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
 [417] apps/api/tests/test_storage.py
-Purpose: Existing regression/contract coverage: storage
+Purpose: Storage, quota, migration and bounded inventory regression contracts.
 Owner/role: test; active source/configuration or current documentation/evidence
 Starting source: apps/api/tests/test_storage.py
-Dependencies: asyncio; build3d_api.config; build3d_api.db; build3d_api.main; build3d_api.maintenance; build3d_api.migration; build3d_api.storage; build3d_api.store; build3d_api.worker; build3d_gateway.upstream; dataclasses; fastapi.testclient; hashlib; httpx; io; pytest; time
+Dependencies: asyncio; build3d_api.config; build3d_api.db; build3d_api.main; build3d_api.maintenance; build3d_api.migration; build3d_api.storage; build3d_api.store; build3d_api.worker; build3d_gateway.upstream; dataclasses; fastapi.testclient; hashlib; httpx; io; os; pytest; time
 Feature cards: F010, F012, F013
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
@@ -3596,10 +3596,10 @@ Feature cards: F025
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
 [449] apps/web/src/features/studio/components/studio.tsx
-Purpose: Private login, project choice/create, text/image forms, model gate, job polling/history, quota display and viewer selection.
+Purpose: Private session lifecycle, project navigation, form handling, scoped job polling and viewer selection.
 Owner/role: Studio workspace; active source/configuration or current documentation/evidence
 Starting source: apps/web/src/components/studio.tsx
-Dependencies: ./model-viewer; @/lib/api; @/lib/contracts; @/lib/status; next/navigation; react
+Dependencies: @/features/assets/components/model-viewer; @/features/jobs/status; @/lib/client/api; @/lib/contracts; next/navigation; react
 Feature cards: F020, F021, F022, F023, F024, F025, F027, F049
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
@@ -3612,10 +3612,10 @@ Feature cards: F029
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
 [451] apps/web/src/lib/client/api.ts
-Purpose: JSON/error parsing, project/job/model/storage calls, idempotency keys and artifact download URL helper.
+Purpose: Browser session and product requests, cancellation, response validation, idempotency and artifact download URLs.
 Owner/role: Browser API client; active source/configuration or current documentation/evidence
 Starting source: apps/web/src/lib/api.ts
-Dependencies: ./contracts
+Dependencies: @/lib/contracts
 Feature cards: F020, F021, F022, F023, F024, F027
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
@@ -3652,7 +3652,7 @@ Feature cards: F020, F026
 Inspection: Current authored source/review evidence statically inspected; executed software validation is separately scoped in AnalyseFuture/validation/2026-11-17/REPORT.md
 
 [456] apps/web/tests/e2e/studio.spec.ts
-Purpose: Six synthetic scenarios: login/project/text+image, storage limit, no approved models, GLB viewer, idempotency/ownership, rate limit.
+Purpose: Chromium contracts over a synthetic backend covering private sessions, project polling, submissions, storage, ownership and the GLB viewer.
 Owner/role: Browser contract acceptance; active source/configuration or current documentation/evidence
 Starting source: apps/web/tests/e2e/studio.spec.ts
 Dependencies: @playwright/test
@@ -4028,10 +4028,10 @@ Feature cards: F018
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
 [503] services/generation/triposr_candidate/prepare_runtime.py
-Purpose: Exactsourceblob checked qualification patch generator
+Purpose: Export pinned source blobs and apply reviewed qualification-only patches before publishing the prepared context.
 Owner/role: source; active source/configuration or current documentation/evidence
 Starting source: services/generation/triposr_candidate/prepare_runtime.py
-Dependencies: __future__; argparse; hashlib; json; pathlib; shutil; subprocess; sys
+Dependencies: __future__; argparse; hashlib; json; pathlib; shutil; subprocess; sys; tempfile
 Feature cards: F018
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
@@ -4068,10 +4068,10 @@ Feature cards: F018
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 
 [508] services/generation/triposr_candidate/test_prepare_runtime.py
-Purpose: Existing regression/contract coverage: prepare runtime
+Purpose: CPU regression contracts for source provenance, path and mode rules, and reviewed patch guards.
 Owner/role: test; active source/configuration or current documentation/evidence
 Starting source: services/generation/triposr_candidate/test_prepare_runtime.py
-Dependencies: __future__; importlib.util; pathlib
+Dependencies: __future__; importlib.util; pathlib; pytest; subprocess
 Feature cards: F018
 Inspection: deep source/text review or explicit binary metadata limit recorded in underlying review
 

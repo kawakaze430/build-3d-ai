@@ -166,7 +166,7 @@
       "size_bytes": 8921,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "3810c284719c609155f5bbe849f4376ae0ea067bff9f73e716c880cdc31ab9e7",
-      "final_sha256": "3810c284719c609155f5bbe849f4376ae0ea067bff9f73e716c880cdc31ab9e7",
+      "final_sha256": "92b81592f931608c04674755755be573680654b75a4d8e40833f50ea815f05f9",
       "original_bytes_preserved_at": "docs/operations/OBJECT_STORAGE.md",
       "restructure_snapshot_sha256": "3810c284719c609155f5bbe849f4376ae0ea067bff9f73e716c880cdc31ab9e7"
     },
@@ -178,7 +178,7 @@
       "size_bytes": 15729,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "f8f32a53e5339e48728f858e4681b04b7ad28fd952b5a0cfbba35790cf82d1c8",
-      "final_sha256": "f8f32a53e5339e48728f858e4681b04b7ad28fd952b5a0cfbba35790cf82d1c8",
+      "final_sha256": "363736e4973b35bc943105f85d226a7a390e8149cc36167277974c61ec451c48",
       "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/FIRST_REAL_GPU_RUNBOOK.md",
       "restructure_snapshot_sha256": "f8f32a53e5339e48728f858e4681b04b7ad28fd952b5a0cfbba35790cf82d1c8"
     },
@@ -298,7 +298,7 @@
       "size_bytes": 41309,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "09928573fb3bca0e69d565a53b09ed81c0fc8dc93909b88bfd44ac007df6d32c",
-      "final_sha256": "11e00b0839643333cf57186506e568d159ee846290a2d5274b5118bbba204e9e",
+      "final_sha256": "dc2153ea272fd4f189de3b47cbcf7fb837c16ac928047017b81a758d81a17925",
       "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/PROJECT_MEMORY_MASTER.md",
       "restructure_snapshot_sha256": "c97dba69d47b6ebc3aec2efb5e824933d0a50b0f3a85cd409c6625da2d950000"
     },
@@ -310,7 +310,7 @@
       "size_bytes": 14966,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "7061bb3c5a69fa88410dc69484004baec3a9d6145e0bbb63847d67ca3398bd42",
-      "final_sha256": "512a3dd7c605a8c446445b4803ef37fc044cd0412e06b90f34d1b7e0b540eaa1",
+      "final_sha256": "df55e719d17b2b0b423fee56b0db6182e2c2a442db8ed16ed4101f9943d7300d",
       "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/docs/CODEX_HANDOFF.md",
       "restructure_snapshot_sha256": "8fee88589885a3e76e2341a6caf2c6bb284379080deed8115a6ccaf0f8b75013"
     },
@@ -442,7 +442,7 @@
       "size_bytes": 20454,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "3daef1f4913b3301c244320ef7bc3f99f185754f2c2cfc286ea604b95be74ab8",
-      "final_sha256": "3daef1f4913b3301c244320ef7bc3f99f185754f2c2cfc286ea604b95be74ab8",
+      "final_sha256": "78165f8d3a8ace926244f3719a75003d9edfe49c0901f32bd00b9685b4c245d4",
       "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/components/studio.tsx",
       "restructure_snapshot_sha256": "3daef1f4913b3301c244320ef7bc3f99f185754f2c2cfc286ea604b95be74ab8"
     },
@@ -490,7 +490,7 @@
       "size_bytes": 8194,
       "reason": "Group by functional responsibility while preserving framework/package entry points.",
       "initial_repaired_sha256": "a34eac22f2d8d9f7198be9eea686a2de8c9abff621e1ecc3a6d99c7504971adc",
-      "final_sha256": "a34eac22f2d8d9f7198be9eea686a2de8c9abff621e1ecc3a6d99c7504971adc",
+      "final_sha256": "27f3d6ed93e361c9b8d16efbba83f1086ecdad61c0fd32f8f2dc712295990072",
       "original_bytes_preserved_at": "AnalyseFuture/historical-implementations/before-functional-restructure/apps/web/src/lib/api.ts",
       "restructure_snapshot_sha256": "a34eac22f2d8d9f7198be9eea686a2de8c9abff621e1ecc3a6d99c7504971adc"
     },

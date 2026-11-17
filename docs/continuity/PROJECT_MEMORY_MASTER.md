@@ -1,5 +1,9 @@
 # BUILD 3D AI — Master Project Memory and Continuation Handbook
 
+## CPU recovery and correctness checkpoint · 18 November 2026
+
+See the [current handoff](CODEX_HANDOFF.md#cpu-recovery-correctness) for code delivery, recovery evidence and next tasks. The current layout preserves all 510 tracked paths. CPU validation covered the pinned qualification source, SQLite and PostgreSQL, Studio/browser behavior, local Compose, and a Blender import of a synthetic textured GLB. Account-access review and real model qualification remain separate.
+
 ## Completed expanded planning handoff —17November2026
 
 Last independently verified published checkpoint:
