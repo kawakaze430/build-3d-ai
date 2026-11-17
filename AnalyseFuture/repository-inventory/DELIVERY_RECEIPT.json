@@ -1,8 +1,18 @@
 {
+  "repository": "kawakaze430/build-3d-ai",
+  "branch": "main",
   "starting_commit": "56f412f0722394300a522b7392b191702d3f2c48",
-  "delivery_branch": "main",
-  "status": "prepared; ordinary push pending",
-  "tests_after_latest_instruction": "not run; commit uses [skip ci]",
+  "verified_restructure_commit": "2f5f2bd15695cf020a279f2da55a9bff97d3417f",
+  "verified_remote_main_at_recording": "2f5f2bd15695cf020a279f2da55a9bff97d3417f",
+  "delivery": "ordinary direct-main push confirmed by nativeGit ls-remote",
+  "starting_tracked_files": 369,
+  "final_project_files": 495,
+  "functional_moves": 45,
+  "feature_responsibility_cards": 56,
+  "historical_preservation_files": 80,
+  "retained_original_version_records": 801,
+  "tests_after_latest_instruction": "not run; [skip ci] directive used; no liveActionsstatus claim",
   "force_push": false,
-  "history_rewritten": false
+  "history_rewritten": false,
+  "note": "This receipt is recorded by a following documentation-only commit. Its containing HEAD is discoverable through Git; the verified implementation commit remains its parent."
 }
