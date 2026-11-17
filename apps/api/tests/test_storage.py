@@ -11,7 +11,7 @@ from fastapi.testclient import TestClient
 
 from build3d_api.config import Settings
 from build3d_api.main import create_app
-from build3d_api.maintenance import ArtifactInventoryLimit, scan_artifact_storage
+from build3d_api.maintenance import ArtifactInventoryLimit, plan_artifact_retention, scan_artifact_storage
 from build3d_api.migration import migrate_filesystem_to_s3
 from build3d_api.storage import (
     ArtifactStorageError,
@@ -270,6 +270,91 @@ def test_filesystem_inventory_and_scanner_are_bounded_and_non_destructive(tmp_pa
         scan_artifact_storage(StaticArtifactRows(rows), storage, max_objects=1)
     with pytest.raises(ArtifactInventoryLimit, match="Storage inventory"):
         scan_artifact_storage(StaticArtifactRows(rows[:1]), storage, max_objects=1)
+
+
+def test_retention_plan_reports_owned_references_without_mutating_them(env, project, png):
+    store = env.store
+    owner = env.alice["user_id"]
+    foreign = env.bob["user_id"]
+    foreign_project = store.create_project(foreign, "Other owner")["id"]
+    root = env.settings.artifact_dir
+    storage = FileSystemArtifactStorage(root, prefix=env.settings.artifact_storage_prefix)
+    data = b"retention metadata fixture"
+    sha256 = hashlib.sha256(data).hexdigest()
+
+    for index, (user_id, project_id) in enumerate([
+        (owner, project), (owner, project), (owner, project), (foreign, foreign_project),
+    ], start=1):
+        job, _ = store.submit(
+            owner_id=user_id, project_id=project_id, key=str(index), kind="text",
+            model_id="test_model", approval=env.approval, prompt="fixture",
+        )
+        claimed = store.claim()
+        assert claimed["id"] == job["id"]
+        assert store.transition(claimed, "completed", artifact={
+            "id": f"{index:032x}", "job_id": job["id"], "owner_id": user_id,
+            "sha256": sha256, "size_bytes": len(data), "mesh_count": 1, "created_at": time.time(),
+        })
+    retained, _ = store.submit(
+        owner_id=owner, project_id=project, key="owned-image", kind="image",
+        model_id="test_model", approval=env.approval,
+        image=png, input_sha256=hashlib.sha256(png).hexdigest(),
+    )
+    store.submit(
+        owner_id=foreign, project_id=foreign_project, key="other-image", kind="image",
+        model_id="test_model", approval=env.approval,
+        image=png, input_sha256=hashlib.sha256(png).hexdigest(),
+    )
+
+    for index, user_id, contents in [
+        (1, owner, data), (2, owner, b"size differs"), (4, foreign, data), (5, owner, data),
+    ]:
+        path = root / artifact_object_key(user_id, f"{index:032x}", prefix=storage.prefix)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(contents)
+    (root / f"{1:032x}.glb").write_bytes(data)
+    before = {path: path.read_bytes() for path in root.rglob("*.glb")}
+
+    plan = plan_artifact_retention(store, storage, owner_id=owner, max_objects=10)
+    assert plan == plan_artifact_retention(store, storage, owner_id=owner, max_objects=10)
+    assert plan["complete"] and not plan["destructive_action_taken"]
+    assert plan["deletion_candidates"] == [] and not plan["content_checksums_verified"]
+    refs = plan["referenced_artifacts"]
+    assert [item["presence"] for item in refs] == ["present", "metadata_mismatch", "missing"]
+    assert {item["layout"] for item in refs[0]["objects"]} == {"legacy", "current"}
+    assert all(item["owner_id"] == owner for item in refs)
+    inputs = plan["persisted_job_inputs"]
+    assert len(inputs) == 4
+    assert all(item["has_prompt"] for item in inputs if item["kind"] == "text")
+    assert [item for item in inputs if item["kind"] == "image"] == [{
+        "job_id": retained["id"], "project_id": project, "kind": "image", "status": "queued",
+        "has_prompt": False, "image_bytes": len(png),
+    }]
+    assert plan["objects_for_operator_review"] == [{
+        "key": artifact_object_key(owner, f"{5:032x}", prefix=storage.prefix),
+        "size_bytes": len(data), "reason": "no_database_reference",
+    }]
+    assert {path: path.read_bytes() for path in root.rglob("*.glb")} == before
+    assert store.job(owner, retained["id"])["input_image"] == png
+
+
+def test_retention_plan_refuses_incomplete_inputs_and_storage(env, project, png):
+    owner = env.alice["user_id"]
+    root = env.settings.artifact_dir
+    storage = FileSystemArtifactStorage(root)
+    for key in ("one", "two"):
+        env.store.submit(
+            owner_id=owner, project_id=project, key=key, kind="image",
+            model_id="test_model", approval=env.approval,
+            image=png, input_sha256=hashlib.sha256(png).hexdigest(),
+        )
+    with pytest.raises(ArtifactInventoryLimit, match="Persisted job input count"):
+        plan_artifact_retention(env.store, storage, owner_id=owner, max_objects=1)
+
+    (root / f"{1:032x}.glb").touch()
+    (root / f"{2:032x}.glb").touch()
+    with pytest.raises(ArtifactInventoryLimit, match="Storage inventory"):
+        plan_artifact_retention(env.store, storage, owner_id=owner, max_objects=1)
 
 
 @pytest.mark.parametrize(

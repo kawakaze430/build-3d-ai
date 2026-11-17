@@ -161,6 +161,24 @@ class Store:
                 artifacts.c.size_bytes,
             ).order_by(artifacts.c.id).limit(limit)).mappings()]
 
+    def retained_job_inputs(self, owner_id: str, *, limit: int) -> list[dict]:
+        if not 1 <= limit <= 1_000_001:
+            raise ValueError("input record limit is out of range")
+        with self.engine.connect() as conn:
+            if conn.scalar(sa.select(users.c.id).where(users.c.id == owner_id)) is None:
+                raise StoreError(404, "User not found")
+            return [dict(row) for row in conn.execute(sa.select(
+                jobs.c.id.label("job_id"),
+                jobs.c.project_id,
+                jobs.c.kind,
+                jobs.c.status,
+                jobs.c.prompt.is_not(None).label("has_prompt"),
+                sa.func.length(jobs.c.input_image).label("image_bytes"),
+            ).where(
+                jobs.c.owner_id == owner_id,
+                sa.or_(jobs.c.prompt.is_not(None), jobs.c.input_image.is_not(None)),
+            ).order_by(jobs.c.id).limit(limit)).mappings()]
+
     def revoke_key(self, key_id: str):
         with self.engine.begin() as conn:
             result = conn.execute(api_keys.update().where(api_keys.c.id == key_id).values(revoked_at=time.time()))

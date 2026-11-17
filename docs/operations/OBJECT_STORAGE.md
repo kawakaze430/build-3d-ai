@@ -113,6 +113,16 @@ It compares the complete bounded database artifact set with the configured stora
 
 The scanner **never deletes anything**. It also does not download every object to recompute SHA-256; normal artifact downloads keep the stronger GLB/checksum revalidation boundary. For S3-compatible storage, this operator-only command needs list permission on the configured private prefix. The normal tenant API/worker does not require bucket-list permission.
 
+To prepare an owner-specific retention review, run the read-only planner:
+
+```bash
+build3d-admin plan-retention --user-id "$OWNER_ID" --max-objects 10000
+```
+
+The report lists the owner's referenced artifacts, current and attributable legacy copies, and job inputs still stored in the database. It reports prompt presence and image byte size without returning prompt or image contents. It distinguishes missing objects from metadata mismatches. Unreferenced or conflicting objects in the owner's namespace require operator review. Unattributed legacy files belong in the global scan. Both the global artifact inventory and the owner's inputs must fit the bounds for a plan to succeed.
+
+Treat the report as a point-in-time observation. Pause writers for a coordinated review and check the original checksums and restore evidence before deciding what to retain. The planner does not inspect provider backups, version histories or object contents. Its deletion list is empty until a separately approved retention policy, legal holds and a verified restoration process can govern eligibility.
+
 No automatic retention/lifecycle deletion is enabled yet because product retention policy and billing are not decided. A future destructive cleanup workflow must consume a fresh complete scan, require explicit operator acknowledgement, preserve an audit record and never delete an object while its artifact row is live.
 
 ## Backup/restore

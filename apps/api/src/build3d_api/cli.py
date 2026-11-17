@@ -10,7 +10,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from .config import Settings
 from .db import check_schema, create_database, migrate
-from .maintenance import ArtifactInventoryLimit, scan_artifact_storage
+from .maintenance import ArtifactInventoryLimit, plan_artifact_retention, scan_artifact_storage
 from .migration import ArtifactMigrationError, migrate_filesystem_to_s3
 from .storage import (
     ArtifactStorageError,
@@ -44,6 +44,12 @@ def main(argv=None) -> int:
         help="Dry-run database/storage consistency scan; never deletes objects",
     )
     scan.add_argument("--max-objects", type=int, default=10000)
+    retention = commands.add_parser(
+        "plan-retention",
+        help="Read-only inventory of one owner's retained inputs and artifacts",
+    )
+    retention.add_argument("--user-id", required=True)
+    retention.add_argument("--max-objects", type=int, default=10000)
     migrate_artifacts = commands.add_parser(
         "migrate-filesystem-to-s3",
         help="Dry-run/copy DB-referenced filesystem artifacts to configured S3; never deletes source",
@@ -103,6 +109,11 @@ def main(argv=None) -> int:
                 storage = create_artifact_storage(settings)
                 storage.prepare()
                 result = scan_artifact_storage(store, storage, max_objects=args.max_objects)
+            elif args.command == "plan-retention":
+                result = plan_artifact_retention(
+                    store, create_artifact_storage(settings),
+                    owner_id=args.user_id, max_objects=args.max_objects,
+                )
             elif args.command == "migrate-filesystem-to-s3":
                 if settings.artifact_storage_backend != "s3":
                     raise RuntimeError(
